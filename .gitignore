@@ -1,0 +1,24 @@
+# Build artifacts
+HdrHistogram_c/build/
+HdrHistogram_c/buildtest/
+**/CMakeCache.txt
+**/CMakeFiles/
+
+# perf data (large binary files)
+experiments/**/profile-results/*.data
+*.data
+
+# Local claude settings (credentials, env vars) — never commit
+.claude/settings.local.json
+
+# Agent run logs (raw stderr from llm-call.py)
+experiments/**/proposals/**/*.log
+experiments/**/variants/**/*.log
+
+# Editor
+.vscode/
+*.swp
+
+# Python bytecode
+__pycache__/
+*.pyc
