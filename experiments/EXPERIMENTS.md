@@ -111,4 +111,4 @@ write being flat. Read throughput is 2.4× on **both** compilers.
 
 **Decision**: **ACCEPT** (workspace) — read +137%/+144%, correctness identical, write untouched.
 Submodule branch `perf/avx2-percentile-scan-widen16` @ 673d52e.
-**Upstream**: held pending #137 resolution (see review A1).
+**Upstream**: **PR #138** opened to HdrHistogram/HdrHistogram_c (2026-07-01) — https://github.com/HdrHistogram/HdrHistogram_c/pull/138 — with the clx1 same-session benchmark table + repro; body notes the #137 relationship (offer to re-target if the portable scalar path is preferred).

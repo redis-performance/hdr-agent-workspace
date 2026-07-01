@@ -42,7 +42,7 @@ Refresh: `GH_TOKEN= gh pr list -R HdrHistogram/HdrHistogram_c --state all --limi
 - **EXP-002** — widen AVX2 percentile scan 4→16 int64/iter (vector accumulator). Read +137%
   (gcc) / +144% (clang) on Cascade Lake, percentile results bit-identical. Fork branch
   `perf/avx2-percentile-scan-widen16` @ 673d52e (pushed to origin/fork; submodule pointer bumped).
-  **Held from upstream** pending #137's direction: #137 would REMOVE the AVX2 path for a portable
+  **PR #138 opened** 2026-07-01 (was held); body offers to re-target if #137's portable path is preferred. #137 note: #137 would REMOVE the AVX2 path for a portable
   scalar block-sum. If AVX2 stays, offer this widening on top; else re-target the portable path.
 - **Latent bug noted (pre-existing, since #134):** `get_value_from_idx_up_to_count` (scalar + AVX2)
   reads `h->counts[idx]` directly and ignores `normalizing_index_offset` → wrong percentiles for

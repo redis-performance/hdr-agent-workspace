@@ -150,7 +150,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 - **EXP-002** (ACCEPT) — widen the AVX2 percentile scan 4→16 int64/iter with a vector accumulator:
   read path **+137% (gcc) / +144% (clang)** on Cascade Lake, percentile results bit-identical.
-  Held from upstream pending the maintainer's direction on open PR #137.
+  Upstreamed as **[PR #138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138)** (body offers to re-target if the maintainer prefers #137's portable path).
 - **EXP-001** (REJECT) — Tier-1 `counts_index_for` fusion: correct + gcc +5.9% but clang −12.1%,
   rejected as a portable regression.
 
