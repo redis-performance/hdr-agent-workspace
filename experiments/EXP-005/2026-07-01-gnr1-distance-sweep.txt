@@ -1,0 +1,17 @@
+===== distance=0 =====
+  gcc: 0.52 0.52 Mq/s
+  clang: 0.53 0.53 Mq/s
+===== distance=32 =====
+  gcc: 0.54 0.54 Mq/s
+  clang: 0.53 0.53 Mq/s
+===== distance=64 =====
+  gcc: 0.56 0.56 Mq/s
+  clang: 0.56 0.56 Mq/s
+===== distance=96 =====
+  gcc: 0.56 0.56 Mq/s
+  clang: 0.56 0.56 Mq/s
+===== distance=128 =====
+  gcc: 0.56 0.56 Mq/s
+  clang: 0.56 0.56 Mq/s
+===== DONE =====
+=== SWEEP COMPLETE ===

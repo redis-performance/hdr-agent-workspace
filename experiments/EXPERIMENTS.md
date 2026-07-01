@@ -178,3 +178,22 @@ everywhere.
 across two Intel µarchs and two compilers.
 Submodule branch `perf/avx2-scan-prefetch` @ 3e8ae6a (stacked on the #138 widen branch); pointer bumped.
 **Upstream**: **[PR #139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** opened 2026-07-01 — stacked follow-up on #138 (2 commits; reduces to the one-line prefetch once #138 merges); two-µarch benchmark table in the body.
+
+## EXP-005 — 2026-07-01 — Prefetch distance sweep (confirms EXP-004's D=64)
+
+**Target path**: read — tuning follow-up to the accepted prefetch (EXP-004).
+**What**: swept the prefetch distance on gnr1 (Granite Rapids), gcc+clang, 2× each, over the
+widen base (673d52e). Read `hdr_value_at_percentile` throughput (Mq/s):
+
+| distance | gcc | clang |
+|----------|-----|-------|
+| 0 (no prefetch / control) | 0.52 | 0.53 |
+| 32 | 0.54 | 0.53 |
+| **64 (current)** | **0.56** | **0.56** |
+| 96 | 0.56 | 0.56 |
+| 128 | 0.56 | 0.56 |
+
+**Decision**: **CONFIRM — keep D=64** (no code change). 64 is the smallest distance at the
+plateau: 32 is too short (barely helps, clang flat), and 96/128 are identical to 64. The accepted
+prefetch (EXP-004 / PR #139) is already optimally tuned for this microarchitecture. No update to
+the submodule or PR #139.
