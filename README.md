@@ -143,14 +143,18 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 | Status | Count |
 |--------|------:|
-| Accepted | 0 |
+| Accepted | 1 |
 | Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |
 
-First loop run: **EXP-001** (Tier-1 `counts_index_for` fusion) — correct + gcc +5.9% but clang
-−12.1% on gnr1, rejected as a portable regression. The merged fork PRs above are the baseline
-this workspace builds on.
+- **EXP-002** (ACCEPT) — widen the AVX2 percentile scan 4→16 int64/iter with a vector accumulator:
+  read path **+137% (gcc) / +144% (clang)** on Cascade Lake, percentile results bit-identical.
+  Held from upstream pending the maintainer's direction on open PR #137.
+- **EXP-001** (REJECT) — Tier-1 `counts_index_for` fusion: correct + gcc +5.9% but clang −12.1%,
+  rejected as a portable regression.
+
+The merged fork PRs above are the baseline this workspace builds on.
 
 ---
 

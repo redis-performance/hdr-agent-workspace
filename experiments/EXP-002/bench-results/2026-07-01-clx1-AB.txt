@@ -1,0 +1,22 @@
+==> [exp002] shipping base(HEAD)+patch(worktree) to clx1:/root/hdr-ab/exp002
+OK-unpacked
+base
+patch
+==> [exp002] building + A/B benching on clx1 (core 8)
+----- gcc WRITE ops/sec (median of last 50) -----
+  base : 256760806 (min 253232673 max 257469787)
+  patch: 240722258 (min 229858106 max 241476242)
+----- gcc READ M queries/sec -----
+  base : best: 0.16 M queries/sec  mean: 0.16 M queries/sec  (sink=17401860284404480)
+  patch: best: 0.38 M queries/sec  mean: 0.37 M queries/sec  (sink=17401860284404480)
+----- gcc ctest (patch) -----
+Total Test time (real) =   1.17 sec
+----- clang WRITE ops/sec (median of last 50) -----
+  base : 312904299 (min 308758618 max 313459761)
+  patch: 311926661 (min 304993142 max 313416322)
+----- clang READ M queries/sec -----
+  base : best: 0.18 M queries/sec  mean: 0.18 M queries/sec  (sink=17401860284404480)
+  patch: best: 0.44 M queries/sec  mean: 0.43 M queries/sec  (sink=17401860284404480)
+----- clang ctest (patch) -----
+Total Test time (real) =   1.18 sec
+===== [exp002] DONE =====

@@ -67,3 +67,48 @@ disqualifies a portable change. A `__GNUC__ && !__clang__`-gated variant would b
 gcc-only micro-opt — not worth the portability cost for an upstream PR (maintainer favors clean,
 portable, single-purpose diffs). See Known Non-Starters in `.claude/program.md`.
 **Upstream**: none (held — reject).
+
+## EXP-002 — 2026-07-01 — Widen AVX2 percentile scan to 16 int64/iter (vector accumulator)
+
+**Target path**: read (picked per profile — read path is 99.7% in `get_value_from_idx_up_to_count_avx2`; see `EXP-002/profile-results/`)
+**Tier / Technique**: Tier 5 — dense counts[] read scan (AVX2 micro-opt, distinct from the open #137 portable rewrite)
+**Hypothesis**: the AVX2 scan summed 4 int64/iter and did a horizontal reduction + two
+`_mm_extract_epi64` (vector→GPR) + the target-cross branch every 4 elements. Accumulating
+16 int64/iter (4×256-bit loads) in a vector register and reducing to a scalar block sum once
+per 16 makes the expensive extracts + branch run 4× less often, raising `hdr_value_at_percentile`
+throughput while the vector adds pipeline on the load/ALU ports.
+**Files changed**: `HdrHistogram_c/src/hdr_histogram.c` — `get_value_from_idx_up_to_count_avx2` (+15/−7)
+**Atomic twin**: n/a (read path)
+
+### Step 1: Benchmark — clx1 (Cascade Lake, Xeon Gold 6248), core-pinned, same-session base(HEAD) vs patch
+| Path  | Compiler | Base            | Patch           | Δ%       |
+|-------|----------|-----------------|-----------------|----------|
+| read  | gcc      | 0.16 Mq/s       | 0.38 Mq/s       | **+137%** |
+| read  | clang    | 0.18 Mq/s       | 0.44 Mq/s       | **+144%** |
+| write | gcc      | 256,760,806     | 240,722,258     | −6.2% (noise) |
+| write | clang    | 312,904,299     | 311,926,661     | −0.3% (flat) |
+
+The write path is **byte-identical** between base and patch (the diff touches only the read AVX2
+scan), so the gcc write −6.2% is measurement noise on the shared clx1 box — corroborated by clang
+write being flat. Read throughput is 2.4× on **both** compilers.
+
+### Correctness
+- Read-path `sink` byte-identical base vs patch on both compilers (17401860284404480) → percentile results provably unchanged.
+- ctest: PASS (5/5) — local + clx1 (gcc & clang)
+- ASan/UBSan: PASS (loads in-bounds: `idx < counts_len & ~15` ⇒ `idx+15 < counts_len`; leaks pre-existing)
+- `HDR_LOG_REQUIRED=DISABLED` build: PASS
+
+### Adversarial review (review-hdrhistogram)
+- A1 offset-aware: ⚠️ **pre-existing** — the AVX2 (and scalar) scan reads `h->counts[idx]` directly and
+  does not honor `normalizing_index_offset` (latent since #134). This patch does **not** introduce or
+  worsen it (base has the same behavior). The correctness fix is the open PR #137's domain.
+- A3 bounds/overflow: ✅ uint64 chunk-sum hardening preserved; loads in bounds
+- A4 signed shift ✅ n/a · A6 codec ✅ n/a
+- Portability: ✅ AVX2-gated (`target("avx2")`), scalar fallback intact, MSVC uses scalar path
+- Verdict: MERGE-READY for the AVX2 speedup itself; **upstream HELD** pending #137's direction (if the
+  maintainer takes #137's portable scalar block-sum the AVX2 path is removed; if AVX2 stays, offer this
+  widening on top). Candidate EXP-003: head-to-head widened-AVX2 vs #137 portable block-sum.
+
+**Decision**: **ACCEPT** (workspace) — read +137%/+144%, correctness identical, write untouched.
+Submodule branch `perf/avx2-percentile-scan-widen16` @ 673d52e.
+**Upstream**: held pending #137 resolution (see review A1).

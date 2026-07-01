@@ -117,7 +117,16 @@ round-trip + ABI expectations; this is a public header.
 
 ### 5a. AVX2 vectorized prefix-sum — ✅ LANDED (PR #134), later superseded
 Process 4×int64/iteration, scalar fallback under `#if defined(__AVX2__)`, `-mavx2` on
-this file only. Merged, but see 5b.
+this file only. Merged, but see 5b/5d.
+
+### 5d. Widen the AVX2 scan to 16 int64/iter — ✅ ACCEPTED in workspace (EXP-002)
+The #134 AVX2 loop reduces + `_mm_extract_epi64` (×2) + branches every 4 elements.
+Accumulate 16 int64/iter (4×256-bit) in a `__m256i`, reduce to a scalar block sum once
+per 16 → the GPR extracts + early-exit branch run 4× less often. **Read +137% (gcc) /
++144% (clang)** on Cascade Lake, percentile results bit-identical, scalar fallback +
+uint64 hardening intact. Submodule branch `perf/avx2-percentile-scan-widen16`. Upstream
+held pending #137 (which would remove the AVX2 path entirely for a portable scalar
+block-sum — a head-to-head is the next question).
 
 ### 5b. Portable block-summed scan (drops the AVX2 dispatch) — proposed (PR #137)
 Sum a fixed block (`BLK=4`) then test the running total once per block; the precise
