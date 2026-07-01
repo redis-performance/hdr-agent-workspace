@@ -177,5 +177,4 @@ everywhere.
 **Decision**: **ACCEPT** — promotes EXP-003 from PARK. The prefetch is a portable read-path win
 across two Intel µarchs and two compilers.
 Submodule branch `perf/avx2-scan-prefetch` @ 3e8ae6a (stacked on the #138 widen branch); pointer bumped.
-**Upstream**: follow-up PR **ready** (branch pushed to fork) but **held** until PR #138 gets a first
-response, to respect the maintainer's one-small-PR-at-a-time cadence. Open on request.
+**Upstream**: **[PR #139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** opened 2026-07-01 — stacked follow-up on #138 (2 commits; reduces to the one-line prefetch once #138 merges); two-µarch benchmark table in the body.

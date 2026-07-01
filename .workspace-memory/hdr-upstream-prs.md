@@ -48,3 +48,7 @@ Refresh: `GH_TOKEN= gh pr list -R HdrHistogram/HdrHistogram_c --state all --limi
   reads `h->counts[idx]` directly and ignores `normalizing_index_offset` → wrong percentiles for
   decoded/rotated histograms. This is exactly what #137's self-review restored. Do NOT ship a
   read-path change that relies on the direct read without the offset-aware fallback.
+- **EXP-003/004 prefetch** — **PR #139** opened 2026-07-01, stacked on #138 (branch
+  `perf/avx2-scan-prefetch` @ 3e8ae6a; 2 commits, reduces to the one-line prefetch after #138
+  merges). Two-µarch data: gcc +8% both, clang neutral (Cascade Lake) → +5.7% (Granite Rapids).
+  https://github.com/HdrHistogram/HdrHistogram_c/pull/139
