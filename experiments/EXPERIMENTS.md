@@ -112,3 +112,34 @@ write being flat. Read throughput is 2.4× on **both** compilers.
 **Decision**: **ACCEPT** (workspace) — read +137%/+144%, correctness identical, write untouched.
 Submodule branch `perf/avx2-percentile-scan-widen16` @ 673d52e.
 **Upstream**: **PR #138** opened to HdrHistogram/HdrHistogram_c (2026-07-01) — https://github.com/HdrHistogram/HdrHistogram_c/pull/138 — with the clx1 same-session benchmark table + repro; body notes the #137 relationship (offer to re-target if the portable scalar path is preferred).
+
+## EXP-003 — 2026-07-01 — Software prefetch counts[] ahead in the widened AVX2 scan
+
+**Target path**: read (re-profile after EXP-002: still 99.4% in `get_value_from_idx_up_to_count_avx2`; the compute headroom is gone, so what's left is memory-load latency over the ~10s-of-KB `counts[]` scan)
+**Tier / Technique**: Tier 5 / memory — `_mm_prefetch(&counts[idx+64], _MM_HINT_T0)` (512 B / 4 iterations ahead)
+**Hypothesis**: the widened scan (EXP-002) is now load-latency-bound streaming `counts[]`; an explicit T0 prefetch a few iterations ahead should hide L2/L3 latency and raise read throughput.
+**Files changed**: `HdrHistogram_c/src/hdr_histogram.c` — one prefetch in the 16-wide loop (+4)
+**Atomic twin**: n/a (read path)
+
+### Step 1: Benchmark — clx1 (Cascade Lake), core-pinned, incremental A/B over EXP-002 base
+| Path  | Compiler | Base (EXP-002)          | Patch (+prefetch)        | Δ          |
+|-------|----------|-------------------------|--------------------------|------------|
+| read  | gcc      | 0.37 mean / 0.37 best   | **0.40 mean / 0.41 best**| **+8% / +11%** |
+| read  | clang    | 0.43 mean / 0.44 best   | 0.43 mean / 0.43 best    | flat (−1 LSD) |
+| write | gcc/clang | (noise)                | (noise)                  | write untouched |
+
+### Correctness
+- Read `sink` byte-identical base vs patch on both compilers → percentile results unchanged.
+- ctest 5/5 (gcc & clang). Prefetch is a non-faulting hint (no bounds/UB concern; ASan does not instrument it).
+
+### Adversarial review (review-hdrhistogram)
+- A1–A6: ✅ (hint only; no `counts[]` semantics changed). Portability ✅ (inside the AVX2-gated block; `_mm_prefetch` is an SSE intrinsic already available there).
+
+**Decision**: **PARK**
+**Reason**: gcc read +8% is real, but clang is **flat within the bench's 0.01 Mq/s output resolution**
+(means equal; the single-LSD "−2.3%" on best is unresolvable at this precision). The prefetch distance
+(64) is one untuned guess and prefetch tuning is inherently microarchitecture-specific. Not a clean,
+portable win to layer on the already-PR'd EXP-002 tip. **Follow-ups before accept/PR**: (1) measure the
+read path at finer resolution (more iters / higher-precision timer) to resolve the clang result;
+(2) sweep the prefetch distance; (3) confirm on a second microarchitecture (e.g. Granite Rapids).
+**Upstream**: none (parked — tip stays at EXP-002 @ 673d52e / PR #138).

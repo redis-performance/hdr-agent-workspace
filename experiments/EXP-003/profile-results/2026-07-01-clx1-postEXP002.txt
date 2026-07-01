@@ -1,0 +1,46 @@
+==> shipping HEAD to clx1:/root/hdr-prof
+OK
+perf_event_paranoid: 4 -> -1
+===================== PROFILE: hdr_histogram_perf =====================
+----- top symbols -----
+    81.32%    81.27%  hdr_histogram_p  hdr_histogram_perf    [.] hdr_record_values.part.0
+    18.61%    12.46%  hdr_histogram_p  hdr_histogram_perf    [.] main
+    12.39%     6.20%  hdr_histogram_p  hdr_histogram_perf    [.] hdr_record_value
+     0.06%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] asm_sysvec_apic_timer_interrupt
+     0.06%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] sysvec_apic_timer_interrupt
+     0.05%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] __sysvec_apic_timer_interrupt
+     0.05%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] hrtimer_interrupt
+     0.04%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] __hrtimer_run_queues
+     0.04%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] tick_sched_timer
+     0.02%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] tick_sched_handle
+     0.02%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] update_process_times
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] tick_sched_do_timer
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] tick_do_update_jiffies64
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] timekeeping_advance
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] update_wall_time
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] scheduler_tick
+     0.01%     0.01%  hdr_histogram_p  [kernel.kallsyms]     [k] _raw_spin_lock_irqsave
+     0.01%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [k] irqentry_exit
+----- perf stat (1 short run) -----
+===================== PROFILE: hdr_percentile_bench =====================
+----- top symbols -----
+    99.91%     0.00%  hdr_percentile_  [unknown]             [.] 0x00000000d693a400
+    99.69%     0.26%  hdr_percentile_  hdr_percentile_bench  [.] hdr_value_at_percentile
+    99.45%    99.37%  hdr_percentile_  hdr_percentile_bench  [.] get_value_from_idx_up_to_count_avx2
+     0.21%     0.21%  hdr_percentile_  hdr_percentile_bench  [.] hdr_next_non_equivalent_value
+     0.07%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] asm_sysvec_apic_timer_interrupt
+     0.07%     0.06%  hdr_percentile_  hdr_percentile_bench  [.] main
+     0.07%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] sysvec_apic_timer_interrupt
+     0.06%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] hrtimer_interrupt
+     0.06%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] __sysvec_apic_timer_interrupt
+     0.06%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] __hrtimer_run_queues
+     0.06%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] tick_sched_timer
+     0.03%     0.01%  hdr_percentile_  [kernel.kallsyms]     [k] tick_do_update_jiffies64
+     0.03%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] tick_sched_do_timer
+     0.02%     0.01%  hdr_percentile_  [kernel.kallsyms]     [k] update_process_times
+     0.02%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] tick_sched_handle
+     0.02%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] timekeeping_advance
+     0.02%     0.00%  hdr_percentile_  [kernel.kallsyms]     [k] update_wall_time
+     0.02%     0.01%  hdr_percentile_  hdr_percentile_bench  [.] hdr_record_values.part.0
+----- perf stat (1 short run) -----
+===== PROFILE DONE =====
