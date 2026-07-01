@@ -37,3 +37,14 @@ clear the env tokens for that one command and fall back to the stored OAuth logi
 
 Refresh: `GH_TOKEN= gh pr list -R HdrHistogram/HdrHistogram_c --state all --limit 25 \
   --json number,title,state,author`.
+
+## Workspace-accepted, upstream HELD
+- **EXP-002** — widen AVX2 percentile scan 4→16 int64/iter (vector accumulator). Read +137%
+  (gcc) / +144% (clang) on Cascade Lake, percentile results bit-identical. Fork branch
+  `perf/avx2-percentile-scan-widen16` @ 673d52e (pushed to origin/fork; submodule pointer bumped).
+  **Held from upstream** pending #137's direction: #137 would REMOVE the AVX2 path for a portable
+  scalar block-sum. If AVX2 stays, offer this widening on top; else re-target the portable path.
+- **Latent bug noted (pre-existing, since #134):** `get_value_from_idx_up_to_count` (scalar + AVX2)
+  reads `h->counts[idx]` directly and ignores `normalizing_index_offset` → wrong percentiles for
+  decoded/rotated histograms. This is exactly what #137's self-review restored. Do NOT ship a
+  read-path change that relies on the direct read without the offset-aware fallback.
