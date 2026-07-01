@@ -1,0 +1,26 @@
+===== gcc WRITE (median50 ops/sec) =====
+  base : 431112433
+  patch: 430597184
+===== gcc READ (3x: best mean sink) =====
+  base:
+best: 0.52 M queries/sec  mean: 0.52 M queries/sec  (sink=17401860284404480)
+best: 0.52 M queries/sec  mean: 0.52 M queries/sec  (sink=17401860284404480)
+best: 0.52 M queries/sec  mean: 0.52 M queries/sec  (sink=17401860284404480)
+  patch:
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+===== clang WRITE (median50 ops/sec) =====
+  base : 474869334
+  patch: 474917143
+===== clang READ (3x: best mean sink) =====
+  base:
+best: 0.53 M queries/sec  mean: 0.53 M queries/sec  (sink=17401860284404480)
+best: 0.53 M queries/sec  mean: 0.53 M queries/sec  (sink=17401860284404480)
+best: 0.53 M queries/sec  mean: 0.53 M queries/sec  (sink=17401860284404480)
+  patch:
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+best: 0.56 M queries/sec  mean: 0.56 M queries/sec  (sink=17401860284404480)
+===== DONE =====
+=== POLL: complete ===

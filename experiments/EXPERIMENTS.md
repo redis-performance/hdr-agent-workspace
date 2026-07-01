@@ -143,3 +143,39 @@ portable win to layer on the already-PR'd EXP-002 tip. **Follow-ups before accep
 read path at finer resolution (more iters / higher-precision timer) to resolve the clang result;
 (2) sweep the prefetch distance; (3) confirm on a second microarchitecture (e.g. Granite Rapids).
 **Upstream**: none (parked — tip stays at EXP-002 @ 673d52e / PR #138).
+
+## EXP-004 — 2026-07-01 — Cross-µarch validation of the counts[] prefetch (promotes EXP-003)
+
+**Target path**: read
+**What**: EXP-003 (SW prefetch in the widened AVX2 scan) was parked because clang looked flat at
+the bench's 0.01 Mq/s resolution on Cascade Lake. This is the second-microarchitecture check on
+**gnr1 (Granite Rapids)**, 3 runs per variant (rock-stable, identical to 0.01), reusing the same
+`_mm_prefetch(&counts[idx+64], _MM_HINT_T0)` patch.
+
+### Benchmark — gnr1 (Granite Rapids), core-pinned, same-session base(EXP-002) vs +prefetch, 3× each
+| Path  | Compiler | Base            | +prefetch       | Δ%     |
+|-------|----------|-----------------|-----------------|--------|
+| read  | gcc      | 0.52 Mq/s       | 0.56 Mq/s       | **+7.7%** |
+| read  | clang    | 0.53 Mq/s       | 0.56 Mq/s       | **+5.7%** |
+| write | gcc      | 431,112,433     | 430,597,184     | flat (control) |
+| write | clang    | 474,869,334     | 474,917,143     | flat (control) |
+
+### Two-microarchitecture summary
+| µarch | gcc read | clang read |
+|-------|----------|-----------|
+| Cascade Lake (clx1) | +8% | neutral (within 0.01 Mq/s) |
+| Granite Rapids (gnr1) | +7.7% | **+5.7%** |
+
+clang **never regresses** (neutral→+5.7%); gcc is consistently ~+8%. Write control is flat on both
+µarchs (confirming EXP-002/003's "write −6%" on clx1 was pure noise). Read `sink` byte-identical
+everywhere.
+
+### Adversarial review
+- Hint-only change; correctness preserved (sink identical). Portability ✅ (inside the AVX2-gated
+  block). Passes the two-step gate on **both** µarchs (≥+2% target, no regression on the other).
+
+**Decision**: **ACCEPT** — promotes EXP-003 from PARK. The prefetch is a portable read-path win
+across two Intel µarchs and two compilers.
+Submodule branch `perf/avx2-scan-prefetch` @ 3e8ae6a (stacked on the #138 widen branch); pointer bumped.
+**Upstream**: follow-up PR **ready** (branch pushed to fork) but **held** until PR #138 gets a first
+response, to respect the maintainer's one-small-PR-at-a-time cadence. Open on request.

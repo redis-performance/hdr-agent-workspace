@@ -143,17 +143,18 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 | Status | Count |
 |--------|------:|
-| Accepted | 1 |
+| Accepted | 2 |
 | Rejected | 1 |
-| Parked | 1 |
+| Parked | 0 |
 | In Progress | 0 |
 
 - **EXP-002** (ACCEPT) — widen the AVX2 percentile scan 4→16 int64/iter with a vector accumulator:
   read path **+137% (gcc) / +144% (clang)** on Cascade Lake, percentile results bit-identical.
   Upstreamed as **[PR #138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138)** (body offers to re-target if the maintainer prefers #137's portable path).
-- **EXP-003** (PARK) — software prefetch of `counts[]` ahead in the widened scan: gcc read +8% but
-  clang flat within the bench's 0.01 Mq/s resolution; prefetch distance untuned + µarch-specific.
-  Parked pending finer measurement + distance sweep + a second-microarchitecture confirmation.
+- **EXP-003→004** (ACCEPT) — software prefetch of `counts[]` ahead in the widened scan. Parked after
+  Cascade Lake (gcc +8%, clang flat), then validated on a 2nd µarch (Granite Rapids: **gcc +7.7% /
+  clang +5.7%**) — portable across two µarchs/compilers, clang never regresses. Branch
+  `perf/avx2-scan-prefetch`; follow-up PR ready, held until #138 gets a first response.
 - **EXP-001** (REJECT) — Tier-1 `counts_index_for` fusion: correct + gcc +5.9% but clang −12.1%,
   rejected as a portable regression.
 

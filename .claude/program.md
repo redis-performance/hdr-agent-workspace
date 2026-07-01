@@ -140,6 +140,15 @@ rotated-layout fallback.
 ### 5c. Single-pass `hdr_value_at_percentiles`
 Compute multiple percentiles in one scan instead of one scan per percentile.
 
+### 5e. Software-prefetch counts[] ahead of the scan — ✅ ACCEPTED (EXP-003/004)
+After 5d the widened scan is load-latency bound. `_mm_prefetch(&counts[idx+64], _MM_HINT_T0)`
+(4 iters / 512 B ahead) hides L2/L3 latency: read **gcc +8% (both µarchs), clang neutral (Cascade
+Lake) → +5.7% (Granite Rapids)** — portable, clang never regresses, write control flat, results
+bit-identical. Branch `perf/avx2-scan-prefetch` (stacked on 5d / PR #138). **Lesson: a
+single-µarch "clang flat" at coarse bench resolution is not a reject — a second µarch resolved it
+to a clear win. Validate memory/prefetch tuning on ≥2 µarchs before parking.** Distance (64) still
+untuned; a sweep may extract more.
+
 ---
 
 ## Tier 6 — Inlining / Call Overhead (expected: 2–8%)
