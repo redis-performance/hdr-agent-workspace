@@ -162,7 +162,7 @@ _Starting fresh. Add failed experiments here as discovered, with the measured re
 
 | Technique | Why it didn't work |
 |-----------|--------------------|
-| _(none yet)_ | |
+| Manual fusion of `counts_index_for` (Tier 1a, EXP-001) | gcc +5.9% but **clang −12.1%** (gnr1, same-session A/B). Result is bit-identical (read `sink` equal), so it's a pure codegen effect: clang already scheduled the original 3-helper chain better, and folding to `(bucket_index<<shcm)+(value>>(bucket_index+um))` fights its scheduler. Portable regression → reject. Only a `__GNUC__ && !__clang__`-gated form would be neutral-or-better, but a gcc-only micro-opt isn't worth the portability cost for upstream. Do not re-propose unfused/ungated. |
 
 > **Measurement discipline.** Measure base vs patch back-to-back in the SAME session,
 > ≥2 samples. A delta that differs wildly between gcc and clang on the same path is the

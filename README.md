@@ -144,11 +144,13 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 | Status | Count |
 |--------|------:|
 | Accepted | 0 |
-| Rejected | 0 |
+| Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |
 
-(Scaffolding only so far — the merged fork PRs above are the baseline this workspace builds on.)
+First loop run: **EXP-001** (Tier-1 `counts_index_for` fusion) — correct + gcc +5.9% but clang
+−12.1% on gnr1, rejected as a portable regression. The merged fork PRs above are the baseline
+this workspace builds on.
 
 ---
 
