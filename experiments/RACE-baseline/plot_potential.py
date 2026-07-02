@@ -14,25 +14,25 @@ data = {
         "unit": "M ops/s", "scale": 1.0,
         "C":    (408.99, 408.99, "no PR"),
         "Rust": (349.64, 349.64, "no PR"),
-        "Go":   (299.67, 324.0,  "#59 merged"),
+        "Go":   (299.67, 324.0,  "#59 ✓ 37ca617"),
     },
     "READ 1 percentile — value_at_percentile()\n(million queries/sec, ↑ better)": {
         "unit": "Mq/s", "scale": 1.0,
         "C":    (0.2425, 0.5549, "#138+#139"),
         "Rust": (0.1741, 0.1741, "no PR"),
-        "Go":   (0.0457, 0.1066, "#57"),
+        "Go":   (0.0457, 0.1066, "#57 ✓ 22a1b78"),
     },
     "READ all 7 — value_at_percentiles()\n(thousand calls/sec, ↑ better)": {
         "unit": "K calls/s", "scale": 0.001,
         "C":    (12389, 86403,  "#140"),
         "Rust": (24818, 178326, "#138"),
-        "Go":   (14604, 58799,  "#58"),
+        "Go":   (14604, 58799,  "#58 ✓ bbda977"),
     },
 }
 
 fig, axes = plt.subplots(1, 3, figsize=(17, 5.6))
 fig.suptitle("HdrHistogram ports — current (official release) vs potential (with open optimization PRs)\n"
-             "gnr1 (Intel Granite Rapids), single core · same-session A/B · results byte-identical",
+             "gnr1 (Intel Granite Rapids), single core · same-session A/B · Go PRs ✓ MERGED (hdrhistogram-go @ 22a1b78)",
              fontsize=12, fontweight="bold")
 
 x = np.arange(len(ports))
