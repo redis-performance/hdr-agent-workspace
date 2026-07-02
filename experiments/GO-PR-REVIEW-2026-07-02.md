@@ -88,3 +88,19 @@ merge cleanly; mikeb01 dedupes overlapping PRs. Recommend consolidating to ONE c
 - #140: add a decoded-histogram (offset!=0) regression test — ctest doesn't cover the A1 fallback
   ("the branch that bit us last time" = #137).
 - #140: strengthen the perf body (name the compiler, add a reproduce block, median-of-N).
+
+## #138 6th reviewer (style/portability) — additional pre-existing notes
+- **i386 latent**: `HDR_HAS_AVX2_DISPATCH` gate admits `__i386__`/`_M_IX86`, but `_mm_extract_epi64`
+  is x86-64-only → 32-bit x86 gcc/clang would not compile the AVX2 path. Pre-existing from #134; NOT
+  triggered by the CI matrix (its only 32-bit-x86 leg is Windows/MSVC → scalar). Note, not a live break.
+- Its "no benchmark evidence" verdict was a false negative (read only the diff; the table is in the PR body).
+- Independently reached the same #137 "hold behind it" conflict.
+
+## Consolidation options (owner decision)
+- **A. Keep AVX2**: merge #138+#139 (clean, evidenced enhancements of the merged #134); rework #137 to
+  drop its AVX2-removal (keep only its batch+offset work) → then fold #137's batch into #140 (or vice
+  versa) so there's ONE batch PR. Close the redundant one.
+- **B. Go portable**: merge #137 (drops AVX2 for a portable block-sum + batch); close #138/#139 (AVX2
+  enhancements) and #140 (batch subsumed by #137).
+Recommendation: A — the AVX2 path is already merged and measurably fastest, and #138/#139 have
+same-session multi-µarch evidence; #137's AVX2-removal is the outlier that creates all the conflicts.
