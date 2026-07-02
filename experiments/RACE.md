@@ -4,6 +4,25 @@ A head-to-head baseline of the three HdrHistogram ports on an **identical worklo
 numbers are directly comparable. Driver sources live in [`../race/`](../race/) — one program per
 language, byte-for-byte the same algorithm.
 
+![Cross-port race chart](RACE-baseline/race-gnr1-2026-07-02.png)
+
+## Metrics — what the numbers mean
+
+Two independent throughput metrics; **compare each one across ports, not write-vs-read** (a read
+"op" is far heavier than a write "op").
+
+- **WRITE — `record_value()` ops/sec** (higher = better). One op = insert a single sample: compute
+  its bucket index → increment that counter → update min/max. The **hot path** — runs on every
+  recorded sample in production. Reported in **million ops/sec** (and ns/op). Measured by recording
+  50M values, best of 5 reps.
+- **READ — `value_at_percentile()` queries/sec** (higher = better). One op = one percentile query:
+  scan the histogram's `counts[]` prefix-sum until the cumulative count crosses the target
+  percentile. The **cold/stats path** (e.g. INFO / percentile reporting). Reported in **million
+  queries/sec (Mq/s)** (and µs/query). Measured by 1M queries cycling p50…p99.99, best of 10 runs.
+
+A single read query internally scans **thousands** of `counts[]` entries while a write touches one —
+which is why write is hundreds of *millions* of ops/sec and read is *fractions* of a million q/sec.
+
 ## Methodology
 
 - **Host**: `gnr1` — Intel Granite Rapids, single core (`taskset -c 8`), same box/session for all three.
