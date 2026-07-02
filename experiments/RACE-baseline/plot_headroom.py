@@ -15,11 +15,11 @@ metrics = {
         "note": "memory-bound scatter; all near floor",
     },
     "READ 1 percentile — value_at_percentile()": {
-        "C": (0.2425, 0.5549), "Rust": (0.1741, 0.1741), "Go": (0.0457, 0.1066),
+        "C": (0.2425, 0.5549), "Rust": (0.1741, 0.1830), "Go": (0.0457, 0.1833),
         "note": "frontier = C's AVX2; Rust/Go headroom = SIMD",
     },
     "READ all 7 — value_at_percentiles()": {
-        "C": (12389, 86403), "Rust": (24818, 178326), "Go": (14604, 58799),
+        "C": (12389, 86403), "Rust": (24818, 178326), "Go": (14604, 83658),
         "note": "frontier = Rust single-pass; C/Go could match",
     },
 }

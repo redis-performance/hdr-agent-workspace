@@ -84,8 +84,11 @@ Relative to C (C = 1.00×):
    (offset-aware fallback kept) instead of the iterator. **+599% (7×)** (12.4K → 86.4K calls/sec;
    80.9 → 11.6 µs). PR [HdrHistogram_c #140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140).
    See EXP-006.
-4. **Go — batch API** could likewise reuse the flat scan; and Go/Rust singular could adopt C's
-   SIMD/prefetch ideas (PRs #138/#139) for a further step.
+4. **Go — batch API**: ✅ **DONE** — `ValueAtPercentilesSlice` returns an ordered `[]int64` from one
+   flat scan (no map alloc). **+42.5%** over the map variant (58.7K → 83.7K calls/sec). PR
+   [hdrhistogram-go #63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63). See GO-EXP-005.
+5. **Next frontier**: Go/Rust singular could adopt C's SIMD/prefetch ideas (PRs #138/#139) — the
+   +67% read headroom in the chart above is exactly that SIMD gap.
 
 ### Current vs potential (with the open optimization PRs)
 
@@ -94,8 +97,8 @@ Relative to C (C = 1.00×):
 | metric | C | Rust | Go |
 |--------|---|------|----|
 | WRITE ops/s | 409M (no PR) | 350M (no PR) | 300M → 324M (**1.08×**, #59 merged) |
-| READ 1 percentile Mq/s | 0.24 → **0.55** (2.29×, #138+#139) | 0.17 (no PR) | 0.046 → **0.107** (2.33×, #57) |
-| READ all-7 K calls/s | 12.4 → **86.4** (6.97×, #140) | 24.8 → **178.3** (7.19×, #138) | 14.6 → **58.8** (4.03×, #58) |
+| READ 1 percentile Mq/s | 0.24 → **0.55** (2.29×, #138+#139) | 0.17 → **0.18** (1.05×, #139) | 0.046 → **0.183** (4.01×, #57+#62) |
+| READ all-7 K calls/s | 12.4 → **86.4** (6.97×, #140) | 24.8 → **178.3** (7.19×, #138) | 14.6 → **83.7** (5.73×, #58+#63) |
 
 ### Remaining headroom (normalized to the frontier = best port's potential)
 
@@ -104,17 +107,17 @@ Relative to C (C = 1.00×):
 Frontier = the best achievable across ports for each metric (100%); the gap from a port's
 potential bar up to 100% is the headroom left after its current PR.
 - **WRITE**: frontier = C. Rust +15%, Go +21% — but memory-bound, hard to realize.
-- **READ 1 percentile**: frontier = C's AVX2. **Rust +69%, Go +81%** headroom = the SIMD gap
-  (both are scalar scans). This is the largest untapped opportunity.
-- **READ all-7**: frontier = Rust's single-pass. **C +52%, Go +67%** — both could match Rust's
+- **READ 1 percentile**: frontier = C's AVX2. **Rust +67%, Go +67%** headroom = the SIMD gap
+  (both are scalar scans, now near-tied after Rust #139 / Go #62). This is the largest untapped opportunity.
+- **READ all-7**: frontier = Rust's single-pass. **C +52%, Go +53%** — both could match Rust's
   allocation-light one-scan batch.
 
 ### Post-optimization read standings (with the open PRs applied)
 
 | metric | C (+PRs) | Rust (+PR) | Go (+PR) |
 |--------|---------:|-----------:|---------:|
-| READ 1 percentile (Mq/s) | 0.2425 | 0.1741 | **0.1833** (0.0457 → #57 0.107 → #62 0.183; now > Rust) |
-| READ all-7 (calls/sec)   | **86,403** (was 12,389) | **178,326** (was 24,898) | 14,604 |
+| READ 1 percentile (Mq/s) | 0.2425 | 0.1830 (#139) | **0.1833** (0.0457 → #57 0.107 → #62 0.183; ~tied w/ Rust) |
+| READ all-7 (calls/sec)   | **86,403** (was 12,389) | **178,326** (was 24,898) | **83,658** (was 14,604; #58 → #63 slice) |
 
 Every port's batch/percentile read path improved via an open upstream PR; all results stay byte-identical.
 

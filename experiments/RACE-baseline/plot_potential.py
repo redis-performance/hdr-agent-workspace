@@ -19,14 +19,14 @@ data = {
     "READ 1 percentile — value_at_percentile()\n(million queries/sec, ↑ better)": {
         "unit": "Mq/s", "scale": 1.0,
         "C":    (0.2425, 0.5549, "#138+#139"),
-        "Rust": (0.1741, 0.1741, "no PR"),
+        "Rust": (0.1741, 0.1830, "#139"),
         "Go":   (0.0457, 0.1833, "#57✓ +#62"),
     },
     "READ all 7 — value_at_percentiles()\n(thousand calls/sec, ↑ better)": {
         "unit": "K calls/s", "scale": 0.001,
         "C":    (12389, 86403,  "#140"),
         "Rust": (24818, 178326, "#138"),
-        "Go":   (14604, 58799,  "#58 ✓ bbda977"),
+        "Go":   (14604, 83658,  "#58✓ +#63"),
     },
 }
 
