@@ -87,6 +87,16 @@ Relative to C (C = 1.00×):
 4. **Go — batch API** could likewise reuse the flat scan; and Go/Rust singular could adopt C's
    SIMD/prefetch ideas (PRs #138/#139) for a further step.
 
+### Current vs potential (with the open optimization PRs)
+
+![Current vs potential](RACE-baseline/potential-gnr1-2026-07-02.png)
+
+| metric | C | Rust | Go |
+|--------|---|------|----|
+| WRITE ops/s | 409M (no PR) | 350M (no PR) | 300M → 324M (**1.08×**, #59 merged) |
+| READ 1 percentile Mq/s | 0.24 → **0.55** (2.29×, #138+#139) | 0.17 (no PR) | 0.046 → **0.107** (2.33×, #57) |
+| READ all-7 K calls/s | 12.4 → **86.4** (6.97×, #140) | 24.8 → **178.3** (7.19×, #138) | 14.6 → **58.8** (4.03×, #58) |
+
 ### Post-optimization read standings (with the open PRs applied)
 
 | metric | C (+PRs) | Rust (+PR) | Go (+PR) |
