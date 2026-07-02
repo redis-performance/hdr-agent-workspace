@@ -1,0 +1,57 @@
+===== C version/master 0.11.10 (18c7a32) =====
+WRITE_OPS_PER_SEC 408894193
+READ_MQ_PER_SEC 0.2425 sink=11311209184862912
+BATCH_OPS_PER_SEC 12393 bsink=4263457582300000
+===== C potential #138+#139+#140 (e081c5d) =====
+WRITE_OPS_PER_SEC 409163329
+READ_MQ_PER_SEC 0.5550 sink=11311209184862912
+BATCH_OPS_PER_SEC 86794 bsink=4263457582300000
+    --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/lib.rs:1045:9
+
+    --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/lib.rs:1107:24
+
+    --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/lib.rs:1145:21
+
+    --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/lib.rs:1183:26
+
+    --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/lib.rs:1242:21
+
+  --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/iterators/recorded.rs:12:34
+
+  --> /root/hdr-race3/rust-vm/HdrHistogram_rust/src/iterators/all.rs:12:34
+
+===== RUST version/main 7.5.4 (a3818d6) =====
+WRITE_OPS_PER_SEC 348798542
+READ_MQ_PER_SEC 0.1741 sink=11311209184862912
+BATCH_OPS_PER_SEC 24818 bsink=4263457582300000 (no-native-batch:7x-singular)
+    --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/lib.rs:1045:9
+
+    --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/lib.rs:1107:24
+
+    --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/lib.rs:1145:21
+
+    --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/lib.rs:1183:26
+
+    --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/lib.rs:1242:21
+
+  --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/iterators/recorded.rs:12:34
+
+  --> /root/hdr-race3/rust-pot/HdrHistogram_rust/src/iterators/all.rs:12:34
+
+===== RUST potential #138+#139 (0f6a5d2) =====
+WRITE_OPS_PER_SEC 347821787
+READ_MQ_PER_SEC 0.1828 sink=11311209184862912
+BATCH_OPS_PER_SEC 178551 bsink=4263457582300000 (native-batch)
+===== GO version v1.2.0 =====
+WRITE_OPS_PER_SEC 311382830
+READ_MQ_PER_SEC 0.0457 sink=11311209184862912
+BATCH_OPS_PER_SEC 14600 bsink=4263457582300000
+===== GO master 22a1b78 (#57/#58/#59) =====
+WRITE_OPS_PER_SEC 323872537
+READ_MQ_PER_SEC 0.1067 sink=11311209184862912
+BATCH_OPS_PER_SEC 58776 bsink=4263457582300000
+===== GO potential #62+#63 (99baaee) =====
+WRITE_OPS_PER_SEC 319018462
+READ_MQ_PER_SEC 0.1833 sink=11311209184862912
+BATCH_OPS_PER_SEC 83631 bsink=4263457582300000
+===== DONE =====

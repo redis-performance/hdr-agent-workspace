@@ -29,6 +29,35 @@ Three throughput metrics; **compare each one across ports** (a read "op" is far 
 **Correctness cross-checks** (must match across ports — they do): singular `sink` =
 `11311209184862912`; batch `bsink` = `4263457582300000`. Same percentile values everywhere.
 
+## Version → master → potential (fresh 3-column measurement, 2026-07-02)
+
+![3-column race](RACE-baseline/race3col-gnr1-2026-07-02.png)
+
+Each port measured in **three states**, same-session on gnr1, single core, core-pinned, best-of-N
+(raw: [`RACE-baseline/2026-07-02-gnr1-3col-raw.txt`](RACE-baseline/2026-07-02-gnr1-3col-raw.txt)):
+
+- **version** — the released tag a user installs today (C `0.11.10`, Rust `7.5.4`, Go `v1.2.0`)
+- **master/main** — current default-branch HEAD (whatever has merged since the release)
+- **potential** — default branch + **all** open optimization PRs from this workspace, cherry-picked
+  into one tree (C `e081c5d` = #138+#139+#140; Rust `0f6a5d2` = #138+#139; Go `99baaee` = #62+#63)
+
+> **Go is the only port whose optimizations have already landed on `master`** (#57/#58/#59). C and
+> Rust have shipped nothing since their release, so their `version` and `master` bars are identical
+> and every gain still sits in `potential` (open PRs). The batch column uses each state's *best
+> available* API: C `hdr_value_at_percentiles` throughout; Rust 7×singular until the native batch
+> (#138); Go `ValueAtPercentiles` until the ordered-slice API (#63).
+
+| metric | C ver=master | C potential | Rust ver=main | Rust potential | Go version | Go master | Go potential |
+|--------|-------------:|------------:|--------------:|---------------:|-----------:|----------:|-------------:|
+| WRITE (M ops/s)     | 408.9 | 409.2 | 348.8 | 347.8 | 311.4 | 323.9 (#59) | 319.0 |
+| READ-1 (Mq/s)       | 0.2425 | **0.5550** (2.29×) | 0.1741 | 0.1828 (1.05×) | 0.0457 | 0.1067 (#57) | **0.1833** (4.01× vs release) |
+| READ-7 (K calls/s)  | 12.4 | **86.8** (7.0×) | 24.8 | **178.6** (7.2×) | 14.6 | 58.8 (#58) | **83.6** (5.7× vs release) |
+
+All 21 cells cross-checked byte-identical (`sink`/`bsink` unchanged across every state). The multipliers
+on `potential` are vs that port's own `master`; the Go annotations are vs `version` to show the full
+released→today→proposed arc. Note READ-1 is now a **near-tie at the potential frontier for Rust/Go**
+(0.1828 vs 0.1833) — both scalar scans, ~3× behind C's AVX2 (0.5550): the remaining headroom is SIMD.
+
 ## Methodology
 
 - **Host**: `gnr1` — Intel Granite Rapids, single core (`taskset -c 8`), same box/session for all three.
