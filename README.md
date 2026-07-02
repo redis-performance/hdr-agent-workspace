@@ -176,6 +176,11 @@ The merged fork PRs above are the baseline this workspace builds on.
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
 
+**Cross-port race** — identical-workload baseline of all three ports is in
+[`experiments/RACE.md`](experiments/RACE.md) (drivers in [`race/`](race/)). Headline (gnr1, single core):
+write is close (C > Rust 0.86× > Go 0.80×), but **read is a blowout — C is 3.2× Rust and 12× Go**;
+all three return byte-identical percentile results. Go's `ValueAtPercentile` is the biggest optimization target.
+
 ---
 
 ## Inspiration
