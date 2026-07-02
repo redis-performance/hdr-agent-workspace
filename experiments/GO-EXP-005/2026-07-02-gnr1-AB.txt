@@ -1,0 +1,13 @@
+Go batch A/B — ValueAtPercentiles (map) vs ValueAtPercentilesSlice ([]int64), same port ee1bbb0
+gnr1 (Intel Granite Rapids), core 16 (concurrent w/ Rust on core 8)
+
+===== GO batch=map =====   ValueAtPercentiles -> map[float64]int64
+WRITE_OPS_PER_SEC 323841540
+READ_MQ_PER_SEC 0.1067 sink=11311209184862912
+BATCH_OPS_PER_SEC 58732 bsink=4263457582300000
+===== GO batch=slice =====  ValueAtPercentilesSlice -> []int64
+WRITE_OPS_PER_SEC 316947733
+READ_MQ_PER_SEC 0.1066 sink=11311209184862912
+BATCH_OPS_PER_SEC 83658 bsink=4263457582300000
+
+DELTA: batch 58732 -> 83658 = +42.5%  (map alloc elided; results byte-identical)
