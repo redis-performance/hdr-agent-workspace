@@ -1,0 +1,128 @@
+===== C  v0.11.10 (18c7a32) =====
+WRITE_OPS_PER_SEC 408985885
+READ_MQ_PER_SEC 0.2425 sink=11311209184862912
+BATCH_OPS_PER_SEC 12389 bsink=4263457582300000
+===== GO v1.2.0 (7de3c99) =====
+WRITE_OPS_PER_SEC 299670657
+READ_MQ_PER_SEC 0.0457 sink=11311209184862912
+BATCH_OPS_PER_SEC 14604 bsink=4263457582300000
+   Compiling autocfg v1.5.1
+   Compiling byteorder v1.5.0
+   Compiling num-traits v0.2.19
+   Compiling hdrhistogram v7.5.4 (/root/hdr-race/HdrHistogram_rust)
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /root/hdr-race/HdrHistogram_rust/src/lib.rs:1045:9
+     |
+1045 |         &self,
+     |         ^^^^^ the lifetime is elided here
+1046 |         ticks_per_half_distance: u32,
+1047 |     ) -> HistogramIterator<T, iterators::quantile::Iter<T>> {
+     |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |          |                    |
+     |          |                    the same lifetime is hidden here
+     |          the same lifetime is hidden here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+     = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+     |
+1047 |     ) -> HistogramIterator<'_, T, iterators::quantile::Iter<'_, T>> {
+     |                            +++                              +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /root/hdr-race/HdrHistogram_rust/src/lib.rs:1107:24
+     |
+1107 |     pub fn iter_linear(&self, step: u64) -> HistogramIterator<T, iterators::linear::Iter<T>> {
+     |                        ^^^^^                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |                        |                    |                    |
+     |                        |                    |                    the same lifetime is hidden here
+     |                        |                    the same lifetime is hidden here
+     |                        the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1107 |     pub fn iter_linear(&self, step: u64) -> HistogramIterator<'_, T, iterators::linear::Iter<'_, T>> {
+     |                                                               +++                            +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /root/hdr-race/HdrHistogram_rust/src/lib.rs:1145:21
+     |
+1145 |     pub fn iter_log(&self, start: u64, exp: f64) -> HistogramIterator<T, iterators::log::Iter<T>> {
+     |                     ^^^^^                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |                     |                               |                    |
+     |                     |                               |                    the same lifetime is hidden here
+     |                     |                               the same lifetime is hidden here
+     |                     the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1145 |     pub fn iter_log(&self, start: u64, exp: f64) -> HistogramIterator<'_, T, iterators::log::Iter<'_, T>> {
+     |                                                                       +++                         +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /root/hdr-race/HdrHistogram_rust/src/lib.rs:1183:26
+     |
+1183 |     pub fn iter_recorded(&self) -> HistogramIterator<T, iterators::recorded::Iter> {
+     |                          ^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                          |
+     |                          the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1183 |     pub fn iter_recorded(&self) -> HistogramIterator<'_, T, iterators::recorded::Iter> {
+     |                                                      +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /root/hdr-race/HdrHistogram_rust/src/lib.rs:1242:21
+     |
+1242 |     pub fn iter_all(&self) -> HistogramIterator<T, iterators::all::Iter> {
+     |                     ^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                     |
+     |                     the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1242 |     pub fn iter_all(&self) -> HistogramIterator<'_, T, iterators::all::Iter> {
+     |                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /root/hdr-race/HdrHistogram_rust/src/iterators/recorded.rs:12:34
+   |
+12 |     pub fn new<T: Counter>(hist: &Histogram<T>) -> HistogramIterator<T, Iter> {
+   |                                  ^^^^^^^^^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+   |                                  |
+   |                                  the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+12 |     pub fn new<T: Counter>(hist: &Histogram<T>) -> HistogramIterator<'_, T, Iter> {
+   |                                                                      +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /root/hdr-race/HdrHistogram_rust/src/iterators/all.rs:12:34
+   |
+12 |     pub fn new<T: Counter>(hist: &Histogram<T>) -> HistogramIterator<T, Iter> {
+   |                                  ^^^^^^^^^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+   |                                  |
+   |                                  the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+12 |     pub fn new<T: Counter>(hist: &Histogram<T>) -> HistogramIterator<'_, T, Iter> {
+   |                                                                      +++
+
+warning: `hdrhistogram` (lib) generated 7 warnings (run `cargo fix --lib -p hdrhistogram` to apply 7 suggestions)
+   Compiling hdr-race-rust v0.0.0 (/root/hdr-race/race/rust)
+    Finished `release` profile [optimized] target(s) in 4.09s
+===== RUST 7.5.4 (a3818d6) =====
+WRITE_OPS_PER_SEC 349643213
+READ_MQ_PER_SEC 0.1741 sink=11311209184862912
+BATCH_OPS_PER_SEC 24818 bsink=4263457582300000 (no-native-batch:7x-singular)
+===== DONE =====
+=== RACE COMPLETE ===

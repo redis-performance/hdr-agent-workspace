@@ -176,10 +176,12 @@ The merged fork PRs above are the baseline this workspace builds on.
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
 
-**Cross-port race** — identical-workload baseline of all three ports is in
-[`experiments/RACE.md`](experiments/RACE.md) (drivers in [`race/`](race/)). Headline (gnr1, single core):
-write is close (C > Rust 0.86× > Go 0.80×), but **read is a blowout — C is 3.2× Rust and 12× Go**;
-all three return byte-identical percentile results. Go's `ValueAtPercentile` is the biggest optimization target.
+**Cross-port race** — identical-workload baseline of the three **official releases**
+(C v0.11.10, Rust 7.5.4, Go v1.2.0) is in [`experiments/RACE.md`](experiments/RACE.md)
+(drivers in [`race/`](race/)). Headline (gnr1, single core; byte-identical results across ports):
+- **Write**: C 409 M/s > Rust 0.86× > Go 0.73×.
+- **Read 1 percentile**: C > Rust (1.39×) > **Go (5.3× behind C)** — Go's iterator-based `ValueAtPercentile` is the biggest gap.
+- **Read all 7 (`value_at_percentiles`)**: twist — **C's native batch is the *slowest* (iterator, 81µs), slower than looping its own singular 7×**; Rust has no batch API (7× singular); Go's native batch beats its own singular loop.
 
 ---
 

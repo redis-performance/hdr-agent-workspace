@@ -1,7 +1,8 @@
 /* Cross-port race driver — C. Identical workload to race/go and race/rust.
- * WRITE: record v=1..50M into New(1,3.6e9,3), 5 reps, best ops/sec.
- * READ : populate 1M Fibonacci-spread values, query 7 percentiles x 1M, best Mq/s.
- * sink is a cross-port correctness check (must match Go/Rust). */
+ * WRITE : record v=1..50M into New(1,3.6e9,3), 5 reps, best ops/sec.
+ * READ  : populate 1M Fibonacci-spread values, query 7 percentiles x 1M (singular), best Mq/s.
+ * BATCH : value_at_percentiles(all 7) x 100k calls, best batch-calls/sec.
+ * sink/bsink are cross-port correctness checks (must match Go/Rust). */
 #include <hdr/hdr_histogram.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -35,6 +36,8 @@ int main(void) {
         hdr_record_value(h, value);
     }
     const double pcts[7] = {50.0, 75.0, 90.0, 95.0, 99.0, 99.9, 99.99};
+
+    /* READ — singular value_at_percentile */
     const int64_t NQ = 1000000LL;
     double best_qps = 0;
     int64_t sink = 0;
@@ -45,5 +48,21 @@ int main(void) {
         if (run >= 3) { double qps = (double)NQ / dt; if (qps > best_qps) best_qps = qps; }
     }
     printf("READ_MQ_PER_SEC %.4f sink=%lld\n", best_qps / 1e6, (long long)sink);
+
+    /* BATCH — value_at_percentiles: all 7 percentiles per call (single pass) */
+    const int NB = 100000;
+    double best_bops = 0;
+    int64_t bsink = 0;
+    int64_t vals[7];
+    for (int run = 0; run < 7; run++) {
+        double t0 = now_sec();
+        for (int i = 0; i < NB; i++) {
+            hdr_value_at_percentiles(h, pcts, vals, 7);
+            for (int k = 0; k < 7; k++) bsink += vals[k];
+        }
+        double dt = now_sec() - t0;
+        if (run >= 2) { double bops = (double)NB / dt; if (bops > best_bops) best_bops = bops; }
+    }
+    printf("BATCH_OPS_PER_SEC %.0f bsink=%lld\n", best_bops, (long long)bsink);
     return 0;
 }

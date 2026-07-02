@@ -1,94 +1,99 @@
 # Cross-Port Race — C vs Rust vs Go
 
-A head-to-head baseline of the three HdrHistogram ports on an **identical workload**, so the
-numbers are directly comparable. Driver sources live in [`../race/`](../race/) — one program per
-language, byte-for-byte the same algorithm.
+A head-to-head baseline of the three **official released** HdrHistogram ports on an **identical
+workload**, so the numbers are directly comparable. Driver sources live in [`../race/`](../race/) —
+one program per language, byte-for-byte the same algorithm.
 
 ![Cross-port race chart](RACE-baseline/race-gnr1-2026-07-02.png)
 
+## Versions raced (2026-07-02)
+
+| Port | Version | Commit | Percentile read path |
+|------|---------|--------|----------------------|
+| C    | **0.11.10** | `18c7a32` | AVX2 scan (4×int64/iter) + scalar fallback |
+| Rust | **7.5.4**   | `a3818d6` | scalar `counts[]` scan |
+| Go   | **v1.2.0**  | `7de3c99` | iterator walk |
+
 ## Metrics — what the numbers mean
 
-Two independent throughput metrics; **compare each one across ports, not write-vs-read** (a read
-"op" is far heavier than a write "op").
+Three throughput metrics; **compare each one across ports** (a read "op" is far heavier than a write "op").
 
-- **WRITE — `record_value()` ops/sec** (higher = better). One op = insert a single sample: compute
-  its bucket index → increment that counter → update min/max. The **hot path** — runs on every
-  recorded sample in production. Reported in **million ops/sec** (and ns/op). Measured by recording
-  50M values, best of 5 reps.
-- **READ — `value_at_percentile()` queries/sec** (higher = better). One op = one percentile query:
-  scan the histogram's `counts[]` prefix-sum until the cumulative count crosses the target
-  percentile. The **cold/stats path** (e.g. INFO / percentile reporting). Reported in **million
-  queries/sec (Mq/s)** (and µs/query). Measured by 1M queries cycling p50…p99.99, best of 10 runs.
+- **WRITE — `record_value()` ops/sec** (↑ better). One op = insert a single sample (bucket index →
+  counter++ → min/max). The **hot path** (every recorded sample). In million ops/sec + ns/op.
+- **READ 1 percentile — `value_at_percentile()` q/sec** (↑ better). One op = one percentile query =
+  scan the `counts[]` prefix-sum until the cumulative count crosses the target. In Mq/s + µs/query.
+- **READ all 7 — `value_at_percentiles()` calls/sec** (↑ better). One op = get **all 7** percentiles
+  `{50,75,90,95,99,99.9,99.99}` in one call. C & Go have a native single-pass batch API; **Rust has
+  none**, so it does 7× singular (7 independent scans). In thousand calls/sec + µs.
 
-A single read query internally scans **thousands** of `counts[]` entries while a write touches one —
-which is why write is hundreds of *millions* of ops/sec and read is *fractions* of a million q/sec.
+**Correctness cross-checks** (must match across ports — they do): singular `sink` =
+`11311209184862912`; batch `bsink` = `4263457582300000`. Same percentile values everywhere.
 
 ## Methodology
 
 - **Host**: `gnr1` — Intel Granite Rapids, single core (`taskset -c 8`), same box/session for all three.
 - **Config** (all ports): `histogram(lowest=1, highest=3_600_000_000, sig_figs=3)`.
-- **WRITE**: record `v = 1..50,000,000` into the histogram; 5 reps; report best ops/sec.
-- **READ**: populate 1,000,000 Fibonacci-hash-spread values
-  (`value = (v * 2654435761) mod 1e9 + 1`, `v = 1..1e6`), then query the 7 percentiles
-  `{50, 75, 90, 95, 99, 99.9, 99.99}` cycling for 1,000,000 queries; 3 warmup + 10 timed runs; report best Mq/s.
-- **Correctness cross-check**: each driver prints a `sink` = sum of all returned percentile values.
-  **All three must match** — they do (`11311209184862912`), proving the ports return identical results.
-- **Build**: C `cc -O3 -march=native` (static lib, fork tip); Go `go build` (upstream tip);
-  Rust `cargo build --release` (LTO, fork tip).
-
-## Tips raced (2026-07-02)
-
-| Port | Repo | Tip | Notes |
-|------|------|-----|-------|
-| C    | `fcostaoliveira/HdrHistogram_c` | `3e8ae6a` | **fork** — includes this workspace's accepted wins (EXP-002 AVX2-widen + EXP-004 prefetch) |
-| Rust | `fcostaoliveira/HdrHistogram_rust` | `a3818d6` | fork, unmodified baseline (= upstream) |
-| Go   | `HdrHistogram/hdrhistogram-go` | `7de3c99` | upstream baseline |
+- **WRITE**: record `v = 1..50,000,000`; 5 reps; best ops/sec.
+- **READ populate**: 1,000,000 Fibonacci-hash-spread values (`(v*2654435761) mod 1e9 + 1`, `v=1..1e6`).
+- **READ 1**: 1,000,000 singular queries cycling the 7 percentiles; 3 warmup + 10 timed; best Mq/s.
+- **READ all 7**: 100,000 batch calls (each returns all 7); 2 warmup + 5 timed; best K calls/sec.
+- **Build**: C `cc -O3 -march=native` (static lib); Go `go build`; Rust `cargo build --release` (LTO).
 
 ## Scoreboard
 
-| Port | WRITE ops/sec | WRITE ns/op | READ Mq/s | READ µs/query | sink |
-|------|--------------:|------------:|----------:|--------------:|------|
-| **C** (fork) | **406,165,861** | **2.46** | **0.5549** | **1.80** | 11311209184862912 |
-| Rust (fork)  | 349,874,857 | 2.86 | 0.1738 | 5.75 | 11311209184862912 ✓ |
-| Go (upstream)| 323,239,637 | 3.09 | 0.0457 | 21.88 | 11311209184862912 ✓ |
+| Port | WRITE ops/sec | ns/op | READ 1 Mq/s | µs/query | READ all-7 calls/sec | µs/7 |
+|------|--------------:|------:|------------:|---------:|---------------------:|-----:|
+| **C** v0.11.10   | **408,985,885** | **2.44** | **0.2425** | **4.12** | 12,389 (iterator) | 80.7 |
+| Rust 7.5.4       | 349,643,213 | 2.86 | 0.1741 | 5.74 | **24,818** (7× singular) | **40.3** |
+| Go v1.2.0        | 299,670,657 | 3.34 | 0.0457 | 21.88 | 14,604 (1 pass) | 68.5 |
 
 Relative to C (C = 1.00×):
 
-| Port | WRITE | READ |
-|------|------:|-----:|
-| C    | 1.00× | 1.00× |
-| Rust | 0.86× | 0.31× (C is **3.2×** faster) |
-| Go   | 0.80× | 0.082× (C is **12.1×** faster) |
+| Port | WRITE | READ 1 | READ all-7 |
+|------|------:|-------:|-----------:|
+| C    | 1.00× | 1.00× | 1.00× |
+| Rust | 0.86× | 0.72× | **2.00×** |
+| Go   | 0.73× | 0.19× (C **5.3×**) | 1.18× |
 
 ## Findings
 
-1. **Correctness**: all three ports return byte-identical percentile results on this workload
-   (`sink` matches) — a strong cross-port equivalence check.
-2. **Write path is close**: C leads, but Rust (0.86×) and Go (0.80×) are within ~1.25×. This path is
-   memory-bound on the `counts[]` scatter in every language, so there's little spread.
-3. **Read path is a blowout**: C is **3.2× Rust** and **12× Go**. Part of C's read lead is this
-   workspace's accepted wins (AVX2-widen ×2.4 + prefetch), but even C's *pre-optimization* baseline
-   (~0.22 Mq/s on this box, before EXP-002/004) beats both — so C's scan is structurally faster and
-   our work extended the lead.
-4. **Go's `ValueAtPercentile` is the standout weakness** (~22 µs/query, 12× slower than C). The Go
-   port walks percentiles via an iterator rather than a tight prefix-sum scan — a prime, high-headroom
-   optimization target. (Workspace owner maintains hdrhistogram-go → bolder changes are in scope.)
-5. **Rust's read** (5.75 µs) sits between C and Go — a scan, but scalar and without C's SIMD/prefetch.
+1. **Correctness**: all three ports return byte-identical results for both single and batch queries
+   (`sink` + `bsink` match) — a strong cross-port equivalence check.
+2. **WRITE**: C leads (409 M/s), Rust 0.86×, Go 0.73× — within ~1.37×. Memory-bound on the `counts[]`
+   scatter in every language, so the spread is modest.
+3. **READ 1 percentile**: C fastest; **Rust is close (1.39× behind)**; **Go is far behind — 5.3× slower
+   than C** (21.9 µs/query). Go's `ValueAtPercentile` walks buckets via an iterator instead of a tight
+   early-exit prefix-sum scan → the biggest single-metric gap in the race.
+4. **READ all 7 — the plot twist**: **C's native `hdr_value_at_percentiles` is the *slowest* way to
+   get 7 percentiles** (80.7 µs). It's iterator-based (walks *every* bucket once), so it's even slower
+   than calling C's own fast singular scan 7× (~29 µs). Rust "wins" this column only because it has
+   **no batch API** and falls back to 7× its fast singular scan (40.3 µs). Go's native batch (68.5 µs)
+   *does* beat its own 7× singular (153 µs), but on a slow base.
 
-## Next targets (read path, by headroom)
+## Optimization opportunities (ranked)
 
-1. **Go** — biggest opportunity by far (12× behind C). Investigate `ValueAtPercentile`'s iterator
-   walk; a direct block-summed prefix-sum scan (cf. C's approach / PR #137/#138) should close most of the gap.
-2. **Rust** — 3.2× behind C; a tighter scan (and optionally the vector-accumulator idea from C EXP-002)
-   is a candidate cross-pollination.
-3. **C** — already optimized (PRs #138/#139); near its memory-latency floor.
+1. **Go — singular read** (5.3× behind C): replace the iterator walk in `ValueAtPercentile` with a
+   direct prefix-sum scan (cf. C's approach). Biggest headroom in the race. *(Owner maintains
+   hdrhistogram-go → bold changes welcome.)*
+2. **C — batch API**: `hdr_value_at_percentiles` should sort the requested percentiles and collect them
+   in a **single fast scan** (like the singular AVX2 path) instead of the iterator. Potential ~6–20×,
+   and it would stop being slower than looping singular.
+3. **Rust — add a native single-pass batch API** (`value_at_percentiles`): one scan for N percentiles
+   would beat every port on the batch metric.
+
+> **Note on C's tip**: this baseline uses the **official 0.11.10** (4×int64 AVX2 scan). This workspace's
+> pending PRs [#138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138) (widen 4→16) +
+> [#139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139) (prefetch) raise C's *singular* read
+> ~2.5× (≈0.55 Mq/s on this box), which would widen C's read lead — but the race deliberately compares
+> shipped releases.
 
 ## Reproduce
 
 ```bash
-# per language, on one pinned core, same box:
-cc -O3 -march=native -Irace/../HdrHistogram_c/include race/c/race.c <libhdr_histogram_static.a> -lm -o race_c && taskset -c 8 ./race_c
+# per language, one pinned core, same box:
+cc -O3 -march=native -IHdrHistogram_c/include race/c/race.c <libhdr_histogram_static.a> -lm -o race_c && taskset -c 8 ./race_c
 cd race/go   && go build -o race . && taskset -c 8 ./race
 cd race/rust && cargo build --release && taskset -c 8 ./target/release/hdr-race-rust
 ```
-Raw output: [`RACE-baseline/2026-07-02-gnr1-raw.txt`](RACE-baseline/2026-07-02-gnr1-raw.txt).
+Raw output: [`RACE-baseline/2026-07-02-gnr1-official-raw.txt`](RACE-baseline/2026-07-02-gnr1-official-raw.txt).
+Chart regen: `python3 RACE-baseline/plot_race.py`.
