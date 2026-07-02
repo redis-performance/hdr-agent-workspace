@@ -35,3 +35,26 @@ clamping the target count to ≥1.)
 `lowestDiscernibleValue`, overflowing the int32 bucket math → MaxInt32; the "ms" case is false-green
 (out-of-range records silently dropped, oversized tolerance hides it); doesn't test timestamp
 *serialization* (superseded by dkropachev #51/#54); stale (2016), non-gofmt/lint-clean.
+
+---
+
+# Rust #138 adversarial review round — 2026-07-02
+
+3 subagents (`hdr-reviewer-rust` skill; jonhoo / correctness-edges / panics lenses) on the one open
+Rust PR. CI pre-checks I ran: `cargo fmt --check` PASS; clippy clean for the new functions (all
+warnings pre-existing); clippy IS a gate (check.yml stable+beta) + MSRV `cargo +msrv check` + cargo doc.
+
+**Unanimous:** correctness VERIFIED (batch == per-item across empty / q=0 / q=1 / q>1 / duplicate /
+unsorted / single / last-index / all-zeros) and **no panics** — NaN doesn't panic because the sort is
+over the derived `u64` targets, not the `f64` inputs, and casts saturate cleanly.
+
+**Two blockers (both fixed):**
+1. **No tests** (jonhoo's hard gate) → added `batch_quantiles_match_singular` (unsorted+dup+edges) and
+   `batch_quantiles_empty_histogram` to `tests/data_access.rs`; both pass.
+2. **Naming inconsistency** `values_at_quantiles` vs `value_at_percentiles` → renamed to
+   `value_at_quantiles` / `value_at_percentiles` (matches the existing `value_at_*` family).
+   Also added `#[must_use]` + documented empty/clamp/q==0 behavior.
+
+Amended + force-pushed `perf/value-at-percentiles-batch` (96fa8ab → 26e3d39); PR comment posted.
+Contrast with Go: the Rust batch was already correct + panic-safe (it clamps the target to ≥1 like
+C #140), so no logic bugs — only tests + naming polish.
