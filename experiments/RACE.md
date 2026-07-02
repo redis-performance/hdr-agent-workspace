@@ -97,6 +97,18 @@ Relative to C (C = 1.00×):
 | READ 1 percentile Mq/s | 0.24 → **0.55** (2.29×, #138+#139) | 0.17 (no PR) | 0.046 → **0.107** (2.33×, #57) |
 | READ all-7 K calls/s | 12.4 → **86.4** (6.97×, #140) | 24.8 → **178.3** (7.19×, #138) | 14.6 → **58.8** (4.03×, #58) |
 
+### Remaining headroom (normalized to the frontier = best port's potential)
+
+![Headroom view](RACE-baseline/headroom-gnr1-2026-07-02.png)
+
+Frontier = the best achievable across ports for each metric (100%); the gap from a port's
+potential bar up to 100% is the headroom left after its current PR.
+- **WRITE**: frontier = C. Rust +15%, Go +21% — but memory-bound, hard to realize.
+- **READ 1 percentile**: frontier = C's AVX2. **Rust +69%, Go +81%** headroom = the SIMD gap
+  (both are scalar scans). This is the largest untapped opportunity.
+- **READ all-7**: frontier = Rust's single-pass. **C +52%, Go +67%** — both could match Rust's
+  allocation-light one-scan batch.
+
 ### Post-optimization read standings (with the open PRs applied)
 
 | metric | C (+PRs) | Rust (+PR) | Go (+PR) |
