@@ -263,3 +263,12 @@ prefix-sum scan (index→value at crossings only). **Benchmark** (gnr1, single c
 tip): **14,602 → 58,799 calls/sec = +303% (4×)** (68.5 → 17.0 µs). Write + singular unchanged; `bsink`
 byte-identical. **Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #58](https://github.com/HdrHistogram/hdrhistogram-go/pull/58)
 (stacked on #57; branch `perf/flat-scan-value-at-percentiles-batch` @ 0d3cb6e).
+
+## GO-EXP-003 — 2026-07-02 — Single unsigned bounds check in RecordValues (Go write)
+
+**Port**: hdrhistogram-go. **Target**: write. Port of C #136. Off master (b2087ec), independent of #57/#58.
+**Change**: `idx < 0 || int(h.countsLen) <= idx` → `uint(idx) >= uint(h.countsLen)` (one unsigned compare).
+**Benchmark** (gnr1, single core, same-session A/B): `RecordValue` **302.2M → 324.0M ops/s = +7.2%**.
+Read paths flat (controls); `sink` byte-identical. **Decision**: **ACCEPT** (modest, single-run same-session;
+proven-correct C #136 port). **Upstream**: [hdrhistogram-go #59](https://github.com/HdrHistogram/hdrhistogram-go/pull/59)
+(branch `perf/unsigned-bounds-check` @ 26c433e).
