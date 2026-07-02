@@ -254,3 +254,12 @@ the fallback) · A3 bounds/overflow ✅ · MSVC-safe (no intrinsics) ✅. MERGE-
 > **Process note**: the first A/B measured base-vs-base — I `git archive HEAD`'d the patch before
 > committing it. Always commit (or ship the working tree) before the archive-based A/B.
 
+
+## GO-EXP-002 — 2026-07-02 — Flat counts[] scan in ValueAtPercentiles (Go batch)
+
+**Port**: hdrhistogram-go. **Target**: read batch. **Stacked on #57** (reuses `valueFromFlatIndex`).
+**Change**: replaced the per-bucket iterator walk in `ValueAtPercentiles` with a single flat `counts[]`
+prefix-sum scan (index→value at crossings only). **Benchmark** (gnr1, single core, all 7/call, A/B vs #57
+tip): **14,602 → 58,799 calls/sec = +303% (4×)** (68.5 → 17.0 µs). Write + singular unchanged; `bsink`
+byte-identical. **Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #58](https://github.com/HdrHistogram/hdrhistogram-go/pull/58)
+(stacked on #57; branch `perf/flat-scan-value-at-percentiles-batch` @ 0d3cb6e).
