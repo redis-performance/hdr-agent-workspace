@@ -58,3 +58,33 @@ over the derived `u64` targets, not the `f64` inputs, and casts saturate cleanly
 Amended + force-pushed `perf/value-at-percentiles-batch` (96fa8ab → 26e3d39); PR comment posted.
 Contrast with Go: the Rust batch was already correct + panic-safe (it clamps the target to ≥1 like
 C #140), so no logic bugs — only tests + naming polish.
+
+---
+
+# C #138/#139/#140 adversarial review round — 2026-07-02
+
+6 subagents (`review-hdrhistogram` skill; @mikeb01 M.O.). NO correctness bugs found in any C PR.
+
+- **#138 (widen AVX2 4→16)** — MERGE-READY. Byte-identical PROVEN (16-lane block sum exact → same
+  first-crossing index for every input); bounds PROVEN (widest load counts[idx+12..+15] ≤ len-1,
+  scalar tail); uint64 hardening preserved; AVX2-gated + scalar fallback (MSVC safe). Offset-A1 gap is
+  PRE-EXISTING from #134, not worsened (#137's job). Benchmark table present in body.
+- **#139 (prefetch, stacked on #138)** — CODE MERGE-READY / PR process-blocked. Prefetch is non-faulting
+  (≤384 B past array, ASan-clean by design, sink byte-identical), portable, evidenced. Blocker: STACKED
+  on unmerged #138 → convert to draft until #138 merges, then rebase to one commit. Minor: `64`=4×stride
+  coupling; note CLX gcc+8%/clang0% alignment caveat.
+- **#140 (single-pass hdr_value_at_percentiles, flat scan)** — correctness MERGE-READY on BOTH the
+  offset==0 fast path (byte-identical to the iterator) AND the offset!=0 fallback (I added it; PROVEN
+  the necessary-and-sufficient gate; decoded histograms route to the untouched iterator — the #137
+  lesson done right). BUT **overlaps + textually conflicts with the open #137** (same base blob, same
+  function; #137 is a superset). And #137 *deletes* the AVX2 path that #138/#139 optimize.
+
+## Strategic problem (surfaced, needs owner decision)
+The 4 open C PRs conflict: #137 (portable block-sum, drops AVX2 dispatch, single-passes the batch)
+vs #138/#139 (enhance the AVX2 dispatch) vs #140 (single-passes the batch, keeps AVX2). Cannot all
+merge cleanly; mikeb01 dedupes overlapping PRs. Recommend consolidating to ONE coherent story.
+
+## Non-blocking asks the maintainer would make
+- #140: add a decoded-histogram (offset!=0) regression test — ctest doesn't cover the A1 fallback
+  ("the branch that bit us last time" = #137).
+- #140: strengthen the perf body (name the compiler, add a reproduce block, median-of-N).
