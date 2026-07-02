@@ -79,8 +79,10 @@ Plus: an adversarial review (`.claude/skills/review-hdrhistogram.md`) gates ever
 ## Workspace Layout
 
 ```
-HdrHistogram_c/                 submodule — fork fcostaoliveira/HdrHistogram_c (upstream remote = HdrHistogram/…)
+HdrHistogram_c/                 submodule — fork fcostaoliveira/HdrHistogram_c (upstream remote = HdrHistogram/…) — FOCUS
   src/hdr_histogram.c           primary target — record/value/percentile hot paths
+HdrHistogram_rust/              submodule — fork fcostaoliveira/HdrHistogram_rust (cross-port reference)
+hdrhistogram-go/                submodule — upstream HdrHistogram/hdrhistogram-go (cross-port reference)
   include/hdr/hdr_histogram.h   public struct + API (struct-layout changes)
   test/hdr_histogram_perf.c     immutable WRITE-path driver
   test/hdr_percentile_bench.c   immutable READ-path microbench
@@ -162,12 +164,17 @@ The merged fork PRs above are the baseline this workspace builds on.
 
 ---
 
-## Roadmap
+## Ports
 
-- **C** — the focus (this workspace).
-- **Rust / Go** — the [HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) and
-  [hdrhistogram-go](https://github.com/HdrHistogram/hdrhistogram-go) ports may later be wired in
-  as read-only cross-port references for idea mining. Not in scope yet.
+- **C** — the **focus** of the optimization loop (this workspace). Submodule `HdrHistogram_c/`
+  (fork `fcostaoliveira/HdrHistogram_c`, upstream `HdrHistogram/HdrHistogram_c`).
+- **Rust** — submodule `HdrHistogram_rust/` (fork `fcostaoliveira/HdrHistogram_rust`, upstream
+  `HdrHistogram/HdrHistogram_rust`). Cross-port reference for idea mining; not yet actively optimized.
+- **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`). Cross-port
+  reference; not yet actively optimized.
+
+Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
+(e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
 
 ---
 

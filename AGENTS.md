@@ -18,8 +18,11 @@ Push HdrHistogram_c forward on two paths:
   + `update_min_max`. Runs on every recorded sample.
 - **Read path** — `hdr_value_at_percentile` → `get_value_from_idx_up_to_count` dense scan.
 
-Focus is the **C** implementation. (The Rust and Go ports are out of scope for now; they
-may be added later as read-only cross-port references — see README "Roadmap".)
+Focus is the **C** implementation. The **Rust** (`HdrHistogram_rust/`, fork
+`fcostaoliveira/HdrHistogram_rust`) and **Go** (`hdrhistogram-go/`, upstream) ports are wired in
+as **read-only cross-port references** for idea mining — not actively optimized yet. An accepted
+C win that maps to a port is a candidate cross-pollination, but each port needs its own benchmark
++ validation + adversarial review before any change (see README "Ports").
 
 ---
 
