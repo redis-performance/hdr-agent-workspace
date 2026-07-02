@@ -52,3 +52,16 @@ Refresh: `GH_TOKEN= gh pr list -R HdrHistogram/HdrHistogram_c --state all --limi
   `perf/avx2-scan-prefetch` @ 3e8ae6a; 2 commits, reduces to the one-line prefetch after #138
   merges). Two-µarch data: gcc +8% both, clang neutral (Cascade Lake) → +5.7% (Granite Rapids).
   https://github.com/HdrHistogram/HdrHistogram_c/pull/139
+
+## Cross-port PRs (Go / Rust) — 2026-07-02
+Race-driven wins (see experiments/RACE.md GO-EXP-001 / RUST-EXP-001):
+- **hdrhistogram-go #57** — flat counts[] scan in ValueAtPercentile, +133% (0.0457→0.1066 Mq/s).
+  Needed a FORK (fcostaoliveira/hdrhistogram-go — created via `gh repo fork`; fcostaoliveira only had
+  pull access to the HdrHistogram org). Branch perf/flat-scan-value-at-percentile @ ca1ed92.
+  **Go upstream default branch is `master`, not `main`** (PR base=master).
+  https://github.com/HdrHistogram/hdrhistogram-go/pull/57
+- **HdrHistogram_rust #138** — single-pass value_at_percentiles/values_at_quantiles batch API,
+  +616% (7.2x) vs 7x singular. Pushed to existing fork fcostaoliveira/HdrHistogram_rust, branch
+  perf/value-at-percentiles-batch @ 96fa8ab. Base=main. https://github.com/HdrHistogram/HdrHistogram_rust/pull/138
+- **Perf lesson**: ports' singular flat scans are already tight; the batch loop must stay equally
+  tight (hoist next-target into a local) — a naive per-element `while` check was SLOWER than 7x singular.

@@ -197,3 +197,41 @@ widen base (673d52e). Read `hdr_value_at_percentile` throughput (Mq/s):
 plateau: 32 is too short (barely helps, clang flat), and 96/128 are identical to 64. The accepted
 prefetch (EXP-004 / PR #139) is already optimally tuned for this microarchitecture. No update to
 the submodule or PR #139.
+
+---
+
+## Cross-port optimizations (Go / Rust)
+
+## GO-EXP-001 — 2026-07-02 — Flat counts[] scan in ValueAtPercentile
+
+**Port**: hdrhistogram-go (Go v1.2.0). **Target**: read singular.
+**Change**: `getValueFromIdxUpToCount` walked the logical bucket/sub-bucket structure (recomputing
+indices + value per element). Replaced with a tight prefix-sum scan over the flat `counts[]` array
+(which the walk already visited in order) + a one-time flat-index→value decomposition (`valueFromFlatIndex`).
+**Benchmark** (gnr1, single core, same-session A/B via race Go driver):
+`ValueAtPercentile` **0.0457 → 0.1066 Mq/s = +133%** (21.9 → 9.4 µs/query). Write + ValueAtPercentiles unchanged (controls); `sink` byte-identical.
+**Correctness**: `go test ./...` green; sink match.
+**Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #57](https://github.com/HdrHistogram/hdrhistogram-go/pull/57)
+(fork `fcostaoliveira/hdrhistogram-go` branch `perf/flat-scan-value-at-percentile` @ ca1ed92).
+
+## RUST-EXP-001 — 2026-07-02 — Single-pass value_at_percentiles batch API
+
+**Port**: HdrHistogram_rust (7.5.4). **Target**: read batch (new API).
+**Change**: added `values_at_quantiles`/`value_at_percentiles` that resolve N percentiles in ONE
+scan over `counts[]` (Rust had no batch API → callers did N singular scans). Key detail: the
+next target is **hoisted into a local** so the hot loop stays a tight `total += counts[i]; if total
+>= next_target` — the same shape as the singular scan.
+**Iteration**: v1 (naive `while pos<n && total>=targets[order[pos]]` per element) was *slower* than
+7× singular (17.2K vs 24.9K calls/sec) — per-element bookkeeping killed the tight loop. v2 (hoisted
+target) fixed it.
+**Benchmark** (gnr1, single core, all 7 percentiles per call): 7× `value_at_percentile` 24,896
+calls/sec → `value_at_percentiles` **178,326 calls/sec = +616% (7.2×)** (40.2 → 5.6 µs). Write +
+singular unchanged; `bsink` byte-identical (sorted + unsorted inputs, incl. 0/100 edges).
+**Correctness**: batch == per-quantile results verified; existing paths unchanged.
+**Decision**: **ACCEPT**. **Upstream**: [HdrHistogram_rust #138](https://github.com/HdrHistogram/HdrHistogram_rust/pull/138)
+(fork `fcostaoliveira/HdrHistogram_rust` branch `perf/value-at-percentiles-batch` @ 96fa8ab).
+
+> **Lesson (both):** the ports' *singular* flat scans are already near-optimal (tight
+> `total += counts[i]` loops the compiler vectorizes). Wins come from (a) making a slow path use that
+> same tight scan (Go), and (b) doing N percentiles in one such scan — but only if the batch loop stays
+> equally tight (Rust v1 vs v2).
