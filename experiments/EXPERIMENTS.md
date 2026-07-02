@@ -235,3 +235,22 @@ singular unchanged; `bsink` byte-identical (sorted + unsorted inputs, incl. 0/10
 > `total += counts[i]` loops the compiler vectorizes). Wins come from (a) making a slow path use that
 > same tight scan (Go), and (b) doing N percentiles in one such scan — but only if the batch loop stays
 > equally tight (Rust v1 vs v2).
+
+## EXP-006 — 2026-07-02 — Single-pass hdr_value_at_percentiles (C batch)
+
+**Target path**: read batch. **Base**: official upstream/main (v0.11.10, 18c7a32) — independent of #138/#139.
+**Change**: `hdr_value_at_percentiles` resolved percentiles via a per-bucket `hdr_iter_next` walk.
+For `normalizing_index_offset == 0` (common), replaced with a single tight prefix-sum scan over the
+flat `counts[]` array (index→value only at crossings). **Offset-aware fallback kept**: decoded/rotated
+histograms (offset != 0) still use the normalizing iterator. Ascending-percentile contract preserved.
+**Benchmark** (gnr1, single core, all 7 percentiles/call, same-session A/B): `hdr_value_at_percentiles`
+**12,357 → 86,403 calls/sec = +599% (7×)** (80.9 → 11.6 µs). Write + singular unchanged (controls).
+**Correctness**: ctest 5/5, ASan/UBSan clean, HDR_LOG=DISABLED builds, batch==singular byte-identical,
+`bsink` unchanged. **Adversarial review (review-hdrhistogram)**: A1 offset-aware ✅ (the whole point of
+the fallback) · A3 bounds/overflow ✅ · MSVC-safe (no intrinsics) ✅. MERGE-READY.
+**Decision**: **ACCEPT**. **Upstream**: [HdrHistogram_c #140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140)
+(fork branch `perf/single-pass-value-at-percentiles` @ 7c8af3d, base main).
+
+> **Process note**: the first A/B measured base-vs-base — I `git archive HEAD`'d the patch before
+> committing it. Always commit (or ship the working tree) before the archive-based A/B.
+

@@ -145,7 +145,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 | Status | Count |
 |--------|------:|
-| Accepted | 2 |
+| Accepted | 3 |
 | Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |

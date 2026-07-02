@@ -65,3 +65,11 @@ Race-driven wins (see experiments/RACE.md GO-EXP-001 / RUST-EXP-001):
   perf/value-at-percentiles-batch @ 96fa8ab. Base=main. https://github.com/HdrHistogram/HdrHistogram_rust/pull/138
 - **Perf lesson**: ports' singular flat scans are already tight; the batch loop must stay equally
   tight (hoist next-target into a local) — a naive per-element `while` check was SLOWER than 7x singular.
+
+## C-EXP-006 — single-pass hdr_value_at_percentiles (PR #140, 2026-07-02)
+Flat counts[] scan replacing the iterator in hdr_value_at_percentiles (offset==0 fast path,
+offset!=0 iterator fallback kept). +599% (7x): 12.4K->86.4K calls/sec. Base upstream/main (18c7a32),
+independent of #138/#139. Branch perf/single-pass-value-at-percentiles @ 7c8af3d on fork.
+https://github.com/HdrHistogram/HdrHistogram_c/pull/140
+Gotcha: first A/B was base-vs-base — `git archive HEAD` ran before committing the change. Commit first.
+Total open upstream PRs across fleet: C #138/#139/#140, Go #57, Rust #138 = 5.

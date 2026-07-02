@@ -80,18 +80,21 @@ Relative to C (C = 1.00×):
    `values_at_quantiles` (one scan for N percentiles). **+616% (7.2×)** on the batch metric (24.9K →
    178.3K calls/sec), making Rust the fastest port at getting all 7. PR
    [HdrHistogram_rust #138](https://github.com/HdrHistogram/HdrHistogram_rust/pull/138). See RUST-EXP-001.
-3. **C — batch API** (still open): `hdr_value_at_percentiles` should collect the requested percentiles
-   in a **single fast scan** instead of the iterator (currently 81 µs, slower than looping its own
-   singular ~29 µs). Candidate next experiment.
+3. **C — batch API**: ✅ **DONE** — `hdr_value_at_percentiles` now does a single flat `counts[]` scan
+   (offset-aware fallback kept) instead of the iterator. **+599% (7×)** (12.4K → 86.4K calls/sec;
+   80.9 → 11.6 µs). PR [HdrHistogram_c #140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140).
+   See EXP-006.
 4. **Go — batch API** could likewise reuse the flat scan; and Go/Rust singular could adopt C's
    SIMD/prefetch ideas (PRs #138/#139) for a further step.
 
-### Post-optimization read standings (with the two open PRs applied)
+### Post-optimization read standings (with the open PRs applied)
 
-| metric | C v0.11.10 | Rust (+PR) | Go (+PR) |
-|--------|-----------:|-----------:|---------:|
+| metric | C (+PRs) | Rust (+PR) | Go (+PR) |
+|--------|---------:|-----------:|---------:|
 | READ 1 percentile (Mq/s) | 0.2425 | 0.1741 | **0.1066** (was 0.0457) |
-| READ all-7 (calls/sec)   | 12,389 | **178,326** (was 24,898) | 14,604 |
+| READ all-7 (calls/sec)   | **86,403** (was 12,389) | **178,326** (was 24,898) | 14,604 |
+
+Every port's batch/percentile read path improved via an open upstream PR; all results stay byte-identical.
 
 > **Note on C's tip**: this baseline uses the **official 0.11.10** (4×int64 AVX2 scan). This workspace's
 > pending PRs [#138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138) (widen 4→16) +

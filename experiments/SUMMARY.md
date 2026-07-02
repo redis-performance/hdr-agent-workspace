@@ -4,7 +4,7 @@ Single source of truth for experiment status. Keep `README.md` counts in sync.
 
 | Status | Count |
 |--------|------:|
-| Accepted | 2 |
+| Accepted | 3 |
 | Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |
@@ -19,3 +19,4 @@ by maintainer, #137 open) that this workspace builds on.
 | [003](EXPERIMENTS.md#exp-003--2026-07-01--software-prefetch-counts-ahead-in-the-widened-avx2-scan) | 2026-07-01 | read | Tier 5 SW prefetch counts[] | PARK→**see 004** | gcc +8% / clang flat (Cascade Lake) | — |
 | [004](EXPERIMENTS.md#exp-004--2026-07-01--cross-µarch-validation-of-the-counts-prefetch-promotes-exp-003) | 2026-07-01 | read | prefetch cross-µarch validation (gnr1) | **ACCEPT** | **gcc +8% / clang +6%** (2 µarchs) | **[#139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** |
 | [005](EXPERIMENTS.md#exp-005--2026-07-01--prefetch-distance-sweep-confirms-exp-004s-d64) | 2026-07-01 | read | prefetch distance sweep | CONFIRM | D=64 optimal (plateau) | — (no change) |
+| [006](EXPERIMENTS.md#exp-006--2026-07-02--single-pass-hdr_value_at_percentiles-c-batch) | 2026-07-02 | read batch | single-pass hdr_value_at_percentiles | **ACCEPT** | **+599% (7×)** | **[#140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140)** |
