@@ -20,7 +20,7 @@ data = {
         "unit": "Mq/s", "scale": 1.0,
         "C":    (0.2425, 0.5549, "#138+#139"),
         "Rust": (0.1741, 0.1741, "no PR"),
-        "Go":   (0.0457, 0.1066, "#57 ✓ 22a1b78"),
+        "Go":   (0.0457, 0.1833, "#57✓ +#62"),
     },
     "READ all 7 — value_at_percentiles()\n(thousand calls/sec, ↑ better)": {
         "unit": "K calls/s", "scale": 0.001,

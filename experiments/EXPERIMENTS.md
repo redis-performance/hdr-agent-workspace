@@ -272,3 +272,15 @@ byte-identical. **Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #58](ht
 Read paths flat (controls); `sink` byte-identical. **Decision**: **ACCEPT** (modest, single-run same-session;
 proven-correct C #136 port). **Upstream**: [hdrhistogram-go #59](https://github.com/HdrHistogram/hdrhistogram-go/pull/59)
 (branch `perf/unsigned-bounds-check` @ 26c433e).
+
+## GO-EXP-004 — 2026-07-02 — Round 2: range loops to elide bounds checks (Go read)
+
+**Port**: hdrhistogram-go (on merged master 22a1b78). **Target**: read (singular + batch).
+**Change**: both flat `counts[]` scans (getValueFromIdxUpToCount + ValueAtPercentiles) iterated with an
+int index (`counts[idx]` bounds-checked every element). Switched to `for idx, c := range h.counts` so
+Go elides the per-element bounds check. **Benchmark** (gnr1, single core, A/B vs master):
+- `ValueAtPercentile` **0.1067 → 0.1833 Mq/s = +71.8%** (9.4 → 5.5 µs) — Go singular now BEATS Rust (0.174).
+- `ValueAtPercentiles` batch **58,779 → 70,237 calls/s = +19.5%**.
+- write flat (control); `sink`/`bsink` byte-identical.
+**Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62)
+(branch `perf/scan-bounds-check-elim` @ 0656725). Bounds-check elimination was Go's dominant scalar-scan cost.

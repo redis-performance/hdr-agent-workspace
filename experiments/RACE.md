@@ -113,7 +113,7 @@ potential bar up to 100% is the headroom left after its current PR.
 
 | metric | C (+PRs) | Rust (+PR) | Go (+PR) |
 |--------|---------:|-----------:|---------:|
-| READ 1 percentile (Mq/s) | 0.2425 | 0.1741 | **0.1066** (was 0.0457) |
+| READ 1 percentile (Mq/s) | 0.2425 | 0.1741 | **0.1833** (0.0457 → #57 0.107 → #62 0.183; now > Rust) |
 | READ all-7 (calls/sec)   | **86,403** (was 12,389) | **178,326** (was 24,898) | 14,604 |
 
 Every port's batch/percentile read path improved via an open upstream PR; all results stay byte-identical.
