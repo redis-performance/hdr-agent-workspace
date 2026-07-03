@@ -1,0 +1,32 @@
+EXP-007 — blocked skip-scan in hdr_value_at_percentiles batch fast path (C)
+base = 6a5438f (main + #138 widen16 + #139 prefetch + #140 single-pass batch)
+patch = fb440a0 (perf/blocked-batch-scan)
+gnr1 (Intel Granite Rapids), single core, core 8, interleaved base/patch x2 rounds.
+
+              base r1     patch r1    base r2     patch r2
+WRITE (M/s)   409.12      409.28      407.69      409.15
+READ (Mq/s)   0.5550      0.5550      0.5550      0.5550     (AVX2 singular path untouched)
+BATCH (c/s)   86767       203037      86811       203723
+sink          11311209184862912  (identical all runs)
+bsink         4263457582300000   (identical all runs)
+
+DELTA (median):
+  BATCH  86789 -> 203380  = +134.4% (2.34x)   <- target metric
+  READ   0.5550 unchanged
+  WRITE  ~flat (noise)
+Mechanism: sum 8 counters/block (autovectorizes AVX2/NEON under -march=native), skip
+whole blocks that can't reach the next pending target; element-walk only crossing block.
+Offset-aware iterator fallback unchanged. Predicted +1.5-2x; delivered 2.34x.
+
+Correctness: ctest 4/4 PASS; ASan/UBSan clean (leaks-off; pre-existing test-harness
+LSan noise only); new test_value_at_percentiles_blocked_parity (dense hist, fine
+percentile sweep, blocked==iterator byte-identical) PASS.
+
+--- ADVERSARIAL REVIEW (review-hdrhistogram, @mikeb01 lens) ---
+Ascending-order concern: RESOLVED — equivalence is UNCONDITIONAL (block-skip only
+  skips when no element in the block can cross; independent of percentile order).
+A1 offset-aware fallback: unchanged (the #137 failure axis) ✅
+gcc+clang -Wall -Wextra -Werror -std=c99: clean; ctest 4/4; ASan/UBSan UB-clean.
+Verdict: NEEDS WORK -> 1 minor blocker: new test used free() not hdr_close() (leaks
+  counts array under LSan). Fixed (hdr_close), leak gone. -> MERGE-READY.
+PR: HdrHistogram_c#141 (stacked on #140).
