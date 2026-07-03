@@ -1,0 +1,40 @@
+RUST-EXP-003 — chunked skip-scan in value_at_quantile
+base = a3818d6 (main / 7.5.4), patch = 12f226a (perf/chunked-scan)
+gnr1 (Intel Granite Rapids), single core, core 8, interleaved base/patch x2 rounds.
+
+              base r1     patch r1    base r2     patch r2
+WRITE (M/s)   348.36      347.77      348.33      348.20
+READ (Mq/s)   0.1741      0.2781      0.1741      0.2791
+BATCH (c/s)   24822       41069       24827       40818     (7x singular, no native batch)
+sink          11311209184862912  (identical all runs)
+bsink         4263457582300000   (identical all runs)
+
+DELTA (median):
+  READ-1  0.1741 -> 0.2786 = +60.0%   <- chunked skip-scan
+  BATCH   24825  -> 40944  = +65.0%   (batch = 7x value_at_quantile on main -> rides the read win)
+  WRITE   ~flat (noise)
+Mechanism: chunks_exact(8) reduction (autovectorizes), skip chunks that can't reach
+target, element-walk only crossing chunk. Supersedes #139 (+5% BCE) by a wide margin.
+Rust patched read 0.2786 now leads Go #64 (0.2749); behind only C AVX2 (0.5550).
+
+Correctness: 161 lib + integration tests PASS; new white-box parity test
+(chunked==linear, chunks_exact residues x quantile sweep x 4 configs) PASS;
+cargo fmt clean; clippy delta 0 (34 both main and patch).
+
+--- RE-A/B on amended commit 55321e8 (added unreachable!() + stronger tests) ---
+              base r1   patch r1   base r2   patch r2
+READ (Mq/s)   0.1738    0.2829     0.1739    0.2844
+BATCH (c/s)   24816     41020      24822     40845
+READ +62.9%, BATCH +64.8%, WRITE flat, sink/bsink identical. Hot path unchanged; the
+unreachable!() is a dead-branch annotation (marginally better, within noise).
+
+--- ADVERSARIAL REVIEW (hdr-reviewer-rust, @jonhoo lens) ---
+Verdict: MERGE-READY. Correctness equivalence CONFIRMED (skip sound, crossing always
+returns, index bookkeeping exact, generic T safe, no overflow worse than baseline, no
+unsafe). Zero new clippy/fmt; MSRV 1.64/edition-2018/minimal-versions clear.
+2 low-severity polish items, both addressed:
+  #1 // Unreachable comment -> unreachable!() (self-enforcing invariant).
+  #2 test coverage: made oracle+sweep generic over u8/u16/u32/u64; added tail-crossing
+     test via sig=0 (discovered: for sig>=1 counts.len() is ALWAYS a multiple of 8, so
+     the remainder tail is unreachable — sig=0 is the only way to exercise it).
+PR strategy: NEW PR superseding+closing #139 (chunked scan subsumes its BCE).
