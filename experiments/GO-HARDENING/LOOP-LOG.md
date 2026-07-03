@@ -24,3 +24,14 @@ Backlog (from GO-HARDENING-PLAN.md + audit critic):
 Pending review: #68/#69/#70 (self-verified + regression tests; adversarial review queued).
 Next: New() arg validation, coverage tests (zigzag/buckets/RecordCorrectedValue), C7, D2, D1,
   ValueAtQuantile NaN, golden vectors, + adversarial reviews of the loop PRs.
+
+### Turn 2-3 (2026-07-03)
+- Reviews (worktree-isolated): #68 C4 MERGE-READY (1 nit -> added clarifying comment be1cefd),
+  #69 Reset MERGE-READY (no findings), #70 bench MERGE-READY (no findings).
+- [x] Coverage boost -> PR #71 (test-only): zigzag 1..9-byte ladder, New/MaxInt64 overflow guard,
+  RecordCorrectedValue out-of-range, Merge dropped. Total coverage 85.9% -> 87.8%; targeted funcs
+  zig_zag_encode/getBucketsNeeded/Merge now 100%.
+- Probed New() degenerate args (lo>=hi, lo==hi): NOT a bug (builds a permissive histogram, no panic;
+  negative values rejected on record). No New error-return without an API break -> skip.
+Next: log-reader golden VALUES (strengthen weak err-only tests), then D2 (last-line-no-newline,
+  coordinate with #65), C7 (negative n, stack on #64). Avoid #66-conflicting golden-encode vectors.

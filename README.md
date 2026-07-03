@@ -47,6 +47,7 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | **OPEN** (stacked on #67) | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs |
 | [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | **OPEN** (loop) | `Reset` clears tag/start/end time, not just counts |
 | [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | **OPEN** (loop) | bench: remove dead fill loop that panics for b.N>1e6 |
+| [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | **OPEN** (loop) | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
