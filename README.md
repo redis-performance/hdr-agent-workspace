@@ -14,7 +14,7 @@ maintainer's real review M.O. Every experiment is logged; failures are as valuab
 
 ---
 
-## Upstream PRs — cross-port status (last updated 2026-07-02)
+## Upstream PRs — cross-port status (last updated 2026-07-03)
 
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
@@ -37,8 +37,8 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#57](https://github.com/HdrHistogram/hdrhistogram-go/pull/57) | ✅ **MERGED** `22a1b78` | flat `counts[]` scan in `ValueAtPercentile` — read +133% |
 | [#58](https://github.com/HdrHistogram/hdrhistogram-go/pull/58) | ✅ **MERGED** `bbda977` | flat `counts[]` scan in `ValueAtPercentiles` (batch) — +303% |
 | [#59](https://github.com/HdrHistogram/hdrhistogram-go/pull/59) | ✅ **MERGED** `37ca617` | single unsigned bounds check in `RecordValues` (write) — +7% |
-| [#62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62) | **OPEN** (round 2) | `range` over `counts[]` in the scans to elide bounds checks — read **+72%** (Go now beats Rust's scalar) |
-| [#63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63) | **OPEN** (round 3) | `ValueAtPercentilesSlice` — ordered `[]int64` batch (no map alloc) — batch **+42.5%** |
+| [#62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62) | ✅ **MERGED** `ebe2303` | `range` over `counts[]` in the scans to elide bounds checks — read **+72%** |
+| [#63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63) | ✅ **MERGED** `6b5dd0d` | `ValueAtPercentilesSlice` — ordered `[]int64` batch (no map alloc) — batch **+42.5%** |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
@@ -193,9 +193,9 @@ The merged fork PRs above are the baseline this workspace builds on.
 - **Rust** — submodule `HdrHistogram_rust/` (fork `fcostaoliveira/HdrHistogram_rust`, upstream
   `HdrHistogram/HdrHistogram_rust`). Actively optimized: single-pass batch API (#138) and
   bounds-check-elided scan (#139, +5.1%).
-- **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`). Actively
-  optimized: flat-scan read/batch (#57/#58 merged), unsigned bounds check (#59 merged), `range`
-  BCE (#62, +72%), and `ValueAtPercentilesSlice` batch (#63, +42.5%).
+- **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`). **Fully optimized —
+  all 5 perf PRs merged**: flat-scan read (#57) + batch (#58), unsigned bounds check (#59), `range`
+  BCE (#62, +72%), and `ValueAtPercentilesSlice` batch (#63, +42.5%). `master` = frontier.
 
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
