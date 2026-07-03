@@ -41,6 +41,8 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62) | ✅ **MERGED** `ebe2303` | `range` over `counts[]` in the scans to elide bounds checks — read **+72%** |
 | [#63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63) | ✅ **MERGED** `6b5dd0d` | `ValueAtPercentilesSlice` — ordered `[]int64` batch (no map alloc) — batch **+42.5%** |
 | [#64](https://github.com/HdrHistogram/hdrhistogram-go/pull/64) | **OPEN** (round 4) | blocked prefix-sum skip-scan (read **+50%**) + write bounds-check elision (**+5.1%**) + `Import` length hardening |
+| [#65](https://github.com/HdrHistogram/hdrhistogram-go/pull/65) | **OPEN** (hardening) | fix 6 untrusted-input panics in `Decode`/log-reader + native Go fuzzers + ClusterFuzzLite/CI (repo had zero fuzzing) |
+| [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | **OPEN** (hardening) | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
