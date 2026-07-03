@@ -35,3 +35,22 @@ Next: New() arg validation, coverage tests (zigzag/buckets/RecordCorrectedValue)
   negative values rejected on record). No New error-return without an API break -> skip.
 Next: log-reader golden VALUES (strengthen weak err-only tests), then D2 (last-line-no-newline,
   coordinate with #65), C7 (negative n, stack on #64). Avoid #66-conflicting golden-encode vectors.
+
+### Turn 4 (2026-07-03)
+- Noted PR #64 MERGED upstream -> master now b00adb1 (blocked scan + write BCE). README updated.
+- [x] D2: log_reader final interval line without trailing newline was silently dropped.
+  bufio ReadString returns the buffered final line together with io.EOF; old code broke on EOF
+  before processing it. Fix: on EOF, break only when line=="" else fall through to decode it.
+  Regression test TestHistogramLogReader_finalLineNoTrailingNewline (3 intervals, strip newline,
+  assert all 3 read + last decodes identically). Worktree adversarial review: MERGE-READY
+  (traced no infinite loop, no line[0] panic, byte-identical payload parity). -> PR #72.
+  (Pre-existing Tag=-without-comma panic now marginally more reachable; deferred to #65's guard.)
+- [x] (a) Strengthen weak log-reader tests: TestHistogramLogReader_logV2 / _tagged_log asserted
+  only err==nil+NotNil and jHiccup under-drained (61/62). Pin interval-0 golden values
+  (Total=741, Start=1441812279601, End=1441812280608, Max=2768895, p50=344063, p99=409599) via
+  shared assertGoldenInterval0 + full drain count (62/42). Test-only, self-verified (values are
+  exactly what the reader emits). -> PR #73.
+- Full unfiltered `go test ./...` + vet + gofmt green for both. Submodule restored to b00adb1.
+Open loop PRs now: #65,#66,#67,#68,#69,#70,#71,#72,#73.
+Next: C7 (RecordValues rejects negative n — #64 now merged so stacks cleanly on master),
+  then wind down (backlog conflict-light items nearly exhausted; D1 overlaps #65's Decode).
