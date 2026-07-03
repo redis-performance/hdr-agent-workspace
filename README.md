@@ -44,6 +44,9 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#65](https://github.com/HdrHistogram/hdrhistogram-go/pull/65) | **OPEN** (hardening) | fix 6 untrusted-input panics in `Decode`/log-reader + native Go fuzzers + ClusterFuzzLite/CI (repo had zero fuzzing) |
 | [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | **OPEN** (hardening) | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing · `StartTime` UTC (closes #61) |
 | [#67](https://github.com/HdrHistogram/hdrhistogram-go/pull/67) | **OPEN** (hardening) | percentile edge contracts — empty histogram (closes #60), negative clamp, map phantom key |
+| [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | **OPEN** (stacked on #67) | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs |
+| [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | **OPEN** (loop) | `Reset` clears tag/start/end time, not just counts |
+| [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | **OPEN** (loop) | bench: remove dead fill loop that panics for b.N>1e6 |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
