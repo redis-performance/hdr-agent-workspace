@@ -27,3 +27,14 @@ Fix: Import now copies into the New-sized counts[] (invariant now TRUE), fixing 
 Round 2: MERGE-READY — invariant holds across all 3 counts write-sites (New/Import/
   Reset); Export->Import roundtrip byte-identical; alias removal strictly safer;
   nil/empty/over/undersized snapshots all non-panicking. No remaining findings.
+
+--- MAINTAINER REVIEW ROUND (dkropachev, PR #64) ---
+dkropachev (COMMENTED): negative percentiles leak through ValueAtPercentilesSlice —
+  the doc promises clamp to [0,100] but only >100 was clamped; a negative percentile
+  resolves at flat idx 0 and, since the zero-branch tested the unclamped input
+  (== 0.0), returned highestEquivalentValue(0) (=63 for New(100,...)) instead of the
+  documented 0th-percentile lowest-equivalent value.
+Fix (a50a339): clamp <0 to 0 when building targets; zero-branch uses `<= 0.0`.
+  Regression test over New(100,...) asserts negative/zero == ValueAtPercentile(0);
+  proven to FAIL on old code, PASS on fix. Full suite + vet green. Submodule -> a50a339.
+Scope: left singular/map APIs (docs say percentiles *must* be in range = precondition).
