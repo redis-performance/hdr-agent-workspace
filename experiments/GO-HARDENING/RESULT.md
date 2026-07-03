@@ -25,3 +25,17 @@ C7 (negative n), C8 (Reset metadata), D2 (last-line-no-newline), D3 (benchmark d
 Phase-3 coverage/test-quality tests, D1 memory-amplification (needs an absolute geometry cap, not
 the unsound payload-ratio guard the critic rejected), and the decode-side normalizingIndexOffset
 handling for foreign rotated histograms.
+
+## Open-issue triage (2026-07-03) + closures
+Checked all 8 open hdrhistogram-go issues against current master:
+- #60 (empty hist -> non-zero percentile): VALID, reproduced -> FIXED in PR #67 (empty guard).
+- #61 (OutputStartTime local TZ): VALID -> FIXED in PR #66 (.UTC()).
+- #49 (windowed panic index-oob): crash signature GONE (#57 removed the function) but the
+  Rotate() concurrency root cause remains (window.go:43-44 unsynchronized) -> status note posted;
+  do not close as fixed. #65's -race CI job would catch regressions.
+- #24 (timestamps since epoch): still open; references PR #23 which is still OPEN/unmerged.
+- #28 (Record Float64/DoubleHistogram), #36 (PackedHistogram), #50 (compare images): valid,
+  unimplemented feature requests.
+- #32 (repo transfer umbrella): stale/informational (transfer done long ago).
+
+New PR: #67 fix/percentile-contracts (empty #60 + negative clamp + map phantom key). Review MERGE-READY.
