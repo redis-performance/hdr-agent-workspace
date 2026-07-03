@@ -41,26 +41,26 @@ Each port measured in **three states**, same-session on gnr1, single core, core-
 - **potential** — default branch + **all** open optimization PRs from this workspace, cherry-picked
   into one tree (C `e081c5d` = #138+#139+#140; Rust `0f6a5d2` = #138+#139; Go = nothing open — all merged)
 
-> **Go is fully merged.** All five perf PRs (#57/#58/#59, then #62/#63 on 2026-07-03) have landed on
-> `master` (`ebe2303`), so Go's `master` **is** its `potential` — no gap left. C and Rust have shipped
-> nothing since their release, so their `version` and `master` bars are identical and every gain still
-> sits in `potential` (open PRs). The batch column uses each state's *best available* API: C
-> `hdr_value_at_percentiles` throughout; Rust 7×singular until the native batch (#138); Go
-> `ValueAtPercentiles` until the ordered-slice API (#63, now merged).
+> **Go: #57–#63 merged, #64 open.** Five perf PRs (#57/#58/#59, then #62/#63 on 2026-07-03) are on
+> `master` (`ebe2303`); a sixth (#64: blocked read scan + write BCE) is open, so Go's `potential` again
+> exceeds `master`. C and Rust have shipped nothing since their release, so their `version` and `master`
+> bars are identical and every gain sits in `potential` (open PRs). The batch column uses each state's
+> *best available* API: C `hdr_value_at_percentiles` throughout; Rust 7×singular until the native batch
+> (#138); Go `ValueAtPercentiles` until the ordered-slice API (#63, merged).
 
-| metric | C ver=master | C potential | Rust ver=main | Rust potential | Go version | Go master = potential |
-|--------|-------------:|------------:|--------------:|---------------:|-----------:|----------------------:|
-| WRITE (M ops/s)     | 408.9 | 409.2 | 348.8 | 347.8 | 311.4 | 319.0 |
-| READ-1 (Mq/s)       | 0.2425 | **0.5550** (2.29×) | 0.1741 | 0.1828 (1.05×) | 0.0457 | **0.1833** (4.01×) |
-| READ-7 (K calls/s)  | 12.4 | **86.8** (7.0×) | 24.8 | **178.6** (7.2×) | 14.6 | **83.6** (5.7×) |
+| metric | C ver=master | C potential | Rust ver=main | Rust potential | Go version | Go master | Go potential |
+|--------|-------------:|------------:|--------------:|---------------:|-----------:|----------:|-------------:|
+| WRITE (M ops/s)     | 408.9 | 409.2 | 348.8 | 347.8 | 311.4 | 319.0 | 337.3 (#64) |
+| READ-1 (Mq/s)       | 0.2425 | **0.5550** (2.29×) | 0.1741 | 0.1828 (1.05×) | 0.0457 | 0.1833 | **0.2749** (#64) |
+| READ-7 (K calls/s)  | 12.4 | **203.4** (16.4×, #140+#141) | 24.8 | 178.6 (7.2×) | 14.6 | 83.6 | 83.6 |
 
 All cells cross-checked byte-identical (`sink`/`bsink` unchanged across every state). C/Rust `potential`
-multipliers are vs their own `version=master`; Go's are the full released→merged arc (`version` → today's
-`master`). Go's `master`==`potential` numbers were **re-measured directly on the merge commit `ebe2303`**
-(320.6M / 0.1833 / 83.5K), confirming the pre-merge cherry-pick tree within run-to-run noise (raw:
-[`RACE-baseline/2026-07-03-gnr1-go-master-merged.txt`](RACE-baseline/2026-07-03-gnr1-go-master-merged.txt)).
-Note READ-1 is now a **near-tie at the frontier for Rust-potential/Go-merged** (0.1828 vs 0.1833) — both
-scalar scans, ~3× behind C's AVX2 potential (0.5550): the remaining headroom is SIMD.
+multipliers are vs their own `version=master`; Go's `master` is the released→merged arc, `potential` adds
+the open #64. Two notable shifts from this round's work:
+- **C is now the batch frontier** — the blocked skip-scan (#141) lifts C's `value_at_percentiles` to
+  **203.4K calls/s**, past Rust's native-batch 178.6K.
+- **Go's open #64 blocked read scan** pushes read-1 to **0.2749 Mq/s** (+50% over merged master),
+  overtaking Rust's 0.1828 — though both remain ~2× behind C's AVX2 (0.5550); the rest is SIMD.
 
 ## Methodology
 

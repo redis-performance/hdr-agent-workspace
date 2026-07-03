@@ -16,28 +16,28 @@ data = {
         "unit": "M ops/s", "scale": 1e-6,
         "C":    (408894193, 408894193, 409163329),
         "Rust": (348798542, 348798542, 347821787),
-        "Go":   (311382830, 319018462, 319018462),
-        "labels": {"C": ("0.11.10", "=", "no PR"), "Rust": ("7.5.4", "=", "no PR"), "Go": ("v1.2.0", "✓#57-63", "=mstr")},
+        "Go":   (311382830, 319018462, 337300000),
+        "labels": {"C": ("0.11.10", "=", "no PR"), "Rust": ("7.5.4", "=", "no PR"), "Go": ("v1.2.0", "mstr", "#64")},
     },
     "READ 1 percentile — value_at_percentile()\n(million queries/sec, ↑ better)": {
         "unit": "Mq/s", "scale": 1.0,
         "C":    (0.2425, 0.2425, 0.5550),
         "Rust": (0.1741, 0.1741, 0.1828),
-        "Go":   (0.0457, 0.1833, 0.1833),
-        "labels": {"C": ("0.11.10", "=", "#138+#139"), "Rust": ("7.5.4", "=", "#139"), "Go": ("v1.2.0", "✓#57-63", "=mstr")},
+        "Go":   (0.0457, 0.1833, 0.2749),
+        "labels": {"C": ("0.11.10", "=", "#138+#139"), "Rust": ("7.5.4", "=", "#139"), "Go": ("v1.2.0", "mstr", "#64")},
     },
     "READ all 7 — value_at_percentiles()\n(thousand calls/sec, ↑ better)": {
         "unit": "K calls/s", "scale": 1e-3,
-        "C":    (12393, 12393, 86794),
+        "C":    (12393, 12393, 203380),
         "Rust": (24818, 24818, 178551),
         "Go":   (14600, 83631, 83631),
-        "labels": {"C": ("0.11.10", "=", "#140"), "Rust": ("7×sing", "=", "#138"), "Go": ("v1.2.0", "✓#57-63", "=mstr")},
+        "labels": {"C": ("0.11.10", "=", "#140+#141"), "Rust": ("7×sing", "=", "#138"), "Go": ("v1.2.0", "✓#57-63", "=mstr")},
     },
 }
 
 fig, axes = plt.subplots(1, 3, figsize=(18, 6))
 fig.suptitle("HdrHistogram ports — version (released) · master (default branch) · potential (open PRs)\n"
-             "gnr1 (Intel Granite Rapids), single core · same-session A/B · Go is fully MERGED (master=potential); C & Rust gains still in open PRs",
+             "gnr1 (Intel Granite Rapids), single core · same-session A/B · Go: #57-63 merged on master, #64 open · C & Rust gains all in open PRs",
              fontsize=12, fontweight="bold")
 
 x = np.arange(len(ports))

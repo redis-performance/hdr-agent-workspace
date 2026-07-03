@@ -29,6 +29,7 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138) | **OPEN** ✅ CI green | widen AVX2 percentile scan 4→16/iter — read +137%/+144% |
 | [#139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139) | **DRAFT** (stacked on #138) | prefetch `counts[]` — read +8% (2 µarchs) |
 | [#140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140) | **OPEN** ✅ CI green | single-pass `hdr_value_at_percentiles` (+ offset test) — batch +599% |
+| [#141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141) | **OPEN** (stacked on #140) | blocked skip-scan for the batch fast path — batch **+134%** on top of #140 (2.34×) |
 | [#137](https://github.com/HdrHistogram/HdrHistogram_c/pull/137) | **OPEN** ⚠️ conflicts | portable block-sum (drops AVX2) + single-pass batch — overlaps #138/#139/#140 |
 
 ### Go — [HdrHistogram/hdrhistogram-go](https://github.com/HdrHistogram/hdrhistogram-go) (fork `fcostaoliveira/hdrhistogram-go`)
@@ -168,7 +169,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 | Status | Count |
 |--------|------:|
-| Accepted | 3 |
+| Accepted | 4 |
 | Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |
@@ -180,6 +181,10 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
   Cascade Lake (gcc +8%, clang flat), then validated on a 2nd µarch (Granite Rapids: **gcc +7.7% /
   clang +5.7%**) — portable across two µarchs/compilers, clang never regresses. Branch
   `perf/avx2-scan-prefetch`; follow-up **[PR #139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** (stacked on #138).
+- **EXP-007** (ACCEPT) — blocked skip-scan in the `hdr_value_at_percentiles` batch fast path: sum 8
+  counters/block (autovectorizes to AVX2/NEON, no intrinsics), skip blocks that can't reach the target,
+  element-walk only the crossing block. Batch **+134% (2.34×)** on gnr1 (86.8K → 203.4K calls/s) on top
+  of #140, read/write flat, byte-identical. Adversarial review MERGE-READY. **[PR #141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141)** (stacked on #140).
 - **EXP-001** (REJECT) — Tier-1 `counts_index_for` fusion: correct + gcc +5.9% but clang −12.1%,
   rejected as a portable regression.
 
