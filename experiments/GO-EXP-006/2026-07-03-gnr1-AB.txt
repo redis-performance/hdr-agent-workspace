@@ -1,0 +1,29 @@
+GO-EXP-006 — blocked prefix-sum skip-scan (read) + write-path BCE
+base = ebe2303 (merged master), patch = cf4a8b3 (perf/blocked-scan-and-write-bce)
+gnr1 (Intel Granite Rapids), single core, core 8, interleaved base/patch x2 rounds.
+
+===== GO base (round 1) =====     ===== GO patch (round 1) =====
+WRITE 322995899                   WRITE 337364632
+READ  0.1833 sink=1131120918...   READ  0.2749 sink=1131120918... (identical)
+BATCH 83602 bsink=4263457582...   BATCH 84161 bsink=4263457582... (identical)
+===== GO base (round 2) =====     ===== GO patch (round 2) =====
+WRITE 318665866                   WRITE 337179361
+READ  0.1833                      READ  0.2749
+BATCH 83595                       BATCH 84162
+
+DELTAS (median):
+  READ-1  0.1833 -> 0.2749  = +50.0%   (blocked skip-scan; breaks per-element dep chain)
+  WRITE   320.8M -> 337.3M  = +5.1%    (BCE: guard len(counts) not countsLen)
+  BATCH   83.6K  -> 84.2K   = +0.7%    (noise; batch scan untouched)
+sink/bsink byte-identical across all 4 runs -> correctness preserved.
+Predicted read +20-40%, write +2-4%; both exceeded.
+
+--- ADVERSARIAL REVIEW (hdr-reviewer-go) ---
+Round 1: NEEDS WORK — 1 blocker (major): write-guard comment falsely claimed
+  len(counts)==countsLen "by construction"; Import() aliased an external slice,
+  so the guard swap changed behavior on mismatched Snapshots.
+Fix: Import now copies into the New-sized counts[] (invariant now TRUE), fixing a
+  latent out-of-range panic; corrected comment; added TestImportLengthMismatch.
+Round 2: MERGE-READY — invariant holds across all 3 counts write-sites (New/Import/
+  Reset); Export->Import roundtrip byte-identical; alias removal strictly safer;
+  nil/empty/over/undersized snapshots all non-panicking. No remaining findings.
