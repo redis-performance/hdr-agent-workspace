@@ -46,7 +46,8 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | PR | State | What |
 |----|-------|------|
 | [#138](https://github.com/HdrHistogram/HdrHistogram_rust/pull/138) | **OPEN** (awaiting maintainer to run CI) | `value_at_quantiles`/`value_at_percentiles` single-pass batch API — +616% |
-| [#139](https://github.com/HdrHistogram/HdrHistogram_rust/pull/139) | **OPEN** (round 3) | iterate `counts[]` in `value_at_quantile` to elide bounds checks — read **+5.1%** |
+| [#139](https://github.com/HdrHistogram/HdrHistogram_rust/pull/139) | ⛔ **CLOSED** — superseded by #140 | iterate `counts[]` to elide bounds checks — read +5% (subsumed) |
+| [#140](https://github.com/HdrHistogram/HdrHistogram_rust/pull/140) | **OPEN** (round 4) | chunked skip-scan in `value_at_quantile` — read **+63%**, batch **+65%** (supersedes #139) |
 
 **Cross-port race + charts:** [`experiments/RACE.md`](experiments/RACE.md). Adversarial PR reviews
 (3 reusable skills — `review-hdrhistogram`, `hdr-reviewer-go`, `hdr-reviewer-rust`) caught 2 real

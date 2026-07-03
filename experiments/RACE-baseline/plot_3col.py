@@ -22,9 +22,9 @@ data = {
     "READ 1 percentile — value_at_percentile()\n(million queries/sec, ↑ better)": {
         "unit": "Mq/s", "scale": 1.0,
         "C":    (0.2425, 0.2425, 0.5550),
-        "Rust": (0.1741, 0.1741, 0.1828),
+        "Rust": (0.1741, 0.1741, 0.2836),
         "Go":   (0.0457, 0.1833, 0.2749),
-        "labels": {"C": ("0.11.10", "=", "#138+#139"), "Rust": ("7.5.4", "=", "#139"), "Go": ("v1.2.0", "mstr", "#64")},
+        "labels": {"C": ("0.11.10", "=", "#138+#139"), "Rust": ("7.5.4", "=", "#140"), "Go": ("v1.2.0", "mstr", "#64")},
     },
     "READ all 7 — value_at_percentiles()\n(thousand calls/sec, ↑ better)": {
         "unit": "K calls/s", "scale": 1e-3,

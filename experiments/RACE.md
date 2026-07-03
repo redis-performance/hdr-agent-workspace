@@ -51,16 +51,17 @@ Each port measured in **three states**, same-session on gnr1, single core, core-
 | metric | C ver=master | C potential | Rust ver=main | Rust potential | Go version | Go master | Go potential |
 |--------|-------------:|------------:|--------------:|---------------:|-----------:|----------:|-------------:|
 | WRITE (M ops/s)     | 408.9 | 409.2 | 348.8 | 347.8 | 311.4 | 319.0 | 337.3 (#64) |
-| READ-1 (Mq/s)       | 0.2425 | **0.5550** (2.29×) | 0.1741 | 0.1828 (1.05×) | 0.0457 | 0.1833 | **0.2749** (#64) |
-| READ-7 (K calls/s)  | 12.4 | **203.4** (16.4×, #140+#141) | 24.8 | 178.6 (7.2×) | 14.6 | 83.6 | 83.6 |
+| READ-1 (Mq/s)       | 0.2425 | **0.5550** (2.29×) | 0.1741 | **0.2836** (1.63×, #140) | 0.0457 | 0.1833 | **0.2749** (#64) |
+| READ-7 (K calls/s)  | 12.4 | **203.4** (16.4×, #140+#141) | 24.8 | 178.6 (7.2×, #138) | 14.6 | 83.6 | 83.6 |
 
 All cells cross-checked byte-identical (`sink`/`bsink` unchanged across every state). C/Rust `potential`
 multipliers are vs their own `version=master`; Go's `master` is the released→merged arc, `potential` adds
-the open #64. Two notable shifts from this round's work:
+the open #64. Shifts from this round's cross-port blocked/chunked-scan work:
 - **C is now the batch frontier** — the blocked skip-scan (#141) lifts C's `value_at_percentiles` to
   **203.4K calls/s**, past Rust's native-batch 178.6K.
-- **Go's open #64 blocked read scan** pushes read-1 to **0.2749 Mq/s** (+50% over merged master),
-  overtaking Rust's 0.1828 — though both remain ~2× behind C's AVX2 (0.5550); the rest is SIMD.
+- **Read-1 potential reshuffles**: the same skip-scan idea gives Rust #140 **0.2836 Mq/s** (+63%) and Go
+  #64 **0.2749** (+50%) — Rust now edges ahead of Go, but both remain ~2× behind C's AVX2 (0.5550); the
+  rest of that gap is SIMD (a hand-written path Go/Rust don't have).
 
 ## Methodology
 
