@@ -50,6 +50,7 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | **OPEN** (loop) | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
 | [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | **OPEN** (loop) | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
 | [#73](https://github.com/HdrHistogram/hdrhistogram-go/pull/73) | **OPEN** (loop) | test-only: pin golden values for the logV2 reader fixtures (was err==nil/NotNil only) |
+| [#74](https://github.com/HdrHistogram/hdrhistogram-go/pull/74) | **OPEN** (loop) | `RecordValues` rejects a negative count (was silently driving counts/TotalCount negative); write path unchanged at ~3.2 ns/op |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |

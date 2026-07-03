@@ -54,3 +54,29 @@ Next: log-reader golden VALUES (strengthen weak err-only tests), then D2 (last-l
 Open loop PRs now: #65,#66,#67,#68,#69,#70,#71,#72,#73.
 Next: C7 (RecordValues rejects negative n — #64 now merged so stacks cleanly on master),
   then wind down (backlog conflict-light items nearly exhausted; D1 overlaps #65's Decode).
+
+### Turn 5 (2026-07-03) — C7 + WIND DOWN
+- [x] C7: RecordValues(v, n) with n<0 silently ran counts[idx]+=n and totalCount+=n, driving both
+  negative and corrupting every percentile/mean/distribution query (RecordValues(50,-5) on a
+  1-sample histogram -> TotalCount=-4). Fix: reject n<0 with an error after the memory-safety idx
+  bound (preserves #64's bounds-check elision) and before the store; n==0 stays a legal no-op.
+  Write path unchanged: BenchmarkHistogramRecordValue ~3.2 ns/op base-vs-patch, 0 allocs.
+  Regression test TestRecordValuesRejectsNegativeCount (populated->err+unchanged, empty->err+0,
+  n==0->nil). Worktree adversarial review: MERGE-READY (all internal callers pass non-negative;
+  RecordValue/Merge/decode unaffected; noted Import still copies raw Counts unchecked -> disclosed
+  in PR body as a separate pre-existing gap). -> PR #74.
+- Negative v is already rejected by the existing idx bound (misleading "too large" message, but safe).
+- WIND DOWN: conflict-light backlog exhausted. Remaining items all conflict or are design-ambiguous:
+  D1 (Decode geometry cap) overlaps #65's Decode; golden-ENCODE vectors conflict #66; ValueAtQuantile
+  NaN is design-ambiguous; New()-arg-validation ruled not-a-bug (turn 2-3); Import raw-Counts check is
+  a #64-adjacent follow-up worth a future dedicated PR. Loop stopping; no further wakeup scheduled.
+
+## Loop outcome (turns 1-5)
+- #64 MERGED (blocked scan +50% read / write BCE +5%).
+- 9 open loop PRs authored + self-reviewed + worktree-adversarial-reviewed MERGE-READY:
+  #65 (Decode/log-reader hardening + first-ever fuzzers/ClusterFuzzLite), #66 (Mean overflow /
+  wire offset / basetime casing / UTC), #67 (percentile empty/negative/phantom-key contracts),
+  #68 (percentile max(count,1) reach-min across all 3 APIs), #69 (Reset clears metadata),
+  #70 (bench dead-loop panic), #71 (coverage 85.9->87.8%), #72 (log-reader final-line-no-newline),
+  #73 (golden logV2 reader values), #74 (RecordValues rejects negative count).
+- All full-suite green (go test ./... + vet + gofmt); submodule tip b00adb1.
