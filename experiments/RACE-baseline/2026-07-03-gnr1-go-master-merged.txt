@@ -1,0 +1,11 @@
+Clean re-measurement of Go directly on merged master ebe2303 (all 5 perf PRs: #57/58/59/62/63)
+gnr1 (Intel Granite Rapids), single core, core 8, ValueAtPercentilesSlice for batch.
+
+===== GO master ebe2303 (all 5 PRs merged) =====
+WRITE_OPS_PER_SEC 320618956
+READ_MQ_PER_SEC 0.1833 sink=11311209184862912
+BATCH_OPS_PER_SEC 83534 bsink=4263457582300000
+
+Confirms the cherry-pick tree (99baaee) measurement within noise:
+  WRITE 320.6M vs 319.0M (+0.5%), READ 0.1833 (identical), BATCH 83534 vs 83631 (-0.1%).
+sink/bsink byte-identical -> correctness preserved.

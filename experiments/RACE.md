@@ -56,10 +56,11 @@ Each port measured in **three states**, same-session on gnr1, single core, core-
 
 All cells cross-checked byte-identical (`sink`/`bsink` unchanged across every state). C/Rust `potential`
 multipliers are vs their own `version=master`; Go's are the full released→merged arc (`version` → today's
-`master`). Go's `master`==`potential` numbers were measured on the code-identical pre-merge tree (`99baaee`,
-= `master` + #62 + #63 cherry-picked); the squash-merges `ebe2303`/`6b5dd0d` are the same code. Note READ-1
-is now a **near-tie at the frontier for Rust-potential/Go-merged** (0.1828 vs 0.1833) — both scalar scans,
-~3× behind C's AVX2 potential (0.5550): the remaining headroom is SIMD.
+`master`). Go's `master`==`potential` numbers were **re-measured directly on the merge commit `ebe2303`**
+(320.6M / 0.1833 / 83.5K), confirming the pre-merge cherry-pick tree within run-to-run noise (raw:
+[`RACE-baseline/2026-07-03-gnr1-go-master-merged.txt`](RACE-baseline/2026-07-03-gnr1-go-master-merged.txt)).
+Note READ-1 is now a **near-tie at the frontier for Rust-potential/Go-merged** (0.1828 vs 0.1833) — both
+scalar scans, ~3× behind C's AVX2 potential (0.5550): the remaining headroom is SIMD.
 
 ## Methodology
 
