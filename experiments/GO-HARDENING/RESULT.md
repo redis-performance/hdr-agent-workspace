@@ -39,3 +39,25 @@ Checked all 8 open hdrhistogram-go issues against current master:
 - #32 (repo transfer umbrella): stale/informational (transfer done long ago).
 
 New PR: #67 fix/percentile-contracts (empty #60 + negative clamp + map phantom key). Review MERGE-READY.
+
+## Deepened fuzzing (2026-07-03) — extend the analysis
+Added 4 fuzz targets with STRONGER oracles to PR #65 (was: no-panic + TotalCount only):
+- FuzzDecodeInvariants: totalCount==sum(counts), len==countsLen, Min<=Max, Max==p100,
+  monotonic percentiles, + canonical Encode->Decode->Equals round-trip (catches
+  bucket-misplacement bugs a TotalCount oracle misses).
+- FuzzPercentileQueries: READ path, arbitrary float percentile (NaN/Inf/neg/>100) -> no panic.
+- FuzzZigZagDecodeBytes: arbitrary bytes -> no panic, consumed in [0,9], canonical re-encode.
+- FuzzMergeMetamorphic: Merge -> no panic, count conservation, invariants.
+Wired into ClusterFuzzLite build + fuzz-smoke CI (8 targets total). All pass on #65; the
+8-target ClusterFuzzLite ASan build is green.
+
+The stronger oracles IMMEDIATELY re-found 3 real bugs (proving the improvement):
+- Import panic on mismatched Snapshot -> fixed by #64 (FuzzImport, held for after #64 lands).
+- Negative-percentile 63 leak -> fixed by #67 (C6).
+- **C4 (new/unfixed): low percentiles of a small histogram read BELOW Min()** because the port
+  omits the reference max(countAtPercentile,1) rule (p0 also != recorded min). The [Min,Max]
+  fuzz invariant flags it. Attempted C4 in #67 but it breaks TestValueAtPercentilesSlice
+  (Slice, on #64's branch, lacks the rule -> the three APIs diverge). REVERTED.
+  FOLLOW-UP: apply max(count,1) to ValueAtPercentile + ValueAtPercentiles + ValueAtPercentilesSlice
+  together, after #64 merges (Slice), then tighten FuzzDecodeInvariants/FuzzPercentileQueries to
+  assert every percentile in [Min,Max].
