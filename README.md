@@ -48,7 +48,7 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | ✅ **MERGED** | `Reset` clears tag/start/end time, not just counts |
 | [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | ✅ **MERGED** | bench: remove dead fill loop that panics for b.N>1e6 |
 | [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | ✅ **MERGED** | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
-| [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | **OPEN** ✅ approved (@dkropachev), rebased | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
+| [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | ✅ **MERGED** | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
 | [#73](https://github.com/HdrHistogram/hdrhistogram-go/pull/73) | ✅ **MERGED** | test-only: pin golden values for the logV2 reader fixtures (was err==nil/NotNil only) |
 | [#74](https://github.com/HdrHistogram/hdrhistogram-go/pull/74) | ✅ **MERGED** | `RecordValues` rejects a negative count (was silently driving counts/TotalCount negative); write path unchanged at ~3.2 ns/op |
 
