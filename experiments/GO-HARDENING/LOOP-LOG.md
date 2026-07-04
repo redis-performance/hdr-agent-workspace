@@ -80,3 +80,25 @@ Next: C7 (RecordValues rejects negative n — #64 now merged so stacks cleanly o
   #70 (bench dead-loop panic), #71 (coverage 85.9->87.8%), #72 (log-reader final-line-no-newline),
   #73 (golden logV2 reader values), #74 (RecordValues rejects negative count).
 - All full-suite green (go test ./... + vet + gofmt); submodule tip b00adb1.
+
+### PR triage (2026-07-04) — merged verification + conflicts + review comments
+Maintainer merged 13 Go PRs; master now 112d163. Verified merged master green (go test/vet/gofmt).
+Open: #66, #68, #72. Actioned:
+- #66: MERGEABLE/CLEAN, CI green, no maintainer feedback pending — nothing to do (awaiting review).
+- #72 (log-reader final-line): was CONFLICTING (vs merged #65 log_reader + #73 golden test in
+  log_writer_test.go). Rebased onto master; resolved log_writer_test.go conflict by KEEPING BOTH
+  the merged golden helper and my drainAllIntervals + finalLineNoTrailingNewline test. Confirmed my
+  EOF fix and #65's `commaPos < 0` Tag guard now coexist. Full suite green. Pushed. Now CLEAN,
+  MERGEABLE, already APPROVED by @dkropachev — ready to merge (17/17 checks green).
+- #68 (percentile reach-min): was CONFLICTING + an unresolved @dkropachev inline review (negative
+  percentiles must clamp identically across APIs; ValueAtPercentilesSlice was leaking first-bucket
+  highest-equiv). Root cause of the conflict: #68 was stacked on #67, and #67 merged via SQUASH
+  (new SHA), so rebase replayed #67's commits -> DUPLICATE test declarations (caught by full build,
+  not by git). Reconstructed the branch cleanly: reset to master, cherry-picked only the two
+  reach-min commits, dropped the already-merged clamping/empty tests. Verified all 3 APIs now clamp
+  negatives identically (New(100,..) -1 -> 64 everywhere; empty -> 0) — the review concern is
+  resolved by sitting on merged #67's clamping. Added TestPercentiles_NegativeClampAcrossAPIs to
+  lock it in (covers the slice API the old clamping test missed). Pushed clean 3-commit delta,
+  replied to @dkropachev's thread with evidence. MERGEABLE, CI green.
+Lesson reinforced: ALWAYS run the full unfiltered build/test after a rebase — squash-merged
+parents cause silent duplicate-declaration conflicts git reports as "successfully rebased".

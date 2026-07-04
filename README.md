@@ -41,16 +41,16 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62) | ✅ **MERGED** `ebe2303` | `range` over `counts[]` in the scans to elide bounds checks — read **+72%** |
 | [#63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63) | ✅ **MERGED** `6b5dd0d` | `ValueAtPercentilesSlice` — ordered `[]int64` batch (no map alloc) — batch **+42.5%** |
 | [#64](https://github.com/HdrHistogram/hdrhistogram-go/pull/64) | ✅ **MERGED** `b00adb1` | blocked prefix-sum skip-scan (read **+50%**) + write bounds-check elision (**+5.1%**) + `Import` length hardening |
-| [#65](https://github.com/HdrHistogram/hdrhistogram-go/pull/65) | **OPEN** (hardening) | fix 6 untrusted-input panics in `Decode`/log-reader + native Go fuzzers + ClusterFuzzLite/CI (repo had zero fuzzing) |
-| [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | **OPEN** (hardening) | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing · `StartTime` UTC (closes #61) |
-| [#67](https://github.com/HdrHistogram/hdrhistogram-go/pull/67) | **OPEN** (hardening) | percentile edge contracts — empty histogram (closes #60), negative clamp, map phantom key |
-| [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | **OPEN** (stacked on #67) | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs |
-| [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | **OPEN** (loop) | `Reset` clears tag/start/end time, not just counts |
-| [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | **OPEN** (loop) | bench: remove dead fill loop that panics for b.N>1e6 |
-| [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | **OPEN** (loop) | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
-| [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | **OPEN** (loop) | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
-| [#73](https://github.com/HdrHistogram/hdrhistogram-go/pull/73) | **OPEN** (loop) | test-only: pin golden values for the logV2 reader fixtures (was err==nil/NotNil only) |
-| [#74](https://github.com/HdrHistogram/hdrhistogram-go/pull/74) | **OPEN** (loop) | `RecordValues` rejects a negative count (was silently driving counts/TotalCount negative); write path unchanged at ~3.2 ns/op |
+| [#65](https://github.com/HdrHistogram/hdrhistogram-go/pull/65) | ✅ **MERGED** | fix 6 untrusted-input panics in `Decode`/log-reader + native Go fuzzers + ClusterFuzzLite/CI (repo had zero fuzzing) |
+| [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | **OPEN** ✅ CI green, mergeable | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing · `StartTime` UTC (closes #61) |
+| [#67](https://github.com/HdrHistogram/hdrhistogram-go/pull/67) | ✅ **MERGED** | percentile edge contracts — empty histogram (closes #60), negative clamp, map phantom key |
+| [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | **OPEN** (rebased clean) | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs; addressed @dkropachev negative-clamp review + added cross-API test |
+| [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | ✅ **MERGED** | `Reset` clears tag/start/end time, not just counts |
+| [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | ✅ **MERGED** | bench: remove dead fill loop that panics for b.N>1e6 |
+| [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | ✅ **MERGED** | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
+| [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | **OPEN** ✅ approved (@dkropachev), rebased | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
+| [#73](https://github.com/HdrHistogram/hdrhistogram-go/pull/73) | ✅ **MERGED** | test-only: pin golden values for the logV2 reader fixtures (was err==nil/NotNil only) |
+| [#74](https://github.com/HdrHistogram/hdrhistogram-go/pull/74) | ✅ **MERGED** | `RecordValues` rejects a negative count (was silently driving counts/TotalCount negative); write path unchanged at ~3.2 ns/op |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
