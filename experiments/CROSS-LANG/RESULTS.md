@@ -39,6 +39,43 @@ Throughput (= 1000 / ns_per_op):
   of the loop and drop the bounds check, collapsing C and Java to 1.93 ns. That is not
   representative of ingesting real (varied) data — the "write · varied" row is.
 
+## Why Go trails on writes — and why it isn't fixable at the library level
+
+Java records ~1.4× faster than Go on real ingestion (2.30 vs 3.30 ns) despite Go's record
+path doing **strictly less work**: `hdrhistogram-go` does not maintain min/max on the write
+path (`Min()`/`Max()` scan lazily at query time), whereas Java's `recordValue` updates both on
+every call. So the gap is codegen, not work.
+
+The Go compiler names the cause directly (`go build -gcflags=-m`):
+
+```
+cannot inline (*Histogram).RecordValues: function too complex: cost 288 exceeds budget 80
+        v escapes to heap in (*Histogram).RecordValues
+        n escapes to heap in (*Histogram).RecordValues
+```
+
+1. **The record path won't inline.** `RecordValues` is inherently over Go's inliner budget
+   (the bucket-index math alone — `LeadingZeros64` + shifts — is ~79 vs the budget of 80), so
+   every `record` is a real function call with no cross-call optimization: `h`'s fields are
+   reloaded each iteration and nothing is scheduled across the loop. Java's C2 JIT inlines the
+   whole chain flat into the caller and schedules it across iterations. Go has **no
+   force-inline directive and no LTO / whole-program optimization** — there is no library edit
+   that changes this.
+2. **A tested micro-lever went nowhere.** The two inline `fmt.Errorf` calls both inflate the
+   inliner cost and heap-escape `v`/`n` (they are passed to a `...interface{}` arg on the
+   error branch). Outlining them into `//go:noinline` cold helpers removes the escape and cuts
+   the cost to 236 — verified, tests green — but a same-machine A/B on Granite Rapids
+   (GOAMD64=v3, kbest of 10 × 20 s, core 8) showed **base 2.586 vs patched 2.581 ns/op —
+   0.2%, inside the noise**, distributions fully overlapping. It doesn't help because the
+   escape lives on the never-taken error branch (0 allocs/op both ways) and `RecordValues`
+   still doesn't inline (236 ≫ 80). **Rejected — no PR.**
+
+**Conclusion:** the Go write path is already at its practical floor for a one-value-per-call
+API on the Go compiler. The remaining ~1 ns vs Java is the price of Go's deliberately-simple
+compiler + per-call ABI, not a defect in the port. The only library-level lever left is a
+**bulk/batch record API** to amortize the call overhead — which the one-value-per-call
+benchmark driver does not exercise.
+
 ## Methodology (fairness)
 
 - **Same workload everywhere:** histogram bounds `(1, 1e6, 3 sig-figs)` for reads (write uses
