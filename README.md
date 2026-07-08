@@ -14,6 +14,28 @@ maintainer's real review M.O. Every experiment is logged; failures are as valuab
 
 ---
 
+## Cross-language comparison — C / Go / Rust / Java
+
+The **same** log-normal workload run through each HdrHistogram port on one core of an
+**Intel Xeon 6972P** (Granite Rapids), host-optimized build, kbest. Higher is better.
+Full methodology + runnable harnesses: [`experiments/CROSS-LANG/`](experiments/CROSS-LANG/RESULTS.md).
+
+![C / Go / Rust / Java on Granite Rapids](experiments/CROSS-LANG/cross-lang-granite-rapids.png)
+
+| Operation | C | Go | Rust | Java |
+|-----------|----:|----:|----:|----:|
+| **write** · varied (real ingestion) | 415 M/s | 303 M/s | 380 M/s | **435 M/s** |
+| **read** · single percentile | **767 K/s** | 764 K/s | 508 K/s | 504 K/s |
+
+**Reads** split two ways: C's AVX2 scan and Go v1.3.0's blocked skip-scan lead (~1,300 ns);
+Rust's generic `Counter` widening and Java's iterator-based percentile trail (~1,980 ns).
+**Writes** land within ~1.4× (Java ≈ C > Rust > Go on real, varied ingestion). The naive
+*constant*-value write (C/Java collapse to 1.93 ns) is a JIT/compiler hoisting artifact, not
+real ingestion — see [RESULTS.md](experiments/CROSS-LANG/RESULTS.md). Batch APIs are omitted:
+Java has none, so a fair single-call comparison isn't possible.
+
+---
+
 ## Upstream PRs — cross-port status (last updated 2026-07-03)
 
 Optimizations proposed to all three ports from this workspace. Every change is
