@@ -1,0 +1,22 @@
+# Compiled test/bench/fuzzer/PoC binaries (rebuilt via run.sh / coverage.sh)
+packed_decode_poc
+packed_fault_test
+packed_fault_test_asan
+packed_fuzzer
+packed_mem_bench
+packed_redteam
+packed_stats_audit
+packed_test
+packed_test_strict
+packed_validate
+pub_repro
+round10_audit
+round10_probe
+
+# Coverage + fuzz artifacts
+.cov/
+.fuzz_corpus/
+*.gcda
+*.gcno
+*.profraw
+*.profdata
