@@ -23,6 +23,22 @@ Optimization PRs from the fork `fcostaoliveira/HdrHistogram_c` → upstream
   (removes `<immintrin.h>`, `target("avx2")`, `__builtin_cpu_supports`) + single-pass
   `hdr_value_at_percentiles`. Self-review during the PR caught a force-push that dropped the
   offset-aware fallback and uint64 hardening; restored. CI 15/15 green.
+- **#138–#141** — OPEN. Perf follow-ups (AVX2 widen16 + prefetch; single-pass and
+  blocked-batch `hdr_value_at_percentiles`).
+- **#145–#149** — OPEN. Dense correctness/hardening PRs surfaced by the packed adversarial
+  review (all authored by us): #145 bucket-config shift overflow, #146 V1/V2 decode heap
+  OOB, #147 `hdr_mean` overflow + `hdr_count_at_value` OOB, #148 top-bucket value-range
+  overflow (saturate `highest_equivalent` to INT64_MAX), #149 iterator reporting-level
+  overflow. NOTE: check these before re-raising any dense finding — see
+  [[check-open-prs-before-raising]].
+- **#150** — OPEN. `feat: hdr_packed_histogram` — the memory-optimised sparse variant
+  (branch `feat/packed-histogram`). Separate opt-in type, dense hot paths untouched;
+  sorted virtual-index vector + adaptive byte-width counts; byte-identical V2 both ways;
+  36×–1240× footprint win. 23 parity tests as a ctest target, clean under
+  ASan+UBSan+float-cast-overflow. Integration lesson: the parity test must NOT call dense
+  query funcs at UB points (−inf percentile cast; top-bucket `highest_equivalent` overflow,
+  fixed only in unmerged #147/#148) — assert packed's documented behavior directly instead,
+  or the maintainer's strict-sanitizer CI fails on `main`.
 
 **How to open one:** branch off `upstream/main`, one isolated commit (cherry-pick the single
 EXP), PR from the fork to `HdrHistogram/HdrHistogram_c`. PR body MUST include a before/after
