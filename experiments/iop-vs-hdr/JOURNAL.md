@@ -717,3 +717,26 @@ results. The cost is a cold-random-write tax that is **~1% in C/Rust** but **not
 and arch-sensitive in Go (+2–9%)** — Go's slice bounds-check on `idx[lastPos]` + the wider
 struct don't get hidden as well. Read paths untouched. Next: try a Go-specific mitigation
 (bounds-check elision) to shave the random tax; then it's review-ready per language.
+
+### Tick 28 — 2026-08-26 18:06 UTC — NEGATIVE result: bounds-check elision does NOT fix the Go random tax
+
+Hypothesis (tick 27): the Go random regression is a non-elided slice bounds-check on
+`idx[lastPos]`. Tested in scratch:
+- `go build -gcflags=-d=ssa/check_bce/on` confirmed the check existed (`packed.go:249 Found
+  IsInBounds`); rewriting to the canonical `lp:=int(p.lastPos); uint(lp) < uint(len(p.idx))`
+  idiom **removed it** (verified clean). go vet/gofmt/test/-race all green; invariant
+  `len(idx)==size` holds so the rewrite is correct.
+- **But random is unchanged:** BCE 129.9 vs CACHE 130.6 ns (within noise); the ~+3–4% tax over
+  BASE 125.3 remains. Hit-path patterns barely move (clustered −4%, hot90 +3%).
+
+**Why the hypothesis was wrong (mechanistic):** the bounds-checked load `idx[lastPos]` is on
+the **hit path**, reached only after `p.lastIndex == ci` — which is almost always FALSE on
+random, so the `&&` chain short-circuits before the indexed load. The eliminated check never
+executed on the random hot path. **The random tax is a MISS-path cost:** the extra compare +
+the two unconditional seed-stores (`lastIndex`, `lastPos`) written on *every* record. BCE only
+touches the hit path, so it cannot help random. Correct lever = the miss path (merge/gate the
+seed stores) — but that's a micro-tradeoff the maintainer should weigh, not worth forcing.
+
+Value: rules out BCE, pinpoints the real cost, keeps the writeup honest. Optimization thread
+is complete; the last-hit cache stands as a validated 3-lang × 3-arch write win with a
+characterized, small, workload-dependent cost. Correcting the optim README mitigation note.
