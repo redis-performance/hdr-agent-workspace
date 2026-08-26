@@ -1,0 +1,149 @@
+--- a/src/hdr_packed_histogram.c
++++ b/src/hdr_packed_histogram.c
+@@ -88,6 +88,8 @@
+     int64_t  max_value;          /* raw max recorded value (0 if none) */
+     int32_t  size;               /* populated buckets */
+     int32_t  cap;                /* allocated slots */
++    int32_t  last_index;         /* last flat index touched by record (-1 = none) */
++    int32_t  last_pos;           /* its position in idx[] (last-hit write cache) */
+     uint8_t  width;              /* count byte width: 1,2,4,8 */
+     bool     owns_cfg;
+ };
+@@ -197,30 +199,43 @@
+     return true;
+ }
+ 
+-static bool sparse_add(struct hdr_packed_histogram* h, int32_t vindex, int64_t delta)
++/* Add `delta` into the count already stored at slot `p` (a known hit position),
++   widening the uniform width if the sum no longer fits. Shared verbatim by the
++   binary-search hit branch of sparse_add and by the record last-hit fast path so
++   both have identical width/overflow behavior. Returns false only on a widen
++   realloc failure, leaving the slot unchanged (consistent histogram). */
++static bool sparse_hit_add(struct hdr_packed_histogram* h, int32_t p, int64_t delta)
++{
++    /* cur + delta cannot overflow: record_values already refuses a total
++       past INT64_MAX (and cur <= total_count), and decode only inserts
++       (monotonic index -> always the miss path), never this hit path. */
++    int64_t nv = slot_get(h, p) + delta;
++    if (!widen_to_fit(h, nv))   /* no-op fast path when nv fits current width */
++    {
++        return false;
++    }
++    slot_set(h, p, nv);
++    return true;
++}
++
++/* Insert-or-add `delta` at virtual index `vindex`. Returns the slot position in
++   idx[]/cnt[] where the count now lives (so the caller can seed its last-hit
++   cache), or -1 on allocation failure. */
++static int32_t sparse_add(struct hdr_packed_histogram* h, int32_t vindex, int64_t delta)
+ {
+     /* delta is >= 0 (record rejects count<0; decode values are non-negative). */
+     int32_t p = lower_bound(h, vindex);
+     if (p < h->size && h->idx[p] == vindex)
+     {
+-        /* cur + delta cannot overflow: record_values already refuses a total
+-           past INT64_MAX (and cur <= total_count), and decode only inserts
+-           (monotonic index -> always the miss path below), never this hit path. */
+-        int64_t nv = slot_get(h, p) + delta;
+-        if (!widen_to_fit(h, nv))   /* no-op fast path when nv fits current width */
+-        {
+-            return false;
+-        }
+-        slot_set(h, p, nv);
+-        return true;
++        return sparse_hit_add(h, p, delta) ? p : -1;
+     }
+     if (!ensure_cap(h))
+     {
+-        return false;
++        return -1;
+     }
+     if (!widen_to_fit(h, delta))
+     {
+-        return false;
++        return -1;
+     }
+     memmove(&h->idx[p + 1], &h->idx[p], (size_t)(h->size - p) * sizeof(int32_t));
+     memmove(h->cnt + (size_t)(p + 1) * h->width,
+@@ -229,7 +244,7 @@
+     h->idx[p] = vindex;
+     h->size++;               /* size updated before slot_set uses width offset */
+     slot_set(h, p, delta);
+-    return true;
++    return p;
+ }
+ 
+ static int64_t sparse_get(const struct hdr_packed_histogram* h, int32_t vindex)
+@@ -299,6 +314,8 @@
+     h->total_count = 0;
+     h->min_value = INT64_MAX;
+     h->max_value = 0;
++    h->last_index = -1;          /* last-hit write cache: empty */
++    h->last_pos = 0;
+     *result = h;
+     return 0;
+ }
+@@ -373,9 +390,33 @@
+                          mutation so the histogram stays consistent) */
+     }
+     /* count==0 matches dense: no bucket change, but min/max/total still update. */
+-    if (count != 0 && !sparse_add(h, counts_index, count))
++    if (count != 0)
+     {
+-        return false;
++        /* Last-hit write cache: bursty/hot streams re-touch the same bucket on
++           consecutive records. If this value maps to the exact index we last
++           wrote AND that slot still holds it (the idx[] recheck makes the cache
++           robust to insert-driven shifts), add in place and skip the binary
++           search. Effect is identical to the search path -- sparse_hit_add is the
++           same width/overflow-aware add sparse_add's hit branch uses. */
++        if (h->last_index == counts_index &&
++            h->last_pos < h->size &&
++            h->idx[h->last_pos] == counts_index)
++        {
++            if (!sparse_hit_add(h, h->last_pos, count))
++            {
++                return false;
++            }
++        }
++        else
++        {
++            int32_t p = sparse_add(h, counts_index, count);
++            if (p < 0)
++            {
++                return false;
++            }
++            h->last_index = counts_index;
++            h->last_pos = p;
++        }
+     }
+     h->total_count += count;
+     if (value < h->min_value && value != 0)
+@@ -405,6 +446,8 @@
+     h->total_count = 0;
+     h->min_value = INT64_MAX;
+     h->max_value = 0;
++    h->last_index = -1;          /* invalidate last-hit write cache */
++    h->last_pos = 0;
+ }
+ 
+ int64_t hdr_packed_total_count(const struct hdr_packed_histogram* h)
+@@ -952,7 +995,7 @@
+             }
+             else
+             {
+-                if (value > 0 && !sparse_add(h, counts_index, value)) { ret = ENOMEM; goto done; }
++                if (value > 0 && sparse_add(h, counts_index, value) < 0) { ret = ENOMEM; goto done; }
+                 counts_index++;
+             }
+         }
+@@ -961,6 +1004,8 @@
+     }
+ 
+     packed_recompute_stats(h);
++    h->last_index = -1;          /* fresh arrays -> no valid last-hit cache */
++    h->last_pos = 0;
+     *result = h;
+     h = NULL;
+ 

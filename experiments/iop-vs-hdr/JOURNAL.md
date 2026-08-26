@@ -580,3 +580,28 @@ workspace's PRIMARY optimization target. Porting the win strengthens PR #150 (C)
 not just the Rust #154. Spawning scratch-isolated prototype+validate agents for C (ctest +
 ASan/UBSan) and Go (go test parity/fuzz + -race), each with a pattern write-microbench for a
 base-vs-patch delta. Winners get server validation like the Rust one did.
+
+### Tick 22 — 2026-08-26 17:47 UTC — C write cache VALIDATED (primary target, PR #150)
+
+Ported the last-hit cache to `hdr_packed_histogram.c` in scratch (`cpack` vs pristine
+`cpack_base`). Patch: `optim/c-packed-lasthit-cache.patch` (149 lines, applies clean to real
+HdrHistogram_c); microbench `optim/c-packbench.c`.
+
+**Correctness:** ctest 6/6 base and patched (incl. `hdr_packed_histogram_test` = dense-parity
++ log round-trip). Packed test clean under **ASan+UBSan** (24 tests). The 4 ctest sanitizer
+"failures" are **pre-existing LeakSanitizer leaks in the DENSE test harnesses**, reproduced
+identically on the pristine base — unrelated to this change. Parity exact: populated &
+total_count identical base vs patch on every pattern.
+
+**Microbench, write ns/op (local, median of 3):**
+| pattern | base | patch | delta |
+|---|--:|--:|--:|
+| random    | 178.5 | 178.7 | +0.1% (neutral) |
+| clustered |  60.9 |  19.5 | **−68% (3.1×)** |
+| hot90     |  68.5 |  45.2 | **−34%** |
+
+Design mirrors Rust: factored `sparse_hit_add` shared by the search-hit branch and the fast
+path (identical width-aware add + overflow-grow); `sparse_add` returns the slot position;
+`idx[last_pos]==counts_index` recheck for shift-safety; cache invalidated in
+`hdr_packed_reset` and after decode. No `normalizing_index_offset` path touched. Dispatching C
+server validation. Go port still running.
