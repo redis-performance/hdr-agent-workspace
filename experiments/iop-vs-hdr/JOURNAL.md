@@ -772,3 +772,26 @@ one store but ADDS an `idx[]` load on every random miss (loses the cheap int sho
 wash. To cache you must write the cache; with zero locality that write is pure cost. So the clean
 levers are (a) accept the ~1–2% trade for 20–66% bursty gains, or (b) gate the fast path. Logged
 for the eventual follow-up PRs; not forcing a micro-fix that doesn't exist.
+
+### Tick 30 — 2026-08-26 18:21 UTC — dense SyncHistogram flake ROOT-CAUSED: racy test (fix ready)
+
+Followed up the tick-16/18 side-finding. **VERDICT: H-test — the library is correct; the test
+is racy.** `tests/sync.rs::mt_record_static` evaluates `h.len()` *before* the `.join()` (join is
+on the assert's RHS), so `refresh()` runs concurrently with the 16 recorder **drops**. Per the
+SyncHistogram contract, a dropped Recorder's samples are only guaranteed visible to the **next**
+refresh — so the single racing refresh undercounts by whole 100k histograms.
+
+Reproducer (scratch, release): original ordering **3/20 fail** (lost 1/3/4 whole histograms);
+**join-then-refresh 0/40**; a *second* refresh recovers everything → **data is never lost**,
+purely a visibility/ordering bug in the test.
+
+**Lineage:** the same test is **byte-identical on upstream/main**, untouched since it was added
+(`f22bbbc`). The `ea926c4 "fix two racy tests (#151)"` cleanup fixed two siblings but missed this
+one (here the anti-pattern undercounts instead of deadlocking).
+
+**Fix (test-only, ready):** `optim/rust-sync-mt_record_static-race-fix.patch` (applies clean) —
+bind `let expected = jhs…join…sum()` BEFORE `h.refresh()`, establishing happens-before (all
+recorders dropped) then refresh+read. Deterministic (0/40). Zero library change, zero risk — a
+clean **upstream test-flake fix** the user can PR to HdrHistogram/HdrHistogram_rust independently
+of the packed work. This is a real bonus discovery: chasing our own "flaky sync" false-alarm from
+tick 16 turned up a latent racy test that still ships upstream.
