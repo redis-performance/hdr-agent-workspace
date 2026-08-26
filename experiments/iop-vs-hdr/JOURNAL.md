@@ -637,3 +637,24 @@ decode uses `sparseAdd` directly (never RecordValues) so the cache can't be pois
 
 Same 1-entry last-hit cache, same win, in all three ports. C server validation running; Go
 server validation next.
+
+### Tick 24 — 2026-08-26 17:50 UTC — C write cache: 3-arch server validation
+
+Clone `feat/packed-histogram` @ f58401c on each host; patch applies clean; **packed ctest 6/6
+on every arch, base AND patched**; populated/total bit-identical base vs patch (pop 21363/21362,
+total 4,000,000). Write ns/op (median of 3):
+
+| pattern | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| random    | 75.1→76.0 (+1.2%) | 65.7→66.4 (+1.1%) | 69.3→70.6 (+1.8%) |
+| clustered | 16.9→6.9 (**−59%**) | 13.5→5.7 (**−58%**) | 16.8→9.5 (**−44%**) |
+| hot90     | 25.7→17.8 (**−31%**) | 20.6→14.2 (**−31%**) | 27.2→22.0 (**−19%**) |
+
+**Honest caveat for the adversarial review (flagged by the Intel run):** the random workload
+shows a **+1.2–1.8% regression** — the cache's guarded compare + two seed-stores (last_index/
+last_pos) on a stream that almost never re-hits the same bucket. Note this is the *same* (write)
+path under a different workload, not the read path (reads untouched, 0%). The read path — the
+usual "other path" in the accept criteria — is unchanged. Net tradeoff: give up ~1–2% on
+pathological cold-random writes to gain 19–59% on realistic bursty/hot writes. The reviewer
+should decide whether to (a) accept as-is, (b) gate the fast path behind a cheap heuristic, or
+(c) ship only for the workloads that benefit. Documented, not hidden. Go server validation next.
