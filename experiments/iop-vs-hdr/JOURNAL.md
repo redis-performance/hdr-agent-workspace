@@ -605,3 +605,35 @@ path (identical width-aware add + overflow-grow); `sparse_add` returns the slot 
 `idx[last_pos]==counts_index` recheck for shift-safety; cache invalidated in
 `hdr_packed_reset` and after decode. No `normalizing_index_offset` path touched. Dispatching C
 server validation. Go port still running.
+
+### Tick 23 — 2026-08-26 17:49 UTC — Go write cache VALIDATED (PR #75)
+
+Ported to `hdrhistogram-go/packed.go` in scratch. Patch: `optim/go-packed-lasthit-cache.patch`
+(134 lines, applies clean); bench `optim/go-packed_writepat_test.go`.
+
+**Correctness (all green, patched):** `go test ./...` ok · `go vet` clean · `gofmt -l` clean ·
+**`go test -race ./...` ok (47.8s, no races)** · **`FuzzPackedDifferential -fuzztime=30s`:
+51k execs, 0 failures.** Byte-identical equivalence check (whitebox rolling checksum over every
+(idx[i],count[i]) + populated + total): **identical base vs patch** on all 3 streams
+(populated=1606, total=4,000,000, matching checksums).
+
+**Write ns/record (local, median of 3):**
+| pattern | base | patch | delta |
+|---|--:|--:|--:|
+| random    | 129.8 | 131.2 | −1.1% (noise) |
+| clustered |  27.5 |  13.3 | **−52% (2.07×)** |
+| hot90     |  45.9 |  29.9 | **−35%** |
+
+Design mirrors Rust/C: `addAtExisting(pos,delta)` refactor shared by hit branch + fast path;
+`sparseAdd` returns pos; `idx[lastPos]==ci` recheck. No Reset/Merge exists to invalidate;
+decode uses `sparseAdd` directly (never RecordValues) so the cache can't be poisoned.
+
+**Cross-language scorecard (local write deltas, all validated correct):**
+| lang | clustered | hot90 | random | correctness |
+|---|--:|--:|--:|---|
+| Rust | −42% | −26% | +3% | 310 tests (AMD/ARM), parity+fuzz |
+| C    | −68% | −34% | +0% | ctest 6/6 + ASan/UBSan |
+| Go   | −52% | −35% | −1% | go test + -race + fuzz |
+
+Same 1-entry last-hit cache, same win, in all three ports. C server validation running; Go
+server validation next.
