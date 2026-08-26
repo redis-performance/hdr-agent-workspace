@@ -69,9 +69,15 @@ and arch-sensitive. The read path is untouched everywhere. Options for review, p
 
 1. **Accept as-is** — the tradeoff is strongly favorable for the sparse-histogram use case
    (many bursty per-entity latency streams), which is the whole reason packed exists.
-2. **Go bounds-check elision** — the Go tax is partly a non-elided slice bounds-check on
-   `idx[lastPos]`; slicing to `p.size` first lets the compiler drop it (prototype in the journal).
-3. **Gate the fast path** behind a cheap heuristic if a port must protect cold-random writes.
+2. **Gate the fast path** behind a cheap heuristic if a port must protect cold-random writes.
+
+**Ruled out — bounds-check elision (tick 28, negative result):** the Go tax is *not* a
+bounds-check cost. The `idx[lastPos]` load lives on the *hit* path (guarded by
+`lastIndex == ci`, which short-circuits on random), so it never executes on a random miss.
+Eliminating that bounds check (verified via `-d=ssa/check_bce`) left random unchanged. The real
+cost is the **miss path**: the extra compare + two unconditional seed-stores (`lastIndex`,
+`lastPos`) on every record — a small inherent cost of keeping the cache warm, only removable by
+gating (option 2).
 
 Verdict: a robust, portable **20–66 % write win on realistic bursty/hot streams**, bit-identical
 results, correctness green on 3 langs × 3 archs. **Candidate follow-up PR per language**, gated on
