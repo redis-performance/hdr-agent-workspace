@@ -174,6 +174,27 @@ queries, 1605 populated of 21504 buckets. Full diary: [`experiments/iop-vs-hdr/J
   Zen 5 it's actually *faster* than dense), paying a ~30–53 ns writer tax — the exact
   many-sparse-histograms trade it targets.
 
+**Why iop-dense reads are slow — root cause (perf + source, `histogram-1.5.0/src/standard.rs`):**
+its `percentile()` does **two full O(total_buckets) rescans per call** (total-count sum at
+`:208`, min/max scan at `:221`) **plus a `Vec` and a `BTreeMap` heap allocation every query**.
+HdrHistogram maintains `total_count` incrementally and does one cheap cumulative walk with no
+allocation. A populated-bucket sweep (`src/bin/sweep.rs`) makes the complexity classes visible:
+
+![read latency vs populated buckets](experiments/iop-vs-hdr/sweep_read_latency.png)
+
+- **`iop-dense` read is FLAT** vs populated (O(total_buckets)) — Intel ~18–23 µs, AMD ~13–15 µs,
+  ARM ~43 µs — *never* cheap, even for a near-empty histogram.
+- **`hdr-dense` read is also flat but 4–7× tighter.** **`hdr-packed` and `iop-sparse` are
+  O(populated)**; `hdr-packed` is the lowest curve on every arch and only crosses `hdr-dense`
+  past ~68–87 % full.
+
+**Fairness — iop's best case (batched):** a monitoring snapshot wants a *set* {p50,p99,p99.9},
+and iop's batched `percentiles(&[…])` amortizes the two rescans + the alloc across the set
+(~2.4–2.9×). Even so, per-snapshot (`src/bin/batched.rs`): **iop-dense batched stays 10× (x86)
+to 19× (ARM) slower than hdr-dense**, and **iop-sparse batched still trails hdr-packed**
+(e.g. AMD 1085 vs 1006 ns). HDR needs no batched variant — with no per-call rescan or
+allocation, three singles cost the same as a batch would.
+
 Reproduce via `experiments/iop-vs-hdr/run.sh` on any host.
 
 ---
