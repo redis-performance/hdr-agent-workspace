@@ -678,3 +678,42 @@ correctness (go test green) or the read path, and clustered/hot90 still win big 
 makes the "gate the fast path behind a heuristic" option more attractive for the **Go** PR
 specifically. Logged prominently so the review weighs it. ARM Go pending, then cross-lang
 consolidation + a mitigation idea.
+
+### Tick 27 — 2026-08-26 17:53 UTC — Go validation ARM (3/3) + FULL cross-lang × cross-arch matrix
+
+ARM Neoverse-V2, Go 1.23.5, @01939f5. `go test` ok base+patched. random 50.6→53.9 (+6.4%),
+clustered 14.2→5.8 (**−58.7%**), hot90 22.1→13.5 (**−39.0%**).
+
+## Last-hit write cache — COMPLETE validation matrix (write ns/op deltas)
+
+Correctness GREEN everywhere: Rust 310 tests (AMD/ARM) + parity/fuzz; C ctest 6/6 +
+ASan/UBSan (3 archs); Go `go test` + `-race` + `FuzzPackedDifferential` (+ 3-arch server
+`go test`). Results bit-identical in every case (populated/total/checksums unchanged).
+
+**clustered (max locality):**
+| lang | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| Rust | −43% | −48% | −66% |
+| C    | −59% | −58% | −44% |
+| Go   | −49% | −54% | −59% |
+
+**hot90 (90% one bucket):**
+| lang | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| Rust | −29% | −25% | −50% |
+| C    | −31% | −31% | −19% |
+| Go   | −33% | −30% | −39% |
+
+**random (low locality — the cost side):**
+| lang | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| Rust | ~0% | +1% | +1% |
+| C    | +1.2% | +1.1% | +1.8% |
+| Go   | +2.4% | +9.4% | +6.4% |
+
+**Verdict:** the same 1-entry last-hit cache is a robust, portable **20–66% write win on
+realistic bursty/hot streams** in all three ports and all three archs, with bit-identical
+results. The cost is a cold-random-write tax that is **~1% in C/Rust** but **noticeably larger
+and arch-sensitive in Go (+2–9%)** — Go's slice bounds-check on `idx[lastPos]` + the wider
+struct don't get hidden as well. Read paths untouched. Next: try a Go-specific mitigation
+(bounds-check elision) to shave the random tax; then it's review-ready per language.
