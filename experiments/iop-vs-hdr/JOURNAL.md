@@ -466,3 +466,25 @@ machine base→patch (median of 3):
 
 hp_pop=1605 unchanged both sides; dense/iop columns unchanged. Confirms the laptop result on
 server-grade hardware and re-validates correctness on x86-64. Intel + ARM pending.
+
+### Tick 16 — 2026-08-26 17:34 UTC — write-cache validation: Intel FLAGS a sync test failure (investigating)
+
+Intel's full `cargo test --release` showed **lib 172/0 and every integration suite green
+EXCEPT `sync`: 11 passed, 1 FAILED** — `sync::mt_record_static` (tests/sync.rs:170) lost
+updates under concurrent writes: expected 1,600,000, observed 1,300,000 then 1,100,000 on a
+re-run (varies run-to-run = data race). Intel recommended reject; base numbers only (patch
+not benchmarked per the STOP rule): hdr-packed base random 54.3 / clustered 10.4 / hot90 17.4.
+
+**BUT this needs scrutiny, not blind acceptance:**
+- **AMD ran the SAME patched crate → 310 tests, 0 failed** (sync included). A deterministic
+  patch bug would tend to fail there too.
+- **The patch is packed-only** (`sparse_add` return type + `record_n` fast path in
+  `packed.rs`). `mt_record_static` exercises the **dense `SyncHistogram`** path, which the
+  patch never touches — mechanically it can't drop dense counts.
+- The failure is **non-deterministic** (count varies each run) — signature of a pre-existing
+  flaky race, not a logic error introduced by a single-threaded cache.
+
+Hypothesis: **pre-existing flaky sync test**, independent of the patch (note: an earlier
+submodule commit `ea926c4` already "fixed two racy tests"). Verifying now: run the sync suite
+in a loop on Intel BOTH clean-@386b655 AND patched; if clean also fails intermittently at a
+similar rate, the patch is exonerated. Not claiming the write win until this is resolved.
