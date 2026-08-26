@@ -1,0 +1,87 @@
+--- a/src/packed.rs
++++ b/src/packed.rs
+@@ -30,6 +30,11 @@
+     total_count: u64,
+     max_value: u64,
+     min_non_zero_value: u64,
++    // 1-entry last-hit cache: the flat counts-index touched by the previous record
++    // and its position in `idx`. `last_index < 0` is the empty sentinel. i64 covers
++    // the full u32 range of a flat index without overflow.
++    last_index: i64,
++    last_pos: usize,
+ }
+ 
+ #[inline]
+@@ -57,6 +62,8 @@
+             total_count: 0,
+             max_value: ORIGINAL_MAX,
+             min_non_zero_value: ORIGINAL_MIN,
++            last_index: -1,
++            last_pos: 0,
+         })
+     }
+ 
+@@ -127,13 +134,15 @@
+         base
+     }
+ 
+-    fn sparse_add(&mut self, ci: u32, delta: u64) {
++    /// Add `delta` to the count at flat index `ci`, inserting a new populated
++    /// bucket if needed. Returns the final position of `ci` in `idx`.
++    fn sparse_add(&mut self, ci: u32, delta: u64) -> usize {
+         let pos = self.lower_bound(ci);
+         if pos < self.idx.len() && self.idx[pos] == ci {
+             let nv = self.slot_get(pos).saturating_add(delta);
+             self.widen_to_fit(nv);
+             self.slot_set(pos, nv);
+-            return;
++            return pos;
+         }
+         self.widen_to_fit(delta);
+         let w = self.width as usize;
+@@ -147,6 +156,7 @@
+             *b = 0;
+         }
+         self.slot_set(pos, delta);
++        pos
+     }
+ 
+     // ---- record ----
+@@ -165,7 +175,27 @@
+             _ => return Err(RecordError::ValueOutOfRangeResizeDisabled),
+         };
+         if count != 0 {
+-            self.sparse_add(index as u32, count);
++            let k = index as u32;
++            // Fast path: a burst of records hitting the same flat index skips the
++            // binary search. The `idx[last_pos] == k` re-check makes the cache
++            // robust to positions shifted by an intervening insert.
++            if self.last_index >= 0
++                && self.last_index as u64 == u64::from(k)
++                && self.last_pos < self.idx.len()
++                && self.idx[self.last_pos] == k
++            {
++                // Same width-aware increment + overflow-widen as sparse_add's
++                // found branch. Widening leaves idx positions untouched, so
++                // last_pos stays valid.
++                let pos = self.last_pos;
++                let nv = self.slot_get(pos).saturating_add(count);
++                self.widen_to_fit(nv);
++                self.slot_set(pos, nv);
++            } else {
++                let pos = self.sparse_add(k, count);
++                self.last_index = i64::from(k);
++                self.last_pos = pos;
++            }
+             self.total_count = self.total_count.saturating_add(count);
+             if value > self.max_value {
+                 self.max_value = value;
+@@ -637,7 +667,7 @@
+                         return Err(PackedDeserializeError::InvalidParameters);
+                     }
+                     if val != 0 {
+-                        p.sparse_add(dst as u32, val as u64);
++                        let _ = p.sparse_add(dst as u32, val as u64);
+                         total = total.saturating_add(val as u64);
+                     }
+                     dst += 1;

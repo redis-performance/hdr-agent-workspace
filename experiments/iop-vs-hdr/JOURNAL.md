@@ -426,3 +426,28 @@ Full write-pattern matrix (hdr-packed ns/op):
 | hot90     | 17.4 | 14.0 | 24.6 |
 
 Prototype (last-hit cache) still validating in scratch; result → next tick.
+
+### Tick 14 — 2026-08-26 17:30 UTC — OPTIMIZATION prototype VALIDATED: last-hit write cache
+
+Implemented the 1-entry last-hit cache in a scratch copy of `packed.rs` @ `386b655`
+(PR #154 branch untouched). Patch saved: `optim/packed-lasthit-cache.patch` (87 lines,
+`git apply --check` clean against the real crate) + `optim/README.md`.
+
+**Correctness — FULL suite GREEN:** `cargo test --release` = 172 lib tests + all integration
+pass, incl. `parity_random`, `fuzz_differential` (index-by-index vs dense), `fuzz_hostile_decode`,
+`width_growth`, and byte-identical V2 serialization round-trips. clippy clean, no new packed.rs
+warnings. Results bit-identical (parity/fuzz enforce it). No atomic variant exists → nothing to
+mirror. Design: fast path reuses sparse_add's exact width-aware increment; `idx[last_pos]==k`
+re-check keeps it shift-safe; `sparse_add` returns the position to seed the cache.
+
+**Write delta (local laptop, directional):**
+| pattern | before | after | delta |
+|---|--:|--:|--:|
+| random    | 128.8 | 132.4 | +2.8% (noise: one guarded compare then same search) |
+| clustered |  24.8 |  14.5 | **−41.5%** |
+| hot90     |  39.9 |  29.6 | **−25.8%** |
+
+Real bursty/hot latency streams (the packed histogram's actual use case) get a large write
+win; the only cost is a negligible extra compare on pathological low-locality streams.
+Dispatching to the three servers to confirm base-vs-patch with clean numbers before deciding
+whether this becomes a follow-up upstream PR.
