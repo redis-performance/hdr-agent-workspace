@@ -536,3 +536,33 @@ Intel Granite Rapids, same-machine base→patch, hdr-packed write ns/op (median 
 hp_pop=1605 both sides. Matches AMD (clustered −48% / hot90 −25%). Two x86 archs agree: the
 last-hit cache halves clustered write cost and cuts hot90 ~¼–⅓, free on random. ARM validation
 (with its own cargo-test rerun) is the last data point → then finalize the optim writeup.
+
+### Tick 20 — 2026-08-26 17:39 UTC — write-cache validation: ARM (3/3) + FINAL verdict
+
+ARM Neoverse-V2: **`cargo test --release` patched = 310 tests, 0 failed** (sync suite passed
+this run — corroborating the Intel sync failure is flaky, not deterministic). hdr-packed write
+ns/op base→patch: random 28.6→28.9 (+1%), clustered **18.1→6.2 (−65.7%)**, hot90
+**24.6→12.4 (−49.6%)**. hp_pop=1605; dense/iop untouched.
+
+## Last-hit write cache — FINAL 3-arch result
+
+**Correctness:** packed parity + fuzz_differential + fuzz_hostile_decode + V2 serialization
+byte-identical, GREEN on all hosts. Full `cargo test`: AMD 310/0, ARM 310/0. The lone Intel
+`sync::mt_record_static` failure is a **pre-existing flaky race in the dense SyncHistogram**
+(clean 10/15 vs patch 9/15 fail — identical), mechanically impossible for a packed-only patch
+to cause. Results bit-identical (hp_pop=1605 everywhere).
+
+**hdr-packed write ns/op (base → patch, % faster):**
+
+| pattern | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| random    | 54.4→54.4 (0%) | 47.5→48.0 (+1%) | 28.6→28.9 (+1%) |
+| clustered | 10.4→5.9 (**−43%**) | 8.6→4.5 (**−48%**) | 18.1→6.2 (**−66%**) |
+| hot90     | 17.4→12.3 (**−29%**) | 13.8→10.3 (**−25%**) | 24.6→12.4 (**−50%**) |
+
+**Verdict:** a genuine, portable write-path win. On realistic bursty/hot latency streams
+(the packed histogram's actual use case) it cuts write cost 25–66%, normalizing clustered
+writes to ~6 ns across all three archs; on pathological low-locality streams it's free (one
+guarded compare, within noise). +34/−4 lines, no public-API change, no atomic path to touch,
+correctness preserved. **Candidate for a follow-up upstream PR** (separate from #154) —
+gated on the user's account + an adversarial review pass. Patch + writeup in `optim/`.
