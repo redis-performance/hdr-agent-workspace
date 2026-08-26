@@ -145,9 +145,36 @@ record into a dense `Histogram` (paying the full committed array) and convert wi
 recording* and at rest. It's also denser per entry (adaptive 1–8 B counts vs iop's fixed 8 B),
 so at typical low counts a packed entry is ~1.6–2.4× smaller than an iop `SparseHistogram` entry.
 
-**Write / read / memory numbers** (`hdr-dense` · `hdr-packed` · `iop-dense` · `iop-sparse`, sparse
-+ dense workloads) are pending a run on the Intel lab (icx1); the harness is committed and
-reproducible via `experiments/iop-vs-hdr/run.sh`.
+**Measured** on three AWS instances (2026-08-26), `histogram` v1.5.0 vs HDR tip `386b655`
+(PR #154, dense crate v7.6.0). Sparse latency-like workload: 4 M writes, 1 M percentile
+queries, 1605 populated of 21504 buckets. Full diary: [`experiments/iop-vs-hdr/JOURNAL.md`](experiments/iop-vs-hdr/JOURNAL.md).
+
+**Read latency — ns/query (lower is better):**
+
+| impl | Intel GNR | AMD Zen 5 | ARM N-V2 |
+|------|--:|--:|--:|
+| `hdr-dense`  |   380 |  316 |    512 |
+| `hdr-packed` |   408 |  299 |    597 |
+| `iop-dense`  | 10602 | 8840 | 28955 |
+| `iop-sparse` |  1238 |  936 |  1645 |
+
+**Write latency — ns/op:** `hdr-dense` 1.8–4.0 · `hdr-packed` 29.9–52.7 · `iop-dense`
+0.3–1.0 · `iop-sparse` no live write path (snapshot of a dense histogram).
+
+**Memory (sparse workload, identical on every host):** `hdr-dense` 168 KB · **`hdr-packed`
+11.13 KB** · `iop-dense` 168 KB · `iop-sparse` 18.81 KB.
+
+**What the numbers say:**
+- **`iop-dense` trades read for write to an extreme:** fastest write (~0.3–1 ns) but its
+  `percentile()` costs **8.8–29 µs** — 28× (x86) to **57× (ARM)** slower than `hdr-dense`
+  reads, at identical bucket count. The ARM amplification points at branchy scalar code.
+- **`hdr-packed` strictly beats `iop-sparse`** on every comparable axis: **2.7–3.1× faster
+  reads**, **1.7× smaller**, and it records *live* (iop-sparse can't).
+- **`hdr-packed` gives a 15× memory cut (168→11 KB) at read parity with dense** (±7%; on
+  Zen 5 it's actually *faster* than dense), paying a ~30–53 ns writer tax — the exact
+  many-sparse-histograms trade it targets.
+
+Reproduce via `experiments/iop-vs-hdr/run.sh` on any host.
 
 ---
 
