@@ -361,3 +361,31 @@ iop-sparse (1 batched)                 2106   (2.5x amortization)
 batched (vs ~10× on x86) — the O(buckets) rescans hurt most on the simplest core.
 iop-sparse batched 2106 vs hdr-packed 1601 = still **1.3× slower**. Conclusion holds on all
 three archs and under iop's most favorable (batched) API. Updating README next.
+
+### Tick 11 — 2026-08-26 17:23 UTC — NEW EXPERIMENT: write-pattern sensitivity (`src/bin/writes.rs`)
+
+hdr-packed records via binary-search-insert into sorted `idx[]`; dense impls are direct
+array increments. Does hdr-packed's write cost depend on temporal locality? Three workloads,
+same 4M ops / ~1600 buckets (local laptop, directional; servers dispatched):
+
+```
+pattern       hdr-dense   hdr-packed  iop-dense    hp_pop
+random              6.9        131.1        1.1      1605
+clustered           5.9         30.9        3.5      1605
+hot90               5.9         37.5        4.0      1605
+```
+
+**DISCOVERY — hdr-packed write is ~4× pattern-sensitive:**
+1. **Random (low locality) is the worst case (131 ns local):** every op binary-searches 1605
+   sorted indices, and the pointer-chasing misses cache. This is what the main harness
+   measured — i.e. the reported hdr-packed write tax is a *pessimistic* number.
+2. **Clustered / hot90 (realistic bursty locality) are 3–4× cheaper (31–38 ns):** consecutive
+   identical values keep the binary search hot in cache.
+3. **hot90 has 90% of ops hitting ONE bucket** — yet still 37.5 ns because the code
+   binary-searches *every* op regardless. **A 1-entry last-hit cache** (if the value maps to
+   the last-touched flat index, increment in place, skip the search) would turn those 90%
+   into O(1) and plausibly bring hot/clustered writes toward dense (~6 ns). Strong, on-charter
+   optimization for the write path → spawning an isolated worktree experiment to implement +
+   validate (parity/fuzz must stay green) + measure. Kept OFF the PR #154 branch.
+
+Dispatching writes.rs to the three servers for clean pattern numbers.
