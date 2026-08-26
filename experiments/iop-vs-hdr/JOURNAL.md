@@ -566,3 +566,17 @@ writes to ~6 ns across all three archs; on pathological low-locality streams it'
 guarded compare, within noise). +34/−4 lines, no public-API change, no atomic path to touch,
 correctness preserved. **Candidate for a follow-up upstream PR** (separate from #154) —
 gated on the user's account + an adversarial review pass. Patch + writeup in `optim/`.
+
+### Tick 21 — 2026-08-26 17:40 UTC — the write cache is portable: C (#150) and Go (#75) have the same pattern
+
+Read both packed record paths:
+- **C** `hdr_packed_histogram.c`: `hdr_packed_record_values` → `sparse_add` → `lower_bound`
+  (binary search) on **every** record. Source comment: "record -> binary search; hit:
+  cnt += delta; miss: insert (memmove), grow x2." Single-threaded, no atomic variant.
+- **Go** `packed.go`: `RecordValues` → `sparseAdd` → `lowerBound` on every record. Same shape.
+
+Both are textbook candidates for the identical 1-entry last-hit cache — and C is the
+workspace's PRIMARY optimization target. Porting the win strengthens PR #150 (C) and #75 (Go),
+not just the Rust #154. Spawning scratch-isolated prototype+validate agents for C (ctest +
+ASan/UBSan) and Go (go test parity/fuzz + -race), each with a pattern write-microbench for a
+base-vs-patch delta. Winners get server validation like the Rust one did.
