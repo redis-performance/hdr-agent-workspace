@@ -42,7 +42,21 @@ cd ../experiments/iop-vs-hdr
 cargo build --release --bin writes && ./target/release/writes   # base vs patch
 ```
 
-## Measured (see JOURNAL for the server table)
+## Measured — hdr-packed write ns/op (base → patch), 3 AWS archs
 
-Directional (laptop): clustered −41.5 %, hot90 −25.8 %, random +2.8 % (one extra guarded
-compare on a near-always-miss stream; within run-to-run noise). Server numbers in the journal.
+Same-machine base-vs-patch, median of 3 runs, N=4M ops, ~1600 buckets, `hp_pop`=1605 both
+sides (results bit-identical):
+
+| pattern | Intel GNR | AMD Zen 5 | ARM N-V2 |
+|---|--:|--:|--:|
+| random    | 54.4→54.4 (0%)      | 47.5→48.0 (+1%)     | 28.6→28.9 (+1%) |
+| clustered | 10.4→5.9 (**−43%**) | 8.6→4.5 (**−48%**)  | 18.1→6.2 (**−66%**) |
+| hot90     | 17.4→12.3 (**−29%**)| 13.8→10.3 (**−25%**)| 24.6→12.4 (**−50%**) |
+
+Large win on locality-favorable (bursty/hot) streams — the packed histogram's real use case —
+normalizing clustered writes to ~6 ns across all archs; free on pathological low-locality
+streams (one guarded compare, within noise). Full `cargo test --release` on the patched crate:
+**AMD 310/0, ARM 310/0**. The single Intel `sync::mt_record_static` failure is a pre-existing
+flaky race in the *dense* `SyncHistogram` (fails ~10/15 on the untouched crate too) — the
+packed-only patch cannot reach that path. Verdict: **candidate follow-up upstream PR**, gated on
+an adversarial review pass.
