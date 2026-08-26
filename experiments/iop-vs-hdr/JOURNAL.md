@@ -795,3 +795,12 @@ recorders dropped) then refresh+read. Deterministic (0/40). Zero library change,
 clean **upstream test-flake fix** the user can PR to HdrHistogram/HdrHistogram_rust independently
 of the packed work. This is a real bonus discovery: chasing our own "flaky sync" false-alarm from
 tick 16 turned up a latent racy test that still ships upstream.
+
+### Tick 31 — 2026-08-26 18:22 UTC — executive summary + memory chart; campaign wind-down
+
+Wrote [`SUMMARY.md`](SUMMARY.md) — the 2-minute morning read tying the three threads together
+(iop-vs-hdr comparison; last-hit write cache; SyncHistogram racy-test fix). Added
+`sweep_memory.png` (memory vs populated: hdr-packed ~6.4 B/entry lowest, iop-sparse ~12 B/entry,
+dense flat 168 KB). All threads at a natural completion; the optimization is blocked on the
+packed PRs merging (maintainer-side) and the test-fix/optimization PRs need the user's account.
+Winding the loop down — nothing further makes progress without user/maintainer action.
