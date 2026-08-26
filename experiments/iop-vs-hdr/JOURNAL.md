@@ -164,3 +164,40 @@ iop-sparse   (snapshot)         1645         18.81 KB
   writer tax (~30-53 ns) — exactly the sparse-many-histograms trade it's designed for.
 
 Next: profile iop-dense's `percentile()` on ARM (perf present) to explain the 29 µs.
+
+### Tick 4 — 2026-08-26 17:14 UTC — NEW EXPERIMENT: populated-bucket sweep (`src/bin/sweep.rs`)
+
+Added a second harness binary that sweeps target populated buckets P ∈ {10,50,100,500,
+1000,5000,10000} and measures write/read/memory for all four impls at each P. Goal: is
+iop-dense's read cost O(total_buckets) (flat) or O(populated)? And where does hdr-packed
+cross hdr-dense? Smoke-run locally (laptop — directional, server runs dispatched):
+
+```
+       P     hp_pop   hd_r(ns)   hp_r(ns)   id_r(ns)   is_r(ns)   hp_mem
+      10         10       9988         36      40938        120     104B
+     100         96      10047         86      45405        296     704B
+    1000        860      10061        601      52291       1832    5.68KB
+    5000       3917      10602       2499      54586       7780   23.65KB
+   10000       7500      10333       4620      55716      13933   46.65KB
+```
+
+**DISCOVERY — the read-complexity classes are now explicit:**
+1. **`iop-dense` read is FLAT (~41→56 µs) across a 1000× change in populated** → it is
+   **O(total_buckets): a full 21,504-bucket rescan on every `percentile()` call**,
+   independent of how much data was recorded. This is the root cause of the 8.8 µs (x86)
+   / 29 µs (ARM) headline numbers — and it means iop-dense is slow *even for a nearly
+   empty histogram*.
+2. **`hdr-dense` read is also flat (~10 µs) — same O(counts_len) class but 4–5× tighter**
+   than iop-dense's flat cost.
+3. **`hdr-packed` read is O(populated)** (36 ns → 4.6 µs) and therefore **beats hdr-dense
+   across the whole swept range** (up to 7500 populated ≈ 35% full) — the blocked
+   prefix-sum only pays for populated buckets. Only past ~half-full would dense overtake it.
+4. **`iop-sparse` read is also O(populated) but ~3× slower than hdr-packed** at every P
+   (13933 vs 4620 ns @ P=7500) — hdr-packed's width-specialized blocked scan wins.
+5. **`hdr-packed` memory is linear ≈ 6.4 B/populated** → crosses dense's 168 KB only past
+   ~26k populated > 21504 max buckets, i.e. **hdr-packed is always ≤ dense in practice.**
+6. **`hdr-packed` write grows ~O(log populated) + insert-shift** (26→90 ns) — the price of
+   keeping `idx` sorted; the memory/read win pays for it in the sparse-many-histograms case.
+
+Dispatching sweep.rs to Intel/AMD/ARM for clean server numbers. iop-dense's flat rescan is
+the story worth a chart.
