@@ -451,3 +451,18 @@ Real bursty/hot latency streams (the packed histogram's actual use case) get a l
 win; the only cost is a negligible extra compare on pathological low-locality streams.
 Dispatching to the three servers to confirm base-vs-patch with clean numbers before deciding
 whether this becomes a follow-up upstream PR.
+
+### Tick 15 — 2026-08-26 17:33 UTC — write-cache server validation: AMD (1/3)
+
+AMD Zen 5, patch applied via `git apply`. **`cargo test --release`: 310 tests, 0 failed**
+(all 10 suites incl. parity/fuzz/serialization + doctests). hdr-packed write ns/op, same
+machine base→patch (median of 3):
+
+| pattern | base | patch | delta |
+|---|--:|--:|--:|
+| random    | 47.5 | 48.0 | +1.1% (noise) |
+| clustered |  8.6 |  4.5 | **−47.7%** |
+| hot90     | 13.8 | 10.3 | **−25.4%** |
+
+hp_pop=1605 unchanged both sides; dense/iop columns unchanged. Confirms the laptop result on
+server-grade hardware and re-validates correctness on x86-64. Intel + ARM pending.
