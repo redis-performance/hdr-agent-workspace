@@ -48,3 +48,36 @@ Benchmark config (harness `src/main.rs`): `HdrHistogram(1, 1e9, sig=3)` vs
   (public) workspace + fork `HdrHistogram_rust` submodule over HTTPS, build the
   `iop-vs-hdr` harness `--release`, and run it. Baseline write/read/memory table pending
   their return.
+
+### Tick 1 — 2026-08-26 17:09 UTC — Intel Granite Rapids results (host 1/3)
+
+Xeon 6975P-C, rustc 1.98.0, iop `histogram` **v1.5.0**, HDR tip `386b655` (matches).
+Config: `counts_len=21504` (hdr) vs `total_buckets=21504` (iop) — apples-to-apples bucketing.
+Populated buckets in the sparse workload: **1605**. 3 runs, pinned to cores 4-7, stable.
+
+```
+impl           write ns      read ns  memory (sparse)
+------------------------------------------------------
+hdr-dense           4.0          380        168.00 KB
+hdr-packed         52.7          408         11.13 KB
+iop-dense           1.0        10602        168.00 KB
+iop-sparse   (snapshot)         1238         18.81 KB
+```
+
+**Findings (Intel):**
+1. **`iop-dense` read is ~28× slower than `hdr-dense`** (10,602 ns vs 380 ns) despite
+   identical bucket count. iop trades read for write: fastest write (1.0 ns) but its
+   `percentile()` path is pathologically slow — prime target to profile (looks O(buckets)
+   per query, possibly re-summing totals each call).
+2. **`hdr-packed` beats `iop-sparse` on BOTH axes it can be compared on:** read
+   408 ns vs 1238 ns (**3.0× faster**) and 11.13 KB vs 18.81 KB (**1.7× smaller**) — and
+   hdr-packed records *live*, while iop-sparse is a read-only snapshot built from a dense
+   histogram (so its "write" cost is really iop-dense's).
+3. **`hdr-packed` read (408 ns) ≈ `hdr-dense` read (380 ns)** — only +7%, i.e. the
+   blocked prefix-sum scan over 1605 populated buckets nearly matches the dense scan.
+   The write cost (52.7 ns) is the binary-search+insert price for the memory win (15×).
+4. Both dense impls sit at 168 KB (21504×8 B); hdr-packed at 11.13 KB is **15× smaller**.
+
+TODO next ticks: profile the `iop-dense` percentile path (why 10.6 µs?); confirm the
+pattern holds on ARM + AMD; extend harness with a memory-vs-populated sweep and
+per-quantile read latency.
