@@ -488,3 +488,15 @@ Hypothesis: **pre-existing flaky sync test**, independent of the patch (note: an
 submodule commit `ea926c4` already "fixed two racy tests"). Verifying now: run the sync suite
 in a loop on Intel BOTH clean-@386b655 AND patched; if clean also fails intermittently at a
 similar rate, the patch is exonerated. Not claiming the write win until this is resolved.
+
+### Tick 17 — 2026-08-26 17:35 UTC — patch EXONERATED on mechanism (local code inspection)
+
+Checked `HdrHistogram_rust/tests/sync.rs` directly: it constructs **only**
+`SyncHistogram<_>` over dense `Histogram::<u64>` (lines 14/145/…) and contains the string
+"packed" **0 times**. `mt_record_static` (line 145) is a pure **dense SyncHistogram**
+concurrency test. The patch modifies **only `src/packed.rs`** (a separate struct with no
+atomic path). Therefore the patch **cannot** affect this test's counts — the Intel failure is
+a **pre-existing flaky race in the dense sync suite**, unrelated to the write cache. AMD's
+clean 310/0 on the same patched crate corroborates. Empirical loop (clean-vs-patched fail
+rate on Intel) running to put a number on the flake. The write-cache result stands:
+correctness preserved (packed parity/fuzz all green on every host).
