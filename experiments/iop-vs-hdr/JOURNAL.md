@@ -106,3 +106,61 @@ iop-sparse   (snapshot)          936         18.81 KB
    (**1.7× smaller**). Same verdict as Intel.
 4. Absolute speed: Zen 5 is the fastest box so far (hdr-dense write 1.8 ns vs Intel 4.0 ns;
    read 316 vs 380 ns) — governor=performance helps.
+
+### Tick 3 — 2026-08-26 17:10 UTC — ARM Neoverse-V2 results (host 3/3) + cross-arch summary
+
+Neoverse-V2 (m8g.metal), rustc 1.98.0, iop v1.5.0, HDR `386b655`. Same config, populated=1605.
+
+```
+impl           write ns      read ns  memory (sparse)
+------------------------------------------------------
+hdr-dense           2.7          512        168.00 KB
+hdr-packed         29.9          597         11.13 KB
+iop-dense           0.5        28955        168.00 KB
+iop-sparse   (snapshot)         1645         18.81 KB
+```
+
+**Findings (ARM):**
+1. **iop-dense read penalty EXPLODES on ARM: 57× slower than hdr-dense** (28,955 ns vs
+   512 ns) — vs "only" ~28× on x86. Whatever iop's percentile does, Neoverse-V2 hates it
+   ~2× more than x86 does → classic signature of branchy scalar code x86's wider OoO
+   window partially hides. This is the night's headline finding to profile next.
+2. hdr-packed write is *fastest on ARM* (29.9 ns vs Intel 52.7 / AMD 46.9) — the
+   binary-search+insert likes Neoverse-V2's branch predictor / cheaper mispredicts here.
+3. hdr-packed vs iop-sparse: 597 vs 1645 ns read (**2.75× faster**), 11.13 vs 18.81 KB.
+
+---
+
+## Cross-arch baseline summary (populated=1605 / 1605 buckets, sig≈0.1%)
+
+**Read latency (ns/query, lower better):**
+
+| impl | Intel GNR | AMD Zen5 | ARM N-V2 |
+|---|--:|--:|--:|
+| hdr-dense  |  380 |  316 |   512 |
+| hdr-packed |  408 |  299 |   597 |
+| iop-dense  | 10602 | 8840 | 28955 |
+| iop-sparse | 1238 |  936 |  1645 |
+
+**Write latency (ns/op, lower better):**
+
+| impl | Intel GNR | AMD Zen5 | ARM N-V2 |
+|---|--:|--:|--:|
+| hdr-dense  |  4.0 | 1.8 | 2.7 |
+| hdr-packed | 52.7 | 46.9 | 29.9 |
+| iop-dense  |  1.0 | 0.3 | 0.5 |
+| iop-sparse | — | — | — |  (no live write path)
+
+**Memory (sparse workload, identical every host):** hdr-dense 168 KB · hdr-packed
+**11.13 KB** · iop-dense 168 KB · iop-sparse 18.81 KB.
+
+**Headline verdicts:**
+- **iop-dense: fastest write (~0.3-1 ns), unusably slow read (8.8-29 µs).** 28× (x86) to
+  57× (ARM) slower than hdr-dense reads. A histogram you write hot and query rarely — but
+  the read cliff is severe and ARM-amplified.
+- **hdr-packed strictly beats iop-sparse:** ~2.7-3.1× faster reads AND 1.7× smaller AND
+  it's a live recorder (iop-sparse is a read-only snapshot of a dense histogram).
+- **hdr-packed buys a 15× memory cut (168→11 KB) for read parity with dense** (±7%) and a
+  writer tax (~30-53 ns) — exactly the sparse-many-histograms trade it's designed for.
+
+Next: profile iop-dense's `percentile()` on ARM (perf present) to explain the 29 µs.
