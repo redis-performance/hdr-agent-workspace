@@ -344,3 +344,20 @@ Amortization ≈ 2.9× (iop-dense) / 2.4× (iop-sparse), consistent across archs
 laptop prove-out. **Even batched, iop-dense stays ~10× slower than hdr-dense** (11551 vs
 1147; 9727 vs 943) and **iop-sparse batched still trails hdr-packed** (1552 vs 1229; 1085 vs
 1006). ARM batched pending, then README update with the chart + this table.
+
+### Tick 10 — 2026-08-26 17:20 UTC — batched results: ARM (trio complete)
+
+ARM Neoverse-V2, per {p50,p99,p99.9} snapshot (2 runs; iop-dense ~5% jitter, rest ~1 ns):
+```
+hdr-dense  (3 singles)                 1533
+hdr-packed (3 singles)                 1601
+iop-dense  (3 singles)                85781
+iop-dense  (1 batched)                28949   (2.96x amortization)
+iop-sparse (3 singles)                 5191
+iop-sparse (1 batched)                 2106   (2.5x amortization)
+```
+
+**ARM widens the gap:** iop-dense batched 28949 vs hdr-dense 1533 = **18.9× slower** even
+batched (vs ~10× on x86) — the O(buckets) rescans hurt most on the simplest core.
+iop-sparse batched 2106 vs hdr-packed 1601 = still **1.3× slower**. Conclusion holds on all
+three archs and under iop's most favorable (batched) API. Updating README next.
