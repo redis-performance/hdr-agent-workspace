@@ -500,3 +500,26 @@ a **pre-existing flaky race in the dense sync suite**, unrelated to the write ca
 clean 310/0 on the same patched crate corroborates. Empirical loop (clean-vs-patched fail
 rate on Intel) running to put a number on the flake. The write-cache result stands:
 correctness preserved (packed parity/fuzz all green on every host).
+
+### Tick 18 — 2026-08-26 17:37 UTC — EMPIRICAL exoneration + a side-finding
+
+15-run loop of `sync::mt_record_static` on Intel, same box, back-to-back:
+- **CLEAN @386b655: pass=5, fail=10** (67% fail)
+- **PATCHED: pass=6, fail=9** (60% fail)
+
+Identical within noise; patched flaked one *fewer*. Test uses dense `SyncHistogram` only,
+"packed" appears 0× in sync.rs, patch is +34/−4 in `packed.rs` alone → **no code path links
+them.** VERDICT: **patch exonerated; the sync failure is a pre-existing flaky race**, not a
+regression. The write-cache optimization is correct (packed parity/fuzz green on every host;
+AMD 310/0).
+
+**Side-finding (not ours, flagged for a separate look):** `sync::mt_record_static` fails
+~60–67% of the time on a 96-core Granite Rapids box on the **untouched** crate — a
+non-deterministic lost-update in the dense `SyncHistogram` recorder/refresh handoff under high
+contention. Could be a racy *test* (asserting `len()` without a full refresh barrier) or a
+real library race; the packed branch inherits it from upstream. Worth a dedicated
+investigation later — logged here so it isn't mistaken for packed-related. (Prior submodule
+commit `ea926c4` already "fixed two racy tests", so this area has known test raciness.)
+
+Next: ARM validation (3rd-arch base-vs-patch) + fetch Intel PATCH write numbers (Intel agent
+stopped at the STOP-rule before benchmarking) to complete the write-cache server table.
