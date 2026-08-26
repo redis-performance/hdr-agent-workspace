@@ -267,3 +267,24 @@ Clean server runs of `sweep.rs` (2 runs each, agree <2%). read ns/query, key col
   width-specialized scan wins. And hdr-packed is a live writer; iop-sparse is a snapshot.
 - **Memory identical across arch** (deterministic): 104 B @ P=10 → 46.65 KB @ P=7500, always
   ≤ dense's 168 KB.
+
+### Tick 7 — 2026-08-26 17:16 UTC — sweep results: ARM Neoverse-V2 (trio complete)
+
+```
+    P    hp_pop   hd_r   hp_r    id_r   is_r   hp_mem
+   10        10   5820     15   42870     57    104B
+  100        96   5967     43   43017    150    704B
+ 1000       860   5990    335   43064   1003   5.68KB
+ 5000      3917   5991   1478   43066   4281  23.65KB
+10000      7500   5990   2787   43062   8085  46.65KB
+```
+
+**ARM is the extreme case of the same law:** `id_r` is a rock-flat **~43 µs** across a 1000×
+populated range — the two O(21504) rescans + per-call alloc are punishing on Neoverse-V2's
+narrower OoO window. hd_r flat ~6 µs (**7.2× tighter than iop-dense**). hp_r O(populated),
+crosses hd_r only ~74% full. hdr-packed vs iop-sparse @P=10000: 2787 vs 8085 = **2.9×**.
+
+**iop-dense flat read cost, all three archs:** Intel ~18–23 µs · AMD ~13–15 µs · ARM ~43 µs.
+The ARM/x86 ratio (~2–3×) is the branchy-scalar signature — this is a portable algorithmic
+cost, worst where the core is simplest. A chart of id_r-vs-populated (flat lines) next to
+hp_r/is_r (rising lines) is the single most legible artifact of this campaign.
