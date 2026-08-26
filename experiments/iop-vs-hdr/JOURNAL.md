@@ -229,3 +229,41 @@ BTreeMap alloc across all requested quantiles. Real code that wants p50/p99/p99.
 snapshot should issue ONE batched call, not three singles. Even batched it's still
 O(buckets)+alloc per snapshot, but ~3× fewer scans. Adding a batched-read experiment so the
 comparison reports iop's best case too, not just the per-query worst case.
+
+### Tick 6 — 2026-08-26 17:16 UTC — sweep results: Intel + AMD (ARM pending)
+
+Clean server runs of `sweep.rs` (2 runs each, agree <2%). read ns/query, key columns:
+
+**Intel Granite Rapids** (hd_r flat ≈4280, id_r flat ≈17–23k):
+```
+    P    hp_pop   hd_r   hp_r   id_r   is_r   hp_mem
+   10        10   4159     16  17332     44    104B
+  100        96   4259     37  18575    120    704B
+ 1000       860   4280    276  21560    718   5.68KB
+ 5000      3917   4280   1171  22490   3052  23.65KB
+10000      7500   4277   2177  22709   5774  46.65KB
+```
+**AMD Zen 5** (hd_r flat ≈3577, id_r flat ≈13–15k):
+```
+    P    hp_pop   hd_r   hp_r   id_r   is_r   hp_mem
+   10        10   3479     13  12909     42    104B
+  100        96   3564     26  13847     88    704B
+ 1000       860   3578    173  14563    535   5.68KB
+ 5000      3917   3576    757  14178   2136  23.65KB
+10000      7500   3577   1418  13629   4000  46.65KB
+```
+
+**Confirmed cross-arch (server-grade numbers):**
+- **`iop-dense` read is FLAT vs populated on every arch** (Intel ~17–23k, AMD ~13–15k) —
+  O(total_buckets), exactly as the source predicts (2 full rescans/call). Never gets cheap.
+- **`hdr-dense` read is also flat** (Intel ~4.3k, AMD ~3.6k) but **~4–5× tighter** than
+  iop-dense's flat cost — HDR's single cached-total cumulative walk vs iop's 2 rescans+alloc.
+- **`hdr-packed` read is O(populated) and beats `hdr-dense` until the histogram is deep:**
+  extrapolating hp_r's slope, hp_r crosses hd_r only around **~68% full on Intel, ~87% full
+  on AMD** (>10k populated of 21504). Below that, packed reads *faster* than dense — while
+  using 3–46× less memory.
+- **`hdr-packed` beats `iop-sparse` at every P** (e.g. Intel P=10000: 2177 vs 5774 ns,
+  **2.7× faster**; AMD 1418 vs 4000, **2.8×**) — both O(populated), hdr's blocked
+  width-specialized scan wins. And hdr-packed is a live writer; iop-sparse is a snapshot.
+- **Memory identical across arch** (deterministic): 104 B @ P=10 → 46.65 KB @ P=7500, always
+  ≤ dense's 168 KB.
