@@ -81,3 +81,28 @@ iop-sparse   (snapshot)         1238         18.81 KB
 TODO next ticks: profile the `iop-dense` percentile path (why 10.6 µs?); confirm the
 pattern holds on ARM + AMD; extend harness with a memory-vs-populated sweep and
 per-quantile read latency.
+
+### Tick 2 — 2026-08-26 17:09 UTC — AMD Zen 5 "Turin" results (host 2/3)
+
+EPYC 9R45, rustc 1.98.0, iop v1.5.0, HDR `386b655`. governor=**performance**.
+Same config (counts_len=21504, populated=1605). 3 runs, cores 4-7, very stable.
+
+```
+impl           write ns      read ns  memory (sparse)
+------------------------------------------------------
+hdr-dense           1.8          316        168.00 KB
+hdr-packed         46.9          299         11.13 KB
+iop-dense           0.3         8840        168.00 KB
+iop-sparse   (snapshot)          936         18.81 KB
+```
+
+**Findings (AMD):**
+1. **The iop-dense 28× read penalty reproduces exactly** (8840 ns vs hdr-dense 316 ns).
+   Cross-arch confirmed: it's algorithmic, not a microarchitectural quirk.
+2. **On Zen 5, hdr-packed read (299 ns) is FASTER than hdr-dense (316 ns)** — the blocked
+   prefix-sum over 1605 populated buckets beats scanning the full dense counts array here.
+   (On Intel it was +7% slower; on AMD it's -5% faster — arch-dependent crossover.)
+3. hdr-packed vs iop-sparse: 299 vs 936 ns read (**3.1× faster**), 11.13 vs 18.81 KB
+   (**1.7× smaller**). Same verdict as Intel.
+4. Absolute speed: Zen 5 is the fastest box so far (hdr-dense write 1.8 ns vs Intel 4.0 ns;
+   read 316 vs 380 ns) — governor=performance helps.
