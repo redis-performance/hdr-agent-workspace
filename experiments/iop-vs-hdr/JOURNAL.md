@@ -740,3 +740,35 @@ seed stores) — but that's a micro-tradeoff the maintainer should weigh, not wo
 Value: rules out BCE, pinpoints the real cost, keeps the writeup honest. Optimization thread
 is complete; the last-hit cache stands as a validated 3-lang × 3-arch write win with a
 characterized, small, workload-dependent cost. Correcting the optim README mitigation note.
+
+### Tick 29 — 2026-08-26 18:13 UTC — adversarial upstream-merge review of the C write cache
+
+Ran `.claude/skills/review-hdrhistogram.md` against `c-packed-lasthit-cache.patch` (gates in
+scratch).
+
+**Correctness: CLEAN.** A1 offset-aware ✅ (fast path never reads dense `counts[]`; packed
+decode hard-rejects `normalizing_index_offset!=0`), A2 atomic-twin ✅ N/A (no atomic packed
+variant), A3 bounds/overflow ✅ (out-of-range + total_count overflow checked before mutation;
+fast path reuses `sparse_hit_add` = same width-aware add + `widen_to_fit`), A4 no-signed-shift
+✅, A5 div-by-zero ✅ N/A, A6 codec round-trip ✅ (cache fields not in the flyweight; decode
+re-inits cache to -1; log round-trip passes).
+**Gates:** build gcc ✅ · build HDR_LOG=DISABLED ✅ · build clang 18 ✅ · ctest gcc 6/6 ✅ ·
+ctest clang 6/6 ✅ · ASan/UBSan packed test clean ✅ (the 4 dense LeakSanitizer failures are
+pre-existing, unrelated) · fuzz N/A (no codec change) · MSVC risk low (pure C, int32_t, no
+intrinsics, no bench file in patch).
+
+**Verdict: NEEDS WORK** — zero correctness defects, but not upstream-mergeable *yet*:
+1. **No upstream base.** Packed itself is unmerged (PR #150/#75/#154 OPEN); this optimization
+   must stack behind the packed PR, not be a standalone upstream PR. → It's a **follow-up**,
+   gated on those merging.
+2. **Random-write regression on the targeted path.** +1.1–1.8% (C/Rust; +6–9% Go) is on
+   `record` itself, not an untargeted path, so it trips the project's ">1% on the path" bar.
+   Needs mitigation or an explicit maintainer trade backed by in-driver ops/sec numbers.
+
+**Mitigation analysis (why random cost is near-inherent):** the tax is the miss-path seed-write,
+not the guard (BCE ruled out, tick 28). A single-field variant (drop `last_index`, guard on
+`idx[last_pos]==ci` alone — correct because `idx` is unique, so the slot self-identifies) saves
+one store but ADDS an `idx[]` load on every random miss (loses the cheap int short-circuit) — a
+wash. To cache you must write the cache; with zero locality that write is pure cost. So the clean
+levers are (a) accept the ~1–2% trade for 20–66% bursty gains, or (b) gate the fast path. Logged
+for the eventual follow-up PRs; not forcing a micro-fix that doesn't exist.
