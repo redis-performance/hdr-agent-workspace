@@ -523,3 +523,16 @@ commit `ea926c4` already "fixed two racy tests", so this area has known test rac
 
 Next: ARM validation (3rd-arch base-vs-patch) + fetch Intel PATCH write numbers (Intel agent
 stopped at the STOP-rule before benchmarking) to complete the write-cache server table.
+
+### Tick 19 — 2026-08-26 17:38 UTC — Intel PATCH write numbers (write-cache table 2/3)
+
+Intel Granite Rapids, same-machine base→patch, hdr-packed write ns/op (median of 3, tight):
+| pattern | base | patch | delta |
+|---|--:|--:|--:|
+| random    | 54.4 | 54.4 | ~0% (noise) |
+| clustered | 10.4 |  5.9 | **−43%** |
+| hot90     | 17.4 | 12.3 | **−29%** |
+
+hp_pop=1605 both sides. Matches AMD (clustered −48% / hot90 −25%). Two x86 archs agree: the
+last-hit cache halves clustered write cost and cuts hot90 ~¼–⅓, free on random. ARM validation
+(with its own cargo-test rerun) is the last data point → then finalize the optim writeup.
