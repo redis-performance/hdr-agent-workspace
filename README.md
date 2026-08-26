@@ -195,7 +195,9 @@ to 19× (ARM) slower than hdr-dense**, and **iop-sparse batched still trails hdr
 (e.g. AMD 1085 vs 1006 ns). HDR needs no batched variant — with no per-call rescan or
 allocation, three singles cost the same as a batch would.
 
-Reproduce via `experiments/iop-vs-hdr/run.sh` on any host.
+Reproduce via `experiments/iop-vs-hdr/run.sh` on any host. **2-minute read:**
+[`experiments/iop-vs-hdr/SUMMARY.md`](experiments/iop-vs-hdr/SUMMARY.md) (comparison +
+the portable last-hit write-cache optimization + a diagnosed upstream test flake).
 
 ---
 
