@@ -3,7 +3,7 @@
 	url = git@github.com:fcostaoliveira/HdrHistogram_c.git
 [submodule "hdrhistogram-go"]
 	path = hdrhistogram-go
-	url = git@github.com:HdrHistogram/hdrhistogram-go.git
+	url = git@github.com:fcostaoliveira/hdrhistogram-go.git
 [submodule "HdrHistogram_rust"]
 	path = HdrHistogram_rust
 	url = git@github.com:fcostaoliveira/HdrHistogram_rust.git

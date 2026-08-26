@@ -284,3 +284,34 @@ Go elides the per-element bounds check. **Benchmark** (gnr1, single core, A/B vs
 - write flat (control); `sink`/`bsink` byte-identical.
 **Decision**: **ACCEPT**. **Upstream**: [hdrhistogram-go #62](https://github.com/HdrHistogram/hdrhistogram-go/pull/62)
 (branch `perf/scan-bounds-check-elim` @ 0656725). Bounds-check elimination was Go's dominant scalar-scan cost.
+
+## EXP-PACKED-READ (packed percentile read-path optimization loop)
+
+Baseline vs optimized packed read (config 1,1e9,2, same box), D=223..594:
+- iter1 width-specialized scan (hoist count-width switch out of the per-bucket loop): singular+plural ~20-25% faster. No semantic change.
+- iter2 single-pass plural (sort tiny target array, one sparse scan, register-held current target): value_at_percentiles ~2.3-3x faster than baseline (wide: ~1950->~650 ns). Closes gap to optimized dense plural from ~3.3-4.5x to ~1.3-2x. Order-agnostic (added test_plural_single_pass_order). 24 tests green under ASan+UBSan+float-cast-overflow.
+- Landed on PR #150 branch (73125fc, bb48e3b).
+
+### write-path (record) — profiled + 3 non-starters (2026-08-22)
+- Ablation: counts_index_for (geometry) only 3.8 ns; the O(log D) lower_bound binary search is ~90% of record cost (~90-118 ns). Load-latency-bound dependent chain, NOT branch misprediction.
+- REJECT branchless lower_bound (cmov): <2% (confirms not mispredict-bound).
+- REJECT last-hit position cache: regresses both IID (+3ns) and correlated (+6ns) — even autocorrelated latency moves to ADJACENT buckets, so exact-same-bucket repeats are rare; probe is net overhead.
+- REJECT prefetch grandchildren in search: IID -36% (cache-cold win) but correlated +10% REGRESSION (wasted prefetches when the small working set is already hot). Realistic latency is autocorrelated -> the hot case dominates -> net loss.
+- Conclusion: record path is near its floor for a sorted-vector structure; further gains need a different layout (Eytzinger/hash) that trades away the read/insert/memory properties — out of scope for a memory feature.
+
+### read-path iter5+iter6 — blocked prefix-sum (ACCEPTED)
+- iter5: blocked prefix-sum for single value_at_percentile (widths 1/2/4, 16-bucket block skip; width8 scalar). ~3x faster single (D=594 ~620->205ns). 24 tests + oracle clean.
+- iter6: same blocking for the plural single-pass scan. ~2.6-3x faster plural (D=594 ~890->280ns). Verified 410k checks / 20k random histos (all widths, D=1..3000, adversarial pcts) bit-for-bit vs singular oracle, strict san.
+- RESULT: packed read now FASTER than optimized dense #141 for sparse pops (single 0.40-0.66x, batch 0.52-0.77x of dense) — packed scans only D populated buckets vs dense full counts_len. Landed 8b1fe1d, f58401c on PR #150.
+- REJECT linear-scan lower_bound (counting, thresh 1024): O(n) scan did not auto-vectorize at -O2 -> catastrophic for larger D (D=594 132->518ns); break-even at tiny D; realistic correlated case unchanged (91->92ns). 4th write reject — record path confirmed near-floor for the realistic (cache-hot correlated) case (~91ns); search tweaks only help unrealistic cache-cold IID.
+
+### encode/decode + width-8 — no headroom (loop wind-down 2026-08-22)
+- encode: hdr_packed_encode_compressed ~86-100us, zlib deflate dominates; packed==dense (0.98-1.01x). Packed-specific varint/RLE streaming is a tiny fraction -> no >=2% win without changing compression (must stay V2-identical). NO-WIN.
+- decode: symmetric (uncompress dominates). NO-WIN.
+- width-8 read blocking: NON-VIABLE — a width-8 bucket holds up to 2^63, so a block sum can overflow int64; the per-element saturation that prevents block-skip IS the cost. Must stay scalar.
+- LOOP STOPPED: 3 consecutive no-wins. Optimization space exhausted.
+
+## Packed optimization loop — FINAL SUMMARY
+ACCEPTED (all on PR #150): read width-specialized scan (+20-25%), single-pass plural (~2.3-3x), blocked prefix-sum single (~3x) + plural (~2.6-3x). Net: packed read went from 3.3-4.5x SLOWER than optimized dense#141 to 1.3-2.5x FASTER (single 0.40-0.66x, batch 0.52-0.77x of dense) for sparse pops.
+REJECTED write: branchless-search, last-hit-cache, prefetch, linear-scan (record near-floor ~91ns realistic; search is inherent dependent-load chain).
+NO-WIN: encode/decode (zlib-bound), width-8 blocking (non-viable).
