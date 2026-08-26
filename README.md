@@ -36,10 +36,12 @@ Java has none, so a fair single-call comparison isn't possible.
 
 ---
 
-## Upstream PRs — cross-port status (last updated 2026-07-03)
+## Upstream PRs — cross-port status (last updated 2026-08-26)
 
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
+
+**Tally (2026-08-26):** **C** — 3 merged (#134/#135/#136), 11 open (5 perf #137–#141 · 5 dense-hardening #145–#149 · packed #150), 1 closed. **Go** — **16 merged (#57–#74)**, 1 open (packed #75). **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153).
 
 ### C — [HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c) (fork `fcostaoliveira/HdrHistogram_c`)
 | PR | State | What |
@@ -54,6 +56,14 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141) | **OPEN** (stacked on #140) | blocked skip-scan for the batch fast path — batch **+134%** on top of #140 (2.34×) |
 | [#137](https://github.com/HdrHistogram/HdrHistogram_c/pull/137) | **OPEN** ⚠️ conflicts | portable block-sum (drops AVX2) + single-pass batch — overlaps #138/#139/#140 |
 
+Plus the packed review surfaced **5 dense-hardening fixes** (all **OPEN**):
+[#145](https://github.com/HdrHistogram/HdrHistogram_c/pull/145) bucket-config shift overflow ·
+[#146](https://github.com/HdrHistogram/HdrHistogram_c/pull/146) V1/V2 decode heap OOB ·
+[#147](https://github.com/HdrHistogram/HdrHistogram_c/pull/147) mean/count OOB ·
+[#148](https://github.com/HdrHistogram/HdrHistogram_c/pull/148) top-bucket overflow ·
+[#149](https://github.com/HdrHistogram/HdrHistogram_c/pull/149) iterator overflow — and the sparse
+variant [**#150**](https://github.com/HdrHistogram/HdrHistogram_c/pull/150) (see [Sparse / packed histogram](#sparse--packed-histogram--the-memory-feature-2026-08)).
+
 ### Go — [HdrHistogram/hdrhistogram-go](https://github.com/HdrHistogram/hdrhistogram-go) (fork `fcostaoliveira/hdrhistogram-go`)
 | PR | State | What |
 |----|-------|------|
@@ -64,22 +74,25 @@ benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 | [#63](https://github.com/HdrHistogram/hdrhistogram-go/pull/63) | ✅ **MERGED** `6b5dd0d` | `ValueAtPercentilesSlice` — ordered `[]int64` batch (no map alloc) — batch **+42.5%** |
 | [#64](https://github.com/HdrHistogram/hdrhistogram-go/pull/64) | ✅ **MERGED** `b00adb1` | blocked prefix-sum skip-scan (read **+50%**) + write bounds-check elision (**+5.1%**) + `Import` length hardening |
 | [#65](https://github.com/HdrHistogram/hdrhistogram-go/pull/65) | ✅ **MERGED** | fix 6 untrusted-input panics in `Decode`/log-reader + native Go fuzzers + ClusterFuzzLite/CI (repo had zero fuzzing) |
-| [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | **OPEN** ✅ CI green, mergeable | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing · `StartTime` UTC (closes #61) |
+| [#66](https://github.com/HdrHistogram/hdrhistogram-go/pull/66) | ✅ **MERGED** | `Mean` int64 overflow · `normalizingIndexOffset` C/Java wire bug · `BaseTime` log-casing · `StartTime` UTC (closes #61) |
 | [#67](https://github.com/HdrHistogram/hdrhistogram-go/pull/67) | ✅ **MERGED** | percentile edge contracts — empty histogram (closes #60), negative clamp, map phantom key |
-| [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | **OPEN** (rebased clean) | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs; addressed @dkropachev negative-clamp review + added cross-API test |
+| [#68](https://github.com/HdrHistogram/hdrhistogram-go/pull/68) | ✅ **MERGED** | percentile `max(count,1)` — 0th percentile == recorded min across all 3 APIs; addressed @dkropachev negative-clamp review + added cross-API test |
 | [#69](https://github.com/HdrHistogram/hdrhistogram-go/pull/69) | ✅ **MERGED** | `Reset` clears tag/start/end time, not just counts |
 | [#70](https://github.com/HdrHistogram/hdrhistogram-go/pull/70) | ✅ **MERGED** | bench: remove dead fill loop that panics for b.N>1e6 |
 | [#71](https://github.com/HdrHistogram/hdrhistogram-go/pull/71) | ✅ **MERGED** | test-only coverage boost 85.9%→87.8% (zigzag ladder, overflow guard, merge/corrected edges) |
 | [#72](https://github.com/HdrHistogram/hdrhistogram-go/pull/72) | ✅ **MERGED** | log reader: decode final interval line lacking a trailing newline (was silently dropped) |
 | [#73](https://github.com/HdrHistogram/hdrhistogram-go/pull/73) | ✅ **MERGED** | test-only: pin golden values for the logV2 reader fixtures (was err==nil/NotNil only) |
 | [#74](https://github.com/HdrHistogram/hdrhistogram-go/pull/74) | ✅ **MERGED** | `RecordValues` rejects a negative count (was silently driving counts/TotalCount negative); write path unchanged at ~3.2 ns/op |
+| [#75](https://github.com/HdrHistogram/hdrhistogram-go/pull/75) | **OPEN** ✅ CI 17/17 | **PackedHistogram** — sparse memory variant ([details](#sparse--packed-histogram--the-memory-feature-2026-08)) |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
 |----|-------|------|
-| [#138](https://github.com/HdrHistogram/HdrHistogram_rust/pull/138) | **OPEN** (awaiting maintainer to run CI) | `value_at_quantiles`/`value_at_percentiles` single-pass batch API — +616% |
+| [#138](https://github.com/HdrHistogram/HdrHistogram_rust/pull/138) | ✅ **MERGED** | `value_at_quantiles`/`value_at_percentiles` single-pass batch API — +616% |
 | [#139](https://github.com/HdrHistogram/HdrHistogram_rust/pull/139) | ⛔ **CLOSED** — superseded by #140 | iterate `counts[]` to elide bounds checks — read +5% (subsumed) |
-| [#140](https://github.com/HdrHistogram/HdrHistogram_rust/pull/140) | **OPEN** (round 4) | chunked skip-scan in `value_at_quantile` — read **+63%**, batch **+65%** (supersedes #139) |
+| [#140](https://github.com/HdrHistogram/HdrHistogram_rust/pull/140) | ✅ **MERGED** | chunked skip-scan in `value_at_quantile` — read **+63%**, batch **+65%** (supersedes #139) |
+| [#153](https://github.com/HdrHistogram/HdrHistogram_rust/pull/153) | ⛔ **CLOSED** — superseded by #154 | PackedHistogram on a stale fork base; reopened clean on `main` |
+| [#154](https://github.com/HdrHistogram/HdrHistogram_rust/pull/154) | **OPEN** ✅ CI 17/17 | **PackedHistogram** — sparse memory variant ([details](#sparse--packed-histogram--the-memory-feature-2026-08)) |
 
 **Cross-port race + charts:** [`experiments/RACE.md`](experiments/RACE.md). Adversarial PR reviews
 (3 reusable skills — `review-hdrhistogram`, `hdr-reviewer-go`, `hdr-reviewer-rust`) caught 2 real
@@ -278,11 +291,12 @@ The merged fork PRs above are the baseline this workspace builds on.
 - **C** — the **focus** of the optimization loop (this workspace). Submodule `HdrHistogram_c/`
   (fork `fcostaoliveira/HdrHistogram_c`, upstream `HdrHistogram/HdrHistogram_c`).
 - **Rust** — submodule `HdrHistogram_rust/` (fork `fcostaoliveira/HdrHistogram_rust`, upstream
-  `HdrHistogram/HdrHistogram_rust`). Actively optimized: single-pass batch API (#138) and
-  bounds-check-elided scan (#139, +5.1%).
+  `HdrHistogram/HdrHistogram_rust`). Optimized: single-pass batch API (**#138 merged**) +
+  chunked skip-scan (**#140 merged**); sparse **PackedHistogram** (#154, open, CI 17/17).
 - **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`). **Fully optimized —
-  all 5 perf PRs merged**: flat-scan read (#57) + batch (#58), unsigned bounds check (#59), `range`
-  BCE (#62, +72%), and `ValueAtPercentilesSlice` batch (#63, +42.5%). `master` = frontier.
+  all 16 fix/perf PRs merged (#57–#74)** and shipped in **v1.3.0**: flat-scan read + batch, `range`
+  BCE (+72%), `ValueAtPercentilesSlice`, blocked skip-scan, plus correctness/fuzz hardening. Sparse
+  **PackedHistogram** (#75, open, CI 17/17). `master` = frontier.
 
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
