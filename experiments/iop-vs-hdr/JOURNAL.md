@@ -321,3 +321,26 @@ iop-sparse (1 batched)                 3661   (2.4x amortization)
 
 Net: this is the honest strong form of the comparison — give iop its most favorable API and
 HDR still wins on both read paths. Dispatching batched.rs to the three servers.
+
+### Tick 9 — 2026-08-26 17:20 UTC — chart + batched results (Intel, AMD)
+
+Generated `sweep_read_latency.png` (`plot_sweep.py`) — 3 panels (Intel/AMD/ARM), read
+latency vs populated, log-log. Visually: iop-dense a flat line at the top, hdr-dense flat
+below it, hdr-packed the lowest curve everywhere, iop-sparse ~3× above hdr-packed. This is
+the campaign's headline artifact.
+
+Batched-read fairness, server numbers (per {p50,p99,p99.9} snapshot; 2 runs agree):
+
+| path | Intel | AMD |
+|---|--:|--:|
+| hdr-dense (3 singles)   |  1147 |  943 |
+| hdr-packed (3 singles)  |  1229 | 1006 |
+| iop-dense (3 singles)   | 33689 | 28512 |
+| **iop-dense (1 batched)** | **11551** | **9727** |
+| iop-sparse (3 singles)  |  3725 | 2653 |
+| **iop-sparse (1 batched)**| **1552** | **1085** |
+
+Amortization ≈ 2.9× (iop-dense) / 2.4× (iop-sparse), consistent across archs & with the
+laptop prove-out. **Even batched, iop-dense stays ~10× slower than hdr-dense** (11551 vs
+1147; 9727 vs 943) and **iop-sparse batched still trails hdr-packed** (1552 vs 1229; 1085 vs
+1006). ARM batched pending, then README update with the chart + this table.
