@@ -125,6 +125,32 @@ Concretely: **100 per-endpoint histograms ≈ 18 MB → 14 KB**; Redis's per-com
 
 ---
 
+## Competitor — [`iopsystems/histogram`](https://github.com/iopsystems/histogram) (Rust)
+
+The closest alternative in this space (crate `histogram`, ~by the ex-Twitter Rezolus team; keyword
+`hdrhistogram`). Same quantized-bucket idea, but a different sparse model. 4-way harness:
+[`experiments/iop-vs-hdr/`](experiments/iop-vs-hdr/) (`run.sh`).
+
+| Impl | Kind | Per-entry (sparse) | Dense footprint | Records sparsely? |
+|------|------|--------------------|-----------------|-------------------|
+| `hdr-dense` (`Histogram<u64>`) | dense `Vec<i64>` | — | `counts_len × 8` (committed) | n/a |
+| **`hdr-packed`** (this repo) | **live sparse** | **adaptive 1–8 B** + 4 B idx (**5 B @ width 1**) | — | **yes, from the first sample** |
+| `iop-dense` (`Histogram`) | dense `Box<[u64]>` | — | `total_buckets × 8` (committed) | n/a |
+| `iop-sparse` (`SparseHistogram`) | **read-only snapshot** | 8 B `u64` + 4 B idx (**12 B**; 8 B for the `u32` variant) | — | **no — built from a dense histogram** |
+
+**The key difference:** iop's `SparseHistogram` is a *columnar snapshot* with **no write path** — you
+record into a dense `Histogram` (paying the full committed array) and convert with
+`SparseHistogram::from(&dense)`, so it only saves memory *at rest / for serialization*.
+`hdr-packed` records **sparsely live** and never materializes the dense array — sparse *while
+recording* and at rest. It's also denser per entry (adaptive 1–8 B counts vs iop's fixed 8 B),
+so at typical low counts a packed entry is ~1.6–2.4× smaller than an iop `SparseHistogram` entry.
+
+**Write / read / memory numbers** (`hdr-dense` · `hdr-packed` · `iop-dense` · `iop-sparse`, sparse
++ dense workloads) are pending a run on the Intel lab (icx1); the harness is committed and
+reproducible via `experiments/iop-vs-hdr/run.sh`.
+
+---
+
 ## Who depends on these ports (downstream consumers)
 
 Verified against each project's vendored `deps/`, `go.mod`, or `Cargo.toml` (primary sources;
