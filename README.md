@@ -88,6 +88,54 @@ Full PR lineage: [`.workspace-memory/hdr-upstream-prs.md`](.workspace-memory/hdr
 
 ---
 
+## Sparse / packed histogram — the memory feature (2026-08)
+
+Dense HdrHistogram commits its full `counts[]` array up front (**~184 KB/histogram** at the
+default latency config), regardless of how many buckets are ever populated. For the **many
+sparsely-populated histograms** shape (per-endpoint / per-tenant / per-command / per-connection),
+that footprint dominates the heap. Java has had a `PackedHistogram` for this for years; C, Go, and
+Rust didn't — so this workspace added one to each, **byte-identical on the wire**.
+
+| Port | PR | Memory win | Read path (sparse) | Verification | CI |
+|------|----|-----------|--------------------|--------------|-----|
+| **C** | [#150](https://github.com/HdrHistogram/HdrHistogram_c/pull/150) | 36×–1309× | blocked scan | 100% reachable lines · 3-mode libFuzzer · ASan/UBSan | — |
+| **Go** | [#75](https://github.com/HdrHistogram/hdrhistogram-go/pull/75) | 36×–1308× | **1.3–2.5× faster** than dense | 100% reachable · differential + hostile fuzz · `-race` | ✅ 17/17 |
+| **Rust** | [#154](https://github.com/HdrHistogram/HdrHistogram_rust/pull/154) | up to 2355× | width-specialized blocked scan | 98.7% lines / 100% reachable · 2 fuzzers · clippy | ✅ 17/17 |
+
+**Design (all three):** a sorted virtual-index vector + **adaptive 1/2/4/8-byte counts**, reusing
+the dense bucket geometry; the standard **V2 (compressed) wire format is byte-identical** to the
+dense encoder, so a packed histogram interoperates with every existing reader — no migration. It is
+a *memory* feature (higher per-record cost), for the long tail of mostly-idle histograms.
+
+Concretely: **100 per-endpoint histograms ≈ 18 MB → 14 KB**; Redis's per-command latency tracking
+(~407 command histograms at `hdr_init(1, 1e9, 2)`) ≈ **9.6 MB → ~0.1–0.3 MB** (~30–100×).
+
+---
+
+## Who depends on these ports (downstream consumers)
+
+Verified against each project's vendored `deps/`, `go.mod`, or `Cargo.toml` (primary sources;
+unverifiable leads deliberately excluded). This is *why* each port is worth optimizing.
+
+**C — [HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c)** (embedded/vendored directly):
+- **Node.js core** — `deps/histogram/`, backs the `perf_hooks` Histogram API + `monitorEventLoopDelay()`.
+- **Redis** (and forks **Valkey**, **KeyDB**) — `deps/hdr_histogram/`, per-command latency (`latency-tracking` / `LATENCY`).
+- **wrk2** — Gil Tene's constant-throughput HTTP load tester. Also packaged on Conan Center / vcpkg.
+
+**Go — [hdrhistogram-go](https://github.com/HdrHistogram/hdrhistogram-go)** (direct `go.mod` deps):
+- Databases / platforms: **CockroachDB**, **Pebble**, **Jaeger** (CNCF), **Dgraph**, **Teleport**, **Dolt**.
+- Benchmark tooling: PingCAP **go-ycsb**, ScyllaDB **scylla-bench**, Timescale **TSBS**, **redis-benchmark-go**, **NATS** latency-tests.
+
+**Rust — [`hdrhistogram` crate](https://crates.io/crates/hdrhistogram)** (~108M downloads; direct `Cargo.toml` deps):
+- **tokio-console**, **AWS Mountpoint for S3** / AWS SDK for Rust, **Meta** (Hack compiler `hackc`, Sapling/EdenFS), DataDog **glommio**, TiKV **raft-engine**, Jon Gjengset's **tracing-timing**.
+- Rust load-testers: **rewrk**, **drill**, **mqttwrk**, **aquatic**, **aeron-rs**.
+
+> Note: vegeta, k6, InfluxDB, and Nomad/Consul reimplement histograms natively and are **not**
+> consumers; the JS (`HdrHistogramJS`) and Python (`HdrHistogram_py`) "ports" are independent
+> reimplementations (AssemblyScript/Java lineage), **not** wrappers of `HdrHistogram_c`.
+
+---
+
 ## Optimization Pipeline
 
 Population-based selection AND implementation, inspired by AutoKernel (arXiv:2603.21331),
