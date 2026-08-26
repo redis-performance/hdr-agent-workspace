@@ -389,3 +389,20 @@ hot90               5.9         37.5        4.0      1605
    validate (parity/fuzz must stay green) + measure. Kept OFF the PR #154 branch.
 
 Dispatching writes.rs to the three servers for clean pattern numbers.
+
+### Tick 12 — 2026-08-26 17:24 UTC — write-pattern server results (Intel, AMD; ARM + cache-proto pending)
+
+hdr-packed write ns/op by pattern (2 runs, agree):
+
+| pattern | Intel hd | Intel hp | AMD hd | AMD hp |
+|---|--:|--:|--:|--:|
+| random    | 2.5 | 54.3 | 1.6 | 47.6 |
+| clustered | 2.4 | 10.6 | 1.6 |  8.8 |
+| hot90     | 2.6 | 17.4 | 1.9 | 14.0 |
+
+**Confirmed on servers: hdr-packed write is ~5× pattern-sensitive** (random ~48–54 ns worst
+case; clustered ~9–11 ns). The main-harness "hdr-packed write tax" is the RANDOM worst case
+— realistic bursty streams are already ~5× cheaper. hot90 still pays ~14–17 ns despite 90%
+of ops hitting one bucket (binary-searches every op) → the last-hit-cache prototype (running)
+should collapse those 90% to O(1) and approach dense (~2 ns). Awaiting ARM numbers + the
+prototype's validated delta.
