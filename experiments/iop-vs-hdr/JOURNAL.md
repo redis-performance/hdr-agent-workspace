@@ -288,3 +288,36 @@ crosses hd_r only ~74% full. hdr-packed vs iop-sparse @P=10000: 2787 vs 8085 = *
 The ARM/x86 ratio (~2–3×) is the branchy-scalar signature — this is a portable algorithmic
 cost, worst where the core is simplest. A chart of id_r-vs-populated (flat lines) next to
 hp_r/is_r (rising lines) is the single most legible artifact of this campaign.
+
+### Tick 8 — 2026-08-26 17:18 UTC — NEW EXPERIMENT: batched-read fairness (`src/bin/batched.rs`)
+
+Follow-up to the root cause (tick 5): iop's batched `percentiles(&[..])` amortizes the two
+O(buckets) rescans + the single BTreeMap alloc across all requested quantiles. A monitoring
+snapshot wants a SET {p50,p99,p99.9}, so the fair-use pattern is ONE batched call, not three
+singles. This gives iop its best case. Per-snapshot cost (local laptop, directional; servers
+dispatched):
+
+```
+path                          ns / snapshot
+hdr-dense  (3 singles)                 2795
+hdr-packed (3 singles)                 2874
+iop-dense  (3 singles)                81023
+iop-dense  (1 batched)                27636   (2.9x amortization)
+iop-sparse (3 singles)                 8803
+iop-sparse (1 batched)                 3661   (2.4x amortization)
+```
+
+**Findings (fairness):**
+1. **Batching is real and helps iop ~2.4–2.9×** — confirms the profiler's mechanism (the two
+   rescans + alloc are paid once per snapshot instead of once per quantile).
+2. **Even batched (iop's best case), iop-dense is ~10× slower than hdr-dense per snapshot**
+   (27636 vs 2795). The residual is the O(buckets) rescan that batching can't remove —
+   HDR simply never does it (incremental `total_count`, one cumulative walk).
+3. **iop-sparse batched (3661) approaches but doesn't beat hdr-packed (2874)** — hdr-packed
+   is still ~1.3× faster, ~1.7× smaller, AND a live recorder. So on the *snapshot* use case
+   iop-sparse is actually designed for, hdr-packed still wins.
+4. HDR needs no "batched" variant: with no per-call rescan or allocation, 3 singles cost the
+   same as any batch would. That's the architectural advantage in one line.
+
+Net: this is the honest strong form of the comparison — give iop its most favorable API and
+HDR still wins on both read paths. Dispatching batched.rs to the three servers.
