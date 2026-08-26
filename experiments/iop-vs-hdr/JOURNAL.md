@@ -658,3 +658,10 @@ usual "other path" in the accept criteria — is unchanged. Net tradeoff: give u
 pathological cold-random writes to gain 19–59% on realistic bursty/hot writes. The reviewer
 should decide whether to (a) accept as-is, (b) gate the fast path behind a cheap heuristic, or
 (c) ship only for the workloads that benefit. Documented, not hidden. Go server validation next.
+
+### Tick 25 — 2026-08-26 17:52 UTC — Go write cache server validation: Intel (1/3)
+
+Intel Granite Rapids, Go 1.23.5, clone @01939f5. `go test ./...` ok base AND patched.
+Write ns/rec (median of 3, -benchtime=2s): random 53.4→54.6 (+2.4%), clustered
+10.95→5.58 (**−49.0%**), hot90 18.2→12.2 (**−33.1%**). Byte/alloc footprint unchanged.
+Matches Rust/C. AMD + ARM Go pending.
