@@ -201,3 +201,31 @@ cross hdr-dense? Smoke-run locally (laptop — directional, server runs dispatch
 
 Dispatching sweep.rs to Intel/AMD/ARM for clean server numbers. iop-dense's flat rescan is
 the story worth a chart.
+
+### Tick 5 — 2026-08-26 17:15 UTC — ROOT CAUSE: why iop-dense percentile() is O(buckets) + allocates
+
+perf on ARM (perf_event_paranoid=0, no sudo; 32k samples) + source read of
+`histogram-1.5.0/src/standard.rs`. The iop read loop inlines wholesale into `main`, but the
+surviving non-inlined leaves — `malloc`/`cfree`, `BTreeMap<Quantile,Bucket>::insert`,
+`drop_glue` — already point at per-call heap traffic. The source confirms it.
+
+**`id.percentile(q)` → `percentiles(&[q])` → `SampleQuantiles::quantiles()` does, per call:**
+1. **Full O(buckets) rescan #1** — total count: `self.buckets.iter().map(as_u128).sum()`
+   (standard.rs:208). No cached total.
+2. **Full O(buckets) rescan #2** — min/max non-zero: a second complete pass (standard.rs:221).
+3. **Per-call heap allocs** — a `Vec<Quantile>` (map/collect/sort/dedup) **and** a
+   `BTreeMap::new()` (standard.rs:245) that receives the result Bucket and is then dropped:
+   one malloc + one BTreeMap alloc/free **per query**.
+4. **Third partial O(buckets) walk** — the prefix-sum accumulation from bucket 0.
+
+So iop-dense pays **≈2.x full array scans + 2 heap allocs on every single percentile()**,
+independent of populated (→ the flat 8.8/29 µs). HdrHistogram maintains `total_count`
+incrementally and does **one** cumulative walk, no per-query allocation → 4-5× tighter and,
+for hdr-packed, O(populated) instead of O(buckets).
+
+**Fairness caveat (important, will bench next):** `percentile(q)` == `percentiles(&[q])`, and
+the **batched** `quantiles(&[0.5,0.99,0.999])` amortizes the two rescans + the single
+BTreeMap alloc across all requested quantiles. Real code that wants p50/p99/p99.9 per
+snapshot should issue ONE batched call, not three singles. Even batched it's still
+O(buckets)+alloc per snapshot, but ~3× fewer scans. Adding a batched-read experiment so the
+comparison reports iop's best case too, not just the per-query worst case.
