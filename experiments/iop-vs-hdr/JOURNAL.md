@@ -406,3 +406,23 @@ case; clustered ~9–11 ns). The main-harness "hdr-packed write tax" is the RAND
 of ops hitting one bucket (binary-searches every op) → the last-hit-cache prototype (running)
 should collapse those 90% to O(1) and approach dense (~2 ns). Awaiting ARM numbers + the
 prototype's validated delta.
+
+### Tick 13 — 2026-08-26 17:25 UTC — write-pattern: ARM (trio complete) + cross-arch nuance
+
+ARM Neoverse-V2 hdr-packed write ns/op: random 28.5 · clustered 18.1 · hot90 24.6 (hd ~2.6).
+
+**Cross-arch nuance:** ARM's pattern sensitivity is *weaker* (random→clustered only 1.6× vs
+~5× on x86) because ARM's random binary-search write is already cheap (**28.5 ns vs x86's
+48–54 ns**). Neoverse-V2 absorbs the pointer-chasing binary search far better than Granite
+Rapids / Zen 5 do — the x86 worst case is dominated by cache-miss + mispredict penalty that
+ARM's pipeline hides. So the last-hit cache's *biggest* upside is on x86 (where random is
+most expensive), while ARM benefits mainly on hot90 (skip the search for the 90%).
+
+Full write-pattern matrix (hdr-packed ns/op):
+| pattern | Intel | AMD | ARM |
+|---|--:|--:|--:|
+| random    | 54.3 | 47.6 | 28.5 |
+| clustered | 10.6 |  8.8 | 18.1 |
+| hot90     | 17.4 | 14.0 | 24.6 |
+
+Prototype (last-hit cache) still validating in scratch; result → next tick.
