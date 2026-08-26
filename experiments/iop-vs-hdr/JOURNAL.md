@@ -665,3 +665,16 @@ Intel Granite Rapids, Go 1.23.5, clone @01939f5. `go test ./...` ok base AND pat
 Write ns/rec (median of 3, -benchtime=2s): random 53.4→54.6 (+2.4%), clustered
 10.95→5.58 (**−49.0%**), hot90 18.2→12.2 (**−33.1%**). Byte/alloc footprint unchanged.
 Matches Rust/C. AMD + ARM Go pending.
+
+### Tick 26 — 2026-08-26 17:52 UTC — Go write cache server validation: AMD (2/3) — random regression louder here
+
+AMD Zen 5, Go 1.23.5, @01939f5. `go test` ok base+patched. Write ns/rec (median of 3, stable):
+random 47.2→51.7 (**+9.4%**), clustered 8.8→4.0 (**−54.3%**), hot90 14.9→10.4 (**−30.2%**).
+
+**CAVEAT sharpened:** the random-write regression is **+9.4% on AMD Zen 5** (vs +2.4% Intel,
+~+1% C/Rust) — ~4.4 ns of cache-check + Go slice bounds-check + two seed-stores on a 47 ns
+cold write. So in Go the cold-random cost is real and arch-sensitive, not noise. Doesn't touch
+correctness (go test green) or the read path, and clustered/hot90 still win big — but this
+makes the "gate the fast path behind a heuristic" option more attractive for the **Go** PR
+specifically. Logged prominently so the review weighs it. ARM Go pending, then cross-lang
+consolidation + a mitigation idea.
