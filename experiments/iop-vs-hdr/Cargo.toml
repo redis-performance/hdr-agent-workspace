@@ -1,0 +1,17 @@
+[package]
+name = "iop-vs-hdr"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+hdrhistogram = { path = "../../HdrHistogram_rust" }
+histogram = "1"
+
+[dev-dependencies]
+rand = "0.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
