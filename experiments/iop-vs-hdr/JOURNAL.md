@@ -804,3 +804,18 @@ Wrote [`SUMMARY.md`](SUMMARY.md) — the 2-minute morning read tying the three t
 dense flat 168 KB). All threads at a natural completion; the optimization is blocked on the
 packed PRs merging (maintainer-side) and the test-fix/optimization PRs need the user's account.
 Winding the loop down — nothing further makes progress without user/maintainer action.
+
+### Tick 32 — 2026-08-27 10:15 UTC — write-cache follow-up PRs opened (stacked on the packed branches)
+
+Opened the last-hit write cache as three separate PRs. Since the cache depends on packed code
+that isn't on upstream `main` yet, each targets its **packed feature branch in the fork** (clean
+cache-only diff; retargets to upstream `main` once the packed PR lands):
+- **Rust:** fcostaoliveira/HdrHistogram_rust#1 (base feat/packed-histogram-clean, 1 file +34/-4) — stacks on #154
+- **C:** fcostaoliveira/HdrHistogram_c#2 (base feat/packed-histogram, 1 file +63/-18) — stacks on #150
+- **Go:** fcostaoliveira/hdrhistogram-go#1 (base feat/packed-histogram, 1 file +60/-32) — stacks on #75
+
+Each PR body carries the 3-arch write deltas, the honest random-write cost, and the bit-identical
+correctness evidence. Sanity-verified locally before pushing (Rust lib 172/0 incl parity+fuzz;
+C ctest packed pass + build; Go packed tests ok). Submodules restored to their tracked tips.
+Also earlier today: sync test-flake PR HdrHistogram/HdrHistogram_rust#155 (all CI green, mergeable),
+and the 3 sparse PR descriptions (#150/#75/#154) updated with benchmark evidence.
