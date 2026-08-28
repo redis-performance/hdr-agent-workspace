@@ -70,6 +70,11 @@ These are the real regressions caught on this project. Hunt each one:
   - Match brace/indent/spacing of the surrounding function exactly. He will re-style otherwise,
     which means a bounced or manually-rewritten PR.
   - Keep declarations and helper placement consistent with the file (helpers near use, `static`).
+  - **Comments: terse, minimal (2026-08 @mikeb01 feedback).** He dislikes big comment blocks per
+    change — "over time this creates a code base that is very noisy with comments and they may
+    become out of date." Keep only the non-obvious *why* (overflow / UB / security / offset), one
+    line where possible; delete restatements of what the code plainly does, multi-sentence
+    narration, and examples. A function-level comment stays ≤2–3 lines and only if genuinely needed.
 
 ### 2. Small + single-purpose
 - Merged perf PRs are tiny and do exactly one thing (#135 normalize bypass, #136 bounds check).

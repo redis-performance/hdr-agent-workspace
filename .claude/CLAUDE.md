@@ -83,6 +83,9 @@ passed the adversarial review.
   offset-aware path for decoded/rotated histograms (this is the exact bug the review caught on PR #137).
 - One experiment = one technique. Log every experiment, including rejections.
 - The benchmark harness is immutable — never edit it to make a change look better.
+- **Keep comments terse (@mikeb01, 2026-08).** No big per-change comment blocks — they make the
+  code noisy and go stale. One line for the non-obvious *why* (overflow/UB/security/offset); drop
+  restatements of what the code does. See `.workspace-memory/mikeb01-comment-style.md`.
 - Commit on accept / `git checkout -- .` on reject, **in the submodule** — its tip = best known state.
 - A portable win becomes an upstream PR (see `.workspace-memory/hdr-upstream-prs.md`),
   but ONLY after `.claude/skills/review-hdrhistogram.md` returns MERGE-READY.
