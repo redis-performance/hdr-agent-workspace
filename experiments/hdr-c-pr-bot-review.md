@@ -68,3 +68,20 @@ all maintainer-territory and left for @mikeb01 / paulorsousa:
 - optional CI hardening (pin `-DHDR_LOG_REQUIRED=ON` on the sanitizers job; add the sanitizers job
   to branch protection); 1.0/ABI direction (#95); packed fuzz target; commit-message wording
   (can't fix without a force-push).
+
+## Round 4 — re-review sweep (bot updates its comment in place per commit)
+
+Re-swept all 12 current reviews (each verified to post-date its PR head). 9 CONVERGED; 3 fresh fixes:
+- **#137** `fb66bbc` — **real OOB (memory-safety)**: this PR newly routes the `offset!=0` percentile
+  scan through `counts_get_normalised`, and the decode fuzzer reaches `hdr_value_at_percentile`, so
+  an out-of-range `normalizing_index_offset` read from an untrusted log header (only a single
+  ±`counts_len` correction in `normalize_index`) indexes `counts[]` OOB. Fixed at the 2 decode sites
+  with `offset %= counts_len` (no-op for valid logs). ctest 5/5 + ASan/UBSan clean.
+- **#144** `5bbff5d` — the i386 AVX2-negative assert could green silently if `cc -m32` broke
+  (`|| true` swallowed it); replaced with a robust file-based check (rejected the bot's literal
+  `! grep` form, which is exempt from `set -e`).
+- **#145** `02e097c` — pinned `-DHDR_LOG_REQUIRED=ON` on the sanitizers job so a missing-zlib runner
+  fails loudly instead of skipping the decode-leak tests this PR fixes.
+
+All fast-forward, zero force-pushes. Everything else confirmed converged (deferred maintainer-calls
+only). 23 total fixes across 4 rounds.
