@@ -48,3 +48,23 @@ commit-message-only fixes were skipped (they'd need a force-push).
 1.0/ABI direction (#95), confirming Java semantics (mean, nextNonEquivalent, p0-plural,
 empty-histogram), adding a packed decode fuzz target, factoring the shared V2 codec, gating just
 the packed codec (#113), fractional log_base, i386 log-test coverage, and PR-description wording.
+
+## Round 3 + convergence (2026-09-02)
+
+The re-review of round 1 endorsed the fixes but surfaced 2 genuinely-new bugs; round 3 fixed them:
+- **#145** `5c79ae5` — guard-before-shift left `cfg->sub_bucket_mask` uninitialized on the reject
+  path (a two-step-init caller could read it). Fixed with an entry `memset(cfg,0,...)` (defines
+  *every* reject path) + regression test.
+- **#149** `9201577` — the `log_base <= 1.0` guard missed NaN/Inf/1e300 → float-cast-overflow UB.
+  Strengthened to `!isfinite || >= INT64_MAX || <= 1.0`; revert-verified under UBSan.
+
+**Converged.** All 12 PRs CI-green; every real-bug / actionable bot finding addressed across 3
+rounds (20 fixes total), all fast-forward, **zero force-pushes**. The round-3 re-reviews are clean
+("core fix is right and minimal", "core overflow fix reads correctly"). Remaining bot points are
+all maintainer-territory and left for @mikeb01 / paulorsousa:
+- design pushback on #145's defensive `memset` (document the contract vs. drop the test);
+- Java-semantics confirmations (mean, nextNonEquivalent, p0-plural, degenerate iterator params);
+- refactor suggestions (share the peek/`value_from_index` decomposition; factor the V2 codec);
+- optional CI hardening (pin `-DHDR_LOG_REQUIRED=ON` on the sanitizers job; add the sanitizers job
+  to branch protection); 1.0/ABI direction (#95); packed fuzz target; commit-message wording
+  (can't fix without a force-push).
