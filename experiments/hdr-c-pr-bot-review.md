@@ -85,3 +85,31 @@ Re-swept all 12 current reviews (each verified to post-date its PR head). 9 CONV
 
 All fast-forward, zero force-pushes. Everything else confirmed converged (deferred maintainer-calls
 only). 23 total fixes across 4 rounds.
+
+## Round 5 — re-review of the round-4 commits (all 12 CI-green)
+
+The three round-4 commits (#137 `fb66bbc`, #144 `5bbff5d`, #145 `02e097c`) each triggered a fresh
+in-place re-review (all verified to post-date their commit). **#144 and #145 re-reviews are
+endorsements** ("the core fix looks right"); remaining points are deferred (clang-cl symmetric
+assert nice-to-have, PR-body wording, the memset document-or-drop maintainer-style call).
+
+**#137 re-review surfaced one genuinely-new, verified-real bug — deferred as separate/pre-existing:**
+`hdr_reset_internal_counters` (src/hdr_histogram.c:328) reads `counts_get_direct(h,i)` (raw storage
+index) but then treats the winning `max_index`/`min_non_zero_index` as a *logical* index in
+`hdr_value_at_index`. For a decoded **rotated** log (nonzero `normalizing_index_offset`, only
+reachable by decoding a Java-encoded shifted log) storage≠logical, so `min_value`/`max_value` come
+out **wrong** — and all three log decoders call it right after assigning the offset (log.c:435/542/644).
+- **Verified real & reachable**, NOT a bot false positive. But: (1) it is **pre-existing** — not part
+  of #137's diff; (2) independent of #137's stated purpose (the bot already flags #137 bundles three
+  things); (3) the fix (`counts_get_direct`→`counts_get_normalised` so count and value share the
+  logical index) touches decoded-histogram min/max **semantics**, which the reviewer explicitly wants
+  confirmed against the Java reference (`establishInternalTrackingValues`) first.
+- **Disposition:** DEFER to a dedicated fix/issue (with Java-reference confirmation); do not bundle
+  into the over-scoped #137. Flagged to the user as the notable finding of this sweep.
+
+Also deferred on #137: a test that exercises the *out-of-range* offset clamp path (the round-4 test
+uses an in-range offset), and the mod-reduce-vs-reject-malformed-log design call.
+
+**Converged (in-scope).** 12/12 CI-green; 23 fixes across 4 rounds, zero force-pushes. Remaining bot
+items are deferred maintainer-calls plus the one verified pre-existing min/max bug routed to a
+separate fix.
