@@ -105,18 +105,40 @@ offset!=0 iterator fallback kept). +599% (7x): 12.4K->86.4K calls/sec. Base upst
 independent of #138/#139. Branch perf/single-pass-value-at-percentiles @ 7c8af3d on fork.
 https://github.com/HdrHistogram/HdrHistogram_c/pull/140
 Gotcha: first A/B was base-vs-base — `git archive HEAD` ran before committing the change. Commit first.
-Total open upstream PRs across fleet: C #137–#141, #144, #147–#150, #152, #153, Go #57,
+Total open upstream PRs across fleet: C #137–#141, #144, #147–#150, #152–#154, Go #57,
 Rust #138.
 
-## Known-unfixed, NOT yet raised (next PR candidate, 2026-09-14)
-- **`hdr_timespec_from_double` (`src/hdr_time.c:92`)** — `int seconds = (int) value;` is UB for
-  any `value` outside `int` range, and `hdr_log_read_header` feeds it the `#[StartTime: %lf`
-  field straight from the file. A log with a millisecond epoch where seconds were expected
-  (1.40348e+12) is enough; it is also a 2038 truncation. Found by a local 300s
-  `log_reader_fuzzer` run on top of the #153 fix — i.e. **the weekly fuzzing run stays red
-  until this lands too**. Touches public `hdr_time.h` behavior, so it wants its own PR and a
-  decision on reject-vs-clamp and the portable tv_sec bound (LP64 / LLP64 / 32-bit).
-  Confirmed not covered by any open PR.
+- **#154** — OPEN (2026-09-14). `fix:` out-of-range `double`->`int` in
+  `hdr_timespec_from_double` (`src/hdr_time.c`) — the second half of the weekly-fuzzing
+  failure, found locally by fuzzing on top of #153. `hdr_log_read_header` feeds the
+  `#[StartTime: %lf` field straight in, so a millisecond epoch (1.40348e+12) is UB; the narrow
+  `int` cascaded 3 UB sites (the cast, the `(int) round(...)`, and `milliseconds * 1000000`).
+  Bound derived from `sizeof(tv_sec)` so it is exact on LP64 / LLP64 / 32-bit; also fixes the
+  2038 truncation. Branch `fix/timespec-from-double-overflow`.
+
+## Fuzzing: gcc and clang UBSan report DIFFERENT lines for one root cause
+gcc's `-fsanitize=undefined` does **not** include `float-cast-overflow`; clang's does. So for
+the #154 bug gcc reported the downstream `milliseconds * 1000000` int overflow while
+ClusterFuzzLite (clang) reported the `(int) value` cast. When reproducing a fuzzer UB finding
+locally, build with **clang + `-fsanitize=address,undefined,float-cast-overflow`** to match
+the fuzzing build, and cross-check with gcc — the line numbers will not agree.
+
+## Combined-state validation pays off
+#153 and #154 both came from `log_reader_fuzzer`, and both add lines to `test/CMakeLists.txt`
+and `test/hdr_histogram_log_test.c` — so they conflict trivially (additive: keep both fixture
+entries, keep both `mu_run_test` lines). Stacking them locally before opening #154 proved the
+pair is what turns the weekly run green: ctest 5/5 under both sanitizer configs, 4/4 with
+logging disabled, and a 600s seeded `log_reader_fuzzer` session = **5.68M execs, 0 crashes, 0
+UB** (cov 304 vs 254 pre-fix). Do this whenever two PRs fix findings from the same fuzzer.
+
+## Known-unfixed, NOT yet raised (next candidate)
+- **`hdr_timespec_from_double` fraction carry** — can still round up to a full second and emit
+  `tv_nsec = 1000000000` (`1.9996` -> `tv_sec=1`, `tv_nsec=1e9`), a malformed `hdr_timespec`
+  but NOT UB. Deliberately left out of #154 (different defect class; changes output for
+  currently-accepted inputs). Offered in the #154 body as a separate follow-up.
+- **Windows `hdr_gettime` `(long) integral`** (`src/hdr_time.c`) — same cast shape, but the
+  source is QueryPerformanceCounter seconds-since-boot, so it cannot realistically overflow.
+  Not worth a PR; noted so it is not re-raised.
 
 ## Gotcha: `gh --body-file` cannot read the scratchpad or /tmp
 `gh` runs sandboxed with its own `/tmp`, so `--body-file /tmp/...` fails with

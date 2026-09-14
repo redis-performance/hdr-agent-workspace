@@ -354,3 +354,27 @@ at the same line before touching the fix.
 `%lf`. Pre-existing, public-API-visible, not covered by any open PR — deliberately left out
 of #153 and logged in `.workspace-memory/hdr-upstream-prs.md` as the next candidate. The
 weekly fuzzing run stays red until it lands.
+
+### hdr_timespec_from_double (PR #154, 2026-09-14) — the other half of the red fuzzing run
+Found by fuzzing on top of #153, not by the CI report. `hdr_log_read_header` passes the
+`#[StartTime: %lf` field straight to `hdr_timespec_from_double`, which did
+`int seconds = (int) value;` — UB for any out-of-`int` or non-finite double. A millisecond
+epoch (1.40348e+12) is enough, so this is a realistic malformed log, not only a hostile one.
+The narrow `int` cascaded **three** UB sites: the cast, the `(int) round(...)` of the
+resulting huge fraction, and `milliseconds * 1000000`.
+- Fix: range-check before converting, bound derived from `sizeof(tv_sec)` (exact, since
+  2^(bits-1) is representable as a double) so it holds on LP64 / LLP64 / 32-bit; widen the
+  result to tv_sec's real width, which also fixes the 2038 truncation. Non-representable and
+  non-finite inputs give a defined 0/0 with both fields always written (the uninitialized-read
+  concern from #145's last commit).
+- Tooling lesson: gcc's `-fsanitize=undefined` omits `float-cast-overflow`, clang's includes
+  it — so gcc and the ClusterFuzzLite clang build report *different lines for the same bug*.
+  Reproduce fuzzer UB with clang + float-cast-overflow.
+- Gates: 5/5 gcc ASan+UBSan, 5/5 clang ASan+UBSan+float-cast-overflow, 5/5 gcc+clang
+  RelWithDebInfo, 4/4 HDR_LOG_REQUIRED=DISABLED, warnings unchanged, original CFL crash
+  artifact replays clean. Unit test lives in hdr_histogram_test.c so it runs in the
+  logging-disabled legs too.
+- Combined #153+#154: 5.68M fuzz execs / 600s, 0 crashes, 0 UB, cov 304 (vs 254 pre-fix).
+  That pair should take the weekly batch run green.
+- Left out deliberately: the fraction carry that can emit `tv_nsec = 1e9` (malformed but not
+  UB; changes currently-accepted outputs). Offered as a follow-up in the PR.
