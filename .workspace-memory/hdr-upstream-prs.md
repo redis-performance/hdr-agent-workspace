@@ -25,12 +25,29 @@ Optimization PRs from the fork `fcostaoliveira/HdrHistogram_c` → upstream
   offset-aware fallback and uint64 hardening; restored. CI 15/15 green.
 - **#138–#141** — OPEN. Perf follow-ups (AVX2 widen16 + prefetch; single-pass and
   blocked-batch `hdr_value_at_percentiles`).
-- **#145–#149** — OPEN. Dense correctness/hardening PRs surfaced by the packed adversarial
-  review (all authored by us): #145 bucket-config shift overflow, #146 V1/V2 decode heap
-  OOB, #147 `hdr_mean` overflow + `hdr_count_at_value` OOB, #148 top-bucket value-range
-  overflow (saturate `highest_equivalent` to INT64_MAX), #149 iterator reporting-level
-  overflow. NOTE: check these before re-raising any dense finding — see
+- **#145** — ✅ MERGED 2026-09-14 (e831736). Bucket-config shift overflow. Grew during review
+  into: sibling `lowest*2` overflow, a regression test, the fuzzer reproducer as
+  `test/regression-*.hlog`, LeakSanitizer, AND a new **`sanitizers` CI job** (ASan+UBSan ctest,
+  `-fno-sanitize-recover=all`, `HDR_LOG_REQUIRED=ON`). That job is now the per-PR gate for this
+  whole bug class — reproduce every UB finding against it.
+- **#146** — ✅ MERGED 2026-09-14 (6d40ddb). Heap overflows in V1/V2 log decode.
+- **#147–#149** — OPEN. #147 `hdr_mean` overflow + `hdr_count_at_value` OOB, #148 top-bucket
+  value-range overflow (saturate `highest_equivalent` to INT64_MAX), #149 iterator
+  reporting-level overflow (activity 2026-09-14). The maintainer appears to be working the
+  hardening stack in number order. NOTE: check these before re-raising any dense finding — see
   [[check-open-prs-before-raising]].
+- **#151** — ✅ MERGED 2026-09-02. Claude PR-review + issue-triage automation.
+- **#152** — OPEN (2026-09-14). `ci:` fetch pinned CMake from the **Kitware GitHub release
+  assets** instead of `cmake.org/files`, plus wget retries; drops `--no-check-certificate`.
+  cmake.org went **503 for both pinned versions** (3.12.4 and 3.17.3), so every linux leg was a
+  coin flip and the #145 merge went red on `build (linux, Debug, x64, minimal, ON)` with
+  "Unable to establish SSL connection". Branch `ci/cmake-download-from-kitware-releases`.
+- **#153** — OPEN (2026-09-14). `fix:` signed overflow in `read_ahead_timestamp`
+  (`hdr_histogram_log.c`) — the UBSan finding that had failed the **weekly ClusterFuzzLite
+  batch run 8 times in a row since 2026-07-27**. Seconds field now rejects at LONG_MAX instead
+  of wrapping; fraction stops at nanosecond resolution (which also fixed a silent
+  `tv_nsec = 0`). Branch `fix/log-timestamp-overflow`. Upstream `sanitizers` job green; its red
+  linux legs are only the cmake.org 503 that #152 fixes.
 - **#150** — OPEN. `feat: hdr_packed_histogram` — the memory-optimised sparse variant
   (branch `feat/packed-histogram`). Separate opt-in type, dense hot paths untouched;
   sorted virtual-index vector + adaptive byte-width counts; byte-identical V2 both ways;
@@ -88,4 +105,20 @@ offset!=0 iterator fallback kept). +599% (7x): 12.4K->86.4K calls/sec. Base upst
 independent of #138/#139. Branch perf/single-pass-value-at-percentiles @ 7c8af3d on fork.
 https://github.com/HdrHistogram/HdrHistogram_c/pull/140
 Gotcha: first A/B was base-vs-base — `git archive HEAD` ran before committing the change. Commit first.
-Total open upstream PRs across fleet: C #138/#139/#140, Go #57, Rust #138 = 5.
+Total open upstream PRs across fleet: C #137–#141, #144, #147–#150, #152, #153, Go #57,
+Rust #138.
+
+## Known-unfixed, NOT yet raised (next PR candidate, 2026-09-14)
+- **`hdr_timespec_from_double` (`src/hdr_time.c:92`)** — `int seconds = (int) value;` is UB for
+  any `value` outside `int` range, and `hdr_log_read_header` feeds it the `#[StartTime: %lf`
+  field straight from the file. A log with a millisecond epoch where seconds were expected
+  (1.40348e+12) is enough; it is also a 2038 truncation. Found by a local 300s
+  `log_reader_fuzzer` run on top of the #153 fix — i.e. **the weekly fuzzing run stays red
+  until this lands too**. Touches public `hdr_time.h` behavior, so it wants its own PR and a
+  decision on reject-vs-clamp and the portable tv_sec bound (LP64 / LLP64 / 32-bit).
+  Confirmed not covered by any open PR.
+
+## Gotcha: `gh --body-file` cannot read the scratchpad or /tmp
+`gh` runs sandboxed with its own `/tmp`, so `--body-file /tmp/...` fails with
+"no such file or directory" even though the file exists. Write PR/comment bodies inside the
+workspace dir (e.g. `.pr-body.md`, then delete) instead.

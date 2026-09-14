@@ -315,3 +315,42 @@ Baseline vs optimized packed read (config 1,1e9,2, same box), D=223..594:
 ACCEPTED (all on PR #150): read width-specialized scan (+20-25%), single-pass plural (~2.3-3x), blocked prefix-sum single (~3x) + plural (~2.6-3x). Net: packed read went from 3.3-4.5x SLOWER than optimized dense#141 to 1.3-2.5x FASTER (single 0.40-0.66x, batch 0.52-0.77x of dense) for sparse pops.
 REJECTED write: branchless-search, last-hit-cache, prefetch, linear-scan (record near-floor ~91ns realistic; search is inherent dependent-load chain).
 NO-WIN: encode/decode (zlib-bound), width-8 blocking (non-viable).
+
+## CI triage + fuzz-driven fixes (2026-09-14) — PRs #152, #153
+Not perf experiments; two red-CI investigations on upstream `main` (e831736).
+
+**#152 — cmake.org is 503.** The `main` push run for the #145 merge failed on
+`build (linux, Debug, x64, minimal, ON)` in *Install dependencies*, before compiling:
+`wget https://cmake.org/files/...` → "Unable to establish SSL connection" after a 2-min
+stall. Verified from here that cmake.org returns **503 for both** pinned versions (3.12.4
+and 3.17.3) while the Kitware GitHub release assets return 200 — so every linux leg was
+exposed, not just `minimal`. Fix retargets the identical tarballs at the release assets,
+adds wget retries, drops `--no-check-certificate`. Proved the step's whole sequence
+locally: download + `tar --strip-components 1` + `cmake/ctest/cpack --version` match for
+both versions. #152's own linux legs came up green upstream, and #153's red legs are this
+same 503 — good independent confirmation.
+
+**#153 — `read_ahead_timestamp` signed overflow.** The weekly `ClusterFuzzLite batch
+fuzzing` workflow had failed **8 consecutive runs since 2026-07-27** on
+`hdr_histogram_log.c:1054: signed integer overflow: 2000001000001101196 * 10 ... type
+'long'`. Both the seconds and fraction fields are accumulated digit-by-digit into a `long`
+with no bound, reachable from `hdr_log_read` on any untrusted `.hlog`. Reproduced locally
+at the same line before touching the fix.
+- seconds: reject at an exact `LONG_MAX` guard instead of wrapping (a 20-digit field had
+  been silently parsed as `tv_sec=7766279631452241919`).
+- fraction: stop at nanosecond resolution — past 9 digits `nsec_multipler` divided to 0,
+  which both zeroed `tv_nsec` and let `nsec` grow to overflow. `1.13400000000000000000`
+  went `tv_nsec=0` → `134000000`, so the truncation fixed a silent wrong-value bug too.
+- Gates: ctest 5/5 ASan+UBSan (`-fno-sanitize-recover=all`), 5/5 gcc+clang RelWithDebInfo,
+  4/4 `HDR_LOG_REQUIRED=DISABLED`, warning count identical to `main` (gcc 54 / clang 29),
+  reproducer aborts pre-fix and replays clean post-fix, 300s fuzz session clean of the
+  timestamp bug. Upstream `sanitizers` job green on the PR.
+- Negative control mattered: reverting only the src hunk made the new test abort, proving
+  it is a real regression test rather than a passing assertion.
+
+**Still open — `hdr_time.c:92`.** With #153 applied the fuzzer walks one level deeper into
+`hdr_timespec_from_double`: `int seconds = (int) value;` is UB for any out-of-`int` StartTime
+(`1.40348e+12`, i.e. a millisecond epoch), fed straight from `hdr_log_read_header`'s
+`%lf`. Pre-existing, public-API-visible, not covered by any open PR — deliberately left out
+of #153 and logged in `.workspace-memory/hdr-upstream-prs.md` as the next candidate. The
+weekly fuzzing run stays red until it lands.
