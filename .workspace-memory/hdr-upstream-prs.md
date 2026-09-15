@@ -140,6 +140,32 @@ Brought all 12 open PRs up to date with main (4a1b1fd). Results worth rememberin
   **Lesson: when a new CI gate lands on main, older open PRs can fail it without changing —
   re-run/update them rather than assuming green-when-opened still holds.**
 
+## -Wconversion on LP64 CANNOT see int64_t->long narrowing (MSVC C4244)
+On LP64 `int64_t` and `long` are the *same type*, so a local `-Wall -Wextra -Wconversion`
+sweep reports zero warnings for `some_long_field = (int64_t) x` — while MSVC x86 (and any
+32-bit `long` target) emits **C4244 '=': conversion from 'int64_t' to 'long'**. This bit
+#154: the PR body claimed "no new warnings" on the strength of an LP64 run. The bot review
+called it and was right (2 occurrences per x86 leg, static + shared targets).
+- **Never claim warning-clean from an LP64 run alone** when a `long`-typed field is assigned.
+  Grep the Windows x86 job log: `gh api /repos/<o>/<r>/actions/jobs/<id>/logs | grep C4244`.
+- Fix pattern: key the bound AND the cast to the same type (`long` here) so they agree by
+  construction and neither narrows. `hdr_gettime`'s Windows branch already does
+  `(long) integral` — follow it. Keying off `sizeof(long)` is never narrower than the `int`
+  it replaced, so no platform loses range vs pre-fix code.
+- `hdr_timespec.tv_sec` is `long` on Windows/Cygwin and `time_t` elsewhere; widening it is a
+  public-ABI decision for @mikeb01, not a drive-by.
+
+## The #151 review bot is worth actually reading
+Its first-pass reviews on #153/#154 produced two real items: the C4244 above, and a genuine
+coverage gap (no fixture pinned the 2^31 seconds boundary in #153). It also correctly flags
+its own uncertainty ("verify against the Windows build log rather than taking my word").
+Treat its claims as leads to verify empirically, not noise — but do NOT accept the ones it
+itself marks unverified (e.g. Java HistogramLogReader parity) without checking.
+
+## Bash gotcha: `gh` inside a `while read` loop eats stdin
+A `gh api ... ` inside `while read -r j; do ... done < file` consumes the loop's stdin and
+silently processes only the first line. Add `</dev/null` to the gh call.
+
 ## Refreshing a stale PR branch WITHOUT force-pushing
 CLAUDE.md forbids force-push (the #137 incident silently dropped the offset-aware fallback).
 To pick up a fix that landed on main, use **`gh pr update-branch <N>`** — GitHub's native
