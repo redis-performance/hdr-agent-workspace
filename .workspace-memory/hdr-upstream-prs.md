@@ -37,11 +37,11 @@ Optimization PRs from the fork `fcostaoliveira/HdrHistogram_c` → upstream
   hardening stack in number order. NOTE: check these before re-raising any dense finding — see
   [[check-open-prs-before-raising]].
 - **#151** — ✅ MERGED 2026-09-02. Claude PR-review + issue-triage automation.
-- **#152** — OPEN (2026-09-14). `ci:` fetch pinned CMake from the **Kitware GitHub release
-  assets** instead of `cmake.org/files`, plus wget retries; drops `--no-check-certificate`.
-  cmake.org went **503 for both pinned versions** (3.12.4 and 3.17.3), so every linux leg was a
-  coin flip and the #145 merge went red on `build (linux, Debug, x64, minimal, ON)` with
-  "Unable to establish SSL connection". Branch `ci/cmake-download-from-kitware-releases`.
+- **#152** — ✅ MERGED 2026-09-15 (4a1b1fd), 17/17 green. `ci:` fetch pinned CMake from the
+  **Kitware GitHub release assets** instead of `cmake.org/files`, plus wget retries; drops
+  `--no-check-certificate`. cmake.org was intermittently **503 for both pinned versions**
+  (3.12.4 and 3.17.3) — not hard-down, which is why some runs passed — so every linux leg was a
+  coin flip and the #145 merge went red with "Unable to establish SSL connection".
 - **#153** — OPEN (2026-09-14). `fix:` signed overflow in `read_ahead_timestamp`
   (`hdr_histogram_log.c`) — the UBSan finding that had failed the **weekly ClusterFuzzLite
   batch run 8 times in a row since 2026-07-27**. Seconds field now rejects at LONG_MAX instead
@@ -105,7 +105,7 @@ offset!=0 iterator fallback kept). +599% (7x): 12.4K->86.4K calls/sec. Base upst
 independent of #138/#139. Branch perf/single-pass-value-at-percentiles @ 7c8af3d on fork.
 https://github.com/HdrHistogram/HdrHistogram_c/pull/140
 Gotcha: first A/B was base-vs-base — `git archive HEAD` ran before committing the change. Commit first.
-Total open upstream PRs across fleet: C #137–#141, #144, #147–#150, #152–#154, Go #57,
+Total open upstream PRs across fleet: C #137–#141, #144, #147–#150, #153, #154, Go #57,
 Rust #138.
 
 - **#154** — OPEN (2026-09-14). `fix:` out-of-range `double`->`int` in
@@ -115,6 +115,15 @@ Rust #138.
   `int` cascaded 3 UB sites (the cast, the `(int) round(...)`, and `milliseconds * 1000000`).
   Bound derived from `sizeof(tv_sec)` so it is exact on LP64 / LLP64 / 32-bit; also fixes the
   2038 truncation. Branch `fix/timespec-from-double-overflow`.
+
+## Refreshing a stale PR branch WITHOUT force-pushing
+CLAUDE.md forbids force-push (the #137 incident silently dropped the offset-aware fallback).
+To pick up a fix that landed on main, use **`gh pr update-branch <N>`** — GitHub's native
+"Update branch", which *merges* base into head and pushes normally. `--rebase` would
+force-push; do not use it. Afterwards always verify nothing was lost:
+`git diff upstream/main origin/<branch> --stat` must still show the same files/line counts,
+and the original commit must still be in `git log`. The maintainer squash-merges, so the
+extra merge commit disappears on merge and costs nothing.
 
 ## Fuzzing: gcc and clang UBSan report DIFFERENT lines for one root cause
 gcc's `-fsanitize=undefined` does **not** include `float-cast-overflow`; clang's does. So for
