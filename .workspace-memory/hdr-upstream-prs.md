@@ -116,6 +116,30 @@ Rust #138.
   Bound derived from `sizeof(tv_sec)` so it is exact on LP64 / LLP64 / 32-bit; also fixes the
   2038 truncation. Branch `fix/timespec-from-double-overflow`.
 
+## Full PR sweep vs main — 2026-09-15 (after #152 landed)
+Brought all 12 open PRs up to date with main (4a1b1fd). Results worth remembering:
+- **4 of our PR branches live in the UPSTREAM repo, not the fork**: #144, #147, #148, #149
+  (head `HdrHistogram:<branch>`, pushed by the *filipecosta90* account). The `fcostaoliveira`
+  login can push to them, but `git push origin <branch>` silently creates a **stray branch on
+  the fork** instead of updating the PR — push to `upstream` for these. Check
+  `headRepositoryOwner` before pushing.
+- **#149's base is #148's branch**, not main. Update #148 first, then #149; updating #149
+  before #148 means redoing it.
+- `git merge-tree <base> <a> <b>` (3-arg legacy form) **does not reliably report conflicts** —
+  it said all 12 were clean when 2 were not. Use
+  `git merge-tree --write-tree --name-only <main> <branch>` and check the exit code.
+- Conflicts found (both ours to fix, both one file): **#144** ci.yml vs #145's new `sanitizers`
+  job — both appended top-level jobs at EOF; resolution keeps all four jobs, rebuilt around the
+  shared `runs-on`/`steps` context (do NOT just take main's file: #144 also adds a step *inside*
+  the build job that would be lost). **#148** test/hdr_histogram_test.c — `#include <math.h>` vs
+  `<string.h>` at the same line; keep both.
+- **The new `sanitizers` job retro-broke #137 and #138**: it enables LeakSanitizer, and both had
+  a test calling `free(h)` after `hdr_init`. `hdr_init` makes TWO allocations (counts array +
+  struct), so `free(h)` leaks the counts (188416 bytes); `hdr_close` frees both and is the
+  idiom everywhere else in that file. Expect any PR predating #145 to trip this.
+  **Lesson: when a new CI gate lands on main, older open PRs can fail it without changing —
+  re-run/update them rather than assuming green-when-opened still holds.**
+
 ## Refreshing a stale PR branch WITHOUT force-pushing
 CLAUDE.md forbids force-push (the #137 incident silently dropped the offset-aware fallback).
 To pick up a fix that landed on main, use **`gh pr update-branch <N>`** — GitHub's native
