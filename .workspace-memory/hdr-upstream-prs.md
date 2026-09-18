@@ -192,6 +192,18 @@ Brought all 12 open PRs up to date with main (4a1b1fd). Results worth rememberin
   **Lesson: when a new CI gate lands on main, older open PRs can fail it without changing —
   re-run/update them rather than assuming green-when-opened still holds.**
 
+## CORRECTION: #137 never removed the AVX2 path
+An earlier note here said #137 "would REMOVE the AVX2 path for a portable scalar block-sum".
+That described an OLD revision and was wrong by the time it merged (1343a18). What #137
+actually did: kept AVX2 and *narrowed the dispatch* to
+`h->normalizing_index_offset == 0 && __builtin_cpu_supports("avx2")`, rewrote the SCALAR
+fallback as a block-summed scan, and added `normalizing_index_offset %= counts_len` to V1/V2
+decode. So #137 and #138/#139 were COMPLEMENTARY, not opposed — there was never a fork to
+decide, and two of #137's three parts were correctness/security despite its `perf:` title
+(AVX2 returned wrong percentiles for rotated histograms; an out-of-range decoded offset
+indexed counts[] OOB). **Lesson: re-read the branch before repeating a stale characterisation
+from these notes — branches move, notes don't.**
+
 ## -Wconversion on LP64 CANNOT see int64_t->long narrowing (MSVC C4244)
 On LP64 `int64_t` and `long` are the *same type*, so a local `-Wall -Wextra -Wconversion`
 sweep reports zero warnings for `some_long_field = (int64_t) x` — while MSVC x86 (and any
