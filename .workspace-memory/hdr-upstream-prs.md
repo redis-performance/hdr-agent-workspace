@@ -123,6 +123,33 @@ Rust #138.
   Bound derived from `sizeof(tv_sec)` so it is exact on LP64 / LLP64 / 32-bit; also fixes the
   2038 truncation. Branch `fix/timespec-from-double-overflow`.
 
+- **#155** — OPEN (2026-09-18). `fix:` `hdr_reset_internal_counters` scanned counts[] by
+  STORAGE index (`counts_get_direct`) but fed the winner to `hdr_value_at_index`, which wants a
+  LOGICAL index -> wrong min/max for any decoded log with non-zero `normalizing_index_offset`
+  (V1/V2 assign the offset then call it on the next line). Rotating storage moved min
+  1000->43974656, max 100031->3995074559; total_count is rotation-invariant so it looked fine.
+  One-line fix to `counts_get_normalised`. Branch `fix/reset-internal-counters-offset`.
+- **#156** — OPEN (2026-09-18), stacked on #154. `fix:` `hdr_timespec_from_double` emitted
+  malformed timespecs (`1.9996`->`{1,1e9}`, `-0.4`->`{0,-4e8}`). floor() + carry. Value
+  unchanged (as_double round-trips identically), only the encoding. Branch
+  `fix/timespec-normalization`.
+
+## Java parity: the reference method is misspelled upstream
+`AbstractHistogram.establishInternalTackingValues()` — **"Tacking", not "Tracking"** (upstream
+typo). Grepping the correct spelling finds nothing. It reads via `getCountAtIndex(index)`,
+which in `Histogram.java` is `counts[normalizeIndex(index, normalizingIndexOffset,
+countsArrayLength)]` (NORMALISING); the raw accessor is `getCountAtNormalizedIndex(index) =
+counts[index]`. Note the names are the reverse of what they look like. C's
+`counts_get_normalised` == Java `getCountAtIndex`; C's `counts_get_direct` == Java
+`getCountAtNormalizedIndex`. Fetch the reference with `curl` + grep, not WebFetch — the file
+is 2489 lines and WebFetch truncates it.
+
+## LeakSanitizer swallows minunit assertion messages
+If a test leaks (e.g. a failing `mu_assert` returns before `hdr_close`), LSan `_exit()`s
+without flushing stdio, so the failure prints ONLY a leak trace and the real reason is lost.
+**Capture values, `hdr_close`, then assert.** Applies to every new test now that #145 enabled
+LSan in the `sanitizers` job.
+
 ## Merging one PR of a stack breaks its siblings — 2026-09-18
 Merging #147 then #148 conflicted **every** sibling that adds a test function, because they
 all insert into the same region of `test/hdr_histogram_test.c`. Pattern seen 4x now:
