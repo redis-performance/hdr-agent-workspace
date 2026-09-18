@@ -31,7 +31,14 @@ Optimization PRs from the fork `fcostaoliveira/HdrHistogram_c` → upstream
   `-fno-sanitize-recover=all`, `HDR_LOG_REQUIRED=ON`). That job is now the per-PR gate for this
   whole bug class — reproduce every UB finding against it.
 - **#146** — ✅ MERGED 2026-09-14 (6d40ddb). Heap overflows in V1/V2 log decode.
-- **#147–#149** — OPEN. #147 `hdr_mean` overflow + `hdr_count_at_value` OOB, #148 top-bucket
+- **#147** — MERGED 2026-09-18 (20af49a), **#148** — MERGED 2026-09-18 (21e82a6). Both
+  approved by *paulorsousa* (write access), not @mikeb01; merged by us, which is the
+  established pattern here (#145/#146/#152 were also merged by fcostaoliveira, NOT by the
+  maintainer — do not assume mikeb01 merged something just because it landed). Repo has **no
+  branch protection and no CODEOWNERS**; admins are mikeb01 + giltene. The #151 review bot
+  still prints "a human maintainer's review is still required before merge" — worth
+  confirming with the user before treating a non-admin approval as merge-ready.
+- **#149** — OPEN. #147 `hdr_mean` overflow + `hdr_count_at_value` OOB, #148 top-bucket
   value-range overflow (saturate `highest_equivalent` to INT64_MAX), #149 iterator
   reporting-level overflow (activity 2026-09-14). The maintainer appears to be working the
   hardening stack in number order. NOTE: check these before re-raising any dense finding — see
@@ -115,6 +122,24 @@ Rust #138.
   `int` cascaded 3 UB sites (the cast, the `(int) round(...)`, and `milliseconds * 1000000`).
   Bound derived from `sizeof(tv_sec)` so it is exact on LP64 / LLP64 / 32-bit; also fixes the
   2038 truncation. Branch `fix/timespec-from-double-overflow`.
+
+## Merging one PR of a stack breaks its siblings — 2026-09-18
+Merging #147 then #148 conflicted **every** sibling that adds a test function, because they
+all insert into the same region of `test/hdr_histogram_test.c`. Pattern seen 4x now:
+- git leaves BOTH sides truncated just before a shared function-closing tail, so the
+  resolution is `head + <shared tail> + main`, letting the tail already in the file close the
+  second function. The tail is NOT always the same — seen both
+  `"    }\n\n    hdr_close(h);\n    return 0;\n}\n\n"` and
+  `"    hdr_close(h);\n    return 0;\n}\n\n"` in the same file. Detect it per hunk.
+- A hunk where one side is EMPTY (e.g. just an added `mu_run_test(...)` line) is a plain
+  one-sided addition — concatenate, do NOT splice a tail in.
+- **Do not write a generic auto-splicer.** Tried it; it silently duplicated function
+  definitions and `mu_run_test` registrations (`def=2 run=2`) and only the build caught it.
+  Resolve each hunk explicitly and ALWAYS verify
+  `grep -c "^static char\* <name>"` and `grep -c "mu_run_test(<name>)"` are both 1.
+- GitHub does **not** retarget a stacked PR when its base merges unless the base branch is
+  deleted. #149 kept `base=fix/top-bucket-value-range-overflow`; retarget with
+  `gh pr edit <N> --base main` manually.
 
 ## Full PR sweep vs main — 2026-09-15 (after #152 landed)
 Brought all 12 open PRs up to date with main (4a1b1fd). Results worth remembering:
