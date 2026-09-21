@@ -378,3 +378,46 @@ resulting huge fraction, and `milliseconds * 1000000`.
   That pair should take the weekly batch run green.
 - Left out deliberately: the fraction carry that can emit `tv_nsec = 1e9` (malformed but not
   UB; changes currently-accepted outputs). Offered as a follow-up in the PR.
+
+## Upstream merge campaign — 2026-09-15 → 2026-09-18
+Not experiments; landing the correctness/security backlog. main went
+4a1b1fd -> 20af49a (#147) -> 21e82a6 (#148) -> 1132c65 (#153) -> 1343a18 (#137).
+
+**Merged (5 this window):** #152 cmake.org 503 CI fix; #147 hdr_mean overflow + count
+accessor OOB; #148 top-bucket value-range overflow; #153 log timestamp parse overflow;
+#137 block-summed scalar scan + offset-safe dispatch.
+
+**#137 was mis-filed in our own notes.** The note here said it "would REMOVE the AVX2 path";
+that described an old revision. As merged it KEPT AVX2 and narrowed the dispatch to
+`normalizing_index_offset == 0 && __builtin_cpu_supports("avx2")`, rewrote the *scalar*
+fallback as a block-summed scan, and added `offset %= counts_len` to V1/V2 decode. Two of its
+three parts are correctness/security despite the `perf:` title: AVX2 returned wrong
+percentiles for rotated histograms, and an out-of-range decoded offset indexed counts[] OOB.
+There was never a #137-vs-#138 fork. Re-read a branch before repeating a note about it.
+
+**New PRs opened:** #155 `hdr_reset_internal_counters` read counts[] by storage index but fed
+the winner to `hdr_value_at_index` (logical) -> wrong min/max on any decoded log with a
+non-zero offset; rotating storage moved min 1000->43974656, max 100031->3995074559 while
+total_count stayed right (rotation-invariant, which is why it hid). Java parity confirmed
+against `establishInternalTackingValues` (upstream typo: "Tacking"), which uses the
+*normalising* `getCountAtIndex`. #156 `hdr_timespec_from_double` emitted malformed timespecs
+(`1.9996`->`{1,1e9}`, `-0.4`->`{0,-4e8}`); floor + carry, value unchanged, only the encoding.
+#157 bounds the log seconds field by `sizeof(tv_sec)` instead of LONG_MAX (paulorsousa's
+review catch: 32-bit Linux can pair a 32-bit long with a 64-bit time_t, so post-2038
+timestamps were rejected).
+
+**Cost of merging into a stack:** every merge conflicted the siblings, because they all add
+tests to the same region of `hdr_histogram_test.c` — 4 rounds of re-resolution (#138 twice,
+#140, #141, #149, #154, #156). Resolution is `head + <shared function tail> + main`; the tail
+varies per hunk and a one-sided hunk is a plain concatenation. A generic auto-splicer silently
+duplicated definitions and registrations — resolve each hunk explicitly and verify
+`grep -c "^static char\* <name>"` and `grep -c "mu_run_test(<name>)"` are both 1.
+
+**MSVC C4244 bit twice.** `int64_t`->`long` assignment warns on Windows x86 and is INVISIBLE
+to an LP64 `-Wconversion` run (same type there). Hit in #154 and again in #157 (twice: the
+final store plus a widened `digit` leaking into a neighbouring `long` branch). Fix pattern:
+accumulate INTO the destination field so the arithmetic stays in its own type. Verified from
+the Windows job log (`gh api .../actions/jobs/<id>/logs | grep C4244`), not inferred.
+
+**Flakes seen:** cmake.org 503 (fixed by #152), and vcpkg's own zlib download failing with
+SSL connect error on a Windows leg (not fixable from ci.yml; re-run).

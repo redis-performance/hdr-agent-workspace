@@ -36,12 +36,12 @@ Java has none, so a fair single-call comparison isn't possible.
 
 ---
 
-## Upstream PRs — cross-port status (last updated 2026-08-26)
+## Upstream PRs — cross-port status (last updated 2026-09-21)
 
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 
-**Tally (2026-08-26):** **C** — 3 merged (#134/#135/#136), 11 open (5 perf #137–#141 · 5 dense-hardening #145–#149 · packed #150), 1 closed. **Go** — **16 merged (#57–#74)**, 1 open (packed #75). **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153).
+**Tally (2026-09-21):** **C** — **11 merged** (#134/#135/#136 perf · #137 scalar scan + offset-safe dispatch · #145/#146/#147/#148/#153 hardening · #151 review automation · #152 CI), 11 open (4 perf #138–#141 · #144 CI · #149/#154/#155/#156/#157 hardening · packed #150), 1 closed. **Go** — **16 merged (#57–#74)**, 1 open (packed #75). **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153).
 
 ### C — [HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c) (fork `fcostaoliveira/HdrHistogram_c`)
 | PR | State | What |

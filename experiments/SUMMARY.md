@@ -20,3 +20,12 @@ by maintainer, #137 open) that this workspace builds on.
 | [004](EXPERIMENTS.md#exp-004--2026-07-01--cross-µarch-validation-of-the-counts-prefetch-promotes-exp-003) | 2026-07-01 | read | prefetch cross-µarch validation (gnr1) | **ACCEPT** | **gcc +8% / clang +6%** (2 µarchs) | **[#139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** |
 | [005](EXPERIMENTS.md#exp-005--2026-07-01--prefetch-distance-sweep-confirms-exp-004s-d64) | 2026-07-01 | read | prefetch distance sweep | CONFIRM | D=64 optimal (plateau) | — (no change) |
 | [006](EXPERIMENTS.md#exp-006--2026-07-02--single-pass-hdr_value_at_percentiles-c-batch) | 2026-07-02 | read batch | single-pass hdr_value_at_percentiles | **ACCEPT** | **+599% (7×)** | **[#140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140)** |
+
+## Upstream campaign status — 2026-09-21
+C: 11 merged, 11 open, 1 closed. main = 1343a18.
+Merged this window: #147, #148, #153, #137 (+#152 CI). Opened: #155, #156, #157.
+All 11 open PRs green and behind-0. Recommended order: #154 -> #156 -> #157 -> #155 -> #149
+-> #144 -> (#138 -> #139, #140 -> #141) -> #150.
+Weekly ClusterFuzzLite batch goes green only once #154 AND #156/#157's parent #154 land
+alongside the already-merged #153 — #153 fixed the first UB, #154 the one immediately behind
+it. Detail in experiments/EXPERIMENTS.md and .workspace-memory/hdr-upstream-prs.md.
