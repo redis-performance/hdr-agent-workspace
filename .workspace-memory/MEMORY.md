@@ -8,3 +8,4 @@ Slack/ticket references).
 - [hdr-review-mo](hdr-review-mo.md) — @mikeb01's review M.O. + the adversarial correctness catches (offset-aware path, atomic twin, signed-shift rule)
 - [benchmark-setup](benchmark-setup.md) — how to build + run the write/read benchmark drivers and measure cleanly
 - [check-open-prs-before-raising](check-open-prs-before-raising.md) — RULE: check open PRs/issues/fix-branches upstream before raising or filing any finding (don't duplicate in-flight work; fcostaoliveira=filipecosta90=the user)
+- [HdrHistogram campaign state](hdr-campaign-state.md) — cold-start snapshot: main sha, all open PRs, merge order, open decisions
