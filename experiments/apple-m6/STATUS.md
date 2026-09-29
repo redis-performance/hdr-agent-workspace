@@ -2,14 +2,29 @@
 
 Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Latest measured qualification checkpoint
+
+[W1/W2 calibration and A/A](M6-WRITE-MEASURE/RESULT.md): both protocols calibrate
+all 32 controls, then both fail same-binary qualification on 26/32 controls.
+All 768 A/A samples pass checksum/work/duration checks, but uncertainty does not
+resolve the ±1% guard. Discovery and confirmation did not run. Preserve this
+failed qualification and record a revised design/budget before any retry.
+Baseline stays `8c4cdcc`; neither candidate has an established performance effect.
+
+Fresh process-table inspection established current absence of sampler/search/
+benchmark helpers before these runs. The historical helper exit status is still
+unknown; current absence is the basis of the new hashed cleanup attestation.
+C branches and existing parent checkpoints have now been pushed successfully.
+
 ## Latest executor and cleanup checkpoint
 
 [Case executor](M6-WRITE-EXECUTOR/RESULT.md): fixed six-pair, 32-case A/A and
 discovery are implemented with strict calibration/protocol/cleanup binding.
 All 40 Python tests pass using synthetic data; no real timing ran. The sampler
 session 51776 has **exited with code 143**. The earlier search helper lacks a
-terminal result even from its owner; confirm its cleanup before creating an
-all-clear record. No baseline promotion or PR. Confirmation remains unfinished.
+terminal result even from its owner at that checkpoint; current absence has since
+been verified as recorded above. No baseline promotion or PR. Confirmation
+remains unfinished.
 
 ## Latest control checkpoint
 
@@ -54,9 +69,9 @@ needs bounded calibration: its empty workload implies roughly 569 billion
 baseline bucket visits per process before warmup.
 
 At planning time, sampler session 51776 and auxiliary search session 54793 lacked
-terminal confirmation. The sampler has since exited; helper verification remains
-open. Confirm complete cleanup and qualify A/A uncertainty
-before new performance work. The plan records the unavailable Opus 4.8 model
+terminal confirmation. The sampler has since exited and current helper absence
+is verified. The first A/A qualification failed as recorded above.
+The plan records the unavailable Opus 4.8 model
 requirement as an exception, not compliance. Nothing is ready for a PR.
 
 ## Checkpoints
@@ -94,25 +109,21 @@ machine/process identifiers.
 
 ## Publishing
 
-The plan and original commits were pushed successfully. The session subsequently
-changed to restricted networking: `git ls-remote origin refs/heads/main` fails
-because `github.com` cannot resolve. Continue local work, commit every checkpoint,
-retry normal pushes at checkpoints, and report unpublished commits explicitly.
-The Stage 0 and M6-002 checkpoint pushes failed for this reason; no force pushes
-or remote history changes were attempted.
-
-Later M6-003/M6-004 push retries failed for the same DNS restriction. The current
-parent and experimental C branches are saved locally but remain unpublished.
+Normal GitHub access is restored. The C baseline and six experiment branches
+were pushed, followed by parent `main` through `f3e302c`. Earlier DNS failures
+are historical. Continue pushing C dependencies before the parent; never force
+push. The measured qualification checkpoint adds evidence, not a new C revision.
 
 ## Runtime restriction
 
 Both matched `sample` profile attempts failed. A subsequent diagnostic sampler
 initially did not exit, and the sandbox denied terminating it. Its tool session
 now reports terminal exit code 143. No further signal to its old PID is needed.
-The auxiliary search still lacks confirmed termination; the user has been asked
-to verify it locally. Hold new performance runs until full cleanup is confirmed; preserve
-the extended matrix with its interference caveat. Correctness-only checks can
-continue. Raw profiling data is not committed.
+The auxiliary search's historical terminal status remains unavailable, but fresh
+process inspection verified no current helper before calibration/A/A. Preserve
+the historical extended matrix's interference caveat. New discovery is blocked
+by failed A/A precision, not unverified helper cleanup. Raw profiling data is not
+committed; profiling capability has not been retested.
 
 Exact queued commands and revisions: `NEXT-RUN.md`. No new optimization has been
 promoted into the baseline submodule by these checkpoints.

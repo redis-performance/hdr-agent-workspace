@@ -1,16 +1,23 @@
 # Resume the M6 experiment loop
 
-**Current:** [case-level executor and cleanup update](M6-WRITE-EXECUTOR/RESULT.md).
-Sampler session 51776 exited143; do not signal its old PID. The auxiliary search
-still needs local cleanup confirmation. Once fully clear, use bounded calibration,
-then the new `run_write_cases.py qualification`, review all controls, and only
-then `discovery`. Each phase is six fixed pairs; confirmation remains separate.
+**Current:** [measured W1/W2 qualification](M6-WRITE-MEASURE/RESULT.md).
+Both protocols calibrated 32/32 controls and completed six A/A pairs per case.
+Both fail ±1% precision on 26/32 controls. Do not run discovery or repeat these
+protocols under a new output name. First record a revised measurement design
+and fixed budget; longer-duration A/A in a quiet environment is a hypothesis
+to test, not permission to extend the failed datasets until they pass.
+
+Current sampler/search/benchmark helper absence was verified before timing;
+the sanitized hashed attestation is in `M6-WRITE-MEASURE/cleanup.json`. It is
+historical evidence and needs fresh verification for any future session.
+No old process ID should be signaled. Publishing works again; all C experiment
+branches and parent checkpoints through `f3e302c` have been pushed.
 
 **Latest preparation:** [write controls and bounded pilots](M6-WRITE-CONTROLS/RESULT.md).
 The new `write-controls` binary has a per-case interface, separate from `m6-bench`.
 `write_protocol.py prepare` is untimed; `calibrate` requires confirmed cleanup
-and the exact frozen build/input protocol. No real pilot has run. Case-level
-A/A/discovery is now implemented; fixed confirmation is not. Do not route
+and the exact frozen build/input protocol. Real pilots and A/A are now complete
+with the failed outcome above. Fixed confirmation is not implemented. Do not route
 this binary through the old mode-based runner. Full-sweep companion is excluded
 from short pilots; batch timing remains disabled.
 
@@ -28,14 +35,13 @@ Signed-state compatibility is unresolved, the scan-width family is closed to
 new variants, and `run_batch.sh` needs bounded per-case calibration before use:
 its current empty workload entails roughly 569 billion baseline bucket visits
 per process, plus full-mode warmup. Ordinary-write W1/W2 now have priority.
-An auxiliary read-only search, session 54793, also lacks terminal confirmation;
-confirm all helpers and agents are quiescent before timing.
+An auxiliary read-only search, session 54793, lacks a historical terminal result;
+current helper absence was separately verified before the new timings.
 
 The diagnostic sampler's tool session 51776 now has terminal exit143. Its old
-process ID must not be used for further cleanup. Full environment cleanup still
-requires verifying the auxiliary search and absence of other timed/profile work.
-The user has been asked to check that. The original queue predates the auxiliary
-search and population review; use the qualification note above for current state.
+process ID must not be used for further cleanup. Current helper absence has since
+been verified. The original queue predates the auxiliary search and population
+review; use the measured qualification note above for current state.
 
 Baseline C: `8c4cdcc`, branch `perf/m6-blocked-scan`.
 Measured singular candidate: `6930fd7`, retained in `build/prefix-mask32`.
@@ -86,9 +92,8 @@ performance conclusions; one printed diagnostic run is insufficient.
 
 ## Publishing checkpoint
 
-Normal pushes currently fail because github.com does not resolve. Do not force
-push or change remote URLs to bypass the environment restriction. When ordinary
-network access returns, push C branches before the parent pointer:
+Normal pushes now succeed. The following C branches are already published;
+continue pushing C dependencies before the parent pointer, without force pushes:
 
 ```sh
 git -C HdrHistogram_c push origin perf/m6-blocked-scan \

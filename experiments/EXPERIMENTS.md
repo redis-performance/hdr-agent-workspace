@@ -602,3 +602,16 @@ locked work, input/build identity, raw failures and unresolved durations. All40
 Python tests pass, including mocked complete workflows; **no real timing**.
 Candidate source and baseline unchanged; no acceptance/rejection count change.
 [Details](apple-m6/M6-WRITE-EXECUTOR/RESULT.md).
+
+### M6 W1/W2 measured qualification — 2026-09-29
+
+Fresh process inspection confirms no sampler/search/benchmark helper remains;
+normal pushes of the C branches and parent checkpoints now succeed. Unchanged
+baseline/W1/W2 each pass ctest 6/6 and 33 controls; Python suite passes 40/40.
+Both frozen protocols calibrate 32/32 controls, then each completes 384 same-binary
+A/A samples. Both fail the ±1% precision guard on 26/32 controls, with no checksum,
+work or duration failure. **No discovery, confirmation or candidate speedup claim.**
+Full raw evidence is preserved; the discovery gate rejects both datasets. A revised
+measurement design/budget is needed before any rerun. Source acceptance/rejection
+counts and baseline pointer remain unchanged.
+[Results and all intervals](apple-m6/M6-WRITE-MEASURE/RESULT.md).

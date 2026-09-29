@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "sampler_stopped": true,
+  "helpers_stopped": true,
+  "agents_quiescent": true,
+  "confirmed_utc": "2026-09-29T13:10:41.133686+00:00",
+  "verification": "Fresh full process-table inspection by executable identity: no sample/perf, search executables rg/grep/find, claude helper, or known benchmark executable present. Prior sampler terminal exit143 is recorded separately. Agent registry contains only the current root. This confirms current absence, not the historical helper exit status. No stale PID was signaled; no build/profile/test work remains active."
+}

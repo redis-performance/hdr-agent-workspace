@@ -377,12 +377,16 @@ adds write-first experiments, semantic qualifications and measurement gates;
 it adds no accepted result and leaves the counts above unchanged.
 The [W1/W2 implementation checkpoint](experiments/apple-m6/M6-WRITE-PREP/RESULT.md)
 now includes isolated tested patches and fail-closed measurement safeguards;
-both candidates remain unmeasured and unaccepted.
+both candidates remain unaccepted; discovery is still pending.
 [Write controls and bounded-pilot tooling](experiments/apple-m6/M6-WRITE-CONTROLS/RESULT.md)
-now pass untimed validation; no real pilot or performance result is claimed.
+pass untimed validation and now have complete real pilot evidence.
 The [case-level executor](experiments/apple-m6/M6-WRITE-EXECUTOR/RESULT.md) adds
-strict six-pair qualification/discovery. Sampler exit is confirmed; complete
-helper cleanup and real measurements remain pending.
+strict six-pair qualification/discovery. The
+[first measured qualification](experiments/apple-m6/M6-WRITE-MEASURE/RESULT.md)
+calibrates all 32 controls for each write candidate, but both same-binary A/A
+runs fail the ±1% precision guard on 26/32 controls. Discovery remains blocked;
+no candidate speedup or acceptance is claimed and counts stay unchanged.
+Current helper absence is verified and GitHub pushes are working again.
 
 The merged fork PRs above are the baseline this workspace builds on.
 

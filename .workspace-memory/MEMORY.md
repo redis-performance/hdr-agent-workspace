@@ -1,5 +1,8 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [W1/W2 measured qualification](../experiments/apple-m6/M6-WRITE-MEASURE/RESULT.md) —
+  cleanup verified and Git pushes restored; both protocols calibrate 32/32, but
+  both fail A/A precision on 26/32 controls. Discovery blocked; no source decision.
 - [Apple M6 experiment loop](../experiments/apple-m6/STATUS.md) — plan, validation corrections,
   decoder repair, precise benchmark harness and publishing checkpoints.
 - [M6 nine-agent population decision](../experiments/apple-m6/population/PLAN.md) —

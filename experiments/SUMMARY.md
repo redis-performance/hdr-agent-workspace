@@ -26,6 +26,14 @@ by maintainer, #137 open) that this workspace builds on.
 | [M6-003](apple-m6/M6-003/RESULT.md) | 2026-09-29 | write | isolated compiler options | **REJECT** | LTO hot writes +38–47%, some reads -11–13%; O3/native no gain | no source change |
 | [M6-004](apple-m6/M6-004/RESULT.md) | 2026-09-29 | read | portable block-width sweep | **IN PROGRESS** | referee 0.22 -> 0.90 Mq/s; write -0.076%; some early crossings regress | crossing refinement and validation pending |
 
+## M6 measured qualification checkpoint — 2026-09-29
+
+[W1/W2 calibration and A/A](apple-m6/M6-WRITE-MEASURE/RESULT.md): current helper
+absence verified; GitHub pushes restored. Both protocols calibrate all 32 controls,
+then both fail the ±1% same-binary A/A gate on 26/32 controls. All 768 recorded
+samples are retained; discovery does not run. This is a measurement failure,
+not acceptance/rejection of a source change; counts above remain unchanged.
+
 ## M6 population planning checkpoint — 2026-09-29
 
 [Nine-agent decision plan](apple-m6/population/PLAN.md): prioritize ordinary-write
