@@ -340,7 +340,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 | Status | Count |
 |--------|------:|
 | Accepted | 4 |
-| Rejected | 2 |
+| Rejected | 3 |
 | Parked | 0 |
 | In Progress | 1 |
 
@@ -364,6 +364,9 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 - **M6-002** (REJECT default) — immediate write-prefetch removal helps some hot
   distributions but fails the immutable write target (-0.87%) and regresses a
   supplemental read case. [Detailed results](experiments/apple-m6/M6-002/RESULT.md).
+- **M6-003** (REJECT blanket flags) — O3/native show no robust write gain;
+  ThinLTO helps hot writes but regresses low-precision reads.
+  [Detailed results](experiments/apple-m6/M6-003/RESULT.md).
 
 The merged fork PRs above are the baseline this workspace builds on.
 

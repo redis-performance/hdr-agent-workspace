@@ -12,7 +12,8 @@ Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 | Stage 0 structured fuzz | PASS, limited | 50,000 seeded offset cases under ASan+UBSan; Apple libFuzzer runtime absent, so not coverage-guided |
 | Precise harness | Implemented | 2,700 singular/offset oracle checks; five write distributions; ordinary/atomic paths; read shapes and percentiles |
 | M6-002 prefetch ablation | REJECT default | Immutable write -0.87%; hot supplemental writes +13–25%; low-precision read regression; see M6-002/RESULT.md |
-| M6-003 isolated build flags | Next | Separate O3, native, and ThinLTO comparisons |
+| M6-003 isolated build flags | REJECT default | O3/native no robust gain; ThinLTO improves hot writes but regresses low-precision reads; see M6-003/RESULT.md |
+| M6-004 portable scan widths | Next | Sweep 8/16/32 counters against unchanged blocked-four baseline |
 
 ## Evidence corrections
 
@@ -35,6 +36,8 @@ The plan and original commits were pushed successfully. The session subsequently
 changed to restricted networking: `git ls-remote origin refs/heads/main` fails
 because `github.com` cannot resolve. Continue local work, commit every checkpoint,
 retry normal pushes at checkpoints, and report unpublished commits explicitly.
+The Stage 0 and M6-002 checkpoint pushes failed for this reason; no force pushes
+or remote history changes were attempted.
 
 ## Reproduction
 

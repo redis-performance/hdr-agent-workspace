@@ -484,3 +484,13 @@ despite unchanged read source. Keep that observed binary-level regression visibl
 Both builds pass 6/6 ctest and 2,700 oracle checks. Assembly confirms PRFM removal.
 No GCC or hardware-counter acceptance claimed. Results and intervals:
 [`apple-m6/M6-002/RESULT.md`](apple-m6/M6-002/RESULT.md).
+
+## M6-003 — 2026-09-29 — Isolated O3, native and ThinLTO comparisons
+
+**REJECT blanket flag change**. Six alternating pairs per comparison isolate O3
+vs O2, native vs generic at O2, ThinLTO vs ordinary O2 linking, and native vs
+generic at O3. O3/native do not deliver a robust 2% write gain. ThinLTO improves
+ordinary hot writes by 38–47% but regresses low-precision read cases 11–13%.
+All five builds pass 6/6 ctest and 2,700 oracle checks; paired checksums match.
+This flag family stops after three default no-wins. Detailed intervals, raw data,
+and reproducible scripts: [`apple-m6/M6-003/RESULT.md`](apple-m6/M6-003/RESULT.md).

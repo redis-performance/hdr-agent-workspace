@@ -1,0 +1,82 @@
+[
+  {
+    "case": "atomic_constant",
+    "base_ns": 1.7103555,
+    "candidate_ns": 1.760915,
+    "speedup_pct": -2.1562724261910517,
+    "ci95_low_pct": -3.9912922157755375,
+    "ci95_high_pct": -0.28617980096612966
+  },
+  {
+    "case": "atomic_correlated",
+    "base_ns": 1.7709730000000001,
+    "candidate_ns": 1.794681,
+    "speedup_pct": -0.9941953172417282,
+    "ci95_low_pct": -2.8591538973711237,
+    "ci95_high_pct": 0.9065676710757911
+  },
+  {
+    "case": "atomic_extremes",
+    "base_ns": 1.7150189999999998,
+    "candidate_ns": 1.759827,
+    "speedup_pct": -2.0385102284086276,
+    "ci95_low_pct": -3.2428429845135214,
+    "ci95_high_pct": -0.8191871870146044
+  },
+  {
+    "case": "atomic_iid",
+    "base_ns": 1.7267315,
+    "candidate_ns": 1.781508,
+    "speedup_pct": -2.40864973344988,
+    "ci95_low_pct": -4.505073066838864,
+    "ci95_high_pct": -0.26620310925452795
+  },
+  {
+    "case": "atomic_increasing",
+    "base_ns": 1.7396509999999998,
+    "candidate_ns": 1.7715695,
+    "speedup_pct": -0.9211934884222849,
+    "ci95_low_pct": -3.6126322548591876,
+    "ci95_high_pct": 1.8453987219039965
+  },
+  {
+    "case": "write_constant",
+    "base_ns": 1.3505595000000001,
+    "candidate_ns": 1.3655945,
+    "speedup_pct": -0.8750414937311127,
+    "ci95_low_pct": -1.8024247274984764,
+    "ci95_high_pct": 0.061099997660089236
+  },
+  {
+    "case": "write_correlated",
+    "base_ns": 1.536757,
+    "candidate_ns": 1.5637655000000001,
+    "speedup_pct": -1.637160968211892,
+    "ci95_low_pct": -2.497732122511643,
+    "ci95_high_pct": -0.7689942704675167
+  },
+  {
+    "case": "write_extremes",
+    "base_ns": 1.3608410000000002,
+    "candidate_ns": 1.3646785000000001,
+    "speedup_pct": -0.4738843381056442,
+    "ci95_low_pct": -1.17721269888136,
+    "ci95_high_pct": 0.23444965746930224
+  },
+  {
+    "case": "write_iid",
+    "base_ns": 1.366034,
+    "candidate_ns": 1.3686715,
+    "speedup_pct": -0.061628953533675486,
+    "ci95_low_pct": -0.48133054880760695,
+    "ci95_high_pct": 0.35984265564867024
+  },
+  {
+    "case": "write_increasing",
+    "base_ns": 1.37116,
+    "candidate_ns": 1.377702,
+    "speedup_pct": -0.3669527978925417,
+    "ci95_low_pct": -0.6936754807550077,
+    "ci95_high_pct": -0.039155181363830116
+  }
+]
