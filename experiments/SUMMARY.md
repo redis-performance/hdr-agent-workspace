@@ -5,7 +5,7 @@ Single source of truth for experiment status. Keep `README.md` counts in sync.
 | Status | Count |
 |--------|------:|
 | Accepted | 4 |
-| Rejected | 1 |
+| Rejected | 2 |
 | Parked | 0 |
 | In Progress | 1 |
 
@@ -22,6 +22,7 @@ by maintainer, #137 open) that this workspace builds on.
 | [006](EXPERIMENTS.md#exp-006--2026-07-02--single-pass-hdr_value_at_percentiles-c-batch) | 2026-07-02 | read batch | single-pass hdr_value_at_percentiles | **ACCEPT** | **+599% (7×)** | **[#140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140)** |
 | [007](EXPERIMENTS.md#exp-007--2026-07-03--blocked-skip-scan-for-hdr_value_at_percentiles-batch) | 2026-07-03 | read batch | blocked skip-scan | **ACCEPT** | **+134% (2.34×)** | **[#141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141)** |
 | [M6-001](apple-m6/STATUS.md) | 2026-09-29 | read | four-counter blocked scalar scan | **PROVISIONAL** | about +10%, rounded single-pair result | upstream #137 strategy; fuller validation pending |
+| [M6-002](apple-m6/M6-002/RESULT.md) | 2026-09-29 | write | immediate prefetch removal | **REJECT** | referee -0.87%; workload-dependent gains | experiment branch only |
 
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.

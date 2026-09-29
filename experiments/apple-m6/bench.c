@@ -145,7 +145,8 @@ static void reads(void)
         {
             int64_t expected = oracle(h, pcts[p]);
             if (hdr_value_at_percentile(h, pcts[p]) != expected) fail("read oracle");
-            uint64_t iterations = shape == 1 ? 2000000 : shape == 3 ? 100000 : 10000;
+            uint64_t iterations = shape == 1 ? 40000000 : shape == 3 ? 1000000 :
+                (shape == 2 && p == 0) ? 100000 : 20000;
             uint64_t result = 0;
             for (int i = 0; i < 100; i++) sink += (uint64_t)hdr_value_at_percentile(h, pcts[p]);
             double start = now();
@@ -159,15 +160,59 @@ static void reads(void)
         hdr_close(h);
     }
 }
+static void multi_writes(void)
+{
+    enum { N = 65536, REPS = 128 };
+    int64_t* input = malloc(N * sizeof(*input));
+    uint32_t* select = malloc(N * sizeof(*select));
+    if (!input || !select) fail("multi inputs");
+    int sizes[] = {1, 64, 1024};
+    for (int s = 0; s < 3; s++)
+    for (int correlated = 0; correlated < 2; correlated++)
+    {
+        int count = sizes[s];
+        struct hdr_histogram** hs = calloc((size_t)count, sizeof(*hs));
+        if (!hs) fail("hist array");
+        for (int i = 0; i < count; i++) hs[i] = make_hist(3);
+        for (int i = 0; i < N; i++)
+        {
+            uint32_t r = next_random();
+            input[i] = correlated ? 100000 + r % 201 :
+                (int64_t)(UINT64_C(1) << (r % 29)) + (next_random() % 1000);
+            select[i] = next_random() % (uint32_t)count;
+        }
+        for (int i = 0; i < N; i++) hdr_record_value(hs[select[i]], input[i]);
+        for (int i = 0; i < count; i++) hdr_reset(hs[i]);
+        double start = now();
+        for (int rep = 0; rep < REPS; rep++)
+            for (int i = 0; i < N; i++) hdr_record_value(hs[select[i]], input[i]);
+        double elapsed = now() - start;
+        uint64_t total = 0, buckets = 0;
+        for (int i = 0; i < count; i++)
+        {
+            total += (uint64_t)hs[i]->total_count;
+            for (int j = 0; j < hs[i]->counts_len; j++) buckets += (uint64_t)hs[i]->counts[j];
+        }
+        if (total != (uint64_t)N * REPS || buckets != total) fail("multi total");
+        char name[64]; snprintf(name, sizeof(name), "multi_h%d_%s", count,
+            correlated ? "correlated" : "logspread");
+        emit(name, total, elapsed, buckets, hs[0]);
+        for (int i = 0; i < count; i++) hdr_close(hs[i]);
+        free(hs);
+    }
+    free(input); free(select);
+}
+
 int main(int argc, char** argv)
 {
 #ifdef __APPLE__
     if (pthread_set_qos_class_self_np(QOS_CLASS_USER_INITIATED, 0)) fail("set QoS");
 #endif
-    if (argc != 2) fail("usage: bench validate|write|read");
+    if (argc != 2) fail("usage: bench validate|write|read|write-multi");
     if (!strcmp(argv[1], "validate")) validate();
     else if (!strcmp(argv[1], "write")) writes();
     else if (!strcmp(argv[1], "read")) reads();
+    else if (!strcmp(argv[1], "write-multi")) multi_writes();
     else fail("unknown mode");
     return 0;
 }

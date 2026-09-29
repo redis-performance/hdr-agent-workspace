@@ -11,7 +11,8 @@ Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 | Stage 0 sanitizers | PASS | Release 6/6; ASan+UBSan 6/6; logging-disabled 4/4 |
 | Stage 0 structured fuzz | PASS, limited | 50,000 seeded offset cases under ASan+UBSan; Apple libFuzzer runtime absent, so not coverage-guided |
 | Precise harness | Implemented | 2,700 singular/offset oracle checks; five write distributions; ordinary/atomic paths; read shapes and percentiles |
-| M6-002 prefetch ablation | Next | Build separate baseline/candidate and alternate six pairs |
+| M6-002 prefetch ablation | REJECT default | Immutable write -0.87%; hot supplemental writes +13–25%; low-precision read regression; see M6-002/RESULT.md |
+| M6-003 isolated build flags | Next | Separate O3, native, and ThinLTO comparisons |
 
 ## Evidence corrections
 

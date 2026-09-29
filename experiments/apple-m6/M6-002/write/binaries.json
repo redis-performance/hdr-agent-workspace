@@ -1,0 +1,10 @@
+{
+  "base": {
+    "binary": "m6-bench",
+    "sha256": "0ce7a1537a67e3b59fc3019509c42821e33fc17e55ae39ecf70e7e0d24c3c1f3"
+  },
+  "candidate": {
+    "binary": "m6-bench",
+    "sha256": "d681ef3d79be5dcc61b9200c05c260343fb07f957c5c259164b24e88291c7302"
+  }
+}

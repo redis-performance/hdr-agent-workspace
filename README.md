@@ -340,7 +340,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 | Status | Count |
 |--------|------:|
 | Accepted | 4 |
-| Rejected | 1 |
+| Rejected | 2 |
 | Parked | 0 |
 | In Progress | 1 |
 
@@ -361,6 +361,9 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
   preliminary read **about +10%** (0.20 → 0.22 Mq/s), write -0.12%.
   Paired measurements and cross-compiler validation are pending; the original native
   comparison changed two flags. Follow [the M6 loop status](experiments/apple-m6/STATUS.md).
+- **M6-002** (REJECT default) — immediate write-prefetch removal helps some hot
+  distributions but fails the immutable write target (-0.87%) and regresses a
+  supplemental read case. [Detailed results](experiments/apple-m6/M6-002/RESULT.md).
 
 The merged fork PRs above are the baseline this workspace builds on.
 

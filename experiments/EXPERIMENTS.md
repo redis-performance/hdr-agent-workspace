@@ -472,3 +472,15 @@ timings, one A/B pair, missing genuine-GCC validation, and incomplete profiling
 do not establish the full acceptance gates. The initial native comparison also
 changed -O2 to -O3. No new speedup is claimed for the decoder repair.
 Follow the continuing loop in [`apple-m6/STATUS.md`](apple-m6/STATUS.md).
+
+## M6-002 — 2026-09-29 — Remove immediate write prefetch
+
+**REJECT default**. Candidate `09bff8f` removes the four prefetch calls in ordinary
+and atomic paths, both offsets. Immutable referee write mean (last 80) falls from
+712.68M to 706.45M ops/s (-0.87%), failing the targeted +2% gate. Read displays
+0.22 Mq/s for both, sink identical. Supplemental six-pair experiments show strong
+hot-write benefits (+13–25%), but a repeat low-precision read case regresses 20.25%
+despite unchanged read source. Keep that observed binary-level regression visible.
+Both builds pass 6/6 ctest and 2,700 oracle checks. Assembly confirms PRFM removal.
+No GCC or hardware-counter acceptance claimed. Results and intervals:
+[`apple-m6/M6-002/RESULT.md`](apple-m6/M6-002/RESULT.md).
