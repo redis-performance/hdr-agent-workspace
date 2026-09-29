@@ -457,3 +457,18 @@ strategy onto the packed-feature revision pinned by this workspace.
 
 **Decision**: **ACCEPT** the portable source change; **REJECT** `-mcpu=native`.
 Detailed results: [`M6-EXP-001/README.md`](M6-EXP-001/README.md).
+
+## M6 Stage 0 — 2026-09-29 — Decoder repair and measurement controls
+
+Completed the missing V1/V2 offset reduction from upstream #137. The newly
+offset-aware percentile path requires this bound for untrusted decoded offsets.
+22 boundary cases cover zero, positive/negative offsets, wraps and INT32 limits;
+the regression test fails against the old library. Release 6/6, ASan+UBSan 6/6,
+logging-disabled 4/4, and 50,000 deterministic structured fuzz cases pass. Apple
+libFuzzer is unavailable; this is randomized sanitizer coverage, not guided fuzzing.
+
+The first M6 performance result is reclassified **PROVISIONAL**: rounded read
+timings, one A/B pair, missing genuine-GCC validation, and incomplete profiling
+do not establish the full acceptance gates. The initial native comparison also
+changed -O2 to -O3. No new speedup is claimed for the decoder repair.
+Follow the continuing loop in [`apple-m6/STATUS.md`](apple-m6/STATUS.md).
