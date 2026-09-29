@@ -7,15 +7,28 @@
 #   build/<compiler>/test/hdr_histogram_benchmark — google-benchmark suite (non-Windows)
 #
 # Env:
-#   COMPILER=gcc|clang   (default gcc)   — selects toolchain + per-compiler build tree
+#   COMPILER=gcc|clang   (default clang on macOS, gcc elsewhere)
 #   BUILD_TYPE=...       (default RelWithDebInfo — keeps -g for perf annotate)
+#   JOBS=...             (default online logical CPU count)
 set -euo pipefail
 
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
 HDR_DIR="$WORKSPACE/HdrHistogram_c"
-COMPILER="${COMPILER:-gcc}"
+DEFAULT_COMPILER=gcc
+[[ "$(uname -s)" == "Darwin" ]] && DEFAULT_COMPILER=clang
+COMPILER="${COMPILER:-$DEFAULT_COMPILER}"
 BUILD_TYPE="${BUILD_TYPE:-RelWithDebInfo}"
 BUILD_DIR="$HDR_DIR/build/$COMPILER"
+JOBS="${JOBS:-$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)}"
+CMAKE=cmake
+if ! command -v "$CMAKE" >/dev/null 2>&1; then
+  if [[ -x "$WORKSPACE/.tools/bin/cmake" ]]; then
+    CMAKE="$WORKSPACE/.tools/bin/cmake"
+  else
+    echo "ERROR: cmake not found (install it or create .tools/bin/cmake)" >&2
+    exit 1
+  fi
+fi
 
 case "$COMPILER" in
   gcc)   CC=gcc;   CXX=g++ ;;
@@ -24,7 +37,7 @@ case "$COMPILER" in
 esac
 
 echo "==> Configuring HdrHistogram_c ($COMPILER, $BUILD_TYPE)" >&2
-cmake -S "$HDR_DIR" -B "$BUILD_DIR" \
+"$CMAKE" -S "$HDR_DIR" -B "$BUILD_DIR" \
   -DCMAKE_C_COMPILER="$CC" \
   -DCMAKE_CXX_COMPILER="$CXX" \
   -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
@@ -35,9 +48,9 @@ cmake -S "$HDR_DIR" -B "$BUILD_DIR" \
 
 echo "==> Building targets (programs + tests + bench drivers)" >&2
 # Default target set includes the ctest binaries + hdr_histogram_perf + hdr_percentile_bench
-cmake --build "$BUILD_DIR" -j"$(nproc)" >/dev/null
+"$CMAKE" --build "$BUILD_DIR" -j"$JOBS" >/dev/null
 # google-benchmark suite is optional (downloads/builds a vendored zip); don't fail the run on it
-cmake --build "$BUILD_DIR" --target hdr_histogram_benchmark -j"$(nproc)" >/dev/null 2>&1 || \
+"$CMAKE" --build "$BUILD_DIR" --target hdr_histogram_benchmark -j"$JOBS" >/dev/null 2>&1 || \
   echo "==> (hdr_histogram_benchmark skipped — google-benchmark unavailable)" >&2
 
 echo "==> Built into $BUILD_DIR/test/" >&2

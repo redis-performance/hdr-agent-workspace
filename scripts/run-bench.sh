@@ -6,14 +6,16 @@
 #   READ  path — hdr_percentile_bench     (hdr_value_at_percentile throughput)
 #
 # Env:
-#   COMPILER=gcc|clang   (default gcc)
+#   COMPILER=gcc|clang   (default clang on macOS, gcc elsewhere)
 #   EXP=EXP-NNN          (default EXP-000) — results land in experiments/<EXP>/bench-results/
 #   TAG=...              optional label appended to the filename (e.g. BASELINE, machine id)
 #   REPS=...             write-path repetitions (driver default if unset)
 set -euo pipefail
 
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
-COMPILER="${COMPILER:-gcc}"
+DEFAULT_COMPILER=gcc
+[[ "$(uname -s)" == "Darwin" ]] && DEFAULT_COMPILER=clang
+COMPILER="${COMPILER:-$DEFAULT_COMPILER}"
 EXP="${EXP:-EXP-000}"
 TAG="${TAG:-}"
 BIN_DIR="$WORKSPACE/HdrHistogram_c/build/$COMPILER/test"

@@ -339,7 +339,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 
 | Status | Count |
 |--------|------:|
-| Accepted | 4 |
+| Accepted | 5 |
 | Rejected | 1 |
 | Parked | 0 |
 | In Progress | 0 |
@@ -357,6 +357,9 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
   of #140, read/write flat, byte-identical. Adversarial review MERGE-READY. **[PR #141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141)** (stacked on #140).
 - **EXP-001** (REJECT) — Tier-1 `counts_index_for` fusion: correct + gcc +5.9% but clang −12.1%,
   rejected as a portable regression.
+- **M6-EXP-001** (ACCEPT) — portable four-counter blocked percentile scan on Apple M6:
+  read **about +10%** (0.20 → 0.22 Mq/s), write -0.12%, release and sanitizer suites green.
+  `-mcpu=native` maps to `apple-m4` and is slower, so the portable build remains preferred.
 
 The merged fork PRs above are the baseline this workspace builds on.
 

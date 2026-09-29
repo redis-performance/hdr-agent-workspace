@@ -1,0 +1,1 @@
+best: 0.22 M queries/sec  mean: 0.21 M queries/sec  (sink=17401860284404480)

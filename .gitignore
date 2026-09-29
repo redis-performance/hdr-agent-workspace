@@ -22,3 +22,6 @@ experiments/**/variants/**/*.log
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Workspace-local developer tools
+.tools/

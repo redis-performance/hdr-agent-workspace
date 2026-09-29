@@ -421,3 +421,39 @@ the Windows job log (`gh api .../actions/jobs/<id>/logs | grep C4244`), not infe
 
 **Flakes seen:** cmake.org 503 (fixed by #152), and vcpkg's own zlib download failing with
 SSL connect error on a Windows leg (not fixable from ci.yml; re-run).
+
+## EXP-007 — 2026-07-03 — Blocked skip-scan for hdr_value_at_percentiles batch
+
+**Target path**: C read batch. **Technique**: sum eight counters per block, skip blocks
+that cannot cross the next percentile target, and walk individual counters only in a
+crossing block. The offset-aware iterator fallback is unchanged.
+
+On Granite Rapids, single-core interleaved A/B runs improved batch throughput from
+86,789 to 203,380 calls/s (**+134.4%, 2.34x**). Singular read throughput stayed at
+0.5550 Mq/s and write throughput was flat. `sink` and `bsink` were identical. CTest,
+ASan+UBSan, and the blocked-vs-iterator parity test passed; adversarial review returned
+MERGE-READY after replacing a test-only `free` with `hdr_close`.
+
+**Decision**: **ACCEPT**. **Upstream**: [HdrHistogram_c #141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141).
+Raw results: [`EXP-007/2026-07-03-gnr1-AB.txt`](EXP-007/2026-07-03-gnr1-AB.txt).
+
+## M6-EXP-001 — 2026-09-29 — Four-counter blocked percentile scan on Apple M6
+
+**Target path**: read. **Technique**: sum four adjacent counters and test the cumulative
+target once per block; walk individual counters only in the crossing block. Preserve the
+offset-aware scalar path for decoded/rotated histograms.
+
+| Path | Build | Base | Patch | Delta |
+|------|-------|------|-------|-------|
+| read | Apple Clang 21, portable | 0.20 Mq/s mean | 0.22 Mq/s mean | **about +10%** |
+| write | Apple Clang 21, portable | 712,463,623 ops/s | 711,589,638 ops/s | -0.12% |
+| read | Apple Clang 21, `-mcpu=native` | — | 0.21 Mq/s mean | reject vs portable |
+
+The read sink is byte-identical. Release and ASan+UBSan test suites pass 6/6. Apple
+`sample` keeps the hot stack in `hdr_value_at_percentile`, while disassembly confirms the
+intended four-load/one-compare block structure. `-mcpu=native` maps M6 to Apple Clang's
+`apple-m4` model and does not help. This ports the already-reviewed upstream #137 scalar
+strategy onto the packed-feature revision pinned by this workspace.
+
+**Decision**: **ACCEPT** the portable source change; **REJECT** `-mcpu=native`.
+Detailed results: [`M6-EXP-001/README.md`](M6-EXP-001/README.md).

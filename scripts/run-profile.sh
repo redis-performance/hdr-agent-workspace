@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
-# Profile the HdrHistogram_c hot path with perf and save the report.
+# Profile the HdrHistogram_c hot path with perf (Linux) or sample (macOS).
 #
 # Defaults to the WRITE-path driver (hdr_histogram_perf). Set DRIVER=read to
 # profile the percentile (read) path instead.
 #
 # Env:
-#   COMPILER=gcc|clang   (default gcc)
+#   COMPILER=gcc|clang   (default clang on macOS, gcc elsewhere)
 #   EXP=EXP-NNN          (default EXP-000)
 #   DRIVER=write|read    (default write)
 set -euo pipefail
 
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
-COMPILER="${COMPILER:-gcc}"
+DEFAULT_COMPILER=gcc
+[[ "$(uname -s)" == "Darwin" ]] && DEFAULT_COMPILER=clang
+COMPILER="${COMPILER:-$DEFAULT_COMPILER}"
 EXP="${EXP:-EXP-000}"
 DRIVER="${DRIVER:-write}"
 BIN_DIR="$WORKSPACE/HdrHistogram_c/build/$COMPILER/test"
@@ -32,6 +34,21 @@ fi
 
 DATA="$OUT_DIR/$TS-$COMPILER-$DRIVER.data"
 REPORT="$OUT_DIR/$TS-$COMPILER-$DRIVER.txt"
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  echo "==> sample ($DRIVER path, $COMPILER; 10 seconds at 1 ms)" >&2
+  "$BIN" >/dev/null 2>&1 &
+  PID=$!
+  if ! sample "$PID" 10 1 -file "$REPORT" >/dev/null 2>&1; then
+    kill "$PID" 2>/dev/null || true
+    wait "$PID" 2>/dev/null || true
+    echo "ERROR: sample failed" >&2
+    exit 1
+  fi
+  wait "$PID"
+  echo "==> Saved: $REPORT" >&2
+  exit 0
+fi
 
 echo "==> perf record ($DRIVER path, $COMPILER)" >&2
 sudo perf record -g -F 999 -o "$DATA" -- "$BIN" >/dev/null 2>&1 || {
