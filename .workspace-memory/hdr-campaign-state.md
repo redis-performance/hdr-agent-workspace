@@ -25,20 +25,28 @@ Outcomes (all posted to the PRs as "Review round: 2026-09-29" comments):
   V1/V2 log. **FALSE POSITIVE** — both V1 and V2 decode already `%= counts_len` (pre-existing in main;
   log.c byte-identical to main) before `hdr_reset_internal_counters`, so `|offset|<counts_len` always
   holds. Do NOT re-raise. MERGE-READY confirmed.
-- **#156 / #157 / #144**: 7/7 green, verify-only, no code change. (#157 has a cosmetic test-count
+- **#156 / #157**: 7/7 green, verify-only, no code change. (#157 has a cosmetic test-count
   placement nit — test still runs; left alone since approved.)
-- **#138** (fork, AVX2 widen16): singular-path win is real and large on Intel Ultra 7 155U (Meteor
-  Lake), gcc — ~+40-50% over `upstream/main` (1343a18). Box is thermally noisy; paired protocol in
-  flight for a defensible number. Perf gate closing.
-- **#139** (fork, prefetch on #138): prefetch does **not** beat plain #138 widening on this box
-  (0.27<0.33 and 0.21<0.24 in two passes) — appears neutral-to-negative. Honest finding pending; likely
-  recommend dropping/retuning the prefetch. Also needs rebase to just the prefetch line after #138 lands.
-- **#140 / #141** (fork, batch `hdr_value_at_percentiles`): correctness 7/7 green; the immutable
-  singular driver does NOT exercise the batch path (they measure flat there, as expected). Built a
-  separate batch microbench; paired batch numbers in flight.
+- **#144** (upstream branch): was NOT CI-only (also hardens the AVX2 dispatch guard + adds void**
+  casts). @paulorsousa requested (a) drop the `(void**)` casts and (b) trim a comment. Both done +
+  pushed `212fa77..48ef6b6`: made `hdr_atomic_{load,store}_pointer` type-generic macros in the MSVC
+  and x86_64-asm branches (the `__atomic` branch already was), so all 5 call sites drop the cast; the
+  new clang-cl/i386 CI legs validate the MSVC macros. gcc + ASan/UBSan 5/5. Replied in both threads.
 
-Machine for x86/AVX2 perf this round: Intel Core Ultra 7 155U (Meteor Lake), Linux x86_64, gcc.
-Bench worktrees + paired protocol under the session scratchpad (not committed).
+### Perf numbers (Intel Core Ultra 7 155U / Meteor Lake, Linux x86_64, paired median; box is thermally noisy)
+
+- **#138** (AVX2 widen16, head 4a4bf2d): singular `hdr_value_at_percentile` **+42% gcc / +33% clang**
+  over `upstream/main` (1343a18); `sink` identical (byte-identical results). **MERGE-READY.**
+- **#139** (prefetch on #138, head b72fec1): prefetch **regresses vs #138: −17% gcc / −15% clang**
+  (still above baseline only because #138's gain leaks through). **NEEDS WORK** — recommend closing
+  or retuning; also rebase to just the prefetch line after #138 lands.
+- **#140** (single-pass batch, c1a6688): batch `hdr_value_at_percentiles` **≈ +1011% (11.1×)** over
+  baseline, gcc; sink identical. **MERGE-READY.** (Immutable singular driver doesn't exercise the
+  batch path — measured with a standalone batch microbench.)
+- **#141** (blocked skip-scan, 0a83556): **≈ +182% over #140, ≈ 31× over baseline**, gcc; sink
+  identical. **MERGE-READY (stacked on #140).**
+
+Bench worktrees + gcc/clang paired protocols + batch microbench under the session scratchpad (not committed).
 
 ## Where things are
 
