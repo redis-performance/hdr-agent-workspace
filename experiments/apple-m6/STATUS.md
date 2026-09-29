@@ -2,6 +2,21 @@
 
 Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Latest implementation checkpoint — W1/W2
+
+[Write preparation result](M6-WRITE-PREP/RESULT.md): W1 `4565359` and W2 `32d332e`
+are isolated experimental commits, not promoted. Both pass release/sanitizer
+ctest 6/6 and 340 new write cases (272,560 recording calls per run). W1 bypasses
+normalization arithmetic but adds hot stack-frame work; W2 removes a value-check
+branch. No performance was measured. Baseline remains `8c4cdcc`.
+
+Sealed build provenance and fail-closed measurement gates are implemented; 19
+Python tests pass. New runs require cleanup attestation, and discovery requires
+passing same-binary A/A qualification. Batch scripts now refuse timing until
+bounded calibration is implemented. Precise write controls, real qualification,
+two-session confirmation and portable acceptance remain pending. See the result
+for the exact implemented-versus-planned boundary.
+
 ## Population due diligence — 2026-09-29
 
 Nine extra-high-effort subagents generated and independently challenged an

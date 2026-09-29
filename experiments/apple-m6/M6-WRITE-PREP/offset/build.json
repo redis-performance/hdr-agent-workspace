@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "started_utc": "2026-09-29T12:11:06.499031+00:00",
+  "finished_utc": "2026-09-29T12:11:11.885364+00:00",
+  "source": {
+    "revision": "8c4cdcc064484711c187a83eb4b4b6931c2eb1d0",
+    "dirty_diff_sha256": "b3584419a7e389d4b75f10d60e08482740d27d13b827e600521be94a1e6aef63",
+    "files": {
+      "CMakeLists.txt": "f27fc269273713ad77c80d1cf35610cbb124ce1e8fcafea89ad184a9c7aa1116",
+      "cmake/JoinPaths.cmake": "794b0d8fa62a3b798c7df12d50114580d1a47a234bfb6b4d83092eb646a6ecc4",
+      "include/CMakeLists.txt": "f99b3c6a93fa8f8afc9cdf228df0d7ce06544a913b82bc86cb47b64af36f6970",
+      "include/hdr/hdr_histogram.h": "96d496bd7af19a2d0a3d31a4482a0d0a1eb3cb708c354388c697a55784bc1224",
+      "include/hdr/hdr_histogram_log.h": "168bbbcbcff7ac621bf2954149875013ffac07bf2ed37d28943b121458705b2c",
+      "include/hdr/hdr_histogram_version.h": "3d49d6dbd5312936b5b38faac4d633413b9f077a5e95698dc0f01a96132f6dcf",
+      "include/hdr/hdr_interval_recorder.h": "f2e89a2b7a3069b74c8f30f89743a1a1eaf237d006587494bb3882da6f288a74",
+      "include/hdr/hdr_packed_histogram.h": "97a4e2d0e004b0880eaa1b823192bb6369dae5f9c358cde6c19a3f87f4ca1fde",
+      "include/hdr/hdr_thread.h": "bdafd5aa3cfcaca607a63931dae09bee273b44ca5e1228f672f4803b2875cc48",
+      "include/hdr/hdr_time.h": "ca1716799d1b68aef6534cb1d4299aa1f28f36930b7530f2710d86046e37b552",
+      "include/hdr/hdr_writer_reader_phaser.h": "f05047f27ffede2e43a217e2c98498253c77ce31e1569169d6193f79beb262ef",
+      "src/CMakeLists.txt": "e7b177f85081a60be279741d879097392f3a9d72d01f180d610c5c6d70a42a0d",
+      "src/hdr_atomic.h": "ffaaf9495ae90700be86698237e4220c00cdd35863748fcfd75ddf7e1133873e",
+      "src/hdr_encoding.c": "03b6893b28404edbcc74adf7d315a5ade60454a1ad87fddcb217c1aa4e390ff1",
+      "src/hdr_encoding.h": "c1894dc35d63232a7cdebe650ca378ae5f2a284ba1e39450357a9c58663df4e8",
+      "src/hdr_endian.h": "dd8880a9404c3bf76d4c1990af64bcd96ebf939c17931b5de799c3fe03b0627b",
+      "src/hdr_histogram.c": "cdeef199a6d0abacda741773f57f3e0c631cf2737513722efbb15addd6e15f55",
+      "src/hdr_histogram_log.c": "f714c9b8087533ed74a83b629aae409d4f66721159666bfecde1424296fa2336",
+      "src/hdr_histogram_log_no_op.c": "06a80d2ea5e39e8df2595cd3ec7d1b86848b204e25783584aa8136fed9be099d",
+      "src/hdr_interval_recorder.c": "08d2ba3c448cfe9eab5ed78f4c5a8b802e3a0e5f9624770a3b735418daecd24a",
+      "src/hdr_malloc.h": "c0276a0f70647af8655486e9a657e527b6254c1f49671f64417d5080154291ae",
+      "src/hdr_packed_histogram.c": "7843fd666c6d2495ce37e65d5fd35f28c11d2727d5cec17f3fe41863e1cb3ab3",
+      "src/hdr_tests.h": "b83cb6f08312614b89a7ef34c4f5d9d3a5fcde5b3a75d2fbd13342b99a62d646",
+      "src/hdr_thread.c": "fc79fea4aea652814e16feff28531e7510d2d391993bd61bac8fab94635035c1",
+      "src/hdr_time.c": "8c392697d3f0108667e1e4b61f275eddb744e95052c1d5a9219d4ab330c08e8a",
+      "src/hdr_writer_reader_phaser.c": "d927b4dcfc1bad41ebfbc9e8d9672466f13813aaf41ad07bf71bb963e23816ba",
+      "@harness/bench.c": "6c35bf98e0e28c73c7b99364ae3aea1e52e1fa36b427faa45ffc731f2e6e41ff",
+      "@harness/write_validate.c": "17c057b02d775ca6948c2646668c97d7ca440b7c019849fe06bfd445b498d7f4",
+      "@harness/build_variant.sh": "6e0321a3d2fa225e4054297e48fea820b7c905a361989f75f3de7a4c0ebd9f5b",
+      "@harness/build_manifest.py": "48da45022c55402188a0ab625b4d22745e41179c2b3d6b3a8a883ab9e026e658"
+    }
+  },
+  "compiler": {
+    "path": "/usr/bin/clang",
+    "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+    "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+  },
+  "sdk_version": "27.0",
+  "library": {
+    "file": "src/libhdr_histogram_static.a",
+    "sha256": "08d71c1b589f3e795670c0820478d37464282a42051737a737434d5a2a860dd8"
+  },
+  "binary": {
+    "file": "m6-bench",
+    "sha256": "a56ba13a793f84980c5c86288ca9767a27190ba1118198cbac0271bb24cfae19"
+  },
+  "harness_compile_link_argv": [
+    "/usr/bin/clang",
+    "-O2",
+    "-g",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I",
+    "@source/include",
+    "@workspace/experiments/apple-m6/bench.c",
+    "@build/src/libhdr_histogram_static.a",
+    "-lz",
+    "-lm",
+    "-o",
+    "@build/m6-bench"
+  ],
+  "cmake_compile_commands": [
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_encoding.c.o -c @source/src/hdr_encoding.c",
+      "file": "@source/src/hdr_encoding.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_encoding.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o -c @source/src/hdr_histogram.c",
+      "file": "@source/src/hdr_histogram.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_histogram_log.c.o -c @source/src/hdr_histogram_log.c",
+      "file": "@source/src/hdr_histogram_log.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_histogram_log.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_packed_histogram.c.o -c @source/src/hdr_packed_histogram.c",
+      "file": "@source/src/hdr_packed_histogram.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_packed_histogram.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_interval_recorder.c.o -c @source/src/hdr_interval_recorder.c",
+      "file": "@source/src/hdr_interval_recorder.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_interval_recorder.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_thread.c.o -c @source/src/hdr_thread.c",
+      "file": "@source/src/hdr_thread.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_thread.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_time.c.o -c @source/src/hdr_time.c",
+      "file": "@source/src/hdr_time.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_time.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -Dhdr_histogram_EXPORTS -I@source/include -O2 -g -DNDEBUG -std=c99 -fPIC -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram.dir/hdr_writer_reader_phaser.c.o -c @source/src/hdr_writer_reader_phaser.c",
+      "file": "@source/src/hdr_writer_reader_phaser.c",
+      "output": "src/CMakeFiles/hdr_histogram.dir/hdr_writer_reader_phaser.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o -c @source/src/hdr_encoding.c",
+      "file": "@source/src/hdr_encoding.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o -c @source/src/hdr_histogram.c",
+      "file": "@source/src/hdr_histogram.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log.c.o -c @source/src/hdr_histogram_log.c",
+      "file": "@source/src/hdr_histogram_log.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram.c.o -c @source/src/hdr_packed_histogram.c",
+      "file": "@source/src/hdr_packed_histogram.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o -c @source/src/hdr_interval_recorder.c",
+      "file": "@source/src/hdr_interval_recorder.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o -c @source/src/hdr_thread.c",
+      "file": "@source/src/hdr_thread.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o -c @source/src/hdr_time.c",
+      "file": "@source/src/hdr_time.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o"
+    },
+    {
+      "directory": "@build/src",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o -c @source/src/hdr_writer_reader_phaser.c",
+      "file": "@source/src/hdr_writer_reader_phaser.c",
+      "output": "src/CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_percentile_bench.dir/hdr_percentile_bench.c.o -c @source/test/hdr_percentile_bench.c",
+      "file": "@source/test/hdr_percentile_bench.c",
+      "output": "test/CMakeFiles/hdr_percentile_bench.dir/hdr_percentile_bench.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/c++ -D_GNU_SOURCE -I@build/test/googlebenchmark-src/include -I@source/include -O2 -g -DNDEBUG -std=c++11 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -o CMakeFiles/hdr_histogram_benchmark.dir/hdr_histogram_benchmark.cpp.o -c @source/test/hdr_histogram_benchmark.cpp",
+      "file": "@source/test/hdr_histogram_benchmark.cpp",
+      "output": "test/CMakeFiles/hdr_histogram_benchmark.dir/hdr_histogram_benchmark.cpp.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o -c @source/test/hdr_histogram_test.c",
+      "file": "@source/test/hdr_histogram_test.c",
+      "output": "test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_histogram_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_atomic_test.dir/hdr_histogram_atomic_test.c.o -c @source/test/hdr_histogram_atomic_test.c",
+      "file": "@source/test/hdr_histogram_atomic_test.c",
+      "output": "test/CMakeFiles/hdr_histogram_atomic_test.dir/hdr_histogram_atomic_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_atomic_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_histogram_atomic_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_log_test.dir/hdr_histogram_log_test.c.o -c @source/test/hdr_histogram_log_test.c",
+      "file": "@source/test/hdr_histogram_log_test.c",
+      "output": "test/CMakeFiles/hdr_histogram_log_test.dir/hdr_histogram_log_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_log_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_histogram_log_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_packed_histogram_test.dir/hdr_packed_histogram_test.c.o -c @source/test/hdr_packed_histogram_test.c",
+      "file": "@source/test/hdr_packed_histogram_test.c",
+      "output": "test/CMakeFiles/hdr_packed_histogram_test.dir/hdr_packed_histogram_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_packed_histogram_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_packed_histogram_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_atomic_test.dir/hdr_atomic_test.c.o -c @source/test/hdr_atomic_test.c",
+      "file": "@source/test/hdr_atomic_test.c",
+      "output": "test/CMakeFiles/hdr_atomic_test.dir/hdr_atomic_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_atomic_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_atomic_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/hdr_histogram_atomic_concurrency_test.c.o -c @source/test/hdr_histogram_atomic_concurrency_test.c",
+      "file": "@source/test/hdr_histogram_atomic_concurrency_test.c",
+      "output": "test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/hdr_histogram_atomic_concurrency_test.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o -c @source/test/hdr_histogram_perf.c",
+      "file": "@source/test/hdr_histogram_perf.c",
+      "output": "test/CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o"
+    },
+    {
+      "directory": "@build/test",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/src -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_histogram_perf.dir/minunit.c.o -c @source/test/minunit.c",
+      "file": "@source/test/minunit.c",
+      "output": "test/CMakeFiles/hdr_histogram_perf.dir/minunit.c.o"
+    },
+    {
+      "directory": "@build/examples",
+      "command": "/usr/bin/clang -D_GNU_SOURCE -I@source/include -O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes -o CMakeFiles/hdr_decoder.dir/hdr_decoder.c.o -c @source/examples/hdr_decoder.c",
+      "file": "@source/examples/hdr_decoder.c",
+      "output": "examples/CMakeFiles/hdr_decoder.dir/hdr_decoder.c.o"
+    }
+  ],
+  "build_control_files": {
+    "CMakeCache.txt": "2a22bd5b5de5ff88c650473a8d3d8c8c1d8add1fb70d05f58c06d296b7425852",
+    "src/CMakeFiles/hdr_histogram_static.dir/flags.make": "60fcfcb5463196bb709501b61f701449fcab306a493cd3734f2d4dc4509262b8",
+    "src/CMakeFiles/hdr_histogram_static.dir/link.txt": "e1f32b3b2c6ccc991cd860a8885462b19c85679fab1a8e0321ee7ed739938bf6"
+  },
+  "referees": {
+    "hdr_histogram_perf": "c9d76331181f59ea29eac7fca6e363f028227f6b6ec54906b56c5d66727addbc",
+    "hdr_percentile_bench": "66e2d9a7313e8f642e58f80edd6d21e0bced04c898e3ec37ebfeb485bb998eb3"
+  }
+}

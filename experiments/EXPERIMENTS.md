@@ -569,3 +569,16 @@ domain only. Batch timing needs bounded calibration before its queued execution.
 No library change, measured gain, baseline promotion or PR is made by this round;
 accepted/rejected experiment counts are unchanged. Model, process-cleanup,
 profiling, compiler and publication restrictions remain explicit in the plan.
+
+### M6 W1/W2 implementation preparation — 2026-09-29
+
+Independent write candidates `4565359` (outlined offset correction) and `32d332e`
+(unsigned value bound) pass release and ASan/UBSan ctest 6/6 each, 2,700 query
+checks, and 340 exact-write cases / 272,560 recording calls. Signed-state probe
+outputs remain baseline-compatible. W1 trades normalization arithmetic for a hot
+stack frame; W2 removes one branch/instruction. These are code-generation findings,
+not timings or acceptance. Added prospective build manifests and fail-closed
+measurement gates; 19 Python tests pass. Batch calibration and precise new write
+controls remain unfinished, and sampler cleanup still blocks timing. No baseline
+promotion or PR; no new timed acceptance/rejection count.
+[Artifacts and reproduction](apple-m6/M6-WRITE-PREP/RESULT.md).

@@ -5,6 +5,9 @@
 - [M6 nine-agent population decision](../experiments/apple-m6/population/PLAN.md) —
   write-first W1/W2 queue, semantic probes, bounded calibration, independent ballots
   and stopped scan-family budget; planning only, no new accepted result.
+- [M6 W1/W2 implementation checkpoint](../experiments/apple-m6/M6-WRITE-PREP/RESULT.md) —
+  isolated write branches, exact rotated-write validation and sealed-build/cleanup
+  gates; no timings, baseline promotion or PR. Batch timing explicitly disabled.
 
 Persistent memory index. One entry per file. Committed to main so all agent backends
 share the same context. **Public repo — sanitize every entry** (no secrets/IPs/customer/

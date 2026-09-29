@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+echo "Batch timing is held: implement bounded per-case calibration and resolve semantic scope first. See population/PLAN.md." >&2
+exit 1
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 BASE="$ROOT/HdrHistogram_c/build/m6-flags-o2"

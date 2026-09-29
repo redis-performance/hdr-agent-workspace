@@ -1,5 +1,13 @@
 # Resume the M6 experiment loop
 
+**Current implementation checkpoint:** [W1/W2 preparation](M6-WRITE-PREP/RESULT.md).
+Branches `experiment/m6-write-offset` (`4565359`) and
+`experiment/m6-write-bounds` (`32d332e`) pass release/sanitizer correctness only.
+The runner now requires a fresh cleanup record and sealed build manifest;
+discovery also requires passing same-mode A/A. Batch timing is explicitly held,
+and fixed two-session confirmation is not yet implemented. Complete the precise
+write controls and frozen workload protocol before timing either candidate.
+
 **Superseding qualification:** follow [the population decision plan](population/PLAN.md)
 before the historical queue below. Do not execute this command block unchanged.
 Signed-state compatibility is unresolved, the scan-width family is closed to
@@ -71,7 +79,8 @@ network access returns, push C branches before the parent pointer:
 ```sh
 git -C HdrHistogram_c push origin perf/m6-blocked-scan \
   experiment/m6-prefetch-off experiment/m6-scan-blocks \
-  experiment/m6-neon-scan experiment/m6-batch-scan && git push origin main
+  experiment/m6-neon-scan experiment/m6-batch-scan \
+  experiment/m6-write-offset experiment/m6-write-bounds && git push origin main
 ```
 
 Portable acceptance still needs genuine GCC, matched profiling, and relevant

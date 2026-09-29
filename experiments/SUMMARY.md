@@ -34,6 +34,11 @@ and calibrate batch work before timing. Planning and correctness probes only;
 no new measured gain or acceptance, so counts remain unchanged. M6-004's existing
 artifacts may receive bounded diagnostic closeout, not an open refinement budget.
 
+[W1/W2 preparation](apple-m6/M6-WRITE-PREP/RESULT.md) implements the two isolated
+write hypotheses and prospective measurement gates. Release/sanitizer correctness
+passes; codegen exposes W1's hot-frame tradeoff and W2's removed branch. No timing,
+acceptance/rejection or baseline promotion; experiment counts remain unchanged.
+
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.
 Merged this window: #147, #148, #153, #137 (+#152 CI). Opened: #155, #156, #157.
