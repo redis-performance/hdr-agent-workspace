@@ -1,11 +1,17 @@
 # Resume the M6 experiment loop
 
+**Current:** [case-level executor and cleanup update](M6-WRITE-EXECUTOR/RESULT.md).
+Sampler session 51776 exited143; do not signal its old PID. The auxiliary search
+still needs local cleanup confirmation. Once fully clear, use bounded calibration,
+then the new `run_write_cases.py qualification`, review all controls, and only
+then `discovery`. Each phase is six fixed pairs; confirmation remains separate.
+
 **Latest preparation:** [write controls and bounded pilots](M6-WRITE-CONTROLS/RESULT.md).
 The new `write-controls` binary has a per-case interface, separate from `m6-bench`.
 `write_protocol.py prepare` is untimed; `calibrate` requires confirmed cleanup
 and the exact frozen build/input protocol. No real pilot has run. Case-level
-A/A/discovery and fixed confirmation still need implementation; do not route
-this binary through the old mode-based runner. Full-sweep companion excluded
+A/A/discovery is now implemented; fixed confirmation is not. Do not route
+this binary through the old mode-based runner. Full-sweep companion is excluded
 from short pilots; batch timing remains disabled.
 
 **Current implementation checkpoint:** [W1/W2 preparation](M6-WRITE-PREP/RESULT.md).
@@ -25,10 +31,10 @@ per process, plus full-mode warmup. Ordinary-write W1/W2 now have priority.
 An auxiliary read-only search, session 54793, also lacks terminal confirmation;
 confirm all helpers and agents are quiescent before timing.
 
-No new performance runs until the diagnostic sampler is confirmed stopped. Its
-tool session is 51776; local process ID 23146 was reported at launch. The sandbox
-denied termination. Do not blindly signal a reused PID: verify the process locally.
-The user has been asked to clean it up. The original queue predates the auxiliary
+The diagnostic sampler's tool session 51776 now has terminal exit143. Its old
+process ID must not be used for further cleanup. Full environment cleanup still
+requires verifying the auxiliary search and absence of other timed/profile work.
+The user has been asked to check that. The original queue predates the auxiliary
 search and population review; use the qualification note above for current state.
 
 Baseline C: `8c4cdcc`, branch `perf/m6-blocked-scan`.

@@ -2,6 +2,15 @@
 
 Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Latest executor and cleanup checkpoint
+
+[Case executor](M6-WRITE-EXECUTOR/RESULT.md): fixed six-pair, 32-case A/A and
+discovery are implemented with strict calibration/protocol/cleanup binding.
+All 40 Python tests pass using synthetic data; no real timing ran. The sampler
+session 51776 has **exited with code 143**. The earlier search helper lacks a
+terminal result even from its owner; confirm its cleanup before creating an
+all-clear record. No baseline promotion or PR. Confirmation remains unfinished.
+
 ## Latest control checkpoint
 
 [Write controls and bounded pilots](M6-WRITE-CONTROLS/RESULT.md) add 32 individually
@@ -10,8 +19,8 @@ All 33 pass untimed release/sanitizer validation against baseline, W1 and W2;
 a deliberate bucket corruption is caught. The common-count pilot controller
 passes synthetic budget/identity tests, and the full Python suite is 29/29.
 Frozen protocols contain build and input identities, **not measured results**.
-No real pilots or timing ran: sampler cleanup remains unconfirmed. Case-level
-A/A/discovery, independent confirmation and batch integration remain pending.
+No real pilots or timing ran at that checkpoint. Case-level A/A/discovery is now
+implemented above; independent confirmation and batch integration remain pending.
 
 ## Latest implementation checkpoint — W1/W2
 
@@ -44,8 +53,9 @@ semantics before general-purpose promotion. The existing queued batch run also
 needs bounded calibration: its empty workload implies roughly 569 billion
 baseline bucket visits per process before warmup.
 
-Timing remains held: sampler session 51776 and auxiliary read-only search session
-54793 lack terminal confirmation. Confirm cleanup and qualify A/A uncertainty
+At planning time, sampler session 51776 and auxiliary search session 54793 lacked
+terminal confirmation. The sampler has since exited; helper verification remains
+open. Confirm complete cleanup and qualify A/A uncertainty
 before new performance work. The plan records the unavailable Opus 4.8 model
 requirement as an exception, not compliance. Nothing is ready for a PR.
 
@@ -97,8 +107,10 @@ parent and experimental C branches are saved locally but remain unpublished.
 ## Runtime restriction
 
 Both matched `sample` profile attempts failed. A subsequent diagnostic sampler
-did not exit, and the sandbox denies terminating it. The user has been asked to
-clear it locally. Hold new performance runs until cleanup is confirmed; preserve
+initially did not exit, and the sandbox denied terminating it. Its tool session
+now reports terminal exit code 143. No further signal to its old PID is needed.
+The auxiliary search still lacks confirmed termination; the user has been asked
+to verify it locally. Hold new performance runs until full cleanup is confirmed; preserve
 the extended matrix with its interference caveat. Correctness-only checks can
 continue. Raw profiling data is not committed.
 

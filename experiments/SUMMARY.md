@@ -43,6 +43,10 @@ acceptance/rejection or baseline promotion; experiment counts remain unchanged.
 validated cases and a synthetically tested bounded-pilot controller (29 Python
 tests total). No pilots or performance results; acceptance counts unchanged.
 
+[Case executor](apple-m6/M6-WRITE-EXECUTOR/RESULT.md): six-pair A/A/discovery ready
+with 40 synthetic/unit tests passing. Sampler exit143 confirmed; helper cleanup
+still open. No measured gain or acceptance; counts unchanged.
+
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.
 Merged this window: #147, #148, #153, #137 (+#152 CI). Opened: #155, #156, #157.

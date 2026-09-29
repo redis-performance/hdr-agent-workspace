@@ -593,3 +593,12 @@ frozen input/build protocols pass synthetic tests; total Python suite 29/29.
 No real pilots, A/A, discovery or confirmation ran. Cleanup, the new case-level
 executor, batch integration and portable acceptance remain open. Counts unchanged.
 [Details](apple-m6/M6-WRITE-CONTROLS/RESULT.md).
+
+### M6 case executor and sampler exit — 2026-09-29
+
+Sampler session51776 now reports terminal exit143; helper cleanup is not yet
+confirmed. Added a strict 32-case, six-pair A/A/discovery executor, preserving
+locked work, input/build identity, raw failures and unresolved durations. All40
+Python tests pass, including mocked complete workflows; **no real timing**.
+Candidate source and baseline unchanged; no acceptance/rejection count change.
+[Details](apple-m6/M6-WRITE-EXECUTOR/RESULT.md).

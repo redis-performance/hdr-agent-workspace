@@ -380,6 +380,9 @@ now includes isolated tested patches and fail-closed measurement safeguards;
 both candidates remain unmeasured and unaccepted.
 [Write controls and bounded-pilot tooling](experiments/apple-m6/M6-WRITE-CONTROLS/RESULT.md)
 now pass untimed validation; no real pilot or performance result is claimed.
+The [case-level executor](experiments/apple-m6/M6-WRITE-EXECUTOR/RESULT.md) adds
+strict six-pair qualification/discovery. Sampler exit is confirmed; complete
+helper cleanup and real measurements remain pending.
 
 The merged fork PRs above are the baseline this workspace builds on.
 

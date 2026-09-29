@@ -11,6 +11,9 @@
 - [M6 write-control preparation](../experiments/apple-m6/M6-WRITE-CONTROLS/RESULT.md) —
   33 per-case fixtures, frozen descriptors/builds and bounded pilot controller;
   untimed/synthetic validation only. Case executor and confirmation still pending.
+- [M6 case executor and cleanup](../experiments/apple-m6/M6-WRITE-EXECUTOR/RESULT.md) —
+  sampler51776 exited143; auxiliary search termination unconfirmed. Six-pair
+  case A/A/discovery implemented, 40 synthetic/unit tests pass, no timings.
 
 Persistent memory index. One entry per file. Committed to main so all agent backends
 share the same context. **Public repo — sanitize every entry** (no secrets/IPs/customer/
