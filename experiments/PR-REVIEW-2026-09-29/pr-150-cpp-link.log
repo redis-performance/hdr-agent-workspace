@@ -1,0 +1,9 @@
+Undefined symbols for architecture arm64:
+  "hdr_packed_init(long long, long long, int, hdr_packed_histogram**)", referenced from:
+      _main in packed_cpp_smoke-6e6163.o
+   NOTE: found '_hdr_packed_init' in libhdr_histogram_static.a[5](hdr_packed_histogram.c.o), declaration possibly missing 'extern "C"'
+  "hdr_packed_close(hdr_packed_histogram*)", referenced from:
+      _main in packed_cpp_smoke-6e6163.o
+   NOTE: found '_hdr_packed_close' in libhdr_histogram_static.a[5](hdr_packed_histogram.c.o), declaration possibly missing 'extern "C"'
+ld: symbol(s) not found for architecture arm64
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)

@@ -615,3 +615,18 @@ Full raw evidence is preserved; the discovery gate rejects both datasets. A revi
 measurement design/budget is needed before any rerun. Source acceptance/rejection
 counts and baseline pointer remain unchanged.
 [Results and all intervals](apple-m6/M6-WRITE-MEASURE/RESULT.md).
+
+## C PR review round — 2026-09-29
+
+[Review record](PR-REVIEW-2026-09-29/README.md): re-audit all 11 open C PRs by
+`fcostaoliveira`/`filipecosta90`, their exact heads, Paulo's comments, main's
+sanitizer/batch failures, and combined merge behavior. Historical mappings:
+#138 → EXP-002; #139 → EXP-003/004/005; #140 → EXP-006; #141 → EXP-007;
+#150 → EXP-PACKED-READ and packed-memory review rounds; #144/#149/#154–157 →
+the September CI/hardening and upstream campaign sections above.
+
+Original-head validation: 36 arm64 build configurations, 170 passing CTest
+executions; additional probes confirm blockers despite green CI. Exact CI
+crashes and regression probes are retained. Fixes, final reviewed hashes and
+per-PR comments are recorded in the round directory as work completes.
+This is a review/hardening round, not a performance acceptance; counts unchanged.

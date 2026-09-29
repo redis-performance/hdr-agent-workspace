@@ -1,0 +1,762 @@
+{
+  "architecture": "arm64",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "results": [
+    {
+      "head": "main",
+      "sha": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "main",
+      "sha": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "main",
+      "sha": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-138",
+      "sha": "a6e94ad7de6665b55d5e4fd3bb91b68bcff6cc43",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-138",
+      "sha": "a6e94ad7de6665b55d5e4fd3bb91b68bcff6cc43",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-138",
+      "sha": "a6e94ad7de6665b55d5e4fd3bb91b68bcff6cc43",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-139",
+      "sha": "278004d4b572cef272b65ea212d59838e508a48e",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-139",
+      "sha": "278004d4b572cef272b65ea212d59838e508a48e",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-139",
+      "sha": "278004d4b572cef272b65ea212d59838e508a48e",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-140",
+      "sha": "c1a6688667a09e609fb0067cadc389ff11de9428",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-140",
+      "sha": "c1a6688667a09e609fb0067cadc389ff11de9428",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-140",
+      "sha": "c1a6688667a09e609fb0067cadc389ff11de9428",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-141",
+      "sha": "8950e313eb8a3f5576333ac7b265888ebd83a7e2",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-141",
+      "sha": "8950e313eb8a3f5576333ac7b265888ebd83a7e2",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-141",
+      "sha": "8950e313eb8a3f5576333ac7b265888ebd83a7e2",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-144",
+      "sha": "212fa77cf02006ba6ee601583c7ed2e62860d1b6",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-144",
+      "sha": "212fa77cf02006ba6ee601583c7ed2e62860d1b6",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-144",
+      "sha": "212fa77cf02006ba6ee601583c7ed2e62860d1b6",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-149",
+      "sha": "5dc5c07e0b91260c23df2f0473474d0a4f11b6db",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-149",
+      "sha": "5dc5c07e0b91260c23df2f0473474d0a4f11b6db",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-149",
+      "sha": "5dc5c07e0b91260c23df2f0473474d0a4f11b6db",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-150",
+      "sha": "be6361eed505059f81c5cae9a0f744670a873349",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "head": "pr-150",
+      "sha": "be6361eed505059f81c5cae9a0f744670a873349",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "head": "pr-150",
+      "sha": "be6361eed505059f81c5cae9a0f744670a873349",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-154",
+      "sha": "49a4574058bfc2a8346714ac1beb7a8a95cefe53",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-154",
+      "sha": "49a4574058bfc2a8346714ac1beb7a8a95cefe53",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-154",
+      "sha": "49a4574058bfc2a8346714ac1beb7a8a95cefe53",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-155",
+      "sha": "b4205639d54e50c4d5ba8b4d1337ef2884bf94f6",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-155",
+      "sha": "b4205639d54e50c4d5ba8b4d1337ef2884bf94f6",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-155",
+      "sha": "b4205639d54e50c4d5ba8b4d1337ef2884bf94f6",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-156",
+      "sha": "4ba6d17820f899535597dfb7ac67369fc75beea6",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-156",
+      "sha": "4ba6d17820f899535597dfb7ac67369fc75beea6",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-156",
+      "sha": "4ba6d17820f899535597dfb7ac67369fc75beea6",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "head": "pr-157",
+      "sha": "c8761b2cdb9fa0c487a9f813bd88e8f15b10fcdb",
+      "configuration": "release",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-157",
+      "sha": "c8761b2cdb9fa0c487a9f813bd88e8f15b10fcdb",
+      "configuration": "asan",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "head": "pr-157",
+      "sha": "c8761b2cdb9fa0c487a9f813bd88e8f15b10fcdb",
+      "configuration": "nolog",
+      "stages": [
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "cmake",
+          "returncode": 0
+        },
+        {
+          "tool": "ctest",
+          "returncode": 0
+        }
+      ],
+      "passed": true,
+      "tests": 4
+    }
+  ]
+}

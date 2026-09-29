@@ -1,5 +1,8 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [C PR review round, 2026-09-29](../experiments/PR-REVIEW-2026-09-29/README.md) —
+  all 11 open C PRs, Paulo feedback, exact main CI crashes and combined-state
+  validation; active fixes and commit-specific review comments.
 - [W1/W2 measured qualification](../experiments/apple-m6/M6-WRITE-MEASURE/RESULT.md) —
   cleanup verified and Git pushes restored; both protocols calibrate 32/32, but
   both fail A/A precision on 26/32 controls. Discovery blocked; no source decision.

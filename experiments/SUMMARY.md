@@ -28,6 +28,10 @@ by maintainer, #137 open) that this workspace builds on.
 
 ## M6 measured qualification checkpoint — 2026-09-29
 
+The subsequent [C PR review round](PR-REVIEW-2026-09-29/README.md) covers all 11
+open C PRs, main CI/fuzz failures, fixes and commit-specific verdicts. It does
+not change optimization acceptance counts.
+
 [W1/W2 calibration and A/A](apple-m6/M6-WRITE-MEASURE/RESULT.md): current helper
 absence verified; GitHub pushes restored. Both protocols calibrate all 32 controls,
 then both fail the ±1% same-binary A/A gate on 26/32 controls. All 768 recorded

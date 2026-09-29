@@ -1,0 +1,2 @@
+$WORKSPACE/.tools/pr-review-20260929/main/src/hdr_time.c:92:19: runtime error: 7.77778e+49 is outside the range of representable values of type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior $WORKSPACE/.tools/pr-review-20260929/main/src/hdr_time.c:92:19

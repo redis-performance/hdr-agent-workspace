@@ -1,0 +1,2391 @@
+{
+  "date": "2026-09-29",
+  "prs": [
+    {
+      "number": 138,
+      "title": "perf: widen AVX2 percentile scan to 16 int64/iter (vector accumulator)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/138",
+      "headRefName": "perf/avx2-percentile-scan-widen16",
+      "headRefOid": "a6e94ad7de6665b55d5e4fd3bb91b68bcff6cc43",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051130",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:31Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401134594/job/105781042357",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:20:53Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137428/job/105781050784",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:20:55Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051015",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:20:55Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051020",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:20:55Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051100",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:12Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051064",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051018",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:20:57Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051058",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:52Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051036",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:21:31Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051061",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:20:57Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:58Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781050893",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781050776",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:20:56Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051157",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:20:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:58Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051161",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:21:32Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781051111",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:21:00Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137430/job/105781050554",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:20:55Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 139,
+      "title": "perf: prefetch counts[] ahead in the AVX2 percentile scan (follow-up to #138)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/139",
+      "headRefName": "perf/avx2-scan-prefetch",
+      "headRefOid": "278004d4b572cef272b65ea212d59838e508a48e",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067785",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:23:13Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401137854/job/105781052904",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:21:10Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142137/job/105781067369",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:21:55Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067909",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:27:27Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:35Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067810",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:16Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067878",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:26:25Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:31Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067468",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:22:15Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781068034",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:27:37Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067951",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:55Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067908",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:28:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067761",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:23:03Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:46Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067895",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:05Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067790",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:23:52Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781068109",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:48Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:29Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781068049",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:24:07Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067801",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:39Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401142256/job/105781067294",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:21:13Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 140,
+      "title": "perf: single-pass hdr_value_at_percentiles (flat scan, +599%)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/140",
+      "headRefName": "perf/single-pass-value-at-percentiles",
+      "headRefOid": "c1a6688667a09e609fb0067cadc389ff11de9428",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599378",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:30:06Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:50Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401311794/job/105781594054",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:27:21Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313711/job/105781598824",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:24:28Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599178",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:26:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599316",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599365",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:28:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599363",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:30:01Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599347",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:28:03Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:31:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599426",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:30:28Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:36Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599343",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:30:10Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599336",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:28:04Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:31Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599413",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599323",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:29:38Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:31:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599362",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:35Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599361",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:24:19Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599460",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:22Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401313695/job/105781599003",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:24:18Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 141,
+      "title": "perf: blocked skip-scan for hdr_value_at_percentiles batch (+134%, stacked on #140)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/141",
+      "headRefName": "perf/blocked-batch-scan-clean",
+      "headRefOid": "8950e313eb8a3f5576333ac7b265888ebd83a7e2",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759855",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:30:31Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:32:31Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401362213/job/105781753110",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:28:46Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:32:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364671/job/105781759333",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:26:49Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759682",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:30:27Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759542",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:48Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759412",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:30:22Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759605",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:29:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759371",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:25:11Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759585",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:47Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759569",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:28:36Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:31:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759635",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:30:11Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759367",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:08Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759572",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:27:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:31:37Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759716",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:30:25Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759700",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:52Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759836",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:21Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401364711/job/105781759219",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:25:27Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 144,
+      "title": "ci: cover i386 and ClangCL for the AVX2-dispatch guard; drop dead _M_X64",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/144",
+      "headRefName": "ci/cover-i386-and-clangcl",
+      "headRefOid": "212fa77cf02006ba6ee601583c7ed2e62860d1b6",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "filipecosta90",
+      "headRepositoryOwner": "HdrHistogram",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:01Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072297",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:22:46Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:07Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781059048",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:28:51Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:38Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401141490/job/105781064545",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:21:10Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144116/job/105781072154",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:21:35Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:53Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072295",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:24:39Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058903",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:21:28Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072293",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:24:49Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781059018",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:44Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072305",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:22:23Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781059072",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:29:09Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:47Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072406",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:28:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058787",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:24:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:01Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072272",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:22:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058975",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:26:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:18Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072415",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:05Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:25Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058970",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:12Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072294",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:21:25Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058679",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:21:16Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072326",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:21:19Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058694",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:23:36Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072368",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:23Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058711",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:26:37Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072301",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:25:50Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058597",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:22:12Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072377",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:18Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058680",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:07Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:21Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072320",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:57Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058629",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:07Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:01Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072361",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:44Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058663",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:38Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072018",
+          "name": "build (linux, Debug, i386, gcc -m32)",
+          "startedAt": "2026-09-18T22:21:11Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:21:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058469",
+          "name": "build (linux, Debug, i386, gcc -m32)",
+          "startedAt": "2026-09-18T22:21:18Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072287",
+          "name": "build (windows, Debug, x64, ClangCL toolset)",
+          "startedAt": "2026-09-18T22:28:11Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:22Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058648",
+          "name": "build (windows, Debug, x64, ClangCL toolset)",
+          "startedAt": "2026-09-18T22:21:10Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401144081/job/105781072303",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:24:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401139844/job/105781058777",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:28:52Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 149,
+      "title": "fix: int64 overflow in linear/log iterator reporting level (near INT64_MAX)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/149",
+      "headRefName": "fix/iterator-reporting-level-overflow",
+      "headRefOid": "5dc5c07e0b91260c23df2f0473474d0a4f11b6db",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "filipecosta90",
+      "headRepositoryOwner": "HdrHistogram",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670651",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070814",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:24:12Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401145254/job/105781076330",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:21:39Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:22Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147051/job/105781080785",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:21:40Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:07Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670683",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070907",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:24:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670821",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070924",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:26:04Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670772",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070958",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:30:08Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:35Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670728",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:50Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070595",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:22:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670583",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070866",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:25:37Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670760",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781071026",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:14Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670701",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070596",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:22:55Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:38:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670710",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070524",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:22:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:47Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784671158",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070566",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:55Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670796",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070509",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:22:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:37:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784670901",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:36:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070651",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:05Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784671628",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:16Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:53Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070486",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:37Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784671798",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:05Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070718",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:40Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401147036/job/105784671337",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:22:23Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401143549/job/105781070289",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:21:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 150,
+      "title": "feat: memory-optimised sparse/packed histogram variant (hdr_packed_histogram)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/150",
+      "headRefName": "feat/packed-histogram",
+      "headRefOid": "be6361eed505059f81c5cae9a0f744670a873349",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781095068",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:27:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401150059/job/105781091151",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:23:34Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:25Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151570/job/105781094769",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:23:42Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:07Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094866",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:22:52Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094880",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:15Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094924",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:26:52Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094938",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:29:18Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:04Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094853",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:23:47Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:22Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094901",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:27:07Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781095018",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:29:14Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094967",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:26:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094960",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:26:24Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:21Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094935",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:21:20Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094984",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:27Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094988",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:24:51Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094932",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:28:07Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401151560/job/105781094734",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:21:51Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 154,
+      "title": "fix: out-of-range double->int conversion in hdr_timespec_from_double (UBSan)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/154",
+      "headRefName": "fix/timespec-from-double-overflow",
+      "headRefOid": "49a4574058bfc2a8346714ac1beb7a8a95cefe53",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242591",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:23:08Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:29Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401196048/job/105781239278",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:24:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:36Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197173/job/105781242477",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:24:54Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:42Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242771",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:26:28Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242850",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:17Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242866",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:28:41Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242785",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:27:41Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242759",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:27:25Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:43Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242856",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:16Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:22Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242792",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:27:06Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:29Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242828",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:29:29Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242917",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:26:47Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242890",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:25:29Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:55Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242958",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:54Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242955",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:33Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242607",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:50Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401197171/job/105781242450",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:24:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 155,
+      "title": "fix: hdr_reset_internal_counters ignored normalizing_index_offset (wrong min/max on decoded shifted logs)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/155",
+      "headRefName": "fix/reset-internal-counters-offset",
+      "headRefOid": "b4205639d54e50c4d5ba8b4d1337ef2884bf94f6",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:25:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107655",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:25:03Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401154038/job/105781102904",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:24:37Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155472/job/105781107268",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:23:03Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:48Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107758",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:29:30Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107719",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107671",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:28:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:53Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107647",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:28:40Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107380",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:23:33Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:47Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107595",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:24:34Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107558",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:23:48Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107728",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:28:57Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:27:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107644",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:25:18Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107679",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:27:20Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107584",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:31Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107226",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:22:19Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107300",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:10Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:22:21Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401155559/job/105781107028",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:22:01Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 156,
+      "title": "fix: hdr_timespec_from_double could emit a malformed hdr_timespec (tv_nsec == 1e9, or negative)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/156",
+      "headRefName": "fix/timespec-normalization",
+      "headRefOid": "4ba6d17820f899535597dfb7ac67369fc75beea6",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:46Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387189",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:23:33Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245486/job/105781387858",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:26:47Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:58Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245679/job/105781387621",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:24:16Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:04Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387477",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:29:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:52Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387490",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:30:26Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387407",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:29:15Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387484",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:30:09Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:12Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387486",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:29:50Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:24:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387391",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:23:54Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387502",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:30:19Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:28:42Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387324",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:27:24Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:31:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387442",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:30:14Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:23Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387263",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:29:20Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:30:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387516",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:53Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387522",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:02Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:29:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781387661",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:29:16Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:23:51Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35401245467/job/105781386937",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:23:28Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    },
+    {
+      "number": 157,
+      "title": "fix: bound the log timestamp seconds field by tv_sec, not by long (follow-up to #153 review)",
+      "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/157",
+      "headRefName": "fix/timestamp-seconds-tv-sec-width",
+      "headRefOid": "c8761b2cdb9fa0c487a9f813bd88e8f15b10fcdb",
+      "baseRefName": "main",
+      "baseRefOid": "1343a18908c6c07dbf50c33d1aae0a476de053b6",
+      "isDraft": false,
+      "reviewDecision": "",
+      "mergeStateStatus": "CLEAN",
+      "author": "fcostaoliveira",
+      "headRepositoryOwner": "fcostaoliveira",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:39:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298898",
+          "name": "build (linux, Debug, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:42:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402520529/job/105785291841",
+          "name": "claude-review",
+          "startedAt": "2026-09-18T22:39:40Z",
+          "status": "COMPLETED",
+          "workflowName": "Claude Automated PR Review"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:44:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402523048/job/105785298885",
+          "name": "PR (address)",
+          "startedAt": "2026-09-18T22:39:42Z",
+          "status": "COMPLETED",
+          "workflowName": "ClusterFuzzLite PR fuzzing"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298929",
+          "name": "build (linux, Debug, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:39:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298928",
+          "name": "build (linux, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298895",
+          "name": "build (linux, Debug, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:39:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785299030",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, ON)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:39:55Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298975",
+          "name": "build (linux, RelWithDebInfo, x64, minimal, DISABLED)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298745",
+          "name": "build (linux, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:21Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785299032",
+          "name": "build (linux, RelWithDebInfo, x64, latest, DISABLED)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298899",
+          "name": "build (windows, Debug, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:39:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298955",
+          "name": "build (windows, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:41:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298963",
+          "name": "build (windows, RelWithDebInfo, x86, latest, ON)",
+          "startedAt": "2026-09-18T22:39:44Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:47Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298590",
+          "name": "build (windows, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:43Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298580",
+          "name": "build (macos, Debug, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:48Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298692",
+          "name": "build (macos, RelWithDebInfo, x64, latest, ON)",
+          "startedAt": "2026-09-18T22:39:49Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-18T22:40:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/35402522897/job/105785298591",
+          "name": "sanitizers (linux, Debug, ASan+UBSan)",
+          "startedAt": "2026-09-18T22:39:42Z",
+          "status": "COMPLETED",
+          "workflowName": "CI"
+        }
+      ]
+    }
+  ]
+}

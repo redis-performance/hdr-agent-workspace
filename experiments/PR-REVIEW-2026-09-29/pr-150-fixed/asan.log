@@ -1,0 +1,68 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-150 -B $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=-fsanitize=address,undefined,float-cast-overflow -fno-sanitize-recover=all -g
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -j 4
+[  2%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o
+[  4%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_encoding.c.o
+[  6%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[  9%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log.c.o
+[ 11%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o
+[ 13%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram_log.c.o
+[ 15%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram.c.o
+[ 18%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o
+[ 20%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_packed_histogram.c.o
+[ 22%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_interval_recorder.c.o
+[ 25%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_thread.c.o
+[ 27%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_time.c.o
+[ 29%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_writer_reader_phaser.c.o
+[ 31%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o
+[ 34%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o
+[ 36%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o
+[ 38%] Linking C shared library libhdr_histogram.dylib
+[ 40%] Linking C static library libhdr_histogram_static.a
+[ 40%] Built target hdr_histogram
+[ 43%] Linking C executable hdr_decoder
+[ 43%] Built target hdr_histogram_static
+[ 45%] Building C object test/CMakeFiles/hdr_packed_core_test.dir/hdr_packed_core_test.c.o
+[ 47%] Linking C executable hdr_histogram_atomic_test
+[ 50%] Linking C executable hdr_histogram_test
+[ 52%] Built target hdr_decoder
+[ 54%] Building C object test/CMakeFiles/hdr_packed_core_test.dir/minunit.c.o
+[ 59%] Built target hdr_histogram_atomic_test
+[ 63%] Built target hdr_histogram_test
+[ 65%] Linking C executable hdr_histogram_log_test
+[ 68%] Linking C executable hdr_packed_core_test
+[ 70%] Linking C executable hdr_atomic_test
+[ 72%] Building C object test/CMakeFiles/hdr_packed_histogram_test.dir/hdr_packed_histogram_test.c.o
+[ 77%] Built target hdr_histogram_log_test
+[ 81%] Built target hdr_atomic_test
+[ 81%] Built target hdr_packed_core_test
+[ 84%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 86%] Linking C executable hdr_histogram_perf
+[ 88%] Linking C executable hdr_packed_histogram_test
+[ 93%] Built target hdr_histogram_atomic_concurrency_test
+[ 97%] Built target hdr_histogram_perf
+[100%] Built target hdr_packed_histogram_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+    Start 1: hdr_histogram_test
+1/7 Test #1: hdr_histogram_test ......................   Passed    0.98 sec
+    Start 2: hdr_packed_core_test
+2/7 Test #2: hdr_packed_core_test ....................   Passed    0.17 sec
+    Start 3: hdr_histogram_atomic_test
+3/7 Test #3: hdr_histogram_atomic_test ...............   Passed    0.95 sec
+    Start 4: hdr_histogram_log_test
+4/7 Test #4: hdr_histogram_log_test ..................   Passed    0.21 sec
+    Start 5: hdr_packed_histogram_test
+5/7 Test #5: hdr_packed_histogram_test ...............   Passed    0.35 sec
+    Start 6: hdr_atomic_test
+6/7 Test #6: hdr_atomic_test .........................   Passed    0.22 sec
+    Start 7: hdr_histogram_atomic_concurrency_test
+7/7 Test #7: hdr_histogram_atomic_concurrency_test ...   Passed    0.99 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   3.87 sec
