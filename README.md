@@ -342,7 +342,7 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 | Accepted | 4 |
 | Rejected | 3 |
 | Parked | 0 |
-| In Progress | 1 |
+| In Progress | 2 |
 
 - **EXP-002** (ACCEPT) — widen the AVX2 percentile scan 4→16 int64/iter with a vector accumulator:
   read path **+137% (gcc) / +144% (clang)** on Cascade Lake, percentile results bit-identical.
@@ -367,6 +367,9 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 - **M6-003** (REJECT blanket flags) — O3/native show no robust write gain;
   ThinLTO helps hot writes but regresses low-precision reads.
   [Detailed results](experiments/apple-m6/M6-003/RESULT.md).
+- **M6-004** (IN PROGRESS) — portable width-32 scan delivers ~3.8x long-read
+  throughput, but tiny histograms regress; scalar-prefix refinement is next.
+  [Checkpoint](experiments/apple-m6/M6-004/RESULT.md).
 
 The merged fork PRs above are the baseline this workspace builds on.
 

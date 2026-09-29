@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("baseline", type=Path)
 parser.add_argument("candidate", type=Path)
 parser.add_argument("output", type=Path)
-parser.add_argument("--mode", choices=["write", "read", "write-multi"], required=True)
+parser.add_argument("--mode", choices=["write", "read", "write-multi", "batch"], required=True)
 parser.add_argument("--pairs", type=int, default=6)
 args = parser.parse_args()
 if args.pairs < 5:

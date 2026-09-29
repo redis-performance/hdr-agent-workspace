@@ -1,0 +1,24 @@
+{
+  "base": {
+    "binary": "m6-bench",
+    "sha256": "1dcb2ac2f97f721033f0b4b1ae143aa1afa8dfcc9eecf45f537930250f998080",
+    "c_flags": "-O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes",
+    "source_commit": "8c4cdcc064484711c187a83eb4b4b6931c2eb1d0",
+    "harness_sha256": "6c35bf98e0e28c73c7b99364ae3aea1e52e1fa36b427faa45ffc731f2e6e41ff"
+  },
+  "candidate": {
+    "binary": "m6-bench",
+    "sha256": "b2dc406703dff52d2dee498d585c01abd4249d364eea66a50a0fd47a8d80c92d",
+    "c_flags": "-O2 -g -DNDEBUG -DHDR_M6_SCAN_BLOCK=16 -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes",
+    "source_commit": "e157c8312e635169e9a0449a74f4c885a6503628",
+    "harness_sha256": "6c35bf98e0e28c73c7b99364ae3aea1e52e1fa36b427faa45ffc731f2e6e41ff"
+  },
+  "run": {
+    "started_utc": "2026-09-29T09:20:04.581273+00:00",
+    "pairs": 6,
+    "mode": "write",
+    "seed": "0x6a09e667",
+    "qos": "USER_INITIATED",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)"
+  }
+}

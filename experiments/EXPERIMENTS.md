@@ -494,3 +494,12 @@ ordinary hot writes by 38–47% but regresses low-precision read cases 11–13%.
 All five builds pass 6/6 ctest and 2,700 oracle checks; paired checksums match.
 This flag family stops after three default no-wins. Detailed intervals, raw data,
 and reproducible scripts: [`apple-m6/M6-003/RESULT.md`](apple-m6/M6-003/RESULT.md).
+
+## M6-004 — 2026-09-29 — Portable scan block widths
+
+**IN PROGRESS**. Widths 8/16 stay scalar in Apple Clang and yield only ~1–2%
+on long scans while hurting early crossings. Width 32 vectorizes and improves
+dense long scans ~3.8x (p99 4571 -> 1197 ns), with ordinary writes near flat,
+but tiny histograms regress 24–40%. Refine the scalar prefix before acceptance.
+All widths pass ctest 6/6 and 2,700 oracle checks; sanitizer/referee/profiling gates
+remain pending. [`apple-m6/M6-004/RESULT.md`](apple-m6/M6-004/RESULT.md).
