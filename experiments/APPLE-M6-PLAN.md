@@ -122,6 +122,11 @@ and snapshot semantics; it is not a drop-in implementation of atomic recording.
 - Log failures and gains. Only after the gates pass, commit the accepted C change,
   update the parent pointer and experiment counts, and perform the repository's
   required adversarial review before any upstream PR.
+- The user has authorized opening a PR **if all results are positive**. Once the
+  acceptance gates pass and the required review returns MERGE-READY, prepare the
+  isolated change on an upstream-based branch and open the PR. Do not open a PR
+  for the current regressing or unmeasured candidates, or include unrelated packed
+  feature history merely because it is present in the local experiment baseline.
 
 ## Scope and stopping criteria
 

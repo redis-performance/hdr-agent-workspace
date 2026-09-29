@@ -16,7 +16,7 @@ Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 | M6-004 portable scan widths | Needs refinement | Referee 0.22 -> 0.90 Mq/s; write -0.076%; 20-pair ordinary-write controls pass; broader matrix exposes 16–47% early-crossing regressions; not accepted |
 | M6-004 quartet crossing | Correctness only | `df89e1f`: release/sanitizer ctest 6/6 each, 34,680 expanded oracle checks; code-size increase; timing pending cleanup |
 | M6-005 NEON | Deferred | Prototype branch prepared, but portable width 32 vectorizes; prefer portable refinement first |
-| M6-006 batch scan | Correctness validated, not measured | Candidate `1fe058d`: ASan+UBSan ctest 6/6, 52,800 batch-oracle checks; preserve empty-histogram early return |
+| M6-006 batch scan | Correctness validated, not measured | `1fe058d`: sanitizer ctest 6/6; baseline/candidate pass 52,800 batch + 37,275 equivalent-singular + 9,030 edge checks; see M6-006/VALIDATION.md |
 | M6-007 atomic diagnostics | Prepared | Generic build already emits LDADDAL/CASAL; shared/separate harness correctness passes at 1/2/4/6/12 writers; no scaling timings yet |
 | M6-008 packed diagnostics | Prepared | Widths 1/2/4/8 at 4/64/4096 populated buckets pass 48 scalar-oracle checks; no timing or width-sweep claims yet |
 
@@ -57,6 +57,11 @@ continue. Raw profiling data is not committed.
 
 Exact queued commands and revisions: `NEXT-RUN.md`. No new optimization has been
 promoted into the baseline submodule by these checkpoints.
+
+The stricter pairing parser audits all 24 saved A/B datasets without changing
+their summaries. New equivalent-work batch timing excludes empty/p0 semantic
+differences and alternates method order. The user's conditional PR request is
+recorded in the plan; no current candidate meets all opening gates.
 
 ## Reproduction
 

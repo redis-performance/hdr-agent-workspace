@@ -22,6 +22,8 @@ for BUILD in "$BASE" "$CANDIDATE"; do
 done
 python3 experiments/apple-m6/run_pairs.py "$BASE/batch-bench" "$CANDIDATE/batch-bench" \
   experiments/apple-m6/M6-006/batch --mode batch
+python3 experiments/apple-m6/run_pairs.py "$BASE/batch-bench" "$CANDIDATE/batch-bench" \
+  experiments/apple-m6/M6-006/equivalent --mode batch-equivalent
 for mode in write read; do
   python3 experiments/apple-m6/run_pairs.py "$BASE/m6-bench" "$CANDIDATE/m6-bench" \
     "experiments/apple-m6/M6-006/$mode" --mode "$mode"

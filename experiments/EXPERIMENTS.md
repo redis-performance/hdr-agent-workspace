@@ -545,3 +545,13 @@ both candidate builds and the sanitized baseline. Clang retains vectorization bu
 grows the extracted function from 253 to 461 instructions. **Unmeasured and not
 accepted**; timing remains held while the diagnostic sampler is live. Validation,
 hashes and assembly: [`apple-m6/M6-004/quartet32/VALIDATION.md`](apple-m6/M6-004/quartet32/VALIDATION.md).
+
+### M6 batch contracts and measurement audit — 2026-09-29
+
+Both baseline and batch candidate pass sanitizer-backed 52,800 batch, 37,275
+equivalent-singular, and 9,030 edge checks. Added equivalent-work timing for
+lengths 1/7/32, explicitly excluding the APIs' existing empty/p0 differences.
+Its two execution orders pass correctness-only smoke checks; performance remains
+unmeasured. Stricter pair-ID joining and completeness checks reproduce all 24
+saved A/B summaries without rewriting evidence. Details:
+[`apple-m6/M6-006/VALIDATION.md`](apple-m6/M6-006/VALIDATION.md).
