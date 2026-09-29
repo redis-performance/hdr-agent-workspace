@@ -15,6 +15,7 @@ balloted by all 7 agents; a PR is opened only on a 7/7 vote and after
   capping), #125 (hdr_min on empty), #116 (percentile of empty = 63), #124 (gcc ipa-ra).
 
 ## Status log (newest first)
+- 2026-09-30 00:35 WEST — round 1 launched: 7 Fable audit lanes (record path, query path, log codec, platform/API, fuzzing, coverage, open-PR+release readiness). Shared brief in BRIEF.md.
 - 2026-09-30 00:20 WEST — campaign started; worktrees created; round 1 (7 audit lanes) launching.
 
 ## Rounds

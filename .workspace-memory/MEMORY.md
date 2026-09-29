@@ -1,5 +1,7 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [Push status continuously](push-status-continuously.md) — commit+push STATUS.md after every step; other sessions read git
+
 - [C PR review round, 2026-09-29](../experiments/PR-REVIEW-2026-09-29/README.md) —
   all 11 open C PRs, Paulo feedback, exact main CI crashes and combined-state
   validation; all 11 commented, eight branches fixed/pushed, five MERGE-READY,
