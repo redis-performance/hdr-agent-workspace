@@ -24,3 +24,17 @@ crossings while retaining the width-32 body. No intrinsic path is yet needed.
 Raw data, build flags, binary hashes and intervals are under `block8/`, `block16/`,
 and `block32/`. Reproduce with `bash experiments/apple-m6/run_blocks.sh` at the
 recorded source commit.
+
+## Prefix checkpoint
+
+Candidate `20a40f0` resolves the first 16 counters in four-counter blocks before
+entering the width-32 loop. Six paired runs (`prefix32/`) retain about 4x long-scan
+throughput: dense p99 +294.69% [290.14%, 299.29%], 4571 -> 1163 ns/query.
+Tiny p0 improves 10.29%, but tiny p50/p99/p100 still regress 6.27–6.74%.
+Ordinary write means are approximately flat; some confidence intervals cross -1%.
+ctest 6/6 and 2,700 oracle checks pass. This revision is **not accepted**.
+
+Assembly shows that the prefix length calculation adds a branch on the common
+path; the next isolated refinement expresses the bounded prefix with a minimum
+and four-counter mask. This is a code-generation hypothesis, not an established
+explanation of the tiny-case regression. No benchmark driver is changed.

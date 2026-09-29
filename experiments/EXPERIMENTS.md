@@ -503,3 +503,10 @@ dense long scans ~3.8x (p99 4571 -> 1197 ns), with ordinary writes near flat,
 but tiny histograms regress 24–40%. Refine the scalar prefix before acceptance.
 All widths pass ctest 6/6 and 2,700 oracle checks; sanitizer/referee/profiling gates
 remain pending. [`apple-m6/M6-004/RESULT.md`](apple-m6/M6-004/RESULT.md).
+
+### M6-004 prefix checkpoint — 2026-09-29
+
+Candidate `20a40f0`: first 16 counters scanned in blocks of four. Six paired runs
+retain ~4x long scans (dense p99 +294.69% [290.14%, 299.29%]) but tiny p50–p100
+still regress 6–7%. ctest 6/6 and 2,700 oracle checks pass. Not accepted; next
+test simplifies prefix-bound code generation. Raw results in `M6-004/prefix32/`.
