@@ -9,6 +9,21 @@ metadata:
 + gotchas) and `experiments/EXPERIMENTS.md` (full round log). Verify against GitHub before
 acting — this file is a starting point, not truth.
 
+## 2026-09-30 MERGES + refresh
+
+**Merged to upstream/main (squash), on paulorsousa approval, per user instruction:**
+#157 (0aa5970), #155 (58055c6), #149 (2bdcb0f), #138 (26587de). main tip now `26587de`.
+All 4 went in clean (no inter-sibling conflict).
+
+**All 7 remaining open PRs refreshed with latest master (behind=0 now):**
+- clean merges: #150, #144, #140.
+- test-file all_tests conflict, resolved by keeping BOTH tests + both registrations:
+  #154, #156 (each: timespec test vs #155's reset-offset test), #141 (kept singular
+  `test_percentile_signed_counts` from #138 AND #141's `test_batch_percentile_signed_counts`).
+- src conflict: #139 — its base #138 is now squash-merged, so kept #139's prefetch block only.
+Each rebuilt + ctest green before push. Standing instruction: **merge any PR as soon as it's
+APPROVED**, then refresh remaining pending PRs with master.
+
 ## 2026-09-29 adversarial review round (77-agent sweep: 7 lenses × 11 PRs)
 
 Outcomes (all posted to the PRs as "Review round: 2026-09-29" comments):
