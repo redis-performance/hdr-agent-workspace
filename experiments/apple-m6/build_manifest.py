@@ -32,7 +32,7 @@ def source_snapshot(source):
             name = raw.decode()
             path = source / name
             files[name] = digest(path) if path.is_file() else "deleted"
-    for name in ("bench.c", "write_validate.c", "build_variant.sh", "build_manifest.py"):
+    for name in ("bench.c", "write_validate.c", "write_controls.c", "build_variant.sh", "build_manifest.py"):
         files["@harness/" + name] = digest(Path(__file__).with_name(name))
     return {
         "revision": command("git", "-C", str(source), "rev-parse", "HEAD"),
@@ -51,14 +51,15 @@ def redact(value, source, build):
     return value
 
 
-def seal(source, build, compiler, flags):
+def seal(source, build, compiler, flags, binary_name="m6-bench"):
     before = json.loads((build / "build-inputs.json").read_text())
     after = source_snapshot(source)
     if before["source"] != after:
         raise ValueError("source/harness changed during build; rebuild before sealing")
     commands = json.loads((build / "compile_commands.json").read_text())
     library = build / "src/libhdr_histogram_static.a"
-    binary = build / "m6-bench"
+    binary = build / binary_name
+    harness = "write_controls.c" if binary_name == "write-controls" else "bench.c"
     manifest = {
         "schema": 1, "started_utc": before["started_utc"], "finished_utc": utc(),
         "source": after,
@@ -69,7 +70,7 @@ def seal(source, build, compiler, flags):
         "binary": {"file": binary.name, "sha256": digest(binary)},
         "harness_compile_link_argv": [str(compiler), *flags.split(), "-Wall", "-Wextra",
             "-Werror", "-I", str(source / "include"),
-            str(WORKSPACE / "experiments/apple-m6/bench.c"), str(library),
+            str(WORKSPACE / "experiments/apple-m6" / harness), str(library),
             "-lz", "-lm", "-o", str(binary)],
         "cmake_compile_commands": commands,
         "build_control_files": {}, "referees": {},
@@ -83,7 +84,7 @@ def seal(source, build, compiler, flags):
         path = build / "test" / name
         manifest["referees"][name] = digest(path)
     serialized = redact(json.dumps(manifest, indent=2), source, build)
-    (build / "m6-bench.manifest.json").write_text(serialized + "\n")
+    (build / (binary_name + ".manifest.json")).write_text(serialized + "\n")
 
 
 def main():
@@ -93,6 +94,7 @@ def main():
     parser.add_argument("build", type=Path)
     parser.add_argument("--compiler", type=Path)
     parser.add_argument("--flags", default="")
+    parser.add_argument("--binary", choices=("m6-bench", "write-controls"), default="m6-bench")
     args = parser.parse_args()
     source, build = args.source.resolve(), args.build.resolve()
     if args.action == "snapshot":
@@ -102,7 +104,7 @@ def main():
     else:
         if args.compiler is None:
             parser.error("seal requires --compiler")
-        seal(source, build, args.compiler.resolve(), args.flags)
+        seal(source, build, args.compiler.resolve(), args.flags, args.binary)
 
 
 if __name__ == "__main__":

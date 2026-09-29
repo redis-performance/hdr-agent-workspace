@@ -378,6 +378,8 @@ it adds no accepted result and leaves the counts above unchanged.
 The [W1/W2 implementation checkpoint](experiments/apple-m6/M6-WRITE-PREP/RESULT.md)
 now includes isolated tested patches and fail-closed measurement safeguards;
 both candidates remain unmeasured and unaccepted.
+[Write controls and bounded-pilot tooling](experiments/apple-m6/M6-WRITE-CONTROLS/RESULT.md)
+now pass untimed validation; no real pilot or performance result is claimed.
 
 The merged fork PRs above are the baseline this workspace builds on.
 

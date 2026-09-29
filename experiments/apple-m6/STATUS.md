@@ -2,6 +2,17 @@
 
 Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Latest control checkpoint
+
+[Write controls and bounded pilots](M6-WRITE-CONTROLS/RESULT.md) add 32 individually
+selectable ordinary/atomic guards plus one full-sweep finalist companion.
+All 33 pass untimed release/sanitizer validation against baseline, W1 and W2;
+a deliberate bucket corruption is caught. The common-count pilot controller
+passes synthetic budget/identity tests, and the full Python suite is 29/29.
+Frozen protocols contain build and input identities, **not measured results**.
+No real pilots or timing ran: sampler cleanup remains unconfirmed. Case-level
+A/A/discovery, independent confirmation and batch integration remain pending.
+
 ## Latest implementation checkpoint — W1/W2
 
 [Write preparation result](M6-WRITE-PREP/RESULT.md): W1 `4565359` and W2 `32d332e`

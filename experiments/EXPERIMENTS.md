@@ -582,3 +582,14 @@ measurement gates; 19 Python tests pass. Batch calibration and precise new write
 controls remain unfinished, and sampler cleanup still blocks timing. No baseline
 promotion or PR; no new timed acceptance/rejection count.
 [Artifacts and reproduction](apple-m6/M6-WRITE-PREP/RESULT.md).
+
+### M6 write controls and bounded-pilot preparation — 2026-09-29
+
+No new timed experiment. Added 32 ordinary/atomic write controls and one precise
+steady-sweep finalist companion, leaving immutable referees and candidate source
+unchanged. All 33 pass untimed validation in baseline/W1/W2 release and sanitizer
+builds; deliberate bin corruption fails. New common-work pilot controller and
+frozen input/build protocols pass synthetic tests; total Python suite 29/29.
+No real pilots, A/A, discovery or confirmation ran. Cleanup, the new case-level
+executor, batch integration and portable acceptance remain open. Counts unchanged.
+[Details](apple-m6/M6-WRITE-CONTROLS/RESULT.md).

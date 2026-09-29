@@ -1,5 +1,13 @@
 # Resume the M6 experiment loop
 
+**Latest preparation:** [write controls and bounded pilots](M6-WRITE-CONTROLS/RESULT.md).
+The new `write-controls` binary has a per-case interface, separate from `m6-bench`.
+`write_protocol.py prepare` is untimed; `calibrate` requires confirmed cleanup
+and the exact frozen build/input protocol. No real pilot has run. Case-level
+A/A/discovery and fixed confirmation still need implementation; do not route
+this binary through the old mode-based runner. Full-sweep companion excluded
+from short pilots; batch timing remains disabled.
+
 **Current implementation checkpoint:** [W1/W2 preparation](M6-WRITE-PREP/RESULT.md).
 Branches `experiment/m6-write-offset` (`4565359`) and
 `experiment/m6-write-bounds` (`32d332e`) pass release/sanitizer correctness only.

@@ -39,6 +39,10 @@ write hypotheses and prospective measurement gates. Release/sanitizer correctnes
 passes; codegen exposes W1's hot-frame tradeoff and W2's removed branch. No timing,
 acceptance/rejection or baseline promotion; experiment counts remain unchanged.
 
+[Write-control preparation](apple-m6/M6-WRITE-CONTROLS/RESULT.md) adds 33 untimed
+validated cases and a synthetically tested bounded-pilot controller (29 Python
+tests total). No pilots or performance results; acceptance counts unchanged.
+
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.
 Merged this window: #147, #148, #153, #137 (+#152 CI). Opened: #155, #156, #157.

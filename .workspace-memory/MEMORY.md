@@ -8,6 +8,9 @@
 - [M6 W1/W2 implementation checkpoint](../experiments/apple-m6/M6-WRITE-PREP/RESULT.md) —
   isolated write branches, exact rotated-write validation and sealed-build/cleanup
   gates; no timings, baseline promotion or PR. Batch timing explicitly disabled.
+- [M6 write-control preparation](../experiments/apple-m6/M6-WRITE-CONTROLS/RESULT.md) —
+  33 per-case fixtures, frozen descriptors/builds and bounded pilot controller;
+  untimed/synthetic validation only. Case executor and confirmation still pending.
 
 Persistent memory index. One entry per file. Committed to main so all agent backends
 share the same context. **Public repo — sanitize every entry** (no secrets/IPs/customer/

@@ -30,5 +30,11 @@ git -C "$SOURCE" rev-parse HEAD > "$BUILD/m6-bench.source-commit"
   "$ROOT/experiments/apple-m6/write_validate.c" "$BUILD/src/libhdr_histogram_static.a" \
   -lz -lm -o "$BUILD/write-validate"
 "$BUILD/write-validate"
+"$COMPILER" $FLAGS -Wall -Wextra -Werror -I "$SOURCE/include" \
+  "$ROOT/experiments/apple-m6/write_controls.c" "$BUILD/src/libhdr_histogram_static.a" \
+  -lz -lm -o "$BUILD/write-controls"
+"$BUILD/write-controls" validate
 python3 "$ROOT/experiments/apple-m6/build_manifest.py" seal "$SOURCE" "$BUILD" \
   --compiler "$COMPILER" "--flags=$FLAGS"
+python3 "$ROOT/experiments/apple-m6/build_manifest.py" seal "$SOURCE" "$BUILD" \
+  --compiler "$COMPILER" "--flags=$FLAGS" --binary write-controls
