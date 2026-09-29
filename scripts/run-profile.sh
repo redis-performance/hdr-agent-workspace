@@ -8,6 +8,8 @@
 #   COMPILER=gcc|clang   (default clang on macOS, gcc elsewhere)
 #   EXP=EXP-NNN          (default EXP-000)
 #   DRIVER=write|read    (default write)
+#   HDR_DIR=...         optional isolated C checkout
+#   PROFILE_OUT_DIR=... optional output directory (keep raw machine identifiers local)
 set -euo pipefail
 
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
@@ -16,8 +18,9 @@ DEFAULT_COMPILER=gcc
 COMPILER="${COMPILER:-$DEFAULT_COMPILER}"
 EXP="${EXP:-EXP-000}"
 DRIVER="${DRIVER:-write}"
-BIN_DIR="$WORKSPACE/HdrHistogram_c/build/$COMPILER/test"
-OUT_DIR="$WORKSPACE/experiments/$EXP/profile-results"
+HDR_DIR="${HDR_DIR:-$WORKSPACE/HdrHistogram_c}"
+BIN_DIR="$HDR_DIR/build/$COMPILER/test"
+OUT_DIR="${PROFILE_OUT_DIR:-$WORKSPACE/experiments/$EXP/profile-results}"
 TS="$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$OUT_DIR"
 
@@ -58,7 +61,7 @@ sudo perf record -g -F 999 -o "$DATA" -- "$BIN" >/dev/null 2>&1 || {
 
 {
   echo "# perf report — $DRIVER path — $COMPILER — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-  echo "# hdr commit: $(git -C "$WORKSPACE/HdrHistogram_c" rev-parse --short HEAD)"
+  echo "# hdr commit: $(git -C "$HDR_DIR" rev-parse --short HEAD)"
   echo ""
   echo "## Top symbols"
   sudo perf report -i "$DATA" --stdio 2>/dev/null | grep -E '^\s+[0-9]' | head -25

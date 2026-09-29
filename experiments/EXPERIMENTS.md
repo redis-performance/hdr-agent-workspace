@@ -510,3 +510,11 @@ Candidate `20a40f0`: first 16 counters scanned in blocks of four. Six paired run
 retain ~4x long scans (dense p99 +294.69% [290.14%, 299.29%]) but tiny p50–p100
 still regress 6–7%. ctest 6/6 and 2,700 oracle checks pass. Not accepted; next
 test simplifies prefix-bound code generation. Raw results in `M6-004/prefix32/`.
+
+### M6-004 masked-prefix finalist — 2026-09-29
+
+Candidate `6930fd7` removes the observed tiny-read regression: dense p99 ~4x,
+tiny reads +4–11%, all six-pair read intervals positive. ASan+UBSan ctest 6/6
+and 19,260 boundary/offset/valid-removal checks pass. Write means near flat but
+some intervals cross -1%. Still provisional pending referee/profile and broader
+validation. Raw results in `M6-004/prefix-mask32/`.

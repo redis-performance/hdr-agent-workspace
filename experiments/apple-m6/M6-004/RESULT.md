@@ -38,3 +38,21 @@ Assembly shows that the prefix length calculation adds a branch on the common
 path; the next isolated refinement expresses the bounded prefix with a minimum
 and four-counter mask. This is a code-generation hypothesis, not an established
 explanation of the tiny-case regression. No benchmark driver is changed.
+
+## Masked-prefix finalist (local, provisional)
+
+Candidate `6930fd7` changes only the prefix bound to `(min(n, 16) & ~3)`.
+Six pairs in `prefix-mask32/` show dense p99 +301.89% [297.36%, 306.47%]
+(4570 -> 1133 ns/query). Tiny p0/p50/p99/p100 now improve 11.40%, 3.63%,
+9.08%, and 9.12%, respectively; all read intervals are above zero. Write means
+remain near flat, but several intervals cross -1%, so non-regression is not yet
+established to the planned confidence threshold.
+
+Release and ASan+UBSan ctest: 6/6 each. Both builds pass 2,700 basic oracle checks;
+the sanitized library also passes 19,260 seeded boundary/offset/removal checks
+using `scan_validate.c`. Valid negative recordings are covered only when all
+resulting bucket counts remain non-negative and the total fits in int64_t.
+No claims extend to arbitrary invalid negative-count states.
+
+Next: immutable referee, matched sampling profiles, and additional independent
+write controls. Genuine GCC and cross-architecture acceptance remain unavailable.
