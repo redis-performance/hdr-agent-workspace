@@ -5,9 +5,40 @@ metadata:
   type: project
 ---
 
-**Snapshot 2026-09-22.** Read with [[hdr-upstream-prs]] (per-PR detail + gotchas) and
-`experiments/EXPERIMENTS.md` (full round log). Verify against GitHub before acting — this
-file is a starting point, not truth.
+**Snapshot 2026-09-29 (review-round refresh).** Read with [[hdr-upstream-prs]] (per-PR detail
++ gotchas) and `experiments/EXPERIMENTS.md` (full round log). Verify against GitHub before
+acting — this file is a starting point, not truth.
+
+## 2026-09-29 adversarial review round (77-agent sweep: 7 lenses × 11 PRs)
+
+Outcomes (all posted to the PRs as "Review round: 2026-09-29" comments):
+- **#149** (upstream branch): NEEDS-WORK closed. Added header doc + `test_log_iterator_integer_base_contract`
+  pinning the integer-step base contract (`(int64_t)log_base`: 2.5≡2.0, 1<base<2 truncates to 1 and
+  terminates). Pushed `bcf56f6..dcc2a32`. ctest 5/5 + ASan/UBSan 27 tests.
+- **#150** (fork branch): SOVERSION 7.0.4 bump reverted to 6.3.3 (feature is additive; project sets
+  SONAME=CURRENT so a bump renames .so.6→.so.7 and breaks consumers). Pushed `7d9fc50..40b7611`.
+  Correctness 7/7 green. Perf/footprint qualification still the one open gate (separate track).
+- **#154** (fork): 7/7 green. Answered @paulorsousa inline — silent 0/0 clamp is acceptable (void ABI,
+  caller discards errors, 0/0 = pre-existing "unknown StartTime" sentinel, UB→defined). Optional
+  additive `hdr_timespec_from_double_checked()` deferred to a separate PR. MERGE-READY, no code change.
+- **#155** (fork): a lens raised an OOB `counts[]` read via `counts_get_normalised` from a crafted
+  V1/V2 log. **FALSE POSITIVE** — both V1 and V2 decode already `%= counts_len` (pre-existing in main;
+  log.c byte-identical to main) before `hdr_reset_internal_counters`, so `|offset|<counts_len` always
+  holds. Do NOT re-raise. MERGE-READY confirmed.
+- **#156 / #157 / #144**: 7/7 green, verify-only, no code change. (#157 has a cosmetic test-count
+  placement nit — test still runs; left alone since approved.)
+- **#138** (fork, AVX2 widen16): singular-path win is real and large on Intel Ultra 7 155U (Meteor
+  Lake), gcc — ~+40-50% over `upstream/main` (1343a18). Box is thermally noisy; paired protocol in
+  flight for a defensible number. Perf gate closing.
+- **#139** (fork, prefetch on #138): prefetch does **not** beat plain #138 widening on this box
+  (0.27<0.33 and 0.21<0.24 in two passes) — appears neutral-to-negative. Honest finding pending; likely
+  recommend dropping/retuning the prefetch. Also needs rebase to just the prefetch line after #138 lands.
+- **#140 / #141** (fork, batch `hdr_value_at_percentiles`): correctness 7/7 green; the immutable
+  singular driver does NOT exercise the batch path (they measure flat there, as expected). Built a
+  separate batch microbench; paired batch numbers in flight.
+
+Machine for x86/AVX2 perf this round: Intel Core Ultra 7 155U (Meteor Lake), Linux x86_64, gcc.
+Bench worktrees + paired protocol under the session scratchpad (not committed).
 
 ## Where things are
 
