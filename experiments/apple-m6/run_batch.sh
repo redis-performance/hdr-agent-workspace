@@ -4,6 +4,13 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 BASE="$ROOT/HdrHistogram_c/build/m6-flags-o2"
 CANDIDATE="$ROOT/.tools/m6-batch/build/clang"
+SANITIZE="$ROOT/.tools/m6-batch/build/sanitize"
+bash experiments/apple-m6/build_variant.sh "$ROOT/.tools/m6-batch" "$SANITIZE" \
+  '-O1 -g -DNDEBUG -fsanitize=address,undefined -fno-sanitize-recover=all'
+clang -O1 -g -fsanitize=address,undefined -fno-sanitize-recover=all \
+  -I "$ROOT/HdrHistogram_c/include" experiments/apple-m6/batch_bench.c \
+  "$SANITIZE/src/libhdr_histogram_static.a" -lz -lm -o "$SANITIZE/batch-bench"
+ASAN_OPTIONS=detect_leaks=0 "$SANITIZE/batch-bench" validate
 bash experiments/apple-m6/build_variant.sh "$ROOT/.tools/m6-batch" "$CANDIDATE"
 for BUILD in "$BASE" "$CANDIDATE"; do
   clang -O2 -g -DNDEBUG -Wall -Wextra -Werror -I "$ROOT/HdrHistogram_c/include" \

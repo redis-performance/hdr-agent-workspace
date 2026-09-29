@@ -81,7 +81,7 @@ static void batches(void)
             for (int p = 0; p < length; p++) pcts[p] = length == 1 ? 99 : 100.0 * p / (length - 1);
             batch_reference(h, pcts, expected, (size_t)length);
             for (int p = 0; p < length; p++) expected_sum += (uint64_t)expected[p];
-            uint64_t iters = shape < 2 ? 500000 : 10000;
+            uint64_t iters = shape < 2 ? 20000000U / (unsigned)length + 1000000U : 20000;
             for (int i = 0; i < 100; i++) hdr_value_at_percentiles(h, pcts, out, (size_t)length);
             double start = now();
             for (uint64_t i = 0; i < iters; i++)

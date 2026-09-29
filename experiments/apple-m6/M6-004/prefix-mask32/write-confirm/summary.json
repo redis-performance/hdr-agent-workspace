@@ -1,0 +1,82 @@
+[
+  {
+    "case": "atomic_constant",
+    "base_ns": 1.7274465,
+    "candidate_ns": 1.7274025,
+    "speedup_pct": -0.31380481856534553,
+    "ci95_low_pct": -3.0356907686771173,
+    "ci95_high_pct": 2.484487215229665
+  },
+  {
+    "case": "atomic_correlated",
+    "base_ns": 1.7895105,
+    "candidate_ns": 1.788855,
+    "speedup_pct": -0.12156640466931415,
+    "ci95_low_pct": -2.2714011343874283,
+    "ci95_high_pct": 2.075560411692318
+  },
+  {
+    "case": "atomic_extremes",
+    "base_ns": 1.7261505,
+    "candidate_ns": 1.7269105,
+    "speedup_pct": -0.4656107299484771,
+    "ci95_low_pct": -2.9076017634555065,
+    "ci95_high_pct": 2.0377993262218963
+  },
+  {
+    "case": "atomic_iid",
+    "base_ns": 1.745254,
+    "candidate_ns": 1.7465505000000001,
+    "speedup_pct": -0.3143615436423686,
+    "ci95_low_pct": -2.7557670756219297,
+    "ci95_high_pct": 2.1883377102612016
+  },
+  {
+    "case": "atomic_increasing",
+    "base_ns": 1.7688575,
+    "candidate_ns": 1.769513,
+    "speedup_pct": -0.3786160373528416,
+    "ci95_low_pct": -2.8640623501262463,
+    "ci95_high_pct": 2.170426134205038
+  },
+  {
+    "case": "write_constant",
+    "base_ns": 1.3569295000000001,
+    "candidate_ns": 1.358144,
+    "speedup_pct": -0.02692985797337393,
+    "ci95_low_pct": -0.5881811048248006,
+    "ci95_high_pct": 0.537490056000263
+  },
+  {
+    "case": "write_correlated",
+    "base_ns": 1.5399755,
+    "candidate_ns": 1.5397295,
+    "speedup_pct": 0.2958331931114832,
+    "ci95_low_pct": -0.3587338968277672,
+    "ci95_high_pct": 0.9547002893833298
+  },
+  {
+    "case": "write_extremes",
+    "base_ns": 1.361981,
+    "candidate_ns": 1.3655650000000001,
+    "speedup_pct": -0.10053985426406753,
+    "ci95_low_pct": -0.6560109532808381,
+    "ci95_high_pct": 0.45803710092783406
+  },
+  {
+    "case": "write_iid",
+    "base_ns": 1.370087,
+    "candidate_ns": 1.371473,
+    "speedup_pct": 0.07595472104510961,
+    "ci95_low_pct": -0.4838517626060742,
+    "ci95_high_pct": 0.6389102745175081
+  },
+  {
+    "case": "write_increasing",
+    "base_ns": 1.3775975,
+    "candidate_ns": 1.3780445000000001,
+    "speedup_pct": -0.019030835750727056,
+    "ci95_low_pct": -0.23411275590454286,
+    "ci95_high_pct": 0.19651477227932515
+  }
+]

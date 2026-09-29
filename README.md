@@ -367,8 +367,9 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
 - **M6-003** (REJECT blanket flags) — O3/native show no robust write gain;
   ThinLTO helps hot writes but regresses low-precision reads.
   [Detailed results](experiments/apple-m6/M6-003/RESULT.md).
-- **M6-004** (IN PROGRESS) — portable width-32 scan delivers ~3.8x long-read
-  throughput, but tiny histograms regress; scalar-prefix refinement is next.
+- **M6-004** (IN PROGRESS) — masked-prefix width-32 scan: referee 0.22 -> 0.90
+  Mq/s, write -0.076%; broader controls expose regressions just beyond the prefix.
+  Not accepted; crossing refinement and profiling/cross-compiler checks remain.
   [Checkpoint](experiments/apple-m6/M6-004/RESULT.md).
 
 The merged fork PRs above are the baseline this workspace builds on.

@@ -13,11 +13,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("baseline", type=Path)
 parser.add_argument("candidate", type=Path)
 parser.add_argument("output", type=Path)
-parser.add_argument("--mode", choices=["write", "read", "write-multi", "batch"], required=True)
+parser.add_argument("--mode", choices=["write", "read", "write-multi", "batch", "matrix", "packed"], required=True)
 parser.add_argument("--pairs", type=int, default=6)
 args = parser.parse_args()
 if args.pairs < 5:
     parser.error("at least five pairs required")
+if args.output.exists() and any(args.output.iterdir()):
+    parser.error("output directory is not empty; preserve prior evidence and choose a new checkpoint")
 args.output.mkdir(parents=True, exist_ok=True)
 bins = {"base": args.baseline.resolve(), "candidate": args.candidate.resolve()}
 metadata = {label: {"binary": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}

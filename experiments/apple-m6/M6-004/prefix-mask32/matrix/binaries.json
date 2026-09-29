@@ -1,0 +1,24 @@
+{
+  "base": {
+    "binary": "scan-matrix",
+    "sha256": "884cf4c28d473f6310c4b5de446bf648d695e9e170d7761249e108937711bb8f",
+    "c_flags": "-O2 -g -DNDEBUG -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes",
+    "source_commit": "8c4cdcc064484711c187a83eb4b4b6931c2eb1d0",
+    "harness_sha256": "5f3685a909bd7516bb8ddd0e5c9182fce77968366c9e37aaef6dee47cc84245e"
+  },
+  "candidate": {
+    "binary": "scan-matrix",
+    "sha256": "5148f4c51f8ed9e71e2c2ab1beb5f1f89dd1352d039851bc41b344bbb39616b8",
+    "c_flags": "-O2 -g -DNDEBUG -DHDR_M6_SCAN_BLOCK=32 -std=c99 -Wall -Wno-unknown-pragmas -Wextra -Wshadow -Winit-self -Wpedantic -Wmissing-prototypes",
+    "source_commit": "6930fd7f140e3bc731a2036d888a11d36f195a93",
+    "harness_sha256": "5f3685a909bd7516bb8ddd0e5c9182fce77968366c9e37aaef6dee47cc84245e"
+  },
+  "run": {
+    "started_utc": "2026-09-29T09:34:45.805566+00:00",
+    "pairs": 6,
+    "mode": "matrix",
+    "seed": "0x6a09e667",
+    "qos": "USER_INITIATED",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)"
+  }
+}

@@ -24,7 +24,7 @@ by maintainer, #137 open) that this workspace builds on.
 | [M6-001](apple-m6/STATUS.md) | 2026-09-29 | read | four-counter blocked scalar scan | **PROVISIONAL** | about +10%, rounded single-pair result | upstream #137 strategy; fuller validation pending |
 | [M6-002](apple-m6/M6-002/RESULT.md) | 2026-09-29 | write | immediate prefetch removal | **REJECT** | referee -0.87%; workload-dependent gains | experiment branch only |
 | [M6-003](apple-m6/M6-003/RESULT.md) | 2026-09-29 | write | isolated compiler options | **REJECT** | LTO hot writes +38–47%, some reads -11–13%; O3/native no gain | no source change |
-| [M6-004](apple-m6/M6-004/RESULT.md) | 2026-09-29 | read | portable block-width sweep | **IN PROGRESS** | width32 ~3.8x long reads, tiny reads regress | scalar-prefix refinement next |
+| [M6-004](apple-m6/M6-004/RESULT.md) | 2026-09-29 | read | portable block-width sweep | **IN PROGRESS** | referee 0.22 -> 0.90 Mq/s; write -0.076%; some early crossings regress | crossing refinement and validation pending |
 
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.

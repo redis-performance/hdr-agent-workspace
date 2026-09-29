@@ -1,0 +1,562 @@
+[
+  {
+    "case": "sig1_shape0_index0_p99",
+    "base_ns": 1.75745,
+    "candidate_ns": 1.7525,
+    "speedup_pct": -0.6299229895549345,
+    "ci95_low_pct": -7.055306802491958,
+    "ci95_high_pct": 6.2396557066318605
+  },
+  {
+    "case": "sig1_shape10_index128_p99",
+    "base_ns": 18.039623,
+    "candidate_ns": 10.054779,
+    "speedup_pct": 79.66870288877996,
+    "ci95_low_pct": 76.49407176163585,
+    "ci95_high_pct": 82.90043668624517
+  },
+  {
+    "case": "sig1_shape11_index429_p99",
+    "base_ns": 79.215938,
+    "candidate_ns": 21.150423,
+    "speedup_pct": 273.57271216857225,
+    "ci95_low_pct": 271.3283369647112,
+    "ci95_high_pct": 275.8306527795253
+  },
+  {
+    "case": "sig1_shape12_index429_p50",
+    "base_ns": 75.371305,
+    "candidate_ns": 17.801581,
+    "speedup_pct": 318.24761822284,
+    "ci95_low_pct": 303.30882363704166,
+    "ci95_high_pct": 333.739754492721
+  },
+  {
+    "case": "sig1_shape12_index429_p99",
+    "base_ns": 79.073177,
+    "candidate_ns": 21.134082999999997,
+    "speedup_pct": 274.3896343476144,
+    "ci95_low_pct": 271.2876894345156,
+    "ci95_high_pct": 277.51749464255244
+  },
+  {
+    "case": "sig1_shape1_index15_p99",
+    "base_ns": 2.93235,
+    "candidate_ns": 2.8434,
+    "speedup_pct": 2.858829534797049,
+    "ci95_low_pct": 1.5325599186196504,
+    "ci95_high_pct": 4.202423555049408
+  },
+  {
+    "case": "sig1_shape2_index16_p99",
+    "base_ns": 2.95885,
+    "candidate_ns": 3.5171,
+    "speedup_pct": -15.855216828384824,
+    "ci95_low_pct": -16.300831110815434,
+    "ci95_high_pct": -15.40723009600828
+  },
+  {
+    "case": "sig1_shape3_index31_p99",
+    "base_ns": 4.16605,
+    "candidate_ns": 6.95105,
+    "speedup_pct": -40.151385733324254,
+    "ci95_low_pct": -40.61595756174069,
+    "ci95_high_pct": -39.683179477629096
+  },
+  {
+    "case": "sig1_shape4_index32_p99",
+    "base_ns": 4.167350000000001,
+    "candidate_ns": 7.3947,
+    "speedup_pct": -43.72047678933576,
+    "ci95_low_pct": -44.51611828825687,
+    "ci95_high_pct": -42.91342575353159
+  },
+  {
+    "case": "sig1_shape5_index47_p99",
+    "base_ns": 5.597049999999999,
+    "candidate_ns": 10.4381,
+    "speedup_pct": -46.50026901105003,
+    "ci95_low_pct": -47.17277696582757,
+    "ci95_high_pct": -45.819199808429744
+  },
+  {
+    "case": "sig1_shape6_index48_p99",
+    "base_ns": 5.8515,
+    "candidate_ns": 4.5015,
+    "speedup_pct": 29.957787661793354,
+    "ci95_low_pct": 29.094932844178857,
+    "ci95_high_pct": 30.826409695981567
+  },
+  {
+    "case": "sig1_shape7_index63_p99",
+    "base_ns": 7.722688,
+    "candidate_ns": 7.849024,
+    "speedup_pct": -2.052438811153053,
+    "ci95_low_pct": -3.725970604031227,
+    "ci95_high_pct": -0.3498160092110026
+  },
+  {
+    "case": "sig1_shape8_index64_p99",
+    "base_ns": 7.958861000000001,
+    "candidate_ns": 8.293026000000001,
+    "speedup_pct": -3.9289920835012317,
+    "ci95_low_pct": -5.6455570826233785,
+    "ci95_high_pct": -2.1811980790974625
+  },
+  {
+    "case": "sig1_shape9_index127_p99",
+    "base_ns": 17.802239999999998,
+    "candidate_ns": 9.7152,
+    "speedup_pct": 83.70818046093976,
+    "ci95_low_pct": 80.69256030424656,
+    "ci95_high_pct": 86.77412900367244
+  },
+  {
+    "case": "sig2_shape0_index0_p99",
+    "base_ns": 1.96525,
+    "candidate_ns": 1.7523,
+    "speedup_pct": 10.127618354966494,
+    "ci95_low_pct": 4.467992965207184,
+    "ci95_high_pct": 16.093857843869795
+  },
+  {
+    "case": "sig2_shape10_index128_p99",
+    "base_ns": 18.066197000000003,
+    "candidate_ns": 9.952482,
+    "speedup_pct": 82.03212571034778,
+    "ci95_low_pct": 78.12348319162207,
+    "ci95_high_pct": 86.02653730379318
+  },
+  {
+    "case": "sig2_shape11_index3054_p99",
+    "base_ns": 660.3998385,
+    "candidate_ns": 117.730622,
+    "speedup_pct": 459.6745723493762,
+    "ci95_low_pct": 455.7787769309226,
+    "ci95_high_pct": 463.5976757950025
+  },
+  {
+    "case": "sig2_shape12_index3054_p50",
+    "base_ns": 627.359989,
+    "candidate_ns": 109.656251,
+    "speedup_pct": 470.4859942223744,
+    "ci95_low_pct": 464.6586729541565,
+    "ci95_high_pct": 476.3734538977213
+  },
+  {
+    "case": "sig2_shape12_index3054_p99",
+    "base_ns": 657.0026760000001,
+    "candidate_ns": 116.022876,
+    "speedup_pct": 465.8304176714597,
+    "ci95_low_pct": 462.8811745670994,
+    "ci95_high_pct": 468.79511347752964
+  },
+  {
+    "case": "sig2_shape1_index15_p99",
+    "base_ns": 2.93715,
+    "candidate_ns": 2.85425,
+    "speedup_pct": 3.1671083882608233,
+    "ci95_low_pct": 0.29851565582095557,
+    "ci95_high_pct": 6.117744451160779
+  },
+  {
+    "case": "sig2_shape2_index16_p99",
+    "base_ns": 2.95925,
+    "candidate_ns": 3.5141999999999998,
+    "speedup_pct": -15.818632759579302,
+    "ci95_low_pct": -16.096021310998633,
+    "ci95_high_pct": -15.540327155003961
+  },
+  {
+    "case": "sig2_shape3_index31_p99",
+    "base_ns": 4.1662,
+    "candidate_ns": 7.0243,
+    "speedup_pct": -40.671481340670006,
+    "ci95_low_pct": -41.5555259632888,
+    "ci95_high_pct": -39.77406445475922
+  },
+  {
+    "case": "sig2_shape4_index32_p99",
+    "base_ns": 4.1663499999999996,
+    "candidate_ns": 7.3767,
+    "speedup_pct": -43.58029247665261,
+    "ci95_low_pct": -44.38410220256201,
+    "ci95_high_pct": -42.76486538770396
+  },
+  {
+    "case": "sig2_shape5_index47_p99",
+    "base_ns": 5.6132,
+    "candidate_ns": 10.42485,
+    "speedup_pct": -46.09301092714039,
+    "ci95_low_pct": -46.70948220485616,
+    "ci95_high_pct": -45.46940823370617
+  },
+  {
+    "case": "sig2_shape6_index48_p99",
+    "base_ns": 5.8511500000000005,
+    "candidate_ns": 4.50255,
+    "speedup_pct": 29.96917772756902,
+    "ci95_low_pct": 29.615642490926053,
+    "ci95_high_pct": 30.32367725494993
+  },
+  {
+    "case": "sig2_shape7_index63_p99",
+    "base_ns": 7.715008,
+    "candidate_ns": 7.886464,
+    "speedup_pct": -2.326656827808702,
+    "ci95_low_pct": -3.710368436172424,
+    "ci95_high_pct": -0.9230608582315777
+  },
+  {
+    "case": "sig2_shape8_index64_p99",
+    "base_ns": 7.983236,
+    "candidate_ns": 8.292961,
+    "speedup_pct": -4.581264699967411,
+    "ci95_low_pct": -6.8117239057560415,
+    "ci95_high_pct": -2.2974195053269657
+  },
+  {
+    "case": "sig2_shape9_index127_p99",
+    "base_ns": 17.881984,
+    "candidate_ns": 9.686528,
+    "speedup_pct": 84.06310854424675,
+    "ci95_low_pct": 82.42454132233152,
+    "ci95_high_pct": 85.71639364634011
+  },
+  {
+    "case": "sig3_shape0_index0_p99",
+    "base_ns": 1.9689,
+    "candidate_ns": 1.75555,
+    "speedup_pct": 10.202977211385646,
+    "ci95_low_pct": 4.257539263031793,
+    "ci95_high_pct": 16.48746241375674
+  },
+  {
+    "case": "sig3_shape10_index128_p99",
+    "base_ns": 18.104639,
+    "candidate_ns": 9.915201,
+    "speedup_pct": 81.95232352401705,
+    "ci95_low_pct": 77.84874266857257,
+    "ci95_high_pct": 86.15058807294454
+  },
+  {
+    "case": "sig3_shape11_index21363_p99",
+    "base_ns": 4567.3631595,
+    "candidate_ns": 1177.0072209999998,
+    "speedup_pct": 287.56195586616616,
+    "ci95_low_pct": 282.103824263611,
+    "ci95_high_pct": 293.0980537142784
+  },
+  {
+    "case": "sig3_shape12_index21363_p50",
+    "base_ns": 4329.78678,
+    "candidate_ns": 1132.9103105,
+    "speedup_pct": 284.02450742618953,
+    "ci95_low_pct": 278.24549800260957,
+    "ci95_high_pct": 289.89181122496814
+  },
+  {
+    "case": "sig3_shape12_index21363_p99",
+    "base_ns": 4559.030893,
+    "candidate_ns": 1181.4297310000002,
+    "speedup_pct": 285.8060804131235,
+    "ci95_low_pct": 282.3997087395949,
+    "ci95_high_pct": 289.24279564527154
+  },
+  {
+    "case": "sig3_shape1_index15_p99",
+    "base_ns": 2.9882999999999997,
+    "candidate_ns": 2.8445,
+    "speedup_pct": 4.585583232544941,
+    "ci95_low_pct": 2.6860796885345524,
+    "ci95_high_pct": 6.520224097257922
+  },
+  {
+    "case": "sig3_shape2_index16_p99",
+    "base_ns": 2.9536499999999997,
+    "candidate_ns": 3.52455,
+    "speedup_pct": -16.118303255657896,
+    "ci95_low_pct": -16.779879447654793,
+    "ci95_high_pct": -15.451467721870666
+  },
+  {
+    "case": "sig3_shape3_index31_p99",
+    "base_ns": 4.174799999999999,
+    "candidate_ns": 7.0161999999999995,
+    "speedup_pct": -40.414393008024376,
+    "ci95_low_pct": -41.23754317784885,
+    "ci95_high_pct": -39.579712071129826
+  },
+  {
+    "case": "sig3_shape4_index32_p99",
+    "base_ns": 4.1675,
+    "candidate_ns": 7.4368,
+    "speedup_pct": -43.883964346431874,
+    "ci95_low_pct": -44.32731965906375,
+    "ci95_high_pct": -43.437078326601515
+  },
+  {
+    "case": "sig3_shape5_index47_p99",
+    "base_ns": 5.59815,
+    "candidate_ns": 10.4833,
+    "speedup_pct": -46.43692046239551,
+    "ci95_low_pct": -47.03666672632109,
+    "ci95_high_pct": -45.83038279092704
+  },
+  {
+    "case": "sig3_shape6_index48_p99",
+    "base_ns": 5.85405,
+    "candidate_ns": 4.50115,
+    "speedup_pct": 29.895166975663557,
+    "ci95_low_pct": 29.437912199697454,
+    "ci95_high_pct": 30.35403705835541
+  },
+  {
+    "case": "sig3_shape7_index63_p99",
+    "base_ns": 7.723008,
+    "candidate_ns": 7.9578240000000005,
+    "speedup_pct": -2.6996677584601656,
+    "ci95_low_pct": -4.022180383716756,
+    "ci95_high_pct": -1.3589317598142268
+  },
+  {
+    "case": "sig3_shape8_index64_p99",
+    "base_ns": 7.943846,
+    "candidate_ns": 8.277750999999999,
+    "speedup_pct": -4.1551035210686225,
+    "ci95_low_pct": -7.200770619414183,
+    "ci95_high_pct": -1.0094777470329668
+  },
+  {
+    "case": "sig3_shape9_index127_p99",
+    "base_ns": 17.849856,
+    "candidate_ns": 9.650815999999999,
+    "speedup_pct": 84.0986592595559,
+    "ci95_low_pct": 81.9939892805517,
+    "ci95_high_pct": 86.22766870019854
+  },
+  {
+    "case": "sig4_shape0_index0_p99",
+    "base_ns": 1.969,
+    "candidate_ns": 1.75555,
+    "speedup_pct": 10.01934131702135,
+    "ci95_low_pct": 4.235490524842351,
+    "ci95_high_pct": 16.124128191697288
+  },
+  {
+    "case": "sig4_shape10_index128_p99",
+    "base_ns": 18.024143000000002,
+    "candidate_ns": 10.024206,
+    "speedup_pct": 80.49031006977138,
+    "ci95_low_pct": 76.18562425928494,
+    "ci95_high_pct": 84.90017086263741
+  },
+  {
+    "case": "sig4_shape11_index276277_p99",
+    "base_ns": 58893.8640135,
+    "candidate_ns": 16211.442798,
+    "speedup_pct": 262.70765930367486,
+    "ci95_low_pct": 258.8437571444891,
+    "ci95_high_pct": 266.6131665893216
+  },
+  {
+    "case": "sig4_shape12_index276277_p50",
+    "base_ns": 55054.173572,
+    "candidate_ns": 15187.119955,
+    "speedup_pct": 262.7775211417116,
+    "ci95_low_pct": 257.7048805165062,
+    "ci95_high_pct": 267.92209727664596
+  },
+  {
+    "case": "sig4_shape12_index276277_p99",
+    "base_ns": 58842.7307875,
+    "candidate_ns": 16189.331127,
+    "speedup_pct": 263.8885048462686,
+    "ci95_low_pct": 259.2546668136617,
+    "ci95_high_pct": 268.58211233184556
+  },
+  {
+    "case": "sig4_shape1_index15_p99",
+    "base_ns": 2.9988,
+    "candidate_ns": 2.84855,
+    "speedup_pct": 4.889404664133491,
+    "ci95_low_pct": 2.295334897073062,
+    "ci95_high_pct": 7.549256492156403
+  },
+  {
+    "case": "sig4_shape2_index16_p99",
+    "base_ns": 2.9659,
+    "candidate_ns": 3.51555,
+    "speedup_pct": -15.722008293911257,
+    "ci95_low_pct": -16.05773751574697,
+    "ci95_high_pct": -15.384936314481706
+  },
+  {
+    "case": "sig4_shape3_index31_p99",
+    "base_ns": 4.1649,
+    "candidate_ns": 7.06175,
+    "speedup_pct": -40.7296661242766,
+    "ci95_low_pct": -42.03307427247781,
+    "ci95_high_pct": -39.396950353159816
+  },
+  {
+    "case": "sig4_shape4_index32_p99",
+    "base_ns": 4.1678999999999995,
+    "candidate_ns": 7.40565,
+    "speedup_pct": -43.55473528093049,
+    "ci95_low_pct": -44.47733610085373,
+    "ci95_high_pct": -42.616803923652824
+  },
+  {
+    "case": "sig4_shape5_index47_p99",
+    "base_ns": 5.622,
+    "candidate_ns": 10.52395,
+    "speedup_pct": -46.440044291789114,
+    "ci95_low_pct": -47.35481545313461,
+    "ci95_high_pct": -45.50937792018208
+  },
+  {
+    "case": "sig4_shape6_index48_p99",
+    "base_ns": 5.8454999999999995,
+    "candidate_ns": 4.50845,
+    "speedup_pct": 29.589942378648814,
+    "ci95_low_pct": 29.06738514014709,
+    "ci95_high_pct": 30.114615303210297
+  },
+  {
+    "case": "sig4_shape7_index63_p99",
+    "base_ns": 7.727232,
+    "candidate_ns": 7.981056000000001,
+    "speedup_pct": -3.052214314791053,
+    "ci95_low_pct": -4.288922865050154,
+    "ci95_high_pct": -1.7995259209854464
+  },
+  {
+    "case": "sig4_shape8_index64_p99",
+    "base_ns": 7.975826,
+    "candidate_ns": 8.277750999999999,
+    "speedup_pct": -4.271401276759541,
+    "ci95_low_pct": -6.379270449024194,
+    "ci95_high_pct": -2.1160734650600768
+  },
+  {
+    "case": "sig4_shape9_index127_p99",
+    "base_ns": 17.83744,
+    "candidate_ns": 9.76576,
+    "speedup_pct": 83.09206605446138,
+    "ci95_low_pct": 79.84987743454836,
+    "ci95_high_pct": 86.39270223740328
+  },
+  {
+    "case": "sig5_shape0_index0_p99",
+    "base_ns": 1.9622,
+    "candidate_ns": 1.75535,
+    "speedup_pct": 9.691262781963589,
+    "ci95_low_pct": 3.9546590661523586,
+    "ci95_high_pct": 15.744433571226693
+  },
+  {
+    "case": "sig5_shape10_index128_p99",
+    "base_ns": 18.021434,
+    "candidate_ns": 9.914297999999999,
+    "speedup_pct": 81.45907719911219,
+    "ci95_low_pct": 77.80245828647901,
+    "ci95_high_pct": 85.19089676983009
+  },
+  {
+    "case": "sig5_shape11_index1817004_p99",
+    "base_ns": 389499.9999,
+    "candidate_ns": 116358.1818005,
+    "speedup_pct": 234.68754122138003,
+    "ci95_low_pct": 229.64111534643692,
+    "ci95_high_pct": 239.81122206521417
+  },
+  {
+    "case": "sig5_shape12_index1817004_p50",
+    "base_ns": 356023.63641399995,
+    "candidate_ns": 104932.72724949999,
+    "speedup_pct": 238.32127209132486,
+    "ci95_low_pct": 232.5840125135198,
+    "ci95_high_pct": 244.15750259444397
+  },
+  {
+    "case": "sig5_shape12_index1817004_p99",
+    "base_ns": 387456.3636385,
+    "candidate_ns": 115114.54538600001,
+    "speedup_pct": 236.8132095837438,
+    "ci95_low_pct": 233.37615726014494,
+    "ci95_high_pct": 240.28569734091488
+  },
+  {
+    "case": "sig5_shape1_index15_p99",
+    "base_ns": 2.9853,
+    "candidate_ns": 2.8432,
+    "speedup_pct": 4.63616840200068,
+    "ci95_low_pct": 1.554705582785797,
+    "ci95_high_pct": 7.811131695188808
+  },
+  {
+    "case": "sig5_shape2_index16_p99",
+    "base_ns": 2.94835,
+    "candidate_ns": 3.5208000000000004,
+    "speedup_pct": -16.199737536533082,
+    "ci95_low_pct": -16.621307161341612,
+    "ci95_high_pct": -15.776036420542441
+  },
+  {
+    "case": "sig5_shape3_index31_p99",
+    "base_ns": 4.155799999999999,
+    "candidate_ns": 6.992699999999999,
+    "speedup_pct": -40.39564004670178,
+    "ci95_low_pct": -41.724729995298404,
+    "ci95_high_pct": -39.0362374098702
+  },
+  {
+    "case": "sig5_shape4_index32_p99",
+    "base_ns": 4.178649999999999,
+    "candidate_ns": 7.3884,
+    "speedup_pct": -43.31208966949603,
+    "ci95_low_pct": -44.14797499286337,
+    "ci95_high_pct": -42.463694427755435
+  },
+  {
+    "case": "sig5_shape5_index47_p99",
+    "base_ns": 5.606400000000001,
+    "candidate_ns": 10.535350000000001,
+    "speedup_pct": -46.58117592286739,
+    "ci95_low_pct": -47.05696989048002,
+    "ci95_high_pct": -46.10110604019761
+  },
+  {
+    "case": "sig5_shape6_index48_p99",
+    "base_ns": 5.860950000000001,
+    "candidate_ns": 4.50445,
+    "speedup_pct": 30.21787128911712,
+    "ci95_low_pct": 29.99640860187004,
+    "ci95_high_pct": 30.43971126157054
+  },
+  {
+    "case": "sig5_shape7_index63_p99",
+    "base_ns": 7.729216,
+    "candidate_ns": 7.879296,
+    "speedup_pct": -2.3995100012152966,
+    "ci95_low_pct": -3.987513020981566,
+    "ci95_high_pct": -0.7852421312182664
+  },
+  {
+    "case": "sig5_shape8_index64_p99",
+    "base_ns": 7.934486,
+    "candidate_ns": 8.247981,
+    "speedup_pct": -3.7081033825600045,
+    "ci95_low_pct": -5.39313322021733,
+    "ci95_high_pct": -1.9930617111908133
+  },
+  {
+    "case": "sig5_shape9_index127_p99",
+    "base_ns": 17.875968,
+    "candidate_ns": 9.657216,
+    "speedup_pct": 85.0453353215086,
+    "ci95_low_pct": 82.07383587072272,
+    "ci95_high_pct": 88.06533053196142
+  }
+]

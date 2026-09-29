@@ -518,3 +518,21 @@ tiny reads +4–11%, all six-pair read intervals positive. ASan+UBSan ctest 6/6
 and 19,260 boundary/offset/valid-removal checks pass. Write means near flat but
 some intervals cross -1%. Still provisional pending referee/profile and broader
 validation. Raw results in `M6-004/prefix-mask32/`.
+
+### M6-004 extended checks — 2026-09-29
+
+Immutable referee: 0.22 -> 0.90 Mq/s, identical checksum; write -0.076%.
+Twenty new paired ordinary-write controls meet the -1% lower confidence gate.
+However, extending early-crossing coverage exposes 16–47% regressions at indices
+16–47. **Not accepted**; retain the long-scan gain as a useful candidate, not a
+blanket recommendation. Matrix has a failed-sampler interference caveat and needs
+rerun after cleanup. Profiling and genuine-GCC validation remain unavailable.
+
+### M6 next-stage preparation — 2026-09-29
+
+M6-006 candidate `1fe058d` preserves the iterator's empty-batch behavior and passes
+ASan+UBSan ctest 6/6 plus 52,800 batch-oracle checks (all precisions, rotations,
+lengths 1–32, duplicate targets). Batch performance remains unmeasured.
+Atomic scaling harness validates final counts/buckets at 1/2/4/6/12 writers;
+packed-width harness passes 48 independent percentile checks. These are prepared
+diagnostics, not optimization wins. Keep timing serial and wait for sampler cleanup.

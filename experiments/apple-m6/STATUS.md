@@ -13,9 +13,11 @@ Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 | Precise harness | Implemented | 2,700 singular/offset oracle checks; five write distributions; ordinary/atomic paths; read shapes and percentiles |
 | M6-002 prefetch ablation | REJECT default | Immutable write -0.87%; hot supplemental writes +13–25%; low-precision read regression; see M6-002/RESULT.md |
 | M6-003 isolated build flags | REJECT default | O3/native no robust gain; ThinLTO improves hot writes but regresses low-precision reads; see M6-003/RESULT.md |
-| M6-004 portable scan widths | Local finalist | Masked scalar prefix retains ~4x long reads; tiny reads improve 4–11%; sanitizer + 19,260 boundary checks pass; referee/profile and write confidence pending |
+| M6-004 portable scan widths | Needs refinement | Referee 0.22 -> 0.90 Mq/s; write -0.076%; 20-pair ordinary-write controls pass; broader matrix exposes 16–47% early-crossing regressions; not accepted |
 | M6-005 NEON | Deferred | Prototype branch prepared, but portable width 32 vectorizes; prefer portable refinement first |
-| M6-006 batch scan | Prepared | Candidate branch and 52,800 baseline batch-oracle checks; measure after singular scan |
+| M6-006 batch scan | Correctness validated, not measured | Candidate `1fe058d`: ASan+UBSan ctest 6/6, 52,800 batch-oracle checks; preserve empty-histogram early return |
+| M6-007 atomic diagnostics | Prepared | Generic build already emits LDADDAL/CASAL; shared/separate harness correctness passes at 1/2/4/6/12 writers; no scaling timings yet |
+| M6-008 packed diagnostics | Prepared | Widths 1/2/4/8 at 4/64/4096 populated buckets pass 48 scalar-oracle checks; no timing or width-sweep claims yet |
 
 ## Evidence corrections
 
@@ -40,6 +42,20 @@ because `github.com` cannot resolve. Continue local work, commit every checkpoin
 retry normal pushes at checkpoints, and report unpublished commits explicitly.
 The Stage 0 and M6-002 checkpoint pushes failed for this reason; no force pushes
 or remote history changes were attempted.
+
+Later M6-003/M6-004 push retries failed for the same DNS restriction. The current
+parent and experimental C branches are saved locally but remain unpublished.
+
+## Runtime restriction
+
+Both matched `sample` profile attempts failed. A subsequent diagnostic sampler
+did not exit, and the sandbox denies terminating it. The user has been asked to
+clear it locally. Hold new performance runs until cleanup is confirmed; preserve
+the extended matrix with its interference caveat. Correctness-only checks can
+continue. Raw profiling data is not committed.
+
+Exact queued commands and revisions: `NEXT-RUN.md`. No new optimization has been
+promoted into the baseline submodule by these checkpoints.
 
 ## Reproduction
 

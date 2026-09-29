@@ -56,3 +56,39 @@ No claims extend to arbitrary invalid negative-count states.
 
 Next: immutable referee, matched sampling profiles, and additional independent
 write controls. Genuine GCC and cross-architecture acceptance remain unavailable.
+
+## Referee, confirmation and extended-matrix checkpoint
+
+The full immutable referee on `6930fd7` reports **0.22 -> 0.90 M queries/s**,
+with identical sink `17401860284404480`. Mean write throughput over the final
+80 of 100 iterations is 709,049,410 -> 708,512,935 records/s (**-0.076%**).
+These are sequential referee runs, not paired confidence estimates; see
+`../../M6-004/bench-results/` for complete unmodified driver output.
+
+Twenty new alternating write pairs in `prefix-mask32/write-confirm/` place all
+five ordinary-write confidence intervals above -1%. Correlated writes are +0.30%
+[-0.36%, +0.95%]. Atomic intervals remain wider and inconclusive. This is a new
+confirmation set, not a replacement for the initial six-pair results.
+
+Assembly shows that the masked bound also permits unrolling the first four
+four-counter blocks. The improvement is not evidence that only one branch mattered.
+
+**Do not accept this revision as a default.** The extended 70-case performance
+matrix covers significant figures 1–5, single buckets at indices 0/15/16/31/32/
+47/48/63/64/127/128, the last recordable bucket, and dense p50/p99 scans. It
+reveals **16–47% regressions at crossings 16–47**, just beyond the scalar prefix,
+and smaller regressions near 63–64. Long sig5 scans still improve about 3.3x.
+The original tiny case populated only indices 0–9 and did not expose these costs.
+Keep this broader matrix for every subsequent refinement. Crossing-block scalar
+resolution is a next hypothesis to examine; simply declaring the tiny case fixed
+would have overstated the result.
+
+Measurement caveat: the matrix completed while a failed self-sampling diagnostic
+had not exited (it produced no profile). Its interference is unknown, so the
+matrix is screening evidence, not final acceptance evidence, and should be rerun
+after cleanup. The referee completed before this diagnostic; any confirmation
+timings overlapping diagnostic activity need rerunning as well. Both intended baseline/candidate profiling runs
+failed; hardware counters, before/after sampling and genuine GCC remain unavailable.
+No new timing runs should start until diagnostic cleanup is confirmed.
+
+Reproduce the extended matrix with `bash experiments/apple-m6/run_scan_matrix.sh`.
