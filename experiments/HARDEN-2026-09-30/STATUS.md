@@ -15,6 +15,7 @@ balloted by all 7 agents; a PR is opened only on a 7/7 vote and after
   capping), #125 (hdr_min on empty), #116 (percentile of empty = 63), #124 (gcc ipa-ra).
 
 ## Status log (newest first)
+- 2026-09-30 — lane 3 (log codec) report landed: 9 findings; L3-F1 apply_to_counts_zz negates INT64_MIN before range check (UBSan abort on crafted V2); L3-F2 inflate accepts short header (partially uninit flyweight); L3-F3 offset!=0 encode is physical-order in C vs logical in Java (round-trip loses counts); L3-F4 negative counts encode as zero-runs; L3-F5 header lines >=128 B rejected. 22 fuzzer-min on main: only hdr_time.c classes (covered by #154/#156).
 - 2026-09-30 — lane 4 (platform/API) report landed: 8 findings; L4-F1 HIGH = hdr_interval_recorder_sample_and_recycle reads active + hdr_init before the phaser reader lock (heap UAF with 2 samplers under ASan/TSan; ENOMEM swaps active=NULL); L4-F2 value_at_percentiles on empty returns 1 not 0; L4-F3 -inf percentile float-cast UB; L4-F4 hdr_getnow undefined on Windows.
 - 2026-09-30 — lane 7 (release readiness) report landed: 8 findings; all 7 open PR heads CI-green; weekly cflite UBSan red on main until #154/#156 merge; stack squash-merge conflict risk (#140→#141, #154→#156); CI sanitizers job lacks float-cast-overflow.
 - 2026-09-30 00:35 WEST — round 1 launched: 7 Fable audit lanes (record path, query path, log codec, platform/API, fuzzing, coverage, open-PR+release readiness). Shared brief in BRIEF.md.
