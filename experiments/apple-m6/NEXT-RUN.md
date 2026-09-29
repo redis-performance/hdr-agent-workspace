@@ -7,7 +7,9 @@ The user has been asked to clean it up. No other benchmark/test session was stil
 running when this checkpoint was written.
 
 Baseline C: `8c4cdcc`, branch `perf/m6-blocked-scan`.
-Singular candidate: `6930fd7`, branch `experiment/m6-scan-blocks`.
+Measured singular candidate: `6930fd7`, retained in `build/prefix-mask32`.
+Next singular candidate: `df89e1f`, branch `experiment/m6-scan-blocks`, built in
+`build/quartet32`; correctness validated, performance unmeasured.
 Batch candidate: `1fe058d`, branch `experiment/m6-batch-scan`.
 Experimental worktrees live under ignored `.tools/`; the baseline pointer has
 not been advanced to a candidate. If reconstructing a checkout, create those
@@ -16,7 +18,7 @@ worktrees from the named branches before running the scripts.
 ## Next experiments
 
 1. Recheck the broad singular matrix after cleanup. Reuse the current candidate
-   to confirm regressions, then investigate crossing-block resolution. Keep the
+   to confirm regressions, then measure the validated quartet-crossing candidate. Keep the
    entire matrix; do not optimize solely for the original indices-0–9 tiny case.
 2. Measure the batch candidate; sanitizer correctness already passes. It remains
    isolated from singular changes, so attribution stays clear.
@@ -35,6 +37,9 @@ starting the next. Use fresh output directories; runners refuse to overwrite dat
 bash experiments/apple-m6/run_scan_matrix.sh \
   "$PWD/.tools/m6-scan/build/prefix-mask32" \
   experiments/apple-m6/M6-004/prefix-mask32/matrix-clean
+bash experiments/apple-m6/run_scan_matrix.sh \
+  "$PWD/.tools/m6-scan/build/quartet32" \
+  experiments/apple-m6/M6-004/quartet32/matrix-clean
 bash experiments/apple-m6/run_batch.sh
 python3 experiments/apple-m6/run_scaling.py \
   HdrHistogram_c/build/m6-flags-o2/atomic-scale experiments/apple-m6/M6-007/scaling
@@ -62,3 +67,7 @@ git -C HdrHistogram_c push origin perf/m6-blocked-scan \
 
 Portable acceptance still needs genuine GCC, matched profiling, and relevant
 cross-architecture checks. Leave all current performance candidates provisional.
+
+Do not accumulate more unmeasured singular-scan variants while timing is blocked.
+The next useful optimization decision depends on the broad matrix for these two
+already-built revisions. Both use `HDR_M6_SCAN_BLOCK=32` at O2.

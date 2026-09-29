@@ -536,3 +536,12 @@ lengths 1–32, duplicate targets). Batch performance remains unmeasured.
 Atomic scaling harness validates final counts/buckets at 1/2/4/6/12 writers;
 packed-width harness passes 48 independent percentile checks. These are prepared
 diagnostics, not optimization wins. Keep timing serial and wait for sampler cleanup.
+
+### M6-004 quartet crossing correctness — 2026-09-29
+
+Candidate `df89e1f` adds four-counter reductions inside a crossing width-32 block.
+Release and ASan+UBSan ctest pass 6/6 each; expanded oracle checks pass 34,680 in
+both candidate builds and the sanitized baseline. Clang retains vectorization but
+grows the extracted function from 253 to 461 instructions. **Unmeasured and not
+accepted**; timing remains held while the diagnostic sampler is live. Validation,
+hashes and assembly: [`apple-m6/M6-004/quartet32/VALIDATION.md`](apple-m6/M6-004/quartet32/VALIDATION.md).

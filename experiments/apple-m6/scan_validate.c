@@ -46,6 +46,33 @@ int main(void)
             if (hdr_value_at_percentile(h, pcts[p]) != oracle(h, pcts[p])) fail("removal oracle");
             checks++;
         }
+        /* Exhaust every early crossing, including all quartet/wide boundaries.
+           Direct counts make this independent of min/max metadata shortcuts. */
+        hdr_reset(h); h->normalizing_index_offset = 0;
+        for (int idx = 0; idx < 256 && idx < h->counts_len; idx++)
+        {
+            h->counts[idx] = 17;
+            h->total_count = 17;
+            for (size_t p = 0; p < sizeof(pcts)/sizeof(pcts[0]); p++)
+            {
+                if (hdr_value_at_percentile(h, pcts[p]) != oracle(h, pcts[p]))
+                    fail("exhaustive early crossing");
+                checks++;
+            }
+            h->counts[idx] = 0;
+        }
+        /* Stay below dense's known floating-point percentile target overflow.
+           This total fits exactly in double and exercises large block sums. */
+        h->counts[16] = INT64_C(1125899906842624);
+        h->counts[47] = INT64_C(1125899906842624);
+        h->counts[h->counts_len - 1] = INT64_C(1125899906842624);
+        h->total_count = INT64_C(3377699720527872);
+        for (size_t p = 0; p < sizeof(pcts)/sizeof(pcts[0]); p++)
+        {
+            if (hdr_value_at_percentile(h, pcts[p]) != oracle(h, pcts[p]))
+                fail("large-count crossing");
+            checks++;
+        }
         hdr_close(h);
     }
     printf("PASS: %"PRIu64" scan boundary/offset/removal checks, seed=0x6a09e667\n", checks);

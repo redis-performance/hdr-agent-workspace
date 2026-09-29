@@ -14,6 +14,7 @@ Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 | M6-002 prefetch ablation | REJECT default | Immutable write -0.87%; hot supplemental writes +13–25%; low-precision read regression; see M6-002/RESULT.md |
 | M6-003 isolated build flags | REJECT default | O3/native no robust gain; ThinLTO improves hot writes but regresses low-precision reads; see M6-003/RESULT.md |
 | M6-004 portable scan widths | Needs refinement | Referee 0.22 -> 0.90 Mq/s; write -0.076%; 20-pair ordinary-write controls pass; broader matrix exposes 16–47% early-crossing regressions; not accepted |
+| M6-004 quartet crossing | Correctness only | `df89e1f`: release/sanitizer ctest 6/6 each, 34,680 expanded oracle checks; code-size increase; timing pending cleanup |
 | M6-005 NEON | Deferred | Prototype branch prepared, but portable width 32 vectorizes; prefer portable refinement first |
 | M6-006 batch scan | Correctness validated, not measured | Candidate `1fe058d`: ASan+UBSan ctest 6/6, 52,800 batch-oracle checks; preserve empty-histogram early return |
 | M6-007 atomic diagnostics | Prepared | Generic build already emits LDADDAL/CASAL; shared/separate harness correctness passes at 1/2/4/6/12 writers; no scaling timings yet |

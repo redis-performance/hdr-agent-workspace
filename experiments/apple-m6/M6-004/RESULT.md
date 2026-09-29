@@ -92,3 +92,12 @@ failed; hardware counters, before/after sampling and genuine GCC remain unavaila
 No new timing runs should start until diagnostic cleanup is confirmed.
 
 Reproduce the extended matrix with `bash experiments/apple-m6/run_scan_matrix.sh`.
+
+## Next candidate: quartet crossing resolution
+
+Candidate `df89e1f` resolves the crossing wide block with short four-counter
+reductions. Release and sanitizer tests pass, including 34,680 expanded oracle
+checks. Assembly retains vectorization but increases the percentile function's
+instruction count substantially. **No timing yet; not accepted.** See
+[`quartet32/VALIDATION.md`](quartet32/VALIDATION.md). Wait for sampler cleanup,
+then compare the entire extended matrix before drawing performance conclusions.
