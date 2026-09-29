@@ -1,0 +1,37 @@
+2026-09-29T15:47:15.5027823Z + for fuzzer in log_reader_fuzzer hdr_record_fuzzer hdr_decode_fuzzer hdr_packed_fuzzer
+2026-09-29T15:47:15.6597378Z + for fuzzer in log_reader_fuzzer hdr_record_fuzzer hdr_decode_fuzzer hdr_packed_fuzzer
+2026-09-29T15:47:15.8432765Z + for fuzzer in log_reader_fuzzer hdr_record_fuzzer hdr_decode_fuzzer hdr_packed_fuzzer
+2026-09-29T15:47:15.9947667Z + for fuzzer in log_reader_fuzzer hdr_record_fuzzer hdr_decode_fuzzer hdr_packed_fuzzer
+2026-09-29T15:47:15.9951061Z + clang -O1 -fno-omit-frame-pointer -gline-tables-only -Wno-error=incompatible-function-pointer-types -Wno-error=int-conversion -Wno-error=deprecated-declarations -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=unknown-warning-option -Wno-error=vla-cxx-extension -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -fsanitize=array-bounds,bool,builtin,enum,function,integer-divide-by-zero,null,object-size,return,returns-nonnull-attribute,shift,signed-integer-overflow,unsigned-integer-overflow,unreachable,vla-bound,vptr -fno-sanitize-recover=array-bounds,bool,builtin,enum,function,integer-divide-by-zero,null,object-size,return,returns-nonnull-attribute,shift,signed-integer-overflow,unreachable,vla-bound,vptr -fsanitize=fuzzer-no-link -fno-sanitize=function -fsanitize=fuzzer /src/hdrhistogram_c/.clusterfuzzlite/hdr_packed_fuzzer.c -o /github/workspace/build-out/hdr_packed_fuzzer -I/src/hdrhistogram_c/include /src/hdrhistogram_c/build/src/libhdr_histogram_static.a -l:libz.a
+2026-09-29T15:47:17.2887931Z Build check: stdout: INFO: performing bad build checks for /tmp/not-out/tmprmp7px3e/hdr_packed_fuzzer
+2026-09-29T15:47:18.5684301Z 2026-09-29 15:47:18,568 - root - INFO - Fuzz targets: ['/github/workspace/build-out/hdr_packed_fuzzer', '/github/workspace/build-out/log_reader_fuzzer', '/github/workspace/build-out/hdr_record_fuzzer', '/github/workspace/build-out/hdr_decode_fuzzer']
+2026-09-29T15:47:18.5685561Z 2026-09-29 15:47:18,568 - root - INFO - Running fuzzer: hdr_packed_fuzzer.
+2026-09-29T15:47:18.5686273Z 2026-09-29 15:47:18,568 - root - INFO - Downloading corpus for hdr_packed_fuzzer to /github/workspace/cifuzz-corpus/hdr_packed_fuzzer.
+2026-09-29T15:47:18.8748740Z 2026-09-29 15:47:18,874 - root - WARNING - Could not find artifact: cifuzz-corpus-hdr_packed_fuzzer.
+2026-09-29T15:47:18.8749526Z 2026-09-29 15:47:18,874 - root - WARNING - Could not download artifact: cifuzz-corpus-hdr_packed_fuzzer.
+2026-09-29T15:47:18.8750285Z 2026-09-29 15:47:18,874 - root - INFO - Done downloading corpus. Contains 0 elements.
+2026-09-29T15:49:50.1302327Z INFO:        0 files found in /github/workspace/cifuzz-corpus/hdr_packed_fuzzer
+2026-09-29T15:49:50.1321588Z 2026-09-29 15:49:50,129 - root - INFO - Fuzzer hdr_packed_fuzzer finished with no crashes discovered.
+2026-09-29T15:49:50.1322428Z 2026-09-29 15:49:50,130 - root - INFO - Uploading corpus in /github/workspace/cifuzz-corpus/hdr_packed_fuzzer for hdr_packed_fuzzer.
+2026-09-29T15:49:50.2290782Z Done 480749 runs in 151 second(s)
+2026-09-29T15:49:50.2305287Z stat::number_of_executed_units: 480749
+2026-09-29T15:49:51.5254903Z 2026-09-29 15:49:51,525 - root - INFO - Done uploading corpus.
+2026-09-29T15:49:51.5255637Z 2026-09-29 15:49:51,525 - root - INFO - Deleting corpus and seed corpus of hdr_packed_fuzzer to save disk.
+2026-09-29T15:49:51.5506882Z 2026-09-29 15:49:51,550 - root - INFO - Done deleting.
+2026-09-29T15:49:51.5507802Z 2026-09-29 15:49:51,550 - root - INFO - Fuzzer hdr_packed_fuzzer finished running without reportable crashes.
+2026-09-29T15:49:53.0804216Z 2026-09-29 15:49:53,079 - root - INFO - Done downloading corpus. Contains 2710 elements.
+2026-09-29T15:52:24.4387424Z Done 2253530 runs in 151 second(s)
+2026-09-29T15:52:24.4387680Z stat::number_of_executed_units: 2253530
+2026-09-29T15:52:26.2332925Z 2026-09-29 15:52:26,232 - root - INFO - Done uploading corpus.
+2026-09-29T15:52:26.6103386Z 2026-09-29 15:52:26,609 - root - INFO - Done deleting.
+2026-09-29T15:52:28.0456738Z 2026-09-29 15:52:28,045 - root - INFO - Done downloading corpus. Contains 2454 elements.
+2026-09-29T15:54:59.2445221Z Done 126044 runs in 151 second(s)
+2026-09-29T15:54:59.2445580Z stat::number_of_executed_units: 126044
+2026-09-29T15:55:00.9715593Z 2026-09-29 15:55:00,971 - root - INFO - Done uploading corpus.
+2026-09-29T15:55:01.2897276Z 2026-09-29 15:55:01,289 - root - INFO - Done deleting.
+2026-09-29T15:55:02.1819598Z 2026-09-29 15:55:02,181 - root - INFO - Done downloading corpus. Contains 227 elements.
+2026-09-29T15:57:33.1901590Z Done 96100156 runs in 151 second(s)
+2026-09-29T15:57:33.1901985Z stat::number_of_executed_units: 96100156
+2026-09-29T15:57:34.5547024Z 2026-09-29 15:57:34,554 - root - INFO - Done uploading corpus.
+2026-09-29T15:57:34.5852253Z 2026-09-29 15:57:34,584 - root - INFO - Done deleting.
+2026-09-29T15:57:34.5858180Z 2026-09-29 15:57:34,585 - root - INFO - No crashes in /github/workspace/out/artifacts. Not uploading.

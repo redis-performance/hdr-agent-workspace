@@ -113,6 +113,13 @@ write being flat. Read throughput is 2.4× on **both** compilers.
 Submodule branch `perf/avx2-percentile-scan-widen16` @ 673d52e.
 **Upstream**: **PR #138** opened to HdrHistogram/HdrHistogram_c (2026-07-01) — https://github.com/HdrHistogram/HdrHistogram_c/pull/138 — with the clx1 same-session benchmark table + repro; body notes the #137 relationship (offer to re-target if the portable scalar path is preferred).
 
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
+
 ## EXP-003 — 2026-07-01 — Software prefetch counts[] ahead in the widened AVX2 scan
 
 **Target path**: read (re-profile after EXP-002: still 99.4% in `get_value_from_idx_up_to_count_avx2`; the compute headroom is gone, so what's left is memory-load latency over the ~10s-of-KB `counts[]` scan)
@@ -143,6 +150,13 @@ portable win to layer on the already-PR'd EXP-002 tip. **Follow-ups before accep
 read path at finer resolution (more iters / higher-precision timer) to resolve the clang result;
 (2) sweep the prefetch distance; (3) confirm on a second microarchitecture (e.g. Granite Rapids).
 **Upstream**: none (parked — tip stays at EXP-002 @ 673d52e / PR #138).
+
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
 
 ## EXP-004 — 2026-07-01 — Cross-µarch validation of the counts[] prefetch (promotes EXP-003)
 
@@ -179,6 +193,13 @@ across two Intel µarchs and two compilers.
 Submodule branch `perf/avx2-scan-prefetch` @ 3e8ae6a (stacked on the #138 widen branch); pointer bumped.
 **Upstream**: **[PR #139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)** opened 2026-07-01 — stacked follow-up on #138 (2 commits; reduces to the one-line prefetch once #138 merges); two-µarch benchmark table in the body.
 
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
+
 ## EXP-005 — 2026-07-01 — Prefetch distance sweep (confirms EXP-004's D=64)
 
 **Target path**: read — tuning follow-up to the accepted prefetch (EXP-004).
@@ -199,6 +220,13 @@ prefetch (EXP-004 / PR #139) is already optimally tuned for this microarchitectu
 the submodule or PR #139.
 
 ---
+
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
 
 ## Cross-port optimizations (Go / Rust)
 
@@ -255,6 +283,13 @@ the fallback) · A3 bounds/overflow ✅ · MSVC-safe (no intrinsics) ✅. MERGE-
 > committing it. Always commit (or ship the working tree) before the archive-based A/B.
 
 
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
+
 ## GO-EXP-002 — 2026-07-02 — Flat counts[] scan in ValueAtPercentiles (Go batch)
 
 **Port**: hdrhistogram-go. **Target**: read batch. **Stacked on #57** (reuses `valueFromFlatIndex`).
@@ -310,6 +345,13 @@ Baseline vs optimized packed read (config 1,1e9,2, same box), D=223..594:
 - decode: symmetric (uncompress dominates). NO-WIN.
 - width-8 read blocking: NON-VIABLE — a width-8 bucket holds up to 2^63, so a block sum can overflow int64; the per-element saturation that prevents block-skip IS the cost. Must stay scalar.
 - LOOP STOPPED: 3 consecutive no-wins. Optimization space exhausted.
+
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
 
 ## Packed optimization loop — FINAL SUMMARY
 ACCEPTED (all on PR #150): read width-specialized scan (+20-25%), single-pass plural (~2.3-3x), blocked prefix-sum single (~3x) + plural (~2.6-3x). Net: packed read went from 3.3-4.5x SLOWER than optimized dense#141 to 1.3-2.5x FASTER (single 0.40-0.66x, batch 0.52-0.77x of dense) for sparse pops.
@@ -436,6 +478,13 @@ MERGE-READY after replacing a test-only `free` with `hdr_close`.
 
 **Decision**: **ACCEPT**. **Upstream**: [HdrHistogram_c #141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141).
 Raw results: [`EXP-007/2026-07-03-gnr1-AB.txt`](EXP-007/2026-07-03-gnr1-AB.txt).
+
+### Review round — 2026-09-29
+
+See [the commit-specific C PR audit](PR-REVIEW-2026-09-29/README.md).
+Current-head performance/profile gates remain pending; historical measurements
+and acceptance counts above are unchanged. Correctness fixes and review comments
+are recorded in that round.
 
 ## M6-EXP-001 — 2026-09-29 — Four-counter blocked percentile scan on Apple M6
 
@@ -630,3 +679,13 @@ executions; additional probes confirm blockers despite green CI. Exact CI
 crashes and regression probes are retained. Fixes, final reviewed hashes and
 per-PR comments are recorded in the round directory as work completes.
 This is a review/hardening round, not a performance acceptance; counts unchanged.
+
+### C PR review closeout — 2026-09-29
+
+All 11 PRs reviewed and commented at exact commits; eight branches received
+non-forced corrective pushes. Five verdicts are MERGE-READY; six are NEEDS WORK.
+Native performance/profile gates remain pending by explicit user direction.
+The combined state passes local release/sanitizer/no-zlib tests and historical
+crash replay. Dense issue #118 remains a release-level blocker. The
+[review ledger](PR-REVIEW-2026-09-29/README.md) has final hashes, comments, findings
+and CI/fuzz evidence. No optimization acceptance count or baseline pointer changed.

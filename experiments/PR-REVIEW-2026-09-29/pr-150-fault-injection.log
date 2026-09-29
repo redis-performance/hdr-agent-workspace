@@ -1,0 +1,34 @@
+packed fault-injection / error-path coverage
+  ok:   config_create calloc fail -> ENOMEM
+  ok:   init: config calloc fail -> ENOMEM
+  ok:   init: histogram calloc fail -> ENOMEM+cleanup
+  ok:   init_shared calloc fail -> ENOMEM
+  ok:   record: ensure_cap idx realloc fail -> false
+  ok:   record: ensure_cap cnt realloc fail -> false
+  ok:   record: widen-on-hit realloc fail -> false
+  ok:   record: widen-on-insert realloc fail -> false
+  ok:   encode: flyweight calloc fail -> ENOMEM
+  ok:   encode: compressed malloc fail -> ENOMEM
+  ok:   encode: compress() fail -> error
+  ok:   decode: config calloc fail -> ENOMEM
+  ok:   decode: histogram calloc fail -> ENOMEM
+  ok:   decode: counts_array calloc fail -> ENOMEM
+  ok:   decode: buffer too short -> EINVAL
+  ok:   decode: bad compression cookie -> mismatch
+  ok:   decode: length > buffer -> EINVAL
+  ok:   decode: bad encoding cookie -> mismatch
+  ok:   decode: corrupt deflate -> inflate fail
+  ok:   decode: trailing-zeros invalid
+  ok:   decode: value truncated
+  ok:   decode: encoded input too long
+  ok:   decode: oversized payload_len rejected (no giant alloc)
+  ok:   decode: value<=INT32_MIN run rejected
+  ok:   decode: negative payload_len -> EINVAL
+  ok:   decode: negative comp_len -> EINVAL
+  ok:   decode: short header inflate -> error
+  ok:   decode: corrupted payload body -> error
+  ok:   decode: multi-2^62-bucket stream accepted
+  ok:   decode: total saturates to INT64_MAX
+  ok:   decode: nonzero normalizing_index_offset -> EINVAL
+
+ALL PASS

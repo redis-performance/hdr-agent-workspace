@@ -1,0 +1,44 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-150 -B $WORKSPACE/.tools/pr-review-20260929/pr-150/build/nolog -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DHDR_LOG_REQUIRED=DISABLED
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-150/build/nolog
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-150/build/nolog -j 4
+[  2%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_packed_histogram.c.o
+[  5%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram.c.o
+[  7%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_packed_histogram_no_op.c.o
+[ 10%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram_no_op.c.o
+[ 15%] Linking C shared library libhdr_histogram.dylib
+[ 15%] Linking C static library libhdr_histogram_static.a
+[ 34%] Built target hdr_histogram_static
+[ 52%] Built target hdr_histogram
+[ 55%] Linking C executable hdr_histogram_test
+[ 57%] Linking C executable hdr_histogram_atomic_test
+[ 60%] Building C object test/CMakeFiles/hdr_packed_core_test.dir/hdr_packed_core_test.c.o
+[ 63%] Linking C executable hdr_atomic_test
+[ 65%] Linking C executable hdr_packed_core_test
+[ 76%] Built target hdr_histogram_test
+[ 76%] Built target hdr_histogram_atomic_test
+[ 81%] Built target hdr_atomic_test
+[ 86%] Linking C executable hdr_histogram_perf
+[ 86%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 89%] Built target hdr_packed_core_test
+[100%] Built target hdr_histogram_perf
+[100%] Built target hdr_histogram_atomic_concurrency_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-150/build/nolog --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-150/build/nolog
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.38 sec
+    Start 2: hdr_packed_core_test
+2/5 Test #2: hdr_packed_core_test ....................   Passed    0.16 sec
+    Start 3: hdr_histogram_atomic_test
+3/5 Test #3: hdr_histogram_atomic_test ...............   Passed    0.42 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.16 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.66 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   1.78 sec

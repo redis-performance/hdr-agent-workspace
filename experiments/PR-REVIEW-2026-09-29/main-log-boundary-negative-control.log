@@ -1,0 +1,7 @@
+Main log unit suite with start timestamp fixed at {56,999999999}; original comparator.
+tv_sec: Thu Jan  1 01:00:57 1970
+ != Thu Jan  1 01:00:56 1970
+
+hdr_histogram_log_test.writes_and_reads_log(): Incorrect start timestamp
+Tests run: 17
+exit=255

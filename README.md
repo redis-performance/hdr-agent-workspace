@@ -14,6 +14,11 @@ maintainer's real review M.O. Every experiment is logged; failures are as valuab
 
 ---
 
+**C review round, 2026-09-29:** [all 11 open PRs reviewed](experiments/PR-REVIEW-2026-09-29/README.md),
+with commit-specific comments and fixes pushed to eight branches. Five are
+MERGE-READY; six need work. Native performance/profile qualification remains
+explicitly pending. Experiment counts and the accepted baseline are unchanged.
+
 ## Cross-language comparison — C / Go / Rust / Java
 
 The **same** log-normal workload run through each HdrHistogram port on one core of an

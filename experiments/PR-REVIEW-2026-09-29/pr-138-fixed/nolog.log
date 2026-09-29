@@ -1,0 +1,38 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-138 -B $WORKSPACE/.tools/pr-review-20260929/pr-138/build/nolog -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DHDR_LOG_REQUIRED=DISABLED
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-138/build/nolog
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-138/build/nolog -j 4
+[  3%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[  6%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o
+[  9%] Linking C shared library libhdr_histogram.dylib
+[ 12%] Linking C static library libhdr_histogram_static.a
+[ 32%] Built target hdr_histogram_static
+[ 51%] Built target hdr_histogram
+[ 54%] Linking C executable hdr_atomic_test
+[ 58%] Building C object test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o
+[ 61%] Linking C executable hdr_histogram_atomic_test
+[ 64%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 70%] Built target hdr_atomic_test
+[ 77%] Built target hdr_histogram_atomic_test
+[ 80%] Linking C executable hdr_histogram_test
+[ 87%] Built target hdr_histogram_atomic_concurrency_test
+[ 90%] Linking C executable hdr_histogram_perf
+[ 93%] Built target hdr_histogram_test
+[100%] Built target hdr_histogram_perf
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-138/build/nolog --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-138/build/nolog
+    Start 1: hdr_histogram_test
+1/4 Test #1: hdr_histogram_test ......................   Passed    0.39 sec
+    Start 2: hdr_histogram_atomic_test
+2/4 Test #2: hdr_histogram_atomic_test ...............   Passed    0.58 sec
+    Start 3: hdr_atomic_test
+3/4 Test #3: hdr_atomic_test .........................   Passed    0.16 sec
+    Start 4: hdr_histogram_atomic_concurrency_test
+4/4 Test #4: hdr_histogram_atomic_concurrency_test ...   Passed    0.61 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   1.73 sec

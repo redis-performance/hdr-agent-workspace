@@ -1,0 +1,39 @@
+{
+  "head": "6fe251335e1d461626b642a3d002a8e4b15fb28e",
+  "diff_sha256": "02d1d22e5fee272223320b2ef23ae31bdca945bb2652fb2f5f7c5d4116110192",
+  "started_utc": "2026-09-29T15:43:31.536889+00:00",
+  "architecture": "arm64",
+  "results": [
+    {
+      "configuration": "release",
+      "passed": true,
+      "tests": 7,
+      "returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "configuration": "asan",
+      "passed": true,
+      "tests": 7,
+      "returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "configuration": "nolog",
+      "passed": true,
+      "tests": 5,
+      "returncodes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "ended_utc": "2026-09-29T15:43:36.454652+00:00"
+}

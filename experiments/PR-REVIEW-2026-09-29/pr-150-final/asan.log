@@ -1,0 +1,53 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-150 -B $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=-fsanitize=address,undefined,float-cast-overflow -fno-sanitize-recover=all -g
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -j 4
+[  2%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_packed_histogram.c.o
+[  4%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_packed_histogram.c.o
+[  9%] Linking C static library libhdr_histogram_static.a
+[  9%] Linking C shared library libhdr_histogram.dylib
+[ 25%] Built target hdr_histogram_static
+[ 40%] Built target hdr_histogram
+[ 43%] Building C object test/CMakeFiles/hdr_packed_core_test.dir/hdr_packed_core_test.c.o
+[ 45%] Linking C executable hdr_histogram_atomic_test
+[ 47%] Linking C executable hdr_histogram_test
+[ 50%] Linking C executable hdr_histogram_log_test
+[ 52%] Linking C executable hdr_packed_core_test
+[ 56%] Built target hdr_histogram_atomic_test
+[ 61%] Built target hdr_histogram_test
+[ 65%] Built target hdr_histogram_log_test
+[ 68%] Linking C executable hdr_atomic_test
+[ 70%] Building C object test/CMakeFiles/hdr_packed_histogram_test.dir/hdr_packed_histogram_test.c.o
+[ 72%] Built target hdr_packed_core_test
+[ 75%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 77%] Linking C executable hdr_histogram_perf
+[ 81%] Built target hdr_atomic_test
+[ 86%] Built target hdr_histogram_atomic_concurrency_test
+[ 90%] Built target hdr_histogram_perf
+[ 93%] Linking C executable hdr_decoder
+[ 95%] Linking C executable hdr_packed_histogram_test
+[ 97%] Built target hdr_decoder
+[100%] Built target hdr_packed_histogram_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+    Start 1: hdr_histogram_test
+1/7 Test #1: hdr_histogram_test ......................   Passed    1.07 sec
+    Start 2: hdr_packed_core_test
+2/7 Test #2: hdr_packed_core_test ....................   Passed    0.18 sec
+    Start 3: hdr_histogram_atomic_test
+3/7 Test #3: hdr_histogram_atomic_test ...............   Passed    1.01 sec
+    Start 4: hdr_histogram_log_test
+4/7 Test #4: hdr_histogram_log_test ..................   Passed    0.35 sec
+    Start 5: hdr_packed_histogram_test
+5/7 Test #5: hdr_packed_histogram_test ...............   Passed    0.59 sec
+    Start 6: hdr_atomic_test
+6/7 Test #6: hdr_atomic_test .........................   Passed    0.31 sec
+    Start 7: hdr_histogram_atomic_concurrency_test
+7/7 Test #7: hdr_histogram_atomic_concurrency_test ...   Passed    0.99 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   4.50 sec

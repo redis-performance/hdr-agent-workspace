@@ -1,0 +1,88 @@
+# arm64: original memory driver, linked to PR150 7d9fc50439cd479b81872dec5ced14da121a837e.
+# RSS/VSZ reads are unavailable on this OS: zero fields are NOT measurements.
+# Only requested-allocation bytes are evidence; excludes allocator overhead and residency.
+# Driver SHA256: 5978984fb638fc2b791d3e86f663fe03f1a77473339a3d94cff01e5b01ddc373
+
+$ packed_mem_bench 100 10
+=============================================================
+ PACKED vs DENSE memory microbench (HdrHistogram_c)
+=============================================================
+config:  low=1 high=3600000000 sigfig=3
+         counts_len=23552  -> dense per-histo committed=188520 B (184.10 KB)
+workload: N=100 histograms, D=10 distinct values each (d_populatable=10)
+
+DENSE committed (N * hdr_get_memory_size) :       18852000 B  (17.98 MB)  <- hard VSZ floor
+  measured VSZ delta (address space)      :              0 B  (0.00 B)
+DENSE resident  (measured RSS delta)      :              0 B  (0.00 B)  <- allocator-dependent
+   -> resident is 0.0% of committed. NOTE: resident fraction is a glibc
+      artifact (calloc from heap memsets -> fully resident; fresh mmap stays
+      lazy). Under real many-histogram churn it trends toward 100%. The VSZ
+      floor above is the unconditional cost packed eliminates.
+
+PACKED modelled per-histo (D_pop=10, +ctx=64B, min_phys=128B):
+   optimistic  (2B/entry, tight)                per= 192.00 B tot= 18.75 KB  (0.1% of committed, 0% of resident)
+   realistic   (8B/entry, 1 long/entry + tree)  per= 192.00 B tot= 18.75 KB  (0.1% of committed, 0% of resident)
+   pessimistic (16B/entry, tree-heavy)          per= 320.00 B tot= 31.25 KB  (0.2% of committed, 0% of resident)
+
+MEASURED packed (Phase-2: shared geom + 1B counts, 10 populated/histo):
+   exact bytes held (shared config once + N * per-histo) : 14.16 KB
+   measured RSS delta (allocator incl. overhead)         : 0.00 B
+
+verdict (measured packed exact vs dense):
+   packed=14.16 KB  vs  dense committed=17.98 MB  -> 1299.8x smaller (VSZ floor)
+
+$ packed_mem_bench 100 100
+=============================================================
+ PACKED vs DENSE memory microbench (HdrHistogram_c)
+=============================================================
+config:  low=1 high=3600000000 sigfig=3
+         counts_len=23552  -> dense per-histo committed=188520 B (184.10 KB)
+workload: N=100 histograms, D=100 distinct values each (d_populatable=100)
+
+DENSE committed (N * hdr_get_memory_size) :       18852000 B  (17.98 MB)  <- hard VSZ floor
+  measured VSZ delta (address space)      :              0 B  (0.00 B)
+DENSE resident  (measured RSS delta)      :              0 B  (0.00 B)  <- allocator-dependent
+   -> resident is 0.0% of committed. NOTE: resident fraction is a glibc
+      artifact (calloc from heap memsets -> fully resident; fresh mmap stays
+      lazy). Under real many-histogram churn it trends toward 100%. The VSZ
+      floor above is the unconditional cost packed eliminates.
+
+PACKED modelled per-histo (D_pop=100, +ctx=64B, min_phys=128B):
+   optimistic  (2B/entry, tight)                per= 320.00 B tot= 31.25 KB  (0.2% of committed, 0% of resident)
+   realistic   (8B/entry, 1 long/entry + tree)  per=  1.06 KB tot=106.25 KB  (0.6% of committed, 0% of resident)
+   pessimistic (16B/entry, tree-heavy)          per=  2.06 KB tot=206.25 KB  (1.1% of committed, 0% of resident)
+
+MEASURED packed (Phase-2: shared geom + 1B counts, 96 populated/histo):
+   exact bytes held (shared config once + N * per-histo) : 68.85 KB
+   measured RSS delta (allocator incl. overhead)         : 0.00 B
+
+verdict (measured packed exact vs dense):
+   packed=68.85 KB  vs  dense committed=17.98 MB  -> 267.4x smaller (VSZ floor)
+
+$ packed_mem_bench 100 1000
+=============================================================
+ PACKED vs DENSE memory microbench (HdrHistogram_c)
+=============================================================
+config:  low=1 high=3600000000 sigfig=3
+         counts_len=23552  -> dense per-histo committed=188520 B (184.10 KB)
+workload: N=100 histograms, D=1000 distinct values each (d_populatable=1000)
+
+DENSE committed (N * hdr_get_memory_size) :       18852000 B  (17.98 MB)  <- hard VSZ floor
+  measured VSZ delta (address space)      :              0 B  (0.00 B)
+DENSE resident  (measured RSS delta)      :              0 B  (0.00 B)  <- allocator-dependent
+   -> resident is 0.0% of committed. NOTE: resident fraction is a glibc
+      artifact (calloc from heap memsets -> fully resident; fresh mmap stays
+      lazy). Under real many-histogram churn it trends toward 100%. The VSZ
+      floor above is the unconditional cost packed eliminates.
+
+PACKED modelled per-histo (D_pop=1000, +ctx=64B, min_phys=128B):
+   optimistic  (2B/entry, tight)                per=  2.06 KB tot=206.25 KB  (1.1% of committed, 0% of resident)
+   realistic   (8B/entry, 1 long/entry + tree)  per=  8.06 KB tot=806.25 KB  (4.4% of committed, 0% of resident)
+   pessimistic (16B/entry, tree-heavy)          per= 16.06 KB tot=  1.57 MB  (8.7% of committed, 0% of resident)
+
+MEASURED packed (Phase-2: shared geom + 1B counts, 871 populated/histo):
+   exact bytes held (shared config once + N * per-histo) : 506.35 KB
+   measured RSS delta (allocator incl. overhead)         : 0.00 B
+
+verdict (measured packed exact vs dense):
+   packed=506.35 KB  vs  dense committed=17.98 MB  -> 36.4x smaller (VSZ floor)

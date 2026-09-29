@@ -1,0 +1,38 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-150 -B $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=-fsanitize=address,undefined,float-cast-overflow -fno-sanitize-recover=all -g
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan -j 4
+[ 40%] Built target hdr_histogram_static
+[ 40%] Built target hdr_histogram
+[ 54%] Built target hdr_histogram_test
+[ 59%] Built target hdr_histogram_atomic_test
+[ 61%] Built target hdr_packed_core_test
+[ 68%] Built target hdr_histogram_log_test
+[ 75%] Built target hdr_histogram_perf
+[ 81%] Built target hdr_histogram_atomic_concurrency_test
+[ 88%] Built target hdr_atomic_test
+[ 95%] Built target hdr_packed_histogram_test
+[100%] Built target hdr_decoder
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-150/build/asan
+    Start 1: hdr_histogram_test
+1/7 Test #1: hdr_histogram_test ......................   Passed    0.86 sec
+    Start 2: hdr_packed_core_test
+2/7 Test #2: hdr_packed_core_test ....................   Passed    0.01 sec
+    Start 3: hdr_histogram_atomic_test
+3/7 Test #3: hdr_histogram_atomic_test ...............   Passed    0.84 sec
+    Start 4: hdr_histogram_log_test
+4/7 Test #4: hdr_histogram_log_test ..................   Passed    0.04 sec
+    Start 5: hdr_packed_histogram_test
+5/7 Test #5: hdr_packed_histogram_test ...............   Passed    0.19 sec
+    Start 6: hdr_atomic_test
+6/7 Test #6: hdr_atomic_test .........................   Passed    0.01 sec
+    Start 7: hdr_histogram_atomic_concurrency_test
+7/7 Test #7: hdr_histogram_atomic_concurrency_test ...   Passed    0.81 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   2.76 sec

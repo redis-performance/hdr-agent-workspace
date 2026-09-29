@@ -1,0 +1,27 @@
+{
+  "run": "https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36592571781",
+  "head": "99f5c8db7f3a4a9b564c0e0991ec9b0c9389d5fb",
+  "status": "completed",
+  "conclusion": "success",
+  "seconds_per_sanitizer": 600,
+  "jobs": [
+    {
+      "id": 109489165466,
+      "name": "BatchFuzzing (address)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36592571781/job/109489165466",
+      "started_at": "2026-09-29T15:45:08Z",
+      "completed_at": "2026-09-29T15:56:56Z"
+    },
+    {
+      "id": 109489165899,
+      "name": "BatchFuzzing (undefined)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36592571781/job/109489165899",
+      "started_at": "2026-09-29T15:45:37Z",
+      "completed_at": "2026-09-29T15:57:37Z"
+    }
+  ]
+}

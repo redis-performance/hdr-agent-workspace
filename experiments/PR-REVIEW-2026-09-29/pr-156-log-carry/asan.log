@@ -1,0 +1,34 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/pr-156 -B $WORKSPACE/.tools/pr-review-20260929/pr-156/build/asan -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=-fsanitize=address,undefined,float-cast-overflow -fno-sanitize-recover=all -g
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/pr-156/build/asan
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/pr-156/build/asan -j 4
+[ 22%] Built target hdr_histogram
+[ 44%] Built target hdr_histogram_static
+[ 50%] Built target hdr_decoder
+[ 58%] Built target hdr_histogram_test
+[ 61%] Building C object test/CMakeFiles/hdr_histogram_log_test.dir/hdr_histogram_log_test.c.o
+[ 69%] Built target hdr_histogram_atomic_test
+[ 77%] Built target hdr_atomic_test
+[ 86%] Built target hdr_histogram_atomic_concurrency_test
+[ 94%] Built target hdr_histogram_perf
+[ 97%] Linking C executable hdr_histogram_log_test
+[100%] Built target hdr_histogram_log_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/pr-156/build/asan --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/pr-156/build/asan
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.86 sec
+    Start 2: hdr_histogram_atomic_test
+2/5 Test #2: hdr_histogram_atomic_test ...............   Passed    0.85 sec
+    Start 3: hdr_histogram_log_test
+3/5 Test #3: hdr_histogram_log_test ..................   Passed    0.18 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.01 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.83 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   2.73 sec
