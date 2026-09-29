@@ -141,6 +141,15 @@ that its proposed mechanism no longer addresses the limiting cost. Finish with a
 measured scoreboard, reproducible commands/raw data, tested patches, and explicit
 remaining validation gaps. No M6 speedup is promised before measurement.
 
+## Population decision supplement — 2026-09-29
+
+The user's nine-agent, extra-high-effort planning round is recorded in
+[the population decision plan](apple-m6/population/PLAN.md). It prioritizes
+new ordinary-write W1/W2 experiments, closes further scan-width breeding,
+qualifies signed-state and large-count equivalence claims, and requires bounded
+batch calibration before resuming queued commands. This adds no measured win or
+portable acceptance. Read its hard gates before following the original stage queue.
+
 ## References
 
 - Local: `AGENTS.md`, `experiments/M6-EXP-001/`, `experiments/NEXT-STEPS.md`,

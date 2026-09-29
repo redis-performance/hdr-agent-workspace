@@ -555,3 +555,17 @@ Its two execution orders pass correctness-only smoke checks; performance remains
 unmeasured. Stricter pair-ID joining and completeness checks reproduce all 24
 saved A/B summaries without rewriting evidence. Details:
 [`apple-m6/M6-006/VALIDATION.md`](apple-m6/M6-006/VALIDATION.md).
+
+### M6 population due diligence — 2026-09-29
+
+Planning/correctness checkpoint, not a new timed experiment or acceptance.
+Nine xhigh subagents generated six three-proposal reports and three independent
+selection reviews. [Decision plan](apple-m6/population/PLAN.md) prioritizes
+ordinary-write normalization/range-check experiments and closes further scan-width
+breeding. [Chair probes](apple-m6/population/00-semantic-probes.md) expose
+signed-state compatibility differences, coarse empty rounding, and a preexisting
+above-2^53 batch/singular difference. Earlier test totals cover their recorded
+domain only. Batch timing needs bounded calibration before its queued execution.
+No library change, measured gain, baseline promotion or PR is made by this round;
+accepted/rejected experiment counts are unchanged. Model, process-cleanup,
+profiling, compiler and publication restrictions remain explicit in the plan.

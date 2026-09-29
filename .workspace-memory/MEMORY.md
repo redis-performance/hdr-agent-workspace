@@ -2,6 +2,9 @@
 
 - [Apple M6 experiment loop](../experiments/apple-m6/STATUS.md) — plan, validation corrections,
   decoder repair, precise benchmark harness and publishing checkpoints.
+- [M6 nine-agent population decision](../experiments/apple-m6/population/PLAN.md) —
+  write-first W1/W2 queue, semantic probes, bounded calibration, independent ballots
+  and stopped scan-family budget; planning only, no new accepted result.
 
 Persistent memory index. One entry per file. Committed to main so all agent backends
 share the same context. **Public repo — sanitize every entry** (no secrets/IPs/customer/

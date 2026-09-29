@@ -372,6 +372,10 @@ All logged in [`experiments/EXPERIMENTS.md`](experiments/EXPERIMENTS.md);
   Not accepted; crossing refinement and profiling/cross-compiler checks remain.
   [Checkpoint](experiments/apple-m6/M6-004/RESULT.md).
 
+The [M6 nine-agent population plan](experiments/apple-m6/population/PLAN.md)
+adds write-first experiments, semantic qualifications and measurement gates;
+it adds no accepted result and leaves the counts above unchanged.
+
 The merged fork PRs above are the baseline this workspace builds on.
 
 ---

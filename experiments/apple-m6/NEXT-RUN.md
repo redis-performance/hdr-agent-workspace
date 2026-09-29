@@ -1,10 +1,19 @@
 # Resume the M6 experiment loop
 
+**Superseding qualification:** follow [the population decision plan](population/PLAN.md)
+before the historical queue below. Do not execute this command block unchanged.
+Signed-state compatibility is unresolved, the scan-width family is closed to
+new variants, and `run_batch.sh` needs bounded per-case calibration before use:
+its current empty workload entails roughly 569 billion baseline bucket visits
+per process, plus full-mode warmup. Ordinary-write W1/W2 now have priority.
+An auxiliary read-only search, session 54793, also lacks terminal confirmation;
+confirm all helpers and agents are quiescent before timing.
+
 No new performance runs until the diagnostic sampler is confirmed stopped. Its
 tool session is 51776; local process ID 23146 was reported at launch. The sandbox
 denied termination. Do not blindly signal a reused PID: verify the process locally.
-The user has been asked to clean it up. No other benchmark/test session was still
-running when this checkpoint was written.
+The user has been asked to clean it up. The original queue predates the auxiliary
+search and population review; use the qualification note above for current state.
 
 Baseline C: `8c4cdcc`, branch `perf/m6-blocked-scan`.
 Measured singular candidate: `6930fd7`, retained in `build/prefix-mask32`.
@@ -15,7 +24,7 @@ Experimental worktrees live under ignored `.tools/`; the baseline pointer has
 not been advanced to a candidate. If reconstructing a checkout, create those
 worktrees from the named branches before running the scripts.
 
-## Next experiments
+## Historical queued experiments (not executable approval)
 
 1. Recheck the broad singular matrix after cleanup. Reuse the current candidate
    to confirm regressions, then measure the validated quartet-crossing candidate. Keep the

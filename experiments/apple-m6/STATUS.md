@@ -2,6 +2,27 @@
 
 Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Population due diligence — 2026-09-29
+
+Nine extra-high-effort subagents generated and independently challenged an
+18-proposal pool. See [the decision plan](population/PLAN.md). No new performance
+result, accepted change or baseline promotion follows from this planning round.
+Ordinary-write candidates W1/W2 take priority; scan-width breeding is closed.
+
+[Chair correctness probes](population/00-semantic-probes.md) qualify the earlier
+scan/batch validation claims: accepted signed-count states can change results,
+coarse empty singular queries do not always return zero, and batch/singular
+equivalence is not universal above 2^53. Earlier passing counts remain valid for
+their tested domain, not a proof of every API-accepted state. Resolve supported
+semantics before general-purpose promotion. The existing queued batch run also
+needs bounded calibration: its empty workload implies roughly 569 billion
+baseline bucket visits per process before warmup.
+
+Timing remains held: sampler session 51776 and auxiliary read-only search session
+54793 lack terminal confirmation. Confirm cleanup and qualify A/A uncertainty
+before new performance work. The plan records the unavailable Opus 4.8 model
+requirement as an exception, not compliance. Nothing is ready for a PR.
+
 ## Checkpoints
 
 | Step | Status | Evidence / next action |

@@ -26,6 +26,14 @@ by maintainer, #137 open) that this workspace builds on.
 | [M6-003](apple-m6/M6-003/RESULT.md) | 2026-09-29 | write | isolated compiler options | **REJECT** | LTO hot writes +38–47%, some reads -11–13%; O3/native no gain | no source change |
 | [M6-004](apple-m6/M6-004/RESULT.md) | 2026-09-29 | read | portable block-width sweep | **IN PROGRESS** | referee 0.22 -> 0.90 Mq/s; write -0.076%; some early crossings regress | crossing refinement and validation pending |
 
+## M6 population planning checkpoint — 2026-09-29
+
+[Nine-agent decision plan](apple-m6/population/PLAN.md): prioritize ordinary-write
+W1/W2, close further scan-width breeding, resolve signed-state qualifications,
+and calibrate batch work before timing. Planning and correctness probes only;
+no new measured gain or acceptance, so counts remain unchanged. M6-004's existing
+artifacts may receive bounded diagnostic closeout, not an open refinement budget.
+
 ## Upstream campaign status — 2026-09-21
 C: 11 merged, 11 open, 1 closed. main = 1343a18.
 Merged this window: #147, #148, #153, #137 (+#152 CI). Opened: #155, #156, #157.
