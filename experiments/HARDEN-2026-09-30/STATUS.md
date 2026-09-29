@@ -15,6 +15,7 @@ balloted by all 7 agents; a PR is opened only on a 7/7 vote and after
   capping), #125 (hdr_min on empty), #116 (percentile of empty = 63), #124 (gcc ipa-ra).
 
 ## Status log (newest first)
+- 2026-09-30 — lane 4 (platform/API) report landed: 8 findings; L4-F1 HIGH = hdr_interval_recorder_sample_and_recycle reads active + hdr_init before the phaser reader lock (heap UAF with 2 samplers under ASan/TSan; ENOMEM swaps active=NULL); L4-F2 value_at_percentiles on empty returns 1 not 0; L4-F3 -inf percentile float-cast UB; L4-F4 hdr_getnow undefined on Windows.
 - 2026-09-30 — lane 7 (release readiness) report landed: 8 findings; all 7 open PR heads CI-green; weekly cflite UBSan red on main until #154/#156 merge; stack squash-merge conflict risk (#140→#141, #154→#156); CI sanitizers job lacks float-cast-overflow.
 - 2026-09-30 00:35 WEST — round 1 launched: 7 Fable audit lanes (record path, query path, log codec, platform/API, fuzzing, coverage, open-PR+release readiness). Shared brief in BRIEF.md.
 - 2026-09-30 00:20 WEST — campaign started; worktrees created; round 1 (7 audit lanes) launching.
