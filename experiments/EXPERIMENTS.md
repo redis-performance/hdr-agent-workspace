@@ -688,6 +688,16 @@ correctness/performance reference. Immutable referee drivers are unchanged
 across the first three revisions. No new accepted/rejected decision yet;
 workspace counts and accepted submodule pointer remain unchanged.
 
+First Apple-silicon arm64 qualification: all four release CTest suites pass
+5/5. Six interleaved immutable-referee invocations have identical read
+checksums; write medians are flat within measured same-binary drift, while
+stable single-read shows a rounded 0.19–0.20 M/s versus 0.22 M/s on master.
+Batch-only #140/#141 do not change the singular path on arm64. Full batch
+oracle coverage passes on pre-batch and latest master; release 0.11.10 has
+historical rotated/signed-state semantic mismatches, so timings use the
+validated common nonrotated positive-percentile domain. Raw files and limits
+are in the round status. No new optimization acceptance decision.
+
 ### C PR review closeout — 2026-09-29
 
 All 11 PRs reviewed and commented at exact commits; eight branches received

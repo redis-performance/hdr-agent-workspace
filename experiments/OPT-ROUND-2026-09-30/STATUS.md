@@ -32,6 +32,42 @@ AppleClang 21 / arm64 RelWithDebInfo, logging enabled, benchmark drivers built:
 All four builds used the same CMake options and compiler. There is no source
 change or candidate acceptance from this step.
 
+## Immutable referee — first interleaved arm64 round
+
+AppleClang 21, release builds, sequential runs in the order pre-batch,
+master, stable, master, pre-batch, stable. Each write driver invocation contains
+100 iterations of 400 million records; each read invocation contains 20 timed
+runs. All six read checksums were exactly `17401860284404480`.
+
+| Point/run | Write median (M records/s) | Single-read best/mean (M queries/s) |
+|---|---:|---:|
+| pre-batch 1 | 713.41 | 0.22 / 0.22 |
+| master 1 | 710.78 | 0.22 / 0.22 |
+| stable 1 | 709.56 | 0.20 / 0.20 |
+| master 2 | 710.33 | 0.22 / 0.22 |
+| pre-batch 2 | 709.89 | 0.22 / 0.22 |
+| stable 2 | 710.26 | 0.19 / 0.19 |
+
+Raw [referee outputs](bench-results/) are retained. The pre-batch write median
+moved from 713.41 to 709.89 M/s without a source change, so the apparent
+sub-1% write differences are measurement drift. The immutable read driver
+rounds to 0.01 M/s; stable-to-master read improvement is directional only and
+needs a higher-resolution paired probe and native x86-64 qualification.
+Pre-batch and master have indistinguishable singular-read results, as expected
+for a batch-only change.
+
+## Supplemental semantic gate
+
+The historical arm64 supplemental oracle validates 2,700 singular checks on
+pre-batch/master/#158. Its 24 nonempty ordered-batch equivalence groups pass
+on all four points, including stable. Full batch validation on pre-batch and
+master passes 52,800 oracle checks, 37,275 singular-equivalence checks, and
+9,030 edge checks. Stable fails the broader rotated/signed-state oracle
+(`singular oracle mismatch`; full batch: `batch/singular equivalence`), a
+historical semantics gap rather than a reason to discard the nonrotated,
+positive-percentile common benchmark domain. Do not use those failing states
+for a performance comparison or infer a current-master regression from them.
+
 ## Measurement contract
 
 - Run release CTest first for each source point. Run sanitizer and no-logging
