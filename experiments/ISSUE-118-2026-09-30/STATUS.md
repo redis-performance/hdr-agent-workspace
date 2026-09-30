@@ -30,10 +30,11 @@ baseline remain unchanged.
 - Fork [exact-head CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571):
   completed successfully, including Windows, both existing macOS jobs, and
   Linux ASan+UBSan. [Native Linux ClusterFuzzLite batch](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696562555)
-  is running for 600 seconds per sanitizer. It uses the same source/test/fuzzer
+  passed for 600 seconds per sanitizer. It uses the same source/test/fuzzer
   blobs as the proposed PR head, with only the workflow time budget changed.
-- Upstream PR and final commit-specific verdict: pending completion of the
-  coverage-guided batch and final audit.
+- [Upstream PR #159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
+  opened with the [review body](PR-BODY.md). Upstream PR CI and final
+  commit-specific review comment are pending.
 
 ## Current macOS CI coverage
 
@@ -58,3 +59,8 @@ in each job, run logging-enabled and logging-disabled CTest on both, and add
 an Apple-silicon ASan+UBSan CTest job. Keep the existing Linux 32-bit and
 sanitizer/fuzz jobs. GitHub's current runner mapping is documented at
 https://docs.github.com/en/actions/reference/runners/github-hosted-runners.
+
+The CI-only fork branch `ci/explicit-macos-coverage` implements this matrix
+and sanitizer job at `9af624716f7424157e300b545b541b0f6dd50c8f`.
+[Fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36697811539)
+is pending; an upstream PR will follow only after the new jobs validate.
