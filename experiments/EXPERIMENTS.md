@@ -707,6 +707,5 @@ This is hardening/CI analysis, not a measured optimization; counts unchanged.
 [CI-only PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
 pins macOS Intel and Apple-silicon runners, asserts the actual architecture,
 tests logging-enabled/disabled Debug and RelWithDebInfo on both, and adds
-ASan+UBSan jobs on both. The 24-job first fork CI passed; the 25-job exact-head
-repeat is pending. This is a validation
+ASan+UBSan jobs on both. All 25 exact-head fork CI jobs passed. This is a validation
 coverage change, so no benchmark or optimization acceptance count applies.
