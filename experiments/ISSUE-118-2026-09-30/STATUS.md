@@ -9,7 +9,7 @@ baseline remain unchanged.
 - Upstream issue: https://github.com/HdrHistogram/HdrHistogram_c/issues/118
 - Base: upstream `main` at `1dfc67e946a225fbaab16811b343710cf3a10df5`.
 - Fork branch: `fcostaoliveira:fix/dense-counter-total-overflow` at
-  `80214d6940ad975e94176b23b59e5cee0a6c610d` (pushed without rewriting history).
+  `a28031949c99ff630708de8885ce382ed746f8c5` (pushed without rewriting history).
 - The old reset path used signed addition for decoded positive counts. A valid
   compressed stream with three adjacent `2^62` counts made that sum overflow.
   The new private checked reset detects this, saturates the public void reset's
@@ -17,14 +17,15 @@ baseline remain unchanged.
   without publishing a partial histogram. Count buckets remain unchanged.
 - The implementation preserves normalized-index rotation, the existing public
   reset signature, and an existing destination on failed decode. It does not
-  address the separate record-path count increment overflow or the separate
-  codec `INT64_MIN` negation finding from the hardening round.
+  address the separate record-path count increment overflow, including
+  `hdr_add()` when a representable decoded histogram is merged into an existing
+  destination, or the separate codec `INT64_MIN` negation finding.
 - Exact-head arm64 validation: release CTest 7/7, ASan+UBSan CTest 7/7,
   logging-disabled CTest 5/5. Evidence:
-  [results](../PR-REVIEW-2026-09-29/issue-118-final-head/results.json),
-  [release](../PR-REVIEW-2026-09-29/issue-118-final-head/release.log),
-  [sanitizer](../PR-REVIEW-2026-09-29/issue-118-final-head/asan.log),
-  [no logging](../PR-REVIEW-2026-09-29/issue-118-final-head/nolog.log).
+  [results](../PR-REVIEW-2026-09-29/issue-118-prototype-final/results.json),
+  [release](../PR-REVIEW-2026-09-29/issue-118-prototype-final/release.log),
+  [sanitizer](../PR-REVIEW-2026-09-29/issue-118-prototype-final/asan.log),
+  [no logging](../PR-REVIEW-2026-09-29/issue-118-prototype-final/nolog.log).
 - Structured deterministic fuzzer: 10,000 cases, passed
   ([log](../PR-REVIEW-2026-09-29/issue118-structured-fuzz.log)).
 - Fork [exact-head CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571):
@@ -34,7 +35,11 @@ baseline remain unchanged.
   blobs as the proposed PR head, with only the workflow time budget changed.
 - [Upstream PR #159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
   opened with the [review body](PR-BODY.md). Upstream PR CI and final
-  commit-specific review comment are pending.
+  commit-specific review comment are pending at the new test-only head.
+- [Exact-head native batch repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36698338636)
+  is running after the test-header declaration cleanup. The earlier 600-second
+  batch passed at production-identical code; this repeat confirms the exact
+  test/fuzzer bytes.
 
 ## Current macOS CI coverage
 
@@ -63,4 +68,6 @@ https://docs.github.com/en/actions/reference/runners/github-hosted-runners.
 The CI-only fork branch `ci/explicit-macos-coverage` implements this matrix
 and sanitizer job at `9af624716f7424157e300b545b541b0f6dd50c8f`.
 [Fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36697811539)
-is pending; an upstream PR will follow only after the new jobs validate.
+passed all 24 jobs, including the eight architecture-pinned macOS build rows
+and Apple-silicon ASan+UBSan. [Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
+is open; upstream checks and the exact-commit review comment are pending.

@@ -701,3 +701,11 @@ is open. The same audit finds the existing
 macOS CI runs only two logging-enabled Apple-silicon jobs despite `x64` matrix
 labels, with no explicit Intel or macOS sanitizer/no-logging coverage.
 This is hardening/CI analysis, not a measured optimization; counts unchanged.
+
+### Explicit macOS CI coverage — 2026-09-30
+
+[CI-only PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
+pins macOS Intel and Apple-silicon runners, asserts the actual architecture,
+tests logging-enabled/disabled Debug and RelWithDebInfo on both, and adds an
+Apple-silicon ASan+UBSan job. All 24 fork CI jobs passed. This is a validation
+coverage change, so no benchmark or optimization acceptance count applies.

@@ -12,19 +12,23 @@ and leave any existing destination unchanged. The count buckets themselves
 are untouched. Representable totals, including exactly `INT64_MAX`, continue
 to decode.
 
-This PR covers the reset/import path in #118. Separate record-path count
-increment and codec `INT64_MIN` hardening findings need their own fixes.
+This PR covers the reset/import path in #118. `hdr_decode_compressed()` also
+merges a representable decoded histogram into an existing destination via
+`hdr_add()`; count overflow in that merge is part of the separate record-path
+increment hardening work. A separate codec `INT64_MIN` finding also remains.
 
 ## Validation
 
-- Exact head `80214d6940ad975e94176b23b59e5cee0a6c610d`: release CTest
+- Exact head `a280319` (full hash and final verdict in the review comment): release CTest
   7/7, ASan+UBSan CTest 7/7, logging-disabled CTest 5/5 on arm64.
 - [Fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571)
   passed across Linux, Windows, existing macOS jobs, and Linux ASan+UBSan.
 - Structured deterministic fuzzer passed 10,000 V0/V1/V2 cases.
 - [Native Linux ClusterFuzzLite batch](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696562555)
-  passed 600 seconds each with ASan and UBSan. The batch branch has identical
-  source, tests, and fuzz target; only its workflow time budget differs.
+  passed 600 seconds each with ASan and UBSan before a test-only header cleanup.
+  The [exact-head repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36698338636)
+  is in progress. The batch branch has identical source, tests, and fuzz target;
+  only its workflow time budget differs.
 - New tests cover exact-limit and overflowing totals in all three codecs,
   existing destination preservation, and rotated min/max reconstruction.
 
