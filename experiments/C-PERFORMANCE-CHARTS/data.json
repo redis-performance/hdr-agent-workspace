@@ -1,10 +1,25 @@
 {
   "previous": "HdrHistogram_c 0.11.10 (18c7a32)",
-  "master": "upstream main e4e8b0a (2026-09-30)",
+  "master": "PR #158 tip (bcb5c1f, 2026-09-30)",
   "runners": [
-    {"name": "Intel x86-64", "write": null, "read": null, "list": null},
-    {"name": "AMD x86-64", "write": null, "read": null, "list": null},
-    {"name": "AWS Graviton ARM64", "write": null, "read": null, "list": null},
+    {
+      "name": "Intel x86-64 (SPR, m7i.metal-24xl)",
+      "write": {"previous": 327.12, "master": 423.21, "previous_label": "324.1–331.7", "master_label": "422.6–425.3"},
+      "read": {"previous": 0.27, "master": 0.47, "previous_label": "0.27", "master_label": "0.47"},
+      "list": {"previous": 11.95, "master": 394.67, "previous_label": "11.95", "master_label": "394.5–394.8"}
+    },
+    {
+      "name": "AMD x86-64 (Zen 5, m8a.metal-24xl)",
+      "write": {"previous": 499.62, "master": 449.67, "previous_label": "499.3–499.8", "master_label": "449.3–449.9"},
+      "read": {"previous": 0.42, "master": 0.89, "previous_label": "0.42", "master_label": "0.89"},
+      "list": {"previous": 16.44, "master": 475.69, "previous_label": "16.44", "master_label": "475.7"}
+    },
+    {
+      "name": "AWS Graviton ARM64 (Neoverse-V2, m8g.metal-24xl)",
+      "write": {"previous": 398.42, "master": 381.66, "previous_label": "398.3–398.5", "master_label": "381.2–382.1"},
+      "read": {"previous": 0.09, "master": 0.11, "previous_label": "0.09", "master_label": "0.11"},
+      "list": {"previous": 22.86, "master": 462.42, "previous_label": "22.86", "master_label": "462.4"}
+    },
     {
       "name": "Apple M6 ARM64",
       "write": {"previous": 709.91, "master": 710.555, "previous_label": "709.56–710.26", "master_label": "710.33–710.78"},

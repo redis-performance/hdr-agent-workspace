@@ -1,0 +1,26 @@
+WORKDIR /tmp/hdrbench.3G4uIq  CORE 10  host ip-172-31-55-40 arch x86_64
+== building ==
+BUILT 18c7a32 -> /tmp/hdrbench.3G4uIq/b-18c7a32
+BUILT bcb5c1f -> /tmp/hdrbench.3G4uIq/b-bcb5c1f
+== WRITE (5 interleaved pairs) ==
+w1 prev=327123946.44 latest=422578135.37
+w2 prev=328256967.34 latest=423214230.62
+w3 prev=324099395.55 latest=423200466.00
+w4 prev=324554698.84 latest=425333690.23
+w5 prev=331697247.99 latest=423748560.80
+== READ (3 interleaved pairs) ==
+r1 prev=0.27 latest=0.47
+r2 prev=0.27 latest=0.47
+r3 prev=0.27 latest=0.47
+== LIST (google-benchmark median of 8, 2 interleaved invocations) ==
+l1 prev_ns=83668.2 latest_ns=2532.73
+l2 prev_ns=83673.3 latest_ns=2534.81
+===== RESULTS (x86_64) =====
+RESULT write_prev_Mrec_s   median=327123946.44 range=324099395.55..331697247.99
+RESULT write_latest_Mrec_s median=423214230.62 range=422578135.37..425333690.23
+RESULT read_prev_Mq_s      median=0.27 range=0.27..0.27
+RESULT read_latest_Mq_s    median=0.47 range=0.47..0.47
+RESULT list_prev_median_ns   median=83670.8 range=83668.2..83673.3
+RESULT list_latest_median_ns median=2533.77 range=2532.73..2534.81
+loadavg_final 1.00 1.00 0.89 1/1352 98607
+DONE

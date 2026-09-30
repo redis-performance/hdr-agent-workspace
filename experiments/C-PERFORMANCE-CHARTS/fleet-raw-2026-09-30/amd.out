@@ -1,0 +1,26 @@
+WORKDIR /tmp/hdrbench.krN8Vj  CORE 10  host ip-172-31-49-177 arch x86_64
+== building ==
+BUILT 18c7a32 -> /tmp/hdrbench.krN8Vj/b-18c7a32
+BUILT bcb5c1f -> /tmp/hdrbench.krN8Vj/b-bcb5c1f
+== WRITE (5 interleaved pairs) ==
+w1 prev=499602440.11 latest=449940793.08
+w2 prev=499258374.77 latest=449480081.56
+w3 prev=499710648.17 latest=449672656.91
+w4 prev=499616975.51 latest=449346846.89
+w5 prev=499827197.24 latest=558933759.12
+== READ (3 interleaved pairs) ==
+r1 prev=0.42 latest=0.89
+r2 prev=0.42 latest=0.89
+r3 prev=0.42 latest=0.89
+== LIST (google-benchmark median of 8, 2 interleaved invocations) ==
+l1 prev_ns=60815.6 latest_ns=2098.66
+l2 prev_ns=60820.1 latest_ns=2105.81
+===== RESULTS (x86_64) =====
+RESULT write_prev_Mrec_s   median=499616975.51 range=499258374.77..499827197.24
+RESULT write_latest_Mrec_s median=449672656.91 range=449346846.89..558933759.12
+RESULT read_prev_Mq_s      median=0.42 range=0.42..0.42
+RESULT read_latest_Mq_s    median=0.89 range=0.89..0.89
+RESULT list_prev_median_ns   median=60817.8 range=60815.6..60820.1
+RESULT list_latest_median_ns median=2102.23 range=2098.66..2105.81
+loadavg_final 1.00 1.00 0.76 1/1340 3990300
+DONE

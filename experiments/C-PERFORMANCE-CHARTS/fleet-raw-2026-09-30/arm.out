@@ -1,0 +1,26 @@
+WORKDIR /tmp/hdrbench.NDxd88  CORE 10  host ip-172-31-55-171 arch aarch64
+== building ==
+BUILT 18c7a32 -> /tmp/hdrbench.NDxd88/b-18c7a32
+BUILT bcb5c1f -> /tmp/hdrbench.NDxd88/b-bcb5c1f
+== WRITE (5 interleaved pairs) ==
+w1 prev=398380648.59 latest=381487644.22
+w2 prev=398469942.16 latest=381659488.90
+w3 prev=398481451.14 latest=382124087.45
+w4 prev=398420405.13 latest=381206361.46
+w5 prev=398327798.59 latest=382104183.93
+== READ (3 interleaved pairs) ==
+r1 prev=0.09 latest=0.11
+r2 prev=0.09 latest=0.11
+r3 prev=0.09 latest=0.11
+== LIST (google-benchmark median of 8, 2 interleaved invocations) ==
+l1 prev_ns=43680.1 latest_ns=2170.51
+l2 prev_ns=43804.1 latest_ns=2154.53
+===== RESULTS (aarch64) =====
+RESULT write_prev_Mrec_s   median=398420405.13 range=398327798.59..398481451.14
+RESULT write_latest_Mrec_s median=381659488.90 range=381206361.46..382124087.45
+RESULT read_prev_Mq_s      median=0.09 range=0.09..0.09
+RESULT read_latest_Mq_s    median=0.11 range=0.11..0.11
+RESULT list_prev_median_ns   median=43742.1 range=43680.1..43804.1
+RESULT list_latest_median_ns median=2162.52 range=2154.53..2170.51
+loadavg_final 1.03 1.01 0.99 1/2790 1327092
+DONE
