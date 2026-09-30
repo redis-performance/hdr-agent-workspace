@@ -21,7 +21,9 @@ documents the Intel and Apple-silicon labels.
 
 ## Validation
 
-[Exact-head fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699075113)
+[Pre-refresh fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699075113)
 passed all 25 jobs at `9361ee5c0a1a8974a413e7549e7047a8738f3237`,
 including all eight macOS build rows, both macOS sanitizer jobs, and the
-architecture assertions.
+architecture assertions. The current head `7edfbbdeba84cac799cf22176d98fbe8407ec1b8`
+includes upstream `main` through `4395fa0254d56ebacd81cd82e23fda346e1651c2`;
+its exact-head CI is in progress.

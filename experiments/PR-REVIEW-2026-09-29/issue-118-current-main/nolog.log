@@ -1,0 +1,44 @@
+$ cmake -S $WORKSPACE/.tools/pr-review-20260929/issue-118-current -B $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DHDR_LOG_REQUIRED=DISABLED
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+
+$ cmake --build $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -j 4
+[  2%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o
+[  5%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o
+[  8%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_time.c.o
+[ 11%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[ 17%] Linking C shared library libhdr_histogram.dylib
+[ 17%] Linking C static library libhdr_histogram_static.a
+[ 32%] Built target hdr_histogram_static
+[ 47%] Built target hdr_histogram
+[ 50%] Linking C executable hdr_counter_overflow_core_test
+[ 52%] Building C object test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o
+[ 55%] Linking C executable hdr_histogram_atomic_test
+[ 58%] Linking C executable hdr_atomic_test
+[ 70%] Built target hdr_histogram_atomic_test
+[ 70%] Built target hdr_counter_overflow_core_test
+[ 73%] Linking C executable hdr_histogram_test
+[ 79%] Built target hdr_atomic_test
+[ 82%] Linking C executable hdr_histogram_perf
+[ 85%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 88%] Built target hdr_histogram_test
+[100%] Built target hdr_histogram_atomic_concurrency_test
+[100%] Built target hdr_histogram_perf
+
+$ ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.38 sec
+    Start 2: hdr_counter_overflow_core_test
+2/5 Test #2: hdr_counter_overflow_core_test ..........   Passed    0.27 sec
+    Start 3: hdr_histogram_atomic_test
+3/5 Test #3: hdr_histogram_atomic_test ...............   Passed    1.28 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.25 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.63 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   2.83 sec

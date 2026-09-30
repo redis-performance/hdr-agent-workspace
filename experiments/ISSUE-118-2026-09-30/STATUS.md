@@ -9,7 +9,9 @@ baseline remain unchanged.
 - Upstream issue: https://github.com/HdrHistogram/HdrHistogram_c/issues/118
 - Base: upstream `main` at `1dfc67e946a225fbaab16811b343710cf3a10df5`.
 - Fork branch: `fcostaoliveira:fix/dense-counter-total-overflow` at
-  `a28031949c99ff630708de8885ce382ed746f8c5` (pushed without rewriting history).
+  `d4efd112713d3e488e33a2a41cdcd57d69b7cfd0` (pushed without rewriting history).
+  It merges upstream `main` through `4395fa0254d56ebacd81cd82e23fda346e1651c2`
+  after #156 and #139 landed.
 - The old reset path used signed addition for decoded positive counts. A valid
   compressed stream with three adjacent `2^62` counts made that sum overflow.
   The new private checked reset detects this, saturates the public void reset's
@@ -22,10 +24,10 @@ baseline remain unchanged.
   destination, or the separate codec `INT64_MIN` negation finding.
 - Exact-head arm64 validation: release CTest 7/7, ASan+UBSan CTest 7/7,
   logging-disabled CTest 5/5. Evidence:
-  [results](../PR-REVIEW-2026-09-29/issue-118-prototype-final/results.json),
-  [release](../PR-REVIEW-2026-09-29/issue-118-prototype-final/release.log),
-  [sanitizer](../PR-REVIEW-2026-09-29/issue-118-prototype-final/asan.log),
-  [no logging](../PR-REVIEW-2026-09-29/issue-118-prototype-final/nolog.log).
+  [results](../PR-REVIEW-2026-09-29/issue-118-current-main/results.json),
+  [release](../PR-REVIEW-2026-09-29/issue-118-current-main/release.log),
+  [sanitizer](../PR-REVIEW-2026-09-29/issue-118-current-main/asan.log),
+  [no logging](../PR-REVIEW-2026-09-29/issue-118-current-main/nolog.log).
 - Structured deterministic fuzzer: 10,000 cases, passed
   ([log](../PR-REVIEW-2026-09-29/issue118-structured-fuzz.log)).
 - Fork [exact-head CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571):
@@ -35,11 +37,11 @@ baseline remain unchanged.
   blobs as the proposed PR head, with only the workflow time budget changed.
 - [Upstream PR #159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
   opened with the [review body](PR-BODY.md). Upstream PR CI and final
-  commit-specific review comment are pending at the new test-only head.
+  commit-specific review comment are pending at the refreshed head.
 - [Exact-head native batch repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36698338636)
-  is running after the test-header declaration cleanup. The earlier 600-second
-  batch passed at production-identical code; this repeat confirms the exact
-  test/fuzzer bytes.
+  passed after the test-header declaration cleanup. The
+  [current-main integration repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699944409)
+  is running, with source/test/fuzzer bytes identical to the refreshed PR head.
 
 ## Current macOS CI coverage
 
@@ -52,11 +54,14 @@ workflow explicitly excludes macOS x86, minimal CMake, and logging-disabled.
 The only ASan+UBSan CI job is Linux; ClusterFuzzLite is Linux-only. Thus macOS
 Intel, no-logging builds, and macOS sanitizer behavior are not exercised.
 
-The [latest upstream main CI](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36691467208)
+The last completed [upstream main CI](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36691467208)
 passed at `1dfc67e`. The [latest weekly batch failure](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36401899117)
 predates the merge of the timestamp sanitizer fix (#154), so it is not
-evidence that today's main still fails; the next weekly batch remains to be
-observed.
+evidence that today's main still fails. A fresh full
+[main batch](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36699592985)
+was dispatched on `b4f71811f72badbcdd6cadc4db44d404e05231ad` after #156
+and is running ASan+UBSan for 3600 seconds each. #139 merged immediately after
+dispatch, so the batch does not cover the subsequent prefetch change.
 
 Recommended follow-up: explicitly pin Intel (`macos-15-intel`) and Apple
 silicon (`macos-15` or a documented ARM64 label), print/assert `uname -m`
@@ -66,8 +71,10 @@ sanitizer/fuzz jobs. GitHub's current runner mapping is documented at
 https://docs.github.com/en/actions/reference/runners/github-hosted-runners.
 
 The CI-only fork branch `ci/explicit-macos-coverage` implements this matrix
-and sanitizer jobs at `9361ee5c0a1a8974a413e7549e7047a8738f3237`.
+and sanitizer jobs at `7edfbbdeba84cac799cf22176d98fbe8407ec1b8`,
+refreshed through upstream `4395fa0`.
 [Exact-head fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699075113)
 passed all 25 jobs, including the eight architecture-pinned macOS build rows
-and ASan+UBSan on both architectures. [Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
-is open; upstream fuzz check and review comment are pending.
+and ASan+UBSan on both architectures at the pre-refresh head.
+[Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
+is open; refreshed-head checks and review comment are pending.
