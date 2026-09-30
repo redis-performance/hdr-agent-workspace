@@ -1,8 +1,10 @@
 # Workspace Memory — hdr-agent-workspace
 
 - [Issue #118 and macOS CI follow-up](../experiments/ISSUE-118-2026-09-30/STATUS.md) —
-  current-main decoded-total overflow fix and exact-head validation; native
-  fuzzing pending. Current macOS CI lacks explicit Intel, no-logging and sanitizer jobs.
+  current-main decoded-total overflow fix (#159) passed exact-head CI and
+  native ASan/UBSan fuzz; Intel and ARM macOS CI coverage PR #160 passed
+  exact-head CI. Both have commit-specific MERGE-READY comments. Full current
+  main batch remains in progress; source CI still lacks this coverage until #160 merges.
 
 - [Push status continuously](push-status-continuously.md) — commit+push STATUS.md after every step; other sessions read git
 
