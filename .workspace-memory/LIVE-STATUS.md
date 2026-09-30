@@ -1,6 +1,6 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~15:35 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~16:05 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
@@ -14,7 +14,7 @@ upstream/main tip: **e4e8b0a** (after #141).
 |----|--------|-------|-------|
 | #161 | fix/timespec-from-double-checked | pending review | #154 follow-up: additive `hdr_timespec_from_double_checked()`. Refreshed onto master; ctest+ASan+nolog green |
 | #150 | feat/packed-histogram | NEEDS-WORK (perf gate) | refreshed; SOVERSION revert stands; large opt-in feature |
-| #158 | perf/avx2-scan-nonneg | **DRAFT — paused for maintainer direction** | conflicts with #141's just-merged batch signed-count support. Contract call needed: support signed counts everywhere (close #158) vs reject them (take #158 fwd + update #141's test). Not rebased onto #141 pending decision |
+| #158 | perf/avx2-scan-nonneg | pending review (ready) | Taken FORWARD on user's call: reject-negatives contract. count>=0 enforced; both scans assume monotonic (dropped signed handling incl. #141's batch signs<0); removed signed-count tests. Rebased onto master; ctest+ASan 5/5, singular read ~+37%. Reverses #138/#141 signed support — flagged to mikeb01/paulo |
 
 ## Decisions awaiting maintainers
 - #158 vs #141: support-vs-reject signed counts (see #158 comment). #141's merge leans "support".
