@@ -5,7 +5,6 @@ Pushed every loop tick so other runners/sessions see current state. This is a co
 signal, not the source of truth — verify against GitHub before acting.
 
 **Tick 01:13:** still CLEAN + CI-green on all 7 open PRs; no new approvals/comments since 21:36. Quiet hold; monitoring.
-mergeStateStatus=CLEAN on all. No new approvals or reviewer comments since 21:36. Quiet hold.
 
 upstream/main tip: **26587de** (after merging #157/#155/#149/#138).
 
