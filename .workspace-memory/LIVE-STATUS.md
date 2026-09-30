@@ -1,6 +1,6 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~16:05 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~18:55 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
@@ -25,6 +25,10 @@ upstream/main tip: **e4e8b0a** (after #141).
 paulorsousa set as reviewer on ALL open PRs (#161,#160,#159,#158,#150).
 Master merges CLEAN into #161 (behind 0), #160 (behind 2), #159 (behind 2). #158 CONFLICTS (signed-count test vs merged #141) — blocked on the support-vs-reject decision.
 New PRs from the parallel hardening runner: #159 (reject import total_count overflow, the #118 fix), #160 (macOS Intel+Apple sanitizer CI). Both paulorsousa-reviewed; refresh left to that runner.
+
+
+## #150 packed — Paulo review round (2026-09-30 ~18:50)
+Paulo left 4 inline comments. DONE + pushed: (1) reject negative value in hdr_packed_count_at_value (14f37b7), (3) route allocations through hdr_malloc/calloc/realloc/free hooks (d2d76b2). FOLLOW-UP committed to Paulo: (2) move counts_index_for out of hdr_tests.h into a shared internal header + dedup log.c decl; (4) split h->cap into idx_cap/cnt_cap for accurate memory accounting. gcc ctest 7/7 + ASan/UBSan + nolog green.
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
