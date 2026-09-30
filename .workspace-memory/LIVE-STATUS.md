@@ -1,10 +1,18 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~08:55 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~10:05 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change + heartbeat so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
 upstream/main tip: **1dfc67e** (after #144).
+
+## Follow-up PRs (published this session, from the Codex-prepared plan)
+- **#158** (NEW) — #138 follow-up: drop AVX2 signed-count branch (non-negative invariant).
+  **+37%** vs main, byte-identical results, ASan/UBSan 5/5. Answers Paulo's #138 question.
+- **#154 checked-API** — `hdr_timespec_from_double_checked()` + deprecate the void one.
+  QUEUED behind #156 (both rewrite hdr_timespec_from_double; will publish once #156 merges
+  so the checked fn wraps the final normalized version). Not yet a PR.
+- #156 conflict resolution — DONE earlier this session (pushed e28a73a).
 
 ## Merged (6) — squash, on paulorsousa approval
 ✅ #157 (0aa5970) · ✅ #155 (58055c6) · ✅ #149 (2bdcb0f) · ✅ #138 (26587de) ·
