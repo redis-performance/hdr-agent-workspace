@@ -1,6 +1,6 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~19:15 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-10-01 ~00:00 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
@@ -29,6 +29,10 @@ New PRs from the parallel hardening runner: #159 (reject import total_count over
 
 ## #150 packed — Paulo review round (2026-09-30 ~18:50)
 Paulo left 4 inline comments. DONE + pushed: (1) reject negative value in hdr_packed_count_at_value (14f37b7), (3) route allocations through hdr_malloc/calloc/realloc/free hooks (d2d76b2). ALSO DONE + pushed (7eea0d7): (2) counts_index_for moved to new src/hdr_histogram_internal.h (packed+log include it; log.c dup decl removed; hdr_tests.h re-includes); (4) split h->cap -> idx_cap/cnt_cap for exact memory accounting on partial-realloc failure. ALL 4 Paulo #150 points resolved. gcc ctest 7/7 + ASan/UBSan + nolog green.
+
+
+## C-PERFORMANCE-CHARTS fleet run (2026-09-30, DONE)
+Filled Intel(m7i SPR)/AMD(m8a Zen5)/Graviton(m8g N-V2) in data.json + re-rendered write/read/list SVGs, 0.11.10 (18c7a32) vs #158 tip (bcb5c1f), median of interleaved core-pinned idle-gated runs; raw logs in C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/. read: Intel +74%/AMD +112%/ARM +22%; list ~20-33x; write uarch-dependent (Intel +29%, AMD -10%, ARM -4%). Coordinators never paused; boxes left clean. Pushed b701f62.
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
