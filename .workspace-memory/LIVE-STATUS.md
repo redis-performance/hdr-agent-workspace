@@ -1,13 +1,13 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~11:15 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~11:40 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
-upstream/main tip: **4395fa0** (after #139).
+upstream/main tip: **3539d10** (after #140).
 
-## Merged (8) — squash, on paulorsousa approval
-✅ #157 · ✅ #155 · ✅ #149 · ✅ #138 · ✅ #154 · ✅ #144 · ✅ #156 · ✅ #139
+## Merged (9) — squash, on paulorsousa approval
+✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass, Paulo approved 11:34)
 
 ## Open (5) — all refreshed onto latest master this session
 | PR | branch | state | notes |
