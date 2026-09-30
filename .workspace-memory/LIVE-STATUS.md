@@ -1,6 +1,6 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~18:55 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~19:15 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
@@ -28,7 +28,7 @@ New PRs from the parallel hardening runner: #159 (reject import total_count over
 
 
 ## #150 packed — Paulo review round (2026-09-30 ~18:50)
-Paulo left 4 inline comments. DONE + pushed: (1) reject negative value in hdr_packed_count_at_value (14f37b7), (3) route allocations through hdr_malloc/calloc/realloc/free hooks (d2d76b2). FOLLOW-UP committed to Paulo: (2) move counts_index_for out of hdr_tests.h into a shared internal header + dedup log.c decl; (4) split h->cap into idx_cap/cnt_cap for accurate memory accounting. gcc ctest 7/7 + ASan/UBSan + nolog green.
+Paulo left 4 inline comments. DONE + pushed: (1) reject negative value in hdr_packed_count_at_value (14f37b7), (3) route allocations through hdr_malloc/calloc/realloc/free hooks (d2d76b2). ALSO DONE + pushed (7eea0d7): (2) counts_index_for moved to new src/hdr_histogram_internal.h (packed+log include it; log.c dup decl removed; hdr_tests.h re-includes); (4) split h->cap -> idx_cap/cnt_cap for exact memory accounting on partial-realloc failure. ALL 4 Paulo #150 points resolved. gcc ctest 7/7 + ASan/UBSan + nolog green.
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
