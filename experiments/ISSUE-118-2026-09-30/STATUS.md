@@ -77,4 +77,6 @@ refreshed through upstream `4395fa0`.
 passed all 25 jobs, including the eight architecture-pinned macOS build rows
 and ASan+UBSan on both architectures at the pre-refresh head.
 [Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
-is open; refreshed-head checks and review comment are pending.
+is open. Its refreshed-head upstream CI and PR fuzz passed; the
+[commit-specific MERGE-READY verdict](https://github.com/HdrHistogram/HdrHistogram_c/pull/160#issuecomment-5909026546)
+was posted at `7edfbbdeba84cac799cf22176d98fbe8407ec1b8`.
