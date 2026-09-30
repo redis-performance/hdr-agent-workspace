@@ -36,12 +36,14 @@ baseline remain unchanged.
   passed for 600 seconds per sanitizer. It uses the same source/test/fuzzer
   blobs as the proposed PR head, with only the workflow time budget changed.
 - [Upstream PR #159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
-  opened with the [review body](PR-BODY.md). Upstream PR CI and final
-  commit-specific review comment are pending at the refreshed head.
+  opened with the [review body](PR-BODY.md). Refreshed-head upstream CI and
+  PR fuzz passed. The [commit-specific MERGE-READY verdict](https://github.com/HdrHistogram/HdrHistogram_c/pull/159#issuecomment-5909210519)
+  was posted for `d4efd112713d3e488e33a2a41cdcd57d69b7cfd0`.
 - [Exact-head native batch repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36698338636)
   passed after the test-header declaration cleanup. The
   [current-main integration repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699944409)
-  is running, with source/test/fuzzer bytes identical to the refreshed PR head.
+  also passed 600 seconds each under ASan and UBSan, with source/test/fuzzer
+  bytes identical to the refreshed PR head.
 
 ## Current macOS CI coverage
 
@@ -54,14 +56,22 @@ workflow explicitly excludes macOS x86, minimal CMake, and logging-disabled.
 The only ASan+UBSan CI job is Linux; ClusterFuzzLite is Linux-only. Thus macOS
 Intel, no-logging builds, and macOS sanitizer behavior are not exercised.
 
-The last completed [upstream main CI](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36691467208)
-passed at `1dfc67e`. The [latest weekly batch failure](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36401899117)
+The latest completed [upstream main CI](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36699632243)
+passed at `4395fa0254d56ebacd81cd82e23fda346e1651c2` after #156 and #139.
+The [latest weekly batch failure](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36401899117)
 predates the merge of the timestamp sanitizer fix (#154), so it is not
 evidence that today's main still fails. A fresh full
 [main batch](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36699592985)
 was dispatched on `b4f71811f72badbcdd6cadc4db44d404e05231ad` after #156
 and is running ASan+UBSan for 3600 seconds each. #139 merged immediately after
 dispatch, so the batch does not cover the subsequent prefetch change.
+
+Performance qualification remains a separate risk on current main: #139 was
+merged despite the [current-head review](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)
+reporting a prefetch regression versus #138 on one native x86-64 machine
+(about -17% gcc / -15% clang). Earlier machines had positive evidence. The
+conflicting architecture-specific results require fresh paired benchmarks
+and profiles; this CI audit does not resolve them.
 
 Recommended follow-up: explicitly pin Intel (`macos-15-intel`) and Apple
 silicon (`macos-15` or a documented ARM64 label), print/assert `uname -m`

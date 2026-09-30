@@ -696,8 +696,10 @@ and CI/fuzz evidence. No optimization acceptance count or baseline pointer chang
 branch detects decoded counter-total overflow, preserves the public reset ABI,
 and rejects overflowing V0/V1/V2 streams before publishing a histogram.
 Exact-head release, sanitizer, no-logging and fork CI pass; the native Linux
-ASan and UBSan coverage-guided batch also passes. Upstream [#159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
-is open. The same audit finds the existing
+ASan and UBSan coverage-guided batch also passes on the head refreshed with
+current main. Upstream [#159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159)
+is open with a commit-specific MERGE-READY verdict for the reset/import scope.
+The same audit finds the existing
 macOS CI runs only two logging-enabled Apple-silicon jobs despite `x64` matrix
 labels, with no explicit Intel or macOS sanitizer/no-logging coverage.
 This is hardening/CI analysis, not a measured optimization; counts unchanged.

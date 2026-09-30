@@ -22,14 +22,11 @@ increment hardening work. A separate codec `INT64_MIN` finding also remains.
 - Current head `d4efd112713d3e488e33a2a41cdcd57d69b7cfd0` includes upstream
   `main` through `4395fa0254d56ebacd81cd82e23fda346e1651c2`. Release CTest
   7/7, ASan+UBSan CTest 7/7, logging-disabled CTest 5/5 on arm64.
-- [Earlier exact-head fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571)
-  passed across Linux, Windows, existing macOS jobs, and Linux ASan+UBSan;
-  current-head CI is in progress after merging the new upstream main.
+- Refreshed-head upstream CI passed across Linux, Windows, existing macOS jobs,
+  and Linux ASan+UBSan; its PR ASan fuzz check also passed.
 - Structured deterministic fuzzer passed 10,000 V0/V1/V2 cases.
-- [Native Linux ClusterFuzzLite batch](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36698338636)
-  passed 600 seconds each with ASan and UBSan at the pre-refresh exact source
-  head. The [current-main integration repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699944409)
-  is in progress. The batch branch has identical source, tests, and fuzz target;
+- [Current-main native Linux ClusterFuzzLite batch](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699944409)
+  passed 600 seconds each with ASan and UBSan. The batch branch has identical source, tests, and fuzz target;
   only its workflow time budget differs.
 - New tests cover exact-limit and overflowing totals in all three codecs,
   existing destination preservation, and rotated min/max reconstruction.
