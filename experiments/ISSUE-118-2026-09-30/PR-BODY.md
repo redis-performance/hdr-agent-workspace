@@ -19,7 +19,7 @@ increment hardening work. A separate codec `INT64_MIN` finding also remains.
 
 ## Validation
 
-- Exact head `a280319` (full hash and final verdict in the review comment): release CTest
+- Exact head `a28031949c99ff630708de8885ce382ed746f8c5`: release CTest
   7/7, ASan+UBSan CTest 7/7, logging-disabled CTest 5/5 on arm64.
 - [Fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571)
   passed across Linux, Windows, existing macOS jobs, and Linux ASan+UBSan.

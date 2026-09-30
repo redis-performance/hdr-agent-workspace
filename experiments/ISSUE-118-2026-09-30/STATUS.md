@@ -66,8 +66,10 @@ sanitizer/fuzz jobs. GitHub's current runner mapping is documented at
 https://docs.github.com/en/actions/reference/runners/github-hosted-runners.
 
 The CI-only fork branch `ci/explicit-macos-coverage` implements this matrix
-and sanitizer job at `9af624716f7424157e300b545b541b0f6dd50c8f`.
+and sanitizer jobs at `9361ee5c0a1a8974a413e7549e7047a8738f3237`.
 [Fork CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36697811539)
 passed all 24 jobs, including the eight architecture-pinned macOS build rows
-and Apple-silicon ASan+UBSan. [Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
-is open; upstream checks and the exact-commit review comment are pending.
+and Apple-silicon ASan+UBSan. The new head adds Intel ASan+UBSan; its
+[25-job repeat](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36699075113)
+is pending. [Upstream PR #160](https://github.com/HdrHistogram/HdrHistogram_c/pull/160)
+is open; exact-head checks and review comment are pending.
