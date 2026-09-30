@@ -21,24 +21,17 @@ explicitly pending. Experiment counts and the accepted baseline are unchanged.
 
 ## C performance by architecture
 
-The [C-only performance ledger](experiments/C-PERFORMANCE-BY-ARCH.md) separates
-current dense `main` measurements from historical C and experimental packed-C
-results. These workloads differ, so the absolute numbers are not a cross-CPU
-speed ranking.
+Previous stable C release `0.11.10` versus latest upstream C `main` (`e4e8b0a`).
+Each chart uses the same benchmark on both versions. Other runners remain
+**TBD** until their matched runs arrive.
 
-| Architecture | Dense C write | Dense C single-percentile read | Source |
-|---|---:|---:|---|
-| Intel x86-64, Granite Rapids | 415 M/s | 767 K/s | Historical C harness; exact C commit unrecorded |
-| AMD x86-64, Zen 5 | **TBD** | **TBD** | Fresh native `main` run pending |
-| ARM64, AWS Graviton / Neoverse-V2 | **TBD** | **TBD** | Fresh native `main` run pending |
-| ARM64, Apple M6 | 710.33–710.78 M/s | 0.22 M/s | Upstream `e4e8b0a`, two immutable-driver runs |
+![C write benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/write.svg)
 
-The Intel and Apple rows use different benchmark protocols. The separate
-[packed-C three-architecture experiment](experiments/C-PERFORMANCE-BY-ARCH.md#packed-c-historical-three-architecture-experiment)
-contains actual C measurements on Intel, AMD, and Graviton, but its
-follow-up cache patch is not part of dense `main`. The Intel/AMD/ARM
-`hdr-dense` and `hdr-packed` table in the competitor section below measures
-**Rust**, not C.
+![C single-percentile benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/read.svg)
+
+![C four-percentile list benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/list.svg)
+
+[Measurements, raw logs, and method](experiments/C-PERFORMANCE-BY-ARCH.md).
 
 ---
 

@@ -1,5 +1,39 @@
 # HdrHistogram_c performance by architecture
 
+## Previous stable versus latest master
+
+The write and single-read charts use the immutable C project benchmark drivers;
+the list chart uses the project's unchanged Google Benchmark C++ driver for
+`hdr_value_at_percentiles` with four percentiles. The Apple bars show
+two interleaved runs per revision; Intel, AMD, and AWS Graviton are `TBD` until
+the other runner session supplies matched measurements. Higher is better.
+
+![C write benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/write.svg)
+
+![C single-percentile benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/read.svg)
+
+![C four-percentile list benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/list.svg)
+
+The write chart shows the range of the two run medians. The read chart uses
+the midpoint of the driver's *rounded* reported rates (stable 0.19–0.20,
+master 0.22 M/s); its bar length is visual only, not a precise effect-size
+estimate. [Raw paired output](OPT-ROUND-2026-09-30/bench-results/) and
+[chart data/source](C-PERFORMANCE-CHARTS/) are available for updates.
+
+The list chart uses `BM_hdr_value_at_percentiles_given_array/3/86400000`
+(`{50,95,99,99.9}`, 10 million gamma-distributed records). AppleClang 21,
+RelWithDebInfo, two interleaved invocations per revision, five timed Google
+Benchmark repetitions per invocation: stable medians 20,846 and 20,894 ns per
+four-percentile list; latest master 1,221 and 1,220 ns. The plotted throughput
+is `1e6 / median_ns` in thousand list calls/second: about 48 versus 819,
+or ~17.1×. The benchmark library itself reports a debug-build warning, so
+this magnitude is corroborated by the separately validated
+[supplemental batch probe](OPT-ROUND-2026-09-30/batch_probe.c); the precise
+effect size still needs native cross-compiler confirmation. Its [raw output](OPT-ROUND-2026-09-30/list-results/)
+has genericized host labels for this public repository.
+
+## Other C evidence (different benchmarks)
+
 This page covers the **C implementation**. Results are from distinct workloads and
 dates; rows from different machines are **not** a controlled cross-architecture
 speed ranking. The source revision, benchmark, and evidence are attached to each

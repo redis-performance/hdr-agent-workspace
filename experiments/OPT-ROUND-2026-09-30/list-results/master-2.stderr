@@ -1,0 +1,10 @@
+Unable to determine clock rate from sysctl: hw.cpufrequency: No such file or directory
+2026-09-30T17:34:30+01:00
+Running .tools/optim-20260930/master/build/clang/test/hdr_histogram_benchmark
+Run on (12 X 24.1205 MHz CPU s)
+CPU Caches:
+  L1 Data 96 KiB (x12)
+  L1 Instruction 160 KiB (x12)
+  L2 Unified 8192 KiB (x2)
+Load Average: 1.11, 1.12, 1.18
+***WARNING*** Library was built as DEBUG. Timings may be affected.

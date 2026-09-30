@@ -698,6 +698,16 @@ historical rotated/signed-state semantic mismatches, so timings use the
 validated common nonrotated positive-percentile domain. Raw files and limits
 are in the round status. No new optimization acceptance decision.
 
+The unchanged project four-percentile-list benchmark, run twice per revision
+with five timed repetitions each on Apple arm64, measured 20.85–20.89 µs/list
+on stable and 1.220–1.221 µs/list on latest master (~17.1× throughput).
+A supplemental batch probe validated equal outputs at all four source points
+and showed the same large dense-list gain for both 7 and 32 percentiles.
+Apple read/write sampling confirmed the expected hot functions but did not
+resolve inner-loop bottlenecks. [Three C-only charts](C-PERFORMANCE-BY-ARCH.md)
+show previous stable versus master by runner; Intel/AMD/Graviton cells are
+TBD pending matched native runs. No new source candidate is accepted.
+
 ### C PR review closeout — 2026-09-29
 
 All 11 PRs reviewed and commented at exact commits; eight branches received

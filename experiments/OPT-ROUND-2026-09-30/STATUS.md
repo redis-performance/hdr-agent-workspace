@@ -83,5 +83,62 @@ for a performance comparison or infer a current-master regression from them.
 - Preserve the parent submodule pointer until a candidate passes both mandatory
   benchmark and profile gates and adversarial review.
 
-Next: build/test the four points, run same-session baselines, then profile the
-latest master and log any candidate/no-starter decision.
+## Four-percentile list benchmark and supplemental batch gate
+
+The project's unchanged Google Benchmark case
+`BM_hdr_value_at_percentiles_given_array/3/86400000` queries
+`{50,95,99,99.9}` in one API call over a 10-million-record gamma workload.
+It was run stable/master/master/stable in one AppleClang 21 arm64 session,
+five timed repetitions per invocation. Median real time per list call:
+
+| Revision/run | ns per four-percentile list | Thousands of lists/s |
+|---|---:|---:|
+| Stable 1 | 20,846 | 48.0 |
+| Master 1 | 1,221 | 819.1 |
+| Master 2 | 1,220 | 819.5 |
+| Stable 2 | 20,894 | 47.9 |
+
+This is a ~17.1× Apple arm64 list-call throughput improvement, consistent
+with the merged #140/#141 batch design. [Raw JSON/output](list-results/) has
+genericized host labels. Google Benchmark warns that its own library was built
+as DEBUG; the large difference is independently corroborated by the
+separately compiled, [validated batch probe](batch_probe.c). The chart uses
+these numbers, but native x86-64 and gcc/clang qualification is still pending.
+
+The supplemental probe validates batch outputs against repeated single calls
+on deterministic, nonrotated, nonnegative histograms for four shapes (sparse
+and dense, 7 and 32 percentiles). Stable, pre-batch master, latest master,
+and #158 all produced the same four fingerprints. Two interleaved runs each
+for stable/pre-batch/master yielded these median ns per **list call**:
+
+| Shape | Stable | Pre-batch | Latest master | Future #158 (one run) |
+|---|---:|---:|---:|---:|
+| Sparse, 7 | 32.2–32.7 | 34.8–34.9 | 14.7–14.8 | 14.2 |
+| Sparse, 32 | 47.4–47.7 | 54.0–54.7 | 40.9–41.6 | 40.4 |
+| Dense, 7 | 42,222–42,358 | 46,832–46,988 | 2,450–2,452 | 1,307 |
+| Dense, 32 | 42,384–42,570 | 47,068–47,154 | 2,504 | 1,439 |
+
+The [raw probe output](batch-results/) also records repeated-single control
+times, calibration iterations, and fingerprints. The future #158 branch's
+apparent ~1.8× dense-list gain on arm64 comes from removing the scalar
+negative-count scan check. Its decoder/hostile-count semantics and cross-CPU
+performance remain review gates; the one-run figure is a lead, not an
+accepted optimization. The source point was not merged into the workspace
+submodule.
+
+## Latest-master Apple profiles
+
+Apple `sample` on the immutable drivers collected 8,689 read and 7,781 write
+main-thread stacks over 10 seconds each. In the read profile, 8,688/8,689
+main-thread samples were in `hdr_value_at_percentile`. In the write profile,
+7,260/7,781 samples were in `hdr_record_value` (520 in driver setup/loop).
+The expected hot paths remain dominant. Apple `sample` did not provide
+hardware-counter or inner-loop breakdown; no new bottleneck is established
+from these coarse profiles. Raw reports are held locally because they include
+host-specific paths and identifiers. Native Linux `perf` and x86 gcc/clang
+profiles remain pending for any new source candidate.
+
+**Round decision:** merged master shows a large batch-list improvement on
+Apple arm64 and no reliably distinguishable write change against 0.11.10.
+No new source candidate passes the required two-step acceptance gate here;
+experiment counts and the accepted workspace submodule pointer are unchanged.

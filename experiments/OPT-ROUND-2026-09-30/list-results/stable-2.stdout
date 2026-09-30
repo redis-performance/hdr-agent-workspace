@@ -1,0 +1,12 @@
+--------------------------------------------------------------------------------------------------------------------
+Benchmark                                                          Time             CPU   Iterations UserCounters...
+--------------------------------------------------------------------------------------------------------------------
+BM_hdr_value_at_percentiles_given_array/3/86400000             20876 ns        20851 ns        33544 items_per_second=191.836k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000             20888 ns        20864 ns        33544 items_per_second=191.721k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000             20894 ns        20865 ns        33544 items_per_second=191.705k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000             20909 ns        20884 ns        33544 items_per_second=191.533k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000             20906 ns        20879 ns        33544 items_per_second=191.577k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_mean        20895 ns        20869 ns            5 items_per_second=191.675k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_median      20894 ns        20865 ns            5 items_per_second=191.705k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_stddev       13.4 ns         13.2 ns            5 items_per_second=121.098/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_cv           0.06 %          0.06 %             5 items_per_second=0.06%

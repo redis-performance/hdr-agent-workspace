@@ -1,0 +1,15 @@
+{
+  "previous": "HdrHistogram_c 0.11.10 (18c7a32)",
+  "master": "upstream main e4e8b0a (2026-09-30)",
+  "runners": [
+    {"name": "Intel x86-64", "write": null, "read": null, "list": null},
+    {"name": "AMD x86-64", "write": null, "read": null, "list": null},
+    {"name": "AWS Graviton ARM64", "write": null, "read": null, "list": null},
+    {
+      "name": "Apple M6 ARM64",
+      "write": {"previous": 709.91, "master": 710.555, "previous_label": "709.56–710.26", "master_label": "710.33–710.78"},
+      "read": {"previous": 0.195, "master": 0.22, "previous_label": "0.19–0.20", "master_label": "0.22"},
+      "list": {"previous": 47.91, "master": 819.30, "previous_label": "47.9–48.0", "master_label": "819.1–819.6"}
+    }
+  ]
+}

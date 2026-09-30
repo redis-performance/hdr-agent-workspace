@@ -1,0 +1,177 @@
+{
+  "context": {
+    "date": "2026-09-30T17:34:18+01:00",
+    "host_name": "apple-arm64-runner",
+    "executable": ".tools/optim-20260930/stable/build/clang/test/hdr_histogram_benchmark",
+    "num_cpus": 12,
+    "mhz_per_cpu": 24,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 98304,
+        "num_sharing": 1
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 163840,
+        "num_sharing": 1
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 8388608,
+        "num_sharing": 6
+      }
+    ],
+    "load_avg": [
+      1.13477,
+      1.12793,
+      1.18164
+    ],
+    "library_build_type": "debug"
+  },
+  "benchmarks": [
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "iteration",
+      "repetitions": 5,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 33668,
+      "real_time": 20828.637995784713,
+      "cpu_time": 20801.918735891646,
+      "time_unit": "ns",
+      "items_per_second": 192289.95415208486
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "iteration",
+      "repetitions": 5,
+      "repetition_index": 1,
+      "threads": 1,
+      "iterations": 33668,
+      "real_time": 20855.964863986206,
+      "cpu_time": 20828.68005227515,
+      "time_unit": "ns",
+      "items_per_second": 192042.89421897734
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "iteration",
+      "repetitions": 5,
+      "repetition_index": 2,
+      "threads": 1,
+      "iterations": 33668,
+      "real_time": 20846.46029015004,
+      "cpu_time": 20823.51194012119,
+      "time_unit": "ns",
+      "items_per_second": 192090.55665068192
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "iteration",
+      "repetitions": 5,
+      "repetition_index": 3,
+      "threads": 1,
+      "iterations": 33668,
+      "real_time": 20815.940478986362,
+      "cpu_time": 20793.89925151481,
+      "time_unit": "ns",
+      "items_per_second": 192364.113705543
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "iteration",
+      "repetitions": 5,
+      "repetition_index": 4,
+      "threads": 1,
+      "iterations": 33668,
+      "real_time": 20878.173130151346,
+      "cpu_time": 20849.02578115719,
+      "time_unit": "ns",
+      "items_per_second": 191855.48725327477
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000_mean",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "aggregate",
+      "repetitions": 5,
+      "threads": 1,
+      "aggregate_name": "mean",
+      "aggregate_unit": "time",
+      "iterations": 5,
+      "real_time": 20845.035351811737,
+      "cpu_time": 20819.407152192,
+      "time_unit": "ns",
+      "items_per_second": 192128.60119611237
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000_median",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "aggregate",
+      "repetitions": 5,
+      "threads": 1,
+      "aggregate_name": "median",
+      "aggregate_unit": "time",
+      "iterations": 5,
+      "real_time": 20846.46029015004,
+      "cpu_time": 20823.51194012119,
+      "time_unit": "ns",
+      "items_per_second": 192090.55665068192
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000_stddev",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "aggregate",
+      "repetitions": 5,
+      "threads": 1,
+      "aggregate_name": "stddev",
+      "aggregate_unit": "time",
+      "iterations": 5,
+      "real_time": 24.160825460966,
+      "cpu_time": 22.003390889559544,
+      "time_unit": "ns",
+      "items_per_second": 203.0303041595509
+    },
+    {
+      "name": "BM_hdr_value_at_percentiles_given_array/3/86400000_cv",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_hdr_value_at_percentiles_given_array/3/86400000",
+      "run_type": "aggregate",
+      "repetitions": 5,
+      "threads": 1,
+      "aggregate_name": "cv",
+      "aggregate_unit": "percentage",
+      "iterations": 5,
+      "real_time": 0.0011590685769149378,
+      "cpu_time": 0.001056869234013846,
+      "time_unit": "ns",
+      "items_per_second": 0.0010567416974649744
+    }
+  ]
+}
