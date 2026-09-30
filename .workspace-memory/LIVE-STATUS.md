@@ -1,6 +1,6 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~12:00 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-09-30 ~15:35 UTC** · Session: opus-4.8 loop (adversarial review + merge)
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
@@ -19,6 +19,12 @@ upstream/main tip: **e4e8b0a** (after #141).
 ## Decisions awaiting maintainers
 - #158 vs #141: support-vs-reject signed counts (see #158 comment). #141's merge leans "support".
 - #161: checked-API shape — ready to merge on approval.
+
+
+## Reviewer + master-merge check (2026-09-30 15:35)
+paulorsousa set as reviewer on ALL open PRs (#161,#160,#159,#158,#150).
+Master merges CLEAN into #161 (behind 0), #160 (behind 2), #159 (behind 2). #158 CONFLICTS (signed-count test vs merged #141) — blocked on the support-vs-reject decision.
+New PRs from the parallel hardening runner: #159 (reject import total_count overflow, the #118 fix), #160 (macOS Intel+Apple sanitizer CI). Both paulorsousa-reviewed; refresh left to that runner.
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
