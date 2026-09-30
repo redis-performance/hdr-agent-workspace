@@ -1,10 +1,12 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-09-30 ~01:13 UTC** · Session: opus-4.8 loop (adversarial review + merge)
-Pushed every loop tick so other runners/sessions see current state. This is a coordination
-signal, not the source of truth — verify against GitHub before acting.
+**Updated: 2026-09-30 ~01:45 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+Pushed on every material change + hourly heartbeat so other runners/sessions see current state.
+This is a coordination signal, not the source of truth — verify against GitHub before acting.
 
-**Tick 01:13:** still CLEAN + CI-green on all 7 open PRs; no new approvals/comments since 21:36. Quiet hold; monitoring.
+**Tick 01:45:** 3rd consecutive quiet tick — 7 open PRs still CLEAN + CI-green, no new
+approvals/comments since 21:36 (reviewers offline overnight). Loop cadence widened to 1h;
+will tighten and act immediately when any PR is approved or a new comment lands.
 
 upstream/main tip: **26587de** (after merging #157/#155/#149/#138).
 
