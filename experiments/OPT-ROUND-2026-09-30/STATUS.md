@@ -18,6 +18,20 @@ an ancestor of master, and merging it would not create a new comparison state.
 The two immutable project benchmark drivers are byte-identical from 0.11.10
 through current master.
 
+## Stage 1 — build and CTest
+
+AppleClang 21 / arm64 RelWithDebInfo, logging enabled, benchmark drivers built:
+
+| Point | CTest | Result |
+|---|---:|---|
+| 0.11.10 stable | 5/5 | PASS |
+| pre-batch master | 5/5 | PASS |
+| latest master | 5/5 | PASS |
+| #158 future candidate | 5/5 | PASS |
+
+All four builds used the same CMake options and compiler. There is no source
+change or candidate acceptance from this step.
+
 ## Measurement contract
 
 - Run release CTest first for each source point. Run sanitizer and no-logging
