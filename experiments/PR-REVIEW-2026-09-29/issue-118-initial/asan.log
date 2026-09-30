@@ -1,0 +1,94 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/issue-118-current -B $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/asan -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS=-fsanitize=address,undefined,float-cast-overflow -fno-sanitize-recover=all -g
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found ZLIB: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libz.tbd (found version "1.2.12")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Looking for ceil in m
+-- Looking for ceil in m - found
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - not found
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/asan
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/asan -j 4
+[  9%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[  9%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o
+[  9%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_encoding.c.o
+[  9%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o
+[ 11%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log.c.o
+[ 14%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram_log.c.o
+[ 16%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_interval_recorder.c.o
+[ 19%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o
+[ 21%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o
+[ 23%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o
+[ 26%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_thread.c.o
+[ 28%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_time.c.o
+[ 30%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o
+[ 33%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_writer_reader_phaser.c.o
+[ 35%] Linking C static library libhdr_histogram_static.a
+[ 38%] Linking C shared library libhdr_histogram.dylib
+[ 38%] Built target hdr_histogram_static
+[ 38%] Built target hdr_histogram
+[ 42%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/hdr_histogram_atomic_test.c.o
+[ 42%] Building C object test/CMakeFiles/hdr_counter_overflow_core_test.dir/hdr_counter_overflow_core_test.c.o
+[ 45%] Building C object test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o
+[ 47%] Building C object test/CMakeFiles/hdr_histogram_log_test.dir/hdr_histogram_log_test.c.o
+[ 50%] Building C object test/CMakeFiles/hdr_counter_overflow_core_test.dir/minunit.c.o
+[ 52%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/minunit.c.o
+[ 54%] Linking C executable hdr_counter_overflow_core_test
+[ 57%] Building C object test/CMakeFiles/hdr_histogram_test.dir/minunit.c.o
+[ 59%] Building C object test/CMakeFiles/hdr_histogram_log_test.dir/minunit.c.o
+[ 61%] Linking C executable hdr_histogram_atomic_test
+[ 64%] Linking C executable hdr_histogram_test
+[ 64%] Built target hdr_counter_overflow_core_test
+[ 66%] Linking C executable hdr_histogram_log_test
+[ 69%] Building C object test/CMakeFiles/hdr_counter_overflow_codec_test.dir/hdr_counter_overflow_codec_test.c.o
+[ 69%] Built target hdr_histogram_atomic_test
+[ 69%] Built target hdr_histogram_test
+[ 71%] Building C object test/CMakeFiles/hdr_atomic_test.dir/hdr_atomic_test.c.o
+[ 73%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/hdr_histogram_atomic_concurrency_test.c.o
+[ 73%] Built target hdr_histogram_log_test
+[ 76%] Building C object test/CMakeFiles/hdr_counter_overflow_codec_test.dir/minunit.c.o
+[ 78%] Building C object test/CMakeFiles/hdr_atomic_test.dir/minunit.c.o
+[ 80%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o
+[ 85%] Linking C executable hdr_counter_overflow_codec_test
+[ 85%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/minunit.c.o
+[ 88%] Linking C executable hdr_atomic_test
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/minunit.c.o
+[ 92%] Linking C executable hdr_histogram_atomic_concurrency_test
+[ 92%] Built target hdr_counter_overflow_codec_test
+[ 95%] Linking C executable hdr_histogram_perf
+[ 97%] Building C object examples/CMakeFiles/hdr_decoder.dir/hdr_decoder.c.o
+[ 97%] Built target hdr_atomic_test
+[ 97%] Built target hdr_histogram_atomic_concurrency_test
+[100%] Linking C executable hdr_decoder
+[100%] Built target hdr_histogram_perf
+[100%] Built target hdr_decoder
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/asan --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/asan
+    Start 1: hdr_histogram_test
+1/7 Test #1: hdr_histogram_test ......................   Passed    1.02 sec
+    Start 2: hdr_counter_overflow_core_test
+2/7 Test #2: hdr_counter_overflow_core_test ..........   Passed    0.65 sec
+    Start 3: hdr_histogram_atomic_test
+3/7 Test #3: hdr_histogram_atomic_test ...............   Passed    0.96 sec
+    Start 4: hdr_histogram_log_test
+4/7 Test #4: hdr_histogram_log_test ..................   Passed    0.34 sec
+    Start 5: hdr_counter_overflow_codec_test
+5/7 Test #5: hdr_counter_overflow_codec_test .........   Passed    0.17 sec
+    Start 6: hdr_atomic_test
+6/7 Test #6: hdr_atomic_test .........................   Passed    0.18 sec
+    Start 7: hdr_histogram_atomic_concurrency_test
+7/7 Test #7: hdr_histogram_atomic_concurrency_test ...   Passed    1.06 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   4.38 sec

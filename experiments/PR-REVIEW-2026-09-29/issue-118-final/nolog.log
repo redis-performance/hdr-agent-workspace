@@ -1,0 +1,33 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/issue-118-current -B $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DHDR_LOG_REQUIRED=DISABLED
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -j 4
+[ 38%] Built target hdr_histogram
+[ 47%] Built target hdr_histogram_static
+[ 55%] Built target hdr_atomic_test
+[ 64%] Built target hdr_histogram_atomic_test
+[ 70%] Building C object test/CMakeFiles/hdr_counter_overflow_core_test.dir/hdr_counter_overflow_core_test.c.o
+[ 76%] Built target hdr_histogram_test
+[ 85%] Built target hdr_histogram_atomic_concurrency_test
+[ 94%] Built target hdr_histogram_perf
+[ 97%] Linking C executable hdr_counter_overflow_core_test
+[100%] Built target hdr_counter_overflow_core_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.21 sec
+    Start 2: hdr_counter_overflow_core_test
+2/5 Test #2: hdr_counter_overflow_core_test ..........   Passed    0.15 sec
+    Start 3: hdr_histogram_atomic_test
+3/5 Test #3: hdr_histogram_atomic_test ...............   Passed    0.23 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.00 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.44 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   1.04 sec

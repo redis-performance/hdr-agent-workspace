@@ -689,3 +689,14 @@ The combined state passes local release/sanitizer/no-zlib tests and historical
 crash replay. Dense issue #118 remains a release-level blocker. The
 [review ledger](PR-REVIEW-2026-09-29/README.md) has final hashes, comments, findings
 and CI/fuzz evidence. No optimization acceptance count or baseline pointer changed.
+
+### Issue #118 and macOS CI follow-up — 2026-09-30
+
+[Live status and evidence](ISSUE-118-2026-09-30/STATUS.md): a current-main
+branch detects decoded counter-total overflow, preserves the public reset ABI,
+and rejects overflowing V0/V1/V2 streams before publishing a histogram.
+Exact-head release, sanitizer, no-logging and fork CI pass; a native Linux
+coverage-guided batch is still running. The same audit finds the existing
+macOS CI runs only two logging-enabled Apple-silicon jobs despite `x64` matrix
+labels, with no explicit Intel or macOS sanitizer/no-logging coverage.
+This is hardening/CI analysis, not a measured optimization; counts unchanged.

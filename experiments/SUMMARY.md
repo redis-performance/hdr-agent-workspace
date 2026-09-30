@@ -28,6 +28,11 @@ by maintainer, #137 open) that this workspace builds on.
 
 ## M6 measured qualification checkpoint — 2026-09-29
 
+[Issue #118 and macOS CI follow-up](ISSUE-118-2026-09-30/STATUS.md) records the
+current-main overflow fix, exact-head correctness evidence, pending native
+coverage-guided fuzzing, and the macOS matrix gaps. No optimization status or
+accepted baseline changed.
+
 The subsequent [C PR review round](PR-REVIEW-2026-09-29/README.md) covers all 11
 open C PRs: five MERGE-READY, six NEEDS WORK, eight corrected branches pushed.
 Main CI/fuzz failures and exact review comments are linked there. Native

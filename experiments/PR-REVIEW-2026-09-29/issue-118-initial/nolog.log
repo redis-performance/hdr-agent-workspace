@@ -1,0 +1,79 @@
+$ .tools/bin/cmake -S $WORKSPACE/.tools/pr-review-20260929/issue-118-current -B $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -DCMAKE_C_COMPILER=clang -DHDR_HISTOGRAM_BUILD_PROGRAMS=ON -DCMAKE_BUILD_TYPE=Debug -DHDR_LOG_REQUIRED=DISABLED
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found ZLIB: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libz.tbd (found version "1.2.12")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Looking for ceil in m
+-- Looking for ceil in m - found
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - not found
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+
+$ .tools/bin/cmake --build $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog -j 4
+[  2%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_encoding.c.o
+[  5%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o
+[  8%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram.c.o
+[ 11%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[ 14%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_histogram_log_no_op.c.o
+[ 17%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_interval_recorder.c.o
+[ 20%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_thread.c.o
+[ 23%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log_no_op.c.o
+[ 26%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_time.c.o
+[ 29%] Building C object src/CMakeFiles/hdr_histogram.dir/hdr_writer_reader_phaser.c.o
+[ 32%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o
+[ 35%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o
+[ 38%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o
+[ 41%] Linking C shared library libhdr_histogram.dylib
+[ 44%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o
+[ 47%] Linking C static library libhdr_histogram_static.a
+[ 47%] Built target hdr_histogram
+[ 47%] Built target hdr_histogram_static
+[ 52%] Building C object test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o
+[ 52%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/hdr_histogram_atomic_test.c.o
+[ 55%] Building C object test/CMakeFiles/hdr_atomic_test.dir/hdr_atomic_test.c.o
+[ 58%] Building C object test/CMakeFiles/hdr_counter_overflow_core_test.dir/hdr_counter_overflow_core_test.c.o
+[ 61%] Building C object test/CMakeFiles/hdr_counter_overflow_core_test.dir/minunit.c.o
+[ 64%] Building C object test/CMakeFiles/hdr_atomic_test.dir/minunit.c.o
+[ 67%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/minunit.c.o
+[ 70%] Building C object test/CMakeFiles/hdr_histogram_test.dir/minunit.c.o
+[ 73%] Linking C executable hdr_counter_overflow_core_test
+[ 76%] Linking C executable hdr_atomic_test
+[ 79%] Linking C executable hdr_histogram_atomic_test
+[ 82%] Linking C executable hdr_histogram_test
+[ 82%] Built target hdr_counter_overflow_core_test
+[ 82%] Built target hdr_atomic_test
+[ 82%] Built target hdr_histogram_atomic_test
+[ 85%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/minunit.c.o
+[ 88%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/hdr_histogram_atomic_concurrency_test.c.o
+[ 91%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o
+[ 91%] Built target hdr_histogram_test
+[ 94%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/minunit.c.o
+[ 97%] Linking C executable hdr_histogram_perf
+[100%] Linking C executable hdr_histogram_atomic_concurrency_test
+[100%] Built target hdr_histogram_perf
+[100%] Built target hdr_histogram_atomic_concurrency_test
+
+$ .tools/bin/ctest --test-dir $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog --output-on-failure
+Test project $WORKSPACE/.tools/pr-review-20260929/issue-118-current/build/nolog
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.47 sec
+    Start 2: hdr_counter_overflow_core_test
+2/5 Test #2: hdr_counter_overflow_core_test ..........   Passed    0.17 sec
+    Start 3: hdr_histogram_atomic_test
+3/5 Test #3: hdr_histogram_atomic_test ...............   Passed    0.46 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.26 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.70 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   2.07 sec

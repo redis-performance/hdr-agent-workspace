@@ -1,5 +1,9 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [Issue #118 and macOS CI follow-up](../experiments/ISSUE-118-2026-09-30/STATUS.md) —
+  current-main decoded-total overflow fix and exact-head validation; native
+  fuzzing pending. Current macOS CI lacks explicit Intel, no-logging and sanitizer jobs.
+
 - [Push status continuously](push-status-continuously.md) — commit+push STATUS.md after every step; other sessions read git
 
 - [C PR review round, 2026-09-29](../experiments/PR-REVIEW-2026-09-29/README.md) —

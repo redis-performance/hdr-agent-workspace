@@ -1,0 +1,60 @@
+# Issue #118 — counter-total overflow and macOS CI audit
+
+Updated 2026-09-30. This is a correctness/hardening follow-up, not an accepted
+optimization experiment; accepted/rejected counts and the workspace submodule
+baseline remain unchanged.
+
+## Issue #118
+
+- Upstream issue: https://github.com/HdrHistogram/HdrHistogram_c/issues/118
+- Base: upstream `main` at `1dfc67e946a225fbaab16811b343710cf3a10df5`.
+- Fork branch: `fcostaoliveira:fix/dense-counter-total-overflow` at
+  `80214d6940ad975e94176b23b59e5cee0a6c610d` (pushed without rewriting history).
+- The old reset path used signed addition for decoded positive counts. A valid
+  compressed stream with three adjacent `2^62` counts made that sum overflow.
+  The new private checked reset detects this, saturates the public void reset's
+  observed total at `INT64_MAX`, and makes V0/V1/V2 decode return `EOVERFLOW`
+  without publishing a partial histogram. Count buckets remain unchanged.
+- The implementation preserves normalized-index rotation, the existing public
+  reset signature, and an existing destination on failed decode. It does not
+  address the separate record-path count increment overflow or the separate
+  codec `INT64_MIN` negation finding from the hardening round.
+- Exact-head arm64 validation: release CTest 7/7, ASan+UBSan CTest 7/7,
+  logging-disabled CTest 5/5. Evidence:
+  [results](../PR-REVIEW-2026-09-29/issue-118-final-head/results.json),
+  [release](../PR-REVIEW-2026-09-29/issue-118-final-head/release.log),
+  [sanitizer](../PR-REVIEW-2026-09-29/issue-118-final-head/asan.log),
+  [no logging](../PR-REVIEW-2026-09-29/issue-118-final-head/nolog.log).
+- Structured deterministic fuzzer: 10,000 cases, passed
+  ([log](../PR-REVIEW-2026-09-29/issue118-structured-fuzz.log)).
+- Fork [exact-head CI](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696475571):
+  completed successfully, including Windows, both existing macOS jobs, and
+  Linux ASan+UBSan. [Native Linux ClusterFuzzLite batch](https://github.com/fcostaoliveira/HdrHistogram_c/actions/runs/36696562555)
+  is running for 600 seconds per sanitizer. It uses the same source/test/fuzzer
+  blobs as the proposed PR head, with only the workflow time budget changed.
+- Upstream PR and final commit-specific verdict: pending completion of the
+  coverage-guided batch and final audit.
+
+## Current macOS CI coverage
+
+The [current C CI matrix](https://github.com/HdrHistogram/HdrHistogram_c/blob/1dfc67e946a225fbaab16811b343710cf3a10df5/.github/workflows/ci.yml)
+has two macOS build/test jobs: Debug and RelWithDebInfo, logging enabled.
+Both matrix entries say `arch: x64`, but both use `macos-latest` as the runner;
+for public repositories that label currently selects Apple silicon. The
+matrix label is an environment value, not an architecture assertion. The
+workflow explicitly excludes macOS x86, minimal CMake, and logging-disabled.
+The only ASan+UBSan CI job is Linux; ClusterFuzzLite is Linux-only. Thus macOS
+Intel, no-logging builds, and macOS sanitizer behavior are not exercised.
+
+The [latest upstream main CI](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36691467208)
+passed at `1dfc67e`. The [latest weekly batch failure](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36401899117)
+predates the merge of the timestamp sanitizer fix (#154), so it is not
+evidence that today's main still fails; the next weekly batch remains to be
+observed.
+
+Recommended follow-up: explicitly pin Intel (`macos-15-intel`) and Apple
+silicon (`macos-15` or a documented ARM64 label), print/assert `uname -m`
+in each job, run logging-enabled and logging-disabled CTest on both, and add
+an Apple-silicon ASan+UBSan CTest job. Keep the existing Linux 32-bit and
+sanitizer/fuzz jobs. GitHub's current runner mapping is documented at
+https://docs.github.com/en/actions/reference/runners/github-hosted-runners.
