@@ -1,5 +1,9 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [Post-merge C optimization round](../experiments/OPT-ROUND-2026-09-30/STATUS.md) —
+  0.11.10 stable release, pre-batch master, latest master, and future #158;
+  arm64 directional measurement and native x86 gates tracked separately.
+
 - [Issue #118 and macOS CI follow-up](../experiments/ISSUE-118-2026-09-30/STATUS.md) —
   current-main decoded-total overflow fix (#159) passed exact-head CI and
   native ASan/UBSan fuzz; Intel and ARM macOS CI coverage PR #160 passed

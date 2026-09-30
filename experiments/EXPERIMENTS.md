@@ -680,6 +680,14 @@ crashes and regression probes are retained. Fixes, final reviewed hashes and
 per-PR comments are recorded in the round directory as work completes.
 This is a review/hardening round, not a performance acceptance; counts unchanged.
 
+### Post-merge stable/master/future comparison — 2026-09-30
+
+[Active round](OPT-ROUND-2026-09-30/STATUS.md): compare upstream release 0.11.10,
+pre-batch master, latest master including #140/#141, and open #158 as a future
+correctness/performance reference. Immutable referee drivers are unchanged
+across the first three revisions. No new accepted/rejected decision yet;
+workspace counts and accepted submodule pointer remain unchanged.
+
 ### C PR review closeout — 2026-09-29
 
 All 11 PRs reviewed and commented at exact commits; eight branches received

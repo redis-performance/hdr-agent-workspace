@@ -28,6 +28,11 @@ by maintainer, #137 open) that this workspace builds on.
 
 ## M6 measured qualification checkpoint — 2026-09-29
 
+[Post-merge C optimization round](OPT-ROUND-2026-09-30/STATUS.md) compares the
+0.11.10 stable release, pre-batch master, and latest master including #140/#141;
+#158 is the future candidate reference. Measurement is in progress, so counts
+and the accepted submodule baseline are unchanged.
+
 [Issue #118 and macOS CI follow-up](ISSUE-118-2026-09-30/STATUS.md) records the
 current-main overflow fix (#159), passing exact-head correctness and native
 coverage-guided fuzzing, and the macOS matrix fix (#160). No optimization status or
