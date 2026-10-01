@@ -85,3 +85,8 @@ before pushing status (shared repo).
 - #155 OOB via counts_get_normalised: FALSE POSITIVE (V1/V2 decode `%= counts_len` first). Merged.
 - #158 premise "no subtract API": WRONG (hdr_record_values takes signed count) — reject-vs-support
   now an open maintainer decision (see #158).
+
+## Full bot/human comment audit (2026-10-01 ~13:00Z)
+Swept reviews + inline + issue comments + CI on all 9 open PRs. No human comments pending (Paulo's 4 on #150 resolved). Unanswered bot reviews addressed:
+#161 header comment folded (30f2f66); #162 explicit casts + comments say 16/32-bit top-bit words now rejected (12aca3c); #163 new CI job build-core-only on linux/macos/windows (cefb60c, mac/win legs unverified until CI); #164 amalgamated/ commit-vs-generate = maintainer call, replied. CI re-running on the three pushes.
+Earlier polls only checked comments newer than a cutoff and skipped review bodies; use the full sweep from now on.
