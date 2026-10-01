@@ -21,15 +21,16 @@ explicitly pending. Experiment counts and the accepted baseline are unchanged.
 
 ## C performance by architecture
 
-Previous stable C release `0.11.10` versus latest upstream C `main` (`e4e8b0a`).
-Each chart uses the same benchmark on both versions. Other runners remain
-**TBD** until their matched runs arrive.
+Previous stable C release `0.11.10` versus a newer C revision on each runner.
+Apple measured upstream `main` at `e4e8b0a`; Intel, AMD, and Graviton measured
+PR #158 (fixed tip for writes, earlier tip for reads/lists). These are
+within-runner before/after results, **not** a same-revision CPU ranking.
 
-![C write benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/write.svg)
+![C write benchmark: previous stable versus newer C by runner](experiments/C-PERFORMANCE-CHARTS/write.svg)
 
-![C single-percentile benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/read.svg)
+![C single-percentile benchmark: previous stable versus newer C by runner](experiments/C-PERFORMANCE-CHARTS/read.svg)
 
-![C four-percentile list benchmark: previous stable versus master by runner](experiments/C-PERFORMANCE-CHARTS/list.svg)
+![C four-percentile list benchmark: previous stable versus newer C by runner](experiments/C-PERFORMANCE-CHARTS/list.svg)
 
 [Measurements, raw logs, and method](experiments/C-PERFORMANCE-BY-ARCH.md).
 

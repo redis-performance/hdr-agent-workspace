@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render C-only previous-release vs latest-main benchmark charts, no deps."""
+"""Render C-only previous-release vs newer-revision benchmark charts, no deps."""
 
 import json
 from pathlib import Path
@@ -23,14 +23,14 @@ def render(key, title, unit, scale, ticks, note):
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" '
         'viewBox="0 0 960 520" role="img" '
-        f'aria-label="{escape(title)}: previous stable version versus latest master by runner">',
+        f'aria-label="{escape(title)}: previous stable version versus newer C revision by runner">',
         '<rect width="960" height="520" fill="#ffffff"/>',
         txt(30, 38, title, size=23, weight="bold"),
         txt(30, 64, f"{unit} · higher is better", size=14, color="#475569"),
         '<rect x="30" y="83" width="18" height="12" rx="2" fill="#62748b"/>',
         txt(55, 94, f"Previous stable: {DATA['previous']}", size=13),
         '<rect x="410" y="83" width="18" height="12" rx="2" fill="#087e75"/>',
-        txt(435, 94, f"Latest master: {DATA['master']}", size=13),
+        txt(435, 94, f"Newer C: {DATA['master']}", size=13),
     ]
     for tick in ticks:
         x = x0 + bar_width * tick / scale

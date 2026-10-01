@@ -1,6 +1,6 @@
 # HdrHistogram_c performance by architecture
 
-## Previous stable versus latest master
+## Previous stable versus measured newer C revisions
 
 The write and single-read charts use the immutable C project benchmark drivers;
 the list chart uses the project's unchanged Google Benchmark C++ driver for
@@ -12,13 +12,43 @@ median of interleaved core-pinned runs; raw logs in
 The **write** rows were re-measured 2026-10-01 at the fixed #158 tip `d21d084`
 (same-session, interleaved, 3-point prev/old-tip/fixed-tip); raw logs in
 [`C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/`](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/).
-Higher is better.
+Higher is better. These are **different newer source points**, not a direct
+cross-runner comparison of one revision:
 
-![C write benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/write.svg)
+| Runner | Write newer point | Read/list newer point |
+|---|---|---|
+| Intel, AMD, AWS Graviton | PR #158 `d21d084` | PR #158 `bcb5c1f` |
+| Apple M6 | Then-upstream `main` `e4e8b0a` | Then-upstream `main` `e4e8b0a` |
 
-![C single-percentile benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/read.svg)
+Current upstream `main` has since advanced to `57db422` (#159), so none of
+these newer rows is an exact measurement of current `main`.
 
-![C four-percentile list benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/list.svg)
+![C write benchmark: previous stable versus newer C by runner](C-PERFORMANCE-CHARTS/write.svg)
+
+![C single-percentile benchmark: previous stable versus newer C by runner](C-PERFORMANCE-CHARTS/read.svg)
+
+![C four-percentile list benchmark: previous stable versus newer C by runner](C-PERFORMANCE-CHARTS/list.svg)
+
+### Why Apple appears much faster in two charts
+
+The absolute gap was already present in the **old release**: Apple M6 wrote
+about 710 million records/s versus about 330 million on Intel Sapphire
+Rapids, 500 million on AMD Zen 5, and 398 million on Graviton. Its old-release
+four-percentile-list rate was about 48 thousand calls/s versus 12, 16, and
+23 thousand respectively. The newer batch work therefore did not create the
+M6 lead. On single-percentile reads, Apple is actually *slower* than both
+x86 runners in these measurements (0.22 versus 0.47/0.89 M queries/s).
+
+The exact cause of the absolute gap is **not established**. The runs used
+different processors, OSes, compilers, and source revisions; the fleet logs
+do not retain full compiler flags or per-run clocks. The write driver records
+a predictable increasing sequence, and the list driver repeatedly queries a
+fixed four-percentile array, so these numbers describe those microbenchmarks,
+not general application throughput. CPU execution speed, cache behavior, and
+compiler code generation are plausible contributors, but these data cannot
+separate their effects. To attribute the gap, collect the same exact C commit
+and build flags on all four runners, record compiler versions and effective
+clocks, then profile the two hot loops on each processor.
 
 The write chart shows the range of the two run medians. The read chart uses
 the midpoint of the driver's *rounded* reported rates (stable 0.19–0.20,
@@ -26,7 +56,7 @@ master 0.22 M/s); its bar length is visual only, not a precise effect-size
 estimate. [Raw paired output](OPT-ROUND-2026-09-30/bench-results/) and
 [chart data/source](C-PERFORMANCE-CHARTS/) are available for updates.
 
-The list chart uses `BM_hdr_value_at_percentiles_given_array/3/86400000`
+The Apple list chart uses `BM_hdr_value_at_percentiles_given_array/3/86400000`
 (`{50,95,99,99.9}`, 10 million gamma-distributed records). AppleClang 21,
 RelWithDebInfo, two interleaved invocations per revision, five timed Google
 Benchmark repetitions per invocation: stable medians 20,846 and 20,894 ns per
@@ -116,10 +146,9 @@ They must not be reused as C results.
 
 ## What remains for a current-main architecture matrix
 
-Run the same C source revision, compiler configuration, and workload on native
-AMD x86-64 and AWS Graviton runners; add raw output, checksums, compiler and
-CPU identifiers, and a same-session stable/main comparison. Also repeat on
-native Intel x86-64 for a fully matched four-architecture table. Until then,
-AMD and Graviton dense-C cells remain `TBD`, and the Intel figure remains a
-historical C datapoint. AVX2 behavior and gcc-versus-clang performance cannot
-be qualified on the Apple arm64 runner.
+The fleet has measured Intel, AMD, and AWS Graviton, but its newer point is
+PR #158 while Apple's is an older `main` commit. Repeat the same current-main
+commit and build settings on all four runners, with compiler versions,
+checksums, effective-clock or frequency data, and matched profiles. Until
+then, the chart supports **within-runner** improvement claims only. AVX2
+behavior and gcc-versus-clang performance cannot be qualified on Apple arm64.

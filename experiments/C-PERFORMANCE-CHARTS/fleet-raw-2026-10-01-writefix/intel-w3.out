@@ -1,4 +1,4 @@
-host ip-172-31-62-214 arch x86_64 core 10  2026-10-01T08:05:44Z
+host aws-runner arch x86_64 core 10  2026-10-01T08:05:44Z
 built prev (18c7a32)
 built old (bcb5c1f)
 built fix (d21d084)

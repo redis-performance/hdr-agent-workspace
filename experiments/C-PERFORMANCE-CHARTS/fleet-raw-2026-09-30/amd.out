@@ -1,7 +1,7 @@
-WORKDIR /tmp/hdrbench.krN8Vj  CORE 10  host ip-172-31-49-177 arch x86_64
+WORKDIR /tmp/hdrbench  CORE 10  host aws-runner arch x86_64
 == building ==
-BUILT 18c7a32 -> /tmp/hdrbench.krN8Vj/b-18c7a32
-BUILT bcb5c1f -> /tmp/hdrbench.krN8Vj/b-bcb5c1f
+BUILT 18c7a32 -> /tmp/hdrbench/b-18c7a32
+BUILT bcb5c1f -> /tmp/hdrbench/b-bcb5c1f
 == WRITE (5 interleaved pairs) ==
 w1 prev=499602440.11 latest=449940793.08
 w2 prev=499258374.77 latest=449480081.56
