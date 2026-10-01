@@ -90,3 +90,6 @@ before pushing status (shared repo).
 Swept reviews + inline + issue comments + CI on all 9 open PRs. No human comments pending (Paulo's 4 on #150 resolved). Unanswered bot reviews addressed:
 #161 header comment folded (30f2f66); #162 explicit casts + comments say 16/32-bit top-bit words now rejected (12aca3c); #163 new CI job build-core-only on linux/macos/windows (cefb60c, mac/win legs unverified until CI); #164 amalgamated/ commit-vs-generate = maintainer call, replied. CI re-running on the three pushes.
 Earlier polls only checked comments newer than a cutoff and skipped review bodies; use the full sweep from now on.
+
+## #150 APPROVED, merge left to the user (2026-10-01 ~15:00Z)
+paulorsousa APPROVED #150 ("LGTM :)") at 14:53Z on head 489c541 (verified via the reviews API); mergeable/CLEAN, 19/19 checks pass. The agent's `gh pr merge --squash` was denied twice by the auto-mode classifier ("Merge Without Review") even with the approval confirmed on the head commit, so the agent did not retry or route around it. Needs a human to click merge (or explicitly authorize the agent to). Do not re-attempt from other sessions without that.
