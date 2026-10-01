@@ -9,9 +9,11 @@ upstream/main tip: **e4e8b0a** (after #141).
 ## Merged (10) — squash, on paulorsousa approval
 ✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%)
 
-## Open (3)
+## Open (5)
 | PR | branch | state | notes |
 |----|--------|-------|-------|
+| #163 | feat/minimal-static-core | NEW 2026-10-01, pending review | Opt-in `HDR_HISTOGRAM_CORE_ONLY` (core static, no zlib/threads) + `HDR_HISTOGRAM_DISABLE_AVX2`. Default build/ABI unchanged. core .text -59% at -Os. All gates green. MERGE-READY. reviewer paulo |
+| #162 | harden/decode-reject-negative-counts | NEW 2026-10-01, pending review | Reject negative V0/V1 decoded bucket counts (new HDR_NEGATIVE_COUNT_INVALID); V2 zero-runs preserved. Complements #159 (adjacent-line merge). ctest/clang/ASan/UBSan + 13.2M fuzz execs clean. MERGE-READY. reviewer paulo |
 | #161 | fix/timespec-from-double-checked | pending review | #154 follow-up: additive `hdr_timespec_from_double_checked()`. Refreshed onto master; ctest+ASan+nolog green |
 | #150 | feat/packed-histogram | NEEDS-WORK (perf gate) | refreshed; SOVERSION revert stands; large opt-in feature |
 | #158 | perf/avx2-scan-nonneg | pending review (ready) | Taken FORWARD on user's call: reject-negatives contract. count>=0 enforced; both scans assume monotonic (dropped signed handling incl. #141's batch signs<0); removed signed-count tests. Rebased onto master; ctest+ASan 5/5, singular read ~+37%. Reverses #138/#141 signed support — flagged to mikeb01/paulo |
