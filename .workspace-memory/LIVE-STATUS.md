@@ -46,8 +46,9 @@ AMD re-measure (interleaved, pinned, idle): prev 0.11.10 ~500.2 · pre-#158 ~506
 **fixed-tip (d21d084) ~489.0**. Fix recovers 449→489 (+8.9%); stable residual ~2.2% below 0.11.10 is Zen5
 codegen/layout (NOT the count check). Force-inline diagnostic (820caa5) was WORSE (~410) → deleted; plain
 fix d21d084 is best. **#158 tip is now d21d084.**
-Re-measuring Intel(m7i-2) + ARM(m8g-2) write at the fixed tip (prev vs d21d084) so the write chart is
-consistent at d21d084 (read/list untouched by the fix). Then update data.json + by-arch + re-render + push.
+Re-measuring Intel(m7i-2) + ARM(m8g-2) write at the fixed tip so the write chart is consistent at d21d084 (read/list untouched).
+UPDATE 08:05Z: Intel prev-vs-fix fresh = 335.7->345.3 (+2.9%); fix-tip median (345) far below original fleet Intel master bcb5c1f=423 => that was a CROSS-SESSION gap (untrustworthy). Re-measuring prev/old/fix SAME-session interleaved on Intel+ARM (5 rounds) to get real per-arch fix effect before charting. AMD 3-point already clean (old 449 -> fix 489).
+
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
