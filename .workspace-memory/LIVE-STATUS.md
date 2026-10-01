@@ -34,6 +34,16 @@ Paulo left 4 inline comments. DONE + pushed: (1) reject negative value in hdr_pa
 ## C-PERFORMANCE-CHARTS fleet run (2026-09-30, DONE)
 Filled Intel(m7i SPR)/AMD(m8a Zen5)/Graviton(m8g N-V2) in data.json + re-rendered write/read/list SVGs, 0.11.10 (18c7a32) vs #158 tip (bcb5c1f), median of interleaved core-pinned idle-gated runs; raw logs in C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/. read: Intel +74%/AMD +112%/ARM +22%; list ~20-33x; write uarch-dependent (Intel +29%, AMD -10%, ARM -4%). Coordinators never paused; boxes left clean. Pushed b701f62.
 
+## AMD write regression — root cause + fix (2026-10-01 ~06:45, IN VALIDATION)
+Tight 3-point AMD (Zen5) write run localized the −10% to **#158 specifically**, not cumulative:
+prev 0.11.10 (18c7a32) ~500M · pre-#158 master (e4e8b0a) ~506M · #158 tip (bcb5c1f) ~448M (each cluster <1% spread).
+Cause: `hdr_record_value`→`hdr_record_values` are separate external symbols, so (no LTO) the `count<0`
+guard ran on every single-value record (not folded by count==1) → ~11% on Zen5.
+Fix pushed to #158 branch (**d21d084**): factored record body into static `record_value_counted[_atomic]`,
+kept `count<0` only in the explicit `*_values` entry points; hot path (count==1) now identical to pre-guard.
+ctest 5/5 green. Re-measuring prev/pre-#158/old-tip/fixed-tip on AMD to confirm restore. If confirmed,
+update C-PERFORMANCE-CHARTS AMD write row + by-arch table to the fixed tip.
+
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
 PRs with master. 3. Answer new Codex/claude-review-bot/paulorsousa comments. 4. `git pull --rebase`
