@@ -49,7 +49,17 @@ AMD re-measure (interleaved, pinned, idle): prev 0.11.10 ~500.2 · pre-#158 ~506
 codegen/layout (NOT the count check). Force-inline diagnostic (820caa5) was WORSE (~410) → deleted; plain
 fix d21d084 is best. **#158 tip is now d21d084.**
 Re-measuring Intel(m7i-2) + ARM(m8g-2) write at the fixed tip so the write chart is consistent at d21d084 (read/list untouched).
-UPDATE 08:05Z: Intel prev-vs-fix fresh = 335.7->345.3 (+2.9%); fix-tip median (345) far below original fleet Intel master bcb5c1f=423 => that was a CROSS-SESSION gap (untrustworthy). Re-measuring prev/old/fix SAME-session interleaved on Intel+ARM (5 rounds) to get real per-arch fix effect before charting. AMD 3-point already clean (old 449 -> fix 489).
+RESOLVED 08:40Z — same-session 3-point write (0.11.10 / old-tip bcb5c1f / fixed-tip d21d084), all 3 arches:
+| arch | prev | old-tip bcb5c1f | fixed-tip d21d084 |
+| Intel SPR | 329.7 | 421.5 (+27.8%) | 344.9 (+4.6%) |
+| AMD Zen5 | 500.2 | 449.0 (-10.2%) | 489.0 (-2.2%) |
+| ARM N-V2 | 398.4 | 381.5 (-4.2%) | 393.5 (-1.2%) |
+The only write-path diff from 0.11.10 is the one count<0 branch → its ±(4-28)% swings are CODE-LAYOUT
+artifacts (reproduced same-session; Intel +28% is REAL but accidental, not an artifact of cross-session).
+Fix (d21d084) keeps count<0 only on *_values API → write ~flat (±5%) all arches; fixes AMD/ARM regressions,
+forgoes the fragile Intel +28%. **USER CHOSE: keep the fix (d21d084).** Read/list untouched by the fix.
+DONE: charts updated to fixed tip (data.json master=d21d084, write rows + by-arch table + SVGs re-rendered,
+raw in fleet-raw-2026-10-01-writefix/), pushed. #158 ships d21d084.
 
 
 ## Standing plan
