@@ -110,4 +110,6 @@ User merged #150, #158, #160, #161 (main = 05e06cc). Open: #162 #163 #164 #165 #
 Idea: once #163 lands, add a ctest leg with -DHDR_HISTOGRAM_DISABLE_AVX2=ON so the scalar scan (#158/#167) is tested on x86 CI.
 
 ## Apple Clang task for #167 (2026-10-01)
-Hand-off written: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md (codegen check first, then ABBA full drivers + crossing probe on an Apple-silicon Mac; decision table keeps or narrows the guard to `!defined(__APPLE__)`). Not yet run. Do not mark #167 ready until it is done and the Opus-level review exists.
+Hand-off: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md (codegen, paired full drivers and crossing probe). The required Opus-level review remains outstanding.
+
+2026-10-01 update: Apple M6 / Apple Clang 21 ABBA: original #167 read 2.612× faster, write −0.185%, checksum equal, but position-3 early crossings −19.3% throughput; guard narrowed to exclude Apple in pushed C head `858751b`, Apple final assembly equals base, 9/9 CTest. Evidence: `experiments/C-ARM-CLANG-SCAN-2026-10-01/apple/RESULTS-APPLE.md`. Opus MERGE-READY review still pending.

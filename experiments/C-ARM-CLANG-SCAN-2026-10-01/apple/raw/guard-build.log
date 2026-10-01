@@ -1,0 +1,35 @@
+[  8%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[ 16%] Linking C static library libhdr_histogram_static.a
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_histogram_perf
+[100%] Built target hdr_histogram_perf
+[ 81%] Built target hdr_histogram_static
+[ 90%] Linking C executable hdr_percentile_bench
+[100%] Built target hdr_percentile_bench
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_histogram_test
+[100%] Built target hdr_histogram_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_packed_core_test
+[100%] Built target hdr_packed_core_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_counter_overflow_core_test
+[100%] Built target hdr_counter_overflow_core_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_histogram_atomic_test
+[100%] Built target hdr_histogram_atomic_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_histogram_log_test
+[100%] Built target hdr_histogram_log_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_packed_histogram_test
+[100%] Built target hdr_packed_histogram_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_counter_overflow_codec_test
+[100%] Built target hdr_counter_overflow_codec_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_atomic_test
+[100%] Built target hdr_atomic_test
+[ 75%] Built target hdr_histogram_static
+[ 83%] Linking C executable hdr_histogram_atomic_concurrency_test
+[100%] Built target hdr_histogram_atomic_concurrency_test

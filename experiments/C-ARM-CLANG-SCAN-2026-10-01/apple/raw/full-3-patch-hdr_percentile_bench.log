@@ -1,0 +1,22 @@
+variant=patch sequence=3 driver=hdr_percentile_bench
+best: 0.58 M queries/sec  mean: 0.58 M queries/sec  (sink=17401860284404480)
+       40.00 real        39.86 user         0.08 sys
+             1867776  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 291  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               11786  involuntary context switches
+       1580190683741  instructions retired
+        182961500860  cycles elapsed
+             1425816  peak memory footprint
+wall_seconds=40.005113
+exit_code=0

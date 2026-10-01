@@ -1,0 +1,23 @@
+Test project <workspace>/.tools/apple-clang-167/patch/build/clang
+    Start 1: hdr_histogram_test
+1/9 Test #1: hdr_histogram_test ......................   Passed    0.29 sec
+    Start 2: hdr_packed_core_test
+2/9 Test #2: hdr_packed_core_test ....................   Passed    0.17 sec
+    Start 3: hdr_counter_overflow_core_test
+3/9 Test #3: hdr_counter_overflow_core_test ..........   Passed    0.14 sec
+    Start 4: hdr_histogram_atomic_test
+4/9 Test #4: hdr_histogram_atomic_test ...............   Passed    0.35 sec
+    Start 5: hdr_histogram_log_test
+5/9 Test #5: hdr_histogram_log_test ..................   Passed    0.16 sec
+    Start 6: hdr_packed_histogram_test
+6/9 Test #6: hdr_packed_histogram_test ...............   Passed    0.19 sec
+    Start 7: hdr_counter_overflow_codec_test
+7/9 Test #7: hdr_counter_overflow_codec_test .........   Passed    0.16 sec
+    Start 8: hdr_atomic_test
+8/9 Test #8: hdr_atomic_test .........................   Passed    0.15 sec
+    Start 9: hdr_histogram_atomic_concurrency_test
+9/9 Test #9: hdr_histogram_atomic_concurrency_test ...   Passed    0.53 sec
+
+100% tests passed out of 9
+
+Total Test time (real) =   2.14 sec

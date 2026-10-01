@@ -907,3 +907,13 @@ is open: `dfd5121` on upstream `57db422`, four guarded source lines plus the
 current-main correctness, discloses early-crossing losses, and keeps independent
 review/final-head qualification pending. CI, fuzzing and automated review began.
 No merge, MERGE-READY claim, accepted submodule update or count change.
+
+The [Apple Clang follow-up](C-ARM-CLANG-SCAN-2026-10-01/apple/RESULTS-APPLE.md)
+measured the original PR #167 head on Apple M6 / Apple Clang 21 against its
+merge base in same-session ABBA runs. Its full read driver improved 2.612× and
+writes changed −0.185%, with matching checksums; position-3 early crossings
+lost about 19.3% throughput, beyond the experiment's ~11% limit. A second
+crossing ABBA confirmed the result. The PR's pragma guard was narrowed to
+exclude Apple (`858751b`), and final Apple assembly equals base. All 9 CTests
+pass. This is a portability qualification of the existing candidate, not a
+new accepted optimization; counts and submodule baseline remain unchanged.

@@ -19,6 +19,8 @@ Current-upstream application passes local GCC/no-log/sanitizer checks; performan
 qualification remains at the user's PR #158 release-candidate pin. Revalidate the
 final PR head and obtain platform CI/review before marking the PR ready and accepting it.
 
-**Open item (2026-10-01): Apple Clang is unmeasured.** PR #167's guard (`__aarch64__ && __clang__`)
-also covers Apple Clang on Apple silicon, but all measurements are Linux AArch64 Clang 18.1.3.
-Instructions for a session with an Apple-silicon Mac: [APPLE-CLANG-TASK.md](APPLE-CLANG-TASK.md).
+**Apple Clang check complete (2026-10-01).** On Apple M6 / Apple Clang 21, the original
+PR head improved full read throughput 2.612× but lost about 19.3% on early
+position-3 crossings. Per the handoff's ~11% early-crossing limit, PR #167's
+guard now excludes Apple (`858751b`); Apple codegen equals base and CTest passes
+9/9. See [Apple results](apple/RESULTS-APPLE.md). Formal Opus review remains pending.
