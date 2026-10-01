@@ -9,10 +9,11 @@ upstream/main tip: **e4e8b0a** (after #141).
 ## Merged (11) — squash, on paulorsousa approval
 ✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%) · #159 (reject import total_count overflow, #118) [merged 2026-10-01 09:19Z]
 
-## Open (8)
+## Open (9)
 | PR | branch | state | notes |
 |----|--------|-------|-------|
-| #165 | feat/iter-linear-set-bucket | NEW 2026-10-01, pending review | Upstreams the Redis/Valkey-local `hdr_iter_linear_set_value_units_per_bucket` (adaptive linear-bucket width; used by redis/valkey-benchmark). Lets consumers drop the delta; flows into #164 amalgamation. gcc/clang/ASan/nolog 5/5 + new test. reviewer paulo. Pairs with #164: when both land, regen amalgamated/ (CI --check enforces) |
+| #166 | feat/record-capped-total-count | NEW 2026-10-01, pending review | Upstreams memtier's local `hdr_record_value_capped` (clamps to [lowest,highest]; raises 0 too, same as memtier) + `hdr_total_count`. Related to #126 but does not close it. gcc/clang/ASan/nolog 5/5. reviewer paulo |
+| #165 | feat/iter-linear-set-bucket | pending review; bot review answered (38599c9: no-op on non-linear iterators, timing doc fixed) | Upstreams the Redis/Valkey-local `hdr_iter_linear_set_value_units_per_bucket` (adaptive linear-bucket width; used by redis/valkey-benchmark). Lets consumers drop the delta; flows into #164 amalgamation. gcc/clang/ASan/nolog 5/5 + new test. reviewer paulo. Pairs with #164: when both land, regen amalgamated/ (CI --check enforces) |
 | #164 | feat/amalgamate-core | NEW 2026-10-01, pending review | script/amalgamate.py emits drop-in core (inlines hdr_tests.h+hdr_atomic.h into hdr_histogram.c; keeps public .h + HDR_MALLOC_INCLUDE hook) + committed amalgamated/ + CI --check. Preprocesses byte-identical to multi-file build. vs Redis vendored (d21d084): only 3 structural hunks (banner, inlined headers, Redis-local extension) — body verbatim, no aesthetic churn. reviewer paulo |
 | #163 | feat/minimal-static-core | NEW 2026-10-01, pending review | Opt-in `HDR_HISTOGRAM_CORE_ONLY` (core static, no zlib/threads) + `HDR_HISTOGRAM_DISABLE_AVX2`. Default build/ABI unchanged. core .text -59% at -Os. All gates green. MERGE-READY. reviewer paulo |
 | #162 | harden/decode-reject-negative-counts | NEW 2026-10-01, pending review | Reject negative V0/V1 decoded bucket counts (new HDR_NEGATIVE_COUNT_INVALID); V2 zero-runs preserved. Complements #159 (adjacent-line merge). ctest/clang/ASan/UBSan + 13.2M fuzz execs clean. MERGE-READY. reviewer paulo |
