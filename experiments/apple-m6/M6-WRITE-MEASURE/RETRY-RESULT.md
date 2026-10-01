@@ -1,5 +1,8 @@
 # M6 write A/A qualification retry, 2026-10-01
 
+The workspace's Opus 4.8 minimum was unavailable in this Codex session; this
+checkpoint does not claim compliance with that model requirement.
+
 The first predeclared 0.25–1.0 s protocol in [RETRY-PLAN.md](RETRY-PLAN.md)
 **failed at calibration**. Of 32 controls, 28 locked equal work with matching
 checksums; four rejection controls hit the supplemental harness cap of 65,536
