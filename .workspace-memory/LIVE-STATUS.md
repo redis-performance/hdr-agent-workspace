@@ -6,8 +6,8 @@ Coordination signal, not source of truth — verify against GitHub before acting
 
 upstream/main tip: **e4e8b0a** (after #141).
 
-## Merged (10) — squash, on paulorsousa approval
-✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%)
+## Merged (11) — squash, on paulorsousa approval
+✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%) · #159 (reject import total_count overflow, #118) [merged 2026-10-01 09:19Z]
 
 ## Open (5)
 | PR | branch | state | notes |
@@ -15,8 +15,9 @@ upstream/main tip: **e4e8b0a** (after #141).
 | #163 | feat/minimal-static-core | NEW 2026-10-01, pending review | Opt-in `HDR_HISTOGRAM_CORE_ONLY` (core static, no zlib/threads) + `HDR_HISTOGRAM_DISABLE_AVX2`. Default build/ABI unchanged. core .text -59% at -Os. All gates green. MERGE-READY. reviewer paulo |
 | #162 | harden/decode-reject-negative-counts | NEW 2026-10-01, pending review | Reject negative V0/V1 decoded bucket counts (new HDR_NEGATIVE_COUNT_INVALID); V2 zero-runs preserved. Complements #159 (adjacent-line merge). ctest/clang/ASan/UBSan + 13.2M fuzz execs clean. MERGE-READY. reviewer paulo |
 | #161 | fix/timespec-from-double-checked | pending review | #154 follow-up: additive `hdr_timespec_from_double_checked()`. Refreshed onto master; ctest+ASan+nolog green |
-| #150 | feat/packed-histogram | NEEDS-WORK (perf gate) | refreshed; SOVERSION revert stands; large opt-in feature |
-| #158 | perf/avx2-scan-nonneg | pending review (ready) | Taken FORWARD on user's call: reject-negatives contract. count>=0 enforced; both scans assume monotonic (dropped signed handling incl. #141's batch signs<0); removed signed-count tests. Rebased onto master; ctest+ASan 5/5, singular read ~+37%. Reverses #138/#141 signed support — flagged to mikeb01/paulo |
+| #150 | feat/packed-histogram | NEEDS-WORK (perf gate) + now CONFLICTING vs master after #159 | refreshed earlier; SOVERSION revert stands; large opt-in feature. Conflict resolution left to packed track |
+| #160 | ci/explicit-macos-coverage | pending review, MERGEABLE/CLEAN vs new master | macOS Intel+Apple sanitizer CI (still open; absent from list above) |
+| #158 | perf/avx2-scan-nonneg | pending review (ready, tip=d21d084) | Reject-negatives contract. count>=0 enforced; both scans assume monotonic (dropped signed handling incl. #141's batch signs<0); removed signed-count tests. **Write-regression fix landed (d21d084):** count<0 check moved off the single-value hot path → write ~flat all arches (SPR +4.6/Zen5 -2.2/N-V2 -1.2%); old-tip swings were count<0 code-layout artifact (user chose to keep the fix). Charts re-measured at d21d084. ctest+ASan 5/5, singular read ~+37%. MERGEABLE/CLEAN vs new master. Reverses #138/#141 signed support — flagged to mikeb01/paulo |
 
 ## Consumer vendor refresh (2026-10-01, DONE)
 Redis + Valkey `deps/hdr_histogram/` refreshed from pre-d21d084 #158 snapshot → #158 tip
