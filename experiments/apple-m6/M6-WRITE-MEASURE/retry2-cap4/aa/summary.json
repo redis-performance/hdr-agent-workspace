@@ -1,0 +1,266 @@
+{
+  "phase": "qualification",
+  "cases": [
+    {
+      "case": "atomic_coarse_sig1",
+      "base_ns": 1.87837705,
+      "candidate_ns": 1.8748790025,
+      "speedup_pct": 0.10813478318416864,
+      "ci95_low_pct": -0.7043688527969023,
+      "ci95_high_pct": 0.9272868703695406
+    },
+    {
+      "case": "atomic_coarse_sig2",
+      "base_ns": 1.8835291265,
+      "candidate_ns": 1.8782690165,
+      "speedup_pct": 0.014465250248430685,
+      "ci95_low_pct": -0.775443505351549,
+      "ci95_high_pct": 0.8106623266453611
+    },
+    {
+      "case": "atomic_coarse_sig5",
+      "base_ns": 1.8599648025,
+      "candidate_ns": 1.8814615905,
+      "speedup_pct": -1.1553367755810247,
+      "ci95_low_pct": -2.933379441564287,
+      "ci95_high_pct": 0.6552756420209583
+    },
+    {
+      "case": "atomic_constant",
+      "base_ns": 1.7638802525,
+      "candidate_ns": 1.767024398,
+      "speedup_pct": -0.5298106478692005,
+      "ci95_low_pct": -5.6400063026795095,
+      "ci95_high_pct": 4.857134703578527
+    },
+    {
+      "case": "atomic_correlated",
+      "base_ns": 1.8121227625,
+      "candidate_ns": 1.809591427,
+      "speedup_pct": 0.0013166950902216857,
+      "ci95_low_pct": -2.4654964186199555,
+      "ci95_high_pct": 2.530519698680704
+    },
+    {
+      "case": "atomic_extremes",
+      "base_ns": 1.7537102105,
+      "candidate_ns": 1.757387072,
+      "speedup_pct": 0.1381156948576075,
+      "ci95_low_pct": -0.6162799862139238,
+      "ci95_high_pct": 0.8982377951408611
+    },
+    {
+      "case": "atomic_iid",
+      "base_ns": 1.7574615775,
+      "candidate_ns": 1.792183146,
+      "speedup_pct": -3.7470325840021355,
+      "ci95_low_pct": -9.133907164712987,
+      "ci95_high_pct": 1.9591956394466123
+    },
+    {
+      "case": "atomic_increasing",
+      "base_ns": 1.778474078,
+      "candidate_ns": 1.781117171,
+      "speedup_pct": 0.3723459773125211,
+      "ci95_low_pct": -4.342564575215385,
+      "ci95_high_pct": 5.319652280569274
+    },
+    {
+      "case": "atomic_mixed_validity",
+      "base_ns": 1.1469051239999999,
+      "candidate_ns": 1.170655713,
+      "speedup_pct": -0.7820219350344395,
+      "ci95_low_pct": -2.941271945853769,
+      "ci95_high_pct": 1.4252645656781253
+    },
+    {
+      "case": "atomic_offset_mixed",
+      "base_ns": 2.0087137815,
+      "candidate_ns": 2.0115524535000002,
+      "speedup_pct": -0.0608293512651136,
+      "ci95_low_pct": -0.7242674302040153,
+      "ci95_high_pct": 0.607042339727738
+    },
+    {
+      "case": "atomic_offset_neg",
+      "base_ns": 1.9051693379999999,
+      "candidate_ns": 1.905385405,
+      "speedup_pct": -0.12447178758129382,
+      "ci95_low_pct": -1.4054030183058002,
+      "ci95_high_pct": 1.1731011747195386
+    },
+    {
+      "case": "atomic_offset_pos",
+      "base_ns": 1.8917806444999998,
+      "candidate_ns": 1.899760216,
+      "speedup_pct": -0.026300832048095295,
+      "ci95_low_pct": -0.8411348246653337,
+      "ci95_high_pct": 0.79522902618187
+    },
+    {
+      "case": "atomic_offset_wrap_neg",
+      "base_ns": 1.89833343,
+      "candidate_ns": 1.9224472344999999,
+      "speedup_pct": -0.9699731788044154,
+      "ci95_low_pct": -2.9715271898887665,
+      "ci95_high_pct": 1.0728699337494416
+    },
+    {
+      "case": "atomic_offset_wrap_pos",
+      "base_ns": 1.9211433825,
+      "candidate_ns": 1.8677301705,
+      "speedup_pct": 2.518025523763931,
+      "ci95_low_pct": 0.32334758833080235,
+      "ci95_high_pct": 4.760714329608218
+    },
+    {
+      "case": "atomic_reject_above",
+      "base_ns": 0.585876405,
+      "candidate_ns": 0.47717541499999994,
+      "speedup_pct": 6.78219269444202,
+      "ci95_low_pct": -19.071603770331603,
+      "ci95_high_pct": 40.89537427967473
+    },
+    {
+      "case": "atomic_reject_negative",
+      "base_ns": 0.436536223,
+      "candidate_ns": 0.4348255695,
+      "speedup_pct": 6.503008946621379,
+      "ci95_low_pct": -14.492980665241278,
+      "ci95_high_pct": 32.65450021450125
+    },
+    {
+      "case": "write_coarse_sig1",
+      "base_ns": 1.317758113,
+      "candidate_ns": 1.3177692890000001,
+      "speedup_pct": 0.00833184338484318,
+      "ci95_low_pct": -0.17893088301380822,
+      "ci95_high_pct": 0.1959458716580233
+    },
+    {
+      "case": "write_coarse_sig2",
+      "base_ns": 1.4381036164999998,
+      "candidate_ns": 1.4365594835,
+      "speedup_pct": 0.062116172053590046,
+      "ci95_low_pct": -0.06658257984661782,
+      "ci95_high_pct": 0.1909806679978651
+    },
+    {
+      "case": "write_coarse_sig5",
+      "base_ns": 1.4978367835,
+      "candidate_ns": 1.4987066385,
+      "speedup_pct": 0.024650430376671688,
+      "ci95_low_pct": -0.2964754303918574,
+      "ci95_high_pct": 0.34681057572941665
+    },
+    {
+      "case": "write_constant",
+      "base_ns": 1.3159215450000001,
+      "candidate_ns": 1.3167392465,
+      "speedup_pct": -0.06471982059972896,
+      "ci95_low_pct": -0.2287937282001279,
+      "ci95_high_pct": 0.09962390680300787
+    },
+    {
+      "case": "write_correlated",
+      "base_ns": 1.319287345,
+      "candidate_ns": 1.3168007135,
+      "speedup_pct": 0.168702638499039,
+      "ci95_low_pct": -0.12898062629687818,
+      "ci95_high_pct": 0.46727320099848696
+    },
+    {
+      "case": "write_extremes",
+      "base_ns": 1.3171061869999998,
+      "candidate_ns": 1.3165529820000001,
+      "speedup_pct": -0.016318715414164818,
+      "ci95_low_pct": -0.16915549596944898,
+      "ci95_high_pct": 0.1367520517572454
+    },
+    {
+      "case": "write_iid",
+      "base_ns": 1.317193732,
+      "candidate_ns": 1.316959038,
+      "speedup_pct": 0.015546102851445476,
+      "ci95_low_pct": -0.1261706502921485,
+      "ci95_high_pct": 0.15746394609293926
+    },
+    {
+      "case": "write_increasing",
+      "base_ns": 1.3203118,
+      "candidate_ns": 1.3195909555,
+      "speedup_pct": 0.055168593502539325,
+      "ci95_low_pct": -0.32590515628857547,
+      "ci95_high_pct": 0.4376992634995267
+    },
+    {
+      "case": "write_mixed_validity",
+      "base_ns": 1.0918006304999999,
+      "candidate_ns": 1.091370359,
+      "speedup_pct": -0.0028409234086280623,
+      "ci95_low_pct": -0.13986104935785038,
+      "ci95_high_pct": 0.13436721063984616
+    },
+    {
+      "case": "write_offset_mixed",
+      "base_ns": 1.3282112775,
+      "candidate_ns": 1.3280157,
+      "speedup_pct": 0.050495823183739706,
+      "ci95_low_pct": -1.3882413813266612,
+      "ci95_high_pct": 1.510224081627646
+    },
+    {
+      "case": "write_offset_neg",
+      "base_ns": 1.3184044510000001,
+      "candidate_ns": 1.3186372815,
+      "speedup_pct": 0.020094698578699426,
+      "ci95_low_pct": -0.2209275570687425,
+      "ci95_high_pct": 0.2616991577513405
+    },
+    {
+      "case": "write_offset_pos",
+      "base_ns": 1.3186950240000002,
+      "candidate_ns": 1.3181809334999999,
+      "speedup_pct": -0.02298832056675672,
+      "ci95_low_pct": -0.16949908589469814,
+      "ci95_high_pct": 0.12373746325914303
+    },
+    {
+      "case": "write_offset_wrap_neg",
+      "base_ns": 1.319644973,
+      "candidate_ns": 1.3177618385,
+      "speedup_pct": 0.1036596938074675,
+      "ci95_low_pct": -0.1039054437632587,
+      "ci95_high_pct": 0.31165611236596547
+    },
+    {
+      "case": "write_offset_wrap_pos",
+      "base_ns": 1.3198032975,
+      "candidate_ns": 1.3183243574999999,
+      "speedup_pct": 0.06402821836801274,
+      "ci95_low_pct": -0.09977958882885979,
+      "ci95_high_pct": 0.22810462354783476
+    },
+    {
+      "case": "write_reject_above",
+      "base_ns": 0.4384338855,
+      "candidate_ns": 0.441305339,
+      "speedup_pct": -8.954950431684063,
+      "ci95_low_pct": -24.27993744520831,
+      "ci95_high_pct": 9.471661422611332
+    },
+    {
+      "case": "write_reject_negative",
+      "base_ns": 0.57680284,
+      "candidate_ns": 0.438598295,
+      "speedup_pct": 14.377231708497767,
+      "ci95_low_pct": -4.828798975296755,
+      "ci95_high_pct": 37.45913671829885
+    }
+  ],
+  "duration_underresolved": [
+    "atomic_offset_wrap_pos"
+  ],
+  "acceptance": "not evaluated: primary target/read/footprint/profile/portability gates remain separate",
+  "qualified": false
+}

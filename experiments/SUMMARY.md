@@ -64,6 +64,10 @@ absence verified; GitHub pushes restored. Both protocols calibrate all 32 contro
 then both fail the ±1% same-binary A/A gate on 26/32 controls. All 768 recorded
 samples are retained; discovery does not run. This is a measurement failure,
 not acceptance/rejection of a source change; counts above remain unchanged.
+The [bounded 2026-10-01 M6 retry](apple-m6/M6-WRITE-MEASURE/RETRY-RESULT.md)
+also fails: the first longer-kernel calibration hits the harness work cap;
+the separately planned larger-cap six-pair A/A passes only 18/32 precision
+controls. No W1/W2 source timing or acceptance-count change follows.
 
 ## M6 population planning checkpoint — 2026-09-29
 

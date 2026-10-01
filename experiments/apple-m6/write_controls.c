@@ -8,7 +8,7 @@
 #undef main
 #include <errno.h>
 
-enum { INPUTS = 4096, CASES = 33, MAX_UNITS = 65536 };
+enum { INPUTS = 4096, CASES = 33, MAX_UNITS = 262144 };
 static const uint64_t referee_sweep = UINT64_C(399999999);
 static const char* shapes[] = {"increasing", "constant", "iid", "correlated", "extremes",
     "offset_pos", "offset_neg", "offset_wrap_pos", "offset_wrap_neg", "offset_mixed",

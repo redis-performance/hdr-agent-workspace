@@ -1,6 +1,18 @@
 # Apple M6 experiment loop status
 
-Updated: 2026-09-29. Active plan: `../APPLE-M6-PLAN.md`.
+Updated: 2026-10-01. Active plan: `../APPLE-M6-PLAN.md`.
+
+## Latest M6 write measurement checkpoint
+
+[The bounded 2026-10-01 retry](M6-WRITE-MEASURE/RETRY-RESULT.md) first failed
+calibration because four rejection controls reached the old 268M-call cap
+before the 0.25 s floor. A separately predeclared protocol raised only the
+supplemental harness cap, rebuilt/validated baseline and W1, and calibrated
+32/32 controls. Its six-pair identical-binary A/A completed 384 processes but
+failed: 18/32 intervals fit wholly inside ±1%, and one duration fell below the
+floor. No W1/W2 candidate timing or source decision followed. Baseline remains
+`8c4cdcc`; accepted counts are unchanged. Investigate scheduling/core
+residency behind the rejection-control timing bands before another protocol.
 
 ## Latest measured qualification checkpoint
 

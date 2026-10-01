@@ -1,5 +1,13 @@
 # Resume the M6 experiment loop
 
+**2026-10-01 update:** [The bounded write retry](M6-WRITE-MEASURE/RETRY-RESULT.md)
+also failed qualification. The first longer-kernel protocol hit the old
+supplemental work cap; the separately planned larger-cap protocol calibrated
+32/32 but its six-pair A/A passed only 18/32 precision controls, with one
+duration below the frozen floor. Do not run W1/W2 discovery or reuse the old
+command queue below. First investigate scheduler/core-placement variability
+and record a new bounded design; no candidate speedup has been established.
+
 **Current:** [measured W1/W2 qualification](M6-WRITE-MEASURE/RESULT.md).
 Both protocols calibrated 32/32 controls and completed six A/A pairs per case.
 Both fail ±1% precision on 26/32 controls. Do not run discovery or repeat these

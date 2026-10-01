@@ -665,6 +665,20 @@ measurement design/budget is needed before any rerun. Source acceptance/rejectio
 counts and baseline pointer remain unchanged.
 [Results and all intervals](apple-m6/M6-WRITE-MEASURE/RESULT.md).
 
+### M6 W1 bounded measurement retry — 2026-10-01
+
+Predeclared longer 0.25–1.0 s kernels to test the failed short A/A precision
+gate. The first calibration locked 28/32 controls; four rejection controls hit
+the supplemental 268M-call cap before 0.25 s, so no A/A launched. A separate
+fixed protocol raised only that harness cap to 1,073M calls, rebuilt baseline
+`8c4cdcc` and W1 `4565359`, and passed CTest 6/6 plus 33 untimed controls on
+both. Calibration locked 32/32; six-pair identical-binary A/A retained 384
+samples but only 18/32 confidence intervals fit wholly within ±1%. One
+duration was 0.248 s, below the frozen floor. Rejection-control intervals
+remain particularly wide. **Measurement qualification failed; W1/W2 source
+effects remain unknown.** No discovery, confirmation, baseline promotion or
+acceptance-count change. [Plan, raw evidence and result](apple-m6/M6-WRITE-MEASURE/RETRY-RESULT.md).
+
 ## C PR review round — 2026-09-29
 
 [Review record](PR-REVIEW-2026-09-29/README.md): re-audit all 11 open C PRs by

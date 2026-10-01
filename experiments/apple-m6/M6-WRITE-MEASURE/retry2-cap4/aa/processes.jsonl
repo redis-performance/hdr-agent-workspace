@@ -1,0 +1,768 @@
+{"pair": 0, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:08.111710+00:00", "event": "start"}
+{"pair": 0, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:08.111710+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:08.468616+00:00"}
+{"pair": 0, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:08.468675+00:00", "event": "start"}
+{"pair": 0, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:08.468675+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:08.823402+00:00"}
+{"pair": 0, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:08.823457+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:08.823457+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:09.301589+00:00"}
+{"pair": 0, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:09.301641+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:09.301641+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:09.778532+00:00"}
+{"pair": 0, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:09.778591+00:00", "event": "start"}
+{"pair": 0, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:09.778591+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:10.132936+00:00"}
+{"pair": 0, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:10.133012+00:00", "event": "start"}
+{"pair": 0, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:10.133012+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:10.488234+00:00"}
+{"pair": 0, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:10.488310+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:10.488310+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:10.962347+00:00"}
+{"pair": 0, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:10.962403+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:10.962403+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:11.435528+00:00"}
+{"pair": 0, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:11.435583+00:00", "event": "start"}
+{"pair": 0, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:11.435583+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:11.790355+00:00"}
+{"pair": 0, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:11.790413+00:00", "event": "start"}
+{"pair": 0, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:11.790413+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:12.145257+00:00"}
+{"pair": 0, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:12.145318+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:12.145318+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:12.616599+00:00"}
+{"pair": 0, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:12.616646+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:12.616646+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:13.087734+00:00"}
+{"pair": 0, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:13.087811+00:00", "event": "start"}
+{"pair": 0, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:13.087811+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:13.443512+00:00"}
+{"pair": 0, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:13.443586+00:00", "event": "start"}
+{"pair": 0, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:13.443586+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:13.799222+00:00"}
+{"pair": 0, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:13.799275+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:13.799275+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:14.284497+00:00"}
+{"pair": 0, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:14.284594+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:14.284594+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:14.771773+00:00"}
+{"pair": 0, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:14.771863+00:00", "event": "start"}
+{"pair": 0, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:14.771863+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:15.127520+00:00"}
+{"pair": 0, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:15.127600+00:00", "event": "start"}
+{"pair": 0, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:15.127600+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:15.483629+00:00"}
+{"pair": 0, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:15.483681+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:15.483681+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:15.955285+00:00"}
+{"pair": 0, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:15.955335+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:15.955335+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:16.426453+00:00"}
+{"pair": 0, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:16.426509+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:16.426509+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:16.781938+00:00"}
+{"pair": 0, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:16.781999+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:16.781999+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:17.137757+00:00"}
+{"pair": 0, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:17.137811+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:17.137811+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:17.392743+00:00"}
+{"pair": 0, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:17.392794+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:17.392794+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:17.647848+00:00"}
+{"pair": 0, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:17.647898+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:17.647898+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:18.004258+00:00"}
+{"pair": 0, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:18.004329+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:18.004329+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:18.360826+00:00"}
+{"pair": 0, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:18.360879+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:18.360879+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:18.619055+00:00"}
+{"pair": 0, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:18.619119+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:18.619119+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:18.875575+00:00"}
+{"pair": 0, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:18.875624+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:18.875624+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:19.231454+00:00"}
+{"pair": 0, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:19.231527+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:19.231527+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:19.587963+00:00"}
+{"pair": 0, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:19.588018+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:19.588018+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:19.842514+00:00"}
+{"pair": 0, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:19.842567+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:19.842567+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:20.102920+00:00"}
+{"pair": 0, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:20.102973+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:20.102973+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:20.459702+00:00"}
+{"pair": 0, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:20.459772+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:20.459772+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:20.815979+00:00"}
+{"pair": 0, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:20.816044+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:20.816044+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:21.072406+00:00"}
+{"pair": 0, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:21.072458+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:21.072458+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:21.332763+00:00"}
+{"pair": 0, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:21.332824+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:21.332824+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:21.691041+00:00"}
+{"pair": 0, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:21.691110+00:00", "event": "start"}
+{"pair": 0, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:21.691110+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:22.049164+00:00"}
+{"pair": 0, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:22.049233+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:22.049233+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:22.319911+00:00"}
+{"pair": 0, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:22.319988+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:22.319988+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:22.591421+00:00"}
+{"pair": 0, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:22.591491+00:00", "event": "start"}
+{"pair": 0, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:22.591491+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:22.938547+00:00"}
+{"pair": 0, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:22.938597+00:00", "event": "start"}
+{"pair": 0, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:22.938597+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:23.284964+00:00"}
+{"pair": 0, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:23.285046+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:23.285046+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:23.574993+00:00"}
+{"pair": 0, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:23.575046+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:23.575046+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:23.864229+00:00"}
+{"pair": 0, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:23.864292+00:00", "event": "start"}
+{"pair": 0, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:23.864292+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:24.158909+00:00"}
+{"pair": 0, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:24.158960+00:00", "event": "start"}
+{"pair": 0, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:24.158960+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:24.452612+00:00"}
+{"pair": 0, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:24.452673+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:24.452673+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:24.749309+00:00"}
+{"pair": 0, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:24.749357+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:24.749357+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:25.237714+00:00"}
+{"pair": 0, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:25.237761+00:00", "event": "start"}
+{"pair": 0, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:25.237761+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:25.531506+00:00"}
+{"pair": 0, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:25.531572+00:00", "event": "start"}
+{"pair": 0, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:25.531572+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:25.826017+00:00"}
+{"pair": 0, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:25.826060+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:25.826060+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:26.148965+00:00"}
+{"pair": 0, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:26.149026+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:26.149026+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:26.457334+00:00"}
+{"pair": 0, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:26.457388+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:26.457388+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:26.812152+00:00"}
+{"pair": 0, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:26.812222+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:26.812222+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:27.167921+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:27.167983+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:27.167983+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:27.420401+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:27.420461+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:27.420461+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:27.673221+00:00"}
+{"pair": 0, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:27.673268+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:27.673268+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:28.060876+00:00"}
+{"pair": 0, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:28.060943+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:28.060943+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:28.448752+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:28.448820+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:28.448820+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:28.703428+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:28.703470+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:28.703470+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:28.955700+00:00"}
+{"pair": 0, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:28.955759+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:28.955759+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:29.365854+00:00"}
+{"pair": 0, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:29.365905+00:00", "event": "start"}
+{"pair": 0, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:29.365905+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:29.773766+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:29.773833+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:29.773833+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:30.286751+00:00"}
+{"pair": 0, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:30.286831+00:00", "event": "start"}
+{"pair": 0, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:30.286831+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:30.787218+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:30.787438+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:30.787438+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:31.296393+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:31.296457+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:31.296457+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:31.818194+00:00"}
+{"pair": 1, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:31.818254+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:12:31.818254+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:32.226025+00:00"}
+{"pair": 1, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:32.226087+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:12:32.226087+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:32.634131+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:32.634184+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:32.634184+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:32.891048+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:32.891093+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:32.891093+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:33.144670+00:00"}
+{"pair": 1, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:33.144733+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:12:33.144733+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:33.532922+00:00"}
+{"pair": 1, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:33.532973+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:12:33.532973+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:33.920679+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:33.920760+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:33.920760+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:34.175767+00:00"}
+{"pair": 1, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:34.175828+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:34.175828+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:34.430528+00:00"}
+{"pair": 1, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:34.430584+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:12:34.430584+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:34.786125+00:00"}
+{"pair": 1, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:34.786195+00:00", "event": "start"}
+{"pair": 1, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:12:34.786195+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:35.142507+00:00"}
+{"pair": 1, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:35.142559+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:35.142559+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:35.466024+00:00"}
+{"pair": 1, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:35.466081+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:35.466081+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:35.789791+00:00"}
+{"pair": 1, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:35.789847+00:00", "event": "start"}
+{"pair": 1, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:12:35.789847+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:36.084078+00:00"}
+{"pair": 1, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:36.084143+00:00", "event": "start"}
+{"pair": 1, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:12:36.084143+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:36.378729+00:00"}
+{"pair": 1, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:36.378777+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:36.378777+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:36.673982+00:00"}
+{"pair": 1, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:36.674042+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:36.674042+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:37.022186+00:00"}
+{"pair": 1, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:37.022239+00:00", "event": "start"}
+{"pair": 1, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:12:37.022239+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:37.318956+00:00"}
+{"pair": 1, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:37.319031+00:00", "event": "start"}
+{"pair": 1, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:12:37.319031+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:37.619341+00:00"}
+{"pair": 1, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:37.619391+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:37.619391+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:37.964662+00:00"}
+{"pair": 1, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:37.964736+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:37.964736+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:38.258243+00:00"}
+{"pair": 1, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:38.258301+00:00", "event": "start"}
+{"pair": 1, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:12:38.258301+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:38.609122+00:00"}
+{"pair": 1, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:38.609194+00:00", "event": "start"}
+{"pair": 1, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:12:38.609194+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:39.121207+00:00"}
+{"pair": 1, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:39.121330+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:39.121330+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:39.394084+00:00"}
+{"pair": 1, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:39.394135+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:39.394135+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:39.665747+00:00"}
+{"pair": 1, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:39.665811+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:12:39.665811+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:40.025807+00:00"}
+{"pair": 1, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:40.025876+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:12:40.025876+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:40.384107+00:00"}
+{"pair": 1, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:40.384178+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:40.384178+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:40.641372+00:00"}
+{"pair": 1, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:40.641440+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:40.641440+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:40.897740+00:00"}
+{"pair": 1, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:40.897795+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:40.897795+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:41.254204+00:00"}
+{"pair": 1, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:41.254268+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:12:41.254268+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:41.610344+00:00"}
+{"pair": 1, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:41.610417+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:41.610417+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:41.870370+00:00"}
+{"pair": 1, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:41.870430+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:41.870430+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:42.120874+00:00"}
+{"pair": 1, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:42.120937+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:42.120937+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:42.477170+00:00"}
+{"pair": 1, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:42.477242+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:12:42.477242+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:42.834647+00:00"}
+{"pair": 1, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:42.834698+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:42.834698+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:43.093239+00:00"}
+{"pair": 1, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:43.093300+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:43.093300+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:43.354083+00:00"}
+{"pair": 1, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:43.354129+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:12:43.354129+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:43.710438+00:00"}
+{"pair": 1, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:43.710502+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:12:43.710502+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:44.067334+00:00"}
+{"pair": 1, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:44.067393+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:44.067393+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:44.323089+00:00"}
+{"pair": 1, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:44.323142+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:44.323142+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:44.580648+00:00"}
+{"pair": 1, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:44.580697+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:12:44.580697+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:44.936849+00:00"}
+{"pair": 1, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:44.936912+00:00", "event": "start"}
+{"pair": 1, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:12:44.936912+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:45.293467+00:00"}
+{"pair": 1, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:45.293531+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:45.293531+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:45.805533+00:00"}
+{"pair": 1, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:45.805589+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:45.805589+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:46.310064+00:00"}
+{"pair": 1, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:46.310121+00:00", "event": "start"}
+{"pair": 1, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:12:46.310121+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:46.665719+00:00"}
+{"pair": 1, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:46.665782+00:00", "event": "start"}
+{"pair": 1, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:12:46.665782+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:47.022058+00:00"}
+{"pair": 1, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:47.022120+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:47.022120+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:47.512379+00:00"}
+{"pair": 1, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:47.512431+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:47.512431+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:48.000506+00:00"}
+{"pair": 1, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:48.000553+00:00", "event": "start"}
+{"pair": 1, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:48.000553+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:48.356894+00:00"}
+{"pair": 1, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:48.356959+00:00", "event": "start"}
+{"pair": 1, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:48.356959+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:48.714256+00:00"}
+{"pair": 1, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:48.714306+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:48.714306+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:49.187880+00:00"}
+{"pair": 1, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:49.187929+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:49.187929+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:49.662048+00:00"}
+{"pair": 1, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:49.662128+00:00", "event": "start"}
+{"pair": 1, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:49.662128+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:50.018548+00:00"}
+{"pair": 1, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:50.018614+00:00", "event": "start"}
+{"pair": 1, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:50.018614+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:50.374476+00:00"}
+{"pair": 1, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:50.374528+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:50.374528+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:50.851824+00:00"}
+{"pair": 1, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:50.851878+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:50.851878+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:51.343990+00:00"}
+{"pair": 1, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:51.344075+00:00", "event": "start"}
+{"pair": 1, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:51.344075+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:51.701421+00:00"}
+{"pair": 1, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:51.701484+00:00", "event": "start"}
+{"pair": 1, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:51.701484+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:52.057093+00:00"}
+{"pair": 1, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:52.057143+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:52.057143+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:52.536353+00:00"}
+{"pair": 1, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:52.536466+00:00", "event": "start"}
+{"pair": 1, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:52.536466+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:53.048172+00:00"}
+{"pair": 1, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:53.048239+00:00", "event": "start"}
+{"pair": 1, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:53.048239+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:53.406044+00:00"}
+{"pair": 1, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:53.406103+00:00", "event": "start"}
+{"pair": 1, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:53.406103+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:53.763271+00:00"}
+{"pair": 2, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:53.763483+00:00", "event": "start"}
+{"pair": 2, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:53.763483+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:54.119753+00:00"}
+{"pair": 2, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:54.119819+00:00", "event": "start"}
+{"pair": 2, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:54.119819+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:54.476294+00:00"}
+{"pair": 2, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:54.476358+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:12:54.476358+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:54.956393+00:00"}
+{"pair": 2, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:54.956441+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:12:54.956441+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:55.435751+00:00"}
+{"pair": 2, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:55.435839+00:00", "event": "start"}
+{"pair": 2, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:12:55.435839+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:55.792874+00:00"}
+{"pair": 2, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:55.792929+00:00", "event": "start"}
+{"pair": 2, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:55.792929+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:56.149239+00:00"}
+{"pair": 2, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:56.149297+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:12:56.149297+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:56.659252+00:00"}
+{"pair": 2, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:56.659341+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:12:56.659341+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:57.134703+00:00"}
+{"pair": 2, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:57.134777+00:00", "event": "start"}
+{"pair": 2, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:12:57.134777+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:57.491309+00:00"}
+{"pair": 2, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:57.491370+00:00", "event": "start"}
+{"pair": 2, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:57.491370+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:57.847640+00:00"}
+{"pair": 2, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:57.847692+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:12:57.847692+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:58.354076+00:00"}
+{"pair": 2, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:58.354152+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:12:58.354152+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:58.828249+00:00"}
+{"pair": 2, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:58.828303+00:00", "event": "start"}
+{"pair": 2, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:12:58.828303+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:59.185043+00:00"}
+{"pair": 2, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:59.185095+00:00", "event": "start"}
+{"pair": 2, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:59.185095+00:00", "event": "complete", "ended_utc": "2026-10-01T13:12:59.541313+00:00"}
+{"pair": 2, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:59.541387+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:12:59.541387+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:00.029342+00:00"}
+{"pair": 2, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:00.029425+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:00.029425+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:00.516131+00:00"}
+{"pair": 2, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:00.516203+00:00", "event": "start"}
+{"pair": 2, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:00.516203+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:00.872395+00:00"}
+{"pair": 2, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:00.872453+00:00", "event": "start"}
+{"pair": 2, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:00.872453+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:01.228516+00:00"}
+{"pair": 2, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:01.228601+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:01.228601+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:01.703050+00:00"}
+{"pair": 2, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:01.703123+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:01.703123+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:02.176473+00:00"}
+{"pair": 2, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:02.176539+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:02.176539+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:02.533017+00:00"}
+{"pair": 2, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:02.533060+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:02.533060+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:02.888685+00:00"}
+{"pair": 2, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:02.888749+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:02.888749+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:03.146004+00:00"}
+{"pair": 2, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:03.146061+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:03.146061+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:03.402559+00:00"}
+{"pair": 2, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:03.402623+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:03.402623+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:03.759432+00:00"}
+{"pair": 2, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:03.759479+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:03.759479+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:04.115866+00:00"}
+{"pair": 2, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:04.115937+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:04.115937+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:04.374061+00:00"}
+{"pair": 2, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:04.374106+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:04.374106+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:04.630898+00:00"}
+{"pair": 2, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:04.630953+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:04.630953+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:04.988000+00:00"}
+{"pair": 2, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:04.988058+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:04.988058+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:05.344176+00:00"}
+{"pair": 2, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:05.344248+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:05.344248+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:05.595612+00:00"}
+{"pair": 2, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:05.595668+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:05.595668+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:05.855641+00:00"}
+{"pair": 2, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:05.855704+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:05.855704+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:06.211649+00:00"}
+{"pair": 2, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:06.211716+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:06.211716+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:06.567424+00:00"}
+{"pair": 2, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:06.567491+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:06.567491+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:06.830420+00:00"}
+{"pair": 2, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:06.830482+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:06.830482+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:07.087518+00:00"}
+{"pair": 2, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:07.087587+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:07.087587+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:07.454556+00:00"}
+{"pair": 2, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:07.454622+00:00", "event": "start"}
+{"pair": 2, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:07.454622+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:07.814559+00:00"}
+{"pair": 2, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:07.814642+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:07.814642+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:08.089007+00:00"}
+{"pair": 2, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:08.089076+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:08.089076+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:08.361074+00:00"}
+{"pair": 2, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:08.361139+00:00", "event": "start"}
+{"pair": 2, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:08.361139+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:08.877261+00:00"}
+{"pair": 2, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:08.877330+00:00", "event": "start"}
+{"pair": 2, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:08.877330+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:09.392277+00:00"}
+{"pair": 2, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:09.392348+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:09.392348+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:09.687292+00:00"}
+{"pair": 2, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:09.687337+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:09.687337+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:09.980681+00:00"}
+{"pair": 2, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:09.980745+00:00", "event": "start"}
+{"pair": 2, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:09.980745+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:10.277136+00:00"}
+{"pair": 2, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:10.277195+00:00", "event": "start"}
+{"pair": 2, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:10.277195+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:10.573119+00:00"}
+{"pair": 2, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:10.573181+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:10.573181+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:11.008945+00:00"}
+{"pair": 2, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:11.009011+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:11.009011+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:11.445277+00:00"}
+{"pair": 2, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:11.445331+00:00", "event": "start"}
+{"pair": 2, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:11.445331+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:11.740731+00:00"}
+{"pair": 2, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:11.740791+00:00", "event": "start"}
+{"pair": 2, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:11.740791+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:12.036437+00:00"}
+{"pair": 2, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:12.036487+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:12.036487+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:12.345709+00:00"}
+{"pair": 2, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:12.345770+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:12.345770+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:12.655024+00:00"}
+{"pair": 2, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:12.655074+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:12.655074+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:13.010503+00:00"}
+{"pair": 2, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:13.010570+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:13.010570+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:13.366534+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:13.366605+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:13.366605+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:13.624060+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:13.624122+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:13.624122+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:13.879572+00:00"}
+{"pair": 2, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:13.879637+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:13.879637+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:14.267862+00:00"}
+{"pair": 2, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:14.267908+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:14.267908+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:14.655483+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:14.655569+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:14.655569+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:14.909992+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:14.910038+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:14.910038+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:15.164301+00:00"}
+{"pair": 2, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:15.164366+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:15.164366+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:15.572868+00:00"}
+{"pair": 2, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:15.572920+00:00", "event": "start"}
+{"pair": 2, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:15.572920+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:15.982163+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:15.982242+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:15.982242+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:16.492121+00:00"}
+{"pair": 2, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:16.492195+00:00", "event": "start"}
+{"pair": 2, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:16.492195+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:16.994187+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:16.994416+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:16.994416+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:17.504734+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:17.504806+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:17.504806+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:18.015701+00:00"}
+{"pair": 3, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:18.015767+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:13:18.015767+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:18.425016+00:00"}
+{"pair": 3, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:18.425067+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:13:18.425067+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:18.834048+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:18.834113+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:18.834113+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:19.090008+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:19.090064+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:19.090064+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:19.346700+00:00"}
+{"pair": 3, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:19.346765+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:13:19.346765+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:19.735178+00:00"}
+{"pair": 3, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:19.735242+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:19.735242+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:20.123796+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:20.123872+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:20.123872+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:20.376753+00:00"}
+{"pair": 3, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:20.376811+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:20.376811+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:20.629997+00:00"}
+{"pair": 3, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:20.630053+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:20.630053+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:20.986020+00:00"}
+{"pair": 3, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:20.986083+00:00", "event": "start"}
+{"pair": 3, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:20.986083+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:21.343234+00:00"}
+{"pair": 3, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:21.343281+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:21.343281+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:21.653313+00:00"}
+{"pair": 3, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:21.653389+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:21.653389+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:21.962817+00:00"}
+{"pair": 3, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:21.962867+00:00", "event": "start"}
+{"pair": 3, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:21.962867+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:22.257898+00:00"}
+{"pair": 3, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:22.257972+00:00", "event": "start"}
+{"pair": 3, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:22.257972+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:22.553418+00:00"}
+{"pair": 3, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:22.553467+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:22.553467+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:22.908676+00:00"}
+{"pair": 3, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:22.908753+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:22.908753+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:23.205996+00:00"}
+{"pair": 3, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:23.206049+00:00", "event": "start"}
+{"pair": 3, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:23.206049+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:23.644173+00:00"}
+{"pair": 3, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:23.644221+00:00", "event": "start"}
+{"pair": 3, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:23.644221+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:23.940602+00:00"}
+{"pair": 3, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:23.940660+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:23.940660+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:24.235553+00:00"}
+{"pair": 3, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:24.235601+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:24.235601+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:24.529447+00:00"}
+{"pair": 3, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:24.529505+00:00", "event": "start"}
+{"pair": 3, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:24.529505+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:24.930034+00:00"}
+{"pair": 3, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:24.930084+00:00", "event": "start"}
+{"pair": 3, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:24.930084+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:25.446581+00:00"}
+{"pair": 3, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:25.446638+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:25.446638+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:25.718749+00:00"}
+{"pair": 3, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:25.718810+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:25.718810+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:25.993231+00:00"}
+{"pair": 3, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:25.993285+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:25.993285+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:26.359194+00:00"}
+{"pair": 3, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:26.359266+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:26.359266+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:26.718498+00:00"}
+{"pair": 3, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:26.718559+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:26.718559+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:26.975654+00:00"}
+{"pair": 3, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:26.975723+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:26.975723+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:27.238379+00:00"}
+{"pair": 3, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:27.238433+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:27.238433+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:27.594682+00:00"}
+{"pair": 3, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:27.594747+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:27.594747+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:27.952417+00:00"}
+{"pair": 3, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:27.952481+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:27.952481+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:28.216194+00:00"}
+{"pair": 3, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:28.216263+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:28.216263+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:28.468132+00:00"}
+{"pair": 3, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:28.468182+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:28.468182+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:28.825768+00:00"}
+{"pair": 3, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:28.825823+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:28.825823+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:29.183575+00:00"}
+{"pair": 3, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:29.183641+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:29.183641+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:29.443292+00:00"}
+{"pair": 3, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:29.443346+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:29.443346+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:29.705827+00:00"}
+{"pair": 3, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:29.705868+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:29.705868+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:30.062209+00:00"}
+{"pair": 3, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:30.062260+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:30.062260+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:30.418075+00:00"}
+{"pair": 3, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:30.418138+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:30.418138+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:30.674371+00:00"}
+{"pair": 3, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:30.674431+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:30.674431+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:30.931945+00:00"}
+{"pair": 3, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:30.931997+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:30.931997+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:31.289435+00:00"}
+{"pair": 3, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:31.289501+00:00", "event": "start"}
+{"pair": 3, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:31.289501+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:31.646684+00:00"}
+{"pair": 3, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:31.646741+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:31.646741+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:32.120401+00:00"}
+{"pair": 3, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:32.120461+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:32.120461+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:32.592712+00:00"}
+{"pair": 3, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:32.592761+00:00", "event": "start"}
+{"pair": 3, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:32.592761+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:32.948264+00:00"}
+{"pair": 3, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:32.948332+00:00", "event": "start"}
+{"pair": 3, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:32.948332+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:33.304391+00:00"}
+{"pair": 3, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:33.304463+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:33.304463+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:33.808987+00:00"}
+{"pair": 3, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:33.809049+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:33.809049+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:34.297303+00:00"}
+{"pair": 3, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:34.297351+00:00", "event": "start"}
+{"pair": 3, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:34.297351+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:34.653038+00:00"}
+{"pair": 3, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:34.653101+00:00", "event": "start"}
+{"pair": 3, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:34.653101+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:35.011132+00:00"}
+{"pair": 3, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:13:35.011191+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:13:35.011191+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:35.486802+00:00"}
+{"pair": 3, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:35.486853+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:35.486853+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:35.961264+00:00"}
+{"pair": 3, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:35.961351+00:00", "event": "start"}
+{"pair": 3, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:35.961351+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:36.317459+00:00"}
+{"pair": 3, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:13:36.317509+00:00", "event": "start"}
+{"pair": 3, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:13:36.317509+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:36.673351+00:00"}
+{"pair": 3, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:13:36.673403+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:13:36.673403+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:37.148752+00:00"}
+{"pair": 3, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:37.148810+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:37.148810+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:37.624028+00:00"}
+{"pair": 3, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:37.624113+00:00", "event": "start"}
+{"pair": 3, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:37.624113+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:37.980541+00:00"}
+{"pair": 3, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:13:37.980622+00:00", "event": "start"}
+{"pair": 3, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:13:37.980622+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:38.336680+00:00"}
+{"pair": 3, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:38.336737+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:38.336737+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:38.817340+00:00"}
+{"pair": 3, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:38.817410+00:00", "event": "start"}
+{"pair": 3, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:38.817410+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:39.297908+00:00"}
+{"pair": 3, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:39.297993+00:00", "event": "start"}
+{"pair": 3, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:39.297993+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:39.655211+00:00"}
+{"pair": 3, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:39.655283+00:00", "event": "start"}
+{"pair": 3, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:39.655283+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:40.012261+00:00"}
+{"pair": 4, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:40.012488+00:00", "event": "start"}
+{"pair": 4, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:40.012488+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:40.369601+00:00"}
+{"pair": 4, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:40.369676+00:00", "event": "start"}
+{"pair": 4, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:40.369676+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:40.726360+00:00"}
+{"pair": 4, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:40.726422+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:13:40.726422+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:41.208448+00:00"}
+{"pair": 4, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:41.208497+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:13:41.208497+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:41.703291+00:00"}
+{"pair": 4, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:13:41.703379+00:00", "event": "start"}
+{"pair": 4, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:13:41.703379+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:42.060017+00:00"}
+{"pair": 4, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:42.060104+00:00", "event": "start"}
+{"pair": 4, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:42.060104+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:42.416440+00:00"}
+{"pair": 4, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:42.416489+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:13:42.416489+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:42.893723+00:00"}
+{"pair": 4, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:13:42.893839+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:13:42.893839+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:43.406606+00:00"}
+{"pair": 4, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:13:43.406722+00:00", "event": "start"}
+{"pair": 4, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:13:43.406722+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:43.763832+00:00"}
+{"pair": 4, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:43.763898+00:00", "event": "start"}
+{"pair": 4, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:43.763898+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:44.119896+00:00"}
+{"pair": 4, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:44.119947+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:13:44.119947+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:44.612514+00:00"}
+{"pair": 4, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:13:44.612610+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:13:44.612610+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:45.087861+00:00"}
+{"pair": 4, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:45.087937+00:00", "event": "start"}
+{"pair": 4, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:45.087937+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:45.444464+00:00"}
+{"pair": 4, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:45.444529+00:00", "event": "start"}
+{"pair": 4, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:45.444529+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:45.801531+00:00"}
+{"pair": 4, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:45.801616+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:13:45.801616+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:46.308755+00:00"}
+{"pair": 4, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:46.308873+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:13:46.308873+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:46.798047+00:00"}
+{"pair": 4, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:46.798129+00:00", "event": "start"}
+{"pair": 4, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:46.798129+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:47.154908+00:00"}
+{"pair": 4, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:47.154966+00:00", "event": "start"}
+{"pair": 4, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:47.154966+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:47.511434+00:00"}
+{"pair": 4, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:47.511513+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:13:47.511513+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:47.986213+00:00"}
+{"pair": 4, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:47.986300+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:13:47.986300+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:48.459724+00:00"}
+{"pair": 4, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:48.459818+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:48.459818+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:48.816563+00:00"}
+{"pair": 4, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:48.816613+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:48.816613+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:49.172882+00:00"}
+{"pair": 4, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:49.172951+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:49.172951+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:49.431020+00:00"}
+{"pair": 4, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:49.431074+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:13:49.431074+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:49.691910+00:00"}
+{"pair": 4, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:49.691974+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:49.691974+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:50.048988+00:00"}
+{"pair": 4, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:50.049037+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:50.049037+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:50.404445+00:00"}
+{"pair": 4, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:50.404518+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:50.404518+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:50.662857+00:00"}
+{"pair": 4, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:50.662910+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:13:50.662910+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:50.926472+00:00"}
+{"pair": 4, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:50.926541+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:50.926541+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:51.283190+00:00"}
+{"pair": 4, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:51.283253+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:51.283253+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:51.640017+00:00"}
+{"pair": 4, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:51.640077+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:13:51.640077+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:51.896253+00:00"}
+{"pair": 4, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:51.896312+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:13:51.896312+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:52.157032+00:00"}
+{"pair": 4, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:52.157105+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:52.157105+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:52.513872+00:00"}
+{"pair": 4, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:52.513948+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:52.513948+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:52.870358+00:00"}
+{"pair": 4, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:52.870411+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:13:52.870411+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:53.135082+00:00"}
+{"pair": 4, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:53.135147+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:13:53.135147+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:53.392831+00:00"}
+{"pair": 4, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:53.392904+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:53.392904+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:53.753242+00:00"}
+{"pair": 4, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:53.753320+00:00", "event": "start"}
+{"pair": 4, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:53.753320+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:54.111890+00:00"}
+{"pair": 4, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:54.111944+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:13:54.111944+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:54.384124+00:00"}
+{"pair": 4, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:54.384184+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:13:54.384184+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:54.658771+00:00"}
+{"pair": 4, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:54.658824+00:00", "event": "start"}
+{"pair": 4, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:54.658824+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:55.012450+00:00"}
+{"pair": 4, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:55.012530+00:00", "event": "start"}
+{"pair": 4, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:55.012530+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:55.369038+00:00"}
+{"pair": 4, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:55.369103+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:13:55.369103+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:55.664516+00:00"}
+{"pair": 4, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:55.664588+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:13:55.664588+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:56.099955+00:00"}
+{"pair": 4, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:56.100034+00:00", "event": "start"}
+{"pair": 4, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:56.100034+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:56.397055+00:00"}
+{"pair": 4, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:56.397100+00:00", "event": "start"}
+{"pair": 4, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:56.397100+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:56.697238+00:00"}
+{"pair": 4, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:56.697305+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:13:56.697305+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:56.994094+00:00"}
+{"pair": 4, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:56.994143+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:13:56.994143+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:57.290930+00:00"}
+{"pair": 4, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:57.290991+00:00", "event": "start"}
+{"pair": 4, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:57.290991+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:57.587103+00:00"}
+{"pair": 4, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:57.587153+00:00", "event": "start"}
+{"pair": 4, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:57.587153+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:57.882656+00:00"}
+{"pair": 4, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:57.882726+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:13:57.882726+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:58.207445+00:00"}
+{"pair": 4, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:58.207502+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:13:58.207502+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:58.532127+00:00"}
+{"pair": 4, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:58.532194+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:58.532194+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:58.888334+00:00"}
+{"pair": 4, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:58.888400+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:58.888400+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:59.244657+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:59.244709+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:13:59.244709+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:59.498560+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:59.498627+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:13:59.498627+00:00", "event": "complete", "ended_utc": "2026-10-01T13:13:59.752691+00:00"}
+{"pair": 4, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:59.752747+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:13:59.752747+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:00.141370+00:00"}
+{"pair": 4, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:00.141448+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:00.141448+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:00.529534+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:00.529591+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:00.529591+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:00.783815+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:00.783875+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:00.783875+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:01.038258+00:00"}
+{"pair": 4, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:01.038305+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:01.038305+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:01.447168+00:00"}
+{"pair": 4, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:01.447248+00:00", "event": "start"}
+{"pair": 4, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:01.447248+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:01.855849+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:01.855913+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:01.855913+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:02.367070+00:00"}
+{"pair": 4, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:02.367129+00:00", "event": "start"}
+{"pair": 4, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:02.367129+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:02.885986+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:02.886173+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:02.886173+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:03.388941+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:03.388993+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:03.388993+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:03.901457+00:00"}
+{"pair": 5, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:03.901548+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig5", "variant": "candidate", "started_utc": "2026-10-01T13:14:03.901548+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:04.311515+00:00"}
+{"pair": 5, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:04.311590+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig5", "variant": "base", "started_utc": "2026-10-01T13:14:04.311590+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:04.720271+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:04.720340+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:04.720340+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:04.978018+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:04.978078+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:04.978078+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:05.236562+00:00"}
+{"pair": 5, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:05.236619+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig2", "variant": "candidate", "started_utc": "2026-10-01T13:14:05.236619+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:05.625336+00:00"}
+{"pair": 5, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:05.625413+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig2", "variant": "base", "started_utc": "2026-10-01T13:14:05.625413+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:06.014561+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:14:06.014642+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:14:06.014642+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:06.272567+00:00"}
+{"pair": 5, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:14:06.272623+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:14:06.272623+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:06.526436+00:00"}
+{"pair": 5, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:14:06.526497+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig1", "variant": "candidate", "started_utc": "2026-10-01T13:14:06.526497+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:06.882652+00:00"}
+{"pair": 5, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:14:06.882702+00:00", "event": "start"}
+{"pair": 5, "case": "write_coarse_sig1", "variant": "base", "started_utc": "2026-10-01T13:14:06.882702+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:07.238627+00:00"}
+{"pair": 5, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:14:07.238718+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:14:07.238718+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:07.549398+00:00"}
+{"pair": 5, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:14:07.549451+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:14:07.549451+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:07.859775+00:00"}
+{"pair": 5, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:14:07.859847+00:00", "event": "start"}
+{"pair": 5, "case": "write_mixed_validity", "variant": "candidate", "started_utc": "2026-10-01T13:14:07.859847+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:08.155990+00:00"}
+{"pair": 5, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:14:08.156047+00:00", "event": "start"}
+{"pair": 5, "case": "write_mixed_validity", "variant": "base", "started_utc": "2026-10-01T13:14:08.156047+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:08.452032+00:00"}
+{"pair": 5, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:14:08.452112+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_reject_above", "variant": "base", "started_utc": "2026-10-01T13:14:08.452112+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:08.892935+00:00"}
+{"pair": 5, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:14:08.893001+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:14:08.893001+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:09.390891+00:00"}
+{"pair": 5, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:14:09.390967+00:00", "event": "start"}
+{"pair": 5, "case": "write_reject_above", "variant": "candidate", "started_utc": "2026-10-01T13:14:09.390967+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:09.747180+00:00"}
+{"pair": 5, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:14:09.747233+00:00", "event": "start"}
+{"pair": 5, "case": "write_reject_above", "variant": "base", "started_utc": "2026-10-01T13:14:09.747233+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:10.046719+00:00"}
+{"pair": 5, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:14:10.046781+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:14:10.046781+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:10.342635+00:00"}
+{"pair": 5, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:14:10.342686+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:14:10.342686+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:10.694767+00:00"}
+{"pair": 5, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:14:10.694833+00:00", "event": "start"}
+{"pair": 5, "case": "write_reject_negative", "variant": "candidate", "started_utc": "2026-10-01T13:14:10.694833+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:11.049873+00:00"}
+{"pair": 5, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:14:11.049929+00:00", "event": "start"}
+{"pair": 5, "case": "write_reject_negative", "variant": "base", "started_utc": "2026-10-01T13:14:11.049929+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:11.472234+00:00"}
+{"pair": 5, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:14:11.472283+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:14:11.472283+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:11.745578+00:00"}
+{"pair": 5, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:14:11.745645+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:14:11.745645+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:12.018834+00:00"}
+{"pair": 5, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:14:12.018900+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_mixed", "variant": "candidate", "started_utc": "2026-10-01T13:14:12.018900+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:12.377235+00:00"}
+{"pair": 5, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:14:12.377303+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_mixed", "variant": "base", "started_utc": "2026-10-01T13:14:12.377303+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:12.736707+00:00"}
+{"pair": 5, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:14:12.736772+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:14:12.736772+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:12.994287+00:00"}
+{"pair": 5, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:12.994355+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:12.994355+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:13.252584+00:00"}
+{"pair": 5, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:13.252639+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_wrap_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:13.252639+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:13.609734+00:00"}
+{"pair": 5, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:14:13.609806+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_wrap_neg", "variant": "base", "started_utc": "2026-10-01T13:14:13.609806+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:13.966650+00:00"}
+{"pair": 5, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:14:13.966721+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:14:13.966721+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:14.224792+00:00"}
+{"pair": 5, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:14.224863+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:14.224863+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:14.484948+00:00"}
+{"pair": 5, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:14.485006+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_wrap_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:14.485006+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:14.841353+00:00"}
+{"pair": 5, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:14:14.841411+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_wrap_pos", "variant": "base", "started_utc": "2026-10-01T13:14:14.841411+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:15.197880+00:00"}
+{"pair": 5, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:14:15.197945+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:14:15.197945+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:15.455549+00:00"}
+{"pair": 5, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:15.455598+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:15.455598+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:15.713133+00:00"}
+{"pair": 5, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:15.713195+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_neg", "variant": "candidate", "started_utc": "2026-10-01T13:14:15.713195+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:16.069710+00:00"}
+{"pair": 5, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:14:16.069757+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_neg", "variant": "base", "started_utc": "2026-10-01T13:14:16.069757+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:16.425682+00:00"}
+{"pair": 5, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:14:16.425763+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:14:16.425763+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:16.683718+00:00"}
+{"pair": 5, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:16.683762+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:16.683762+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:16.940651+00:00"}
+{"pair": 5, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:16.940718+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_pos", "variant": "candidate", "started_utc": "2026-10-01T13:14:16.940718+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:17.297043+00:00"}
+{"pair": 5, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:14:17.297092+00:00", "event": "start"}
+{"pair": 5, "case": "write_offset_pos", "variant": "base", "started_utc": "2026-10-01T13:14:17.297092+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:17.653930+00:00"}
+{"pair": 5, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:14:17.654018+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_extremes", "variant": "base", "started_utc": "2026-10-01T13:14:17.654018+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:18.127864+00:00"}
+{"pair": 5, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:14:18.127943+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:14:18.127943+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:18.602597+00:00"}
+{"pair": 5, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:14:18.602672+00:00", "event": "start"}
+{"pair": 5, "case": "write_extremes", "variant": "candidate", "started_utc": "2026-10-01T13:14:18.602672+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:18.959799+00:00"}
+{"pair": 5, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:14:18.959847+00:00", "event": "start"}
+{"pair": 5, "case": "write_extremes", "variant": "base", "started_utc": "2026-10-01T13:14:18.959847+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:19.316057+00:00"}
+{"pair": 5, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:14:19.316130+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_correlated", "variant": "base", "started_utc": "2026-10-01T13:14:19.316130+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:19.805906+00:00"}
+{"pair": 5, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:14:19.805976+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:14:19.805976+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:20.295491+00:00"}
+{"pair": 5, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:14:20.295561+00:00", "event": "start"}
+{"pair": 5, "case": "write_correlated", "variant": "candidate", "started_utc": "2026-10-01T13:14:20.295561+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:20.651475+00:00"}
+{"pair": 5, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:14:20.651544+00:00", "event": "start"}
+{"pair": 5, "case": "write_correlated", "variant": "base", "started_utc": "2026-10-01T13:14:20.651544+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:21.007752+00:00"}
+{"pair": 5, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:14:21.007821+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_iid", "variant": "base", "started_utc": "2026-10-01T13:14:21.007821+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:21.483274+00:00"}
+{"pair": 5, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:14:21.483332+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_iid", "variant": "candidate", "started_utc": "2026-10-01T13:14:21.483332+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:22.022023+00:00"}
+{"pair": 5, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:14:22.022081+00:00", "event": "start"}
+{"pair": 5, "case": "write_iid", "variant": "candidate", "started_utc": "2026-10-01T13:14:22.022081+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:22.378129+00:00"}
+{"pair": 5, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:14:22.378204+00:00", "event": "start"}
+{"pair": 5, "case": "write_iid", "variant": "base", "started_utc": "2026-10-01T13:14:22.378204+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:22.734717+00:00"}
+{"pair": 5, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:14:22.734783+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_constant", "variant": "base", "started_utc": "2026-10-01T13:14:22.734783+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:23.211127+00:00"}
+{"pair": 5, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:14:23.211187+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_constant", "variant": "candidate", "started_utc": "2026-10-01T13:14:23.211187+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:23.687274+00:00"}
+{"pair": 5, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:14:23.687321+00:00", "event": "start"}
+{"pair": 5, "case": "write_constant", "variant": "candidate", "started_utc": "2026-10-01T13:14:23.687321+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:24.042974+00:00"}
+{"pair": 5, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:14:24.043045+00:00", "event": "start"}
+{"pair": 5, "case": "write_constant", "variant": "base", "started_utc": "2026-10-01T13:14:24.043045+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:24.398570+00:00"}
+{"pair": 5, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:14:24.398631+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_increasing", "variant": "base", "started_utc": "2026-10-01T13:14:24.398631+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:24.911569+00:00"}
+{"pair": 5, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:14:24.911622+00:00", "event": "start"}
+{"pair": 5, "case": "atomic_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:14:24.911622+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:25.392445+00:00"}
+{"pair": 5, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:14:25.392532+00:00", "event": "start"}
+{"pair": 5, "case": "write_increasing", "variant": "candidate", "started_utc": "2026-10-01T13:14:25.392532+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:25.750437+00:00"}
+{"pair": 5, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:14:25.750508+00:00", "event": "start"}
+{"pair": 5, "case": "write_increasing", "variant": "base", "started_utc": "2026-10-01T13:14:25.750508+00:00", "event": "complete", "ended_utc": "2026-10-01T13:14:26.107838+00:00"}

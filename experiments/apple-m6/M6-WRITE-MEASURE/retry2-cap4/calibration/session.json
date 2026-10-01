@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-10-01T13:11:18.016100+00:00",
+  "cleanup": {
+    "sha256": "c2ed97564fbd7140415aa56ce4ee25f794312fb8986f86b857aaec99f5e6728d",
+    "confirmed_utc": "2026-10-01T13:11:12.306078+00:00",
+    "scope": "operator attestation, not automatic process verification"
+  },
+  "scope": "calibration only, not discovery, A/A, confirmation or acceptance",
+  "ended_utc": "2026-10-01T13:11:53.798418+00:00",
+  "all_controls_locked": true
+}

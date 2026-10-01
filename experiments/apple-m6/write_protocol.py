@@ -29,13 +29,17 @@ def identity(manifest):
             "library_sha256": manifest["library"]["sha256"]}
 
 
-def freeze(binaries, seed):
+def freeze(binaries, seed, pilot_limits=None):
     manifests = {label: verified_build(path) for label, path in binaries.items()}
     descriptions = {label: description(path, seed) for label, path in binaries.items()}
     if descriptions["base"] != descriptions["candidate"]:
         raise ValueError("candidate describes different inputs, geometry or work")
     specs = descriptions["base"]
     canonical = json.dumps(specs, sort_keys=True, separators=(",", ":")).encode()
+    if pilot_limits is None:
+        pilot_limits = {"minimum": 0.025, "maximum": 1.0, "budget": 2.0}
+    if not (0 < pilot_limits["minimum"] <= pilot_limits["maximum"] <= pilot_limits["budget"]):
+        raise ValueError("invalid pilot limits")
     return {"schema": 1, "prepared_utc": utc(), "seed": seed,
             "controller_sha256": sha256(__file__),
             "calibrator_sha256": sha256(Path(__file__).with_name("bounded_calibration.py")),
@@ -43,7 +47,7 @@ def freeze(binaries, seed):
             "build_manifests": manifests,
             "descriptor_sha256": hashlib.sha256(canonical).hexdigest(),
             "cases": specs, "timing_performed": False,
-            "pilot_limits": {"minimum": 0.025, "maximum": 1.0, "budget": 2.0},
+            "pilot_limits": pilot_limits,
             "discovery_pairs": 6, "confirmation": "not enabled by this protocol",
             "target": "immutable ordinary-write referee; full-sweep companion reserved for finalists",
             "guards": "all 32 supplemental controls, plus existing read/footprint guards separately",
@@ -53,7 +57,7 @@ def freeze(binaries, seed):
 def verify_protocol(protocol, binaries):
     if protocol.get("schema") != 1 or protocol.get("timing_performed") is not False:
         raise ValueError("unsupported frozen protocol")
-    current = freeze(binaries, protocol["seed"])
+    current = freeze(binaries, protocol["seed"], protocol["pilot_limits"])
     for key in ("binaries", "build_manifests", "descriptor_sha256", "cases", "pilot_limits", "discovery_pairs",
                 "controller_sha256", "calibrator_sha256"):
         if current[key] != protocol[key]:
@@ -111,11 +115,16 @@ def main():
     parser.add_argument("candidate", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--seed", type=lambda s: int(s, 0))
+    parser.add_argument("--pilot-minimum", type=float, default=0.025)
+    parser.add_argument("--pilot-maximum", type=float, default=1.0)
+    parser.add_argument("--pilot-budget", type=float, default=2.0)
     parser.add_argument("--protocol", type=Path)
     parser.add_argument("--cleanup-record", type=Path)
     args = parser.parse_args()
     if args.action == "calibrate" and args.seed is not None:
         parser.error("calibration uses the frozen protocol seed; no override")
+    if args.action == "calibrate" and (args.pilot_minimum, args.pilot_maximum, args.pilot_budget) != (0.025, 1.0, 2.0):
+        parser.error("calibration uses the frozen pilot limits; no override")
     seed = 0x6a09e667 if args.seed is None else args.seed
     if not 0 < seed <= 0xffffffff:
         parser.error("seed must be a nonzero 32-bit integer")
@@ -123,7 +132,9 @@ def main():
     try:
         if args.action == "prepare":
             if args.output.exists(): raise ValueError("output exists; preserve frozen protocol")
-            protocol = freeze(binaries, seed)
+            protocol = freeze(binaries, seed, {"minimum": args.pilot_minimum,
+                                                "maximum": args.pilot_maximum,
+                                                "budget": args.pilot_budget})
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(json.dumps(protocol, indent=2) + "\n")
         else:

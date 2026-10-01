@@ -415,6 +415,9 @@ strict six-pair qualification/discovery. The
 calibrates all 32 controls for each write candidate, but both same-binary A/A
 runs fail the ±1% precision guard on 26/32 controls. Discovery remains blocked;
 no candidate speedup or acceptance is claimed and counts stay unchanged.
+The [bounded longer-kernel retry](experiments/apple-m6/M6-WRITE-MEASURE/RETRY-RESULT.md)
+also fails qualification: after a harness-cap correction, only 18/32 controls
+meet the same A/A precision gate. W1/W2 candidate timing remains pending.
 Current helper absence is verified and GitHub pushes are working again.
 
 The merged fork PRs above are the baseline this workspace builds on.

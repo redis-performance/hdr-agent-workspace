@@ -78,9 +78,15 @@ class PairedStatsTest(unittest.TestCase):
         self.assertGreaterEqual(len(paths), 24)
         for path in paths:
             with self.subTest(path=str(path)):
-                metadata = json.loads(path.with_name("binaries.json").read_text())
+                legacy_metadata = path.with_name("binaries.json")
+                if legacy_metadata.exists():
+                    metadata = json.loads(legacy_metadata.read_text())
+                else:
+                    metadata = json.loads(path.with_name("session.json").read_text())
                 if "run" in metadata:
                     pairs = metadata["run"]["pairs"]
+                elif "pairs" in metadata:
+                    pairs = metadata["pairs"]
                 else:
                     # These two early archives predate run metadata. Their
                     # experiment report explicitly records six pairs.
@@ -89,6 +95,8 @@ class PairedStatsTest(unittest.TestCase):
                     pairs = 6
                 rows = [json.loads(line) for line in path.read_text().splitlines()]
                 previous = json.loads(path.with_name("summary.json").read_text())
+                if isinstance(previous, dict):
+                    previous = previous["cases"]
                 current = summarize(rows, pairs)
                 self.assertEqual(len(previous), len(current))
                 for a, b in zip(previous, current):
