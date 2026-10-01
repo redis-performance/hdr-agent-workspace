@@ -41,8 +41,13 @@ Cause: `hdr_record_value`→`hdr_record_values` are separate external symbols, s
 guard ran on every single-value record (not folded by count==1) → ~11% on Zen5.
 Fix pushed to #158 branch (**d21d084**): factored record body into static `record_value_counted[_atomic]`,
 kept `count<0` only in the explicit `*_values` entry points; hot path (count==1) now identical to pre-guard.
-ctest 5/5 green. Re-measuring prev/pre-#158/old-tip/fixed-tip on AMD to confirm restore. If confirmed,
-update C-PERFORMANCE-CHARTS AMD write row + by-arch table to the fixed tip.
+ctest 5/5 green.
+AMD re-measure (interleaved, pinned, idle): prev 0.11.10 ~500.2 · pre-#158 ~506.1 · old-tip (bcb5c1f) ~449.0 ·
+**fixed-tip (d21d084) ~489.0**. Fix recovers 449→489 (+8.9%); stable residual ~2.2% below 0.11.10 is Zen5
+codegen/layout (NOT the count check). Force-inline diagnostic (820caa5) was WORSE (~410) → deleted; plain
+fix d21d084 is best. **#158 tip is now d21d084.**
+Re-measuring Intel(m7i-2) + ARM(m8g-2) write at the fixed tip (prev vs d21d084) so the write chart is
+consistent at d21d084 (read/list untouched by the fix). Then update data.json + by-arch + re-render + push.
 
 ## Standing plan
 1. Merge any PR the instant it's APPROVED (squash). 2. After each merge, refresh remaining open
