@@ -18,6 +18,16 @@ upstream/main tip: **e4e8b0a** (after #141).
 | #150 | feat/packed-histogram | NEEDS-WORK (perf gate) | refreshed; SOVERSION revert stands; large opt-in feature |
 | #158 | perf/avx2-scan-nonneg | pending review (ready) | Taken FORWARD on user's call: reject-negatives contract. count>=0 enforced; both scans assume monotonic (dropped signed handling incl. #141's batch signs<0); removed signed-count tests. Rebased onto master; ctest+ASan 5/5, singular read ~+37%. Reverses #138/#141 signed support — flagged to mikeb01/paulo |
 
+## Consumer vendor refresh (2026-10-01, DONE)
+Redis + Valkey `deps/hdr_histogram/` refreshed from pre-d21d084 #158 snapshot → #158 tip
+**d21d084** (count<0 off the single-value hot path — the Zen5 write-regression fix). Net
+source change = d21d084 on hdr_histogram.c only; .h/atomic/tests unchanged. Local deltas
+preserved: `hdr_iter_linear_set_value_units_per_bucket` extension + per-consumer
+`hdr_redis_malloc.h` (zmalloc / valkey_malloc). Validation: both build at -Os;
+redis latency-monitor+info pass + live INFO latencystats percentiles OK; valkey 50/0.
+Artifacts: experiments/VENDOR-REFRESH-2026-10-01/. Done in /tmp export trees; no consumer
+PRs opened.
+
 ## Decisions awaiting maintainers
 - #158 vs #141: support-vs-reject signed counts (see #158 comment). #141's merge leans "support".
 - #161: checked-API shape — ready to merge on approval.

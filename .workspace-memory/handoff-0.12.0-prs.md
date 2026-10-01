@@ -91,8 +91,16 @@ Fuzz N/A (no codec/logic change). MERGE-READY.
 - PR2 -> #163 https://github.com/HdrHistogram/HdrHistogram_c/pull/163
   Both base main, head fcostaoliveira:<branch>, reviewer paulorsousa. Watch CI.
 
-### NOT done this session
-- Redis/Valkey vendor refresh (retain hdr_iter_linear_set_value_units_per_bucket +
-  allocator shim) not re-run.
+### Redis/Valkey vendor refresh — DONE 2026-10-01
+Refreshed deps/hdr_histogram core (pre-d21d084 #158 snapshot -> #158 tip d21d084; the
+Zen5 write-regression fix). Net change = d21d084 on hdr_histogram.c only. Local deltas
+kept: hdr_iter_linear_set_value_units_per_bucket + per-consumer hdr_redis_malloc.h
+(zmalloc / valkey_malloc). Validation: redis build + latency-monitor/info + live
+latencystats OK; valkey build + 50/0. Artifacts + net-delta: experiments/VENDOR-REFRESH-2026-10-01/.
+Done in /tmp/hdr-consumer-audit export trees (ephemeral, not git clones); no consumer
+PRs opened — applying to canonical Redis/Valkey repos + upstreaming is a separate step.
+
+### Still NOT done
 - #159 coordination merge: if #159 lands first, refresh #162 (trivial adjacent-line
   conflict in v0/v1/v2 decoders).
+- Apply vendor refresh to canonical consumer repos (above was in ephemeral /tmp trees).
