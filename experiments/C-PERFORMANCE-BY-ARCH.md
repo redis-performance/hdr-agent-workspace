@@ -20,8 +20,8 @@ cross-runner comparison of one revision:
 | Intel, AMD, AWS Graviton | PR #158 `d21d084` | PR #158 `bcb5c1f` |
 | Apple M6 | Then-upstream `main` `e4e8b0a` | Then-upstream `main` `e4e8b0a` |
 
-Current upstream `main` has since advanced to `57db422` (#159), so none of
-these newer rows is an exact measurement of current `main`.
+As checked on 2026-10-01, upstream `main` had advanced to `57db422` (#159),
+so none of these newer rows is an exact measurement of that `main` revision.
 
 ![C write benchmark: previous stable versus newer C by runner](C-PERFORMANCE-CHARTS/write.svg)
 
@@ -50,9 +50,23 @@ separate their effects. To attribute the gap, collect the same exact C commit
 and build flags on all four runners, record compiler versions and effective
 clocks, then profile the two hot loops on each processor.
 
-The write chart shows the range of the two run medians. The read chart uses
+The list benchmark has another comparability flaw: it builds its input using
+`std::default_random_engine` and `std::gamma_distribution`. On this Apple
+build, the default engine is `minstd_rand`; [libstdc++ uses `minstd_rand0`](https://gcc.gnu.org/onlinedocs/libstdc%2B%2B/latest-doxygen/a00641.html),
+while [libc++ uses `minstd_rand`](https://github.com/llvm/llvm-project/blob/main/libcxx/include/random).
+The resulting histograms need not be identical. A controlled
+[Apple M6 probe](C-PERFORMANCE-CHARTS/rng-probe-apple-m6.txt) using the same
+C revision and gamma distribution confirmed different input hashes and small
+percentile-output differences, but changing *only* the engine gave 1,217.90
+versus 1,217.52 ns/list in that run. Thus the engine difference is a real
+workload mismatch, but it does **not** explain the observed ~2× newer-list
+gap by itself. The fleet runs did not record histogram fingerprints, so the
+effect of the full cross-library input difference remains unquantified.
+
+The Apple write chart labels show the range of its two run medians; fleet
+write labels show the range of five interleaved runs. The Apple read bar uses
 the midpoint of the driver's *rounded* reported rates (stable 0.19–0.20,
-master 0.22 M/s); its bar length is visual only, not a precise effect-size
+then-main 0.22 M/s); its bar length is visual only, not a precise effect-size
 estimate. [Raw paired output](OPT-ROUND-2026-09-30/bench-results/) and
 [chart data/source](C-PERFORMANCE-CHARTS/) are available for updates.
 
@@ -60,7 +74,7 @@ The Apple list chart uses `BM_hdr_value_at_percentiles_given_array/3/86400000`
 (`{50,95,99,99.9}`, 10 million gamma-distributed records). AppleClang 21,
 RelWithDebInfo, two interleaved invocations per revision, five timed Google
 Benchmark repetitions per invocation: stable medians 20,846 and 20,894 ns per
-four-percentile list; latest master 1,221 and 1,220 ns. The plotted throughput
+four-percentile list; then-main `e4e8b0a` 1,221 and 1,220 ns. The plotted throughput
 is `1e6 / median_ns` in thousand list calls/second: about 48 versus 819,
 or ~17.1×. The benchmark library itself reports a debug-build warning, so
 this magnitude is corroborated by the separately validated
@@ -99,8 +113,12 @@ swung +28% on SPR and −10% on Zen 5. The fix (`d21d084`) keeps that check only
 explicit `*_values(count)` API, off the single-value hot path, so write returns to ~flat
 across all three server uarches. The write change is therefore **not** a write
 optimization claim in either direction; #158's value is the read/list path. Apple M6 was
-measured at `e4e8b0a`; #158's read-scan change is x86-AVX2-only and a no-op on ARM, so M6
-stands in for #158 on that row (its write was not re-measured at the fixed tip).
+measured at `e4e8b0a`, not #158. #158's **single-percentile AVX2** change is
+x86-only, but it also removes a negative-count check from the **scalar batch**
+scan. An Apple supplemental dense-seven-list probe measured 2.45 µs at
+`e4e8b0a` versus 1.31 µs at the earlier #158 tip `bcb5c1f` on that workload.
+Thus the Apple list row is **not** a proxy for #158; its write was not
+re-measured at the fixed #158 tip either. See the [post-merge round](OPT-ROUND-2026-09-30/STATUS.md).
 
 The Intel result uses `gcc -O3 -march=native`, one pinned core, and the
 [cross-language C harness](CROSS-LANG/c/microbench.c). Its exact C source hash

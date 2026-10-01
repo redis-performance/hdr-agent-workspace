@@ -61,15 +61,15 @@ def render(key, title, unit, scale, ticks, note):
 render(
     "write", "C write benchmark by runner", "Million records/second", 800,
     [0, 200, 400, 600, 800],
-    "Intel/AMD/Graviton: median of interleaved core-pinned runs, 0.11.10 vs #158 fixed tip d21d084 (write ~flat, within +/-5%). Apple: two runs (pre-fix e4e8b0a)."
+    "Fleet: #158 fixed tip. Apple: earlier main. Source hashes in the linked page."
 )
 render(
     "read", "C single-percentile benchmark by runner", "Million queries/second", 1.0,
     [0, 0.2, 0.4, 0.6, 0.8, 1.0],
-    "Intel/AMD/Graviton: median of 3 interleaved runs. Apple: driver rounds read rates to 0.01 M/s."
+    "Fleet: #158 earlier tip. Apple: earlier main; driver rounds to 0.01 M/s."
 )
 render(
     "list", "C four-percentile list benchmark by runner", "Thousand list calls/second", 900,
     [0, 225, 450, 675, 900],
-    "1e6/median_ns of the project C++ benchmark (BM_hdr_value_at_percentiles_given_array/3/86400000, {50,95,99,99.9})."
+    "Four percentiles per call. Fleet: #158 earlier tip; Apple: earlier main."
 )

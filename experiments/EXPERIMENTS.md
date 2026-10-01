@@ -704,9 +704,22 @@ on stable and 1.220–1.221 µs/list on latest master (~17.1× throughput).
 A supplemental batch probe validated equal outputs at all four source points
 and showed the same large dense-list gain for both 7 and 32 percentiles.
 Apple read/write sampling confirmed the expected hot functions but did not
-resolve inner-loop bottlenecks. [Three C-only charts](C-PERFORMANCE-BY-ARCH.md)
-show previous stable versus master by runner; Intel/AMD/Graviton cells are
-TBD pending matched native runs. No new source candidate is accepted.
+resolve inner-loop bottlenecks. At initial publication, the
+[three C-only charts](C-PERFORMANCE-BY-ARCH.md) had Intel/AMD/Graviton cells
+marked TBD; fleet measurements arrived later. No new source candidate was
+accepted by this Apple-only round.
+
+2026-10-01 cross-runner interpretation audit: [the architecture page](C-PERFORMANCE-BY-ARCH.md)
+now distinguishes PR #158 fleet revisions from the older Apple `main` point.
+The large Apple write/list lead was already present in 0.11.10, so it is not
+caused by the merged optimizations. A supplemental [RNG probe](C-PERFORMANCE-CHARTS/rng_probe.cpp)
+found that Apple libc++ and GNU libstdc++ choose different
+`default_random_engine` types; on Apple, substituting `minstd_rand0` for
+`minstd_rand` changed the batch-list median by less than 1%. The exact
+cross-architecture cause remains unestablished. The Apple chart uses
+`e4e8b0a`, while the fleet list chart uses #158; #158's scalar batch scan
+changes arm64 performance, so Apple is not a #158 proxy. Acceptance counts
+unchanged.
 
 ### C PR review closeout — 2026-09-29
 

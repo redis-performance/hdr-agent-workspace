@@ -32,10 +32,13 @@ by maintainer, #137 open) that this workspace builds on.
 0.11.10 stable release, pre-batch master, and latest master including #140/#141;
 #158 is the future candidate reference. Measurement is in progress, so counts
 and the accepted submodule baseline are unchanged.
-The [C-only architecture charts](C-PERFORMANCE-BY-ARCH.md) show paired Apple
-write, single-percentile, and four-percentile-list results, with matched
-Intel/AMD/Graviton results marked TBD. The list case improves ~17.1× from
-stable to latest master on Apple arm64; no new candidate is accepted.
+The [C-only architecture charts](C-PERFORMANCE-BY-ARCH.md) now show paired
+Apple, Intel, AMD, and Graviton write, single-percentile, and
+four-percentile-list results. The newer source point differs by runner:
+Apple used then-main `e4e8b0a`, while the fleet used PR #158. Apple list
+throughput improved ~17.1× within its own stable/newer pair; no new source
+candidate was accepted by this round. The absolute cross-runner speed gap
+remains unattributed; details and a controlled RNG probe are on the page.
 
 [Issue #118 and macOS CI follow-up](ISSUE-118-2026-09-30/STATUS.md) records the
 current-main overflow fix (#159), passing exact-head correctness and native

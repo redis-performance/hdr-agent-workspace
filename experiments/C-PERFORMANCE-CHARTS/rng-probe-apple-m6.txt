@@ -1,0 +1,7 @@
+# Apple M6 arm64; AppleClang 21; C e4e8b0a; C RelWithDebInfo; probe C++ -O2; 2026-10-01
+default_is_minstd_rand=1 default_is_minstd_rand0=0
+minstd_rand input_hash=7746855920309361251 populated=11397 len=18432 outputs=69311,299775,460799,690687
+minstd_rand batch_ns_median=1217.90 batch_ns_range=1215.32..1219.81
+minstd_rand0 input_hash=5081685858778544681 populated=11401 len=18432 outputs=69311,299519,460543,690687
+minstd_rand0 batch_ns_median=1217.52 batch_ns_range=1215.06..1219.44
+sink=1140237000000
