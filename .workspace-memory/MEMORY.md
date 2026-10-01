@@ -1,5 +1,10 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [C hardening and Redis/Valkey embedding](../experiments/C-HARDENING-2026-10-01/README.md) —
+  pinned PR #158 consumer integration and binary-size matrix; preserve allocator
+  adapters and iterator extension. Includes separate decoder/core-build PR plans
+  and scoped Supabase assessment. Draft experiments, no optimization acceptance.
+
 - [Post-merge C optimization round](../experiments/OPT-ROUND-2026-09-30/STATUS.md) —
   0.11.10 stable release, pre-batch master, latest master, and future #158;
   arm64 directional measurement and native x86 gates tracked separately.

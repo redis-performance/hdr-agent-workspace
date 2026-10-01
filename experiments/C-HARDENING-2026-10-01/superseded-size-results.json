@@ -1,0 +1,668 @@
+{
+  "compiler": "13.3.0",
+  "architecture": "x86_64",
+  "rows": [
+    {
+      "project": "redis",
+      "variant": "vendored-os",
+      "hdr_cflags": [
+        "-Os"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "59ca3437ee52a796a6432c1160b24ae8d8bd415d01a9ada60f952d03a3457bcb",
+      "binaries": {
+        "server": {
+          "text": 3849626,
+          "data": 359068,
+          "bss": 193552,
+          "stripped_bytes": 4218712,
+          "dynamic_symbol_count": 6072,
+          "dynamic_symbols_sha256": "be29c9c081af8153570ce52c34592a87fbcb4455bedd6e1ba0a331bbd9999088",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 285254,
+          "data": 1928,
+          "bss": 53424,
+          "stripped_bytes": 297608,
+          "dynamic_symbol_count": 406,
+          "dynamic_symbols_sha256": "1a2b8898ee2ec954c67b2699cacc9c76e873eb898a283770d887b3d00727da6c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-os",
+      "hdr_cflags": [
+        "-Os"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3851082,
+          "data": 359068,
+          "bss": 193552,
+          "stripped_bytes": 4222808,
+          "dynamic_symbol_count": 6072,
+          "dynamic_symbols_sha256": "be29c9c081af8153570ce52c34592a87fbcb4455bedd6e1ba0a331bbd9999088",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 292015,
+          "data": 1936,
+          "bss": 53456,
+          "stripped_bytes": 305800,
+          "dynamic_symbol_count": 406,
+          "dynamic_symbols_sha256": "1a2b8898ee2ec954c67b2699cacc9c76e873eb898a283770d887b3d00727da6c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-o2",
+      "hdr_cflags": [
+        "-O2"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3854907,
+          "data": 359060,
+          "bss": 193552,
+          "stripped_bytes": 4226904,
+          "dynamic_symbol_count": 6072,
+          "dynamic_symbols_sha256": "be29c9c081af8153570ce52c34592a87fbcb4455bedd6e1ba0a331bbd9999088",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 295842,
+          "data": 1928,
+          "bss": 53456,
+          "stripped_bytes": 309896,
+          "dynamic_symbol_count": 406,
+          "dynamic_symbols_sha256": "1a2b8898ee2ec954c67b2699cacc9c76e873eb898a283770d887b3d00727da6c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-o3",
+      "hdr_cflags": [
+        "-O3"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3859675,
+          "data": 359060,
+          "bss": 193552,
+          "stripped_bytes": 4231000,
+          "dynamic_symbol_count": 6072,
+          "dynamic_symbols_sha256": "be29c9c081af8153570ce52c34592a87fbcb4455bedd6e1ba0a331bbd9999088",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 300610,
+          "data": 1928,
+          "bss": 53456,
+          "stripped_bytes": 313992,
+          "dynamic_symbol_count": 406,
+          "dynamic_symbols_sha256": "1a2b8898ee2ec954c67b2699cacc9c76e873eb898a283770d887b3d00727da6c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3849994,
+          "data": 358748,
+          "bss": 193552,
+          "stripped_bytes": 4218712,
+          "dynamic_symbol_count": 6072,
+          "dynamic_symbols_sha256": "be29c9c081af8153570ce52c34592a87fbcb4455bedd6e1ba0a331bbd9999088",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 292021,
+          "data": 1936,
+          "bss": 53456,
+          "stripped_bytes": 305800,
+          "dynamic_symbol_count": 406,
+          "dynamic_symbols_sha256": "1a2b8898ee2ec954c67b2699cacc9c76e873eb898a283770d887b3d00727da6c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-hidden-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3842971,
+          "data": 358748,
+          "bss": 193552,
+          "stripped_bytes": 4210520,
+          "dynamic_symbol_count": 6031,
+          "dynamic_symbols_sha256": "1776a163567514a7b9c6626b4250af3fe0756e03d9d95148e43afb68428d3e75",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 285901,
+          "data": 1928,
+          "bss": 53456,
+          "stripped_bytes": 297608,
+          "dynamic_symbol_count": 365,
+          "dynamic_symbols_sha256": "058117c20d97a99e3a643c07c08507ffc1e6ec817f5db417c838dcfef627a7e0",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-exclude-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections,--exclude-libs,libhdrhistogram.a"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3842971,
+          "data": 358748,
+          "bss": 193552,
+          "stripped_bytes": 4210520,
+          "dynamic_symbol_count": 6031,
+          "dynamic_symbols_sha256": "1776a163567514a7b9c6626b4250af3fe0756e03d9d95148e43afb68428d3e75",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 285901,
+          "data": 1928,
+          "bss": 53456,
+          "stripped_bytes": 297608,
+          "dynamic_symbol_count": 365,
+          "dynamic_symbols_sha256": "058117c20d97a99e3a643c07c08507ffc1e6ec817f5db417c838dcfef627a7e0",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-hidden-gc-lto",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden",
+        "-flto"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3842204,
+          "data": 358740,
+          "bss": 193552,
+          "stripped_bytes": 4210520,
+          "dynamic_symbol_count": 6031,
+          "dynamic_symbols_sha256": "1776a163567514a7b9c6626b4250af3fe0756e03d9d95148e43afb68428d3e75",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 285370,
+          "data": 1928,
+          "bss": 53456,
+          "stripped_bytes": 293512,
+          "dynamic_symbol_count": 365,
+          "dynamic_symbols_sha256": "058117c20d97a99e3a643c07c08507ffc1e6ec817f5db417c838dcfef627a7e0",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "redis",
+      "variant": "candidate-scalar-hidden-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "b62f45a8f6b0faa34068e5b5461693d3998cc7630e88a006a703d08fc88229e9",
+      "binaries": {
+        "server": {
+          "text": 3842555,
+          "data": 358748,
+          "bss": 193552,
+          "stripped_bytes": 4210520,
+          "dynamic_symbol_count": 6031,
+          "dynamic_symbols_sha256": "1776a163567514a7b9c6626b4250af3fe0756e03d9d95148e43afb68428d3e75",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 280233,
+          "data": 1920,
+          "bss": 53424,
+          "stripped_bytes": 289416,
+          "dynamic_symbol_count": 365,
+          "dynamic_symbols_sha256": "058117c20d97a99e3a643c07c08507ffc1e6ec817f5db417c838dcfef627a7e0",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "vendored-os",
+      "hdr_cflags": [
+        "-Os"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "59ca3437ee52a796a6432c1160b24ae8d8bd415d01a9ada60f952d03a3457bcb",
+      "binaries": {
+        "server": {
+          "text": 3824495,
+          "data": 359757,
+          "bss": 220792,
+          "stripped_bytes": 4195344,
+          "dynamic_symbol_count": 5982,
+          "dynamic_symbols_sha256": "ca57775edc2d9a57d6077f72eb2d8dac36f3873862b1f112eb982ca8762a42ee",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 486712,
+          "data": 5940,
+          "bss": 56428,
+          "stripped_bytes": 503064,
+          "dynamic_symbol_count": 521,
+          "dynamic_symbols_sha256": "c144af0f6a13a9c3398dbf4331d327f3486e0e66849b914f4cbfe7ff1efd2e5c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-os",
+      "hdr_cflags": [
+        "-Os"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3825951,
+          "data": 359757,
+          "bss": 220792,
+          "stripped_bytes": 4199440,
+          "dynamic_symbol_count": 5982,
+          "dynamic_symbols_sha256": "ca57775edc2d9a57d6077f72eb2d8dac36f3873862b1f112eb982ca8762a42ee",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 488168,
+          "data": 5940,
+          "bss": 56428,
+          "stripped_bytes": 507160,
+          "dynamic_symbol_count": 521,
+          "dynamic_symbols_sha256": "c144af0f6a13a9c3398dbf4331d327f3486e0e66849b914f4cbfe7ff1efd2e5c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-o2",
+      "hdr_cflags": [
+        "-O2"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3829776,
+          "data": 359749,
+          "bss": 220792,
+          "stripped_bytes": 4203536,
+          "dynamic_symbol_count": 5982,
+          "dynamic_symbols_sha256": "ca57775edc2d9a57d6077f72eb2d8dac36f3873862b1f112eb982ca8762a42ee",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 491993,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 511256,
+          "dynamic_symbol_count": 521,
+          "dynamic_symbols_sha256": "c144af0f6a13a9c3398dbf4331d327f3486e0e66849b914f4cbfe7ff1efd2e5c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-o3",
+      "hdr_cflags": [
+        "-O3"
+      ],
+      "extra_ldflags": [],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3834544,
+          "data": 359749,
+          "bss": 220792,
+          "stripped_bytes": 4207632,
+          "dynamic_symbol_count": 5982,
+          "dynamic_symbols_sha256": "ca57775edc2d9a57d6077f72eb2d8dac36f3873862b1f112eb982ca8762a42ee",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 496761,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 515352,
+          "dynamic_symbol_count": 521,
+          "dynamic_symbols_sha256": "c144af0f6a13a9c3398dbf4331d327f3486e0e66849b914f4cbfe7ff1efd2e5c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3824391,
+          "data": 359437,
+          "bss": 220792,
+          "stripped_bytes": 4191248,
+          "dynamic_symbol_count": 5982,
+          "dynamic_symbols_sha256": "ca57775edc2d9a57d6077f72eb2d8dac36f3873862b1f112eb982ca8762a42ee",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        },
+        "benchmark": {
+          "text": 488184,
+          "data": 5940,
+          "bss": 56428,
+          "stripped_bytes": 507160,
+          "dynamic_symbol_count": 521,
+          "dynamic_symbols_sha256": "c144af0f6a13a9c3398dbf4331d327f3486e0e66849b914f4cbfe7ff1efd2e5c",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": true
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-hidden-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3817824,
+          "data": 359437,
+          "bss": 220792,
+          "stripped_bytes": 4187152,
+          "dynamic_symbol_count": 5941,
+          "dynamic_symbols_sha256": "653be25027ac070fc304bd9b91f7506d4ec379d12ab21dd955f33d0d1f50e948",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 481450,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 494872,
+          "dynamic_symbol_count": 480,
+          "dynamic_symbols_sha256": "694f754fba7cc12c9d19d10b95b60aab3e9612cecd4f86f3c91fe119e0b45684",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-exclude-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections,--exclude-libs,libhdrhistogram.a"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3817824,
+          "data": 359437,
+          "bss": 220792,
+          "stripped_bytes": 4187152,
+          "dynamic_symbol_count": 5941,
+          "dynamic_symbols_sha256": "653be25027ac070fc304bd9b91f7506d4ec379d12ab21dd955f33d0d1f50e948",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 481450,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 494872,
+          "dynamic_symbol_count": 480,
+          "dynamic_symbols_sha256": "694f754fba7cc12c9d19d10b95b60aab3e9612cecd4f86f3c91fe119e0b45684",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-hidden-gc-lto",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden",
+        "-flto"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "5315cbac08be690ebcc8d599be59fa2b91c02574eb52a192e2178f3f71e4c12b",
+      "binaries": {
+        "server": {
+          "text": 3817304,
+          "data": 359437,
+          "bss": 220792,
+          "stripped_bytes": 4187152,
+          "dynamic_symbol_count": 5941,
+          "dynamic_symbols_sha256": "653be25027ac070fc304bd9b91f7506d4ec379d12ab21dd955f33d0d1f50e948",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 480714,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 494872,
+          "dynamic_symbol_count": 480,
+          "dynamic_symbols_sha256": "694f754fba7cc12c9d19d10b95b60aab3e9612cecd4f86f3c91fe119e0b45684",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    },
+    {
+      "project": "valkey",
+      "variant": "candidate-scalar-hidden-gc",
+      "hdr_cflags": [
+        "-Os",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fvisibility=hidden"
+      ],
+      "extra_ldflags": [
+        "-Wl,--gc-sections"
+      ],
+      "hdr_source_sha256": "b62f45a8f6b0faa34068e5b5461693d3998cc7630e88a006a703d08fc88229e9",
+      "binaries": {
+        "server": {
+          "text": 3817416,
+          "data": 359437,
+          "bss": 220792,
+          "stripped_bytes": 4187152,
+          "dynamic_symbol_count": 5941,
+          "dynamic_symbols_sha256": "653be25027ac070fc304bd9b91f7506d4ec379d12ab21dd955f33d0d1f50e948",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        },
+        "benchmark": {
+          "text": 481058,
+          "data": 5932,
+          "bss": 56428,
+          "stripped_bytes": 494872,
+          "dynamic_symbol_count": 480,
+          "dynamic_symbols_sha256": "694f754fba7cc12c9d19d10b95b60aab3e9612cecd4f86f3c91fe119e0b45684",
+          "removed_non_hdr_exports": [],
+          "added_non_hdr_exports": [],
+          "counts_index_for_exported": false
+        }
+      },
+      "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+    }
+  ],
+  "consumer_flags": "O3 + GCC LTO; libc; TLS and systemd disabled; HDR flags varied separately",
+  "status": "SUPERSEDED: imported temporary consumer core included an unpinned recording-path refactor; not exact PR #158"
+}

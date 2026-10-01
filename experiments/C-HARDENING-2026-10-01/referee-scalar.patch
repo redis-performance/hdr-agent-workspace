@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 152273d..31bd06f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -122,3 +122,6 @@ install(
+     FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc
+     DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+ )
++
++# Consumer-size experiment: keep benchmark driver flags fixed.
++target_compile_options(hdr_histogram_static PRIVATE -Os -ffunction-sections -fdata-sections -fvisibility=hidden)
+diff --git a/src/hdr_histogram.c b/src/hdr_histogram.c
+index ffb2ae5..a68c964 100644
+--- a/src/hdr_histogram.c
++++ b/src/hdr_histogram.c
+@@ -40,7 +40,7 @@
+      - _MSC_VER: __builtin_cpu_supports's __cpu_model isn't linked under MSVC;
+        clang-cl also defines __x86_64__/__clang__ so this exclusion is load-bearing.
+      - __INTEL_COMPILER: ICC classic. */
+-#if defined(__x86_64__) \
++#if 0 && defined(__x86_64__) \
+     && (defined(__GNUC__) || defined(__clang__)) && !defined(__INTEL_COMPILER) && !defined(_MSC_VER)
+ #  define HDR_HAS_AVX2_DISPATCH 1
+ #  include <immintrin.h>

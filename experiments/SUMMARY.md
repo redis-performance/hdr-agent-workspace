@@ -2,6 +2,11 @@
 
 Single source of truth for experiment status. Keep `README.md` counts in sync.
 
+[Redis/Valkey integration and code-size audit](C-HARDENING-2026-10-01/README.md)
+tracks C release hardening, consumer patch drafts, pinned binary measurements,
+and Supabase's indirect Node dependency. This audit does not change optimization
+acceptance counts or the accepted submodule baseline.
+
 | Status | Count |
 |--------|------:|
 | Accepted | 4 |

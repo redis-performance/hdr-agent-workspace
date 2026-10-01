@@ -1,0 +1,73 @@
+{
+  "candidate": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13",
+  "redis": "b540ca49cba815f3fbe634363c3df68d4f4f127a",
+  "valkey": "9b270b6d8b1ae0937c62b7d113ee31e489b2c75a",
+  "architecture": "x86_64",
+  "upstream_tests": {
+    "gcc_release": "5/5",
+    "gcc_asan_ubsan": "5/5",
+    "clang_release_no_logging": "4/4"
+  },
+  "redis_integration": {
+    "build": "pass after restoring vendored iterator extension",
+    "suites": [
+      "unit/latency-monitor",
+      "unit/info",
+      "integration/redis-cli"
+    ],
+    "passed": 117,
+    "failed": 0,
+    "benchmark_smoke_threads": [
+      1,
+      2
+    ]
+  },
+  "valkey_integration": {
+    "build": "pass with vendored iterator extension",
+    "suites": [
+      "unit/latency-monitor",
+      "unit/info"
+    ],
+    "passed": 50,
+    "failed": 0
+  },
+  "abi_vs_0_11_10": {
+    "exports_before": 93,
+    "exports_after": 93,
+    "added": [],
+    "removed": [],
+    "soname": "libhdr_histogram.so.6",
+    "public_header_changes": "comments only"
+  },
+  "probes": {
+    "redis_semantic_fingerprint": "11688038758118891541; old/new gcc/clang identical",
+    "memory_bytes": 24680,
+    "counts_len": 3072,
+    "histogram_size": 104,
+    "iterator_size": 128,
+    "p0_single_batch": [
+      1000,
+      1003
+    ],
+    "empty_single_batch": [
+      0,
+      1
+    ],
+    "unsorted_single": [
+      100351,
+      1003
+    ],
+    "unsorted_batch": [
+      100351,
+      100351
+    ],
+    "negative_v1_base_p50": 16,
+    "negative_v1_candidate_p50": 48,
+    "negative_v1_decode_status": 0
+  },
+  "limitations": [
+    "Not a MERGE-READY review; Codex session, not workspace-required Opus",
+    "No full consumer suite, Node.js build, Windows/macOS/32-bit or performance acceptance",
+    "Temporary isolated snapshots; no source edits to workspace repositories"
+  ]
+}

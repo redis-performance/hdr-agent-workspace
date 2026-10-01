@@ -1,0 +1,9 @@
+Supplemental workload, cycles sampling, x86_64; top symbols
+    79.86%  [.] get_value_from_idx_up_to_count_avx2  -      -
+     8.23%  [.] hdr_record_values                    -      -
+     4.07%  [.] counts_index_for                     -      -
+     3.30%  [.] hdr_record_value                     -      -
+     1.83%  [.] hdr_value_at_percentile              -      -
+     1.33%  [.] get_bucket_index                     -      -
+     1.12%  [.] main                                 -      -
+     0.26%  [.] hdr_size_of_equivalent_value_range   -      -

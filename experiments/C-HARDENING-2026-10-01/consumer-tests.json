@@ -1,0 +1,21 @@
+{
+  "redis": {
+    "passed": 125,
+    "suites": [
+      "unit/latency-monitor",
+      "unit/info",
+      "unit/moduleapi/basics",
+      "integration/redis-cli"
+    ],
+    "notes": "All suites passed in one invocation"
+  },
+  "valkey": {
+    "passed": 61,
+    "suites": [
+      "unit/latency-monitor",
+      "unit/info",
+      "unit/moduleapi/basics"
+    ],
+    "notes": "Valkey module suite initially lacked basics.so; compiled that test fixture and reran the module suite successfully"
+  }
+}

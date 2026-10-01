@@ -763,3 +763,37 @@ tests logging-enabled/disabled Debug and RelWithDebInfo on both, and adds
 ASan+UBSan jobs on both. All 25 fork CI jobs passed; refreshed-head upstream
 checks passed and a commit-specific MERGE-READY comment was posted. This is a validation
 coverage change, so no benchmark or optimization acceptance count applies.
+
+### Redis/Valkey embedded-core hardening and size audit — 2026-10-01
+
+[Report and reproducible artifacts](C-HARDENING-2026-10-01/README.md) preserve
+the two upstream PR plans and scoped Supabase assessment, and investigate
+actual Redis/Valkey server and benchmark binaries. Vendor updates retain the
+local iterator extension and each project's allocator adapter; Valkey uses
+different allocation callback names from Redis in these snapshots.
+
+An initial matrix inherited an unpinned recording-path refactor from temporary
+consumer snapshots. Its measurements are retained as superseded evidence;
+the authoritative matrix is rebuilt from PR #158's pinned source. The reusable
+importer initially missed the public-header include in hdr_tests.h; compilation
+caught it and flattening was corrected. An initial isolated CMake source-property
+setting did not reach the library's directory scope; emitted compile flags
+were inspected, corrected with target options, and CTest rerun before timing.
+The first Valkey allocator probe used Redis names and failed to link; selecting
+the actual Valkey names corrected the probe without changing its adapter.
+
+This is build/compatibility research with draft consumer patches, not a new
+accepted core optimization. Existing acceptance counts and submodule baseline
+remain unchanged. Final measurements and validation limits are in the report.
+
+The final 18-variant pinned matrix passes all smoke/contract probes. Normal
+Makefile builds reproduce the selected matrix sizes exactly: hidden HDR plus
+section GC retains SIMD and saves 12 KiB per stripped server and 8 KiB per
+stripped benchmark relative to the adapted candidate's ordinary build. Redis
+passes 125 targeted tests; Valkey passes 61 including module loading (after
+building its initially missing test-module fixture). Six GCC/Clang core builds
+pass CTest 5/5. Supplemental profiling confirms the SIMD scan bottleneck;
+scalar queries are 1.5–1.9x slower in the bounded probe. Hidden+GC performance
+neutrality is not qualified: baseline drift exceeds the 1% acceptance gate.
+Draft patch pairs and raw size/timing/profile evidence are committed locally;
+no upstream PR or accepted submodule pointer change is made by this audit.

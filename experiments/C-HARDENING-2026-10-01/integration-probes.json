@@ -1,0 +1,92 @@
+[
+  {
+    "project": "redis",
+    "variant": "candidate-exclude-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-hidden-gc-lto",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-o2",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-o3",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-scalar-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "vendored-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-exclude-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-hidden-gc-lto",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-o2",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-o3",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-scalar-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "vendored-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  }
+]

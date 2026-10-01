@@ -1,0 +1,101 @@
+{
+  "status": "Supplemental bounded measurements on an interactive x86_64 host, pinned to one core; not acceptance referee runs",
+  "results": [
+    {
+      "compiler": "gcc",
+      "variant": "baseline",
+      "digits": 2,
+      "write_ns_median": 3.366,
+      "read_ns_median": 476.677,
+      "samples": 12
+    },
+    {
+      "compiler": "gcc",
+      "variant": "baseline",
+      "digits": 3,
+      "write_ns_median": 3.419,
+      "read_ns_median": 3055.471,
+      "samples": 12
+    },
+    {
+      "compiler": "gcc",
+      "variant": "hidden",
+      "digits": 2,
+      "write_ns_median": 3.3345000000000002,
+      "read_ns_median": 481.567,
+      "samples": 12
+    },
+    {
+      "compiler": "gcc",
+      "variant": "hidden",
+      "digits": 3,
+      "write_ns_median": 3.566,
+      "read_ns_median": 3150.215,
+      "samples": 12
+    },
+    {
+      "compiler": "gcc",
+      "variant": "scalar",
+      "digits": 2,
+      "write_ns_median": 3.269,
+      "read_ns_median": 859.3565,
+      "samples": 12
+    },
+    {
+      "compiler": "gcc",
+      "variant": "scalar",
+      "digits": 3,
+      "write_ns_median": 3.4395,
+      "read_ns_median": 5869.0635,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "baseline",
+      "digits": 2,
+      "write_ns_median": 3.1414999999999997,
+      "read_ns_median": 348.47,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "baseline",
+      "digits": 3,
+      "write_ns_median": 3.3505000000000003,
+      "read_ns_median": 2719.8115,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "hidden",
+      "digits": 2,
+      "write_ns_median": 3.005,
+      "read_ns_median": 337.99850000000004,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "hidden",
+      "digits": 3,
+      "write_ns_median": 3.0875000000000004,
+      "read_ns_median": 2703.67,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "scalar",
+      "digits": 2,
+      "write_ns_median": 3.1765,
+      "read_ns_median": 567.1715,
+      "samples": 12
+    },
+    {
+      "compiler": "clang",
+      "variant": "scalar",
+      "digits": 3,
+      "write_ns_median": 3.3339999999999996,
+      "read_ns_median": 3963.6495,
+      "samples": 12
+    }
+  ]
+}

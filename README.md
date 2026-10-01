@@ -19,6 +19,11 @@ with commit-specific comments and fixes pushed to eight branches. Five are
 MERGE-READY; six need work. Native performance/profile qualification remains
 explicitly pending. Experiment counts and the accepted baseline are unchanged.
 
+**C consumer hardening, 2026-10-01:** [Redis/Valkey integration and size report](experiments/C-HARDENING-2026-10-01/README.md)
+contains pinned vendor-update drafts, final-binary size experiments, the two
+upstream hardening/build plans, and Supabase's indirect Node exposure.
+This investigation does not change optimization acceptance counts.
+
 ## C performance by architecture
 
 Previous stable C release `0.11.10` versus a newer C revision on each runner.

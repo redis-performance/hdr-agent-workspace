@@ -1,0 +1,28 @@
+--- a/deps/hdr_histogram/Makefile
++++ b/deps/hdr_histogram/Makefile
+@@ -4,6 +4,11 @@
+ 
+ R_CFLAGS= $(STD) $(WARN) $(OPT) $(DEBUG) $(CFLAGS) $(CPPFLAGS) -DHDR_MALLOC_INCLUDE=\"hdr_redis_malloc.h\"
+ R_LDFLAGS= $(LDFLAGS)
++
++# Private embedded HDR functions can be discarded from the final binaries.
++ifeq ($(shell uname -s),Linux)
++R_CFLAGS += -ffunction-sections -fdata-sections -fvisibility=hidden
++endif
+ DEBUG= -g
+ 
+ R_CC=$(CC) $(R_CFLAGS)
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -139,6 +139,11 @@
+ 
+ FINAL_CFLAGS=$(STD) $(WARN) $(OPT) $(DEBUG) $(CFLAGS) $(SERVER_CFLAGS) $(CPPFLAGS)
+ FINAL_LDFLAGS=$(LDFLAGS) $(OPT) $(SERVER_LDFLAGS) $(DEBUG)
++
++# Discard unused private dependency sections; retain module-facing exports.
++ifeq ($(uname_S),Linux)
++FINAL_LDFLAGS += -Wl,--gc-sections
++endif
+ FINAL_LIBS=-lm
+ DEBUG=-g -ggdb
+ 
