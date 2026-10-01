@@ -1,0 +1,50 @@
+[
+  {
+    "compiler": "gcc",
+    "opt": "Os",
+    "driver": "hdr_histogram_perf",
+    "binary_sha256": "80e1fa89afdc5bc96f9572077c145470ba0f63168cb735190d859438092db5fa"
+  },
+  {
+    "compiler": "gcc",
+    "opt": "Os",
+    "driver": "hdr_percentile_bench",
+    "binary_sha256": "1e9d15f4d917f78b0140d95f539cb5c23239a28463740420e5f683b69af8253f"
+  },
+  {
+    "compiler": "gcc",
+    "opt": "O3",
+    "driver": "hdr_histogram_perf",
+    "binary_sha256": "48c86cf72515e0e6824e648b6fe43bb7209fb68b290e6675a803348acf694d6b"
+  },
+  {
+    "compiler": "gcc",
+    "opt": "O3",
+    "driver": "hdr_percentile_bench",
+    "binary_sha256": "53866a536bfa376a3a15cca30a8963459864b53d937c320949da34a437b98f46"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "driver": "hdr_histogram_perf",
+    "binary_sha256": "60c0800ee5fdf269f059e292024a542ac350dd14e33df9301280e074cce6dc4f"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "driver": "hdr_percentile_bench",
+    "binary_sha256": "bd7bcc4c9795727c29aa217e037a2b69b2470d41eb2774071259e29b8b381777"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "driver": "hdr_histogram_perf",
+    "binary_sha256": "0f5189ad1aca230cbf24f4133310efe558f24a9802e877848cea9a18b96a00f5"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "driver": "hdr_percentile_bench",
+    "binary_sha256": "67fd90ae8ca7af508c56a278f1543262267aa3517064e82a9c160311667cba43"
+  }
+]

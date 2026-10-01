@@ -1,0 +1,679 @@
+# Allowlisted descriptive fields; identifiers omitted
+# cpu
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3787 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3446 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3220 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3222 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3459 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3807 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3808 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3225 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3363 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3788 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3454 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 3800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.143.8 "Intel(R) Xeon(R) Platinum 8488C"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,dca,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,cat_l3,cat_l2,cdp_l3,intel_ppin,cdp_l2,ssbd,mba,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,cqm,rdt_a,avx512f,avx512dq,rdseed,adx,smap,avx512ifma,clflushopt,clwb,intel_pt,avx512cd,sha_ni,avx512bw,avx512vl,xsaveopt,xsavec,xgetbv1,xsaves,cqm_llc,cqm_occup_llc,cqm_mbm_total,cqm_mbm_local,split_lock_detect,user_shstk,avx_vnni,avx512_bf16,wbnoinvd,dtherm,ida,arat,pln,pts,hwp,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,avx512vbmi,umip,pku,ospke,waitpkg,avx512_vbmi2,gfni,vaes,vp
+  Clock: 800 MHz
+  Cache: 107520 kb
+# memory
+  Hardware Class: memory
+  Model: "Main Memory"
+  Memory Size: 384 GB
+# system

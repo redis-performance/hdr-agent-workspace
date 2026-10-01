@@ -1,0 +1,5 @@
+    36.87%  [.] record_value_counted  -      -
+    36.86%  [.] counts_index_for      -      -
+    16.30%  [.] get_bucket_index      -      -
+     8.40%  [.] main                  -      -
+     1.41%  [.] hdr_record_value      -      -

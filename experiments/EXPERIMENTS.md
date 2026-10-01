@@ -836,3 +836,32 @@ timing. Consumer builds measure Os/O3 with and without HDR-private visibility
 and section GC; full measurements/profiles are running. Connection details
 stay outside the repository. No new optimization/default accepted; counts
 and the pre-existing submodule pointer remain unchanged.
+
+The native audit is now complete: [results](C-HARDENING-2026-10-01/fleet/RESULTS.md),
+[runner inventories](C-HARDENING-2026-10-01/fleet/RUNNERS.md), and
+[pinning methodology](C-HARDENING-2026-10-01/fleet/RUNNER-METHODOLOGY.md).
+All 120 CTest executions, 24 consumer variants and 24 allocator/iterator
+contract probes pass. GCC O3/Os recording/read ratios are Intel 1.975/1.071,
+AMD 1.966/1.363, ARM 1.439/3.469. Clang ratios are Intel 1.009/0.919,
+AMD 1.277/1.235, ARM 0.997/0.443. Preserve precision-dependent results and
+repeat variation; this is not an end-to-end server throughput result.
+
+Actual-archive probes exposed an Intel private-O3 recording slowdown; a full
+immutable-driver countercheck instead showed 1.060x recording and 0.999x read
+throughput versus ordinary O3. The recording bytes match but placement differs.
+Keep both observations; no blanket performance-neutrality claim is accepted.
+ARM Clang O3 read assembly carries the running total through four scalar
+prefix additions; Os forms a vector block sum first. This is a concrete
+compiler-codegen lead, not an implemented optimization.
+
+The post-check initially mistook the checkout path `current-Os` for a caller
+optimization flag. Inspecting only emitted C_FLAGS corrected that harness
+assertion; actual callers remained O3 throughout. The inventory collector
+initially requested obsolete `libhd21` and an x86-only dependency on ARM;
+resolving distribution/architecture-specific dependencies fixed collection.
+Multiple hwinfo selectors produced only the last category, so separate CPU,
+memory and system captures were saved. Tools were extracted privately without
+host package installation. Full raw identifying output stays outside git;
+sanitized hardware, OS, compiler, topology and settings snapshots are retained.
+No new optimization/default accepted, no PR/push, and acceptance counts and
+the pre-existing submodule pointer are unchanged.

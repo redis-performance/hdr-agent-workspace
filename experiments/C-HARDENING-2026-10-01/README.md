@@ -48,9 +48,13 @@ The original local audit pinned HdrHistogram_c PR #158 at
 `9b270b6d8b1ae0937c62b7d113ee31e489b2c75a`.
 The workspace submodule and its existing pointer change are preserved.
 
-The subsequent [native Intel/AMD/ARM Os/O3 audit](fleet/STATUS.md) uses
+The completed [native Intel/AMD/ARM Os/O3 audit](fleet/RESULTS.md) uses
 the updated PR #158 tip `d21d0843b492023077553b3eba26b3efa16c15f5`, including
 its recording-path fix. Keep the two revisions' results separate.
+The original vendor patch files still target `bcb5c1f`; regenerate adaptations
+with the importer for the desired release SHA. Fleet builds used `d21d084`.
+The audit also saves [hardware/OS/compiler inventories](fleet/RUNNERS.md)
+and the [core-pinning and noise methodology](fleet/RUNNER-METHODOLOGY.md).
 
 ## Integration requirements
 

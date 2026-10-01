@@ -462,3 +462,11 @@ upstream-merge review gate derived from the HdrHistogram_c maintainer's actual r
 - HdrHistogram: <http://hdrhistogram.org>
 - [HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c)
 - Jaber & Jaber, [AutoKernel](https://arxiv.org/abs/2603.21331), arXiv, 2026
+
+## C consumer hardening and compiler tradeoffs
+
+The [native Intel/AMD/ARM report](experiments/C-HARDENING-2026-10-01/fleet/RESULTS.md)
+compares Os/O3 on PR #158's `d21d084` revision, with Redis/Valkey integration,
+final executable sizes, profiles, hardware/compiler inventories and core-pinning
+methodology. GCC gains and Clang read regressions require conditional defaults;
+no new optimization or accepted baseline change is recorded by this audit.

@@ -1,0 +1,11 @@
+{
+   "memory": [
+      {
+         "range": "0x0000010000000000-0x0000015fffffffff",
+         "size": "384G",
+         "state": "online",
+         "removable": true,
+         "block": "8192-11263"
+      }
+   ]
+}

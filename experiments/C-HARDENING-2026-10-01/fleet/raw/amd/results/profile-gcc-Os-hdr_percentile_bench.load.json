@@ -1,0 +1,1 @@
+[{"seconds": 3.0, "other_cpu_max": 4.333333333333334, "other_cpu_sum": 4.665559246954599, "sibling_max": 0}, {"seconds": 6.0, "other_cpu_max": 0.0, "other_cpu_sum": 0.0, "sibling_max": 0}, {"seconds": 9.0, "other_cpu_max": 0.0, "other_cpu_sum": 0.0, "sibling_max": 0}, {"seconds": 12.0, "other_cpu_max": 0.6688963210702337, "other_cpu_sum": 0.6688963210702337, "sibling_max": 0}]

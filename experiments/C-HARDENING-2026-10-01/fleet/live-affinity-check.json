@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-01",
+  "machine": "ARM64",
+  "workload": "hdr_percentile_",
+  "source": "live /proc/<owned workload pid>/status",
+  "Cpus_allowed_list": "2",
+  "timed_run_configuration": "taskset -c 2 on every runner"
+}

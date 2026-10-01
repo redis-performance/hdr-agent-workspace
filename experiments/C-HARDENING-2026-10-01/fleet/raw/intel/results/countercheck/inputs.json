@@ -1,0 +1,16 @@
+{
+  "candidate-o3": {
+    "archive_sha256": "9a73348d9e0ff51627ee60d759ec6421f63b50d7e85bc4602156b9ceb46f4f0a",
+    "binaries": {
+      "hdr_histogram_perf": "63ef5fd0fcd572bb6c5eb1fd4f62d6fb36067dde1c486e10f1ec0ec5e5aba019",
+      "hdr_percentile_bench": "81ed06abc3793d081700687f80c55ba1f83493fa956ae0b5ffb5b256cf53ed40"
+    }
+  },
+  "candidate-o3-hidden-gc": {
+    "archive_sha256": "c22d0c3c91274a5894219d65ff93a99db8b0786f49d7e8c06ca1ad4d478ebcf9",
+    "binaries": {
+      "hdr_histogram_perf": "13e5d0f2500f687a4194ad1c475970346bedc999bf9b0709aea2b9f5e7b874a9",
+      "hdr_percentile_bench": "5e040a43e61653d75042b69da03149273f64461f85087870949991f8a7fa1f28"
+    }
+  }
+}

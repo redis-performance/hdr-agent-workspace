@@ -33,6 +33,14 @@ by maintainer, #137 open) that this workspace builds on.
 
 ## M6 measured qualification checkpoint — 2026-09-29
 
+[Native C hardening / Os versus O3 fleet audit](C-HARDENING-2026-10-01/fleet/RESULTS.md)
+completed on Intel x86_64, AMD x86_64 and ARM64. GCC O3 improves both paths;
+Clang O3 regresses Intel three-digit and ARM read workloads. Size savings from
+private HDR/section GC are measured on final consumer binaries, with timing
+layout sensitivity retained. 120 CTest executions, 24 consumer variants and
+24 allocator/iterator probes pass. Hardware/toolchain inventories and pinning
+methodology are saved. No optimization/default accepted; counts unchanged.
+
 [Post-merge C optimization round](OPT-ROUND-2026-09-30/STATUS.md) compares the
 0.11.10 stable release, pre-batch master, and latest master including #140/#141;
 #158 is the future candidate reference. Measurement is in progress, so counts

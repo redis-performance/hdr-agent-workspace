@@ -22,7 +22,7 @@ for i, (machine, cc) in enumerate((m, c) for m in labels for c in colors):
     assert result["status"]["phase"] == "complete", "Do not publish unfinished timing charts"
     y = 5 - i
     yticks.append(y)
-    ylabels.append(f"{labels[machine]} · {cc.title()}")
+    ylabels.append(f"{labels[machine]} · {('GCC' if cc == 'gcc' else 'Clang')}")
     for ax, path in zip(axes, ("write", "read")):
         values = result["referee"][cc][path]["O3_speedup_pairs"]
         assert len(values) >= 2
@@ -46,4 +46,6 @@ fig.suptitle("HdrHistogram C · native AWS compiler comparison\n"
 fig.supxlabel("Points/ranges show observed alternating pairs, not confidence intervals. "
               "Read includes full-process warmups and initialization.", fontsize=9)
 fig.savefig(args.output, dpi=160)
-fig.savefig(args.output.with_suffix(".svg"))
+svg = args.output.with_suffix(".svg")
+fig.savefig(svg)
+svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()).rstrip() + "\n")

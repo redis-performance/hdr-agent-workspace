@@ -1,0 +1,197 @@
+00000000000037f7 <get_value_from_idx_up_to_count_avx2>:
+    37f7:	55                   	push   %rbp
+    37f8:	49 89 f8             	mov    %rdi,%r8
+    37fb:	49 89 f1             	mov    %rsi,%r9
+    37fe:	31 d2                	xor    %edx,%edx
+    3800:	31 c9                	xor    %ecx,%ecx
+    3802:	48 89 e5             	mov    %rsp,%rbp
+    3805:	41 57                	push   %r15
+    3807:	41 56                	push   %r14
+    3809:	41 55                	push   %r13
+    380b:	41 54                	push   %r12
+    380d:	53                   	push   %rbx
+    380e:	48 83 e4 e0          	and    $0xffffffffffffffe0,%rsp
+    3812:	44 8b 5f 50          	mov    0x50(%rdi),%r11d
+    3816:	bf 00 02 00 00       	mov    $0x200,%edi
+    381b:	44 89 d8             	mov    %r11d,%eax
+    381e:	41 8d 5b ff          	lea    -0x1(%r11),%ebx
+    3822:	83 e0 f0             	and    $0xfffffff0,%eax
+    3825:	48 63 db             	movslq %ebx,%rbx
+    3828:	89 44 24 fc          	mov    %eax,-0x4(%rsp)
+    382c:	48 c1 e3 03          	shl    $0x3,%rbx
+    3830:	41 89 d4             	mov    %edx,%r12d
+    3833:	89 d6                	mov    %edx,%esi
+    3835:	39 54 24 fc          	cmp    %edx,-0x4(%rsp)
+    3839:	0f 8e a0 00 00 00    	jle    38df <get_value_from_idx_up_to_count_avx2+0xe8>
+    383f:	4d 8b 50 60          	mov    0x60(%r8),%r10
+    3843:	44 8d 6a 40          	lea    0x40(%rdx),%r13d
+    3847:	48 89 d8             	mov    %rbx,%rax
+    384a:	49 89 cf             	mov    %rcx,%r15
+    384d:	45 39 eb             	cmp    %r13d,%r11d
+    3850:	4d 8d b4 3a 00 fe ff 	lea    -0x200(%r10,%rdi,1),%r14
+    3857:	ff
+    3858:	48 0f 4f c7          	cmovg  %rdi,%rax
+    385c:	c4 c1 7e 6f 94 3a 40 	vmovdqu -0x1c0(%r10,%rdi,1),%ymm2
+    3863:	fe ff ff
+    3866:	c4 c1 6d d4 84 3a 60 	vpaddq -0x1a0(%r10,%rdi,1),%ymm2,%ymm0
+    386d:	fe ff ff
+    3870:	c4 c1 7d d4 06       	vpaddq (%r14),%ymm0,%ymm0
+    3875:	c4 c1 7d d4 84 3a 20 	vpaddq -0x1e0(%r10,%rdi,1),%ymm0,%ymm0
+    387c:	fe ff ff
+    387f:	41 0f 18 0c 02       	prefetcht0 (%r10,%rax,1)
+    3884:	c5 f9 6f c8          	vmovdqa %xmm0,%xmm1
+    3888:	c4 e3 7d 39 c0 01    	vextracti128 $0x1,%ymm0,%xmm0
+    388e:	c5 f9 d4 c1          	vpaddq %xmm1,%xmm0,%xmm0
+    3892:	c4 c1 f9 7e c5       	vmovq  %xmm0,%r13
+    3897:	c4 e3 f9 16 c0 01    	vpextrq $0x1,%xmm0,%rax
+    389d:	49 01 c5             	add    %rax,%r13
+    38a0:	4c 01 e9             	add    %r13,%rcx
+    38a3:	49 39 c9             	cmp    %rcx,%r9
+    38a6:	7f 2a                	jg     38d2 <get_value_from_idx_up_to_count_avx2+0xdb>
+    38a8:	49 8b 0e             	mov    (%r14),%rcx
+    38ab:	4c 01 f9             	add    %r15,%rcx
+    38ae:	49 39 c9             	cmp    %rcx,%r9
+    38b1:	7e 35                	jle    38e8 <get_value_from_idx_up_to_count_avx2+0xf1>
+    38b3:	48 8d 72 01          	lea    0x1(%rdx),%rsi
+    38b7:	41 83 c4 0f          	add    $0xf,%r12d
+    38bb:	41 39 f4             	cmp    %esi,%r12d
+    38be:	7c 12                	jl     38d2 <get_value_from_idx_up_to_count_avx2+0xdb>
+    38c0:	49 03 0c f2          	add    (%r10,%rsi,8),%rcx
+    38c4:	48 8d 46 01          	lea    0x1(%rsi),%rax
+    38c8:	49 39 c9             	cmp    %rcx,%r9
+    38cb:	7e 1b                	jle    38e8 <get_value_from_idx_up_to_count_avx2+0xf1>
+    38cd:	48 89 c6             	mov    %rax,%rsi
+    38d0:	eb e9                	jmp    38bb <get_value_from_idx_up_to_count_avx2+0xc4>
+    38d2:	48 83 ef 80          	sub    $0xffffffffffffff80,%rdi
+    38d6:	48 83 c2 10          	add    $0x10,%rdx
+    38da:	e9 51 ff ff ff       	jmp    3830 <get_value_from_idx_up_to_count_avx2+0x39>
+    38df:	48 63 d2             	movslq %edx,%rdx
+    38e2:	48 c1 e2 03          	shl    $0x3,%rdx
+    38e6:	eb 29                	jmp    3911 <get_value_from_idx_up_to_count_avx2+0x11a>
+    38e8:	48 8d 65 d8          	lea    -0x28(%rbp),%rsp
+    38ec:	4c 89 c7             	mov    %r8,%rdi
+    38ef:	5b                   	pop    %rbx
+    38f0:	41 5c                	pop    %r12
+    38f2:	41 5d                	pop    %r13
+    38f4:	41 5e                	pop    %r14
+    38f6:	41 5f                	pop    %r15
+    38f8:	5d                   	pop    %rbp
+    38f9:	e9 ce fe ff ff       	jmp    37cc <hdr_value_at_index>
+    38fe:	49 8b 40 60          	mov    0x60(%r8),%rax
+    3902:	48 03 0c 10          	add    (%rax,%rdx,1),%rcx
+    3906:	48 83 c2 08          	add    $0x8,%rdx
+    390a:	4c 39 c9             	cmp    %r9,%rcx
+    390d:	7d d9                	jge    38e8 <get_value_from_idx_up_to_count_avx2+0xf1>
+    390f:	ff c6                	inc    %esi
+    3911:	44 39 de             	cmp    %r11d,%esi
+    3914:	7c e8                	jl     38fe <get_value_from_idx_up_to_count_avx2+0x107>
+    3916:	48 8d 65 d8          	lea    -0x28(%rbp),%rsp
+    391a:	31 c0                	xor    %eax,%eax
+    391c:	5b                   	pop    %rbx
+    391d:	41 5c                	pop    %r12
+    391f:	41 5d                	pop    %r13
+    3921:	41 5e                	pop    %r14
+    3923:	41 5f                	pop    %r15
+    3925:	5d                   	pop    %rbp
+    3926:	c3                   	ret
+
+00000000000041dd <hdr_value_at_percentile>:
+    41dd:	f3 0f 1e fa          	endbr64
+    41e1:	f2 0f 10 15 8f 0e 00 	movsd  0xe8f(%rip),%xmm2        # 5078 <_IO_stdin_used+0x78>
+    41e8:	00
+    41e9:	0f 28 d8             	movaps %xmm0,%xmm3
+    41ec:	53                   	push   %rbx
+    41ed:	b8 01 00 00 00       	mov    $0x1,%eax
+    41f2:	f2 48 0f 2a 4f 58    	cvtsi2sdq 0x58(%rdi),%xmm1
+    41f8:	8b 77 40             	mov    0x40(%rdi),%esi
+    41fb:	48 89 fb             	mov    %rdi,%rbx
+    41fe:	f2 0f 5d c2          	minsd  %xmm2,%xmm0
+    4202:	f2 0f 5e c2          	divsd  %xmm2,%xmm0
+    4206:	f2 0f 59 c8          	mulsd  %xmm0,%xmm1
+    420a:	f2 0f 58 0d 8e 0e 00 	addsd  0xe8e(%rip),%xmm1        # 50a0 <_IO_stdin_used+0xa0>
+    4211:	00
+    4212:	f2 4c 0f 2c c1       	cvttsd2si %xmm1,%r8
+    4217:	4d 85 c0             	test   %r8,%r8
+    421a:	4c 0f 4e c0          	cmovle %rax,%r8
+    421e:	85 f6                	test   %esi,%esi
+    4220:	75 1a                	jne    423c <hdr_value_at_percentile+0x5f>
+    4222:	48 8d 05 07 2e 00 00 	lea    0x2e07(%rip),%rax        # 7030 <__cpu_model>
+    4229:	f6 40 0d 04          	testb  $0x4,0xd(%rax)
+    422d:	74 0d                	je     423c <hdr_value_at_percentile+0x5f>
+    422f:	4c 89 c6             	mov    %r8,%rsi
+    4232:	e8 c0 f5 ff ff       	call   37f7 <get_value_from_idx_up_to_count_avx2>
+    4237:	e9 ba 00 00 00       	jmp    42f6 <hdr_value_at_percentile+0x119>
+    423c:	4c 8b 53 60          	mov    0x60(%rbx),%r10
+    4240:	44 8b 4b 50          	mov    0x50(%rbx),%r9d
+    4244:	85 f6                	test   %esi,%esi
+    4246:	74 22                	je     426a <hdr_value_at_percentile+0x8d>
+    4248:	45 31 d2             	xor    %r10d,%r10d
+    424b:	31 f6                	xor    %esi,%esi
+    424d:	41 39 f1             	cmp    %esi,%r9d
+    4250:	0f 8e 9e 00 00 00    	jle    42f4 <hdr_value_at_percentile+0x117>
+    4256:	48 89 df             	mov    %rbx,%rdi
+    4259:	e8 e8 f3 ff ff       	call   3646 <counts_get_normalised>
+    425e:	49 01 c2             	add    %rax,%r10
+    4261:	4d 39 d0             	cmp    %r10,%r8
+    4264:	7e 68                	jle    42ce <hdr_value_at_percentile+0xf1>
+    4266:	ff c6                	inc    %esi
+    4268:	eb e3                	jmp    424d <hdr_value_at_percentile+0x70>
+    426a:	44 89 c8             	mov    %r9d,%eax
+    426d:	b9 04 00 00 00       	mov    $0x4,%ecx
+    4272:	45 89 cb             	mov    %r9d,%r11d
+    4275:	99                   	cltd
+    4276:	f7 f9                	idiv   %ecx
+    4278:	4c 89 d1             	mov    %r10,%rcx
+    427b:	31 c0                	xor    %eax,%eax
+    427d:	41 29 d3             	sub    %edx,%r11d
+    4280:	eb 0d                	jmp    428f <hdr_value_at_percentile+0xb2>
+    4282:	48 83 fa 04          	cmp    $0x4,%rdx
+    4286:	75 32                	jne    42ba <hdr_value_at_percentile+0xdd>
+    4288:	83 c6 04             	add    $0x4,%esi
+    428b:	48 83 c1 20          	add    $0x20,%rcx
+    428f:	41 39 f3             	cmp    %esi,%r11d
+    4292:	7e 46                	jle    42da <hdr_value_at_percentile+0xfd>
+    4294:	31 ff                	xor    %edi,%edi
+    4296:	31 d2                	xor    %edx,%edx
+    4298:	48 03 14 f9          	add    (%rcx,%rdi,8),%rdx
+    429c:	48 ff c7             	inc    %rdi
+    429f:	48 83 ff 04          	cmp    $0x4,%rdi
+    42a3:	75 f3                	jne    4298 <hdr_value_at_percentile+0xbb>
+    42a5:	48 01 c2             	add    %rax,%rdx
+    42a8:	4c 39 c2             	cmp    %r8,%rdx
+    42ab:	72 28                	jb     42d5 <hdr_value_at_percentile+0xf8>
+    42ad:	48 03 01             	add    (%rcx),%rax
+    42b0:	49 39 c0             	cmp    %rax,%r8
+    42b3:	7e 16                	jle    42cb <hdr_value_at_percentile+0xee>
+    42b5:	ba 01 00 00 00       	mov    $0x1,%edx
+    42ba:	48 03 04 d1          	add    (%rcx,%rdx,8),%rax
+    42be:	48 89 d7             	mov    %rdx,%rdi
+    42c1:	48 ff c2             	inc    %rdx
+    42c4:	49 39 c0             	cmp    %rax,%r8
+    42c7:	7f b9                	jg     4282 <hdr_value_at_percentile+0xa5>
+    42c9:	01 fe                	add    %edi,%esi
+    42cb:	48 89 df             	mov    %rbx,%rdi
+    42ce:	e8 f9 f4 ff ff       	call   37cc <hdr_value_at_index>
+    42d3:	eb 21                	jmp    42f6 <hdr_value_at_percentile+0x119>
+    42d5:	48 89 d0             	mov    %rdx,%rax
+    42d8:	eb ae                	jmp    4288 <hdr_value_at_percentile+0xab>
+    42da:	48 63 f6             	movslq %esi,%rsi
+    42dd:	41 39 f1             	cmp    %esi,%r9d
+    42e0:	7e 12                	jle    42f4 <hdr_value_at_percentile+0x117>
+    42e2:	49 03 04 f2          	add    (%r10,%rsi,8),%rax
+    42e6:	48 8d 56 01          	lea    0x1(%rsi),%rdx
+    42ea:	49 39 c0             	cmp    %rax,%r8
+    42ed:	7e dc                	jle    42cb <hdr_value_at_percentile+0xee>
+    42ef:	48 89 d6             	mov    %rdx,%rsi
+    42f2:	eb e9                	jmp    42dd <hdr_value_at_percentile+0x100>
+    42f4:	31 c0                	xor    %eax,%eax
+    42f6:	0f 57 c0             	xorps  %xmm0,%xmm0
+    42f9:	48 89 c6             	mov    %rax,%rsi
+    42fc:	48 89 df             	mov    %rbx,%rdi
+    42ff:	66 0f 2e d8          	ucomisd %xmm0,%xmm3
+    4303:	7a 08                	jp     430d <hdr_value_at_percentile+0x130>
+    4305:	75 06                	jne    430d <hdr_value_at_percentile+0x130>
+    4307:	5b                   	pop    %rbx
+    4308:	e9 a8 f3 ff ff       	jmp    36b5 <lowest_equivalent_value>
+    430d:	5b                   	pop    %rbx
+    430e:	e9 9b f8 ff ff       	jmp    3bae <highest_equivalent_value>

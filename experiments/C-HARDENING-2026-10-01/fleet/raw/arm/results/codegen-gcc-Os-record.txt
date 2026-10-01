@@ -1,0 +1,75 @@
+0000000000001c20 <counts_index_for>:
+    1c20:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    1c24:	aa0003e4 	mov	x4, x0
+    1c28:	aa0103e3 	mov	x3, x1
+    1c2c:	910003fd 	mov	x29, sp
+    1c30:	97ffffe5 	bl	1bc4 <get_bucket_index>
+    1c34:	b9401081 	ldr	w1, [x4, #16]
+    1c38:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    1c3c:	0b010001 	add	w1, w0, w1
+    1c40:	11000400 	add	w0, w0, #0x1
+    1c44:	9ac12863 	asr	x3, x3, x1
+    1c48:	b9401c81 	ldr	w1, [x4, #28]
+    1c4c:	4b010063 	sub	w3, w3, w1
+    1c50:	b9401881 	ldr	w1, [x4, #24]
+    1c54:	1ac12000 	lsl	w0, w0, w1
+    1c58:	0b000060 	add	w0, w3, w0
+    1c5c:	d65f03c0 	ret
+
+0000000000001c60 <record_value_counted>:
+    1c60:	b7f80601 	tbnz	x1, #63, 1d20 <record_value_counted+0xc0>
+    1c64:	aa0203e7 	mov	x7, x2
+    1c68:	aa0003e5 	mov	x5, x0
+    1c6c:	f9400402 	ldr	x2, [x0, #8]
+    1c70:	aa0103e6 	mov	x6, x1
+    1c74:	eb01005f 	cmp	x2, x1
+    1c78:	5400054b 	b.lt	1d20 <record_value_counted+0xc0>  // b.tstop
+    1c7c:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    1c80:	910003fd 	mov	x29, sp
+    1c84:	97ffffe7 	bl	1c20 <counts_index_for>
+    1c88:	2a0003e1 	mov	w1, w0
+    1c8c:	b94050a0 	ldr	w0, [x5, #80]
+    1c90:	6b01001f 	cmp	w0, w1
+    1c94:	540004a9 	b.ls	1d28 <record_value_counted+0xc8>  // b.plast
+    1c98:	b94040a0 	ldr	w0, [x5, #64]
+    1c9c:	f94030a4 	ldr	x4, [x5, #96]
+    1ca0:	350002a0 	cbnz	w0, 1cf4 <record_value_counted+0x94>
+    1ca4:	937d7c22 	sbfiz	x2, x1, #3, #32
+    1ca8:	8b21cc81 	add	x1, x4, w1, sxtw #3
+    1cac:	f8626880 	ldr	x0, [x4, x2]
+    1cb0:	f9800030 	prfm	pstl1keep, [x1]
+    1cb4:	8b070000 	add	x0, x0, x7
+    1cb8:	f8226880 	str	x0, [x4, x2]
+    1cbc:	f9402ca0 	ldr	x0, [x5, #88]
+    1cc0:	8b070000 	add	x0, x0, x7
+    1cc4:	f9002ca0 	str	x0, [x5, #88]
+    1cc8:	f9401ca0 	ldr	x0, [x5, #56]
+    1ccc:	eb0000df 	cmp	x6, x0
+    1cd0:	5400004d 	b.le	1cd8 <record_value_counted+0x78>
+    1cd4:	f9001ca6 	str	x6, [x5, #56]
+    1cd8:	b4000086 	cbz	x6, 1ce8 <record_value_counted+0x88>
+    1cdc:	f94018a0 	ldr	x0, [x5, #48]
+    1ce0:	eb0000df 	cmp	x6, x0
+    1ce4:	540001ab 	b.lt	1d18 <record_value_counted+0xb8>  // b.tstop
+    1ce8:	52800020 	mov	w0, #0x1                   	// #1
+    1cec:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    1cf0:	d65f03c0 	ret
+    1cf4:	aa0503e0 	mov	x0, x5
+    1cf8:	97ffff89 	bl	1b1c <normalize_index>
+    1cfc:	937d7c01 	sbfiz	x1, x0, #3, #32
+    1d00:	8b20cc80 	add	x0, x4, w0, sxtw #3
+    1d04:	f9800010 	prfm	pstl1keep, [x0]
+    1d08:	f8616880 	ldr	x0, [x4, x1]
+    1d0c:	8b070000 	add	x0, x0, x7
+    1d10:	f8216880 	str	x0, [x4, x1]
+    1d14:	17ffffea 	b	1cbc <record_value_counted+0x5c>
+    1d18:	f90018a6 	str	x6, [x5, #48]
+    1d1c:	17fffff3 	b	1ce8 <record_value_counted+0x88>
+    1d20:	52800000 	mov	w0, #0x0                   	// #0
+    1d24:	d65f03c0 	ret
+    1d28:	52800000 	mov	w0, #0x0                   	// #0
+    1d2c:	17fffff0 	b	1cec <record_value_counted+0x8c>
+
+0000000000002760 <hdr_record_value>:
+    2760:	d2800022 	mov	x2, #0x1                   	// #1
+    2764:	17fffd3f 	b	1c60 <record_value_counted>

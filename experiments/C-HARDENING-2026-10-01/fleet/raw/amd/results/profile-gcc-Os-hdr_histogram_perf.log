@@ -1,0 +1,2 @@
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.082 MB /tmp/hdr-os-o3-fleet-20261001/profile-gcc-Os-hdr_histogram_perf.data (1996 samples) ]

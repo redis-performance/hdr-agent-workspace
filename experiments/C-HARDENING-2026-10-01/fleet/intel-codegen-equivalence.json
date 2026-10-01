@@ -1,0 +1,16 @@
+{
+  "status": "identical function bytes; different executable placement; cause of timing difference not proven",
+  "function": "hdr_record_value",
+  "variants": {
+    "candidate-o3": {
+      "function_start_mod_64": 48,
+      "bytes": 176,
+      "sha256": "121607d6ecea210b319b313b323a7c2fc36f0f9dcde7b03343fce6eb5aa368d1"
+    },
+    "candidate-o3-hidden-gc": {
+      "function_start_mod_64": 16,
+      "bytes": 176,
+      "sha256": "121607d6ecea210b319b313b323a7c2fc36f0f9dcde7b03343fce6eb5aa368d1"
+    }
+  }
+}

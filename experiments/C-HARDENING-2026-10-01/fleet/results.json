@@ -1,0 +1,3826 @@
+{
+  "machines": {
+    "intel": {
+      "metadata": {
+        "label": "intel",
+        "architecture": "x86_64",
+        "revisions": {
+          "current": "d21d0843b492023077553b3eba26b3efa16c15f5",
+          "reference": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13"
+        },
+        "cpu": 2,
+        "smt_siblings": [
+          2,
+          50
+        ],
+        "versions": {
+          "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+          "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cmake": "cmake version 3.28.3"
+        }
+      },
+      "status": {
+        "label": "intel",
+        "phase": "complete",
+        "time": 1790855037.371318
+      },
+      "referee": {
+        "gcc": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 239057422.92,
+              "read_wall_s": 52.77,
+              "read_user_s": 52.764,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 471897787.90999997,
+              "read_wall_s": 49.021,
+              "read_user_s": 49.015,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 471585582.01,
+              "read_wall_s": 49.056,
+              "read_user_s": 49.05,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 238627041.26,
+              "read_wall_s": 52.278,
+              "read_user_s": 52.272,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.973993453731489,
+              1.976245355597299
+            ],
+            "O3_speedup_median": 1.9751194046643938,
+            "O3_speedup_range": [
+              1.973993453731489,
+              1.976245355597299
+            ],
+            "Os_median": 238842232.08999997,
+            "Os_repeat_spread_pct": 0.18035745560414096,
+            "O3_median": 471741684.96,
+            "O3_repeat_spread_pct": 0.0662034447001636
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.0764774280410436,
+              1.0656800391389434
+            ],
+            "O3_speedup_median": 1.0710787335899936,
+            "O3_speedup_range": [
+              1.0656800391389434,
+              1.0764774280410436
+            ],
+            "Os_median": 52.524,
+            "Os_repeat_spread_pct": 0.9411224606909352,
+            "O3_median": 49.0385,
+            "O3_repeat_spread_pct": 0.07139797229758216
+          }
+        },
+        "clang": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 463850073.07500005,
+              "read_wall_s": 44.93,
+              "read_user_s": 44.925,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 468854863.87,
+              "read_wall_s": 48.823,
+              "read_user_s": 48.817,
+              "read_sys_s": 0.002,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 468734527.20500004,
+              "read_wall_s": 48.736,
+              "read_user_s": 48.732,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 464933883.03499997,
+              "read_wall_s": 44.734,
+              "read_user_s": 44.729,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.010789673399902,
+              1.0081745906432764
+            ],
+            "O3_speedup_median": 1.0094821320215892,
+            "O3_speedup_range": [
+              1.0081745906432764,
+              1.010789673399902
+            ],
+            "Os_median": 464391978.055,
+            "Os_repeat_spread_pct": 0.23365523105667307,
+            "O3_median": 468794695.5375,
+            "O3_repeat_spread_pct": 0.025672669286280758
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.9202629908035147,
+              0.9178841103086016
+            ],
+            "O3_speedup_median": 0.9190735505560581,
+            "O3_speedup_range": [
+              0.9178841103086016,
+              0.9202629908035147
+            ],
+            "Os_median": 44.832,
+            "Os_repeat_spread_pct": 0.43814548218357174,
+            "O3_median": 48.7795,
+            "O3_repeat_spread_pct": 0.17851280367695566
+          }
+        }
+      },
+      "probe": {
+        "current-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.848,
+              "read_ns": 393.442
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.1325,
+              "read_ns": 241.7345
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.124,
+              "read_ns": 245.01850000000002
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.379,
+              "read_ns": 393.752
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.8044548651817116,
+              1.5908662900188322
+            ],
+            "O3_speedup_median": 1.697660577600272,
+            "O3_speedup_range": [
+              1.5908662900188322,
+              1.8044548651817116
+            ],
+            "Os_median": 3.6135,
+            "Os_repeat_spread_pct": 13.879846108316073,
+            "O3_median": 2.12825,
+            "O3_repeat_spread_pct": 0.4001883239171278
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.6275790174757845,
+              1.6070296732695695
+            ],
+            "O3_speedup_median": 1.617304345372677,
+            "O3_speedup_range": [
+              1.6070296732695695,
+              1.6275790174757845
+            ],
+            "Os_median": 393.597,
+            "Os_repeat_spread_pct": 0.07879179142034065,
+            "O3_median": 243.37650000000002,
+            "O3_repeat_spread_pct": 1.358515230552526
+          }
+        },
+        "current-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.341,
+              "read_ns": 2247.0425
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.138,
+              "read_ns": 2107.49
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.1799999999999997,
+              "read_ns": 2108.306
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.234,
+              "read_ns": 2221.8365
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.5626753975678205,
+              1.4834862385321104
+            ],
+            "O3_speedup_median": 1.5230808180499653,
+            "O3_speedup_range": [
+              1.4834862385321104,
+              1.5626753975678205
+            ],
+            "Os_median": 3.2875,
+            "Os_repeat_spread_pct": 3.3085961657390195,
+            "O3_median": 2.159,
+            "O3_repeat_spread_pct": 1.9644527595883865
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.066217396049329,
+              1.053849156621477
+            ],
+            "O3_speedup_median": 1.060033276335403,
+            "O3_speedup_range": [
+              1.053849156621477,
+              1.066217396049329
+            ],
+            "Os_median": 2234.4395,
+            "Os_repeat_spread_pct": 1.1344669150948006,
+            "O3_median": 2107.898,
+            "O3_repeat_spread_pct": 0.03871904493024658
+          }
+        },
+        "reference-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.5365,
+              "read_ns": 393.85
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.4875,
+              "read_ns": 241.6725
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.7625,
+              "read_ns": 245.11849999999998
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.186,
+              "read_ns": 393.7045
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.421708542713568,
+              1.1533031674208143
+            ],
+            "O3_speedup_median": 1.2875058550671912,
+            "O3_speedup_range": [
+              1.1533031674208143,
+              1.421708542713568
+            ],
+            "Os_median": 3.36125,
+            "Os_repeat_spread_pct": 11.001255492780926,
+            "O3_median": 2.625,
+            "O3_repeat_spread_pct": 11.055276381909573
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.629684800711707,
+              1.606180276070554
+            ],
+            "O3_speedup_median": 1.6179325383911305,
+            "O3_speedup_range": [
+              1.606180276070554,
+              1.629684800711707
+            ],
+            "Os_median": 393.77725,
+            "Os_repeat_spread_pct": 0.03695665149878735,
+            "O3_median": 243.3955,
+            "O3_repeat_spread_pct": 1.4258966162885578
+          }
+        },
+        "reference-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.1555,
+              "read_ns": 2244.3185000000003
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.747,
+              "read_ns": 2109.453
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 3.012,
+              "read_ns": 2106.7039999999997
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.1900000000000004,
+              "read_ns": 2235.591
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.1487076811066619,
+              1.059096945551129
+            ],
+            "O3_speedup_median": 1.1039023133288954,
+            "O3_speedup_range": [
+              1.059096945551129,
+              1.1487076811066619
+            ],
+            "Os_median": 3.17275,
+            "Os_repeat_spread_pct": 1.0933291079068486,
+            "O3_median": 2.8795,
+            "O3_repeat_spread_pct": 9.646887513651258
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.0639338729044925,
+              1.0611794537818318
+            ],
+            "O3_speedup_median": 1.062556663343162,
+            "O3_speedup_range": [
+              1.0611794537818318,
+              1.0639338729044925
+            ],
+            "Os_median": 2239.95475,
+            "Os_repeat_spread_pct": 0.3903889396584814,
+            "O3_median": 2108.0784999999996,
+            "O3_repeat_spread_pct": 0.13048819388012944
+          }
+        },
+        "current-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.4139999999999997,
+              "read_ns": 263.123
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.166,
+              "read_ns": 210.6645
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.1395,
+              "read_ns": 211.622
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.4619999999999997,
+              "read_ns": 263.0695
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.1144967682363804,
+              1.1507361533068472
+            ],
+            "O3_speedup_median": 1.1326164607716138,
+            "O3_speedup_range": [
+              1.1144967682363804,
+              1.1507361533068472
+            ],
+            "Os_median": 2.4379999999999997,
+            "Os_repeat_spread_pct": 1.988400994200501,
+            "O3_median": 2.15275,
+            "O3_repeat_spread_pct": 1.2386071512035413
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.24901442815472,
+              1.2431103571462323
+            ],
+            "O3_speedup_median": 1.2460623926504761,
+            "O3_speedup_range": [
+              1.2431103571462323,
+              1.24901442815472
+            ],
+            "Os_median": 263.09625,
+            "Os_repeat_spread_pct": 0.02033683114157636,
+            "O3_median": 211.14325000000002,
+            "O3_repeat_spread_pct": 0.45451416826280955
+          }
+        },
+        "current-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.3834999999999997,
+              "read_ns": 1937.6775
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.194,
+              "read_ns": 2086.4805
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.3475,
+              "read_ns": 2097.368
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.466,
+              "read_ns": 1944.539
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0863719234275295,
+              1.0504792332268371
+            ],
+            "O3_speedup_median": 1.0684255783271834,
+            "O3_speedup_range": [
+              1.0504792332268371,
+              1.0863719234275295
+            ],
+            "Os_median": 2.42475,
+            "Os_repeat_spread_pct": 3.4612964128382773,
+            "O3_median": 2.27075,
+            "O3_repeat_spread_pct": 6.996353691886981
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.9286822953773111,
+              0.9271329590229277
+            ],
+            "O3_speedup_median": 0.9279076272001194,
+            "O3_speedup_range": [
+              0.9271329590229277,
+              0.9286822953773111
+            ],
+            "Os_median": 1941.10825,
+            "Os_repeat_spread_pct": 0.35410949448502205,
+            "O3_median": 2091.92425,
+            "O3_repeat_spread_pct": 0.5218117303276815
+          }
+        },
+        "reference-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.74,
+              "read_ns": 264.513
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.1340000000000003,
+              "read_ns": 210.12650000000002
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.2039999999999997,
+              "read_ns": 211.45850000000002
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.593,
+              "read_ns": 264.08799999999997
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.2839737582005624,
+              1.1764972776769511
+            ],
+            "O3_speedup_median": 1.2302355179387567,
+            "O3_speedup_range": [
+              1.1764972776769511,
+              1.2839737582005624
+            ],
+            "Os_median": 2.6665,
+            "Os_repeat_spread_pct": 5.669109139992301,
+            "O3_median": 2.169,
+            "O3_repeat_spread_pct": 3.28022492970943
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.2588274206251946,
+              1.2488880796941242
+            ],
+            "O3_speedup_median": 1.2538577501596593,
+            "O3_speedup_range": [
+              1.2488880796941242,
+              1.2588274206251946
+            ],
+            "Os_median": 264.30049999999994,
+            "Os_repeat_spread_pct": 0.16093120474993672,
+            "O3_median": 210.79250000000002,
+            "O3_repeat_spread_pct": 0.6339038626731908
+          }
+        },
+        "reference-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.448,
+              "read_ns": 1940.287
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.31,
+              "read_ns": 2086.1295
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.134,
+              "read_ns": 2097.7145
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.7935,
+              "read_ns": 1943.1205
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0597402597402596,
+              1.3090440487347703
+            ],
+            "O3_speedup_median": 1.184392154237515,
+            "O3_speedup_range": [
+              1.0597402597402596,
+              1.3090440487347703
+            ],
+            "Os_median": 2.62075,
+            "Os_repeat_spread_pct": 14.113562091503272,
+            "O3_median": 2.222,
+            "O3_repeat_spread_pct": 8.247422680412386
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.9300894311690622,
+              0.9263036032787111
+            ],
+            "O3_speedup_median": 0.9281965172238866,
+            "O3_speedup_range": [
+              0.9263036032787111,
+              0.9300894311690622
+            ],
+            "Os_median": 1941.7037500000001,
+            "Os_repeat_spread_pct": 0.14603509686967886,
+            "O3_median": 2091.922,
+            "O3_repeat_spread_pct": 0.5553346520434044
+          }
+        }
+      },
+      "ctest": {
+        "configurations": 8,
+        "passing_configurations": 8
+      },
+      "sizes": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3851082,
+          "text_section": 2577310,
+          "stripped_bytes": 4222808,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 292015,
+          "text_section": 153351,
+          "stripped_bytes": 305800,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3859675,
+          "text_section": 2585758,
+          "stripped_bytes": 4231000,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 300610,
+          "text_section": 161801,
+          "stripped_bytes": 313992,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3842971,
+          "text_section": 2574078,
+          "stripped_bytes": 4210520,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 285901,
+          "text_section": 150931,
+          "stripped_bytes": 297608,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3843476,
+          "text_section": 2574926,
+          "stripped_bytes": 4210520,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 287476,
+          "text_section": 152889,
+          "stripped_bytes": 297608,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3825951,
+          "text_section": 2515055,
+          "stripped_bytes": 4199440,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 488200,
+          "text_section": 291918,
+          "stripped_bytes": 507160,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3834544,
+          "text_section": 2523503,
+          "stripped_bytes": 4207632,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 496793,
+          "text_section": 300366,
+          "stripped_bytes": 515352,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3817824,
+          "text_section": 2511727,
+          "stripped_bytes": 4187152,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 481482,
+          "text_section": 289582,
+          "stripped_bytes": 494872,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3818817,
+          "text_section": 2513119,
+          "stripped_bytes": 4187152,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 483595,
+          "text_section": 292062,
+          "stripped_bytes": 498968,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        }
+      ],
+      "profiles": {
+        "profile-clang-O3-hdr_histogram_perf-symbols": [
+          "89.70%  [.] hdr_record_value    -      -",
+          "    10.25%  [.] main                -      -"
+        ],
+        "profile-clang-O3-hdr_percentile_bench-symbols": [
+          "99.05%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.86%  [.] hdr_value_at_percentile              -      -",
+          "     0.06%  [.] main                                 -      -",
+          "     0.03%  [.] hdr_record_value                     -      -"
+        ],
+        "profile-clang-Os-hdr_histogram_perf-symbols": [
+          "77.09%  [.] record_value_counted  -      -",
+          "    11.55%  [.] hdr_record_value      -      -",
+          "    11.31%  [.] main                  -      -"
+        ],
+        "profile-clang-Os-hdr_percentile_bench-symbols": [
+          "99.51%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.35%  [.] hdr_value_at_percentile              -      -",
+          "     0.10%  [.] main                                 -      -",
+          "     0.03%  [.] record_value_counted                 -      -",
+          "     0.01%  [.] hdr_record_value                     -      -"
+        ],
+        "profile-gcc-O3-hdr_histogram_perf-symbols": [
+          "89.89%  [.] hdr_record_value    -      -",
+          "    10.06%  [.] main                -      -"
+        ],
+        "profile-gcc-O3-hdr_percentile_bench-symbols": [
+          "99.53%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.30%  [.] hdr_value_at_percentile              -      -",
+          "     0.16%  [.] main                                 -      -",
+          "     0.01%  [.] hdr_record_value                     -      -"
+        ],
+        "profile-gcc-Os-hdr_histogram_perf-symbols": [
+          "59.49%  [.] record_value_counted  -      -",
+          "    21.21%  [.] counts_index_for      -      -",
+          "     6.54%  [.] main                  -      -",
+          "     6.47%  [.] get_bucket_index      -      -",
+          "     6.24%  [.] hdr_record_value      -      -"
+        ],
+        "profile-gcc-Os-hdr_percentile_bench-symbols": [
+          "96.55%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     2.81%  [.] hdr_value_at_percentile              -      -",
+          "     0.20%  [.] hdr_value_at_index                   -      -",
+          "     0.16%  [.] get_bucket_index                     -      -",
+          "     0.10%  [.] lowest_equivalent_value              -      -",
+          "     0.06%  [.] main                                 -      -",
+          "     0.05%  [.] hdr_size_of_equivalent_value_range   -      -",
+          "     0.05%  [.] highest_equivalent_value             -      -",
+          "     0.02%  [.] record_value_counted                 -      -"
+        ]
+      },
+      "consumer_contracts": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        }
+      ],
+      "embedded": {
+        "status": {
+          "label": "intel",
+          "phase": "complete",
+          "time": 1790855175.046177
+        },
+        "digits": {
+          "2": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 4.1795,
+                "read_ns": 392.7975
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 2.1325,
+                "read_ns": 245.18599999999998
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 3.49,
+                "read_ns": 244.8605
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.514,
+                "read_ns": 395.8575
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.7515,
+                "read_ns": 395.243
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 3.4930000000000003,
+                "read_ns": 245.0765
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 2.123,
+                "read_ns": 245.0275
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.8045,
+                "read_ns": 392.45050000000003
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.9599062133645957,
+                    1.7920395666509654
+                  ],
+                  "speedup_median": 1.8759728900077806,
+                  "speedup_range": [
+                    1.7920395666509654,
+                    1.9599062133645957
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.602038860293818,
+                    1.601658997459469
+                  ],
+                  "speedup_median": 1.6018489288766435,
+                  "speedup_range": [
+                    1.601658997459469,
+                    1.602038860293818
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.0068767908309455,
+                    1.0740051531634698
+                  ],
+                  "speedup_median": 1.0404409719972076,
+                  "speedup_range": [
+                    1.0068767908309455,
+                    1.0740051531634698
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.6166654074462807,
+                    1.612733166990715
+                  ],
+                  "speedup_median": 1.6146992872184978,
+                  "speedup_range": [
+                    1.612733166990715,
+                    1.6166654074462807
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.18938531587934,
+                    1.014127682260429
+                  ],
+                  "speedup_median": 1.1017564990698845,
+                  "speedup_range": [
+                    1.014127682260429,
+                    1.18938531587934
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.9922699456243724,
+                    0.9929347262317108
+                  ],
+                  "speedup_median": 0.9926023359280416,
+                  "speedup_range": [
+                    0.9922699456243724,
+                    0.9929347262317108
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.6110315186246418,
+                    0.6077870025765817
+                  ],
+                  "speedup_median": 0.6094092606006117,
+                  "speedup_range": [
+                    0.6077870025765817,
+                    0.6110315186246418
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.001329328331846,
+                    0.9998000624294863
+                  ],
+                  "speedup_median": 1.0005646953806662,
+                  "speedup_range": [
+                    0.9998000624294863,
+                    1.001329328331846
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.19756446991404,
+                    1.0891783567134268
+                  ],
+                  "speedup_median": 1.1433714133137334,
+                  "speedup_range": [
+                    1.0891783567134268,
+                    1.19756446991404
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.6041684959395248,
+                    1.6013387656507254
+                  ],
+                  "speedup_median": 1.6027536307951251,
+                  "speedup_range": [
+                    1.6013387656507254,
+                    1.6041684959395248
+                  ]
+                }
+              }
+            }
+          },
+          "3": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 3.4025,
+                "read_ns": 2252.084
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 2.282,
+                "read_ns": 2146.301
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 3.4530000000000003,
+                "read_ns": 2107.1205
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.5965,
+                "read_ns": 2260.8055000000004
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.5035,
+                "read_ns": 2260.5975
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 2.6340000000000003,
+                "read_ns": 2122.534
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 2.1885,
+                "read_ns": 2105.968
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.73,
+                "read_ns": 2249.438
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.4910166520595967,
+                    1.7043637194425407
+                  ],
+                  "speedup_median": 1.5976901857510688,
+                  "speedup_range": [
+                    1.4910166520595967,
+                    1.7043637194425407
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.0492861905203417,
+                    1.0681254416021517
+                  ],
+                  "speedup_median": 1.0587058160612468,
+                  "speedup_range": [
+                    1.0492861905203417,
+                    1.0681254416021517
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.041558065450333,
+                    1.330106302201974
+                  ],
+                  "speedup_median": 1.1858321838261534,
+                  "speedup_range": [
+                    1.041558065450333,
+                    1.330106302201974
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.0729360281009086,
+                    1.0650465434240393
+                  ],
+                  "speedup_median": 1.068991285762474,
+                  "speedup_range": [
+                    1.0650465434240393,
+                    1.0729360281009086
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.9460586681495899,
+                    1.0646496360782076
+                  ],
+                  "speedup_median": 1.005354152113899,
+                  "speedup_range": [
+                    0.9460586681495899,
+                    1.0646496360782076
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.9961423041477914,
+                    0.9950634732631529
+                  ],
+                  "speedup_median": 0.9956028887054722,
+                  "speedup_range": [
+                    0.9950634732631529,
+                    0.9961423041477914
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.66087460179554,
+                    0.8308656036446468
+                  ],
+                  "speedup_median": 0.7458701027200934,
+                  "speedup_range": [
+                    0.66087460179554,
+                    0.8308656036446468
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.0185943328822438,
+                    0.9921951780277724
+                  ],
+                  "speedup_median": 1.005394755455008,
+                  "speedup_range": [
+                    0.9921951780277724,
+                    1.0185943328822438
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.9853750362004053,
+                    1.416097190584662
+                  ],
+                  "speedup_median": 1.2007361133925336,
+                  "speedup_range": [
+                    0.9853750362004053,
+                    1.416097190584662
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.0687969672356183,
+                    1.05978891268644
+                  ],
+                  "speedup_median": 1.064292939961029,
+                  "speedup_range": [
+                    1.05978891268644,
+                    1.0687969672356183
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "discarded_logs": [],
+      "countercheck": {
+        "status": {
+          "label": "intel",
+          "phase": "complete",
+          "time": 1790855913.5546305
+        },
+        "invocations": [
+          {
+            "index": 0,
+            "opt": "regular",
+            "write_ops_s": 470731591.86,
+            "read_wall_s": 49.038
+          },
+          {
+            "index": 1,
+            "opt": "private",
+            "write_ops_s": 498808524.135,
+            "read_wall_s": 49.107
+          },
+          {
+            "index": 2,
+            "opt": "private",
+            "write_ops_s": 498417496.90999997,
+            "read_wall_s": 49.055
+          },
+          {
+            "index": 3,
+            "opt": "regular",
+            "write_ops_s": 469801984.35,
+            "read_wall_s": 49.016
+          }
+        ],
+        "write": {
+          "private_speedup_pairs": [
+            1.0596453111720412,
+            1.0609097311489462
+          ],
+          "private_speedup_median": 1.0602775211604936,
+          "private_speedup_range": [
+            1.0596453111720412,
+            1.0609097311489462
+          ],
+          "regular_median": 470266788.105,
+          "regular_repeat_spread_pct": 0.19787219742934958,
+          "private_median": 498613010.5225,
+          "private_repeat_spread_pct": 0.07845375160868695
+        },
+        "read": {
+          "private_speedup_pairs": [
+            0.99859490500336,
+            0.9992049740087657
+          ],
+          "private_speedup_median": 0.9988999395060629,
+          "private_speedup_range": [
+            0.99859490500336,
+            0.9992049740087657
+          ],
+          "regular_median": 49.027,
+          "regular_repeat_spread_pct": 0.04488330341112512,
+          "private_median": 49.081,
+          "private_repeat_spread_pct": 0.10600346549791695
+        }
+      }
+    },
+    "amd": {
+      "metadata": {
+        "label": "amd",
+        "architecture": "x86_64",
+        "revisions": {
+          "current": "d21d0843b492023077553b3eba26b3efa16c15f5",
+          "reference": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13"
+        },
+        "cpu": 2,
+        "smt_siblings": [
+          2
+        ],
+        "versions": {
+          "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+          "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cmake": "cmake version 3.28.3"
+        }
+      },
+      "status": {
+        "label": "amd",
+        "phase": "complete",
+        "time": 1790855082.2261379
+      },
+      "referee": {
+        "gcc": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 302306279.19,
+              "read_wall_s": 34.929,
+              "read_user_s": 34.917,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 634934028.4449999,
+              "read_wall_s": 25.634,
+              "read_user_s": 25.625,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 636472009.6800001,
+              "read_wall_s": 25.619,
+              "read_user_s": 25.61,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 323664665.97,
+              "read_wall_s": 34.945,
+              "read_user_s": 34.934,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 4,
+              "opt": "Os",
+              "write_ops_s": 323750463.655,
+              "read_wall_s": 34.85,
+              "read_user_s": 34.838,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 5,
+              "opt": "O3",
+              "write_ops_s": 635327901.4100001,
+              "read_wall_s": 25.645,
+              "read_user_s": 25.637,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              2.100300497053,
+              1.96645502768286,
+              1.962399973848464
+            ],
+            "O3_speedup_median": 1.96645502768286,
+            "O3_speedup_range": [
+              1.962399973848464,
+              2.100300497053
+            ],
+            "Os_median": 323664665.97,
+            "Os_repeat_spread_pct": 7.093529291702949,
+            "O3_median": 635327901.4100001,
+            "O3_repeat_spread_pct": 0.2422269347835737
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.3626043535928847,
+              1.3640266989343846,
+              1.3589393643985184
+            ],
+            "O3_speedup_median": 1.3626043535928847,
+            "O3_speedup_range": [
+              1.3589393643985184,
+              1.3640266989343846
+            ],
+            "Os_median": 34.929,
+            "Os_repeat_spread_pct": 0.2725968436154913,
+            "O3_median": 25.634,
+            "O3_repeat_spread_pct": 0.10148717748545977
+          }
+        },
+        "clang": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 559125461.53,
+              "read_wall_s": 28.828,
+              "read_user_s": 28.819,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 714928410.54,
+              "read_wall_s": 23.338,
+              "read_user_s": 23.329,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 715705232.745,
+              "read_wall_s": 23.295,
+              "read_user_s": 23.287,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 631878964.505,
+              "read_wall_s": 28.983,
+              "read_user_s": 28.971,
+              "read_sys_s": 0.002,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 4,
+              "opt": "Os",
+              "write_ops_s": 559518415.825,
+              "read_wall_s": 28.738,
+              "read_user_s": 28.728,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 5,
+              "opt": "O3",
+              "write_ops_s": 714287127.685,
+              "read_wall_s": 23.308,
+              "read_user_s": 23.3,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.2786547201475287,
+              1.1326619067081425,
+              1.2766105770295266
+            ],
+            "O3_speedup_median": 1.2766105770295266,
+            "O3_speedup_range": [
+              1.1326619067081425,
+              1.2786547201475287
+            ],
+            "Os_median": 559518415.825,
+            "Os_repeat_spread_pct": 13.012017513192141,
+            "O3_median": 714928410.54,
+            "O3_repeat_spread_pct": 0.1985343155484376
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.2352386665524038,
+              1.2441725692208627,
+              1.2329672215548309
+            ],
+            "O3_speedup_median": 1.2352386665524038,
+            "O3_speedup_range": [
+              1.2329672215548309,
+              1.2441725692208627
+            ],
+            "Os_median": 28.828,
+            "Os_repeat_spread_pct": 0.8525297515484809,
+            "O3_median": 23.308,
+            "O3_repeat_spread_pct": 0.18458896758961618
+          }
+        }
+      },
+      "probe": {
+        "current-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.3135000000000003,
+              "read_ns": 195.9715
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.553,
+              "read_ns": 165.861
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.559,
+              "read_ns": 166.90550000000002
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.312,
+              "read_ns": 192.3625
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              2.133612363168062,
+              2.124438742783836
+            ],
+            "O3_speedup_median": 2.129025552975949,
+            "O3_speedup_range": [
+              2.124438742783836,
+              2.133612363168062
+            ],
+            "Os_median": 3.3127500000000003,
+            "Os_repeat_spread_pct": 0.0452898550724834,
+            "O3_median": 1.556,
+            "O3_repeat_spread_pct": 0.3863490019317517
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.181540567101368,
+              1.1525234339191937
+            ],
+            "O3_speedup_median": 1.1670320005102808,
+            "O3_speedup_range": [
+              1.1525234339191937,
+              1.181540567101368
+            ],
+            "Os_median": 194.167,
+            "Os_repeat_spread_pct": 1.8761452985898819,
+            "O3_median": 166.38325,
+            "O3_repeat_spread_pct": 0.6297441833824857
+          }
+        },
+        "current-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.338,
+              "read_ns": 1487.0695
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.59,
+              "read_ns": 1091.5520000000001
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.599,
+              "read_ns": 1096.1354999999999
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.3385,
+              "read_ns": 1477.146
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              2.09937106918239,
+              2.0878674171357097
+            ],
+            "O3_speedup_median": 2.0936192431590497,
+            "O3_speedup_range": [
+              2.0878674171357097,
+              2.09937106918239
+            ],
+            "Os_median": 3.33825,
+            "Os_repeat_spread_pct": 0.014979029358896945,
+            "O3_median": 1.5945,
+            "O3_repeat_spread_pct": 0.5660377358490454
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.3623441668376768,
+              1.347594343947441
+            ],
+            "O3_speedup_median": 1.3549692553925587,
+            "O3_speedup_range": [
+              1.347594343947441,
+              1.3623441668376768
+            ],
+            "Os_median": 1482.1077500000001,
+            "Os_repeat_spread_pct": 0.6718022456818851,
+            "O3_median": 1093.84375,
+            "O3_repeat_spread_pct": 0.4199067016504632
+          }
+        },
+        "reference-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.311,
+              "read_ns": 191.32049999999998
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.561,
+              "read_ns": 167.308
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.553,
+              "read_ns": 168.3965
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.311,
+              "read_ns": 192.25650000000002
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              2.1210762331838566,
+              2.132002575660013
+            ],
+            "O3_speedup_median": 2.126539404421935,
+            "O3_speedup_range": [
+              2.1210762331838566,
+              2.132002575660013
+            ],
+            "Os_median": 3.311,
+            "Os_repeat_spread_pct": 0.0,
+            "O3_median": 1.557,
+            "O3_repeat_spread_pct": 0.5151320025756689
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.1435227245559088,
+              1.1416894056586688
+            ],
+            "O3_speedup_median": 1.1426060651072887,
+            "O3_speedup_range": [
+              1.1416894056586688,
+              1.1435227245559088
+            ],
+            "Os_median": 191.7885,
+            "Os_repeat_spread_pct": 0.4892314205743986,
+            "O3_median": 167.85225,
+            "O3_repeat_spread_pct": 0.6505965046501139
+          }
+        },
+        "reference-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.336,
+              "read_ns": 1482.442
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.6099999999999999,
+              "read_ns": 1085.8925
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.6030000000000002,
+              "read_ns": 1089.569
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.336,
+              "read_ns": 1472.1385
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              2.072049689440994,
+              2.0810979413599497
+            ],
+            "O3_speedup_median": 2.076573815400472,
+            "O3_speedup_range": [
+              2.072049689440994,
+              2.0810979413599497
+            ],
+            "Os_median": 3.336,
+            "Os_repeat_spread_pct": 0.0,
+            "O3_median": 1.6065,
+            "O3_repeat_spread_pct": 0.4366812227074135
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.3651830176559836,
+              1.351120030030223
+            ],
+            "O3_speedup_median": 1.3581515238431034,
+            "O3_speedup_range": [
+              1.351120030030223,
+              1.3651830176559836
+            ],
+            "Os_median": 1477.29025,
+            "Os_repeat_spread_pct": 0.6999001792290516,
+            "O3_median": 1087.73075,
+            "O3_repeat_spread_pct": 0.3385694256107241
+          }
+        },
+        "current-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 1.991,
+              "read_ns": 184.49349999999998
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.56,
+              "read_ns": 150.63150000000002
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.553,
+              "read_ns": 145.14600000000002
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 1.9905,
+              "read_ns": 185.0855
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.2762820512820514,
+              1.281712813908564
+            ],
+            "O3_speedup_median": 1.2789974325953077,
+            "O3_speedup_range": [
+              1.2762820512820514,
+              1.281712813908564
+            ],
+            "Os_median": 1.99075,
+            "Os_repeat_spread_pct": 0.025119316754596,
+            "O3_median": 1.5565,
+            "O3_repeat_spread_pct": 0.4507405022537103
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.2248002575822452,
+              1.2751677621153872
+            ],
+            "O3_speedup_median": 1.2499840098488162,
+            "O3_speedup_range": [
+              1.2248002575822452,
+              1.2751677621153872
+            ],
+            "Os_median": 184.78949999999998,
+            "Os_repeat_spread_pct": 0.3208785133351544,
+            "O3_median": 147.88875000000002,
+            "O3_repeat_spread_pct": 3.779298086065075
+          }
+        },
+        "current-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 1.8165,
+              "read_ns": 1175.1915
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.595,
+              "read_ns": 989.4685
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.611,
+              "read_ns": 984.1800000000001
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 1.811,
+              "read_ns": 1197.568
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.138871473354232,
+              1.1241464928615768
+            ],
+            "O3_speedup_median": 1.1315089831079044,
+            "O3_speedup_range": [
+              1.1241464928615768,
+              1.138871473354232
+            ],
+            "Os_median": 1.81375,
+            "Os_repeat_spread_pct": 0.3036996134732295,
+            "O3_median": 1.603,
+            "O3_repeat_spread_pct": 1.0031347962382364
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.1876997600226789,
+              1.216818061736674
+            ],
+            "O3_speedup_median": 1.2022589108796764,
+            "O3_speedup_range": [
+              1.1876997600226789,
+              1.216818061736674
+            ],
+            "Os_median": 1186.37975,
+            "Os_repeat_spread_pct": 1.9040726553927634,
+            "O3_median": 986.82425,
+            "O3_repeat_spread_pct": 0.5373508910971436
+          }
+        },
+        "reference-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.007,
+              "read_ns": 155.796
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.562,
+              "read_ns": 145.17149999999998
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.5645,
+              "read_ns": 145.071
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 1.996,
+              "read_ns": 155.43200000000002
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.2848911651728554,
+              1.275806967082135
+            ],
+            "O3_speedup_median": 1.2803490661274952,
+            "O3_speedup_range": [
+              1.275806967082135,
+              1.2848911651728554
+            ],
+            "Os_median": 2.0015,
+            "Os_repeat_spread_pct": 0.5511022044088154,
+            "O3_median": 1.56325,
+            "O3_repeat_spread_pct": 0.16005121638924535
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.0731858525950342,
+              1.0714202011428888
+            ],
+            "O3_speedup_median": 1.0723030268689615,
+            "O3_speedup_range": [
+              1.0714202011428888,
+              1.0731858525950342
+            ],
+            "Os_median": 155.614,
+            "Os_repeat_spread_pct": 0.2341860106026994,
+            "O3_median": 145.12124999999997,
+            "O3_repeat_spread_pct": 0.06927642326859385
+          }
+        },
+        "reference-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 1.8155000000000001,
+              "read_ns": 1191.2845
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 1.6025,
+              "read_ns": 986.453
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 1.61,
+              "read_ns": 986.5195
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 1.815,
+              "read_ns": 1218.3719999999998
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.1329173166926678,
+              1.1273291925465838
+            ],
+            "O3_speedup_median": 1.1301232546196258,
+            "O3_speedup_range": [
+              1.1273291925465838,
+              1.1329173166926678
+            ],
+            "Os_median": 1.81525,
+            "Os_repeat_spread_pct": 0.027548209366390353,
+            "O3_median": 1.6062500000000002,
+            "O3_repeat_spread_pct": 0.46801872074884177
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              1.2076444594927482,
+              1.2350206964991568
+            ],
+            "O3_speedup_median": 1.2213325779959525,
+            "O3_speedup_range": [
+              1.2076444594927482,
+              1.2350206964991568
+            ],
+            "Os_median": 1204.82825,
+            "Os_repeat_spread_pct": 2.2738061311130764,
+            "O3_median": 986.4862499999999,
+            "O3_repeat_spread_pct": 0.006741324726067255
+          }
+        }
+      },
+      "ctest": {
+        "configurations": 8,
+        "passing_configurations": 8
+      },
+      "sizes": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3851082,
+          "text_section": 2577310,
+          "stripped_bytes": 4222808,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 292015,
+          "text_section": 153351,
+          "stripped_bytes": 305800,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3859675,
+          "text_section": 2585758,
+          "stripped_bytes": 4231000,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 300610,
+          "text_section": 161801,
+          "stripped_bytes": 313992,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3842971,
+          "text_section": 2574078,
+          "stripped_bytes": 4210520,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 285901,
+          "text_section": 150931,
+          "stripped_bytes": 297608,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3843476,
+          "text_section": 2574926,
+          "stripped_bytes": 4210520,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 287476,
+          "text_section": 152889,
+          "stripped_bytes": 297608,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3825951,
+          "text_section": 2515055,
+          "stripped_bytes": 4199440,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 488200,
+          "text_section": 291918,
+          "stripped_bytes": 507160,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3834544,
+          "text_section": 2523503,
+          "stripped_bytes": 4207632,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 496793,
+          "text_section": 300366,
+          "stripped_bytes": 515352,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3817824,
+          "text_section": 2511727,
+          "stripped_bytes": 4187152,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 481482,
+          "text_section": 289582,
+          "stripped_bytes": 494872,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3818817,
+          "text_section": 2513119,
+          "stripped_bytes": 4187152,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 483595,
+          "text_section": 292062,
+          "stripped_bytes": 498968,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        }
+      ],
+      "profiles": {
+        "profile-clang-O3-hdr_histogram_perf-symbols": [
+          "84.09%  [.] hdr_record_value    -      -",
+          "    15.90%  [.] main                -      -"
+        ],
+        "profile-clang-O3-hdr_percentile_bench-symbols": [
+          "98.73%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     1.06%  [.] hdr_value_at_percentile              -      -",
+          "     0.21%  [.] main                                 -      -"
+        ],
+        "profile-clang-Os-hdr_histogram_perf-symbols": [
+          "87.59%  [.] record_value_counted  -      -",
+          "    11.32%  [.] main                  -      -",
+          "     1.03%  [.] hdr_record_value      -      -"
+        ],
+        "profile-clang-Os-hdr_percentile_bench-symbols": [
+          "99.15%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.70%  [.] hdr_value_at_percentile              -      -",
+          "     0.05%  [.] main                                 -      -"
+        ],
+        "profile-gcc-O3-hdr_histogram_perf-symbols": [
+          "73.49%  [.] hdr_record_value    -      -",
+          "    26.51%  [.] main                -      -",
+          "     0.00%  [.] getenv              -      -"
+        ],
+        "profile-gcc-O3-hdr_percentile_bench-symbols": [
+          "98.79%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.81%  [.] hdr_value_at_percentile              -      -",
+          "     0.40%  [.] main                                 -      -",
+          "     0.00%  [.] hdr_record_value                     -      -"
+        ],
+        "profile-gcc-Os-hdr_histogram_perf-symbols": [
+          "36.87%  [.] record_value_counted  -      -",
+          "    36.86%  [.] counts_index_for      -      -",
+          "    16.30%  [.] get_bucket_index      -      -",
+          "     8.40%  [.] main                  -      -",
+          "     1.41%  [.] hdr_record_value      -      -"
+        ],
+        "profile-gcc-Os-hdr_percentile_bench-symbols": [
+          "98.31%  [.] get_value_from_idx_up_to_count_avx2  -      -",
+          "     0.65%  [.] hdr_value_at_percentile              -      -",
+          "     0.59%  [.] main                                 -      -",
+          "     0.20%  [.] get_bucket_index                     -      -",
+          "     0.15%  [.] hdr_size_of_equivalent_value_range   -      -",
+          "     0.05%  [.] lowest_equivalent_value              -      -",
+          "     0.05%  [.] highest_equivalent_value             -      -"
+        ]
+      },
+      "consumer_contracts": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        }
+      ],
+      "embedded": {
+        "status": {
+          "label": "amd",
+          "phase": "complete",
+          "time": 1790855175.3127594
+        },
+        "digits": {
+          "2": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 3.311,
+                "read_ns": 191.99200000000002
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 1.551,
+                "read_ns": 166.0315
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 1.551,
+                "read_ns": 167.136
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 2.87,
+                "read_ns": 193.11149999999998
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 2.8725,
+                "read_ns": 191.649
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 1.571,
+                "read_ns": 166.541
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 1.56,
+                "read_ns": 167.4305
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.314,
+                "read_ns": 192.624
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    2.1347517730496453,
+                    2.1243589743589744
+                  ],
+                  "speedup_median": 2.12955537370431,
+                  "speedup_range": [
+                    2.1243589743589744,
+                    2.1347517730496453
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.156358883705803,
+                    1.1504713896213652
+                  ],
+                  "speedup_median": 1.153415136663584,
+                  "speedup_range": [
+                    1.1504713896213652,
+                    1.156358883705803
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.8504190844616377,
+                    1.8284532145130492
+                  ],
+                  "speedup_median": 1.8394361494873435,
+                  "speedup_range": [
+                    1.8284532145130492,
+                    1.8504190844616377
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.1554153503733486,
+                    1.150761674302424
+                  ],
+                  "speedup_median": 1.1530885123378862,
+                  "speedup_range": [
+                    1.150761674302424,
+                    1.1554153503733486
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.1536585365853658,
+                    1.1536988685813752
+                  ],
+                  "speedup_median": 1.1536787025833704,
+                  "speedup_range": [
+                    1.1536585365853658,
+                    1.1536988685813752
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.9942028310069573,
+                    1.00508742544965
+                  ],
+                  "speedup_median": 0.9996451282283036,
+                  "speedup_range": [
+                    0.9942028310069573,
+                    1.00508742544965
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.0,
+                    0.9929980903882878
+                  ],
+                  "speedup_median": 0.9964990451941439,
+                  "speedup_range": [
+                    0.9929980903882878,
+                    1.0
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.9933916092284127,
+                    1.0053410271344594
+                  ],
+                  "speedup_median": 0.9993663181814361,
+                  "speedup_range": [
+                    0.9933916092284127,
+                    1.0053410271344594
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    2.1347517730496453,
+                    2.109484404837683
+                  ],
+                  "speedup_median": 2.1221180889436644,
+                  "speedup_range": [
+                    2.109484404837683,
+                    2.1347517730496453
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.1487172123300786,
+                    1.1566160885307522
+                  ],
+                  "speedup_median": 1.1526666504304153,
+                  "speedup_range": [
+                    1.1487172123300786,
+                    1.1566160885307522
+                  ]
+                }
+              }
+            }
+          },
+          "3": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 3.335,
+                "read_ns": 1479.0104999999999
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 1.59,
+                "read_ns": 1089.711
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 1.5995,
+                "read_ns": 1089.9140000000002
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 2.902,
+                "read_ns": 1472.9365
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 2.9025,
+                "read_ns": 1483.788
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 1.604,
+                "read_ns": 1089.2435
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 1.601,
+                "read_ns": 1088.5975
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.3360000000000003,
+                "read_ns": 1481.5195
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    2.09748427672956,
+                    2.08369768894441
+                  ],
+                  "speedup_median": 2.090590982836985,
+                  "speedup_range": [
+                    2.08369768894441,
+                    2.09748427672956
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.3572502250596716,
+                    1.3609433238639626
+                  ],
+                  "speedup_median": 1.359096774461817,
+                  "speedup_range": [
+                    1.3572502250596716,
+                    1.3609433238639626
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.814316974054392,
+                    1.8095386533665834
+                  ],
+                  "speedup_median": 1.8119278137104877,
+                  "speedup_range": [
+                    1.8095386533665834,
+                    1.814316974054392
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.351424516062735,
+                    1.3622188243491928
+                  ],
+                  "speedup_median": 1.356821670205964,
+                  "speedup_range": [
+                    1.351424516062735,
+                    1.3622188243491928
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.1492074431426602,
+                    1.1493540051679587
+                  ],
+                  "speedup_median": 1.1492807241553096,
+                  "speedup_range": [
+                    1.1492074431426602,
+                    1.1493540051679587
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.004123735137258,
+                    0.9984711427778092
+                  ],
+                  "speedup_median": 1.0012974389575335,
+                  "speedup_range": [
+                    0.9984711427778092,
+                    1.004123735137258
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.9940606439512348,
+                    0.9981296758104737
+                  ],
+                  "speedup_median": 0.9960951598808543,
+                  "speedup_range": [
+                    0.9940606439512348,
+                    0.9981296758104737
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.999813746772681,
+                    0.9994069278356952
+                  ],
+                  "speedup_median": 0.999610337304188,
+                  "speedup_range": [
+                    0.9994069278356952,
+                    0.999813746772681
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    2.085026570803376,
+                    2.079800498753117
+                  ],
+                  "speedup_median": 2.0824135347782464,
+                  "speedup_range": [
+                    2.079800498753117,
+                    2.085026570803376
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.3569974328249748,
+                    1.3601361862613823
+                  ],
+                  "speedup_median": 1.3585668095431784,
+                  "speedup_range": [
+                    1.3569974328249748,
+                    1.3601361862613823
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "discarded_logs": []
+    },
+    "arm": {
+      "metadata": {
+        "label": "arm",
+        "architecture": "aarch64",
+        "revisions": {
+          "current": "d21d0843b492023077553b3eba26b3efa16c15f5",
+          "reference": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13"
+        },
+        "cpu": 2,
+        "smt_siblings": [
+          2
+        ],
+        "versions": {
+          "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+          "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cmake": "cmake version 3.28.3"
+        }
+      },
+      "status": {
+        "label": "arm",
+        "phase": "complete",
+        "time": 1790856754.8781993
+      },
+      "referee": {
+        "gcc": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 278476866.67,
+              "read_wall_s": 315.078,
+              "read_user_s": 315.051,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 400686204.375,
+              "read_wall_s": 89.291,
+              "read_user_s": 89.284,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 399895093.565,
+              "read_wall_s": 89.279,
+              "read_user_s": 89.269,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 278058787.53999996,
+              "read_wall_s": 304.344,
+              "read_user_s": 304.33,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.4388491552866407,
+              1.4381674361126722
+            ],
+            "O3_speedup_median": 1.4385082956996564,
+            "O3_speedup_range": [
+              1.4381674361126722,
+              1.4388491552866407
+            ],
+            "Os_median": 278267827.105,
+            "Os_repeat_spread_pct": 0.15035638100087123,
+            "O3_median": 400290648.97,
+            "O3_repeat_spread_pct": 0.19782958649163795
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              3.5286647030495795,
+              3.408909149968078
+            ],
+            "O3_speedup_median": 3.4687869265088285,
+            "O3_speedup_range": [
+              3.408909149968078,
+              3.5286647030495795
+            ],
+            "Os_median": 309.711,
+            "Os_repeat_spread_pct": 3.5269300528349534,
+            "O3_median": 89.285,
+            "O3_repeat_spread_pct": 0.013441010764014827
+          }
+        },
+        "clang": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ops_s": 414846879.935,
+              "read_wall_s": 83.812,
+              "read_user_s": 83.804,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ops_s": 411405489.87,
+              "read_wall_s": 189.094,
+              "read_user_s": 189.078,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ops_s": 411420789.56,
+              "read_wall_s": 189.127,
+              "read_user_s": 189.114,
+              "read_sys_s": 0.0,
+              "sink": 17401860284404480
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ops_s": 410520082.495,
+              "read_wall_s": 83.83,
+              "read_user_s": 83.827,
+              "read_sys_s": 0.001,
+              "sink": 17401860284404480
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              0.9917044330536143,
+              1.0021940633440534
+            ],
+            "O3_speedup_median": 0.9969492481988338,
+            "O3_speedup_range": [
+              0.9917044330536143,
+              1.0021940633440534
+            ],
+            "Os_median": 412683481.21500003,
+            "Os_repeat_spread_pct": 1.053979482246814,
+            "O3_median": 411413139.71500003,
+            "O3_repeat_spread_pct": 0.003718883285896979
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.4432292933673199,
+              0.44324713023523876
+            ],
+            "O3_speedup_median": 0.4432382118012793,
+            "O3_speedup_range": [
+              0.4432292933673199,
+              0.44324713023523876
+            ],
+            "Os_median": 83.821,
+            "Os_repeat_spread_pct": 0.021476638190232045,
+            "O3_median": 189.1105,
+            "O3_repeat_spread_pct": 0.017451637809773324
+          }
+        }
+      },
+      "probe": {
+        "current-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.6304999999999996,
+              "read_ns": 1867.481
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.585,
+              "read_ns": 549.5174999999999
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.5869999999999997,
+              "read_ns": 549.5264999999999
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.6235,
+              "read_ns": 1867.263
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.404448742746615,
+              1.4006571318129108
+            ],
+            "O3_speedup_median": 1.402552937279763,
+            "O3_speedup_range": [
+              1.4006571318129108,
+              1.404448742746615
+            ],
+            "Os_median": 3.627,
+            "Os_repeat_spread_pct": 0.19318338622877906,
+            "O3_median": 2.586,
+            "O3_repeat_spread_pct": 0.0773694390715507
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              3.398401324798574,
+              3.3979489615150498
+            ],
+            "O3_speedup_median": 3.398175143156812,
+            "O3_speedup_range": [
+              3.3979489615150498,
+              3.398401324798574
+            ],
+            "Os_median": 1867.3719999999998,
+            "Os_repeat_spread_pct": 0.011674841733610997,
+            "O3_median": 549.5219999999999,
+            "O3_repeat_spread_pct": 0.0016378004340289465
+          }
+        },
+        "current-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.6174999999999997,
+              "read_ns": 12923.9335
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.601,
+              "read_ns": 3714.0995000000003
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.589,
+              "read_ns": 3713.13
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.6225,
+              "read_ns": 12929.849
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.3908112264513648,
+              1.3991888760139048
+            ],
+            "O3_speedup_median": 1.3950000512326348,
+            "O3_speedup_range": [
+              1.3908112264513648,
+              1.3991888760139048
+            ],
+            "Os_median": 3.62,
+            "Os_repeat_spread_pct": 0.13821700069109877,
+            "O3_median": 2.5949999999999998,
+            "O3_repeat_spread_pct": 0.4634994206257348
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              3.4796950108633324,
+              3.482196691201224
+            ],
+            "O3_speedup_median": 3.480945851032278,
+            "O3_speedup_range": [
+              3.4796950108633324,
+              3.482196691201224
+            ],
+            "Os_median": 12926.89125,
+            "Os_repeat_spread_pct": 0.045771668509453356,
+            "O3_median": 3713.61475,
+            "O3_repeat_spread_pct": 0.026110047318583796
+          }
+        },
+        "reference-gcc-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.6135,
+              "read_ns": 1867.3425
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.5795,
+              "read_ns": 549.5145
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.5635,
+              "read_ns": 549.5229999999999
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.6085000000000003,
+              "read_ns": 1870.107
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.4008528784648189,
+              1.4076457967622393
+            ],
+            "O3_speedup_median": 1.4042493376135292,
+            "O3_speedup_range": [
+              1.4008528784648189,
+              1.4076457967622393
+            ],
+            "Os_median": 3.611,
+            "Os_repeat_spread_pct": 0.1385617292503749,
+            "O3_median": 2.5715,
+            "O3_repeat_spread_pct": 0.6241466744685065
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              3.398167837245423,
+              3.4031460011682864
+            ],
+            "O3_speedup_median": 3.4006569192068548,
+            "O3_speedup_range": [
+              3.398167837245423,
+              3.4031460011682864
+            ],
+            "Os_median": 1868.7247499999999,
+            "Os_repeat_spread_pct": 0.14804461420441228,
+            "O3_median": 549.51875,
+            "O3_repeat_spread_pct": 0.001546819965603241
+          }
+        },
+        "reference-gcc-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 3.6109999999999998,
+              "read_ns": 12925.981500000002
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.5595,
+              "read_ns": 3713.8715
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.5595,
+              "read_ns": 3721.3965
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 3.608,
+              "read_ns": 14099.8585
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.4108224262551279,
+              1.40965032232858
+            ],
+            "O3_speedup_median": 1.4102363742918538,
+            "O3_speedup_range": [
+              1.40965032232858,
+              1.4108224262551279
+            ],
+            "Os_median": 3.6094999999999997,
+            "Os_repeat_spread_pct": 0.08314855875830585,
+            "O3_median": 2.5595,
+            "O3_repeat_spread_pct": 0.0
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              3.4804600805385975,
+              3.788862191921769
+            ],
+            "O3_speedup_median": 3.634661136230183,
+            "O3_speedup_range": [
+              3.4804600805385975,
+              3.788862191921769
+            ],
+            "Os_median": 13512.920000000002,
+            "Os_repeat_spread_pct": 9.08153086866168,
+            "O3_median": 3717.634,
+            "O3_repeat_spread_pct": 0.20261874973326321
+          }
+        },
+        "current-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.5149999999999997,
+              "read_ns": 500.005
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.473,
+              "read_ns": 1160.7585
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.5,
+              "read_ns": 1159.1015
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.532,
+              "read_ns": 500.3645
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0169834209462192,
+              1.0128
+            ],
+            "O3_speedup_median": 1.0148917104731097,
+            "O3_speedup_range": [
+              1.0128,
+              1.0169834209462192
+            ],
+            "Os_median": 2.5235,
+            "Os_repeat_spread_pct": 0.675944333996048,
+            "O3_median": 2.4865,
+            "O3_repeat_spread_pct": 1.0917913465426698
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.4307571299284046,
+              0.43168307520954813
+            ],
+            "O3_speedup_median": 0.43122010256897636,
+            "O3_speedup_range": [
+              0.4307571299284046,
+              0.43168307520954813
+            ],
+            "Os_median": 500.18475,
+            "Os_repeat_spread_pct": 0.07189928100719278,
+            "O3_median": 1159.9299999999998,
+            "O3_repeat_spread_pct": 0.14295555652372727
+          }
+        },
+        "current-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.5355,
+              "read_ns": 3394.517
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.502,
+              "read_ns": 7998.854
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.4755000000000003,
+              "read_ns": 8007.884
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.512,
+              "read_ns": 3393.2995
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0133892885691447,
+              1.0147444960614016
+            ],
+            "O3_speedup_median": 1.0140668923152731,
+            "O3_speedup_range": [
+              1.0133892885691447,
+              1.0147444960614016
+            ],
+            "Os_median": 2.5237499999999997,
+            "Os_repeat_spread_pct": 0.9355095541401237,
+            "O3_median": 2.48875,
+            "O3_repeat_spread_pct": 1.0704908099373744
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.42437541677845353,
+              0.4237448369631728
+            ],
+            "O3_speedup_median": 0.4240601268708132,
+            "O3_speedup_range": [
+              0.4237448369631728,
+              0.42437541677845353
+            ],
+            "Os_median": 3393.90825,
+            "Os_repeat_spread_pct": 0.035879532590610275,
+            "O3_median": 8003.369000000001,
+            "O3_repeat_spread_pct": 0.11289117166033424
+          }
+        },
+        "reference-clang-2": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.568,
+              "read_ns": 504.315
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.4735,
+              "read_ns": 1160.3155
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.502,
+              "read_ns": 1160.32
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.546,
+              "read_ns": 505.0245
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0382049727107339,
+              1.017585931254996
+            ],
+            "O3_speedup_median": 1.027895451982865,
+            "O3_speedup_range": [
+              1.017585931254996,
+              1.0382049727107339
+            ],
+            "Os_median": 2.557,
+            "Os_repeat_spread_pct": 0.8641005498821741,
+            "O3_median": 2.48775,
+            "O3_repeat_spread_pct": 1.1522134627046654
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.4346360968202183,
+              0.4352458804467733
+            ],
+            "O3_speedup_median": 0.43494098863349584,
+            "O3_speedup_range": [
+              0.4346360968202183,
+              0.4352458804467733
+            ],
+            "Os_median": 504.66975,
+            "Os_repeat_spread_pct": 0.14068588084827915,
+            "O3_median": 1160.31775,
+            "O3_repeat_spread_pct": 0.0003878255526279517
+          }
+        },
+        "reference-clang-3": {
+          "invocations": [
+            {
+              "index": 0,
+              "opt": "Os",
+              "write_ns": 2.5484999999999998,
+              "read_ns": 3397.273
+            },
+            {
+              "index": 1,
+              "opt": "O3",
+              "write_ns": 2.474,
+              "read_ns": 8015.476
+            },
+            {
+              "index": 2,
+              "opt": "O3",
+              "write_ns": 2.476,
+              "read_ns": 7999.946
+            },
+            {
+              "index": 3,
+              "opt": "Os",
+              "write_ns": 2.548,
+              "read_ns": 3420.706
+            }
+          ],
+          "write": {
+            "O3_speedup_pairs": [
+              1.0301131770412286,
+              1.0290791599353797
+            ],
+            "O3_speedup_median": 1.0295961684883042,
+            "O3_speedup_range": [
+              1.0290791599353797,
+              1.0301131770412286
+            ],
+            "Os_median": 2.54825,
+            "Os_repeat_spread_pct": 0.01962323390893861,
+            "O3_median": 2.475,
+            "O3_repeat_spread_pct": 0.08084074373482242
+          },
+          "read": {
+            "O3_speedup_pairs": [
+              0.4238392080520234,
+              0.42759113624016964
+            ],
+            "O3_speedup_median": 0.42571517214609655,
+            "O3_speedup_range": [
+              0.4238392080520234,
+              0.42759113624016964
+            ],
+            "Os_median": 3408.9895,
+            "Os_repeat_spread_pct": 0.6897591097330125,
+            "O3_median": 8007.710999999999,
+            "O3_repeat_spread_pct": 0.19412631035258254
+          }
+        }
+      },
+      "ctest": {
+        "configurations": 8,
+        "passing_configurations": 8
+      },
+      "sizes": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3733361,
+          "text_section": 2363284,
+          "stripped_bytes": 4147664,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 281032,
+          "text_section": 141856,
+          "stripped_bytes": 330128,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3740937,
+          "text_section": 2370724,
+          "stripped_bytes": 4147664,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 288603,
+          "text_section": 149296,
+          "stripped_bytes": 330128,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3716170,
+          "text_section": 2351220,
+          "stripped_bytes": 4082128,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 274574,
+          "text_section": 139056,
+          "stripped_bytes": 330128,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3715610,
+          "text_section": 2351156,
+          "stripped_bytes": 4082128,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 274990,
+          "text_section": 140032,
+          "stripped_bytes": 330128,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "server",
+          "text_column": 3751906,
+          "text_section": 2355780,
+          "stripped_bytes": 4149768,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "binary": "benchmark",
+          "text_column": 472764,
+          "text_section": 271924,
+          "stripped_bytes": 527416,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "server",
+          "text_column": 3755362,
+          "text_section": 2359124,
+          "stripped_bytes": 4149768,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "binary": "benchmark",
+          "text_column": 480324,
+          "text_section": 279364,
+          "stripped_bytes": 527416,
+          "hdr_dynamic_exports": 40,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "server",
+          "text_column": 3750651,
+          "text_section": 2359540,
+          "stripped_bytes": 4149768,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 461366,
+          "text_section": 264948,
+          "stripped_bytes": 527416,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "server",
+          "text_column": 3746315,
+          "text_section": 2355796,
+          "stripped_bytes": 4149768,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "binary": "benchmark",
+          "text_column": 462166,
+          "text_section": 266340,
+          "stripped_bytes": 527416,
+          "hdr_dynamic_exports": 0,
+          "smoke": "PASS: server PING/latencystats; SET/GET detailed benchmark, 1/2 threads"
+        }
+      ],
+      "profiles": {
+        "profile-clang-O3-hdr_histogram_perf-symbols": [
+          "92.96%  [.] hdr_record_value    -      -",
+          "     7.04%  [.] main                -      -",
+          "     0.00%  [.] sched_setaffinity   -      -"
+        ],
+        "profile-clang-O3-hdr_percentile_bench-symbols": [
+          "99.95%  [.] hdr_value_at_percentile  -      -",
+          "     0.05%  [.] main                     -      -",
+          "     0.00%  [.] sched_setaffinity        -      -"
+        ],
+        "profile-clang-Os-hdr_histogram_perf-symbols": [
+          "92.01%  [.] record_value_counted  -      -",
+          "     6.33%  [.] main                  -      -",
+          "     1.66%  [.] hdr_record_value      -      -",
+          "     0.00%  [.] sched_setaffinity     -      -"
+        ],
+        "profile-clang-Os-hdr_percentile_bench-symbols": [
+          "99.85%  [.] hdr_value_at_percentile  -      -",
+          "     0.15%  [.] main                     -      -",
+          "     0.00%  [.] sched_setaffinity        -      -"
+        ],
+        "profile-gcc-O3-hdr_histogram_perf-symbols": [
+          "93.31%  [.] hdr_record_value    -      -",
+          "     6.69%  [.] main                -      -",
+          "     0.00%  [.] sched_setaffinity   -      -"
+        ],
+        "profile-gcc-O3-hdr_percentile_bench-symbols": [
+          "99.75%  [.] hdr_value_at_percentile  -      -",
+          "     0.25%  [.] main                     -      -",
+          "     0.00%  [.] pthread_sigmask          -      -",
+          "     0.00%  [.] sched_setaffinity        -      -"
+        ],
+        "profile-gcc-Os-hdr_histogram_perf-symbols": [
+          "69.35%  [.] record_value_counted  -      -",
+          "    14.16%  [.] counts_index_for      -      -",
+          "     8.69%  [.] get_bucket_index      -      -",
+          "     6.28%  [.] main                  -      -",
+          "     1.51%  [.] hdr_record_value      -      -",
+          "     0.00%  [.] malloc                -      -",
+          "     0.00%  [.] sched_setaffinity     -      -"
+        ],
+        "profile-gcc-Os-hdr_percentile_bench-symbols": [
+          "100.00%  [.] hdr_value_at_percentile  -      -",
+          "     0.00%  [.] strcmp                   -      -",
+          "     0.00%  [.] sched_setaffinity        -      -"
+        ]
+      },
+      "consumer_contracts": [
+        {
+          "project": "redis",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "redis",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-os",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        },
+        {
+          "project": "valkey",
+          "variant": "candidate-o3-hidden-gc",
+          "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+        }
+      ],
+      "embedded": {
+        "status": {
+          "label": "arm",
+          "phase": "complete",
+          "time": 1790856861.1261046
+        },
+        "digits": {
+          "2": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 3.6585,
+                "read_ns": 1912.4735
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 2.581,
+                "read_ns": 549.472
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 2.6020000000000003,
+                "read_ns": 549.7294999999999
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.6295,
+                "read_ns": 1867.2269999999999
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.6505,
+                "read_ns": 1867.1019999999999
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 2.5865,
+                "read_ns": 549.565
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 2.5975,
+                "read_ns": 549.5535
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.6795,
+                "read_ns": 1958.868
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.41747384734599,
+                    1.4165543792107795
+                  ],
+                  "speedup_median": 1.417014113278385,
+                  "speedup_range": [
+                    1.4165543792107795,
+                    1.41747384734599
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.480565888707705,
+                    3.5644718849029258
+                  ],
+                  "speedup_median": 3.522518886805315,
+                  "speedup_range": [
+                    3.480565888707705,
+                    3.5644718849029258
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.3948885472713297,
+                    1.4113667117726658
+                  ],
+                  "speedup_median": 1.4031276295219977,
+                  "speedup_range": [
+                    1.3948885472713297,
+                    1.4113667117726658
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.396628705572468,
+                    3.3974179578393815
+                  ],
+                  "speedup_median": 3.397023331705925,
+                  "speedup_range": [
+                    3.396628705572468,
+                    3.3974179578393815
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.007990081278413,
+                    1.0079441172442132
+                  ],
+                  "speedup_median": 1.0079670992613132,
+                  "speedup_range": [
+                    1.0079441172442132,
+                    1.007990081278413
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.0242319225246852,
+                    1.049148894918435
+                  ],
+                  "speedup_median": 1.0366904087215603,
+                  "speedup_range": [
+                    1.0242319225246852,
+                    1.049148894918435
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.9919292851652574,
+                    1.0042528513435145
+                  ],
+                  "speedup_median": 0.998091068254386,
+                  "speedup_range": [
+                    0.9919292851652574,
+                    1.0042528513435145
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    0.9995315878081857,
+                    0.999979074358811
+                  ],
+                  "speedup_median": 0.9997553310834983,
+                  "speedup_range": [
+                    0.9995315878081857,
+                    0.999979074358811
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.4060338201383549,
+                    1.4225787744055673
+                  ],
+                  "speedup_median": 1.414306297271961,
+                  "speedup_range": [
+                    1.4060338201383549,
+                    1.4225787744055673
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.478935549211022,
+                    3.5643972960432335
+                  ],
+                  "speedup_median": 3.5216664226271277,
+                  "speedup_range": [
+                    3.478935549211022,
+                    3.5643972960432335
+                  ]
+                }
+              }
+            }
+          },
+          "3": {
+            "runs": {
+              "0": {
+                "variant": "candidate-os",
+                "write_ns": 3.647,
+                "read_ns": 14173.254
+              },
+              "1": {
+                "variant": "candidate-o3",
+                "write_ns": 2.581,
+                "read_ns": 3714.3199999999997
+              },
+              "2": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 2.5835,
+                "read_ns": 3714.1355000000003
+              },
+              "3": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.642,
+                "read_ns": 12924.056
+              },
+              "4": {
+                "variant": "candidate-hidden-gc",
+                "write_ns": 3.6265,
+                "read_ns": 12922.848
+              },
+              "5": {
+                "variant": "candidate-o3-hidden-gc",
+                "write_ns": 2.588,
+                "read_ns": 3713.5825
+              },
+              "6": {
+                "variant": "candidate-o3",
+                "write_ns": 2.583,
+                "read_ns": 3715.246
+              },
+              "7": {
+                "variant": "candidate-os",
+                "write_ns": 3.666,
+                "read_ns": 14065.79
+              }
+            },
+            "comparisons": {
+              "O3_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.4130182099961255,
+                    1.419279907084785
+                  ],
+                  "speedup_median": 1.4161490585404553,
+                  "speedup_range": [
+                    1.4130182099961255,
+                    1.419279907084785
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.8158408537767348,
+                    3.7859646440639465
+                  ],
+                  "speedup_median": 3.8009027489203406,
+                  "speedup_range": [
+                    3.7859646440639465,
+                    3.8158408537767348
+                  ]
+                }
+              },
+              "O3_private_vs_Os_private": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.4097155022256629,
+                    1.401275115919629
+                  ],
+                  "speedup_median": 1.4054953090726459,
+                  "speedup_range": [
+                    1.401275115919629,
+                    1.4097155022256629
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.4796942653276917,
+                    3.4798871440179395
+                  ],
+                  "speedup_median": 3.4797907046728156,
+                  "speedup_range": [
+                    3.4796942653276917,
+                    3.4798871440179395
+                  ]
+                }
+              },
+              "Os_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.001372872048325,
+                    1.0108920446711704
+                  ],
+                  "speedup_median": 1.0061324583597477,
+                  "speedup_range": [
+                    1.001372872048325,
+                    1.0108920446711704
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.096656808048495,
+                    1.0884435071897465
+                  ],
+                  "speedup_median": 1.0925501576191208,
+                  "speedup_range": [
+                    1.0884435071897465,
+                    1.096656808048495
+                  ]
+                }
+              },
+              "O3_private_vs_O3": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    0.9990323204954519,
+                    0.9980680061823802
+                  ],
+                  "speedup_median": 0.998550163338916,
+                  "speedup_range": [
+                    0.9980680061823802,
+                    0.9990323204954519
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    1.000049675085898,
+                    1.0004479501936472
+                  ],
+                  "speedup_median": 1.0002488126397726,
+                  "speedup_range": [
+                    1.000049675085898,
+                    1.0004479501936472
+                  ]
+                }
+              },
+              "O3_private_vs_Os": {
+                "write_ns": {
+                  "speedup_pairs": [
+                    1.411650861234759,
+                    1.4165378670788253
+                  ],
+                  "speedup_median": 1.4140943641567922,
+                  "speedup_range": [
+                    1.411650861234759,
+                    1.4165378670788253
+                  ]
+                },
+                "read_ns": {
+                  "speedup_pairs": [
+                    3.8160304059989194,
+                    3.7876605676593966
+                  ],
+                  "speedup_median": 3.801845486829158,
+                  "speedup_range": [
+                    3.7876605676593966,
+                    3.8160304059989194
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "discarded_logs": []
+    }
+  },
+  "method": {
+    "primary_revision": "d21d0843b492023077553b3eba26b3efa16c15f5",
+    "reference_revision": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13",
+    "speedup": "O3 throughput / Os throughput; >1 favors O3",
+    "write": "median ops/sec of last 90 of 100 immutable-driver iterations per invocation",
+    "read": "reciprocal full-process wall seconds, including 3 warmups + 20 measured passes and initialization",
+    "probe": "median of runs 3..8 per precision per invocation; unchanged fixed O3 caller",
+    "pairs": "Os index0 vs O3 index1, Os index3 vs O3 index2, optional Os index4 vs O3 index5",
+    "spread": "max/min - 1 among repeated same-binary invocations; not a confidence interval",
+    "acceptance": "No source/default accepted; this is a compiler/embedding audit"
+  },
+  "checksums": {
+    "referee": [
+      17401860284404480
+    ],
+    "probe": {
+      "2": [
+        13155998609888
+      ],
+      "3": [
+        13143766184416
+      ]
+    }
+  }
+}

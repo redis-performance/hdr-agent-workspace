@@ -17,5 +17,12 @@
     "redis": "b540ca49cba815f3fbe634363c3df68d4f4f127a",
     "valkey": "9b270b6d8b1ae0937c62b7d113ee31e489b2c75a"
   },
-  "scope": "Native Intel x86_64, AMD x86_64, ARM64; no fleet addresses or credentials in artifacts"
+  "scope": "Native Intel x86_64, AMD x86_64, ARM64; no fleet addresses or credentials in artifacts",
+  "followup_scripts_sha256": {
+    "post_checks.py": "52b9815a1870ca16a9598cea2ee40eb2e5fa00804fe89c5c5109e3514046e61e",
+    "embedded_probe.py": "571cb3f1b161792df0fbc406a9163596973234ba59646d160c3c91026d81b271",
+    "countercheck.py": "8f51b4842178a01ac1e2ae5fe1bcf94b3e5d5ed8691e4813700559810e777ab4",
+    "capture_read_codegen.py": "7a2ec560071065bbef875221e6b6c73cdf2c3ce4384cbed659582d750d3f1cd7",
+    "capture_inventory.py": "2a595d2039d51b5ad96b3701db065feb5cb9f599c411d35f9a7234dc5f02c798"
+  }
 }

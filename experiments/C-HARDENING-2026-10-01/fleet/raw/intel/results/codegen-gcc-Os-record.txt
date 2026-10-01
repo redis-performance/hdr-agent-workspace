@@ -1,0 +1,54 @@
+0000000000003719 <counts_index_for>:
+    3719:	f3 0f 1e fa          	endbr64
+    371d:	e8 ce ff ff ff       	call   36f0 <get_bucket_index>
+    3722:	8b 4f 10             	mov    0x10(%rdi),%ecx
+    3725:	01 c1                	add    %eax,%ecx
+    3727:	ff c0                	inc    %eax
+    3729:	48 d3 fe             	sar    %cl,%rsi
+    372c:	8b 4f 18             	mov    0x18(%rdi),%ecx
+    372f:	2b 77 1c             	sub    0x1c(%rdi),%esi
+    3732:	d3 e0                	shl    %cl,%eax
+    3734:	01 f0                	add    %esi,%eax
+    3736:	c3                   	ret
+
+0000000000003737 <record_value_counted>:
+    3737:	49 89 f0             	mov    %rsi,%r8
+    373a:	49 89 d1             	mov    %rdx,%r9
+    373d:	31 c0                	xor    %eax,%eax
+    373f:	48 85 f6             	test   %rsi,%rsi
+    3742:	78 58                	js     379c <record_value_counted+0x65>
+    3744:	48 39 77 08          	cmp    %rsi,0x8(%rdi)
+    3748:	7c 52                	jl     379c <record_value_counted+0x65>
+    374a:	e8 ca ff ff ff       	call   3719 <counts_index_for>
+    374f:	48 63 f0             	movslq %eax,%rsi
+    3752:	31 c0                	xor    %eax,%eax
+    3754:	3b 77 50             	cmp    0x50(%rdi),%esi
+    3757:	73 43                	jae    379c <record_value_counted+0x65>
+    3759:	83 7f 40 00          	cmpl   $0x0,0x40(%rdi)
+    375d:	4c 8b 57 60          	mov    0x60(%rdi),%r10
+    3761:	75 06                	jne    3769 <record_value_counted+0x32>
+    3763:	49 8d 04 f2          	lea    (%r10,%rsi,8),%rax
+    3767:	eb 0b                	jmp    3774 <record_value_counted+0x3d>
+    3769:	e8 08 ff ff ff       	call   3676 <normalize_index>
+    376e:	48 98                	cltq
+    3770:	49 8d 04 c2          	lea    (%r10,%rax,8),%rax
+    3774:	0f 18 08             	prefetcht0 (%rax)
+    3777:	4c 01 08             	add    %r9,(%rax)
+    377a:	4c 01 4f 58          	add    %r9,0x58(%rdi)
+    377e:	4c 3b 47 38          	cmp    0x38(%rdi),%r8
+    3782:	7e 04                	jle    3788 <record_value_counted+0x51>
+    3784:	4c 89 47 38          	mov    %r8,0x38(%rdi)
+    3788:	4d 85 c0             	test   %r8,%r8
+    378b:	74 06                	je     3793 <record_value_counted+0x5c>
+    378d:	4c 3b 47 30          	cmp    0x30(%rdi),%r8
+    3791:	7c 03                	jl     3796 <record_value_counted+0x5f>
+    3793:	b0 01                	mov    $0x1,%al
+    3795:	c3                   	ret
+    3796:	4c 89 47 30          	mov    %r8,0x30(%rdi)
+    379a:	eb f7                	jmp    3793 <record_value_counted+0x5c>
+    379c:	c3                   	ret
+
+0000000000004117 <hdr_record_value>:
+    4117:	f3 0f 1e fa          	endbr64
+    411b:	ba 01 00 00 00       	mov    $0x1,%edx
+    4120:	e9 12 f6 ff ff       	jmp    3737 <record_value_counted>

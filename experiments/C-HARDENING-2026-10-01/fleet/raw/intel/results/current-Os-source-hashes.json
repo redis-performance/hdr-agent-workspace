@@ -1,0 +1,6 @@
+{
+  "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+  "include/hdr/hdr_histogram.h": "2ff3d6772332bc1fcb2733189a84b6a5fd247a12b8116845e872dcbe2bc1fce9",
+  "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+  "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc"
+}

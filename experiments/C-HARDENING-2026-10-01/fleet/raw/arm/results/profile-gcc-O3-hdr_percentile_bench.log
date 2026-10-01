@@ -1,0 +1,2 @@
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.082 MB /tmp/hdr-os-o3-fleet-20261001/profile-gcc-O3-hdr_percentile_bench.data (1991 samples) ]

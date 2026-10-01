@@ -1,5 +1,9 @@
 # Measured embedded-core results — 2026-10-01
 
+These are the earlier local `bcb5c1f` measurements. See the completed
+[native fleet follow-up](fleet/RESULTS.md) for `d21d084`, including compiler,
+architecture, precision and executable-layout tradeoffs.
+
 Linux x86_64, GCC 13.3.0. Consumer revisions and reproducible patches are in [README](README.md). The authoritative matrix uses pinned PR #158 with only flattened includes and the retained downstream iterator extension.
 
 ## Final executable sizes

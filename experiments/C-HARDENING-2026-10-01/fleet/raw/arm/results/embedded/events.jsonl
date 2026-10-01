@@ -1,0 +1,18 @@
+{"label": "arm", "phase": "starting", "time": 1790856803.9259903}
+{"label": "arm", "phase": "measuring", "time": 1790856810.1066544, "run": "probe-0-candidate-os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856816.1088588, "run": "probe-0-candidate-os", "seconds": 6.0}
+{"label": "arm", "phase": "measuring", "time": 1790856819.109674, "run": "probe-1-candidate-o3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856822.1112404, "run": "probe-1-candidate-o3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856825.1120543, "run": "probe-2-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856828.1136334, "run": "probe-2-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856831.1144342, "run": "probe-3-candidate-hidden-gc", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856834.1160257, "run": "probe-3-candidate-hidden-gc", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856837.1168296, "run": "probe-4-candidate-hidden-gc", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856840.118407, "run": "probe-4-candidate-hidden-gc", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856843.1191988, "run": "probe-5-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856846.1208441, "run": "probe-5-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856849.1216345, "run": "probe-6-candidate-o3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856852.1231894, "run": "probe-6-candidate-o3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856855.1240013, "run": "probe-7-candidate-os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856861.1260002, "run": "probe-7-candidate-os", "seconds": 6.0}
+{"label": "arm", "phase": "complete", "time": 1790856861.1261046}

@@ -1,0 +1,42 @@
+[
+  {
+    "project": "redis",
+    "variant": "candidate-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-o3",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "redis",
+    "variant": "candidate-o3-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-os",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-o3",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  },
+  {
+    "project": "valkey",
+    "variant": "candidate-o3-hidden-gc",
+    "result": "allocator adapters and iterator extension: PASS; bytes=24680"
+  }
+]

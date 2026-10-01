@@ -1,0 +1,18 @@
+{"label": "intel", "phase": "starting", "time": 1790855123.896856}
+{"label": "intel", "phase": "measuring", "time": 1790855130.0280237, "run": "probe-0-candidate-os", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855133.0294063, "run": "probe-0-candidate-os", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855136.0301852, "run": "probe-1-candidate-o3", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855139.0315242, "run": "probe-1-candidate-o3", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855142.0322986, "run": "probe-2-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855145.033608, "run": "probe-2-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855148.0343604, "run": "probe-3-candidate-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855151.035874, "run": "probe-3-candidate-hidden-gc", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855154.0366507, "run": "probe-4-candidate-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855157.0378637, "run": "probe-4-candidate-hidden-gc", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855160.038625, "run": "probe-5-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855163.0398443, "run": "probe-5-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855166.0406551, "run": "probe-6-candidate-o3", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855169.0418844, "run": "probe-6-candidate-o3", "seconds": 3.0}
+{"label": "intel", "phase": "measuring", "time": 1790855172.0448196, "run": "probe-7-candidate-os", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855175.0460806, "run": "probe-7-candidate-os", "seconds": 3.0}
+{"label": "intel", "phase": "complete", "time": 1790855175.046177}

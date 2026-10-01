@@ -1,0 +1,183 @@
+{
+  "captured_utc": "2026-10-01T12:17:49Z",
+  "collector_sha256": "2a595d2039d51b5ad96b3701db065feb5cb9f599c411d35f9a7234dc5f02c798",
+  "timing": "after workloads; frequency/free-memory readings are snapshots, not controlled settings",
+  "commands": {
+    "lscpu": {
+      "command": [
+        "lscpu",
+        "--json"
+      ],
+      "exit_code": 0
+    },
+    "lscpu-version": {
+      "command": [
+        "lscpu",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "cpu-topology": {
+      "command": [
+        "lscpu",
+        "--extended=CPU,CORE,SOCKET,NODE,ONLINE"
+      ],
+      "exit_code": 0
+    },
+    "lsmem": {
+      "command": [
+        "lsmem",
+        "--json"
+      ],
+      "exit_code": 0
+    },
+    "lsmem-version": {
+      "command": [
+        "lsmem",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "kernel": {
+      "command": [
+        "uname",
+        "-srmv"
+      ],
+      "exit_code": 0
+    },
+    "gcc-version": {
+      "command": [
+        "gcc",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    "gcc-target": {
+      "command": [
+        "gcc",
+        "-dumpmachine"
+      ],
+      "exit_code": 0
+    },
+    "clang-version": {
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "gxx-version": {
+      "command": [
+        "g++",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "clangxx-version": {
+      "command": [
+        "clang++",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "cmake-version": {
+      "command": [
+        "cmake",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "make-version": {
+      "command": [
+        "make",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "linker-version": {
+      "command": [
+        "ld",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "assembler-version": {
+      "command": [
+        "as",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "libc-version": {
+      "command": [
+        "getconf",
+        "GNU_LIBC_VERSION"
+      ],
+      "exit_code": 0
+    },
+    "python-version": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "perf-version-6.8.0-142-generic": {
+      "command": [
+        "/usr/lib/linux-tools/6.8.0-142-generic/perf",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "perf-version-7.0.0-1013-aws": {
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1013-aws/perf",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "hwinfo-cpu": {
+      "command": [
+        "/tmp/hdr-os-o3-fleet-20261001/inventory-private/extracted/usr/sbin/hwinfo",
+        "--cpu"
+      ],
+      "exit_code": 0
+    },
+    "hwinfo-memory": {
+      "command": [
+        "/tmp/hdr-os-o3-fleet-20261001/inventory-private/extracted/usr/sbin/hwinfo",
+        "--memory"
+      ],
+      "exit_code": 0
+    },
+    "hwinfo-system": {
+      "command": [
+        "/tmp/hdr-os-o3-fleet-20261001/inventory-private/extracted/usr/sbin/hwinfo",
+        "--system"
+      ],
+      "exit_code": 0
+    },
+    "hwinfo": {
+      "exit_code": 0,
+      "categories": [
+        "cpu",
+        "memory",
+        "system"
+      ]
+    },
+    "hwinfo-version": {
+      "command": [
+        "/tmp/hdr-os-o3-fleet-20261001/inventory-private/extracted/usr/sbin/hwinfo",
+        "--version"
+      ],
+      "exit_code": 0
+    }
+  },
+  "hwinfo_download_exit_code": 0,
+  "hwinfo_packages": {
+    "libhd21t64_21.82-1.1build1_amd64.deb": "547c059fe513a310d76f8a03f4a1cd2ac12815d5305ddf9d9cce719f8d04c2ff",
+    "libx86emu3_3.5-1_amd64.deb": "3889badf81520e75c9dd8c3e1a28dc31d38f41f56969191dfc9facb4727dcc2d",
+    "hwinfo_21.82-1.1build1_amd64.deb": "e1bf57009f5c5bdc2510b5372c69b07b1cfcfdaf6d961a163a3e3ebc244c83a0"
+  },
+  "hwinfo_source": "distribution packages extracted locally; no host installation"
+}

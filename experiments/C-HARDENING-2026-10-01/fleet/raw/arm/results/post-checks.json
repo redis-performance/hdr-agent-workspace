@@ -1,0 +1,6 @@
+{
+  "kernel_architecture": "Linux 6.14.0-1010-aws aarch64",
+  "scaling_governor": "not exposed",
+  "integration_probe_sha256": "27c69a28c66453b56f0e83c8055f0ac61b653fd3e685ee556a018caa87476646",
+  "post_checks_sha256": "52b9815a1870ca16a9598cea2ee40eb2e5fa00804fe89c5c5109e3514046e61e"
+}

@@ -1,0 +1,138 @@
+0000000000003950 <record_value_counted>:
+    3950:	48 89 f8             	mov    %rdi,%rax
+    3953:	45 31 c9             	xor    %r9d,%r9d
+    3956:	48 89 d7             	mov    %rdx,%rdi
+    3959:	48 85 f6             	test   %rsi,%rsi
+    395c:	78 6b                	js     39c9 <record_value_counted+0x79>
+    395e:	48 39 70 08          	cmp    %rsi,0x8(%rax)
+    3962:	7c 65                	jl     39c9 <record_value_counted+0x79>
+    3964:	48 8b 48 20          	mov    0x20(%rax),%rcx
+    3968:	44 8b 50 18          	mov    0x18(%rax),%r10d
+    396c:	48 89 f2             	mov    %rsi,%rdx
+    396f:	48 09 f1             	or     %rsi,%rcx
+    3972:	48 0f bd c9          	bsr    %rcx,%rcx
+    3976:	44 29 d1             	sub    %r10d,%ecx
+    3979:	41 89 c8             	mov    %ecx,%r8d
+    397c:	44 2b 40 10          	sub    0x10(%rax),%r8d
+    3980:	48 d3 fa             	sar    %cl,%rdx
+    3983:	44 89 d1             	mov    %r10d,%ecx
+    3986:	41 83 c0 01          	add    $0x1,%r8d
+    398a:	2b 50 1c             	sub    0x1c(%rax),%edx
+    398d:	41 d3 e0             	shl    %cl,%r8d
+    3990:	8b 48 50             	mov    0x50(%rax),%ecx
+    3993:	44 01 c2             	add    %r8d,%edx
+    3996:	39 ca                	cmp    %ecx,%edx
+    3998:	73 2f                	jae    39c9 <record_value_counted+0x79>
+    399a:	44 8b 40 40          	mov    0x40(%rax),%r8d
+    399e:	4c 8b 48 60          	mov    0x60(%rax),%r9
+    39a2:	45 85 c0             	test   %r8d,%r8d
+    39a5:	75 29                	jne    39d0 <record_value_counted+0x80>
+    39a7:	48 63 d2             	movslq %edx,%rdx
+    39aa:	49 8d 14 d1          	lea    (%r9,%rdx,8),%rdx
+    39ae:	0f 18 0a             	prefetcht0 (%rdx)
+    39b1:	48 01 3a             	add    %rdi,(%rdx)
+    39b4:	48 01 78 58          	add    %rdi,0x58(%rax)
+    39b8:	48 3b 70 38          	cmp    0x38(%rax),%rsi
+    39bc:	7f 2a                	jg     39e8 <record_value_counted+0x98>
+    39be:	48 85 f6             	test   %rsi,%rsi
+    39c1:	75 2d                	jne    39f0 <record_value_counted+0xa0>
+    39c3:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    39c9:	44 89 c8             	mov    %r9d,%eax
+    39cc:	c3                   	ret
+    39cd:	0f 1f 00             	nopl   (%rax)
+    39d0:	44 29 c2             	sub    %r8d,%edx
+    39d3:	78 27                	js     39fc <record_value_counted+0xac>
+    39d5:	41 89 d0             	mov    %edx,%r8d
+    39d8:	41 29 c8             	sub    %ecx,%r8d
+    39db:	39 d1                	cmp    %edx,%ecx
+    39dd:	41 0f 4e d0          	cmovle %r8d,%edx
+    39e1:	eb c4                	jmp    39a7 <record_value_counted+0x57>
+    39e3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    39e8:	48 89 70 38          	mov    %rsi,0x38(%rax)
+    39ec:	eb d0                	jmp    39be <record_value_counted+0x6e>
+    39ee:	66 90                	xchg   %ax,%ax
+    39f0:	48 3b 70 30          	cmp    0x30(%rax),%rsi
+    39f4:	7d cd                	jge    39c3 <record_value_counted+0x73>
+    39f6:	48 89 70 30          	mov    %rsi,0x30(%rax)
+    39fa:	eb c7                	jmp    39c3 <record_value_counted+0x73>
+    39fc:	01 ca                	add    %ecx,%edx
+    39fe:	eb a7                	jmp    39a7 <record_value_counted+0x57>
+
+0000000000004460 <counts_index_for>:
+    4460:	f3 0f 1e fa          	endbr64
+    4464:	48 8b 4f 20          	mov    0x20(%rdi),%rcx
+    4468:	8b 57 18             	mov    0x18(%rdi),%edx
+    446b:	48 09 f1             	or     %rsi,%rcx
+    446e:	48 0f bd c9          	bsr    %rcx,%rcx
+    4472:	29 d1                	sub    %edx,%ecx
+    4474:	89 c8                	mov    %ecx,%eax
+    4476:	2b 47 10             	sub    0x10(%rdi),%eax
+    4479:	48 d3 fe             	sar    %cl,%rsi
+    447c:	89 d1                	mov    %edx,%ecx
+    447e:	83 c0 01             	add    $0x1,%eax
+    4481:	2b 77 1c             	sub    0x1c(%rdi),%esi
+    4484:	d3 e0                	shl    %cl,%eax
+    4486:	01 f0                	add    %esi,%eax
+    4488:	c3                   	ret
+    4489:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000004cb0 <hdr_record_value>:
+    4cb0:	f3 0f 1e fa          	endbr64
+    4cb4:	48 89 f8             	mov    %rdi,%rax
+    4cb7:	48 89 f2             	mov    %rsi,%rdx
+    4cba:	45 31 c0             	xor    %r8d,%r8d
+    4cbd:	48 85 f6             	test   %rsi,%rsi
+    4cc0:	78 64                	js     4d26 <hdr_record_value+0x76>
+    4cc2:	48 3b 77 08          	cmp    0x8(%rdi),%rsi
+    4cc6:	7f 5e                	jg     4d26 <hdr_record_value+0x76>
+    4cc8:	48 8b 4f 20          	mov    0x20(%rdi),%rcx
+    4ccc:	44 8b 4f 18          	mov    0x18(%rdi),%r9d
+    4cd0:	48 09 f1             	or     %rsi,%rcx
+    4cd3:	48 0f bd c9          	bsr    %rcx,%rcx
+    4cd7:	44 29 c9             	sub    %r9d,%ecx
+    4cda:	89 cf                	mov    %ecx,%edi
+    4cdc:	2b 78 10             	sub    0x10(%rax),%edi
+    4cdf:	48 d3 fe             	sar    %cl,%rsi
+    4ce2:	44 89 c9             	mov    %r9d,%ecx
+    4ce5:	83 c7 01             	add    $0x1,%edi
+    4ce8:	2b 70 1c             	sub    0x1c(%rax),%esi
+    4ceb:	d3 e7                	shl    %cl,%edi
+    4ced:	8d 0c 3e             	lea    (%rsi,%rdi,1),%ecx
+    4cf0:	8b 70 50             	mov    0x50(%rax),%esi
+    4cf3:	39 f1                	cmp    %esi,%ecx
+    4cf5:	73 2f                	jae    4d26 <hdr_record_value+0x76>
+    4cf7:	8b 78 40             	mov    0x40(%rax),%edi
+    4cfa:	4c 8b 40 60          	mov    0x60(%rax),%r8
+    4cfe:	85 ff                	test   %edi,%edi
+    4d00:	75 2e                	jne    4d30 <hdr_record_value+0x80>
+    4d02:	48 63 c9             	movslq %ecx,%rcx
+    4d05:	49 8d 0c c8          	lea    (%r8,%rcx,8),%rcx
+    4d09:	0f 18 09             	prefetcht0 (%rcx)
+    4d0c:	48 83 01 01          	addq   $0x1,(%rcx)
+    4d10:	48 83 40 58 01       	addq   $0x1,0x58(%rax)
+    4d15:	48 3b 50 38          	cmp    0x38(%rax),%rdx
+    4d19:	7f 25                	jg     4d40 <hdr_record_value+0x90>
+    4d1b:	48 85 d2             	test   %rdx,%rdx
+    4d1e:	75 30                	jne    4d50 <hdr_record_value+0xa0>
+    4d20:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    4d26:	44 89 c0             	mov    %r8d,%eax
+    4d29:	c3                   	ret
+    4d2a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    4d30:	29 f9                	sub    %edi,%ecx
+    4d32:	78 28                	js     4d5c <hdr_record_value+0xac>
+    4d34:	89 cf                	mov    %ecx,%edi
+    4d36:	29 f7                	sub    %esi,%edi
+    4d38:	39 ce                	cmp    %ecx,%esi
+    4d3a:	0f 4e cf             	cmovle %edi,%ecx
+    4d3d:	eb c3                	jmp    4d02 <hdr_record_value+0x52>
+    4d3f:	90                   	nop
+    4d40:	48 89 50 38          	mov    %rdx,0x38(%rax)
+    4d44:	eb d5                	jmp    4d1b <hdr_record_value+0x6b>
+    4d46:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    4d4d:	00 00 00
+    4d50:	48 3b 50 30          	cmp    0x30(%rax),%rdx
+    4d54:	7d ca                	jge    4d20 <hdr_record_value+0x70>
+    4d56:	48 89 50 30          	mov    %rdx,0x30(%rax)
+    4d5a:	eb c4                	jmp    4d20 <hdr_record_value+0x70>
+    4d5c:	01 f1                	add    %esi,%ecx
+    4d5e:	eb a2                	jmp    4d02 <hdr_record_value+0x52>

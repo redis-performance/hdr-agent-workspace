@@ -1,0 +1,13 @@
+STD=-pedantic -DREDIS_STATIC= -std=gnu11
+WARN=-Wall -W -Wno-missing-field-initializers -Werror=deprecated-declarations -Wstrict-prototypes
+OPT=-O3 -flto=auto -ffat-lto-objects -fno-omit-frame-pointer
+MALLOC=libc
+BUILD_TLS=no
+BUILD_COMPRESSION=
+USE_SYSTEMD=no
+CFLAGS=-funwind-tables
+LDFLAGS=
+REDIS_CFLAGS=
+REDIS_LDFLAGS=
+PREV_FINAL_CFLAGS=-pedantic -DREDIS_STATIC= -std=gnu11 -Wall -W -Wno-missing-field-initializers -Werror=deprecated-declarations -Wstrict-prototypes -O3 -flto=auto -ffat-lto-objects -fno-omit-frame-pointer -g -ggdb -funwind-tables -I../deps/hiredis -I../deps/linenoise -I../deps/lua/src -I../deps/hdr_histogram -I../deps/fpconv -I../deps/xxhash -DINCLUDE_VEC_SETS=1
+PREV_FINAL_LDFLAGS= -O3 -flto=auto -ffat-lto-objects -fno-omit-frame-pointer -g -ggdb -rdynamic

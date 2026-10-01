@@ -1,0 +1,7 @@
+    69.35%  [.] record_value_counted  -      -
+    14.16%  [.] counts_index_for      -      -
+     8.69%  [.] get_bucket_index      -      -
+     6.28%  [.] main                  -      -
+     1.51%  [.] hdr_record_value      -      -
+     0.00%  [.] malloc                -      -
+     0.00%  [.] sched_setaffinity     -      -

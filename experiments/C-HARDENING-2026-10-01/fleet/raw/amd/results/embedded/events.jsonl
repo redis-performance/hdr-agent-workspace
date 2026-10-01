@@ -1,0 +1,18 @@
+{"label": "amd", "phase": "starting", "time": 1790855124.1756003}
+{"label": "amd", "phase": "measuring", "time": 1790855130.291673, "run": "probe-0-candidate-os", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855133.2934566, "run": "probe-0-candidate-os", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855136.294496, "run": "probe-1-candidate-o3", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855139.2962332, "run": "probe-1-candidate-o3", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855142.297346, "run": "probe-2-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855145.2989302, "run": "probe-2-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855148.2998722, "run": "probe-3-candidate-hidden-gc", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855151.3014398, "run": "probe-3-candidate-hidden-gc", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855154.3024516, "run": "probe-4-candidate-hidden-gc", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855157.304043, "run": "probe-4-candidate-hidden-gc", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855160.3050735, "run": "probe-5-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855163.3068292, "run": "probe-5-candidate-o3-hidden-gc", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855166.3078523, "run": "probe-6-candidate-o3", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855169.3095143, "run": "probe-6-candidate-o3", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790855172.3107023, "run": "probe-7-candidate-os", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790855175.3125734, "run": "probe-7-candidate-os", "seconds": 3.0}
+{"label": "amd", "phase": "complete", "time": 1790855175.3127594}

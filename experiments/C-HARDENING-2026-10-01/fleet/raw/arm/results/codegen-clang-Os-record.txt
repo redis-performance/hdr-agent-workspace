@@ -1,0 +1,79 @@
+00000000000019e8 <counts_index_for>:
+    19e8:	f9401009 	ldr	x9, [x0, #32]
+    19ec:	b940100a 	ldr	w10, [x0, #16]
+    19f0:	52800808 	mov	w8, #0x40                  	// #64
+    19f4:	2943300b 	ldp	w11, w12, [x0, #24]
+    19f8:	aa010129 	orr	x9, x9, x1
+    19fc:	dac01129 	clz	x9, x9
+    1a00:	0b0a016d 	add	w13, w11, w10
+    1a04:	0b0901a9 	add	w9, w13, w9
+    1a08:	4b09014a 	sub	w10, w10, w9
+    1a0c:	4b090108 	sub	w8, w8, w9
+    1a10:	1100fd49 	add	w9, w10, #0x3f
+    1a14:	1acb2108 	lsl	w8, w8, w11
+    1a18:	9ac92829 	asr	x9, x1, x9
+    1a1c:	4b0c0108 	sub	w8, w8, w12
+    1a20:	0b090100 	add	w0, w8, w9
+    1a24:	d65f03c0 	ret
+
+0000000000001fa4 <hdr_record_value>:
+    1fa4:	52800022 	mov	w2, #0x1                   	// #1
+    1fa8:	14000001 	b	1fac <record_value_counted>
+
+0000000000001fac <record_value_counted>:
+    1fac:	b7f80541 	tbnz	x1, #63, 2054 <record_value_counted+0xa8>
+    1fb0:	f9400408 	ldr	x8, [x0, #8]
+    1fb4:	eb01011f 	cmp	x8, x1
+    1fb8:	540004eb 	b.lt	2054 <record_value_counted+0xa8>  // b.tstop
+    1fbc:	f9401008 	ldr	x8, [x0, #32]
+    1fc0:	b9401009 	ldr	w9, [x0, #16]
+    1fc4:	29432c0a 	ldp	w10, w11, [x0, #24]
+    1fc8:	aa010108 	orr	x8, x8, x1
+    1fcc:	dac01108 	clz	x8, x8
+    1fd0:	0b09014c 	add	w12, w10, w9
+    1fd4:	0b080188 	add	w8, w12, w8
+    1fd8:	5280080c 	mov	w12, #0x40                  	// #64
+    1fdc:	4b080129 	sub	w9, w9, w8
+    1fe0:	4b080188 	sub	w8, w12, w8
+    1fe4:	1100fd29 	add	w9, w9, #0x3f
+    1fe8:	1aca2108 	lsl	w8, w8, w10
+    1fec:	9ac92429 	lsr	x9, x1, x9
+    1ff0:	4b0b010a 	sub	w10, w8, w11
+    1ff4:	b9405008 	ldr	w8, [x0, #80]
+    1ff8:	0b090149 	add	w9, w10, w9
+    1ffc:	6b08013f 	cmp	w9, w8
+    2000:	540002a2 	b.cs	2054 <record_value_counted+0xa8>  // b.hs, b.nlast
+    2004:	b940400a 	ldr	w10, [x0, #64]
+    2008:	350002aa 	cbnz	w10, 205c <record_value_counted+0xb0>
+    200c:	f9403008 	ldr	x8, [x0, #96]
+    2010:	8b29cd08 	add	x8, x8, w9, sxtw #3
+    2014:	f9800110 	prfm	pstl1keep, [x8]
+    2018:	f9400109 	ldr	x9, [x8]
+    201c:	8b020129 	add	x9, x9, x2
+    2020:	f9000109 	str	x9, [x8]
+    2024:	f9402c08 	ldr	x8, [x0, #88]
+    2028:	f9401c09 	ldr	x9, [x0, #56]
+    202c:	8b020108 	add	x8, x8, x2
+    2030:	eb01013f 	cmp	x9, x1
+    2034:	f9002c08 	str	x8, [x0, #88]
+    2038:	5400020b 	b.lt	2078 <record_value_counted+0xcc>  // b.tstop
+    203c:	b4000081 	cbz	x1, 204c <record_value_counted+0xa0>
+    2040:	f9401808 	ldr	x8, [x0, #48]
+    2044:	eb01011f 	cmp	x8, x1
+    2048:	540001ec 	b.gt	2084 <record_value_counted+0xd8>
+    204c:	52800020 	mov	w0, #0x1                   	// #1
+    2050:	d65f03c0 	ret
+    2054:	2a1f03e0 	mov	w0, wzr
+    2058:	d65f03c0 	ret
+    205c:	4b0a0129 	sub	w9, w9, w10
+    2060:	6b08013f 	cmp	w9, w8
+    2064:	5a88b7ea 	csneg	w10, wzr, w8, lt	// lt = tstop
+    2068:	7100013f 	cmp	w9, #0x0
+    206c:	1a8ab108 	csel	w8, w8, w10, lt	// lt = tstop
+    2070:	0b090109 	add	w9, w8, w9
+    2074:	17ffffe6 	b	200c <record_value_counted+0x60>
+    2078:	f9001c01 	str	x1, [x0, #56]
+    207c:	b5fffe21 	cbnz	x1, 2040 <record_value_counted+0x94>
+    2080:	17fffff3 	b	204c <record_value_counted+0xa0>
+    2084:	f9001801 	str	x1, [x0, #48]
+    2088:	17fffff1 	b	204c <record_value_counted+0xa0>

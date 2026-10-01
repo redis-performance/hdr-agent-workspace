@@ -1,0 +1,3 @@
+   text	   data	    bss	    dec	    hex	filename
+  23951	    800	     48	  24799	   60df	/tmp/hdr-os-o3-fleet-20261001/current-O3/build/gcc/test/hdr_histogram_perf
+  23444	    776	      8	  24228	   5ea4	/tmp/hdr-os-o3-fleet-20261001/current-O3/build/gcc/test/hdr_percentile_bench

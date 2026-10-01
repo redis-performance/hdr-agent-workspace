@@ -1,0 +1,75 @@
+{"label": "arm", "phase": "starting", "time": 1790853408.1274166}
+{"label": "arm", "phase": "building-core", "time": 1790853411.1502156, "revision": "current", "flags": "Os"}
+{"label": "arm", "phase": "building-core", "time": 1790853422.696579, "revision": "current", "flags": "O3"}
+{"label": "arm", "phase": "building-core", "time": 1790853434.6695757, "revision": "reference", "flags": "Os"}
+{"label": "arm", "phase": "building-core", "time": 1790853446.2550733, "revision": "reference", "flags": "O3"}
+{"label": "arm", "phase": "core-correctness-complete", "time": 1790853457.9816341, "tests": 40}
+{"label": "arm", "phase": "building-consumer", "time": 1790853460.9826303, "project": "redis"}
+{"label": "arm", "phase": "building-consumer", "time": 1790853615.65118, "project": "valkey"}
+{"label": "arm", "phase": "consumer-size-matrix-complete", "time": 1790854276.2217069}
+{"label": "arm", "phase": "measuring", "time": 1790854279.2235098, "run": "referee-gcc-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790854738.295405, "run": "referee-gcc-0-Os", "seconds": 459.07}
+{"label": "arm", "phase": "measuring", "time": 1790854741.2964942, "run": "referee-gcc-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790854933.326287, "run": "referee-gcc-1-O3", "seconds": 192.03}
+{"label": "arm", "phase": "measuring", "time": 1790854936.3272417, "run": "referee-gcc-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790855128.3575795, "run": "referee-gcc-2-O3", "seconds": 192.03}
+{"label": "arm", "phase": "measuring", "time": 1790855131.3585231, "run": "referee-gcc-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790855581.4275656, "run": "referee-gcc-3-Os", "seconds": 450.07}
+{"label": "arm", "phase": "measuring", "time": 1790855584.428533, "run": "referee-clang-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790855767.4579988, "run": "referee-clang-0-Os", "seconds": 183.03}
+{"label": "arm", "phase": "measuring", "time": 1790855770.4589524, "run": "referee-clang-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856058.5034678, "run": "referee-clang-1-O3", "seconds": 288.04}
+{"label": "arm", "phase": "measuring", "time": 1790856061.5044045, "run": "referee-clang-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856349.5491304, "run": "referee-clang-2-O3", "seconds": 288.04}
+{"label": "arm", "phase": "measuring", "time": 1790856352.5500698, "run": "referee-clang-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856535.5788195, "run": "referee-clang-3-Os", "seconds": 183.03}
+{"label": "arm", "phase": "measuring", "time": 1790856538.5797987, "run": "probe-current-gcc-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856541.5814984, "run": "probe-current-gcc-0-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856544.5823264, "run": "probe-current-gcc-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856547.583967, "run": "probe-current-gcc-1-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856550.5847785, "run": "probe-current-gcc-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856553.5863602, "run": "probe-current-gcc-2-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856556.5871449, "run": "probe-current-gcc-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856559.5887134, "run": "probe-current-gcc-3-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856562.5895343, "run": "probe-current-clang-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856565.5911198, "run": "probe-current-clang-0-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856568.5919123, "run": "probe-current-clang-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856571.5934608, "run": "probe-current-clang-1-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856574.5942528, "run": "probe-current-clang-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856577.5958061, "run": "probe-current-clang-2-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856580.5965965, "run": "probe-current-clang-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856583.5981352, "run": "probe-current-clang-3-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856586.5989313, "run": "probe-reference-gcc-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856589.600495, "run": "probe-reference-gcc-0-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856592.601297, "run": "probe-reference-gcc-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856595.6028736, "run": "probe-reference-gcc-1-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856598.6036725, "run": "probe-reference-gcc-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856601.6057546, "run": "probe-reference-gcc-2-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856604.6066315, "run": "probe-reference-gcc-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856610.6087632, "run": "probe-reference-gcc-3-Os", "seconds": 6.0}
+{"label": "arm", "phase": "measuring", "time": 1790856613.6095676, "run": "probe-reference-clang-0-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856616.6111832, "run": "probe-reference-clang-0-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856619.6120028, "run": "probe-reference-clang-1-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856622.6135993, "run": "probe-reference-clang-1-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856625.6144087, "run": "probe-reference-clang-2-O3", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856628.6160314, "run": "probe-reference-clang-2-O3", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856631.616846, "run": "probe-reference-clang-3-Os", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856634.6184182, "run": "probe-reference-clang-3-Os", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790856637.619342, "run": "profile-gcc-Os-hdr_histogram_perf", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856649.624717, "run": "profile-gcc-Os-hdr_histogram_perf", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856652.6507697, "run": "profile-gcc-Os-hdr_percentile_bench", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856664.6567442, "run": "profile-gcc-Os-hdr_percentile_bench", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856667.682875, "run": "profile-gcc-O3-hdr_histogram_perf", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856679.6899786, "run": "profile-gcc-O3-hdr_histogram_perf", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856682.7219331, "run": "profile-gcc-O3-hdr_percentile_bench", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856694.7279809, "run": "profile-gcc-O3-hdr_percentile_bench", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856697.753406, "run": "profile-clang-Os-hdr_histogram_perf", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856709.7568061, "run": "profile-clang-Os-hdr_histogram_perf", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856712.7828512, "run": "profile-clang-Os-hdr_percentile_bench", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856724.7857778, "run": "profile-clang-Os-hdr_percentile_bench", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856727.8120906, "run": "profile-clang-O3-hdr_histogram_perf", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856739.8156435, "run": "profile-clang-O3-hdr_histogram_perf", "seconds": 12.0}
+{"label": "arm", "phase": "measuring", "time": 1790856742.8424447, "run": "profile-clang-O3-hdr_percentile_bench", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790856754.8477297, "run": "profile-clang-O3-hdr_percentile_bench", "seconds": 12.0}
+{"label": "arm", "phase": "profiles-complete", "time": 1790856754.878067}
+{"label": "arm", "phase": "complete", "time": 1790856754.8781993}

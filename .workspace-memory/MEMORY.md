@@ -4,6 +4,10 @@
   pinned PR #158 consumer integration and binary-size matrix; preserve allocator
   adapters and iterator extension. Includes separate decoder/core-build PR plans
   and scoped Supabase assessment. Draft experiments, no optimization acceptance.
+  [Native fleet results](../experiments/C-HARDENING-2026-10-01/fleet/RESULTS.md)
+  now include Intel/AMD/ARM Os/O3 measurements at `d21d084`, actual consumer
+  archives, profiles, inventories and CPU-pinning methodology. Clang ARM O3
+  reads regress substantially; keep compiler defaults conditional.
 
 - [Post-merge C optimization round](../experiments/OPT-ROUND-2026-09-30/STATUS.md) —
   0.11.10 stable release, pre-batch master, latest master, and future #158;

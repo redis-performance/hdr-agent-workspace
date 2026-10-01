@@ -1,0 +1,10 @@
+{"label": "intel", "phase": "starting", "time": 1790855364.2516003}
+{"label": "intel", "phase": "measuring", "time": 1790855370.4586933, "run": "referee-0-candidate-o3", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855505.4809294, "run": "referee-0-candidate-o3", "seconds": 135.02}
+{"label": "intel", "phase": "measuring", "time": 1790855508.4817588, "run": "referee-1-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855640.5052152, "run": "referee-1-candidate-o3-hidden-gc", "seconds": 132.02}
+{"label": "intel", "phase": "measuring", "time": 1790855643.5060198, "run": "referee-2-candidate-o3-hidden-gc", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855775.5294218, "run": "referee-2-candidate-o3-hidden-gc", "seconds": 132.02}
+{"label": "intel", "phase": "measuring", "time": 1790855778.5302403, "run": "referee-3-candidate-o3", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790855913.5544822, "run": "referee-3-candidate-o3", "seconds": 135.02}
+{"label": "intel", "phase": "complete", "time": 1790855913.5546305}
