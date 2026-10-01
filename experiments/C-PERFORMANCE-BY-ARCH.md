@@ -63,6 +63,11 @@ workload mismatch, but it does **not** explain the observed ~2× newer-list
 gap by itself. The fleet runs did not record histogram fingerprints, so the
 effect of the full cross-library input difference remains unquantified.
 
+A follow-up [M6 root-cause diagnostic](C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
+measured a 6–7× QoS effect, little `-O2`/`-O3` or CPU-target effect, and a
+list scan just above the server cores' L1D sizes. Those are mechanisms to
+test on each runner, not a demonstrated breakdown of the cross-runner gap.
+
 The Apple write chart labels show the range of its two run medians; fleet
 write labels show the range of five interleaved runs. The Apple read bar uses
 the midpoint of the driver's *rounded* reported rates (stable 0.19–0.20,

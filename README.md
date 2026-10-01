@@ -33,6 +33,8 @@ within-runner before/after results, **not** a same-revision CPU ranking.
 ![C four-percentile list benchmark: previous stable versus newer C by runner](experiments/C-PERFORMANCE-CHARTS/list.svg)
 
 [Measurements, raw logs, and method](experiments/C-PERFORMANCE-BY-ARCH.md).
+[Why Apple M6 leads on some C workloads](experiments/C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
+records compiler, QoS, cache-size, and working-set controls.
 
 ---
 

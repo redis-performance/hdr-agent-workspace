@@ -1,0 +1,9 @@
+# Apple M6; AppleClang21; C e4e8b0a; generic -O2 target apple-m1 vs -O2 -mcpu=native target apple-m4; probe C++ -O2
+build=clang requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 active_span_bytes=2030328 populated=253790 input_bytes=0 median_ns=1.455 min_ns=1.449 max_ns=1.460 total=1999999995
+build=clang_native requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 active_span_bytes=2030328 populated=253790 input_bytes=0 median_ns=1.480 min_ns=1.458 max_ns=1.512 total=1999999995
+build=clang_native requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 active_span_bytes=2030328 populated=253790 input_bytes=0 median_ns=1.499 min_ns=1.413 max_ns=1.502 total=1999999995
+build=clang requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 active_span_bytes=2030328 populated=253790 input_bytes=0 median_ns=1.514 min_ns=1.410 max_ns=1.515 total=1999999995
+build=clang requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 p999_scan_bytes=84520 median_ns=1210.504 min_ns=1205.397 max_ns=1213.332 outputs=69311,299775,460799,690687
+build=clang_native requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 p999_scan_bytes=84520 median_ns=1211.686 min_ns=1207.349 max_ns=1212.500 outputs=69311,299775,460799,690687
+build=clang_native requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 p999_scan_bytes=84520 median_ns=1211.629 min_ns=1210.543 max_ns=1214.909 outputs=69311,299775,460799,690687
+build=clang requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 p999_scan_bytes=84520 median_ns=1213.207 min_ns=1211.229 max_ns=1217.026 outputs=69311,299775,460799,690687

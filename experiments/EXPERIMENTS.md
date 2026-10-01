@@ -721,6 +721,16 @@ cross-architecture cause remains unestablished. The Apple chart uses
 changes arm64 performance, so Apple is not a #158 proxy. Acceptance counts
 unchanged.
 
+2026-10-01 [M6 root-cause diagnostic](C-PERF-ROOTCAUSE-2026-10-01/RESULT.md):
+unchanged C `e4e8b0a` library, separately linked probe. Background QoS
+slowed the M6 write path ~6.1× and four-percentile list ~7.1× versus
+interactive, while default/utility matched interactive. C `-O2` vs `-O3`
+and generic `apple-m1` vs native `apple-m4` target changed results by only
+single-digit percentages. The list scan to p99.9 is 84,520 bytes, which may
+fit M6 Super L1D but exceeds documented server-core L1D sizes. No physical
+core-residency or cache-miss counter evidence, so the cross-CPU cause remains
+unproven. Counts and accepted submodule pointer unchanged.
+
 ### C PR review closeout — 2026-09-29
 
 All 11 PRs reviewed and commented at exact commits; eight branches received

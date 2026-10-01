@@ -1,0 +1,15 @@
+hw.perflevel0.name: Super
+hw.perflevel0.physicalcpu: 2
+hw.perflevel0.l1dcachesize: 131072
+hw.perflevel0.l2cachesize: 20971520
+hw.perflevel0.cpusperl2: 2
+hw.perflevel1.name: Performance
+hw.perflevel1.physicalcpu: 4
+hw.perflevel1.l1dcachesize: 65536
+hw.perflevel1.l2cachesize: 20971520
+hw.perflevel1.cpusperl2: 4
+hw.perflevel2.name: Efficiency
+hw.perflevel2.physicalcpu: 6
+hw.perflevel2.l1dcachesize: 98304
+hw.perflevel2.l2cachesize: 8388608
+hw.perflevel2.cpusperl2: 6

@@ -39,6 +39,9 @@ Apple used then-main `e4e8b0a`, while the fleet used PR #158. Apple list
 throughput improved ~17.1× within its own stable/newer pair; no new source
 candidate was accepted by this round. The absolute cross-runner speed gap
 remains unattributed; details and a controlled RNG probe are on the page.
+The [Apple M6 root-cause diagnostic](C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
+finds a large QoS effect and a possible L1D-capacity advantage, while local
+`-O3` and native-target controls are small. It adds no accepted optimization.
 
 [Issue #118 and macOS CI follow-up](ISSUE-118-2026-09-30/STATUS.md) records the
 current-main overflow fix (#159), passing exact-head correctness and native

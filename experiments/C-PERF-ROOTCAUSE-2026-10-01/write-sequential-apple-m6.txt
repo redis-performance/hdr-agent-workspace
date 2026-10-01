@@ -1,0 +1,10 @@
+# Apple M6; C e4e8b0a; AppleClang21; probe C++ -O2; write sequential 400M x5 per invocation
+build=clang requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.499 min_ns=1.441 max_ns=1.511 total=1999999995
+build=clang requested_qos=background actual_qos=9 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=9.218 min_ns=9.195 max_ns=10.025 total=1999999995
+build=clang requested_qos=initiated actual_qos=25 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.488 min_ns=1.449 max_ns=1.506 total=1999999995
+build=clang requested_qos=utility actual_qos=17 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.445 min_ns=1.401 max_ns=1.449 total=1999999995
+build=clang requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.507 min_ns=1.406 max_ns=1.510 total=1999999995
+build=clang_o3 requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.472 min_ns=1.466 max_ns=1.514 total=1999999995
+build=clang_o3 requested_qos=background actual_qos=9 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=9.217 min_ns=9.060 max_ns=9.985 total=1999999995
+build=clang_o3 requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.492 min_ns=1.458 max_ns=1.512 total=1999999995
+build=clang requested_qos=default actual_qos=21 mode=write_sequential count_bytes=3145728 input_bytes=0 median_ns=1.510 min_ns=1.454 max_ns=1.512 total=1999999995

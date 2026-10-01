@@ -1,0 +1,6 @@
+# Apple M6; C e4e8b0a; AppleClang21; probe C++ -O2; 8MB shuffled input, 3MB counts, 40M records x5 per invocation
+build=clang requested_qos=interactive actual_qos=33 mode=write_shuffled count_bytes=3145728 input_bytes=8000000 median_ns=1.467 min_ns=1.464 max_ns=2.373 total=200000000
+build=clang requested_qos=background actual_qos=9 mode=write_shuffled count_bytes=3145728 input_bytes=8000000 median_ns=10.903 min_ns=10.430 max_ns=11.408 total=200000000
+build=clang requested_qos=default actual_qos=21 mode=write_shuffled count_bytes=3145728 input_bytes=8000000 median_ns=1.476 min_ns=1.473 max_ns=2.265 total=200000000
+build=clang requested_qos=interactive actual_qos=33 mode=write_shuffled count_bytes=3145728 input_bytes=8000000 median_ns=1.468 min_ns=1.461 max_ns=1.488 total=200000000
+build=clang_o3 requested_qos=interactive actual_qos=33 mode=write_shuffled count_bytes=3145728 input_bytes=8000000 median_ns=1.457 min_ns=1.450 max_ns=1.899 total=200000000

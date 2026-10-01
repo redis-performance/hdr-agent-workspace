@@ -1,0 +1,4 @@
+# Apple M6; C e4e8b0a; AppleClang21; C RelWithDebInfo (-O2); probe C++ -O2; 2026-10-01
+requested_qos=interactive actual_qos=33 mode=write_sequential count_bytes=3145728 active_span_bytes=2030328 populated=253790 input_bytes=0 median_ns=1.508 min_ns=1.441 max_ns=1.523 total=1999999995
+requested_qos=interactive actual_qos=33 mode=write_shuffled count_bytes=3145728 active_span_bytes=2030328 populated=101894 input_bytes=8000000 median_ns=1.477 min_ns=1.470 max_ns=1.484 total=200000000
+requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 p999_scan_bytes=84520 median_ns=1184.747 min_ns=1181.642 max_ns=1186.350 outputs=69311,299775,460799,690687

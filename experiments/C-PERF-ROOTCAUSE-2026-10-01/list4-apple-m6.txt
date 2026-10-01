@@ -1,0 +1,9 @@
+# Apple M6; C e4e8b0a; AppleClang21; probe C++ -O2; list4 10M gamma input, 5x300k calls
+build=clang requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 median_ns=1195.150 min_ns=1187.557 max_ns=1201.718 outputs=69311,299775,460799,690687
+build=clang requested_qos=background actual_qos=9 mode=list4 count_bytes=147456 median_ns=8490.525 min_ns=8459.238 max_ns=8557.980 outputs=69311,299775,460799,690687
+build=clang requested_qos=default actual_qos=21 mode=list4 count_bytes=147456 median_ns=1194.546 min_ns=1184.977 max_ns=1196.677 outputs=69311,299775,460799,690687
+build=clang requested_qos=utility actual_qos=17 mode=list4 count_bytes=147456 median_ns=1193.736 min_ns=1191.624 max_ns=1198.441 outputs=69311,299775,460799,690687
+build=clang requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 median_ns=1204.341 min_ns=1201.979 max_ns=1208.171 outputs=69311,299775,460799,690687
+build=clang_o3 requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 median_ns=1237.355 min_ns=1231.466 max_ns=1238.426 outputs=69311,299775,460799,690687
+build=clang_o3 requested_qos=background actual_qos=9 mode=list4 count_bytes=147456 median_ns=8562.977 min_ns=8453.981 max_ns=8610.961 outputs=69311,299775,460799,690687
+build=clang_o3 requested_qos=interactive actual_qos=33 mode=list4 count_bytes=147456 median_ns=1243.237 min_ns=1236.527 max_ns=1245.976 outputs=69311,299775,460799,690687
