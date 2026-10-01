@@ -797,3 +797,15 @@ scalar queries are 1.5–1.9x slower in the bounded probe. Hidden+GC performance
 neutrality is not qualified: baseline drift exceeds the 1% acceptance gate.
 Draft patch pairs and raw size/timing/profile evidence are committed locally;
 no upstream PR or accepted submodule pointer change is made by this audit.
+
+The [Os/O3 follow-up](C-HARDENING-2026-10-01/os-vs-o3/README.md) compares
+four alternating pairs per compiler with fixed O3 callers and separately
+compiled Os/O3 libraries. All four builds pass CTest 5/5 and probe checksums
+match. GCC's two-digit paired median throughput ratios favor O3 (1.25x record,
+1.40x query), but pair ranges are wide; Clang's two-digit ranges straddle
+parity, and three-digit queries show no clear gain with either compiler.
+The previous Os recommendation is qualified as size-first, not a runtime
+optimum. Assembly confirms GCC O3 specializes the single-record wrapper;
+supplemental cycle profiles are saved. Full static-only `all` initially failed
+on example include propagation; explicit CTest targets built successfully.
+No acceptance decision or count changed.

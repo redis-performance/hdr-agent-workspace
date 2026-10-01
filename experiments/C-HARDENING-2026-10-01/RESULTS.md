@@ -20,7 +20,10 @@ The following is GNU `size`'s **text column in bytes**, which includes read-only
 
 ## Conservative build candidate
 
-Keep HDR at Os, retain runtime SIMD dispatch, compile only HDR with hidden visibility and function/data sections, and link with garbage collection on Linux. Preserve the executable's existing module-facing exports. Compare against the adapted candidate at Os:
+[Subsequent Os/O3 performance comparison](os-vs-o3/README.md) qualifies this
+size-first choice: Os is smaller, but is not a proven runtime optimum.
+
+For the size-first draft, keep HDR at Os, retain runtime SIMD dispatch, compile only HDR with hidden visibility and function/data sections, and link with garbage collection on Linux. Preserve the executable's existing module-facing exports. Compare against the adapted candidate at Os:
 
 | Binary | Text-column reduction | Actual .text reduction | Stripped-file reduction |
 | --- | ---: | ---: | ---: |

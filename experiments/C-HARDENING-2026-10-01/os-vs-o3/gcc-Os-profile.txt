@@ -1,0 +1,9 @@
+x86_64 supplemental cycles profile
+    81.60%  [.] get_value_from_idx_up_to_count_avx2  -      -
+     8.87%  [.] hdr_record_values                    -      -
+     3.58%  [.] counts_index_for                     -      -
+     1.97%  [.] hdr_record_value                     -      -
+     1.72%  [.] hdr_value_at_percentile              -      -
+     1.14%  [.] get_bucket_index                     -      -
+     0.93%  [.] main                                 -      -
+     0.20%  [.] hdr_value_at_index                   -      -

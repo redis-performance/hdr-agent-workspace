@@ -1,0 +1,337 @@
+{
+  "status": "Supplemental pinned-core alternating runs; fixed O3 caller, no LTO, library flags vary",
+  "revision": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13",
+  "checksums_match": true,
+  "pairs": [
+    {
+      "compiler": "gcc",
+      "pair": 0,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 4.116,
+      "read_ns": 576.6645000000001
+    },
+    {
+      "compiler": "gcc",
+      "pair": 0,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.623,
+      "read_ns": 3491.163
+    },
+    {
+      "compiler": "gcc",
+      "pair": 0,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 2.9185,
+      "read_ns": 355.9715
+    },
+    {
+      "compiler": "gcc",
+      "pair": 0,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.3505000000000003,
+      "read_ns": 3176.7345
+    },
+    {
+      "compiler": "gcc",
+      "pair": 1,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 2.9050000000000002,
+      "read_ns": 361.649
+    },
+    {
+      "compiler": "gcc",
+      "pair": 1,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.129,
+      "read_ns": 3337.5765
+    },
+    {
+      "compiler": "gcc",
+      "pair": 1,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 3.4785000000000004,
+      "read_ns": 498.0075
+    },
+    {
+      "compiler": "gcc",
+      "pair": 1,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.5404999999999998,
+      "read_ns": 3234.782
+    },
+    {
+      "compiler": "gcc",
+      "pair": 2,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 3.6775,
+      "read_ns": 528.0745
+    },
+    {
+      "compiler": "gcc",
+      "pair": 2,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.9185,
+      "read_ns": 3685.9395
+    },
+    {
+      "compiler": "gcc",
+      "pair": 2,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.6635,
+      "read_ns": 445.3745
+    },
+    {
+      "compiler": "gcc",
+      "pair": 2,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.4375,
+      "read_ns": 3642.9615000000003
+    },
+    {
+      "compiler": "gcc",
+      "pair": 3,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.724,
+      "read_ns": 457.8485
+    },
+    {
+      "compiler": "gcc",
+      "pair": 3,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.513,
+      "read_ns": 3950.202
+    },
+    {
+      "compiler": "gcc",
+      "pair": 3,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 4.843999999999999,
+      "read_ns": 647.5675
+    },
+    {
+      "compiler": "gcc",
+      "pair": 3,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.9875000000000003,
+      "read_ns": 3809.139
+    },
+    {
+      "compiler": "clang",
+      "pair": 0,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 3.4690000000000003,
+      "read_ns": 372.7585
+    },
+    {
+      "compiler": "clang",
+      "pair": 0,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 4.5305,
+      "read_ns": 3268.173
+    },
+    {
+      "compiler": "clang",
+      "pair": 0,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.961,
+      "read_ns": 381.40250000000003
+    },
+    {
+      "compiler": "clang",
+      "pair": 0,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.723,
+      "read_ns": 3501.161
+    },
+    {
+      "compiler": "clang",
+      "pair": 1,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.9160000000000004,
+      "read_ns": 382.3935
+    },
+    {
+      "compiler": "clang",
+      "pair": 1,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.4165,
+      "read_ns": 3501.852
+    },
+    {
+      "compiler": "clang",
+      "pair": 1,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 4.0765,
+      "read_ns": 452.64099999999996
+    },
+    {
+      "compiler": "clang",
+      "pair": 1,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 4.167,
+      "read_ns": 3057.5119999999997
+    },
+    {
+      "compiler": "clang",
+      "pair": 2,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 3.411,
+      "read_ns": 375.36350000000004
+    },
+    {
+      "compiler": "clang",
+      "pair": 2,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.6715,
+      "read_ns": 3010.909
+    },
+    {
+      "compiler": "clang",
+      "pair": 2,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.426,
+      "read_ns": 338.18100000000004
+    },
+    {
+      "compiler": "clang",
+      "pair": 2,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.04,
+      "read_ns": 2948.3775
+    },
+    {
+      "compiler": "clang",
+      "pair": 3,
+      "opt": "O3",
+      "digits": 2,
+      "write_ns": 3.286,
+      "read_ns": 318.4335
+    },
+    {
+      "compiler": "clang",
+      "pair": 3,
+      "opt": "O3",
+      "digits": 3,
+      "write_ns": 3.5035,
+      "read_ns": 3185.5924999999997
+    },
+    {
+      "compiler": "clang",
+      "pair": 3,
+      "opt": "Os",
+      "digits": 2,
+      "write_ns": 3.7910000000000004,
+      "read_ns": 434.085
+    },
+    {
+      "compiler": "clang",
+      "pair": 3,
+      "opt": "Os",
+      "digits": 3,
+      "write_ns": 3.8235,
+      "read_ns": 3232.857
+    }
+  ],
+  "summary": [
+    {
+      "compiler": "gcc",
+      "digits": 2,
+      "Os_write_ns": 3.89675,
+      "O3_write_ns": 3.291,
+      "write_ns_O3_speedup_median": 1.249085062052722,
+      "write_ns_O3_speedup_range": [
+        1.0038214821891633,
+        1.4103135172177488
+      ],
+      "Os_read_ns": 552.3695,
+      "O3_read_ns": 403.51175,
+      "read_ns_O3_speedup_median": 1.3957086105144973,
+      "read_ns_O3_speedup_range": [
+        1.1856864279387345,
+        1.6199737900365623
+      ]
+    },
+    {
+      "compiler": "gcc",
+      "digits": 3,
+      "Os_write_ns": 3.77075,
+      "O3_write_ns": 3.394,
+      "write_ns_O3_speedup_median": 1.1332907030154264,
+      "write_ns_O3_speedup_range": [
+        1.0813311446052827,
+        1.1399272727272727
+      ],
+      "Os_read_ns": 3588.55125,
+      "O3_read_ns": 3490.2690000000002,
+      "read_ns_O3_speedup_median": 0.9904992000793198,
+      "read_ns_O3_speedup_range": [
+        0.9642896743002003,
+        1.0989785265340872
+      ]
+    },
+    {
+      "compiler": "clang",
+      "digits": 2,
+      "Os_write_ns": 3.6300000000000003,
+      "O3_write_ns": 3.6710000000000003,
+      "write_ns_O3_speedup_median": 1.0183037079903903,
+      "write_ns_O3_speedup_range": [
+        0.8757889421863166,
+        1.1536822884966527
+      ],
+      "Os_read_ns": 404.72425,
+      "O3_read_ns": 359.79175000000004,
+      "read_ns_O3_speedup_median": 1.146826631313946,
+      "read_ns_O3_speedup_range": [
+        0.9773362786033127,
+        1.3631888604685123
+      ]
+    },
+    {
+      "compiler": "clang",
+      "digits": 3,
+      "Os_write_ns": 3.99525,
+      "O3_write_ns": 3.46,
+      "write_ns_O3_speedup_median": 1.2123126201634222,
+      "write_ns_O3_speedup_range": [
+        1.0913372341943772,
+        1.2196692521586419
+      ],
+      "Os_read_ns": 3145.1845,
+      "O3_read_ns": 3343.37675,
+      "read_ns_O3_speedup_median": 0.974145515783173,
+      "read_ns_O3_speedup_range": [
+        0.8731128557117777,
+        1.021208783474979
+      ]
+    }
+  ]
+}

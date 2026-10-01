@@ -6,6 +6,10 @@ not an accepted hot-path optimization or an upstream MERGE-READY review.
 See [measured results](RESULTS.md), [machine-readable size matrix](size-results.json),
 and [integration contract checks](integration-probes.json).
 
+The later [Os versus O3 speed comparison](os-vs-o3/README.md) qualifies the
+size-first Os recommendation: compiler/workload-dependent gains are possible,
+and runtime performance must be measured independently of binary size.
+
 ## Deliverables
 
 - [Redis vendor update](redis-vendor-update.patch) and
