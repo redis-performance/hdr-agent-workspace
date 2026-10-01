@@ -26,6 +26,7 @@ VARIANTS = {
     "candidate-o3": ("candidate", ["-O3"], []),
     "candidate-gc": ("candidate", ["-Os"] + SECTIONS, ["-Wl,--gc-sections"]),
     "candidate-hidden-gc": ("candidate", ["-Os"] + HIDDEN, ["-Wl,--gc-sections"]),
+    "candidate-o3-hidden-gc": ("candidate", ["-O3"] + HIDDEN, ["-Wl,--gc-sections"]),
     "candidate-exclude-gc": ("candidate", ["-Os"] + SECTIONS,
                              ["-Wl,--gc-sections,--exclude-libs,libhdrhistogram.a"]),
     "candidate-hidden-gc-lto": ("candidate", ["-Os"] + HIDDEN + ["-flto"],

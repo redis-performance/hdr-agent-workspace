@@ -42,11 +42,15 @@ The two small-build patch files are validated separately through normal make.
 
 ## Scope and revisions
 
-The release candidate is HdrHistogram_c PR #158 at
+The original local audit pinned HdrHistogram_c PR #158 at
 `bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13`. Consumer snapshots are Redis
 `b540ca49cba815f3fbe634363c3df68d4f4f127a` and Valkey
 `9b270b6d8b1ae0937c62b7d113ee31e489b2c75a`.
 The workspace submodule and its existing pointer change are preserved.
+
+The subsequent [native Intel/AMD/ARM Os/O3 audit](fleet/STATUS.md) uses
+the updated PR #158 tip `d21d0843b492023077553b3eba26b3efa16c15f5`, including
+its recording-path fix. Keep the two revisions' results separate.
 
 ## Integration requirements
 

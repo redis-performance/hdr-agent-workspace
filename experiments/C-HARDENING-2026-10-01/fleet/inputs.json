@@ -1,0 +1,21 @@
+{
+  "revisions": {
+    "current": "d21d0843b492023077553b3eba26b3efa16c15f5",
+    "reference": "bcb5c1f78f3ee50aaf33fb4898eb1c6bab73de13"
+  },
+  "input_sha256": {
+    "hdr.bundle": "0db7df6b9a27b958a5bdd3049779562210f8731af5b1ce19f8945e0e147e821d",
+    "redis.tar.gz": "17dc4553be5c2ddba06b7a82e157d2f96ab43374d494ad443cc0ff6a561f6f15",
+    "valkey.tar.gz": "2cf680fb5dfd87e73ade89f31a81a7fd26c64059b7472f2f2017f63863c7fbd8",
+    "run_native.py": "cc1d73eed8c0fd781ecfab04c1cd96de9f6e77e1cb4b097b040757d982bbe1ed",
+    "performance-probe.c": "f650b5f9fc7a97698c3f3c749bb4d8e821cc1d449b63ff4221e72e1b837566e1",
+    "scripts/run-bench.sh": "bb9aaaecd7c62fcfa073a81b3c07e45a75898cb9172068ef8254bf5629bc56c7",
+    "scripts/measure-hdr-consumers.py": "ef895f914ddb36dd886764be44dc8e7c95c2ae1ab3efdfc61cf030ed91d01263",
+    "scripts/prepare-hdr-vendor.py": "2f9ffa03e223da6303badf2bf07cff8d376e312c6496ec933322529bb6fabb9d"
+  },
+  "consumer_source_revisions": {
+    "redis": "b540ca49cba815f3fbe634363c3df68d4f4f127a",
+    "valkey": "9b270b6d8b1ae0937c62b7d113ee31e489b2c75a"
+  },
+  "scope": "Native Intel x86_64, AMD x86_64, ARM64; no fleet addresses or credentials in artifacts"
+}

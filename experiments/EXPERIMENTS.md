@@ -809,3 +809,16 @@ optimum. Assembly confirms GCC O3 specializes the single-record wrapper;
 supplemental cycle profiles are saved. Full static-only `all` initially failed
 on example include propagation; explicit CTest targets built successfully.
 No acceptance decision or count changed.
+
+### Native Intel/AMD/ARM Os/O3 validation — 2026-10-01
+
+The user requested actual fleet validation of the compiler tradeoff. The
+[native audit](C-HARDENING-2026-10-01/fleet/STATUS.md) pins the newer PR #158
+tip `d21d0843b492023077553b3eba26b3efa16c15f5`, keeping the earlier `bcb5c1f`
+as a supplemental reference. Three idle native runners use GCC 13.3/Clang 18.1,
+core pinning, alternating flag order, immutable full benchmark drivers and
+competing-work monitoring. All 24 core configurations pass CTest 5/5 before
+timing. Consumer builds measure Os/O3 with and without HDR-private visibility
+and section GC; full measurements/profiles are running. Connection details
+stay outside the repository. No new optimization/default accepted; counts
+and the pre-existing submodule pointer remain unchanged.
