@@ -61,7 +61,7 @@ def render(key, title, unit, scale, ticks, note):
 render(
     "write", "C write benchmark by runner", "Million records/second", 800,
     [0, 200, 400, 600, 800],
-    "Intel/AMD/Graviton: median of 5 interleaved core-pinned runs (0.11.10 vs #158 tip). Apple: two runs."
+    "Intel/AMD/Graviton: median of interleaved core-pinned runs, 0.11.10 vs #158 fixed tip d21d084 (write ~flat, within +/-5%). Apple: two runs (pre-fix e4e8b0a)."
 )
 render(
     "read", "C single-percentile benchmark by runner", "Million queries/second", 1.0,

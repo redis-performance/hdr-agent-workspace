@@ -5,10 +5,13 @@
 The write and single-read charts use the immutable C project benchmark drivers;
 the list chart uses the project's unchanged Google Benchmark C++ driver for
 `hdr_value_at_percentiles` with four percentiles. The Apple bars show
-two interleaved runs per revision. Intel, AMD, and AWS Graviton were measured
-2026-09-30 on the AWS benchmark fleet (0.11.10 `18c7a32` vs PR #158 tip `bcb5c1f`),
+two interleaved runs per revision. Intel, AMD, and AWS Graviton read/list were
+measured 2026-09-30 on the AWS benchmark fleet (0.11.10 `18c7a32` vs PR #158 tip),
 median of interleaved core-pinned runs; raw logs in
 [`C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/`](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/).
+The **write** rows were re-measured 2026-10-01 at the fixed #158 tip `d21d084`
+(same-session, interleaved, 3-point prev/old-tip/fixed-tip); raw logs in
+[`C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/`](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/).
 Higher is better.
 
 ![C write benchmark: previous stable versus master by runner](C-PERFORMANCE-CHARTS/write.svg)
@@ -47,18 +50,27 @@ result. `TBD` means that a fresh native result has not been supplied yet.
 | Architecture | C revision and workload | Write | Single-percentile read | Evidence |
 |---|---|---:|---:|---|
 | Intel x86-64, Granite Rapids (Xeon 6972P) | Historical C submodule tip, cross-language harness, varied writes and log-normal reads | 415 M records/s (2.41 ns/record) | 767 K queries/s (1,303 ns/query) | [Harness and method](CROSS-LANG/RESULTS.md) |
-| AMD x86-64, Zen 5 (m8a.metal-24xl) | PR #158 tip `bcb5c1f`, immutable write/read drivers, 5×/3× interleaved | 449.7 M records/s (0.11.10: 499.6, **−10%**) | 0.89 M queries/s (0.11.10: 0.42, **+112%**) | [fleet raw](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/amd.out) |
-| ARM64, AWS Graviton / Neoverse-V2 (m8g.metal-24xl) | PR #158 tip `bcb5c1f`, immutable write/read drivers, 5×/3× interleaved | 381.7 M records/s (0.11.10: 398.4, **−4.2%**) | 0.11 M queries/s (0.11.10: 0.09, **+22%**) | [fleet raw](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/arm.out) |
-| Intel x86-64, Sapphire Rapids (m7i.metal-24xl) | PR #158 tip `bcb5c1f`, immutable write/read drivers, 5×/3× interleaved | 423.2 M records/s (0.11.10: 327.1, **+29%**) | 0.47 M queries/s (0.11.10: 0.27, **+74%**) | [fleet raw](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/intel.out) |
+| AMD x86-64, Zen 5 (m8a.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 489.0 M records/s (0.11.10: 500.2, **−2.2%**) | 0.89 M queries/s (0.11.10: 0.42, **+112%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/amd-w2.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/amd.out) |
+| ARM64, AWS Graviton / Neoverse-V2 (m8g.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 393.5 M records/s (0.11.10: 398.4, **−1.2%**) | 0.11 M queries/s (0.11.10: 0.09, **+22%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/arm-w3.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/arm.out) |
+| Intel x86-64, Sapphire Rapids (m7i.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 344.9 M records/s (0.11.10: 329.7, **+4.6%**) | 0.47 M queries/s (0.11.10: 0.27, **+74%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/intel-w3.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/intel.out) |
 | ARM64, Apple M6 | Upstream `e4e8b0a` (2026-09-30), immutable project write/read drivers | 710.33–710.78 M records/s, two runs | 0.22 M queries/s, two runs | [Post-merge round and raw logs](OPT-ROUND-2026-09-30/STATUS.md) |
 
-The write and read deltas above span **every** change from 0.11.10 to #158 tip
-(all merged PRs), not #158 alone, and are within-runner (0.11.10 vs #158 on the same
-box). Read gains are large and consistent everywhere; **write is uarch-dependent** —
-Sapphire Rapids +29% but Zen 5 −10% and Neoverse-V2 −4.2% — so the write change is not
-a single-direction optimization claim. Apple M6 was measured at `e4e8b0a` (one commit
-before #158); #158's read-scan change is x86-AVX2-only and a no-op on ARM, so M6 stands
-in for #158 on that row.
+The read/list deltas above span **every** change from 0.11.10 to the #158 tip
+(all merged PRs), not #158 alone, and are within-runner on the same box. Read gains
+are large and consistent everywhere.
+
+**Write is ~flat (within ±5%) at the fixed #158 tip** (`d21d084`): Sapphire Rapids
++4.6%, Zen 5 −2.2%, Neoverse-V2 −1.2%. An earlier tip (`bcb5c1f`) showed much larger
+write swings — SPR +28%, Zen 5 −10%, N-V2 −4.2% — but a same-session 3-point run
+(0.11.10 / `bcb5c1f` / `d21d084`) showed those swings are a **code-layout artifact** of
+a `count < 0` guard that sat on the single-value record hot path: the only write-path
+diff from 0.11.10 is that one always-not-taken branch, yet its effect on code alignment
+swung +28% on SPR and −10% on Zen 5. The fix (`d21d084`) keeps that check only on the
+explicit `*_values(count)` API, off the single-value hot path, so write returns to ~flat
+across all three server uarches. The write change is therefore **not** a write
+optimization claim in either direction; #158's value is the read/list path. Apple M6 was
+measured at `e4e8b0a`; #158's read-scan change is x86-AVX2-only and a no-op on ARM, so M6
+stands in for #158 on that row (its write was not re-measured at the fixed tip).
 
 The Intel result uses `gcc -O3 -march=native`, one pinned core, and the
 [cross-language C harness](CROSS-LANG/c/microbench.c). Its exact C source hash

@@ -1,0 +1,12 @@
+host ip-172-31-49-177 core 10  2026-10-01T07:16:05Z
+built old (bcb5c1f)
+built fix (d21d084)
+built inl (820caa5)
+r1 old=448588831.94 fix=490559421.22 inl=409754392.02
+r2 old=448905063.82 fix=488890560.27 inl=409619918.27
+r3 old=499059257.70 fix=488819693.34 inl=409716984.25
+===== AMD old/fix/inl =====
+RESULT old (bcb5c1f)  median=448905063.8 min=448588831.9 max=499059257.7 n=3
+RESULT fix (d21d084)  median=488890560.3 min=488819693.3 max=490559421.2 n=3
+RESULT inl (820caa5)  median=409716984.2 min=409619918.3 max=409754392.0 n=3
+DONE
