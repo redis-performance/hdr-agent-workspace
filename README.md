@@ -470,3 +470,9 @@ compares Os/O3 on PR #158's `d21d084` revision, with Redis/Valkey integration,
 final executable sizes, profiles, hardware/compiler inventories and core-pinning
 methodology. GCC gains and Clang read regressions require conditional defaults;
 no new optimization or accepted baseline change is recorded by this audit.
+
+The [ARM Clang follow-up](experiments/C-ARM-CLANG-SCAN-2026-10-01/RESULTS.md)
+finds a narrow unroll-control candidate: 2.120x full O3 read throughput, unchanged
+write throughput and GCC/x86 code, with a small early-crossing cost. The broad
+refactor was rejected; required Opus review remains blocked by quota. Patch and
+evidence are saved locally, with no PR or acceptance-count change.

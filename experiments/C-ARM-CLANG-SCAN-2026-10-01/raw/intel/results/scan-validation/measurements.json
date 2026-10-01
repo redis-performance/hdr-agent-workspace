@@ -1,0 +1,42 @@
+[
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 0,
+    "variant": "base",
+    "record_ops": 468537402.86,
+    "read_seconds": 48.764,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-0-base.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 1,
+    "variant": "patch",
+    "record_ops": 469785210.95500004,
+    "read_seconds": 48.774,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-1-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 2,
+    "variant": "patch",
+    "record_ops": 468290389.015,
+    "read_seconds": 48.758,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-2-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 3,
+    "variant": "base",
+    "record_ops": 468827887.08000004,
+    "read_seconds": 48.761,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-3-base.log"
+  }
+]

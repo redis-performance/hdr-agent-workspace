@@ -1,0 +1,8 @@
+{
+  "label": "intel",
+  "reason": "General refactor rejected: repeated AMD Clang O3 read regression",
+  "complete_initial_runs": 4,
+  "incomplete_inflight_runs": "Retained as stopped logs; excluded from completed measurements",
+  "next_candidate": "Clang ARM crossing-loop unroll-disable pragma",
+  "time": 1790859526.5703535
+}

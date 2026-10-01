@@ -1,0 +1,50 @@
+{
+  "clang-O3-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "139df0c7965ec59ba1cc688e1f09fbd030a0f696584f1f15a8cc98455e545092"
+  },
+  "gcc-O3-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "da3ab80a42de55ac5afe194cf68f6e35bab01541c48a3da0a9822957ce9da8ed"
+  },
+  "clang-O3-patch": {
+    "src/hdr_histogram.c": "0a8482f62954a0dcfcfe2abba96f814957a7c7edb9ab453caf40abac371a8baf",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "00c3617158110dbb4135238e5efd2c44681ad9980fda0f21d0e02d3a2f116536"
+  },
+  "gcc-O3-patch": {
+    "src/hdr_histogram.c": "0a8482f62954a0dcfcfe2abba96f814957a7c7edb9ab453caf40abac371a8baf",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "d3e07235f51fdd6c6ab1400a6cdeabe12487eb4cd2e62699a9163b39221c22d7"
+  },
+  "clang-Os-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "ef77c9e95ad66d4f4c8740f67f03efbcd550c24747d494661425b766fefe11d8"
+  },
+  "gcc-Os-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "2039bec8ffd99e948233002225d6fa1f7e9f388ae021ff09e014c3dc8326fca6"
+  },
+  "clang-Os-patch": {
+    "src/hdr_histogram.c": "0a8482f62954a0dcfcfe2abba96f814957a7c7edb9ab453caf40abac371a8baf",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "15d02bfb8c7ca40384756a846e2fbcbaaf0e4bb2cfe734e2dfdfbac05c861cdc"
+  },
+  "gcc-Os-patch": {
+    "src/hdr_histogram.c": "0a8482f62954a0dcfcfe2abba96f814957a7c7edb9ab453caf40abac371a8baf",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "library": "4bf1373671c88b2bb4c915ade1e13cb2c43d1a1a087cd225cd2f09b4c9a561b3"
+  }
+}

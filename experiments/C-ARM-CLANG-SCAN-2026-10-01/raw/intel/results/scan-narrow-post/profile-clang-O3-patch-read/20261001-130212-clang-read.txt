@@ -1,0 +1,44 @@
+# Bounded perf report — read path — clang
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+    99.17%    98.98%  hdr_percentile_  hdr_percentile_bench                        [.] get_value_from_idx_up_to_count_avx2
+     0.76%     0.73%  hdr_percentile_  hdr_percentile_bench                        [.] hdr_value_at_percentile
+     0.25%     0.00%  hdr_percentile_  hdr_percentile_bench                        [.] hdr_value_at_index (inlined)
+     0.23%     0.00%  hdr_percentile_  hdr_percentile_bench                        [.] get_value_from_idx_up_to_count (inlined)
+     0.18%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] asm_sysvec_apic_timer_interrupt
+     0.18%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] sysvec_apic_timer_interrupt
+     0.17%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] __sysvec_apic_timer_interrupt
+     0.17%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] hrtimer_interrupt
+     0.13%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] __hrtimer_run_queues
+     0.12%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] tick_nohz_handler
+     0.10%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] update_process_times
+     0.10%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] sched_tick
+     0.09%     0.07%  hdr_percentile_  hdr_percentile_bench                        [.] main
+     0.06%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] task_tick_fair
+     0.05%     0.01%  hdr_percentile_  [kernel.kallsyms]                           [.] update_load_avg
+     0.03%     0.03%  hdr_percentile_  [kernel.kallsyms]                           [k] __update_load_avg_cfs_rq
+     0.03%     0.00%  hdr_percentile_  hdr_percentile_bench                        [.] _start
+     0.03%     0.00%  hdr_percentile_  libc.so.6                                   [.] __libc_start_main
+     0.02%     0.02%  hdr_percentile_  hdr_percentile_bench                        [.] hdr_record_value
+     0.02%     0.00%  hdr_percentile_  hdr_percentile_bench                        [.] highest_equivalent_value (inlined)
+     0.02%     0.00%  hdr_percentile_  hdr_percentile_bench                        [.] hdr_size_of_equivalent_value_range (inlined)
+     0.02%     0.01%  hdr_percentile_  [kernel.kallsyms]                           [.] arch_scale_freq_tick
+     0.02%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] tick_do_update_jiffies64
+     0.02%     0.00%  hdr_percentile_  [kernel.kallsyms]                           [.] update_wall_time
+     0.02%     0.02%  hdr_percentile_  [kernel.kallsyms]                           [k] __raw_spin_lock_irqsave
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/clang/test/hdr_percentile_bench':
+
+       12424924680      branches
+           8149276      branch-misses
+            249160      cache-references
+             23822      cache-misses
+      130180524400      instructions
+       37662121803      cycles
+
+      10.000204261 seconds time elapsed
+
+      10.000391000 seconds user
+       0.000869000 seconds sys

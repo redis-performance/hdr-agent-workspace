@@ -1,0 +1,42 @@
+{"label": "arm", "phase": "starting", "time": 1790858684.2670603}
+{"label": "arm", "phase": "building", "time": 1790858687.281273, "variant": "clang-O3-base"}
+{"label": "arm", "phase": "building", "time": 1790858693.8667245, "variant": "gcc-O3-base"}
+{"label": "arm", "phase": "building", "time": 1790858699.0507798, "variant": "clang-O3-patch"}
+{"label": "arm", "phase": "building", "time": 1790858706.1887765, "variant": "gcc-O3-patch"}
+{"label": "arm", "phase": "building", "time": 1790858711.600603, "variant": "clang-Os-base"}
+{"label": "arm", "phase": "building", "time": 1790858718.3179953, "variant": "gcc-Os-base"}
+{"label": "arm", "phase": "building", "time": 1790858723.4357064, "variant": "clang-Os-patch"}
+{"label": "arm", "phase": "building", "time": 1790858729.9846294, "variant": "gcc-Os-patch"}
+{"label": "arm", "phase": "measuring", "time": 1790858738.0317588, "run": "probe-clang-O3-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858741.0331652, "run": "probe-clang-O3-0-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858744.0339937, "run": "probe-clang-O3-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858747.0356238, "run": "probe-clang-O3-1-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858750.0365086, "run": "probe-clang-O3-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858753.0381846, "run": "probe-clang-O3-2-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858756.0390031, "run": "probe-clang-O3-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858759.0406446, "run": "probe-clang-O3-3-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858762.0414667, "run": "probe-clang-Os-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858765.043111, "run": "probe-clang-Os-0-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858768.043944, "run": "probe-clang-Os-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858771.0455508, "run": "probe-clang-Os-1-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858774.046514, "run": "probe-clang-Os-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858777.0482333, "run": "probe-clang-Os-2-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858780.0490408, "run": "probe-clang-Os-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858783.050662, "run": "probe-clang-Os-3-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858786.0514898, "run": "probe-gcc-O3-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858789.0548663, "run": "probe-gcc-O3-0-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858792.0557055, "run": "probe-gcc-O3-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858795.0573406, "run": "probe-gcc-O3-1-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858798.0581365, "run": "probe-gcc-O3-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858801.0597165, "run": "probe-gcc-O3-2-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858804.060513, "run": "probe-gcc-O3-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858807.0621843, "run": "probe-gcc-O3-3-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858810.0629811, "run": "probe-gcc-Os-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858813.0645554, "run": "probe-gcc-Os-0-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858816.0653644, "run": "probe-gcc-Os-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858819.0669444, "run": "probe-gcc-Os-1-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858822.0677397, "run": "probe-gcc-Os-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858825.0693028, "run": "probe-gcc-Os-2-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790858828.0701284, "run": "probe-gcc-Os-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790858831.0716798, "run": "probe-gcc-Os-3-base", "seconds": 3.0}
+{"label": "arm", "phase": "complete", "time": 1790858831.0717788}

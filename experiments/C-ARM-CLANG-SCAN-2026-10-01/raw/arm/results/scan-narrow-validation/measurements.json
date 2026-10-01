@@ -1,0 +1,82 @@
+[
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 0,
+    "variant": "base",
+    "record_ops": 411032499.72,
+    "read_seconds": 189.088,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-0-base.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 1,
+    "variant": "patch",
+    "record_ops": 411386301.115,
+    "read_seconds": 88.955,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-1-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 2,
+    "variant": "patch",
+    "record_ops": 411409327.54499996,
+    "read_seconds": 89.476,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-2-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 3,
+    "variant": "base",
+    "record_ops": 408796338.605,
+    "read_seconds": 189.148,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-3-base.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "index": 0,
+    "variant": "base",
+    "record_ops": 413722811.48,
+    "read_seconds": 83.83,
+    "sink": "17401860284404480",
+    "log": "referee-clang-Os-0-base.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "index": 1,
+    "variant": "patch",
+    "record_ops": 414850886.41499996,
+    "read_seconds": 83.822,
+    "sink": "17401860284404480",
+    "log": "referee-clang-Os-1-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "index": 2,
+    "variant": "patch",
+    "record_ops": 414750880.35,
+    "read_seconds": 83.843,
+    "sink": "17401860284404480",
+    "log": "referee-clang-Os-2-patch.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "Os",
+    "index": 3,
+    "variant": "base",
+    "record_ops": 414830553.0,
+    "read_seconds": 83.826,
+    "sink": "17401860284404480",
+    "log": "referee-clang-Os-3-base.log"
+  }
+]

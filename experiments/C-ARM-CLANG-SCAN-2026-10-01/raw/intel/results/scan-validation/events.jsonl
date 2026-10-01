@@ -1,0 +1,10 @@
+{"label": "intel", "phase": "starting", "time": 1790858955.960797}
+{"label": "intel", "phase": "measuring", "time": 1790858973.6230721, "run": "referee-clang-O3-0-base", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859108.6465652, "run": "referee-clang-O3-0-base", "seconds": 135.02}
+{"label": "intel", "phase": "measuring", "time": 1790859111.647765, "run": "referee-clang-O3-1-patch", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859246.6711316, "run": "referee-clang-O3-1-patch", "seconds": 135.02}
+{"label": "intel", "phase": "measuring", "time": 1790859249.672087, "run": "referee-clang-O3-2-patch", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859384.6955295, "run": "referee-clang-O3-2-patch", "seconds": 135.02}
+{"label": "intel", "phase": "measuring", "time": 1790859387.6965497, "run": "referee-clang-O3-3-base", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859522.7179508, "run": "referee-clang-O3-3-base", "seconds": 135.02}
+{"label": "intel", "phase": "stopped", "time": 1790859525.5701098}

@@ -1,0 +1,47 @@
+# Bounded perf report — write path — gcc
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+    96.41%    84.44%  hdr_histogram_p  hdr_histogram_perf    [.] hdr_record_value
+    75.05%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] record_value_counted (inlined)
+    34.67%    15.00%  hdr_histogram_p  hdr_histogram_perf    [.] main
+    17.69%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] counts_inc_normalised (inlined)
+    14.77%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] counts_index_for (inlined)
+    13.80%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] get_bucket_index (inlined)
+     0.90%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] counts_index (inlined)
+     0.51%     0.02%  hdr_histogram_p  [kernel.kallsyms]     [.] asm_sysvec_apic_timer_interrupt
+     0.51%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] sysvec_apic_timer_interrupt
+     0.49%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] hrtimer_interrupt
+     0.48%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] __sysvec_apic_timer_interrupt
+     0.48%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] __hrtimer_run_queues
+     0.47%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] tick_nohz_handler
+     0.47%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] update_process_times
+     0.47%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] sched_tick
+     0.44%     0.43%  hdr_histogram_p  [kernel.kallsyms]     [.] __calc_delta.constprop.0
+     0.44%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] task_tick_fair
+     0.43%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] update_load_avg
+     0.24%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] update_min_max (inlined)
+     0.06%     0.00%  hdr_histogram_p  hdr_histogram_perf    [.] get_sub_bucket_index (inlined)
+     0.03%     0.02%  hdr_histogram_p  [kernel.kallsyms]     [.] perf_ibs_stop
+     0.03%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] perf_event_task_tick
+     0.03%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] perf_adjust_freq_unthr_context
+     0.03%     0.00%  hdr_histogram_p  [kernel.kallsyms]     [.] perf_adjust_freq_unthr_events
+     0.03%     0.03%  timeout          [kernel.kallsyms]     [k] x64_sys_call
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/gcc/test/hdr_histogram_perf':
+
+       63804869129      branches                                                                (83.31%)
+            232132      branch-misses                                                           (83.34%)
+           5405566      cache-references                                                        (83.33%)
+            169268      cache-misses                                                            (83.35%)
+      305177828797      instructions                                                            (83.33%)
+       45305802868      cycles                                                                  (83.34%)
+
+      10.000287136 seconds time elapsed
+
+       9.999388000 seconds user
+       0.000000000 seconds sys
+
+
+==> Saved: /tmp/hdr-os-o3-fleet-20261001/results/scan-narrow-post/profile-gcc-O3-patch-write/20261001-130236-gcc-write.txt

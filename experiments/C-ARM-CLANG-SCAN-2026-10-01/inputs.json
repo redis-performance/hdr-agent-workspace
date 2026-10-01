@@ -1,0 +1,14 @@
+{
+  "baseline": "d21d0843b492023077553b3eba26b3efa16c15f5",
+  "upstream_apply_test": "57db4223d1a356b21dbece675bce812419920c58",
+  "source_change": "Four guarded lines; disables only the crossing-loop unroll for Clang AArch64",
+  "patch_hashes": {
+    "crossing-test.patch": "acb617cb8e91d0ae8e9b1e1b3c80232fbc6c884de1436f98114171436ec20af0",
+    "candidate.patch": "8cf36ea05b3067b13f38f0d5bd3909e430fd072d0e529e345f0f709b92d2ee55",
+    "upstream-candidate.patch": "64f7ffa3ed8d7b85fe06903a4acb4d92295d1af28b81d635aa42dddb4c12ecee",
+    "narrow-candidate.patch": "c4bae87260c9c2d0205f25e919bc666d0ce4f33a31c6cc35c6335ea383647a4c"
+  },
+  "benchmark_drivers": "Unmodified, caller -O3, library varied separately; source hashes in raw inputs.json",
+  "review_model": "claude-opus-4-8 requested; account weekly limit prevented review; no verdict",
+  "public_data": "Connection details and full identifying inventories remain outside git; previous sanitized inventory applies."
+}

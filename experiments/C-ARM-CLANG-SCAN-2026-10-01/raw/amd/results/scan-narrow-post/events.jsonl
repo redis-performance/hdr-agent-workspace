@@ -1,0 +1,18 @@
+{"label": "amd", "phase": "starting", "time": 1790859557.422498}
+{"label": "amd", "phase": "measuring", "time": 1790859566.8974438, "run": "profile-clang-O3-base-read", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859590.9024808, "run": "profile-clang-O3-base-read", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859594.1000116, "run": "profile-clang-O3-base-write", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859618.105219, "run": "profile-clang-O3-base-write", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859621.1064346, "run": "profile-clang-O3-patch-read", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859645.1114135, "run": "profile-clang-O3-patch-read", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859648.311185, "run": "profile-clang-O3-patch-write", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859672.3161523, "run": "profile-clang-O3-patch-write", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859675.3173969, "run": "profile-gcc-O3-base-read", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859699.3225539, "run": "profile-gcc-O3-base-read", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859702.5230918, "run": "profile-gcc-O3-base-write", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859726.5281575, "run": "profile-gcc-O3-base-write", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859729.5293696, "run": "profile-gcc-O3-patch-read", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859753.5341055, "run": "profile-gcc-O3-patch-read", "seconds": 24.0}
+{"label": "amd", "phase": "measuring", "time": 1790859756.7410183, "run": "profile-gcc-O3-patch-write", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859780.7452712, "run": "profile-gcc-O3-patch-write", "seconds": 24.0}
+{"label": "amd", "phase": "complete", "time": 1790859780.74546}

@@ -1,0 +1,219 @@
+ Percent |	Source code & Disassembly of hdr_percentile_bench for cpu/cycles/P (66 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         : 0    0x5990 <hdr_value_at_percentile>:
+    0.00 :   5990:        endbr64
+    0.00 :   5994:        pushq   %r14
+    0.00 :   5996:        pushq   %r13
+    1.52 :   5998:        pushq   %r12
+    0.00 :   599a:        pushq   %rbp
+    0.00 :   599b:        pushq   %rbx
+    0.00 :   599c:        movq    %rdi, %rbx
+    4.56 :   599f:        subq    $0x10, %rsp
+    0.00 :   59a3:        movsd   0x16cd(%rip), %xmm1  # 0x7078
+    0.00 :   59ab:        movsd   0x16e5(%rip), %xmm2  # 0x7098
+    0.00 :   59b3:        comisd  %xmm0, %xmm1
+    3.04 :   59b7:        jbe     0x59c1 <hdr_value_at_percentile+0x31>
+    0.00 :   59b9:        movapd  %xmm0, %xmm2
+   12.10 :   59bd:        divsd   %xmm1, %xmm2
+    0.00 :   59c1:        pxor    %xmm1, %xmm1
+    0.00 :   59c5:        movl    0x40(%rbx), %r13d
+    0.00 :   59c9:        movl    $0x1, %eax
+    1.52 :   59ce:        cvtsi2sdq       0x58(%rbx), %xmm1
+    7.59 :   59d4:        mulsd   %xmm2, %xmm1
+    6.06 :   59d8:        addsd   0x16c8(%rip), %xmm1  # 0x70a8
+    7.56 :   59e0:        cvttsd2si       %xmm1, %rdi
+    4.56 :   59e5:        testq   %rdi, %rdi
+    7.59 :   59e8:        cmovleq %rax, %rdi
+    0.00 :   59ec:        testl   %r13d, %r13d
+    0.00 :   59ef:        jne     0x5b69 <hdr_value_at_percentile+0x1d9>
+    0.00 :   59f5:        leaq    0x4634(%rip), %rax  # 0xa030 <__cpu_model>
+    0.00 :   59fc:        testb   $0x4, 0xd(%rax)
+    1.52 :   5a00:        jne     0x5c1b <hdr_value_at_percentile+0x28b>
+    0.00 :   5a06:        movl    0x50(%rbx), %r12d
+    0.00 :   5a0a:        movq    0x60(%rbx), %r14
+    0.00 :   5a0e:        xorl    %esi, %esi
+    0.00 :   5a10:        xorl    %ecx, %ecx
+    0.00 :   5a12:        movl    %r12d, %edx
+    0.00 :   5a15:        movl    %r12d, %ebp
+    0.00 :   5a18:        sarl    $0x1f, %edx
+    0.00 :   5a1b:        shrl    $0x1e, %edx
+    0.00 :   5a1e:        leal    (%r12,%rdx), %eax
+    0.00 :   5a22:        andl    $0x3, %eax
+    0.00 :   5a25:        subl    %edx, %eax
+    0.00 :   5a27:        movq    %r14, %rdx
+    0.00 :   5a2a:        subl    %eax, %ebp
+    0.00 :   5a2c:        testl   %ebp, %ebp
+    0.00 :   5a2e:        jg      0x5a46 <hdr_value_at_percentile+0xb6>
+    0.00 :   5a30:        jmp     0x5ac0 <hdr_value_at_percentile+0x130>
+    0.00 :   5a35:        nopl    (%rax)
+    0.00 :   5a38:        movq    %rax, %rcx
+    0.00 :   5a3b:        addl    $0x4, %esi
+    0.00 :   5a3e:        addq    $0x20, %rdx
+    0.00 :   5a42:        cmpl    %esi, %ebp
+    0.00 :   5a44:        jle     0x5ac0 <hdr_value_at_percentile+0x130>
+    0.00 :   5a46:        movq    (%rdx), %r8
+    0.00 :   5a49:        movq    0x8(%rdx), %r9
+    0.00 :   5a4d:        movq    0x10(%rdx), %r10
+    0.00 :   5a51:        movq    0x18(%rdx), %r11
+    0.00 :   5a55:        leaq    (%r8,%r9), %rax
+    0.00 :   5a59:        addq    %r10, %rax
+    0.00 :   5a5c:        addq    %r11, %rax
+    0.00 :   5a5f:        addq    %rcx, %rax
+    0.00 :   5a62:        cmpq    %rdi, %rax
+    0.00 :   5a65:        jb      0x5a38 <hdr_value_at_percentile+0xa8>
+    0.00 :   5a67:        addq    %r8, %rcx
+    0.00 :   5a6a:        cmpq    %rdi, %rcx
+    0.00 :   5a6d:        jge     0x5a92 <hdr_value_at_percentile+0x102>
+    0.00 :   5a6f:        addq    %r9, %rcx
+    0.00 :   5a72:        cmpq    %rcx, %rdi
+    0.00 :   5a75:        jle     0x5c40 <hdr_value_at_percentile+0x2b0>
+    0.00 :   5a7b:        addq    %r10, %rcx
+    0.00 :   5a7e:        cmpq    %rcx, %rdi
+    0.00 :   5a81:        jle     0x5c48 <hdr_value_at_percentile+0x2b8>
+    0.00 :   5a87:        addq    %r11, %rcx
+    0.00 :   5a8a:        cmpq    %rcx, %rdi
+    0.00 :   5a8d:        jg      0x5a3b <hdr_value_at_percentile+0xab>
+    0.00 :   5a8f:        addl    $0x3, %esi
+    0.00 :   5a92:        movl    0x18(%rbx), %eax
+    0.00 :   5a95:        movl    0x1c(%rbx), %edi
+    0.00 :   5a98:        movl    %esi, %edx
+    0.00 :   5a9a:        movl    %eax, %ecx
+    0.00 :   5a9c:        sarl    %cl, %edx
+    0.00 :   5a9e:        leal    -0x1(%rdi), %ecx
+    0.00 :   5aa1:        leal    -0x1(%rdx), %r8d
+    0.00 :   5aa5:        andl    %esi, %ecx
+    0.00 :   5aa7:        testl   %edx, %edx
+    0.00 :   5aa9:        je      0x5ab0 <hdr_value_at_percentile+0x120>
+    0.00 :   5aab:        addl    %edi, %ecx
+    0.00 :   5aad:        movl    %r8d, %r13d
+    0.00 :   5ab0:        movl    0x10(%rbx), %edx
+    0.00 :   5ab3:        movslq  %ecx, %rsi
+    0.00 :   5ab6:        leal    (%rdx,%r13), %ecx
+    0.00 :   5aba:        shlq    %cl, %rsi
+    0.00 :   5abd:        jmp     0x5b03 <hdr_value_at_percentile+0x173>
+    0.00 :   5abf:        nop
+    0.00 :   5ac0:        movl    0x18(%rbx), %eax
+    0.00 :   5ac3:        movl    0x10(%rbx), %edx
+    0.00 :   5ac6:        cmpl    %r12d, %esi
+    0.00 :   5ac9:        jge     0x5b01 <hdr_value_at_percentile+0x171>
+    0.00 :   5acb:        movslq  %esi, %r8
+    0.00 :   5ace:        addq    (%r14,%r8,8), %rcx
+    0.00 :   5ad2:        cmpq    %rcx, %rdi
+    0.00 :   5ad5:        jle     0x5bed <hdr_value_at_percentile+0x25d>
+    0.00 :   5adb:        addl    $0x1, %esi
+    0.00 :   5ade:        movslq  %esi, %rsi
+    0.00 :   5ae1:        jmp     0x5afc <hdr_value_at_percentile+0x16c>
+    0.00 :   5ae3:        nopl    (%rax,%rax)
+    0.00 :   5ae8:        addq    (%r14,%rsi,8), %rcx
+    0.00 :   5aec:        leaq    0x1(%rsi), %r8
+    0.00 :   5af0:        cmpq    %rcx, %rdi
+    0.00 :   5af3:        jle     0x5bed <hdr_value_at_percentile+0x25d>
+    0.00 :   5af9:        movq    %r8, %rsi
+    0.00 :   5afc:        cmpl    %esi, %r12d
+    0.00 :   5aff:        jg      0x5ae8 <hdr_value_at_percentile+0x158>
+    0.00 :   5b01:        xorl    %esi, %esi
+    6.07 :   5b03:        movq    0x20(%rbx), %rcx
+    0.00 :   5b07:        pxor    %xmm1, %xmm1
+    1.52 :   5b0b:        orq     %rsi, %rcx
+    3.02 :   5b0e:        bsrq    %rcx, %rcx
+    3.04 :   5b12:        subl    %eax, %ecx
+    0.00 :   5b14:        sarq    %cl, %rsi
+    0.00 :   5b17:        movl    %ecx, %edi
+    0.00 :   5b19:        movslq  %esi, %rax
+    3.01 :   5b1c:        subl    %edx, %edi
+    0.00 :   5b1e:        shlq    %cl, %rax
+    0.00 :   5b21:        ucomisd %xmm1, %xmm0
+    0.00 :   5b25:        jp      0x5b29 <hdr_value_at_percentile+0x199>
+    0.00 :   5b27:        je      0x5b5c <hdr_value_at_percentile+0x1cc>
+    0.00 :   5b29:        cmpl    %esi, 0x28(%rbx)
+    3.00 :   5b2c:        jg      0x5b32 <hdr_value_at_percentile+0x1a2>
+    0.00 :   5b2e:        leal    0x1(%rdx,%rdi), %ecx
+    0.00 :   5b32:        movl    $0x1, %edx
+    0.00 :   5b37:        shlq    %cl, %rdx
+    4.55 :   5b3a:        movq    %rdx, %rcx
+    0.00 :   5b3d:        movabsq $0x7fffffffffffffff, %rdx
+    0.00 :   5b47:        movq    %rdx, %rsi
+    0.00 :   5b4a:        subq    %rcx, %rsi
+    3.03 :   5b4d:        leaq    -0x1(%rcx,%rax), %rcx
+    0.00 :   5b52:        cmpq    %rax, %rsi
+    0.00 :   5b55:        movq    %rdx, %rax
+    0.00 :   5b58:        cmovgeq %rcx, %rax
+    3.04 :   5b5c:        addq    $0x10, %rsp
+    0.00 :   5b60:        popq    %rbx
+    0.00 :   5b61:        popq    %rbp
+    0.00 :   5b62:        popq    %r12
+    3.03 :   5b64:        popq    %r13
+    1.52 :   5b66:        popq    %r14
+    1.52 :   5b68:        retq
+    0.00 :   5b69:        movl    0x50(%rbx), %r9d
+    0.00 :   5b6d:        movq    0x60(%rbx), %r11
+    0.00 :   5b71:        movl    0x18(%rbx), %eax
+    0.00 :   5b74:        movl    0x10(%rbx), %edx
+    0.00 :   5b77:        testl   %r9d, %r9d
+    0.00 :   5b7a:        jle     0x5b01 <hdr_value_at_percentile+0x171>
+    0.00 :   5b7c:        movl    %r13d, %esi
+    0.00 :   5b7f:        xorl    %r10d, %r10d
+    0.00 :   5b82:        xorl    %r8d, %r8d
+    0.00 :   5b85:        negl    %esi
+    0.00 :   5b87:        jmp     0x5ba0 <hdr_value_at_percentile+0x210>
+    0.00 :   5b89:        nopl    (%rax)
+    0.00 :   5b90:        addl    $0x1, %r8d
+    0.00 :   5b94:        addl    $0x1, %esi
+    0.00 :   5b97:        cmpl    %r9d, %r8d
+    0.00 :   5b9a:        je      0x5b01 <hdr_value_at_percentile+0x171>
+    0.00 :   5ba0:        leal    (%r9,%rsi), %ecx
+    0.00 :   5ba4:        testl   %esi, %esi
+    0.00 :   5ba6:        js      0x5bb7 <hdr_value_at_percentile+0x227>
+    0.00 :   5ba8:        leal    (%r9,%r13), %ebp
+    0.00 :   5bac:        movl    %r8d, %ecx
+    0.00 :   5baf:        subl    %ebp, %ecx
+    0.00 :   5bb1:        cmpl    %r9d, %esi
+    0.00 :   5bb4:        cmovll  %esi, %ecx
+    0.00 :   5bb7:        movslq  %ecx, %rcx
+    0.00 :   5bba:        addq    (%r11,%rcx,8), %r10
+    0.00 :   5bbe:        cmpq    %r10, %rdi
+    0.00 :   5bc1:        jg      0x5b90 <hdr_value_at_percentile+0x200>
+    0.00 :   5bc3:        movl    0x1c(%rbx), %esi
+    0.00 :   5bc6:        movl    %eax, %ecx
+    0.00 :   5bc8:        movl    %r8d, %r9d
+    0.00 :   5bcb:        sarl    %cl, %r9d
+    0.00 :   5bce:        leal    -0x1(%rsi), %ecx
+    0.00 :   5bd1:        leal    -0x1(%r9), %edi
+    0.00 :   5bd5:        andl    %r8d, %ecx
+    0.00 :   5bd8:        testl   %r9d, %r9d
+    0.00 :   5bdb:        je      0x5c50 <hdr_value_at_percentile+0x2c0>
+    0.00 :   5bdd:        addl    %esi, %ecx
+    0.00 :   5bdf:        movslq  %ecx, %rsi
+    0.00 :   5be2:        leal    (%rdi,%rdx), %ecx
+    0.00 :   5be5:        shlq    %cl, %rsi
+    0.00 :   5be8:        jmp     0x5b03 <hdr_value_at_percentile+0x173>
+    0.00 :   5bed:        movl    0x1c(%rbx), %r8d
+    0.00 :   5bf1:        movl    %eax, %ecx
+    0.00 :   5bf3:        movl    %esi, %edi
+    0.00 :   5bf5:        sarl    %cl, %edi
+    0.00 :   5bf7:        leal    -0x1(%r8), %ecx
+    0.00 :   5bfb:        leal    -0x1(%rdi), %r9d
+    0.00 :   5bff:        andl    %esi, %ecx
+    0.00 :   5c01:        testl   %edi, %edi
+    0.00 :   5c03:        je      0x5c0b <hdr_value_at_percentile+0x27b>
+    0.00 :   5c05:        addl    %r8d, %ecx
+    0.00 :   5c08:        movl    %r9d, %r13d
+    0.00 :   5c0b:        movslq  %ecx, %rsi
+    0.00 :   5c0e:        leal    (%r13,%rdx), %ecx
+    0.00 :   5c13:        shlq    %cl, %rsi
+    0.00 :   5c16:        jmp     0x5b03 <hdr_value_at_percentile+0x173>
+    0.00 :   5c1b:        movq    %rdi, %rsi
+    0.00 :   5c1e:        movq    %rbx, %rdi
+    0.00 :   5c21:        movsd   %xmm0, 0x8(%rsp)
+    3.04 :   5c27:        callq   0x3730 <get_value_from_idx_up_to_count_avx2>
+    1.48 :   5c2c:        movl    0x10(%rbx), %edx
+    0.00 :   5c2f:        movsd   0x8(%rsp), %xmm0
+    0.00 :   5c35:        movq    %rax, %rsi
+    1.52 :   5c38:        movl    0x18(%rbx), %eax
+    0.00 :   5c3b:        jmp     0x5b03 <hdr_value_at_percentile+0x173>
+    0.00 :   5c40:        addl    $0x1, %esi
+    0.00 :   5c43:        jmp     0x5a92 <hdr_value_at_percentile+0x102>
+    0.00 :   5c48:        addl    $0x2, %esi
+    0.00 :   5c4b:        jmp     0x5a92 <hdr_value_at_percentile+0x102>
+    0.00 :   5c50:        xorl    %edi, %edi
+    0.00 :   5c52:        jmp     0x5bdf <hdr_value_at_percentile+0x24f>

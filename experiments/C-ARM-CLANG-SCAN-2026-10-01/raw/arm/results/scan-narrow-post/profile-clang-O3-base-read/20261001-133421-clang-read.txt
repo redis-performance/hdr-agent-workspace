@@ -1,0 +1,44 @@
+# Bounded perf report — read path — clang
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+   100.00%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] _start
+               0xea9bc06c84c4
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] __libc_start_main
+               0xea9bc06c84c4
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] 0x0000ea9bc06c84c4
+   100.00%     0.04%  hdr_percentile_  hdr_percentile_bench   [.] main
+    99.96%    99.96%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_percentile
+               0xea9bc06c84c4
+    99.94%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count (inlined)
+    99.94%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count_scalar (inlined)
+     0.10%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_index (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] value_from_index (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] highest_equivalent_value (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_size_of_equivalent_value_range (inlined)
+     0.00%     0.00%  timeout          [kernel.kallsyms]      [k] try_get_uprobe
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a237a54
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a233b94
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a232730
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a235154
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a21faf4
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] _dl_catch_exception
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a21f59c
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a224e30
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a2247e4
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f90f5a238534
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-base-O3/build/clang/test/hdr_percentile_bench':
+
+       12872321615      branches
+           2013547      branch-misses
+       12929755147      cache-references
+          32822105      cache-misses
+       77266234257      instructions
+       28008669788      cycles
+
+      10.004248454 seconds time elapsed
+
+      10.000443000 seconds user
+       0.002043000 seconds sys

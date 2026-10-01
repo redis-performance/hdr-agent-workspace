@@ -1,0 +1,15 @@
+Test project /tmp/hdr-clang-scan-scalar-20261001/build/fuzz
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    1.38 sec
+    Start 2: hdr_histogram_atomic_test
+2/5 Test #2: hdr_histogram_atomic_test ...............   Passed    1.11 sec
+    Start 3: hdr_histogram_log_test
+3/5 Test #3: hdr_histogram_log_test ..................   Passed    0.08 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.01 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    1.85 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   4.42 sec

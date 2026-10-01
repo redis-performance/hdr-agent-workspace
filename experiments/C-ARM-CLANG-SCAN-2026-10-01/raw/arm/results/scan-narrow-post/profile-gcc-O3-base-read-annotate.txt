@@ -1,0 +1,155 @@
+ Percent |	Source code & Disassembly of hdr_percentile_bench for armv8_pmuv3_0/cycles/P (9939 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------------------
+         : 0    0x3e44 <hdr_value_at_percentile>:
+    0.00 :   3e44:        mov     x1, #0x4059000000000000
+    0.00 :   3e48:        fmov    d1, x1
+    0.00 :   3e4c:        mov     x12, x0
+    0.00 :   3e50:        fcmpe   d0, d1
+    0.00 :   3e54:        b.mi    0x4008 <hdr_value_at_percentile+0x1c4>
+    0.00 :   3e58:        fmov    d2, #1.00000000
+    0.01 :   3e5c:        ldr     d1, [x12, #0x58]
+    0.00 :   3e60:        fmov    d3, #0.50000000
+    0.00 :   3e64:        ldr     w15, [x12, #0x40]
+    0.00 :   3e68:        ldr     x17, [x12, #0x60]
+    0.00 :   3e6c:        scvtf   d1, d1
+    0.00 :   3e70:        ldr     w13, [x12, #0x10]
+    0.00 :   3e74:        ldr     w14, [x12, #0x18]
+    0.01 :   3e78:        ldr     w16, [x12, #0x50]
+    0.00 :   3e7c:        fmul    d1, d1, d2
+    0.00 :   3e80:        fadd    d1, d1, d3
+    0.00 :   3e84:        fcvtzs  x5, d1
+    0.00 :   3e88:        cmp     x5, #0x0
+    0.00 :   3e8c:        csinc   x5, x5, xzr, gt
+    0.00 :   3e90:        cbnz    w15, 0x4010 <hdr_value_at_percentile+0x1cc>
+    0.04 :   3e94:        negs    w11, w16
+    0.00 :   3e98:        and     w0, w16, #0x3
+    0.00 :   3e9c:        and     w11, w11, #0x3
+    0.00 :   3ea0:        mov     x2, x17
+    0.00 :   3ea4:        csneg   w11, w0, w11, mi
+    0.00 :   3ea8:        mov     w3, #0x0
+    0.00 :   3eac:        sub     w11, w16, w11
+    0.00 :   3eb0:        mov     x4, #0x0
+    0.00 :   3eb4:        cmp     w11, #0x0
+    0.00 :   3eb8:        b.gt    0x3ed4 <hdr_value_at_percentile+0x90>
+    0.00 :   3ebc:        b       0x3fbc <hdr_value_at_percentile+0x178>
+   47.95 :   3ec0:        mov     x4, x1
+    0.02 :   3ec4:        add     w3, w3, #0x4
+    6.24 :   3ec8:        add     x2, x2, #0x20
+    5.97 :   3ecc:        cmp     w11, w3
+    0.00 :   3ed0:        b.le    0x3fbc <hdr_value_at_percentile+0x178>
+    6.02 :   3ed4:        ldp     x8, x6, [x2]
+    7.07 :   3ed8:        ldp     x7, x9, [x2, #0x10]
+    8.33 :   3edc:        add     x10, x8, x6
+    6.41 :   3ee0:        add     x1, x7, x9
+    0.00 :   3ee4:        add     x1, x1, x10
+    5.80 :   3ee8:        add     x1, x4, x1
+    5.73 :   3eec:        cmp     x1, x5
+    0.00 :   3ef0:        b.lo    0x3ec0 <hdr_value_at_percentile+0x7c>
+    0.00 :   3ef4:        add     x4, x4, x8
+    0.00 :   3ef8:        add     x6, x4, x6
+    0.12 :   3efc:        cmp     x5, x4
+    0.00 :   3f00:        b.le    0x3f28 <hdr_value_at_percentile+0xe4>
+    0.03 :   3f04:        add     x7, x6, x7
+    0.00 :   3f08:        cmp     x5, x6
+    0.00 :   3f0c:        b.le    0x408c <hdr_value_at_percentile+0x248>
+    0.01 :   3f10:        add     x4, x7, x9
+    0.00 :   3f14:        cmp     x5, x7
+    0.00 :   3f18:        b.le    0x4094 <hdr_value_at_percentile+0x250>
+    0.02 :   3f1c:        cmp     x5, x4
+    0.00 :   3f20:        b.gt    0x3ec4 <hdr_value_at_percentile+0x80>
+    0.01 :   3f24:        add     w3, w3, #0x3
+    0.05 :   3f28:        ldr     w2, [x12, #0x1c]
+    0.00 :   3f2c:        asr     w1, w3, w14
+    0.04 :   3f30:        sub     w4, w1, #0x1
+    0.00 :   3f34:        sub     w0, w2, #0x1
+    0.00 :   3f38:        and     w0, w0, w3
+    0.00 :   3f3c:        cbz     w1, 0x3f48 <hdr_value_at_percentile+0x104>
+    0.00 :   3f40:        add     w0, w0, w2
+    0.00 :   3f44:        mov     w15, w4
+    0.01 :   3f48:        sxtw    x0, w0
+    0.00 :   3f4c:        add     w15, w15, w13
+    0.00 :   3f50:        lsl     x0, x0, x15
+    0.00 :   3f54:        ldr     x2, [x12, #0x20]
+    0.00 :   3f58:        mov     w1, #0x40
+    0.00 :   3f5c:        add     w14, w14, #0x1
+    0.00 :   3f60:        fcmp    d0, #0.0
+    0.00 :   3f64:        orr     x2, x0, x2
+    0.00 :   3f68:        clz     x2, x2
+    0.00 :   3f6c:        sub     w1, w1, w2
+    0.01 :   3f70:        sub     w1, w1, w13
+    0.00 :   3f74:        sub     w1, w1, w14
+    0.00 :   3f78:        add     w4, w1, w13
+    0.00 :   3f7c:        asr     x2, x0, x4
+    0.00 :   3f80:        sxtw    x0, w2
+    0.00 :   3f84:        lsl     x0, x0, x4
+    0.00 :   3f88:        b.eq    0x3fb8 <hdr_value_at_percentile+0x174>
+    0.04 :   3f8c:        ldr     w6, [x12, #0x28]
+    0.00 :   3f90:        mov     x3, #0x1
+    0.00 :   3f94:        mov     x5, #0x7fffffffffffffff
+    0.00 :   3f98:        cmp     w6, w2
+    0.00 :   3f9c:        cinc    w4, w4, le
+    0.00 :   3fa0:        lsl     x1, x3, x4
+    0.00 :   3fa4:        sub     x2, x5, x1
+    0.00 :   3fa8:        add     x1, x1, x0
+    0.00 :   3fac:        cmp     x2, x0
+    0.00 :   3fb0:        sub     x1, x1, #0x1
+    0.00 :   3fb4:        csel    x0, x1, x5, ge
+    0.00 :   3fb8:        ret
+    0.00 :   3fbc:        cmp     w16, w3
+    0.00 :   3fc0:        b.le    0x4000 <hdr_value_at_percentile+0x1bc>
+    0.00 :   3fc4:        ldr     x0, [x17, w3, sxtw #3]
+    0.00 :   3fc8:        add     x4, x4, x0
+    0.00 :   3fcc:        cmp     x5, x4
+    0.00 :   3fd0:        b.le    0x3f28 <hdr_value_at_percentile+0xe4>
+    0.00 :   3fd4:        add     w3, w3, #0x1
+    0.00 :   3fd8:        sxtw    x3, w3
+    0.00 :   3fdc:        b       0x3ff8 <hdr_value_at_percentile+0x1b4>
+    0.00 :   3fe0:        ldr     x1, [x17, x3, lsl #3]
+    0.00 :   3fe4:        add     x0, x3, #0x1
+    0.00 :   3fe8:        add     x4, x4, x1
+    0.00 :   3fec:        cmp     x5, x4
+    0.00 :   3ff0:        b.le    0x3f28 <hdr_value_at_percentile+0xe4>
+    0.00 :   3ff4:        mov     x3, x0
+    0.00 :   3ff8:        cmp     w16, w3
+    0.00 :   3ffc:        b.gt    0x3fe0 <hdr_value_at_percentile+0x19c>
+    0.00 :   4000:        mov     x0, #0x0
+    0.00 :   4004:        b       0x3f54 <hdr_value_at_percentile+0x110>
+    0.04 :   4008:        fdiv    d2, d0, d1
+    0.00 :   400c:        b       0x3e5c <hdr_value_at_percentile+0x18>
+    0.00 :   4010:        cmp     w16, #0x0
+    0.00 :   4014:        b.le    0x4000 <hdr_value_at_percentile+0x1bc>
+    0.00 :   4018:        neg     w0, w15
+    0.00 :   401c:        mov     x3, #0x0
+    0.00 :   4020:        add     w15, w16, w15
+    0.00 :   4024:        mov     w1, #0x0
+    0.00 :   4028:        b       0x4038 <hdr_value_at_percentile+0x1f4>
+    0.00 :   402c:        add     w1, w1, #0x1
+    0.00 :   4030:        cmp     w16, w1
+    0.00 :   4034:        b.eq    0x4000 <hdr_value_at_percentile+0x1bc>
+    0.00 :   4038:        cmp     w16, w0
+    0.00 :   403c:        sub     w2, w1, w15
+    0.00 :   4040:        csel    w2, w2, w0, le
+    0.00 :   4044:        tbz     w0, #0x1f, 0x404c <hdr_value_at_percentile+0x208>
+    0.00 :   4048:        add     w2, w16, w0
+    0.00 :   404c:        ldr     x2, [x17, w2, sxtw #3]
+    0.00 :   4050:        add     w0, w0, #0x1
+    0.00 :   4054:        add     x3, x3, x2
+    0.00 :   4058:        cmp     x5, x3
+    0.00 :   405c:        b.gt    0x402c <hdr_value_at_percentile+0x1e8>
+    0.00 :   4060:        ldr     w3, [x12, #0x1c]
+    0.00 :   4064:        asr     w4, w1, w14
+    0.00 :   4068:        sub     w2, w4, #0x1
+    0.00 :   406c:        sub     w0, w3, #0x1
+    0.00 :   4070:        and     w0, w0, w1
+    0.00 :   4074:        cbz     w4, 0x409c <hdr_value_at_percentile+0x258>
+    0.00 :   4078:        add     w0, w0, w3
+    0.00 :   407c:        sxtw    x0, w0
+    0.00 :   4080:        add     w2, w2, w13
+    0.00 :   4084:        lsl     x0, x0, x2
+    0.00 :   4088:        b       0x3f54 <hdr_value_at_percentile+0x110>
+    0.00 :   408c:        add     w3, w3, #0x1
+    0.00 :   4090:        b       0x3f28 <hdr_value_at_percentile+0xe4>
+    0.00 :   4094:        add     w3, w3, #0x2
+    0.00 :   4098:        b       0x3f28 <hdr_value_at_percentile+0xe4>
+    0.00 :   409c:        mov     w2, #0x0
+    0.00 :   40a0:        b       0x407c <hdr_value_at_percentile+0x238>

@@ -1,0 +1,42 @@
+{"label": "amd", "phase": "starting", "time": 1790859421.5639338}
+{"label": "amd", "phase": "building", "time": 1790859424.5772212, "variant": "clang-O3-base"}
+{"label": "amd", "phase": "building", "time": 1790859427.5849047, "variant": "gcc-O3-base"}
+{"label": "amd", "phase": "building", "time": 1790859430.543569, "variant": "clang-O3-patch"}
+{"label": "amd", "phase": "building", "time": 1790859433.5568738, "variant": "gcc-O3-patch"}
+{"label": "amd", "phase": "building", "time": 1790859436.509455, "variant": "clang-Os-base"}
+{"label": "amd", "phase": "building", "time": 1790859439.449413, "variant": "gcc-Os-base"}
+{"label": "amd", "phase": "building", "time": 1790859442.2473583, "variant": "clang-Os-patch"}
+{"label": "amd", "phase": "building", "time": 1790859445.188192, "variant": "gcc-Os-patch"}
+{"label": "amd", "phase": "measuring", "time": 1790859450.965433, "run": "probe-clang-O3-0-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859453.9673865, "run": "probe-clang-O3-0-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859456.9683976, "run": "probe-clang-O3-1-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859459.9701772, "run": "probe-clang-O3-1-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859462.9713087, "run": "probe-clang-O3-2-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859465.9730964, "run": "probe-clang-O3-2-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859468.9740767, "run": "probe-clang-O3-3-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859471.9756284, "run": "probe-clang-O3-3-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859474.976658, "run": "probe-clang-Os-0-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859477.9782457, "run": "probe-clang-Os-0-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859480.97924, "run": "probe-clang-Os-1-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859483.9810245, "run": "probe-clang-Os-1-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859486.982159, "run": "probe-clang-Os-2-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859489.9840124, "run": "probe-clang-Os-2-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859492.985097, "run": "probe-clang-Os-3-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859495.9867806, "run": "probe-clang-Os-3-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859498.9879146, "run": "probe-gcc-O3-0-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859501.9894714, "run": "probe-gcc-O3-0-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859504.9904387, "run": "probe-gcc-O3-1-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859507.9923985, "run": "probe-gcc-O3-1-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859510.9935422, "run": "probe-gcc-O3-2-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859513.99536, "run": "probe-gcc-O3-2-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859516.9964123, "run": "probe-gcc-O3-3-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859519.9980984, "run": "probe-gcc-O3-3-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859522.9991565, "run": "probe-gcc-Os-0-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859526.0008152, "run": "probe-gcc-Os-0-base", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859529.0017247, "run": "probe-gcc-Os-1-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859532.0082028, "run": "probe-gcc-Os-1-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859535.009145, "run": "probe-gcc-Os-2-patch", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859538.0108702, "run": "probe-gcc-Os-2-patch", "seconds": 3.0}
+{"label": "amd", "phase": "measuring", "time": 1790859541.0119321, "run": "probe-gcc-Os-3-base", "attempt": 1}
+{"label": "amd", "phase": "measured", "time": 1790859544.0136917, "run": "probe-gcc-Os-3-base", "seconds": 3.0}
+{"label": "amd", "phase": "complete", "time": 1790859544.0138688}

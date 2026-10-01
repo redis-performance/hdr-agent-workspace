@@ -1,0 +1,6 @@
+# HdrHistogram_c benchmark — gcc — 2026-10-01T12:56:47Z
+# hdr commit: d21d084
+# source status: 3 changed paths
+# host: Linux 6.14.0-1010-aws x86_64
+
+## WRITE path — hdr_histogram_perf (hdr_record_value, ops/sec)

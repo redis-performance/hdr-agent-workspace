@@ -7,6 +7,12 @@ tracks C release hardening, consumer patch drafts, pinned binary measurements,
 and Supabase's indirect Node dependency. This audit does not change optimization
 acceptance counts or the accepted submodule baseline.
 
+[ARM Clang O3 follow-up](C-ARM-CLANG-SCAN-2026-10-01/RESULTS.md) isolates the
+unrolled crossing-loop dependency. A guarded pragma yields 2.120x full read
+throughput with unchanged writes, but very short scans can cost 0.6–0.7 ns more.
+The broader refactor was rejected for an AMD regression. Candidate only;
+required Opus review is unavailable and acceptance counts remain unchanged.
+
 | Status | Count |
 |--------|------:|
 | Accepted | 4 |

@@ -1,0 +1,3 @@
+experiments/C-ARM-CLANG-SCAN-2026-10-01/reproducer.c:17:17: remark: Vectorized horizontal reduction with cost -4 and with tree size 1 [-Rpass=slp-vectorizer]
+   17 |             sum += (u64)counts[index + j];
+      |                 ^

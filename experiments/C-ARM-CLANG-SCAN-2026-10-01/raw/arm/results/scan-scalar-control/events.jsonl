@@ -1,0 +1,10 @@
+{"label": "arm", "phase": "starting", "time": 1790862453.3220825}
+{"label": "arm", "phase": "measuring", "time": 1790862472.6239393, "run": "probe-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790862475.6258223, "run": "probe-0-base", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790862478.6266234, "run": "probe-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790862481.6285224, "run": "probe-1-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790862484.6293032, "run": "probe-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790862487.6309047, "run": "probe-2-patch", "seconds": 3.0}
+{"label": "arm", "phase": "measuring", "time": 1790862490.6316884, "run": "probe-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790862493.6332781, "run": "probe-3-base", "seconds": 3.0}
+{"label": "arm", "phase": "complete", "time": 1790862493.633397}

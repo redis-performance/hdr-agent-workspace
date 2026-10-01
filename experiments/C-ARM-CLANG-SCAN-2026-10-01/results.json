@@ -1,0 +1,1366 @@
+{
+  "baseline": "d21d0843b492023077553b3eba26b3efa16c15f5",
+  "upstream_apply_test": "57db4223d1a356b21dbece675bce812419920c58",
+  "runners": {
+    "intel": {
+      "general_candidate": {
+        "clang-O3": {
+          "record_ratio": 1.0007577729169441,
+          "read_ratio": 0.9999282286839191,
+          "runs": {
+            "base": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 0,
+                "variant": "base",
+                "record_ops": 468537402.86,
+                "read_seconds": 48.764,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-0-base.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 3,
+                "variant": "base",
+                "record_ops": 468827887.08000004,
+                "read_seconds": 48.761,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-3-base.log"
+              }
+            ],
+            "patch": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 1,
+                "variant": "patch",
+                "record_ops": 469785210.95500004,
+                "read_seconds": 48.774,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-1-patch.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 2,
+                "variant": "patch",
+                "record_ops": 468290389.015,
+                "read_seconds": 48.758,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-2-patch.log"
+              }
+            ]
+          }
+        }
+      },
+      "narrow_probe": {
+        "clang-O3": {
+          "2-digits": {
+            "base_ns": 211.73475000000002,
+            "patch_ns": 211.04775,
+            "read_ratio": 1.0032551875108833,
+            "base_samples_ns": [
+              211.0325,
+              212.437
+            ],
+            "patch_samples_ns": [
+              210.43650000000002,
+              211.659
+            ]
+          },
+          "3-digits": {
+            "base_ns": 2107.85775,
+            "patch_ns": 2093.28525,
+            "read_ratio": 1.0069615452552394,
+            "base_samples_ns": [
+              2084.721,
+              2130.9945
+            ],
+            "patch_samples_ns": [
+              2085.4275,
+              2101.143
+            ]
+          }
+        },
+        "clang-Os": {
+          "2-digits": {
+            "base_ns": 263.19624999999996,
+            "patch_ns": 263.00875,
+            "read_ratio": 1.0007129040383635,
+            "base_samples_ns": [
+              263.149,
+              263.2435
+            ],
+            "patch_samples_ns": [
+              263.01300000000003,
+              263.0045
+            ]
+          },
+          "3-digits": {
+            "base_ns": 1937.09325,
+            "patch_ns": 1948.8087500000001,
+            "read_ratio": 0.9939883787980733,
+            "base_samples_ns": [
+              1928.4099999999999,
+              1945.7765
+            ],
+            "patch_samples_ns": [
+              1971.7975000000001,
+              1925.8200000000002
+            ]
+          }
+        },
+        "gcc-O3": {
+          "2-digits": {
+            "base_ns": 243.57575,
+            "patch_ns": 243.90974999999997,
+            "read_ratio": 0.9986306410465348,
+            "base_samples_ns": [
+              245.4395,
+              241.712
+            ],
+            "patch_samples_ns": [
+              241.845,
+              245.97449999999998
+            ]
+          },
+          "3-digits": {
+            "base_ns": 2155.8239999999996,
+            "patch_ns": 2157.56025,
+            "read_ratio": 0.999195271603655,
+            "base_samples_ns": [
+              2158.5155,
+              2153.1324999999997
+            ],
+            "patch_samples_ns": [
+              2172.65,
+              2142.4705
+            ]
+          }
+        },
+        "gcc-Os": {
+          "2-digits": {
+            "base_ns": 394.515,
+            "patch_ns": 394.08025,
+            "read_ratio": 1.0011032016955939,
+            "base_samples_ns": [
+              395.172,
+              393.85799999999995
+            ],
+            "patch_samples_ns": [
+              394.1335,
+              394.027
+            ]
+          },
+          "3-digits": {
+            "base_ns": 2248.359,
+            "patch_ns": 2310.998,
+            "read_ratio": 0.972895259969935,
+            "base_samples_ns": [
+              2272.567,
+              2224.151
+            ],
+            "patch_samples_ns": [
+              2374.507,
+              2247.489
+            ]
+          }
+        }
+      },
+      "unchanged_text_sections": {
+        "clang-O3": {
+          "read_text": true,
+          "write_text": true
+        },
+        "clang-Os": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-O3": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-Os": {
+          "read_text": true,
+          "write_text": true
+        }
+      },
+      "ctest_logs_passed": 33,
+      "discarded_for_competing_work": 0
+    },
+    "amd": {
+      "general_candidate": {
+        "clang-O3": {
+          "record_ratio": 0.9991199347619143,
+          "read_ratio": 0.8527427934268009,
+          "runs": {
+            "base": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 0,
+                "variant": "base",
+                "record_ops": 715548218.2149999,
+                "read_seconds": 23.321,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-0-base.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 3,
+                "variant": "base",
+                "record_ops": 716359957.98,
+                "read_seconds": 23.33,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-3-base.log"
+              }
+            ],
+            "patch": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 1,
+                "variant": "patch",
+                "record_ops": 715139138.8900001,
+                "read_seconds": 27.331,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-1-patch.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 2,
+                "variant": "patch",
+                "record_ops": 715508864.6949999,
+                "read_seconds": 27.376,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-2-patch.log"
+              }
+            ]
+          }
+        }
+      },
+      "narrow_probe": {
+        "clang-O3": {
+          "2-digits": {
+            "base_ns": 144.90025,
+            "patch_ns": 144.75675,
+            "read_ratio": 1.0009913181941428,
+            "base_samples_ns": [
+              144.4735,
+              145.327
+            ],
+            "patch_samples_ns": [
+              145.07850000000002,
+              144.435
+            ]
+          },
+          "3-digits": {
+            "base_ns": 987.35175,
+            "patch_ns": 984.299,
+            "read_ratio": 1.0031014458005139,
+            "base_samples_ns": [
+              988.3655,
+              986.338
+            ],
+            "patch_samples_ns": [
+              984.738,
+              983.8599999999999
+            ]
+          }
+        },
+        "clang-Os": {
+          "2-digits": {
+            "base_ns": 184.75750000000002,
+            "patch_ns": 184.45075,
+            "read_ratio": 1.001663045555521,
+            "base_samples_ns": [
+              185.19150000000002,
+              184.32350000000002
+            ],
+            "patch_samples_ns": [
+              184.7765,
+              184.125
+            ]
+          },
+          "3-digits": {
+            "base_ns": 1193.95775,
+            "patch_ns": 1213.166,
+            "read_ratio": 0.9841668411412784,
+            "base_samples_ns": [
+              1174.513,
+              1213.4025000000001
+            ],
+            "patch_samples_ns": [
+              1208.6574999999998,
+              1217.6745
+            ]
+          }
+        },
+        "gcc-O3": {
+          "2-digits": {
+            "base_ns": 167.19275000000002,
+            "patch_ns": 168.80325,
+            "read_ratio": 0.9904593069150033,
+            "base_samples_ns": [
+              167.50850000000003,
+              166.877
+            ],
+            "patch_samples_ns": [
+              167.591,
+              170.0155
+            ]
+          },
+          "3-digits": {
+            "base_ns": 1090.20525,
+            "patch_ns": 1090.46675,
+            "read_ratio": 0.9997601944305041,
+            "base_samples_ns": [
+              1090.037,
+              1090.3735000000001
+            ],
+            "patch_samples_ns": [
+              1089.2805,
+              1091.653
+            ]
+          }
+        },
+        "gcc-Os": {
+          "2-digits": {
+            "base_ns": 192.8595,
+            "patch_ns": 194.05575,
+            "read_ratio": 0.993835534376075,
+            "base_samples_ns": [
+              193.43849999999998,
+              192.28050000000002
+            ],
+            "patch_samples_ns": [
+              193.8235,
+              194.288
+            ]
+          },
+          "3-digits": {
+            "base_ns": 1482.29725,
+            "patch_ns": 1485.595,
+            "read_ratio": 0.9977801823511792,
+            "base_samples_ns": [
+              1482.423,
+              1482.1715
+            ],
+            "patch_samples_ns": [
+              1482.9575,
+              1488.2325
+            ]
+          }
+        }
+      },
+      "unchanged_text_sections": {
+        "clang-O3": {
+          "read_text": true,
+          "write_text": true
+        },
+        "clang-Os": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-O3": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-Os": {
+          "read_text": true,
+          "write_text": true
+        }
+      },
+      "ctest_logs_passed": 33,
+      "discarded_for_competing_work": 0
+    },
+    "arm": {
+      "general_candidate": {
+        "clang-O3": {
+          "record_ratio": 0.9890499537081313,
+          "read_ratio": 2.092006900517539,
+          "runs": {
+            "base": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 0,
+                "variant": "base",
+                "record_ops": 411373548.105,
+                "read_seconds": 189.176,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-0-base.log"
+              }
+            ],
+            "patch": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 1,
+                "variant": "patch",
+                "record_ops": 406868988.71,
+                "read_seconds": 90.428,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-1-patch.log"
+              }
+            ]
+          }
+        }
+      },
+      "narrow_probe": {
+        "clang-O3": {
+          "2-digits": {
+            "base_ns": 1160.44375,
+            "patch_ns": 544.96925,
+            "read_ratio": 2.129374730776094,
+            "base_samples_ns": [
+              1160.3184999999999,
+              1160.569
+            ],
+            "patch_samples_ns": [
+              545.0374999999999,
+              544.9010000000001
+            ]
+          },
+          "3-digits": {
+            "base_ns": 7998.84525,
+            "patch_ns": 3706.5215,
+            "read_ratio": 2.1580463650352497,
+            "base_samples_ns": [
+              8001.28,
+              7996.4105
+            ],
+            "patch_samples_ns": [
+              3706.439,
+              3706.6040000000003
+            ]
+          }
+        },
+        "clang-Os": {
+          "2-digits": {
+            "base_ns": 501.95825,
+            "patch_ns": 502.67600000000004,
+            "read_ratio": 0.9985721418965695,
+            "base_samples_ns": [
+              500.2645,
+              503.652
+            ],
+            "patch_samples_ns": [
+              502.52750000000003,
+              502.8245
+            ]
+          },
+          "3-digits": {
+            "base_ns": 3397.8737499999997,
+            "patch_ns": 3516.8410000000003,
+            "read_ratio": 0.9661721272016561,
+            "base_samples_ns": [
+              3393.6875,
+              3402.06
+            ],
+            "patch_samples_ns": [
+              3635.529,
+              3398.1530000000002
+            ]
+          }
+        },
+        "gcc-O3": {
+          "2-digits": {
+            "base_ns": 549.6215,
+            "patch_ns": 549.61275,
+            "read_ratio": 1.0000159203002477,
+            "base_samples_ns": [
+              549.5745,
+              549.6685
+            ],
+            "patch_samples_ns": [
+              549.5745,
+              549.6510000000001
+            ]
+          },
+          "3-digits": {
+            "base_ns": 3714.0689999999995,
+            "patch_ns": 3713.13875,
+            "read_ratio": 1.0002505292860384,
+            "base_samples_ns": [
+              3714.2434999999996,
+              3713.8945
+            ],
+            "patch_samples_ns": [
+              3713.2690000000002,
+              3713.0085
+            ]
+          }
+        },
+        "gcc-Os": {
+          "2-digits": {
+            "base_ns": 1929.82625,
+            "patch_ns": 2013.46,
+            "read_ratio": 0.9584626712226715,
+            "base_samples_ns": [
+              1992.305,
+              1867.3474999999999
+            ],
+            "patch_samples_ns": [
+              2006.4755,
+              2020.4445
+            ]
+          },
+          "3-digits": {
+            "base_ns": 13546.754,
+            "patch_ns": 14078.9545,
+            "read_ratio": 0.9621988621385203,
+            "base_samples_ns": [
+              14161.855,
+              12931.653
+            ],
+            "patch_samples_ns": [
+              14093.41,
+              14064.499
+            ]
+          }
+        }
+      },
+      "unchanged_text_sections": {
+        "clang-O3": {
+          "read_text": false,
+          "write_text": false
+        },
+        "clang-Os": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-O3": {
+          "read_text": true,
+          "write_text": true
+        },
+        "gcc-Os": {
+          "read_text": true,
+          "write_text": true
+        }
+      },
+      "narrow_full": {
+        "clang-O3": {
+          "record_ratio": 1.0036187923580018,
+          "read_ratio": 2.1197886017564214,
+          "runs": {
+            "base": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 0,
+                "variant": "base",
+                "record_ops": 411032499.72,
+                "read_seconds": 189.088,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-0-base.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 3,
+                "variant": "base",
+                "record_ops": 408796338.605,
+                "read_seconds": 189.148,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-3-base.log"
+              }
+            ],
+            "patch": [
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 1,
+                "variant": "patch",
+                "record_ops": 411386301.115,
+                "read_seconds": 88.955,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-1-patch.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "O3",
+                "index": 2,
+                "variant": "patch",
+                "record_ops": 411409327.54499996,
+                "read_seconds": 89.476,
+                "sink": "17401860284404480",
+                "log": "referee-clang-O3-2-patch.log"
+              }
+            ]
+          }
+        },
+        "clang-Os": {
+          "record_ratio": 1.001265340688898,
+          "read_ratio": 0.9999463215340112,
+          "runs": {
+            "base": [
+              {
+                "compiler": "clang",
+                "opt": "Os",
+                "index": 0,
+                "variant": "base",
+                "record_ops": 413722811.48,
+                "read_seconds": 83.83,
+                "sink": "17401860284404480",
+                "log": "referee-clang-Os-0-base.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "Os",
+                "index": 3,
+                "variant": "base",
+                "record_ops": 414830553.0,
+                "read_seconds": 83.826,
+                "sink": "17401860284404480",
+                "log": "referee-clang-Os-3-base.log"
+              }
+            ],
+            "patch": [
+              {
+                "compiler": "clang",
+                "opt": "Os",
+                "index": 1,
+                "variant": "patch",
+                "record_ops": 414850886.41499996,
+                "read_seconds": 83.822,
+                "sink": "17401860284404480",
+                "log": "referee-clang-Os-1-patch.log"
+              },
+              {
+                "compiler": "clang",
+                "opt": "Os",
+                "index": 2,
+                "variant": "patch",
+                "record_ops": 414750880.35,
+                "read_seconds": 83.843,
+                "sink": "17401860284404480",
+                "log": "referee-clang-Os-2-patch.log"
+              }
+            ]
+          }
+        }
+      },
+      "crossings": {
+        "O3": {
+          "2-digits-index-0": {
+            "base_ns": 4.5794999999999995,
+            "patch_ns": 4.553,
+            "read_ratio": 1.005820338238524,
+            "base_samples_ns": [
+              4.58,
+              4.579
+            ],
+            "patch_samples_ns": [
+              4.552,
+              4.554
+            ]
+          },
+          "2-digits-index-1": {
+            "base_ns": 4.7105,
+            "patch_ns": 4.7995,
+            "read_ratio": 0.9814564017085112,
+            "base_samples_ns": [
+              4.712,
+              4.709
+            ],
+            "patch_samples_ns": [
+              4.8,
+              4.799
+            ]
+          },
+          "2-digits-index-2": {
+            "base_ns": 4.784,
+            "patch_ns": 5.1215,
+            "read_ratio": 0.9341013374987795,
+            "base_samples_ns": [
+              4.784,
+              4.784
+            ],
+            "patch_samples_ns": [
+              5.122,
+              5.121
+            ]
+          },
+          "2-digits-index-3": {
+            "base_ns": 4.87,
+            "patch_ns": 5.4510000000000005,
+            "read_ratio": 0.8934140524674371,
+            "base_samples_ns": [
+              4.87,
+              4.87
+            ],
+            "patch_samples_ns": [
+              5.452,
+              5.45
+            ]
+          },
+          "2-digits-index-4": {
+            "base_ns": 5.288,
+            "patch_ns": 5.377,
+            "read_ratio": 0.9834480193416404,
+            "base_samples_ns": [
+              5.272,
+              5.304
+            ],
+            "patch_samples_ns": [
+              5.377,
+              5.377
+            ]
+          },
+          "2-digits-index-7": {
+            "base_ns": 5.759,
+            "patch_ns": 6.4510000000000005,
+            "read_ratio": 0.8927298093318865,
+            "base_samples_ns": [
+              5.764,
+              5.754
+            ],
+            "patch_samples_ns": [
+              6.449,
+              6.453
+            ]
+          },
+          "2-digits-index-15": {
+            "base_ns": 7.4695,
+            "patch_ns": 7.5075,
+            "read_ratio": 0.9949383949383949,
+            "base_samples_ns": [
+              7.457,
+              7.482
+            ],
+            "patch_samples_ns": [
+              7.509,
+              7.506
+            ]
+          },
+          "2-digits-index-31": {
+            "base_ns": 10.947,
+            "patch_ns": 10.190999999999999,
+            "read_ratio": 1.0741831027377098,
+            "base_samples_ns": [
+              10.949,
+              10.945
+            ],
+            "patch_samples_ns": [
+              10.19,
+              10.192
+            ]
+          },
+          "2-digits-index-63": {
+            "base_ns": 20.701999999999998,
+            "patch_ns": 15.4925,
+            "read_ratio": 1.3362594803937389,
+            "base_samples_ns": [
+              20.681,
+              20.723
+            ],
+            "patch_samples_ns": [
+              15.494,
+              15.491
+            ]
+          },
+          "2-digits-index-127": {
+            "base_ns": 42.9805,
+            "patch_ns": 25.825000000000003,
+            "read_ratio": 1.6642981606969989,
+            "base_samples_ns": [
+              42.936,
+              43.025
+            ],
+            "patch_samples_ns": [
+              25.739,
+              25.911
+            ]
+          },
+          "2-digits-index-255": {
+            "base_ns": 91.5575,
+            "patch_ns": 47.325,
+            "read_ratio": 1.9346539883782357,
+            "base_samples_ns": [
+              91.555,
+              91.56
+            ],
+            "patch_samples_ns": [
+              47.187,
+              47.463
+            ]
+          },
+          "2-digits-index-511": {
+            "base_ns": 189.9595,
+            "patch_ns": 89.9365,
+            "read_ratio": 2.1121513512311463,
+            "base_samples_ns": [
+              189.948,
+              189.971
+            ],
+            "patch_samples_ns": [
+              89.82,
+              90.053
+            ]
+          },
+          "2-digits-index-1023": {
+            "base_ns": 387.43399999999997,
+            "patch_ns": 175.7615,
+            "read_ratio": 2.2043166449990466,
+            "base_samples_ns": [
+              387.409,
+              387.459
+            ],
+            "patch_samples_ns": [
+              175.434,
+              176.089
+            ]
+          },
+          "3-digits-index-0": {
+            "base_ns": 4.579,
+            "patch_ns": 4.553,
+            "read_ratio": 1.0057105205359103,
+            "base_samples_ns": [
+              4.579,
+              4.579
+            ],
+            "patch_samples_ns": [
+              4.554,
+              4.552
+            ]
+          },
+          "3-digits-index-1": {
+            "base_ns": 4.7105,
+            "patch_ns": 4.7995,
+            "read_ratio": 0.9814564017085112,
+            "base_samples_ns": [
+              4.71,
+              4.711
+            ],
+            "patch_samples_ns": [
+              4.8,
+              4.799
+            ]
+          },
+          "3-digits-index-2": {
+            "base_ns": 4.783,
+            "patch_ns": 5.122,
+            "read_ratio": 0.9338149160484187,
+            "base_samples_ns": [
+              4.783,
+              4.783
+            ],
+            "patch_samples_ns": [
+              5.122,
+              5.122
+            ]
+          },
+          "3-digits-index-3": {
+            "base_ns": 4.87,
+            "patch_ns": 5.456,
+            "read_ratio": 0.8925953079178885,
+            "base_samples_ns": [
+              4.87,
+              4.87
+            ],
+            "patch_samples_ns": [
+              5.456,
+              5.456
+            ]
+          },
+          "3-digits-index-4": {
+            "base_ns": 5.277,
+            "patch_ns": 5.371,
+            "read_ratio": 0.9824986036119903,
+            "base_samples_ns": [
+              5.28,
+              5.274
+            ],
+            "patch_samples_ns": [
+              5.376,
+              5.366
+            ]
+          },
+          "3-digits-index-7": {
+            "base_ns": 5.757999999999999,
+            "patch_ns": 6.454,
+            "read_ratio": 0.8921599008366903,
+            "base_samples_ns": [
+              5.762,
+              5.754
+            ],
+            "patch_samples_ns": [
+              6.459,
+              6.449
+            ]
+          },
+          "3-digits-index-15": {
+            "base_ns": 7.489,
+            "patch_ns": 7.5105,
+            "read_ratio": 0.997137341055855,
+            "base_samples_ns": [
+              7.497,
+              7.481
+            ],
+            "patch_samples_ns": [
+              7.51,
+              7.511
+            ]
+          },
+          "3-digits-index-31": {
+            "base_ns": 10.9565,
+            "patch_ns": 10.186,
+            "read_ratio": 1.0756430394659338,
+            "base_samples_ns": [
+              10.951,
+              10.962
+            ],
+            "patch_samples_ns": [
+              10.185,
+              10.187
+            ]
+          },
+          "3-digits-index-63": {
+            "base_ns": 20.6595,
+            "patch_ns": 15.486,
+            "read_ratio": 1.3340759395583108,
+            "base_samples_ns": [
+              20.647,
+              20.672
+            ],
+            "patch_samples_ns": [
+              15.485,
+              15.487
+            ]
+          },
+          "3-digits-index-127": {
+            "base_ns": 43.033500000000004,
+            "patch_ns": 25.737499999999997,
+            "read_ratio": 1.6720155415250124,
+            "base_samples_ns": [
+              42.884,
+              43.183
+            ],
+            "patch_samples_ns": [
+              25.729,
+              25.746
+            ]
+          },
+          "3-digits-index-255": {
+            "base_ns": 91.664,
+            "patch_ns": 47.2295,
+            "read_ratio": 1.9408208852518023,
+            "base_samples_ns": [
+              91.543,
+              91.785
+            ],
+            "patch_samples_ns": [
+              47.184,
+              47.275
+            ]
+          },
+          "3-digits-index-511": {
+            "base_ns": 189.977,
+            "patch_ns": 89.82849999999999,
+            "read_ratio": 2.11488558753625,
+            "base_samples_ns": [
+              189.979,
+              189.975
+            ],
+            "patch_samples_ns": [
+              89.833,
+              89.824
+            ]
+          },
+          "3-digits-index-1023": {
+            "base_ns": 387.4525,
+            "patch_ns": 175.4485,
+            "read_ratio": 2.208354588383486,
+            "base_samples_ns": [
+              387.443,
+              387.462
+            ],
+            "patch_samples_ns": [
+              175.444,
+              175.453
+            ]
+          }
+        },
+        "Os": {
+          "2-digits-index-0": {
+            "base_ns": 4.6080000000000005,
+            "patch_ns": 4.6175,
+            "read_ratio": 0.9979426096372498,
+            "base_samples_ns": [
+              4.551,
+              4.665
+            ],
+            "patch_samples_ns": [
+              4.65,
+              4.585
+            ]
+          },
+          "2-digits-index-1": {
+            "base_ns": 4.8825,
+            "patch_ns": 4.893,
+            "read_ratio": 0.997854077253219,
+            "base_samples_ns": [
+              4.893,
+              4.872
+            ],
+            "patch_samples_ns": [
+              4.901,
+              4.885
+            ]
+          },
+          "2-digits-index-2": {
+            "base_ns": 5.1485,
+            "patch_ns": 5.1605,
+            "read_ratio": 0.9976746439298518,
+            "base_samples_ns": [
+              5.149,
+              5.148
+            ],
+            "patch_samples_ns": [
+              5.173,
+              5.148
+            ]
+          },
+          "2-digits-index-3": {
+            "base_ns": 5.515,
+            "patch_ns": 5.5475,
+            "read_ratio": 0.9941415051825145,
+            "base_samples_ns": [
+              5.515,
+              5.515
+            ],
+            "patch_samples_ns": [
+              5.581,
+              5.514
+            ]
+          },
+          "2-digits-index-4": {
+            "base_ns": 5.327999999999999,
+            "patch_ns": 5.291,
+            "read_ratio": 1.0069930069930069,
+            "base_samples_ns": [
+              5.326,
+              5.33
+            ],
+            "patch_samples_ns": [
+              5.277,
+              5.305
+            ]
+          },
+          "2-digits-index-7": {
+            "base_ns": 6.4405,
+            "patch_ns": 6.562,
+            "read_ratio": 0.9814843035659859,
+            "base_samples_ns": [
+              6.446,
+              6.435
+            ],
+            "patch_samples_ns": [
+              6.671,
+              6.453
+            ]
+          },
+          "2-digits-index-15": {
+            "base_ns": 7.44,
+            "patch_ns": 7.4350000000000005,
+            "read_ratio": 1.0006724949562877,
+            "base_samples_ns": [
+              7.448,
+              7.432
+            ],
+            "patch_samples_ns": [
+              7.432,
+              7.438
+            ]
+          },
+          "2-digits-index-31": {
+            "base_ns": 10.026499999999999,
+            "patch_ns": 10.026,
+            "read_ratio": 1.0000498703371234,
+            "base_samples_ns": [
+              10.029,
+              10.024
+            ],
+            "patch_samples_ns": [
+              10.028,
+              10.024
+            ]
+          },
+          "2-digits-index-63": {
+            "base_ns": 15.7335,
+            "patch_ns": 15.7335,
+            "read_ratio": 1.0,
+            "base_samples_ns": [
+              15.734,
+              15.733
+            ],
+            "patch_samples_ns": [
+              15.734,
+              15.733
+            ]
+          },
+          "2-digits-index-127": {
+            "base_ns": 27.177,
+            "patch_ns": 27.1745,
+            "read_ratio": 1.0000919980128429,
+            "base_samples_ns": [
+              27.176,
+              27.178
+            ],
+            "patch_samples_ns": [
+              27.176,
+              27.173
+            ]
+          },
+          "2-digits-index-255": {
+            "base_ns": 50.056,
+            "patch_ns": 50.058,
+            "read_ratio": 0.9999600463462384,
+            "base_samples_ns": [
+              50.056,
+              50.056
+            ],
+            "patch_samples_ns": [
+              50.056,
+              50.06
+            ]
+          },
+          "2-digits-index-511": {
+            "base_ns": 95.82900000000001,
+            "patch_ns": 95.83,
+            "read_ratio": 0.9999895648544298,
+            "base_samples_ns": [
+              95.827,
+              95.831
+            ],
+            "patch_samples_ns": [
+              95.831,
+              95.829
+            ]
+          },
+          "2-digits-index-1023": {
+            "base_ns": 187.36599999999999,
+            "patch_ns": 187.3705,
+            "read_ratio": 0.9999759834125436,
+            "base_samples_ns": [
+              187.369,
+              187.363
+            ],
+            "patch_samples_ns": [
+              187.37,
+              187.371
+            ]
+          },
+          "3-digits-index-0": {
+            "base_ns": 4.618,
+            "patch_ns": 4.5535,
+            "read_ratio": 1.0141649280773033,
+            "base_samples_ns": [
+              4.689,
+              4.547
+            ],
+            "patch_samples_ns": [
+              4.545,
+              4.562
+            ]
+          },
+          "3-digits-index-1": {
+            "base_ns": 4.8835,
+            "patch_ns": 4.8765,
+            "read_ratio": 1.001435455757203,
+            "base_samples_ns": [
+              4.878,
+              4.889
+            ],
+            "patch_samples_ns": [
+              4.872,
+              4.881
+            ]
+          },
+          "3-digits-index-2": {
+            "base_ns": 5.152,
+            "patch_ns": 5.1515,
+            "read_ratio": 1.0000970591089973,
+            "base_samples_ns": [
+              5.152,
+              5.152
+            ],
+            "patch_samples_ns": [
+              5.149,
+              5.154
+            ]
+          },
+          "3-digits-index-3": {
+            "base_ns": 5.5145,
+            "patch_ns": 5.5184999999999995,
+            "read_ratio": 0.999275165352904,
+            "base_samples_ns": [
+              5.516,
+              5.513
+            ],
+            "patch_samples_ns": [
+              5.522,
+              5.515
+            ]
+          },
+          "3-digits-index-4": {
+            "base_ns": 5.324,
+            "patch_ns": 5.327999999999999,
+            "read_ratio": 0.9992492492492493,
+            "base_samples_ns": [
+              5.327,
+              5.321
+            ],
+            "patch_samples_ns": [
+              5.326,
+              5.33
+            ]
+          },
+          "3-digits-index-7": {
+            "base_ns": 6.436,
+            "patch_ns": 6.4345,
+            "read_ratio": 1.000233118346414,
+            "base_samples_ns": [
+              6.439,
+              6.433
+            ],
+            "patch_samples_ns": [
+              6.443,
+              6.426
+            ]
+          },
+          "3-digits-index-15": {
+            "base_ns": 7.435,
+            "patch_ns": 7.4475,
+            "read_ratio": 0.9983215844243034,
+            "base_samples_ns": [
+              7.435,
+              7.435
+            ],
+            "patch_samples_ns": [
+              7.454,
+              7.441
+            ]
+          },
+          "3-digits-index-31": {
+            "base_ns": 10.0255,
+            "patch_ns": 10.021999999999998,
+            "read_ratio": 1.0003492316902816,
+            "base_samples_ns": [
+              10.024,
+              10.027
+            ],
+            "patch_samples_ns": [
+              10.024,
+              10.02
+            ]
+          },
+          "3-digits-index-63": {
+            "base_ns": 15.733,
+            "patch_ns": 15.733,
+            "read_ratio": 1.0,
+            "base_samples_ns": [
+              15.733,
+              15.733
+            ],
+            "patch_samples_ns": [
+              15.733,
+              15.733
+            ]
+          },
+          "3-digits-index-127": {
+            "base_ns": 32.263,
+            "patch_ns": 27.1755,
+            "read_ratio": 1.1872090669904878,
+            "base_samples_ns": [
+              37.353,
+              27.173
+            ],
+            "patch_samples_ns": [
+              27.176,
+              27.175
+            ]
+          },
+          "3-digits-index-255": {
+            "base_ns": 50.055499999999995,
+            "patch_ns": 50.058,
+            "read_ratio": 0.9999500579327979,
+            "base_samples_ns": [
+              50.055,
+              50.056
+            ],
+            "patch_samples_ns": [
+              50.056,
+              50.06
+            ]
+          },
+          "3-digits-index-511": {
+            "base_ns": 95.8315,
+            "patch_ns": 95.827,
+            "read_ratio": 1.000046959625158,
+            "base_samples_ns": [
+              95.832,
+              95.831
+            ],
+            "patch_samples_ns": [
+              95.828,
+              95.826
+            ]
+          },
+          "3-digits-index-1023": {
+            "base_ns": 187.375,
+            "patch_ns": 187.3665,
+            "read_ratio": 1.0000453656336645,
+            "base_samples_ns": [
+              187.371,
+              187.379
+            ],
+            "patch_samples_ns": [
+              187.366,
+              187.367
+            ]
+          }
+        }
+      },
+      "no_vectorizers": {
+        "2-digits": {
+          "base_ns": 1160.221,
+          "patch_ns": 880.93725,
+          "read_ratio": 1.317030242505922,
+          "base_samples_ns": [
+            1159.7134999999998,
+            1160.7285
+          ],
+          "patch_samples_ns": [
+            880.8225,
+            881.052
+          ]
+        },
+        "3-digits": {
+          "base_ns": 7986.1025,
+          "patch_ns": 6072.634749999999,
+          "read_ratio": 1.3150967955054436,
+          "base_samples_ns": [
+            7982.7595,
+            7989.4455
+          ],
+          "patch_samples_ns": [
+            6072.923,
+            6072.3465
+          ]
+        }
+      },
+      "ipc": {
+        "base": 2.7586541896432313,
+        "patch": 6.085497532894059
+      },
+      "ctest_logs_passed": 39,
+      "discarded_for_competing_work": 0
+    }
+  }
+}

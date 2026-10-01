@@ -10,6 +10,12 @@ The later [Os versus O3 speed comparison](os-vs-o3/README.md) qualifies the
 size-first Os recommendation: compiler/workload-dependent gains are possible,
 and runtime performance must be measured independently of binary size.
 
+The [ARM Clang causal follow-up](../C-ARM-CLANG-SCAN-2026-10-01/RESULTS.md)
+prepares a guarded crossing-loop unroll-control patch with 2.120x O3 read
+throughput on the full driver. Short scans can cost 0.6–0.7 ns more; GCC/x86
+code remains byte-identical. This is a candidate pending required review,
+not an accepted source/default change or a new consumer integration result.
+
 ## Deliverables
 
 - [Redis vendor update](redis-vendor-update.patch) and

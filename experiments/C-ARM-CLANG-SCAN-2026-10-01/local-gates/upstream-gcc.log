@@ -1,0 +1,19 @@
+Test project /tmp/hdr-clang-scan-upstream-20261001/build/gcc
+    Start 1: hdr_histogram_test
+1/7 Test #1: hdr_histogram_test ......................   Passed    0.19 sec
+    Start 2: hdr_counter_overflow_core_test
+2/7 Test #2: hdr_counter_overflow_core_test ..........   Passed    0.00 sec
+    Start 3: hdr_histogram_atomic_test
+3/7 Test #3: hdr_histogram_atomic_test ...............   Passed    0.25 sec
+    Start 4: hdr_histogram_log_test
+4/7 Test #4: hdr_histogram_log_test ..................   Passed    0.02 sec
+    Start 5: hdr_counter_overflow_codec_test
+5/7 Test #5: hdr_counter_overflow_codec_test .........   Passed    0.00 sec
+    Start 6: hdr_atomic_test
+6/7 Test #6: hdr_atomic_test .........................   Passed    0.00 sec
+    Start 7: hdr_histogram_atomic_concurrency_test
+7/7 Test #7: hdr_histogram_atomic_concurrency_test ...   Passed    0.79 sec
+
+100% tests passed, 0 tests failed out of 7
+
+Total Test time (real) =   1.25 sec

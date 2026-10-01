@@ -1,0 +1,14 @@
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/gcc/test/hdr_percentile_bench':
+
+       23836722827      branches                                                                (83.34%)
+          15681238      branch-misses                                                           (83.34%)
+       25264263030      cache-references                                                        (83.33%)
+            162112      cache-misses                                                            (83.33%)
+      308576143831      instructions                                                            (83.33%)
+       45282602616      cycles                                                                  (83.33%)
+
+      10.000979077 seconds time elapsed
+
+       9.996173000 seconds user
+       0.000891000 seconds sys

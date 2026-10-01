@@ -1,0 +1,22 @@
+[
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 0,
+    "variant": "base",
+    "record_ops": 411373548.105,
+    "read_seconds": 189.176,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-0-base.log"
+  },
+  {
+    "compiler": "clang",
+    "opt": "O3",
+    "index": 1,
+    "variant": "patch",
+    "record_ops": 406868988.71,
+    "read_seconds": 90.428,
+    "sink": "17401860284404480",
+    "log": "referee-clang-O3-1-patch.log"
+  }
+]

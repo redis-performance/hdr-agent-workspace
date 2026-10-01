@@ -1,0 +1,18 @@
+{"label": "intel", "phase": "starting", "time": 1790859667.992079}
+{"label": "intel", "phase": "measuring", "time": 1790859678.4191272, "run": "profile-clang-O3-base-read", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859702.4244037, "run": "profile-clang-O3-base-read", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859705.6601472, "run": "profile-clang-O3-base-write", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859729.6652334, "run": "profile-clang-O3-base-write", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859732.6660736, "run": "profile-clang-O3-patch-read", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859756.6711545, "run": "profile-clang-O3-patch-read", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859759.9151077, "run": "profile-clang-O3-patch-write", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859783.9203932, "run": "profile-clang-O3-patch-write", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859786.9212885, "run": "profile-gcc-O3-base-read", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859810.9263127, "run": "profile-gcc-O3-base-read", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859814.1517236, "run": "profile-gcc-O3-base-write", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859838.1569557, "run": "profile-gcc-O3-base-write", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859841.1578217, "run": "profile-gcc-O3-patch-read", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859865.163068, "run": "profile-gcc-O3-patch-read", "seconds": 24.0}
+{"label": "intel", "phase": "measuring", "time": 1790859868.3956215, "run": "profile-gcc-O3-patch-write", "attempt": 1}
+{"label": "intel", "phase": "measured", "time": 1790859892.4009068, "run": "profile-gcc-O3-patch-write", "seconds": 24.0}
+{"label": "intel", "phase": "complete", "time": 1790859892.4010334}

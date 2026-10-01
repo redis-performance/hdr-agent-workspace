@@ -1,0 +1,12 @@
+{
+  "base": {
+    "address": 23856,
+    "bytes": 544,
+    "sha256": "1f1b788d170d6157e5e64799a8d0d46ec973421a1aa01becf9bb7788c0836586"
+  },
+  "patch": {
+    "address": 23840,
+    "bytes": 544,
+    "sha256": "1f1b788d170d6157e5e64799a8d0d46ec973421a1aa01becf9bb7788c0836586"
+  }
+}

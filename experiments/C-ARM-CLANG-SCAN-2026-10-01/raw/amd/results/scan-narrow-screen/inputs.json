@@ -1,0 +1,66 @@
+{
+  "clang-O3-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "203df3f1208623d79212c4282835719ea95eecfd15db2fa463182b8f07fae876",
+    "write_text": "f6b9b30c7d788e9cc03ad0d0c9939fd184e9f1224da28e4646092590008f077d",
+    "library": "03e988391f2ce79c414d73fd577ffb26ae8dd2e9af22976443c07df38bf83cf5"
+  },
+  "gcc-O3-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "544a83482120c37dadbad0f4200b0748cfecf1684fa3ae73bf7dfad65cf9222e",
+    "write_text": "65613cbfdfbfa5e67143e055d50bb3cad717f5891363631af3bd014bf70b4350",
+    "library": "935e7bc69db34dc92974898b6fec6e6362930b19027f8cda33b9740b87876c9a"
+  },
+  "clang-O3-patch": {
+    "src/hdr_histogram.c": "7b117f6d60b5f84e3dd9be87d65c344862055757d2b214731284cfdf0b9cdf3c",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "203df3f1208623d79212c4282835719ea95eecfd15db2fa463182b8f07fae876",
+    "write_text": "f6b9b30c7d788e9cc03ad0d0c9939fd184e9f1224da28e4646092590008f077d",
+    "library": "4bcafecc4da59c97427d52c9f832a64f55727f737e09a98f313b50992afdeb81"
+  },
+  "gcc-O3-patch": {
+    "src/hdr_histogram.c": "7b117f6d60b5f84e3dd9be87d65c344862055757d2b214731284cfdf0b9cdf3c",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "544a83482120c37dadbad0f4200b0748cfecf1684fa3ae73bf7dfad65cf9222e",
+    "write_text": "65613cbfdfbfa5e67143e055d50bb3cad717f5891363631af3bd014bf70b4350",
+    "library": "4677d4bef15e53af15edb24f78ae9d089a19bba6d190a9a6d249b6d6cdf45013"
+  },
+  "clang-Os-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "b7701f5ee4618bb9673b474e7e86e0d7d622b70113f1de973ee0ad5e3bcdc7d4",
+    "write_text": "beaeb4ee5dfc10962c530feeec9e15f75a09309429e6984c11f7a625c3f721a6",
+    "library": "4c075026dff15438e274a998bfef216d6997128c6b3e4e583fc14a45913209d2"
+  },
+  "gcc-Os-base": {
+    "src/hdr_histogram.c": "3f5aa8dac03cff3ab4ea50a583723073612bee895e7103ce7406b001273247e7",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "cc09da16ca06dd8878d1bbeca90e9610d2961715409e48183ff92aba586179f7",
+    "write_text": "c8e43f54c3db80a19399531bc6011c09f3aa40bb3d6ff9c9fd946076dfea0f62",
+    "library": "9204000c20c48c1cc79b71e5cc2e711fddeda76432045af05341f35e0c24f039"
+  },
+  "clang-Os-patch": {
+    "src/hdr_histogram.c": "7b117f6d60b5f84e3dd9be87d65c344862055757d2b214731284cfdf0b9cdf3c",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "b7701f5ee4618bb9673b474e7e86e0d7d622b70113f1de973ee0ad5e3bcdc7d4",
+    "write_text": "beaeb4ee5dfc10962c530feeec9e15f75a09309429e6984c11f7a625c3f721a6",
+    "library": "6f12b02282398a79e70125d8477bc4eb91a407e46bbe68506ef186a66bc8d5d0"
+  },
+  "gcc-Os-patch": {
+    "src/hdr_histogram.c": "7b117f6d60b5f84e3dd9be87d65c344862055757d2b214731284cfdf0b9cdf3c",
+    "test/hdr_histogram_perf.c": "d9ac5edb98cb97d8a2e56f91a49cff42bd5bfb535ab4881cedad42411674c0d1",
+    "test/hdr_percentile_bench.c": "9580383366311ec595bfbd52e3146f92c11a4b7867b8330b2d901ee88f6d8afc",
+    "read_text": "cc09da16ca06dd8878d1bbeca90e9610d2961715409e48183ff92aba586179f7",
+    "write_text": "c8e43f54c3db80a19399531bc6011c09f3aa40bb3d6ff9c9fd946076dfea0f62",
+    "library": "af1915a6f5755868b62aa5ab0b2d82ff17ecd86248d6da67ff2c15871796bf59"
+  }
+}

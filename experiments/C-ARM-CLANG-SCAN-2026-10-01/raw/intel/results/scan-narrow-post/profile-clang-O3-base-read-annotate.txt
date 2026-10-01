@@ -1,0 +1,156 @@
+ Percent |	Source code & Disassembly of hdr_percentile_bench for cpu/cycles/P (63 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         : 0    0x46c0 <hdr_value_at_percentile>:
+    0.00 :   46c0:        pushq   %rbx
+    0.00 :   46c1:        subq    $0x10, %rsp
+    0.00 :   46c5:        movsd   0x2993(%rip), %xmm3  # 0x7060
+    3.18 :   46cd:        movapd  %xmm0, %xmm1
+    1.59 :   46d1:        minsd   %xmm3, %xmm1
+    0.00 :   46d5:        cvtsi2sdq       0x58(%rdi), %xmm2
+   20.63 :   46db:        divsd   %xmm3, %xmm1
+    1.59 :   46df:        mulsd   %xmm1, %xmm2
+    7.95 :   46e3:        addsd   0x297d(%rip), %xmm2  # 0x7068
+    4.77 :   46eb:        cvttsd2si       %xmm2, %rax
+    3.18 :   46f0:        cmpq    $0x2, %rax
+    0.00 :   46f4:        movl    $0x1, %esi
+    3.18 :   46f9:        cmovgeq %rax, %rsi
+    0.00 :   46fd:        movl    0x40(%rdi), %edx
+    0.00 :   4700:        testl   %edx, %edx
+    3.18 :   4702:        je      0x4760 <hdr_value_at_percentile+0xa0>
+    0.00 :   4704:        movl    0x50(%rdi), %ecx
+    0.00 :   4707:        xorl    %eax, %eax
+    0.00 :   4709:        testl   %ecx, %ecx
+    0.00 :   470b:        jle     0x484e <hdr_value_at_percentile+0x18e>
+    0.00 :   4711:        movq    0x60(%rdi), %r8
+    0.00 :   4715:        movl    %ecx, %r9d
+    0.00 :   4718:        negl    %r9d
+    0.00 :   471b:        negl    %edx
+    0.00 :   471d:        movslq  %edx, %r10
+    0.00 :   4720:        xorl    %r11d, %r11d
+    0.00 :   4723:        xorl    %edx, %edx
+    0.00 :   4725:        nopw    %cs:(%rax,%rax)
+    0.00 :   4730:        cmpl    %ecx, %r10d
+    0.00 :   4733:        movl    %r9d, %ebx
+    0.00 :   4736:        cmovll  %eax, %ebx
+    0.00 :   4739:        testl   %r10d, %r10d
+    0.00 :   473c:        cmovsl  %ecx, %ebx
+    0.00 :   473f:        movslq  %ebx, %rbx
+    0.00 :   4742:        addq    %r10, %rbx
+    0.00 :   4745:        addq    (%r8,%rbx,8), %r11
+    0.00 :   4749:        cmpq    %rsi, %r11
+    0.00 :   474c:        jge     0x4821 <hdr_value_at_percentile+0x161>
+    0.00 :   4752:        incl    %edx
+    0.00 :   4754:        incq    %r10
+    0.00 :   4757:        cmpl    %edx, %ecx
+    0.00 :   4759:        jne     0x4730 <hdr_value_at_percentile+0x70>
+    0.00 :   475b:        jmp     0x484e <hdr_value_at_percentile+0x18e>
+    0.00 :   4760:        testb   $0x4, 0x4946(%rip)  # 0x90ad <__cpu_model+0xd>
+    3.14 :   4767:        jne     0x47d9 <hdr_value_at_percentile+0x119>
+    0.00 :   4769:        movq    0x60(%rdi), %rax
+    0.00 :   476d:        movl    0x50(%rdi), %ecx
+    0.00 :   4770:        leal    0x3(%rcx), %r9d
+    0.00 :   4774:        testl   %ecx, %ecx
+    0.00 :   4776:        cmovnsl %ecx, %r9d
+    0.00 :   477a:        xorl    %edx, %edx
+    0.00 :   477c:        xorl    %r8d, %r8d
+    0.00 :   477f:        andl    $-0x4, %r9d
+    0.00 :   4783:        jle     0x47f2 <hdr_value_at_percentile+0x132>
+    0.00 :   4785:        nopw    %cs:(%rax,%rax)
+    0.00 :   4790:        movq    %r8, %rbx
+    0.00 :   4793:        addq    (%rax,%rdx,8), %rbx
+    0.00 :   4797:        movq    0x8(%rax,%rdx,8), %r11
+    0.00 :   479c:        addq    %rbx, %r11
+    0.00 :   479f:        movq    0x10(%rax,%rdx,8), %r10
+    0.00 :   47a4:        addq    %r11, %r10
+    0.00 :   47a7:        movq    0x18(%rax,%rdx,8), %r8
+    0.00 :   47ac:        addq    %r10, %r8
+    0.00 :   47af:        cmpq    %rsi, %r8
+    0.00 :   47b2:        jae     0x47bf <hdr_value_at_percentile+0xff>
+    0.00 :   47b4:        addq    $0x4, %rdx
+    0.00 :   47b8:        cmpl    %edx, %r9d
+    0.00 :   47bb:        jg      0x4790 <hdr_value_at_percentile+0xd0>
+    0.00 :   47bd:        jmp     0x47f2 <hdr_value_at_percentile+0x132>
+    0.00 :   47bf:        cmpq    %rsi, %rbx
+    0.00 :   47c2:        jge     0x4821 <hdr_value_at_percentile+0x161>
+    0.00 :   47c4:        cmpq    %rsi, %r11
+    0.00 :   47c7:        jge     0x4818 <hdr_value_at_percentile+0x158>
+    0.00 :   47c9:        cmpq    %rsi, %r10
+    0.00 :   47cc:        jge     0x481d <hdr_value_at_percentile+0x15d>
+    0.00 :   47ce:        cmpq    %rsi, %r8
+    0.00 :   47d1:        jl      0x47b4 <hdr_value_at_percentile+0xf4>
+    0.00 :   47d3:        addq    $0x3, %rdx
+    0.00 :   47d7:        jmp     0x4821 <hdr_value_at_percentile+0x161>
+    0.00 :   47d9:        movq    %rdi, %rbx
+    0.00 :   47dc:        movsd   %xmm0, 0x8(%rsp)
+    1.59 :   47e2:        callq   0x5d30 <get_value_from_idx_up_to_count_avx2>
+    0.00 :   47e7:        movsd   0x8(%rsp), %xmm0
+    0.00 :   47ed:        movq    %rbx, %rdi
+    1.59 :   47f0:        jmp     0x484e <hdr_value_at_percentile+0x18e>
+    0.00 :   47f2:        cmpl    %ecx, %edx
+    0.00 :   47f4:        jge     0x4814 <hdr_value_at_percentile+0x154>
+    0.00 :   47f6:        movl    %edx, %r9d
+    0.00 :   47f9:        leaq    (%rax,%r9,8), %r9
+    0.00 :   47fd:        xorl    %eax, %eax
+    0.00 :   47ff:        nop
+    0.00 :   4800:        addq    (%r9), %r8
+    0.00 :   4803:        cmpq    %rsi, %r8
+    0.00 :   4806:        jge     0x4821 <hdr_value_at_percentile+0x161>
+    0.00 :   4808:        incl    %edx
+    0.00 :   480a:        addq    $0x8, %r9
+    0.00 :   480e:        cmpl    %edx, %ecx
+    0.00 :   4810:        jg      0x4800 <hdr_value_at_percentile+0x140>
+    0.00 :   4812:        jmp     0x484e <hdr_value_at_percentile+0x18e>
+    0.00 :   4814:        xorl    %eax, %eax
+    0.00 :   4816:        jmp     0x484e <hdr_value_at_percentile+0x18e>
+    0.00 :   4818:        incq    %rdx
+    0.00 :   481b:        jmp     0x4821 <hdr_value_at_percentile+0x161>
+    0.00 :   481d:        addq    $0x2, %rdx
+    0.00 :   4821:        movzbl  0x18(%rdi), %ecx
+    0.00 :   4825:        movl    0x1c(%rdi), %eax
+    0.00 :   4828:        leal    0x7fffffff(%rax), %esi
+    0.00 :   482e:        andl    %edx, %esi
+    0.00 :   4830:        shrl    %cl, %edx
+    0.00 :   4832:        xorl    %r8d, %r8d
+    0.00 :   4835:        movl    %edx, %ecx
+    0.00 :   4837:        subl    $0x1, %ecx
+    0.00 :   483a:        cmovbl  %r8d, %ecx
+    0.00 :   483e:        testl   %edx, %edx
+    0.00 :   4840:        cmovnel %eax, %edx
+    0.00 :   4843:        addl    %esi, %edx
+    0.00 :   4845:        movslq  %edx, %rax
+    0.00 :   4848:        addl    0x10(%rdi), %ecx
+    0.00 :   484b:        shlq    %cl, %rax
+   11.12 :   484e:        movq    0x20(%rdi), %rcx
+    0.00 :   4852:        orq     %rax, %rcx
+    4.77 :   4855:        bsrq    %rcx, %rdx
+    6.36 :   4859:        xorl    $0x3f, %edx
+    3.18 :   485c:        addl    0x18(%rdi), %edx
+    0.00 :   485f:        movl    $0x3f, %ecx
+    1.59 :   4864:        subl    %edx, %ecx
+    9.54 :   4866:        sarq    %cl, %rax
+    0.00 :   4869:        movslq  %eax, %rdx
+    3.08 :   486c:        shlq    %cl, %rdx
+    0.00 :   486f:        xorpd   %xmm1, %xmm1
+    0.00 :   4873:        ucomisd %xmm1, %xmm0
+    1.59 :   4877:        jne     0x4884 <hdr_value_at_percentile+0x1c4>
+    0.00 :   4879:        jp      0x4884 <hdr_value_at_percentile+0x1c4>
+    0.00 :   487b:        movq    %rdx, %rax
+    0.00 :   487e:        addq    $0x10, %rsp
+    0.00 :   4882:        popq    %rbx
+    0.00 :   4883:        retq
+    0.00 :   4884:        xorl    %esi, %esi
+    0.00 :   4886:        cmpl    %eax, 0x28(%rdi)
+    0.00 :   4889:        setle   %sil
+    0.00 :   488d:        addl    %esi, %ecx
+    0.00 :   488f:        movl    $0x1, %eax
+    1.59 :   4894:        shlq    %cl, %rax
+    0.00 :   4897:        movabsq $0x7fffffffffffffff, %rcx
+    0.00 :   48a1:        movq    %rcx, %rsi
+    0.00 :   48a4:        subq    %rax, %rsi
+    0.00 :   48a7:        cmpq    %rsi, %rdx
+    0.00 :   48aa:        leaq    -0x1(%rdx,%rax), %rdx
+    0.00 :   48af:        cmovgq  %rcx, %rdx
+    0.00 :   48b3:        movq    %rdx, %rax
+    0.00 :   48b6:        addq    $0x10, %rsp
+    0.00 :   48ba:        popq    %rbx
+    1.59 :   48bb:        retq

@@ -1,0 +1,3 @@
+{"label": "amd", "phase": "starting", "time": 1790859544.0547888}
+{"label": "amd", "phase": "unchanged-paths-byte-identical", "time": 1790859557.3883514}
+{"label": "amd", "phase": "complete", "time": 1790859557.3885128, "reason": "Both immutable driver text sections match for all configurations"}

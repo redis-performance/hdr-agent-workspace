@@ -1,0 +1,19 @@
+{"label": "arm", "phase": "starting", "time": 1790859613.2204766}
+{"label": "arm", "phase": "unchanged-paths-byte-identical", "time": 1790859629.0994093}
+{"label": "arm", "phase": "measuring", "time": 1790859632.1004004, "run": "referee-clang-O3-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790859920.1450155, "run": "referee-clang-O3-0-base", "seconds": 288.04}
+{"label": "arm", "phase": "measuring", "time": 1790859923.146251, "run": "referee-clang-O3-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790860112.175653, "run": "referee-clang-O3-1-patch", "seconds": 189.03}
+{"label": "arm", "phase": "measuring", "time": 1790860115.1767328, "run": "referee-clang-O3-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790860304.2060566, "run": "referee-clang-O3-2-patch", "seconds": 189.03}
+{"label": "arm", "phase": "measuring", "time": 1790860307.2071187, "run": "referee-clang-O3-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790860595.2512145, "run": "referee-clang-O3-3-base", "seconds": 288.04}
+{"label": "arm", "phase": "measuring", "time": 1790860598.2522671, "run": "referee-clang-Os-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790860781.2810693, "run": "referee-clang-Os-0-base", "seconds": 183.03}
+{"label": "arm", "phase": "measuring", "time": 1790860784.2821493, "run": "referee-clang-Os-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790860967.3107607, "run": "referee-clang-Os-1-patch", "seconds": 183.03}
+{"label": "arm", "phase": "measuring", "time": 1790860970.3118157, "run": "referee-clang-Os-2-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790861153.3407147, "run": "referee-clang-Os-2-patch", "seconds": 183.03}
+{"label": "arm", "phase": "measuring", "time": 1790861156.3417776, "run": "referee-clang-Os-3-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790861339.3702822, "run": "referee-clang-Os-3-base", "seconds": 183.03}
+{"label": "arm", "phase": "complete", "time": 1790861339.3706255}

@@ -865,3 +865,23 @@ host package installation. Full raw identifying output stays outside git;
 sanitized hardware, OS, compiler, topology and settings snapshots are retained.
 No new optimization/default accepted, no PR/push, and acceptance counts and
 the pre-existing submodule pointer are unchanged.
+
+### ARM Clang O3 percentile cause and candidate — 2026-10-01
+
+[Full evidence and review package](C-ARM-CLANG-SCAN-2026-10-01/RESULTS.md).
+The broad shared-tail refactor restores ARM SIMD but is rejected: repeated AMD
+Clang O3 full reads fall to 0.8527x despite identical AVX2 bytes, moved 16 bytes.
+A narrow Clang AArch64-only crossing-loop unroll-disable pragma gives 2.1198x
+full O3 read throughput, with recording effectively unchanged (1.0036x) and
+Os flat. Every tested GCC/x86 executable text section matches baseline exactly.
+Scalar-only controls retain ~1.315x gain after shortening the recurrence; native
+profiles support greater instruction parallelism. Boundary, sanitizer and ARM
+record/decoder fuzz tests pass. Early crossings lose up to ~11% throughput,
+about 0.6–0.7 ns/query; no always-faster claim is made.
+
+Failed test drafts and vectorizer-disable flag ordering attempts are recorded;
+the latter were caught by disassembly and corrected before using their timing.
+The final patch applies and passes local correctness on current upstream, but
+timing qualification remains at the requested PR #158 pin. Required Opus review
+could not run because of the weekly account limit. No MERGE-READY, source
+acceptance, upstream PR or push; optimization counts and submodule state unchanged.

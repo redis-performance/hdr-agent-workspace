@@ -1,0 +1,47 @@
+# Bounded perf report — write path — clang
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+   100.00%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] _start
+               0xfafcb5f284c4
+   100.00%     0.00%  hdr_histogram_p  libc.so.6              [.] __libc_start_main
+               0xfafcb5f284c4
+   100.00%     0.00%  hdr_histogram_p  libc.so.6              [.] 0x0000fafcb5f284c4
+   100.00%     7.43%  hdr_histogram_p  hdr_histogram_perf     [.] main
+                       0xfafcb5f284c4
+    92.57%    92.57%  hdr_histogram_p  hdr_histogram_perf     [.] hdr_record_value
+               0xfafcb5f284c4
+    90.72%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] record_value_counted (inlined)
+    53.16%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_inc_normalised (inlined)
+    17.91%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_index_for (inlined)
+    11.15%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] update_min_max (inlined)
+    10.86%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] get_bucket_index (inlined)
+     7.00%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_index (inlined)
+     0.05%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] get_sub_bucket_index (inlined)
+     0.00%     0.00%  timeout          [kernel.kallsyms]      [k] cgroup_rstat_updated
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104dca54
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104d8b94
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104d7730
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104da154
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104c4af4
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] _dl_catch_exception
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104c459c
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000eafb104c9fcc
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/clang/test/hdr_histogram_perf':
+
+       40955685032      branches
+            120751      branch-misses
+       57746146361      cache-references
+            212719      cache-misses
+      197008942092      instructions
+       28005142589      cycles
+
+      10.002901204 seconds time elapsed
+
+       9.999345000 seconds user
+       0.002043000 seconds sys
+
+
+==> Saved: /tmp/hdr-os-o3-fleet-20261001/results/scan-narrow-post/profile-clang-O3-patch-write/20261001-133543-clang-write.txt

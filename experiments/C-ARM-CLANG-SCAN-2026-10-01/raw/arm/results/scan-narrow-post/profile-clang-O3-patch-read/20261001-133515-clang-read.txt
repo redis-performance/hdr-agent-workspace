@@ -1,0 +1,44 @@
+# Bounded perf report — read path — clang
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+   100.00%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] _start
+               0xf585e35984c4
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] __libc_start_main
+               0xf585e35984c4
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] 0x0000f585e35984c4
+   100.00%     0.13%  hdr_percentile_  hdr_percentile_bench   [.] main
+    99.87%    99.86%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_percentile
+                       0xf585e35984c4
+    99.86%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count (inlined)
+    99.86%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count_scalar (inlined)
+     0.15%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_index (inlined)
+     0.04%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] value_from_index (inlined)
+     0.01%     0.01%  hdr_percentile_  [kernel.kallsyms]      [k] handle_softirqs
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] el0t_64_irq
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] el0t_64_irq_handler
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] __el0_irq_handler_common
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] el0_interrupt
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] irq_exit_rcu
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] __irq_exit_rcu
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] do_softirq_own_stack
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] call_on_irq_stack
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] ____do_softirq
+     0.01%     0.00%  hdr_percentile_  [kernel.kallsyms]      [.] __do_softirq
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] highest_equivalent_value (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_size_of_equivalent_value_range (inlined)
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/clang/test/hdr_percentile_bench':
+
+       26209654784      branches
+           4095815      branch-misses
+       26281969435      cache-references
+         229950118      cache-misses
+      170423489211      instructions
+       28004857169      cycles
+
+      10.002859440 seconds time elapsed
+
+      10.001429000 seconds user
+       0.000000000 seconds sys

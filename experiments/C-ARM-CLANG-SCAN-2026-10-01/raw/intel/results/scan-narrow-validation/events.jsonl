@@ -1,0 +1,3 @@
+{"label": "intel", "phase": "starting", "time": 1790859653.0231318}
+{"label": "intel", "phase": "unchanged-paths-byte-identical", "time": 1790859667.9515605}
+{"label": "intel", "phase": "complete", "time": 1790859667.9517286, "reason": "Both immutable driver text sections match for all configurations"}

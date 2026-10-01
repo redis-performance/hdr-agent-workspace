@@ -1,0 +1,24 @@
+diff --git a/src/hdr_histogram.c b/src/hdr_histogram.c
+index 4507530..2fd6322 100644
+--- a/src/hdr_histogram.c
++++ b/src/hdr_histogram.c
+@@ -788,17 +788,9 @@ static int64_t get_value_from_idx_up_to_count_scalar(
+                 block_sum_u += (uint64_t)counts[idx + j];
+             if (HDR_UNLIKELY((uint64_t)running + block_sum_u >= (uint64_t)count_at_percentile))
+             {
+-                for (j = 0; j < BLK; j++)
+-                {
+-                    running += counts[idx + j];
+-                    if (running >= count_at_percentile)
+-                        return hdr_value_at_index(h, idx + j);
+-                }
+-            }
+-            else
+-            {
+-                running += (int64_t)block_sum_u;
++                break;
+             }
++            running += (int64_t)block_sum_u;
+         }
+     }
+ 

@@ -1,5 +1,11 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [ARM Clang percentile unroll investigation](hdr-arm-clang-scan.md) — causal
+  control and narrow candidate: full O3 read 2.120x, unchanged write/Os and
+  byte-identical GCC/x86 text. Early crossings can cost 0.6–0.7 ns more.
+  Broader refactor rejected for AMD regression. Required Opus review hit quota;
+  no MERGE-READY, source acceptance, PR or push. Evidence and patch saved locally.
+
 - [C hardening and Redis/Valkey embedding](../experiments/C-HARDENING-2026-10-01/README.md) —
   pinned PR #158 consumer integration and binary-size matrix; preserve allocator
   adapters and iterator extension. Includes separate decoder/core-build PR plans

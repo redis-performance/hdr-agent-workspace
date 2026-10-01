@@ -1,0 +1,47 @@
+# Bounded perf report — write path — gcc
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+   100.00%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] _start
+               0xfb0f3d7984c4
+   100.00%     0.00%  hdr_histogram_p  libc.so.6              [.] __libc_start_main
+               0xfb0f3d7984c4
+   100.00%     0.00%  hdr_histogram_p  libc.so.6              [.] 0x0000fb0f3d7984c4
+   100.00%     7.45%  hdr_histogram_p  hdr_histogram_perf     [.] main
+                       0xfb0f3d7984c4
+    92.55%    92.55%  hdr_histogram_p  hdr_histogram_perf     [.] hdr_record_value
+               0xfb0f3d7984c4
+    90.58%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] record_value_counted (inlined)
+    47.65%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_inc_normalised (inlined)
+    18.82%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_index_for (inlined)
+    11.15%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] update_min_max (inlined)
+    10.85%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] get_bucket_index (inlined)
+     4.48%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] counts_index (inlined)
+     3.49%     0.00%  hdr_histogram_p  hdr_histogram_perf     [.] get_sub_bucket_index (inlined)
+     0.00%     0.00%  timeout          [kernel.kallsyms]      [k] vma_interval_tree_insert
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4d17a54
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4d13b94
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4d12730
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4d15154
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4cffaf4
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] _dl_catch_exception
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4cff59c
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f677b4d04e30
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/gcc/test/hdr_histogram_perf':
+
+       39759154106      branches
+            123764      branch-misses
+       56070697962      cache-references
+            213849      cache-misses
+      211136722951      instructions
+       28005737413      cycles
+
+      10.003098495 seconds time elapsed
+
+      10.000399000 seconds user
+       0.001054000 seconds sys
+
+
+==> Saved: /tmp/hdr-os-o3-fleet-20261001/results/scan-narrow-post/profile-gcc-O3-patch-write/20261001-133731-gcc-write.txt

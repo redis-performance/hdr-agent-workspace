@@ -1,0 +1,6 @@
+{"label": "arm", "phase": "starting", "time": 1790858955.9479475}
+{"label": "arm", "phase": "measuring", "time": 1790858974.3922608, "run": "referee-clang-O3-0-base", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790859262.437095, "run": "referee-clang-O3-0-base", "seconds": 288.04}
+{"label": "arm", "phase": "measuring", "time": 1790859265.4386082, "run": "referee-clang-O3-1-patch", "attempt": 1}
+{"label": "arm", "phase": "measured", "time": 1790859454.4702995, "run": "referee-clang-O3-1-patch", "seconds": 189.03}
+{"label": "arm", "phase": "stopped", "time": 1790859456.5459116}

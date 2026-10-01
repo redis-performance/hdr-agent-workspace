@@ -1,0 +1,44 @@
+# Bounded perf report — read path — gcc
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+   100.00%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] _start
+               0xe311fc2284c4
+                                     0xb54677ae3ec8
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] __libc_start_main
+               0xe311fc2284c4
+   100.00%     0.00%  hdr_percentile_  libc.so.6              [.] 0x0000e311fc2284c4
+   100.00%     0.17%  hdr_percentile_  hdr_percentile_bench   [.] main
+    99.83%    99.83%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_percentile
+               0xe311fc2284c4
+    99.73%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count (inlined)
+    99.73%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_value_from_idx_up_to_count_scalar (inlined)
+     0.10%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_value_at_index (inlined)
+     0.04%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] highest_equivalent_value (inlined)
+     0.04%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] hdr_size_of_equivalent_value_range (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] lowest_equivalent_value (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] get_bucket_index (inlined)
+     0.01%     0.00%  hdr_percentile_  hdr_percentile_bench   [.] value_from_index (inlined)
+     0.00%     0.00%  timeout          [kernel.kallsyms]      [k] filemap_map_pages
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b918a54
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b914b94
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b913730
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b916154
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b900af4
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] _dl_catch_exception
+     0.00%     0.00%  timeout          ld-linux-aarch64.so.1  [.] 0x0000f5e90b90059c
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-base-O3/build/gcc/test/hdr_percentile_bench':
+
+       27236222388      branches
+           4252202      branch-misses
+       27275061051      cache-references
+         216760155      cache-misses
+      177060952608      instructions
+       28005093761      cycles
+
+      10.002903248 seconds time elapsed
+
+      10.000334000 seconds user
+       0.001034000 seconds sys

@@ -1,0 +1,44 @@
+# Bounded perf report — write path — clang
+# hdr commit: d21d0843b492023077553b3eba26b3efa16c15f5
+# Each profile/counter run is externally limited to 10 seconds.
+## Top symbols
+    98.92%    86.52%  hdr_histogram_p  hdr_histogram_perf                            [.] hdr_record_value
+    87.80%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] record_value_counted (inlined)
+    47.33%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] counts_index_for (inlined)
+    24.26%    13.36%  hdr_histogram_p  hdr_histogram_perf                            [.] main
+    24.04%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] counts_index (inlined)
+    16.97%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000032372e
+    16.08%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] get_bucket_index (inlined)
+    14.33%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] counts_inc_normalised (inlined)
+    13.84%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] update_min_max (inlined)
+     8.55%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] _start
+     8.55%     0.00%  hdr_histogram_p  libc.so.6                                     [.] __libc_start_main
+     8.49%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000038302e
+     8.49%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000035362e
+     8.49%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000034372e
+     8.49%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000037302e
+     8.49%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000039332e
+     8.48%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000038312e
+     8.48%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000036342e
+     8.48%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000039322e
+     7.21%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] get_sub_bucket_index (inlined)
+     6.58%     0.00%  hdr_histogram_p  [unknown]                                     [.] 0x000000000035302e
+     3.52%     0.00%  hdr_histogram_p  hdr_histogram_perf                            [.] count_leading_zeros_64 (inlined)
+     0.11%     0.00%  hdr_histogram_p  [kernel.kallsyms]                             [.] asm_sysvec_apic_timer_interrupt
+     0.10%     0.00%  hdr_histogram_p  [kernel.kallsyms]                             [.] sysvec_apic_timer_interrupt
+     0.08%     0.00%  hdr_histogram_p  [kernel.kallsyms]                             [.] __sysvec_apic_timer_interrupt
+## Counter sample
+
+ Performance counter stats for 'timeout -s INT 10 /tmp/hdr-os-o3-fleet-20261001/narrow-patch-O3/build/clang/test/hdr_histogram_perf':
+
+       46499238885      branches
+             67519      branch-misses
+            614924      cache-references
+             60663      cache-misses
+      218965976546      instructions
+       37720428249      cycles
+
+      10.000281802 seconds time elapsed
+
+       9.998847000 seconds user
+       0.001867000 seconds sys
