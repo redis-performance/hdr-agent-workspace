@@ -97,3 +97,9 @@ paulorsousa APPROVED #150 ("LGTM :)") at 14:53Z on head 489c541 (verified via th
 ## Merge-order note for #164/#165/#166 (2026-10-01)
 #164 commits generated `amalgamated/`; its `--check` CI fails whenever main's core changes without a regen. Verified: #164 is fresh vs main today, but merging #166 (or #165) on top makes `--check` fail (rc=1). Land #165 and #166 first, then #164 (one regen), or move the amalgamation to a release artifact (open question for the user).
 #163 and #164 branches are being refreshed by another session (cefb60c/d35c528 on #163; b4a5aba on #164) — do not push to them from here without checking `git fetch` first. #163 has a new ci.yml conflict vs main since #160 merged.
+
+## Master refreshed on all open PRs (2026-10-01 ~16:10Z)
+User merged #150, #158, #160, #161 (main = 05e06cc). Open: #162 #163 #164 #165 #166 #167, all merged up to 05e06cc (behind=0), each built + ctest 9/9 before push.
+- #163: ci.yml conflict with #160 resolved by taking main's file and re-appending the build-core-only job (6 jobs, YAML valid).
+- #164: amalgamate.py's include regex now tolerates a trailing /* */ comment (#150's hdr_tests.h include has one, so the single file stopped compiling); amalgamated/ regenerated, smoke-compiled incl. --malloc-include.
+- #166: another session had already merged main + added hdr_record_value_capped_atomic (c646e84) 23s before this session pushed; this session's push 6ecb9df accidentally removed that work. Repaired by a plain revert (b97aa21, tree identical to c646e84, build + 9/9). LESSON: several sessions edit these branches; local branch refs are shared across worktrees, so update via detached HEAD, fetch right before merging, and verify remote tree after pushing.
