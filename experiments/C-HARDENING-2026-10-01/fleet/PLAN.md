@@ -33,5 +33,19 @@ For each machine:
    between architectures; do not compare absolute rates across different hosts
    as if they were an optimization result.
 
+Follow-up checks prompted by the measurements:
+
+- Run the existing allocator/iterator contract fixture against every actual
+  measured consumer archive. Verify emitted caller flags, independent of
+  checkout paths containing the strings `-Os`/`-O3`.
+- Time a fixed caller against actual GCC Redis HDR archives in both orders:
+  ordinary Os/O3 and private+GC Os/O3. These are bounded supplemental probes,
+  not substitutes for the immutable referee or end-to-end server benchmarks.
+- The Intel private-O3 probe showed a substantial recording slowdown despite
+  byte-identical recording instructions in the diagnostic executables. Check
+  ordinary/private O3 again with full unchanged drivers, in opposite order,
+  while ARM's original runs finish. Keep this diagnostic separate from the
+  primary Os/O3 comparison and do not silently promote the smaller build.
+
 These runs validate the compiler tradeoff. They do not imply an end-to-end
 Redis throughput improvement or replace the required upstream review.
