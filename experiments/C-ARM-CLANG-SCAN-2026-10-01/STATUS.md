@@ -25,4 +25,5 @@ position-3 crossings. Per the handoff's ~11% early-crossing limit, PR #167's
 guard now excludes Apple (`858751b`); Apple codegen equals base and CTest passes
 9/9. A native Linux arm64 Clang 18 CI job that compiles the guarded line and runs
 CTest passed on PR head `a7bcc7b`. See [Apple results](apple/RESULTS-APPLE.md).
-Formal Opus review and final-head Linux performance qualification remain pending.
+All 28 final-head CI checks pass. Formal Opus review and final-head Linux
+performance qualification remain pending.

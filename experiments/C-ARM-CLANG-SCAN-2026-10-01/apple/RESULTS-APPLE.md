@@ -80,10 +80,11 @@ Both original revisions passed all 9 CTest tests. The final guarded revision
 rebuilt successfully and passed all 9 again on Apple Clang. PR #167's new
 [`ubuntu-24.04-arm` / Clang 18 CI job](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36933292800/job/110607562163)
 passed: it verifies the pragma survives preprocessing on native Linux AArch64,
-then builds and runs CTest. The earlier head's macOS arm64 sanitizer job also
-passed. The final Apple assembly matches base, so the guarded source did not
-need another full driver timing. Linux AArch64 performance evidence and its
-native profile remain in the parent [experiment](../RESULTS.md).
+then builds and runs CTest. All 28 final-head checks pass, including macOS
+arm64 ASan/UBSan and the address fuzz job. The final Apple assembly matches
+base, so the guarded source did not need another full driver timing. Linux
+AArch64 performance evidence and its native profile remain in the parent
+[experiment](../RESULTS.md).
 
 This is core-driver evidence on one Apple chip and one Apple Clang version;
 Redis/Valkey request throughput and other Apple Clang releases were not
