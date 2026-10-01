@@ -1,6 +1,9 @@
 # Upstream-readiness checkpoint
 
-Verdict: **NEEDS WORK — no upstream PR opened, no optimization accepted.**
+Verdict: **NEEDS WORK — draft [PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167) open; no optimization accepted.**
+
+The user explicitly instructed opening after being informed of these outstanding
+gates. The draft preserves them and does not assert MERGE-READY.
 
 The reviewable candidate is [upstream-candidate.patch](upstream-candidate.patch),
 four guarded source lines plus one boundary test. It applies to upstream
@@ -55,7 +58,7 @@ disabled. It returned the account's weekly usage-limit message (reset October 6)
 without performing a review. This Codex checkpoint is explicitly not a substitute
 for that required Opus verdict. No request was sent to a maintainer or reviewer.
 
-## Handoff before publication
+## Handoff before marking the draft ready
 
 1. Obtain the required Opus review; give it this patch, RESULTS.md, the raw
    artifacts and the repository review skill. Do not mark the review as passed
@@ -70,4 +73,6 @@ for that required Opus verdict. No request was sent to a maintainer or reviewer.
    unrolling; it cannot guarantee the same throughput on every compiler/CPU,
    histogram distribution, LTO setting or executable layout.
 
-No PR description is presented as approved, and no branch has been pushed.
+The branch was pushed as `dfd5121dd61a8e9d3167bd752ef054da4ae42305` and draft
+PR #167 opened against `57db422`. CI, fuzzing and automated review started.
+No PR description is presented as approved and no acceptance gate is waived.

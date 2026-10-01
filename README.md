@@ -475,4 +475,5 @@ The [ARM Clang follow-up](experiments/C-ARM-CLANG-SCAN-2026-10-01/RESULTS.md)
 finds a narrow unroll-control candidate: 2.120x full O3 read throughput, unchanged
 write throughput and GCC/x86 code, with a small early-crossing cost. The broad
 refactor was rejected; required Opus review remains blocked by quota. Patch and
-evidence are saved locally, with no PR or acceptance-count change.
+evidence are saved locally; [draft PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167)
+is now open at the user's request. Acceptance counts remain unchanged.

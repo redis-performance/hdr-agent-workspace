@@ -885,3 +885,12 @@ The final patch applies and passes local correctness on current upstream, but
 timing qualification remains at the requested PR #158 pin. Required Opus review
 could not run because of the weekly account limit. No MERGE-READY, source
 acceptance, upstream PR or push; optimization counts and submodule state unchanged.
+
+
+The user subsequently explicitly requested opening the candidate despite the
+previously disclosed pending gates. Draft [PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167)
+is open: `dfd5121` on upstream `57db422`, four guarded source lines plus the
+44-line boundary test. The PR body distinguishes #158-pin performance from
+current-main correctness, discloses early-crossing losses, and keeps independent
+review/final-head qualification pending. CI, fuzzing and automated review began.
+No merge, MERGE-READY claim, accepted submodule update or count change.

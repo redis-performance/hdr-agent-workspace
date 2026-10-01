@@ -27,7 +27,9 @@ candidate is `narrow-candidate.patch` / combined `upstream-candidate.patch`.
 
 The patch applies cleanly to upstream 57db422; local GCC/no-log/sanitizer gates
 pass there. Performance qualification is still at d21d084. Final PR head/CI must
-be validated before acceptance. No branch was pushed and no PR was opened.
+be validated before acceptance. The user subsequently instructed opening: draft [PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167)
+is now open, head `dfd5121`, base `57db422`. CI/review started; no acceptance
+or MERGE-READY claim. See PR.json and PR-BODY.md in the experiment directory.
 
 AGENTS requires Opus 4.8 and the review skill requires MERGE-READY. The exact
 model invocation returned the account's weekly-limit message (reset October 6),

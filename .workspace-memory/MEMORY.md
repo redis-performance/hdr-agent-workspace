@@ -4,7 +4,8 @@
   control and narrow candidate: full O3 read 2.120x, unchanged write/Os and
   byte-identical GCC/x86 text. Early crossings can cost 0.6–0.7 ns more.
   Broader refactor rejected for AMD regression. Required Opus review hit quota;
-  no MERGE-READY, source acceptance, PR or push. Evidence and patch saved locally.
+  no MERGE-READY or source acceptance. User subsequently requested opening;
+  [draft PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167) is open with pending gates disclosed.
 
 - [C hardening and Redis/Valkey embedding](../experiments/C-HARDENING-2026-10-01/README.md) —
   pinned PR #158 consumer integration and binary-size matrix; preserve allocator

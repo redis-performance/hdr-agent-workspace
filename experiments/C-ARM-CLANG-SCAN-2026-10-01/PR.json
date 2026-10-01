@@ -1,0 +1,11 @@
+{
+  "number": 167,
+  "url": "https://github.com/HdrHistogram/HdrHistogram_c/pull/167",
+  "state": "OPEN",
+  "draft": true,
+  "head": "dfd5121dd61a8e9d3167bd752ef054da4ae42305",
+  "base": "57db4223d1a356b21dbece675bce812419920c58",
+  "branch": "perf/arm-clang-percentile-unroll",
+  "ci": "started; results pending at opening",
+  "authorization": "User explicitly instructed opening after being informed of the outstanding review and validation gates. Opened as draft; no MERGE-READY claim."
+}

@@ -2,7 +2,8 @@
 
 The guarded unroll-control candidate improves the full ARM64 Clang 18.1.3
 `-O3` read benchmark **2.120×**, with recording throughput effectively unchanged.
-It is a reviewable candidate, **not an accepted optimization or an opened PR**.
+It is a reviewable candidate, **not an accepted optimization**.
+[Draft PR #167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167) was subsequently opened at the user's explicit instruction, with outstanding gates disclosed.
 The required Opus review is unavailable, and the short-scan tradeoff must be
 visible to the reviewer. No accepted submodule pointer changed.
 
@@ -179,5 +180,5 @@ machine-readable summaries without access to AWS.
 The realistic protection is this narrow directive plus correctness tests and
 repeated dedicated-runner benchmarks when compilers or release source change.
 Unit tests cannot guarantee performance, and shared CI timing thresholds would
-not replace the pinned measurements. Before publishing, revalidate the final
+not replace the pinned measurements. Before marking the draft ready, revalidate the final
 PR base and obtain the required upstream MERGE-READY review. See [REVIEW.md](REVIEW.md).
