@@ -915,5 +915,7 @@ writes changed −0.185%, with matching checksums; position-3 early crossings
 lost about 19.3% throughput, beyond the experiment's ~11% limit. A second
 crossing ABBA confirmed the result. The PR's pragma guard was narrowed to
 exclude Apple (`858751b`), and final Apple assembly equals base. All 9 CTests
-pass. This is a portability qualification of the existing candidate, not a
-new accepted optimization; counts and submodule baseline remain unchanged.
+pass. A native Linux AArch64 Clang 18 CI job now compiles the guarded line and
+passes on PR head `a7bcc7b`. This is a portability qualification of the
+existing candidate, not a new accepted optimization; counts and submodule
+baseline remain unchanged.

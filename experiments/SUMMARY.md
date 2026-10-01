@@ -14,7 +14,8 @@ The broader refactor was rejected for an AMD regression. Candidate only;
 required Opus review is unavailable and acceptance counts remain unchanged.
 The [Apple Clang qualification](C-ARM-CLANG-SCAN-2026-10-01/apple/RESULTS-APPLE.md)
 found 2.612× full-read gain but a ~19.3% position-3 crossing loss on M6;
-PR #167 now excludes Apple (`858751b`). This does not change acceptance counts.
+PR #167 now excludes Apple (`858751b`). Native Linux arm64 Clang CI compiles
+the guarded line and passes on PR head `a7bcc7b`. Counts remain unchanged.
 
 | Status | Count |
 |--------|------:|

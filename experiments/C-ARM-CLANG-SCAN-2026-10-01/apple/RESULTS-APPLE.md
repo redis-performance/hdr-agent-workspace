@@ -14,7 +14,8 @@ and does not receive the large long-scan gain measured here.
 
 - Base: `05e06cc597748e6e6c00c7347d2730a917397226` (the merge base of PR #167).
 - Measured patch: `cd8e9ef12386bd0d23d6fe5bb49fe23455b676ed`, before the Apple exclusion.
-- Final PR head: `858751b405921d6374dcd664194bf295653fd947`.
+- Guard change: `858751b405921d6374dcd664194bf295653fd947`.
+- Final PR head: `a7bcc7bb85e35dc49850ac8fc7c2ae2db5fe41ce` (adds native Linux AArch64 Clang CI; no further C source change).
 - Apple M6, macOS 27.0, Apple Clang 21.0.0 (clang-2100.3.34.2), target arm64-apple-darwin27.0.0; AC power, no reported thermal/performance warning. See [machine notes](MACHINE.md).
 - Both checkouts used CMake Release, static library, benchmarks enabled. Benchmark sources were not edited. No process core pinning is available on macOS.
 
@@ -75,10 +76,12 @@ across both rounds. The decision does not depend on position 0.
 
 ## Validation and limits
 
-Both original revisions passed all 9 CTest tests. The final guard-only revision
-rebuilt successfully and passed all 9 again on Apple Clang. PR #167's current
-GitHub checks were green when inspected, including the macOS arm64 sanitizer
-job. The final Apple assembly matches base, so the final guarded source did not
+Both original revisions passed all 9 CTest tests. The final guarded revision
+rebuilt successfully and passed all 9 again on Apple Clang. PR #167's new
+[`ubuntu-24.04-arm` / Clang 18 CI job](https://github.com/HdrHistogram/HdrHistogram_c/actions/runs/36933292800/job/110607562163)
+passed: it verifies the pragma survives preprocessing on native Linux AArch64,
+then builds and runs CTest. The earlier head's macOS arm64 sanitizer job also
+passed. The final Apple assembly matches base, so the guarded source did not
 need another full driver timing. Linux AArch64 performance evidence and its
 native profile remain in the parent [experiment](../RESULTS.md).
 
