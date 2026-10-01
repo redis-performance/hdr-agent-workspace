@@ -82,6 +82,10 @@ The [bounded 2026-10-01 M6 retry](apple-m6/M6-WRITE-MEASURE/RETRY-RESULT.md)
 also fails: the first longer-kernel calibration hits the harness work cap;
 the separately planned larger-cap six-pair A/A passes only 18/32 precision
 controls. No W1/W2 source timing or acceptance-count change follows.
+[Current-main W2 preparation](apple-m6/M6-W2-CURRENT/RESULT.md) rebases the
+two-line value-bound candidate onto upstream `05e06cc` and passes release,
+sanitizer and exact-write checks. A fixed QoS stability screen fails; no
+performance claim or count change follows.
 
 ## M6 population planning checkpoint — 2026-09-29
 

@@ -1,0 +1,22 @@
+diff --git a/src/hdr_histogram.c b/src/hdr_histogram.c
+index 35eb5fc..6628831 100644
+--- a/src/hdr_histogram.c
++++ b/src/hdr_histogram.c
+@@ -569,7 +569,7 @@ static bool record_value_counted(struct hdr_histogram* h, int64_t value, int64_t
+ {
+     int32_t counts_index;
+ 
+-    if (value < 0 || h->highest_trackable_value < value)
++    if ((uint64_t)value > (uint64_t)h->highest_trackable_value)
+     {
+         return false;
+     }
+@@ -590,7 +590,7 @@ static bool record_value_counted_atomic(struct hdr_histogram* h, int64_t value,
+ {
+     int32_t counts_index;
+ 
+-    if (value < 0 || h->highest_trackable_value < value)
++    if ((uint64_t)value > (uint64_t)h->highest_trackable_value)
+     {
+         return false;
+     }

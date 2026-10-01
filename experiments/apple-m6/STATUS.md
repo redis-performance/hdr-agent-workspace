@@ -2,6 +2,17 @@
 
 Updated: 2026-10-01. Active plan: `../APPLE-M6-PLAN.md`.
 
+## Current-main W2 checkpoint
+
+[W2 refreshed to upstream C `05e06cc`](M6-W2-CURRENT/RESULT.md), with the
+two-line candidate pushed to the fork as `8d0c00d`. Release and sanitizer
+CTest pass 9/9, and the updated exact-write oracle passes 340 cases on the
+current nonnegative-count contract. Apple Clang O2 emits one fewer instruction
+per recording entry point. A 96-process initiated-versus-interactive QoS
+screen fails its predeclared stability condition on all three rejection cases;
+**no W2 performance run or acceptance follows**. Baseline submodule pointer
+and experiment counts are unchanged.
+
 ## Latest M6 write measurement checkpoint
 
 [The bounded 2026-10-01 retry](M6-WRITE-MEASURE/RETRY-RESULT.md) first failed

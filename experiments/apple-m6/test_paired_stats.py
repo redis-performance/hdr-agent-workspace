@@ -74,7 +74,9 @@ class PairedStatsTest(unittest.TestCase):
             compare_batch_methods(broken, 5)
 
     def test_archived_results(self):
-        paths = sorted(Path(__file__).parent.glob("M6-*/**/raw.jsonl"))
+        # Other raw JSONL diagnostics do not use the paired-stats summary schema.
+        paths = sorted(p for p in Path(__file__).parent.glob("M6-*/**/raw.jsonl")
+                       if p.with_name("summary.json").exists())
         self.assertGreaterEqual(len(paths), 24)
         for path in paths:
             with self.subTest(path=str(path)):

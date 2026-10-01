@@ -52,6 +52,9 @@ static void apply(struct hdr_histogram* h, struct hdr_histogram* logical,
 {
     if (api < 2) count = 1;
     int valid = value >= 0 && value <= h->highest_trackable_value;
+#ifdef HDR_EXPECT_NONNEGATIVE_COUNTS
+    if (api >= 2 && count < 0) valid = 0;
+#endif
     require(record(h, api, value, count) == valid, "accept/reject rotated");
     require(record(logical, api, value, count) == valid, "accept/reject logical");
     if (valid)

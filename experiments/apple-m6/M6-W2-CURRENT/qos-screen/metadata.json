@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "phase": "same-library QoS diagnostic only",
+  "started_utc": "2026-10-01T19:17:00.448060+00:00",
+  "baseline_revision": "05e06cc597748e6e6c00c7347d2730a917397226",
+  "seed": 1779033703,
+  "pairs": 12,
+  "wall_budget_seconds": 120,
+  "cases": [
+    {
+      "case": "write_reject_above",
+      "units": 163840
+    },
+    {
+      "case": "atomic_reject_above",
+      "units": 163840
+    },
+    {
+      "case": "write_reject_negative",
+      "units": 196608
+    },
+    {
+      "case": "write_increasing",
+      "units": 65536
+    }
+  ],
+  "binary_sha256": {
+    "initiated": "9de6c704460b2492359d0fdbcaa4aa52da34272854ddfde1684bd20dfdf4ee42",
+    "interactive": "9f3e321b1bcfafb877a80d5e4e91a296d1def4fb5f4084eafce273f7ed2ba693"
+  },
+  "library_sha256": "6a9ba8f75bc09700edb515611eecd37f4f9c6ee52eb1b0697a1dadefe132b5de",
+  "harness_sha256": "d73e9e765cd887d37569a0976b870f130ccd42f071d1ce8e4fbeab97a43581aa",
+  "runner_sha256": "1b13030e72f2b3f3321a188abee4143245b451a92bcee67bd4f83947995925d3",
+  "completed": true,
+  "ended_utc": "2026-10-01T19:17:33.851986+00:00",
+  "raw_sha256": "ca9863909cdf4f77a4a018d6bf6a7019e5b72e6ae6f137852526cb63f49e1b8b"
+}

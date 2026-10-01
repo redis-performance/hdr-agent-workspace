@@ -1,5 +1,12 @@
 # Resume the M6 experiment loop
 
+**Current-main W2 update:** [The 2026-10-01 refresh](M6-W2-CURRENT/RESULT.md)
+passes correctness/sanitizers and removes an instruction on Apple Clang O2,
+but a fixed QoS stability screen still fails. Do not run W2 discovery against
+either old `8c4cdcc` or current `05e06cc` until a new full 32-control A/A
+qualifies. The candidate branch `experiment/m6-write-bounds-current` is
+published for review, not accepted.
+
 **2026-10-01 update:** [The bounded write retry](M6-WRITE-MEASURE/RETRY-RESULT.md)
 also failed qualification. The first longer-kernel protocol hit the old
 supplemental work cap; the separately planned larger-cap protocol calibrated

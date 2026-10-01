@@ -679,6 +679,19 @@ remain particularly wide. **Measurement qualification failed; W1/W2 source
 effects remain unknown.** No discovery, confirmation, baseline promotion or
 acceptance-count change. [Plan, raw evidence and result](apple-m6/M6-WRITE-MEASURE/RETRY-RESULT.md).
 
+### M6 W2 refreshed on current upstream C — 2026-10-01
+
+Upstream main `05e06cc` includes #158's counted-recording refactor and
+nonnegative-count contract, so the old W2 branch was not an appropriate new
+baseline. Reapplied only the two unsigned value-bound predicates as fork
+experiment `8d0c00d`. Release and sanitizer CTest 9/9 and 340-case physical
+write oracle pass; Apple Clang O2 emits one fewer instruction in each of four
+recording entry points. Unprivileged per-CPU busy ticks do not establish exact
+core residency. A frozen 96-process initiated-versus-interactive QoS screen
+fails its ≤1.05 within-class max/min stability rule on the rejection cases.
+No candidate benchmark/profile, acceptance, upstream PR or submodule promotion.
+[Source patch, full data and decision](apple-m6/M6-W2-CURRENT/RESULT.md).
+
 ## C PR review round — 2026-09-29
 
 [Review record](PR-REVIEW-2026-09-29/README.md): re-audit all 11 open C PRs by

@@ -9,6 +9,11 @@
 #include <errno.h>
 
 enum { INPUTS = 4096, CASES = 33, MAX_UNITS = 262144 };
+#ifdef __APPLE__
+#ifndef HDR_M6_QOS_CLASS
+#define HDR_M6_QOS_CLASS QOS_CLASS_USER_INITIATED
+#endif
+#endif
 static const uint64_t referee_sweep = UINT64_C(399999999);
 static const char* shapes[] = {"increasing", "constant", "iid", "correlated", "extremes",
     "offset_pos", "offset_neg", "offset_wrap_pos", "offset_wrap_neg", "offset_mixed",
@@ -221,7 +226,7 @@ int main(int argc, char** argv)
     require(units > 0 && units <= MAX_UNITS, "unit cap");
 #ifdef __APPLE__
     if (!validation && !listing)
-        require(!pthread_set_qos_class_self_np(QOS_CLASS_USER_INITIATED, 0), "set QoS");
+        require(!pthread_set_qos_class_self_np(HDR_M6_QOS_CLASS, 0), "set QoS");
 #endif
     int matched = 0;
     for (int id = 0; id < CASES; id++)
