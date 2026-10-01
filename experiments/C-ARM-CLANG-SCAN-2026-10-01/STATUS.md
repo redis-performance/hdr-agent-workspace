@@ -18,3 +18,7 @@ CI, fuzzing and automated review started; results were pending at opening.
 Current-upstream application passes local GCC/no-log/sanitizer checks; performance
 qualification remains at the user's PR #158 release-candidate pin. Revalidate the
 final PR head and obtain platform CI/review before marking the PR ready and accepting it.
+
+**Open item (2026-10-01): Apple Clang is unmeasured.** PR #167's guard (`__aarch64__ && __clang__`)
+also covers Apple Clang on Apple silicon, but all measurements are Linux AArch64 Clang 18.1.3.
+Instructions for a session with an Apple-silicon Mac: [APPLE-CLANG-TASK.md](APPLE-CLANG-TASK.md).
