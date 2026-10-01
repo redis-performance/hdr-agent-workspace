@@ -104,3 +104,27 @@ PRs opened — applying to canonical Redis/Valkey repos + upstreaming is a separ
 - #159 coordination merge: if #159 lands first, refresh #162 (trivial adjacent-line
   conflict in v0/v1/v2 decoders).
 - Apply vendor refresh to canonical consumer repos (above was in ephemeral /tmp trees).
+
+---
+
+## Session close-out 2026-10-01 (later): PRs, decisions, what is NOT done
+
+PRs from this thread (all on the fork, reviewer paulorsousa; see LIVE-STATUS for live state):
+#162 decode rejects negative V0/V1 counts · #163 minimal static core (+ CI job; ci.yml conflict resolved on the branch) ·
+#164 amalgamation script + committed `amalgamated/` (+ `--malloc-include`) · #165 `hdr_iter_linear_set_value_units_per_bucket` (bot review answered, 38599c9) ·
+#166 `hdr_record_value_capped[_atomic]` + `hdr_total_count` (deep review done; atomic variant + atomic-load total_count added) ·
+#167 AArch64 Clang pragma (reviewed, NOT changed).
+
+Open decisions for the user:
+1. **#164 committed vs release artifact.** Committed `amalgamated/` goes stale every time main's core changes (its `--check` CI fails). Verified: merging #165/#166 on top makes it fail. Either land #165 and #166 first and regenerate once, or drop `amalgamated/` and attach the output to releases. Unanswered.
+2. **#166 NULL check** on `hdr_total_count` was kept (only NULL-safe getter in the lib). One line to drop if memtier never passes NULL.
+3. **#167 is `draft=false` on GitHub** although its description and notes say draft. Convert back to draft or reconcile; do not merge before the Apple Clang task and an Opus-4.8-level review.
+4. **SOVERSION** for 0.12.0 is a release-time step covering #162/#165/#166 new symbols (CURRENT+1, REVISION=0, AGE+1); deliberately not bumped in the PRs.
+5. memtier must drop its local `hdr_record_value_capped[_atomic]`/`hdr_total_count` and accept that 0 now records as 0 (not raised to the lowest value). memtier's local atomic helper also uses the old field name `lowest_trackable_value`.
+
+Not done / for the next session:
+- Apple Clang measurement for #167: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md.
+- Once #165/#166 merge: regenerate #164's `amalgamated/` (or implement decision 1). Whoever touches #163/#164 branches: `git fetch` first, another session pushes to them.
+- Redis/Valkey consumer repos still carry the local iterator extension until #165 is released; the vendor refresh was only done in ephemeral /tmp trees (experiments/VENDOR-REFRESH-2026-10-01/).
+- Idea: a ctest leg with `-DHDR_HISTOGRAM_DISABLE_AVX2=ON` (after #163) so the scalar scan is tested on x86 CI; today the #167 test never reaches the pragma'd loop on AVX2 runners.
+- The `HdrHistogram_c` submodule pointer in this repo is intentionally left unstaged.
