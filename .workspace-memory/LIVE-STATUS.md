@@ -9,9 +9,10 @@ upstream/main tip: **e4e8b0a** (after #141).
 ## Merged (11) — squash, on paulorsousa approval
 ✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%) · #159 (reject import total_count overflow, #118) [merged 2026-10-01 09:19Z]
 
-## Open (5)
+## Open (7)
 | PR | branch | state | notes |
 |----|--------|-------|-------|
+| #164 | feat/amalgamate-core | NEW 2026-10-01, pending review | script/amalgamate.py emits drop-in core (inlines hdr_tests.h+hdr_atomic.h into hdr_histogram.c; keeps public .h + HDR_MALLOC_INCLUDE hook) + committed amalgamated/ + CI --check. Preprocesses byte-identical to multi-file build. vs Redis vendored (d21d084): only 3 structural hunks (banner, inlined headers, Redis-local extension) — body verbatim, no aesthetic churn. reviewer paulo |
 | #163 | feat/minimal-static-core | NEW 2026-10-01, pending review | Opt-in `HDR_HISTOGRAM_CORE_ONLY` (core static, no zlib/threads) + `HDR_HISTOGRAM_DISABLE_AVX2`. Default build/ABI unchanged. core .text -59% at -Os. All gates green. MERGE-READY. reviewer paulo |
 | #162 | harden/decode-reject-negative-counts | NEW 2026-10-01, pending review | Reject negative V0/V1 decoded bucket counts (new HDR_NEGATIVE_COUNT_INVALID); V2 zero-runs preserved. Complements #159 (adjacent-line merge). ctest/clang/ASan/UBSan + 13.2M fuzz execs clean. MERGE-READY. reviewer paulo |
 | #161 | fix/timespec-from-double-checked | pending review | #154 follow-up: additive `hdr_timespec_from_double_checked()`. Refreshed onto master; ctest+ASan+nolog green |
