@@ -41,6 +41,9 @@ within-runner before/after results, **not** a same-revision CPU ranking.
 [Measurements, raw logs, and method](experiments/C-PERFORMANCE-BY-ARCH.md).
 [Apple M6 latest-master `-O2`/`-O3`/`-Os` comparison](experiments/C-M6-MASTER-2026-10-02/RESULT.md)
 includes ABBA results, source pins, checksums, and the QoS/core-placement limit.
+[Why Apple Clang `-Os` wins the long single-percentile read](experiments/C-M6-OS-CAUSE-2026-10-02/RESULT.md)
+isolates a four-add scalar dependency under `-O3`; a one-line unroll-control
+restores SIMD and 2.62× read throughput, but slows early crossings about 19%.
 [Why Apple M6 leads on some C workloads](experiments/C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
 records compiler, QoS, cache-size, and working-set controls.
 

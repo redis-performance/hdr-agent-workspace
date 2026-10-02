@@ -49,7 +49,11 @@ assembly shows a dependent scalar prefix-add chain for the main read scan at
 `-O2`/`-O3`, while `-Os` uses a four-count SIMD reduction (`ldp q1,q2`,
 `add.2d`, `addp.2d`) before advancing the running total. This supports a
 code-generation explanation for the large `-Os` difference; a sampled profile
-was not obtained. The relevant disassembly is saved in [`codegen/`](codegen/).
+was not obtained. A [controlled current-master follow-up](../C-M6-OS-CAUSE-2026-10-02/RESULT.md)
+shows that preventing crossing-loop unrolling restores the same SIMD reduction
+at `-O3` and reproduces the long-read gain, but loses about 19% throughput on
+an early crossing. The relevant baseline disassembly is saved in
+[`codegen/`](codegen/).
 Changing the default optimization mode is **not** proposed from this one
 machine: other compiler/architecture combinations have distinct regressions
 in the [native fleet audit](../C-HARDENING-2026-10-01/fleet/RESULTS.md).

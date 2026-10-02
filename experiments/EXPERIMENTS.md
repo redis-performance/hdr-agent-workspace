@@ -938,3 +938,17 @@ atomic path; its Apple write/read code matches the timed head byte for byte,
 and the `-O2` list timing was counterchecked. This is a baseline measurement,
 not a new optimization or acceptance; counts and the submodule pointer stay
 unchanged.
+
+### Apple `-Os` versus `-O3` scan cause — 2026-10-02
+
+[Controlled current-master investigation](C-M6-OS-CAUSE-2026-10-02/RESULT.md).
+Apple Clang 21's `-O3` unrolling lets the four-count block sum reuse four
+dependent crossing-prefix additions; `-Os` instead emits an independent SIMD
+reduction and one running-total add. The immutable read workload crosses
+after 5,084–5,340 four-count blocks per query. Enabling the existing
+unroll-disable hint for Apple in an isolated worktree makes `-O3` read
+103.696 → 39.548 seconds (2.622×), same sink, while CTest passes 9/9.
+The `-Os` object text is identical with/without the hint. A matching-checksum
+short-crossing probe finds index-3 throughput about 19% worse with the hint;
+the earlier Apple exclusion remains correct. Diagnostic only: no source
+acceptance, build-default change, count change, or submodule-pointer update.

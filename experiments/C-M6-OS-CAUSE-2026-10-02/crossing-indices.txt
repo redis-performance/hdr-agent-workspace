@@ -1,0 +1,8 @@
+counts_len=23552 total_count=1000000
+percentile=50.00 crossing_index=20339 full_four_count_blocks=5084
+percentile=75.00 crossing_index=20886 full_four_count_blocks=5221
+percentile=90.00 crossing_index=21172 full_four_count_blocks=5293
+percentile=95.00 crossing_index=21267 full_four_count_blocks=5316
+percentile=99.00 crossing_index=21344 full_four_count_blocks=5336
+percentile=99.90 crossing_index=21361 full_four_count_blocks=5340
+percentile=99.99 crossing_index=21363 full_four_count_blocks=5340

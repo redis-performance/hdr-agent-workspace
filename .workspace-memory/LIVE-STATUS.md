@@ -18,6 +18,14 @@ QoS was verified inside benchmark processes; actual core residency was not
 observed. Charts, README, summary and experiment ledger were refreshed.
 No source optimization or accepted-baseline/submodule-pointer change.
 
+Follow-up: [why `-Os` wins the M6 long read](../experiments/C-M6-OS-CAUSE-2026-10-02/RESULT.md).
+At current master `c4ef749`, Apple Clang `-O3` carries the running total
+through four scalar prefix adds per block; `-Os` reduces four counts in SIMD
+first. A one-line local pragma-guard control restores SIMD under `-O3` and
+reduces the unchanged full read from 103.696 to 39.548 seconds (2.622×),
+same sink and 9/9 CTests. Early index-3 crossing loses ~19% throughput, so
+the #167 Apple exclusion stands. No source/build-default acceptance.
+
 ## Merged (11) — squash, on paulorsousa approval
 ✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%) · #159 (reject import total_count overflow, #118) [merged 2026-10-01 09:19Z]
 

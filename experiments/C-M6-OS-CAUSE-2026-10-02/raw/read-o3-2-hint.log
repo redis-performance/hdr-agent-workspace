@@ -1,0 +1,5 @@
+variant=hint sequence=2
+best: 0.58 M queries/sec  mean: 0.58 M queries/sec  (sink=17401860284404480)
+benchmark_qos requested=33 observed=33 relative_priority=0 set_rc=0 get_rc=0
+wall_seconds=39.679764
+exit_code=0

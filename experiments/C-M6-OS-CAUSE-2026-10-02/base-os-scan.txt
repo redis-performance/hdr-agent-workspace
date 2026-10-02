@@ -1,0 +1,128 @@
+<_hdr_value_at_percentile>:
+     c1c:      	mov	x8, #0x4059000000000000 ; =4636737291354636288
+     c20:      	fmov	d1, x8
+     c24:      	fminnm	d2, d0, d1
+     c28:      	fdiv	d1, d2, d1
+     c2c:      	ldr	d2, [x0, #0x58]
+     c30:      	scvtf	d2, d2
+     c34:      	fmov	d3, #0.50000000
+     c38:      	fmadd	d1, d1, d2, d3
+     c3c:      	fcvtzs	x8, d1
+     c40:      	cmp	x8, #0x1
+     c44:      	csinc	x8, x8, xzr, gt
+     c48:      	ldr	x11, [x0, #0x60]
+     c4c:      	ldr	w9, [x0, #0x50]
+     c50:      	ldr	w14, [x0, #0x40]
+     c54:      	cbnz	w14, 0xdc4 <_hdr_value_at_percentile+0x1a8>
+     c58:      	negs	w10, w9
+     c5c:      	and	w10, w10, #0x3
+     c60:      	and	w12, w9, #0x3
+     c64:      	csneg	w10, w12, w10, mi
+     c68:      	sub	w13, w9, w10
+     c6c:      	cmp	w13, #0x1
+     c70:      	b.lt	0xce4 <_hdr_value_at_percentile+0xc8>
+     c74:      	mov	x10, #0x0               ; =0
+     c78:      	mov	x15, #0x0               ; =0
+     c7c:      	mov	x14, x11
+     c80:      	add	x12, x11, x10, lsl #3
+     c84:      	ldp	q1, q2, [x12]
+     c88:      	add.2d	v1, v2, v1
+     c8c:      	addp.2d	d1, v1
+     c90:      	fmov	x12, d1
+     c94:      	add	x12, x12, x15
+     c98:      	cmp	x12, x8
+     c9c:      	b.hs	0xcb8 <_hdr_value_at_percentile+0x9c>
+     ca0:      	add	x10, x10, #0x4
+     ca4:      	add	x14, x14, #0x20
+     ca8:      	mov	x15, x12
+     cac:      	cmp	w13, w10
+     cb0:      	b.gt	0xc80 <_hdr_value_at_percentile+0x64>
+     cb4:      	b	0xcec <_hdr_value_at_percentile+0xd0>
+     cb8:      	mov	x16, #0x0               ; =0
+     cbc:      	mov	x17, x14
+     cc0:      	mov	x12, x15
+     cc4:      	ldr	x15, [x17], #0x8
+     cc8:      	add	x12, x15, x12
+     ccc:      	cmp	x12, x8
+     cd0:      	b.ge	0xd1c <_hdr_value_at_percentile+0x100>
+     cd4:      	sub	x16, x16, #0x1
+     cd8:      	cmn	x16, #0x4
+     cdc:      	b.eq	0xca0 <_hdr_value_at_percentile+0x84>
+     ce0:      	b	0xcc4 <_hdr_value_at_percentile+0xa8>
+     ce4:      	mov	w10, #0x0               ; =0
+     ce8:      	mov	x12, #0x0               ; =0
+     cec:      	cmp	w10, w9
+     cf0:      	b.ge	0xd14 <_hdr_value_at_percentile+0xf8>
+     cf4:      	add	x11, x11, w10, uxtw #3
+     cf8:      	ldr	x13, [x11], #0x8
+     cfc:      	add	x12, x13, x12
+     d00:      	cmp	x12, x8
+     d04:      	b.ge	0xd20 <_hdr_value_at_percentile+0x104>
+     d08:      	add	w10, w10, #0x1
+     d0c:      	cmp	w9, w10
+     d10:      	b.gt	0xcf8 <_hdr_value_at_percentile+0xdc>
+     d14:      	mov	x8, #0x0                ; =0
+     d18:      	b	0xd5c <_hdr_value_at_percentile+0x140>
+     d1c:      	sub	w10, w10, w16
+     d20:      	ldp	w8, w9, [x0, #0x18]
+     d24:      	lsr	w8, w10, w8
+     d28:      	mov	w11, #0x7fffffff        ; =2147483647
+     d2c:      	add	w11, w9, w11
+     d30:      	and	w10, w11, w10
+     d34:      	cmp	w8, #0x1
+     d38:      	csinc	w11, w8, wzr, gt
+     d3c:      	ldr	w12, [x0, #0x10]
+     d40:      	add	w11, w11, w12
+     d44:      	cmp	w8, #0x0
+     d48:      	csel	w8, wzr, w9, eq
+     d4c:      	add	w8, w10, w8
+     d50:      	sxtw	x8, w8
+     d54:      	sub	w9, w11, #0x1
+     d58:      	lsl	x8, x8, x9
+     d5c:      	ldr	x9, [x0, #0x20]
+     d60:      	orr	x9, x9, x8
+     d64:      	clz	x9, x9
+     d68:      	ldr	w10, [x0, #0x18]
+     d6c:      	add	w10, w10, w9
+     d70:      	mvn	w11, w10
+     d74:      	asr	x9, x8, x11
+     d78:      	sxtw	x8, w9
+     d7c:      	lsl	x8, x8, x11
+     d80:      	fcmp	d0, #0.0
+     d84:      	b.eq	0xdbc <_hdr_value_at_percentile+0x1a0>
+     d88:      	mov	w11, #0x3f              ; =63
+     d8c:      	sub	w10, w11, w10
+     d90:      	ldr	w11, [x0, #0x28]
+     d94:      	cmp	w11, w9
+     d98:      	cinc	w9, w10, le
+     d9c:      	mov	w10, #0x1               ; =1
+     da0:      	lsl	x9, x10, x9
+     da4:      	eor	x10, x9, #0x7fffffffffffffff
+     da8:      	add	x9, x8, x9
+     dac:      	sub	x9, x9, #0x1
+     db0:      	mov	x11, #0x7fffffffffffffff ; =9223372036854775807
+     db4:      	cmp	x8, x10
+     db8:      	csel	x8, x11, x9, gt
+     dbc:      	mov	x0, x8
+     dc0:      	ret
+     dc4:      	cmp	w9, #0x1
+     dc8:      	b.lt	0xd14 <_hdr_value_at_percentile+0xf8>
+     dcc:      	mov	x12, #0x0               ; =0
+     dd0:      	mov	w10, #0x0               ; =0
+     dd4:      	neg	w13, w9
+     dd8:      	neg	w14, w14
+     ddc:      	sxtw	x14, w14
+     de0:      	cmp	w14, w9
+     de4:      	csel	w15, wzr, w13, lt
+     de8:      	cmp	w14, #0x0
+     dec:      	csel	w15, w9, w15, lt
+     df0:      	add	x15, x14, w15, sxtw
+     df4:      	ldr	x15, [x11, x15, lsl #3]
+     df8:      	add	x12, x15, x12
+     dfc:      	cmp	x12, x8
+     e00:      	b.ge	0xd20 <_hdr_value_at_percentile+0x104>
+     e04:      	add	w10, w10, #0x1
+     e08:      	add	x14, x14, #0x1
+     e0c:      	cmp	w9, w10
+     e10:      	b.eq	0xd14 <_hdr_value_at_percentile+0xf8>
+     e14:      	b	0xde0 <_hdr_value_at_percentile+0x1c4>

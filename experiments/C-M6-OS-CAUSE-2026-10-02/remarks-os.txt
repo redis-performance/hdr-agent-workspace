@@ -1,0 +1,103 @@
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:345:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  345 |     for (i = 0; i < h->counts_len; i++)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:177:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  177 |     while(exp)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:401:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  401 |     while (smallest_untrackable_value <= value)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:481:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  481 |     h->sub_bucket_half_count_magnitude = cfg->sub_bucket_half_count_magnitude;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:484:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  484 |     h->sub_bucket_count                = cfg->sub_bucket_count;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:479:40: remark: Stores SLP vectorized with cost -1 and with tree size 3 [-Rpass=slp-vectorizer]
+  479 |     h->unit_magnitude                  = (int32_t)cfg->unit_magnitude;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:485:40: remark: Stores SLP vectorized with cost -1 and with tree size 2 [-Rpass=slp-vectorizer]
+  485 |     h->min_value                       = INT64_MAX;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:477:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  477 |     h->lowest_discernible_value        = cfg->lowest_discernible_value;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:481:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  481 |     h->sub_bucket_half_count_magnitude = cfg->sub_bucket_half_count_magnitude;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:484:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  484 |     h->sub_bucket_count                = cfg->sub_bucket_count;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:479:40: remark: Stores SLP vectorized with cost -1 and with tree size 3 [-Rpass=slp-vectorizer]
+  479 |     h->unit_magnitude                  = (int32_t)cfg->unit_magnitude;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:477:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  477 |     h->lowest_discernible_value        = cfg->lowest_discernible_value;
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:548:19: remark: Stores SLP vectorized with cost -1 and with tree size 2 [-Rpass=slp-vectorizer]
+  548 |      h->min_value = INT64_MAX;
+      |                   ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  142 |     do
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  153 |     do
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:676:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  676 |     for (; missing_value >= expected_interval; missing_value -= expected_interval)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:702:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  702 |     for (; missing_value >= expected_interval; missing_value -= expected_interval)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:719:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  719 |     while (hdr_iter_next(&iter))
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:740:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  740 |     while (hdr_iter_next(&iter))
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:805:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  805 |         for (idx = 0; idx < n; idx++)
+      |         ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:829:17: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  829 |                 for (j = 0; j < BLK; j++)
+      |                 ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:843:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  843 |     for (; idx < n; idx++)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:941:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  941 |     for (size_t i = 0; i < length; i++)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:941:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1006:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1006 |             while (at_pos < length && (int64_t)total >= values[at_pos])
+      |             ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:975:21: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  975 |                     while (at_pos < length && (int64_t)total >= values[at_pos])
+      |                     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:991:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  991 |             while (at_pos < length && (int64_t)total >= values[at_pos])
+      |             ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:965:43: remark: Vectorized horizontal reduction with cost -5 and with tree size 1 [-Rpass=slp-vectorizer]
+  965 |                 (uint64_t)counts[idx]     + (uint64_t)counts[idx + 1] +
+      |                                           ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1025:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1025 |     while (hdr_iter_next(&iter) && count < total_count)
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1046:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1046 |     while (hdr_iter_next(&iter))
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1256:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1256 |     do
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1330:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1330 |     while (basic_iter_next(iter))
+      |     ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1372:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1372 |         do
+      |         ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1465:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1465 |         do
+      |         ^
+<workspace>/.tools/m6-master-20261002/latest/src/hdr_histogram.c:1582:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1582 |     while (hdr_iter_next(&iter))
+      |     ^

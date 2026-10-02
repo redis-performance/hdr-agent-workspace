@@ -1,0 +1,22 @@
+[
+  {
+    "sequence": 1,
+    "variant": "base",
+    "wall_seconds": 103.694211
+  },
+  {
+    "sequence": 2,
+    "variant": "hint",
+    "wall_seconds": 39.679764
+  },
+  {
+    "sequence": 3,
+    "variant": "hint",
+    "wall_seconds": 39.416269
+  },
+  {
+    "sequence": 4,
+    "variant": "base",
+    "wall_seconds": 103.696999
+  }
+]

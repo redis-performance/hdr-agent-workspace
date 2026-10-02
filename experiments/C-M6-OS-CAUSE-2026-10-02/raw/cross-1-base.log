@@ -1,0 +1,3 @@
+benchmark_qos requested=33 observed=33 relative_priority=0 set_rc=0 get_rc=0
+wall_seconds=11.672504
+exit_code=0

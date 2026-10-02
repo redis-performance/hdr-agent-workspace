@@ -67,6 +67,11 @@ code and an equivalent separately timed `-O2` list result. QoS was verified,
 but physical-core residency was not. No source candidate was accepted by this
 round. The absolute cross-runner speed gap
 remains unattributed; details and a controlled RNG probe are on the page.
+[The `-Os` cause control](C-M6-OS-CAUSE-2026-10-02/RESULT.md) on current master
+shows `-O3`'s four dependent scalar prefix additions versus `-Os`'s independent
+SIMD block sum. A one-line unroll hint makes `-O3`'s full read 2.622× faster
+with matching output, but index-3 crossings lose about 19% throughput. Keep
+the existing Apple exclusion; no source acceptance or count change.
 The [Apple M6 root-cause diagnostic](C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
 finds a large QoS effect and a possible L1D-capacity advantage, while local
 `-O3` and native-target controls are small. It adds no accepted optimization.

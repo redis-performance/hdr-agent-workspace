@@ -1,0 +1,19 @@
+{
+  "o3_base": {
+    "text_bytes": 12660,
+    "sha256": "ae126da7264228deb0c13122943fd8798297449865a6a3b9b1c48c3d09c60538"
+  },
+  "o3_hint": {
+    "text_bytes": 12660,
+    "sha256": "9ec0b1ea19d131a59469001dae4549fc0328063e51e92551166b90801427bf19"
+  },
+  "os_base": {
+    "text_bytes": 7780,
+    "sha256": "7bd8ed0f3d36105b3697feefa02f712176769bd1920e4f946040850e255bac2a"
+  },
+  "os_hint": {
+    "text_bytes": 7780,
+    "sha256": "7bd8ed0f3d36105b3697feefa02f712176769bd1920e4f946040850e255bac2a"
+  },
+  "os_base_equals_os_hint": true
+}
