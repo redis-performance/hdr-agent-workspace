@@ -72,6 +72,21 @@ export, not a checkout of the real repository.
 
 ## Node.js build status
 
-IN PROGRESS when this was committed: a full `./configure && make` of `nodejs/node` @ `463711aa` with the
-replaced `deps/histogram` is running. The amalgamated `hdr_histogram.c` has already compiled inside Node's own
-build (25 KB object, Node's gyp flags). The final result is appended below when it finishes.
+NOT FINISHED when this was written. A full `./configure && make` of `nodejs/node` @ `463711aa` with the
+replaced `deps/histogram` was started on 2026-10-02 (log `/tmp/hdrt/node-build.log`, tree `/tmp/hdrt/node`).
+What is established so far:
+
+* the amalgamated `hdr_histogram.c`, in Node's layout (`--include-prefix hdr/`, `histogram.gyp` untouched),
+  compiled inside Node's own build with Node's flags (25 KB object);
+* Node's own `src/histogram.cc` compiled against the replaced `hdr_histogram.h`
+  (`obj.target/node_base/src/histogram.o`).
+
+Still to do: the link, and the histogram tests. They are queued to run automatically after the build
+(`/tmp/hdrt/node_tests.sh`, output in `/tmp/hdrt/node-tests.log`, last line `NODE_TESTS_OK` or `NODE_TESTS_FAILED`):
+`parallel/test-perf-hooks-histogram*`, `...sliding-window-histogram*`, `...timerify-histogram-*`,
+`...monitor-event-loop-delay-*`, `sequential/test-performance-eventloopdelay`,
+`sequential/test-perf-hooks-histogram-heapdump`. By hand: `cd /tmp/hdrt/node && python3 tools/test.py -J
+--mode=release parallel/test-perf-hooks-histogram*`. Until that passes, "Node.js builds with the replacement"
+is **not** confirmed, only that its HDR dependency and its histogram code compile.
+
+Node was not changed in any way besides `deps/histogram` (the two replaced files and two deleted private headers).
