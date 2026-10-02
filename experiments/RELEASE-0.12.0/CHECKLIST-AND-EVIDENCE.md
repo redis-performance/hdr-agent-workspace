@@ -7,7 +7,7 @@ upstream from this folder.
 ## Before tagging: decisions and steps
 
 **PRs for the release (2026-10-02):** [#171](https://github.com/HdrHistogram/HdrHistogram_c/pull/171) the version bump (CI green),
-[#172](https://github.com/HdrHistogram/HdrHistogram_c/pull/172) the README entry for the sparse histogram. Merge both before tagging.
+[#172](https://github.com/HdrHistogram/HdrHistogram_c/pull/172) the README entry for the sparse histogram. Merge both before tagging. #172 is merged; #171 is waiting (CI green, no review; an agent merge was blocked by policy, so it needs a person to merge it).
 
 **Status 2026-10-02:** steps 1 and 2 are prepared on the fork branch `release/0.12.0-version` (commit `efa678d`, off `main` at
 `eda375b`): the version string is `0.12.0` and the shared library is `6.4.4` with SONAME `.so.6` (the proposal below, chosen by
