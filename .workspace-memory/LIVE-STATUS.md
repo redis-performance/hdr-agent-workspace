@@ -117,3 +117,8 @@ Hand-off: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md (codegen, 
 ## #165 merged; master refreshed again (2026-10-02 ~09:50Z)
 paulorsousa APPROVED #165 on head 3fd776f (verified via reviews API); squash-merged by the agent (0ad9380, merge succeeded this time; the earlier classifier denial was on #150 and #150/#158/#160/#161 were later merged by the user). main = 0ad9380.
 Open: #162 #163 #164 #166 #167, all merged up to 0ad9380 (behind=0), each built + ctest 9/9 before push (detached HEADs, plain pushes). #164 amalgamated/ regenerated again (check passes, smoke compile OK, negative count rejected in the single file).
+
+## #166/#162/#167 merged; #163/#164 refreshed (2026-10-02 ~10:45Z)
+#166 was merged by someone else (550623d) before this session acted; Paulo's inline note on it (32-bit Windows: MSVC hdr_atomic_load_64 is a plain read, tears on x86) was confirmed in src/hdr_atomic.h and answered; pre-existing, also affects update_min_max_atomic and the phaser epoch; NOT fixed, proposed fix (CAS(field,0,0) on !_WIN64) awaiting a decision to open a separate PR.
+Agent squash-merged #162 (acdffb8) and #167 (4f4c9a7) after verifying Paulo's approval was on each head and CI was green. main = 4f4c9a7.
+Open: #163 (merged main, 76ddcb2, ctest 9/9), #164 (merged main, 13ca98e, ctest 9/9; another session removed committed amalgamated/ in favour of release-time generation, ccbcd6b). Both behind=0.
