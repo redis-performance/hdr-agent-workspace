@@ -15,6 +15,36 @@ index b252c45..e2ba050 100644
  
  memtier_benchmark_LDADD = \
  	$(CODE_COVERAGE_LIBS) \
+diff --git a/deps/hdr_histogram/README.md b/deps/hdr_histogram/README.md
+index 5f62c23..9c621ba 100644
+--- a/deps/hdr_histogram/README.md
++++ b/deps/hdr_histogram/README.md
+@@ -1,10 +1,18 @@
+-HdrHistogram_c v0.11.0
+-
++HdrHistogram_c
+ ----------------------------------------------
+ 
+-This port contains a subset of the 'C' version of High Dynamic Range (HDR) Histogram available at [github.com/HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c).
++This directory holds the generated, amalgamated form of the 'C' version of High Dynamic Range (HDR) Histogram
++available at [github.com/HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c). There are no
++local source patches. Do not edit these files by hand.
++
++To update, from an upstream checkout or release tarball (the core plus the log codec, since memtier uses `hdr_log_*`):
++
++    script/amalgamate.py --output <memtier>/deps/hdr_histogram --with-log
+ 
++Then keep this README and the license files, and make sure `Makefile.am` lists exactly the generated files
++(`hdr_histogram.c/.h`, `hdr_histogram_log.c/.h`, `hdr_encoding.c`, `hdr_time.c/.h`, `hdr_malloc.h`).
++The current copy was generated from upstream commit `102aefb` (0.11.10 plus unreleased changes). See upstream's
++`docs/AMALGAMATION.md` for details.
+ 
+-The code present on `hdr_histogram.c`, `hdr_histogram.h`, and `hdr_atomic.c` was Written by Gil Tene, Michael Barker,
+-and Matt Warren, and released to the public domain, as explained at
+-http://creativecommons.org/publicdomain/zero/1.0/.
+\ No newline at end of file
++The code was written by Gil Tene, Michael Barker, and Matt Warren, and released to the public domain, as explained at
++http://creativecommons.org/publicdomain/zero/1.0/.
 diff --git a/deps/hdr_histogram/byteorder.h b/deps/hdr_histogram/byteorder.h
 deleted file mode 100755
 index 8b0424c..0000000
