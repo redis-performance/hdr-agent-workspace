@@ -1,6 +1,6 @@
 ## HdrHistogram_c 0.12.0
 
-36 commits since 0.11.10. **No function was removed and the layout of every public struct is unchanged**, so
+33 merged pull requests since 0.11.10. **No function was removed and the layout of every public struct is unchanged**, so
 existing code and existing binaries keep working. A few functions now reject input they used to accept; see
 [Behaviour changes](#behaviour-changes-to-know-about-when-upgrading). If you decode histogram logs that you do not
 control, upgrade: the heap overflow in [#146](https://github.com/HdrHistogram/HdrHistogram_c/pull/146) is reachable from
@@ -42,8 +42,8 @@ The code those paths run has not changed since, apart from the AArch64 Clang dir
   ([#139](https://github.com/HdrHistogram/HdrHistogram_c/pull/139)).
 - `hdr_value_at_percentiles` now answers all percentiles in a single pass
   ([#140](https://github.com/HdrHistogram/HdrHistogram_c/pull/140)) and skips whole blocks that cannot reach the next
-  target ([#141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141)). Before, the batch call was slower than asking
-  for the same percentiles one at a time.
+  target ([#141](https://github.com/HdrHistogram/HdrHistogram_c/pull/141)). In 0.11.10 the batch call was no faster than
+  asking for the same percentiles one at a time, and on the Intel and AMD machines it was several times slower.
 - Linux AArch64 with Clang at `-O3`: the compiler turned the scan into a serial chain of dependent additions. A loop
   directive restores the independent block sum ([#167](https://github.com/HdrHistogram/HdrHistogram_c/pull/167)); the
   full read driver ran 2.12x faster with it than without. It is limited to non-Apple AArch64 Clang: on Apple silicon the
@@ -53,17 +53,17 @@ The code those paths run has not changed since, apart from the AArch64 Clang dir
 
 ### Security improvements
 
-Found by the new fuzzing and by adversarial review. No CVE has been assigned to any of them.
+Found by the new fuzzing, by code review, and (for [#118](https://github.com/HdrHistogram/HdrHistogram_c/issues/118)) by an issue report. No CVE has been assigned to any of them.
 
 - **Heap buffer overflow when decoding a crafted V1/V2 log** (a bad payload length or word size could write past the counts
   array): rejected with `HDR_ENCODED_INPUT_TOO_LONG` ([#146](https://github.com/HdrHistogram/HdrHistogram_c/pull/146)).
-- **Out-of-bounds read** in `hdr_count_at_value` for a value above the highest trackable value (it now returns 0), and a
-  signed overflow in `hdr_mean`, which fed `hdr_stddev` ([#147](https://github.com/HdrHistogram/HdrHistogram_c/pull/147)).
+- **Out-of-bounds read** in `hdr_count_at_value` for a value far above the highest trackable value, past the end of the
+  counts array (it now returns 0), and a signed overflow in `hdr_mean`, which fed `hdr_stddev` ([#147](https://github.com/HdrHistogram/HdrHistogram_c/pull/147)).
 - **Negative bucket counts in V0/V1 logs** were accepted and poisoned every later query; they are now rejected with the new
   error `HDR_NEGATIVE_COUNT_INVALID` ([#162](https://github.com/HdrHistogram/HdrHistogram_c/pull/162)).
 - **Count total overflowing `int64` on import** (an imported histogram with counts like three times 2^62) was signed-overflow
   undefined behaviour; decode now fails with `EOVERFLOW`, and `hdr_reset_internal_counters` saturates
-  ([#159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159), fixes [#118](https://github.com/HdrHistogram/HdrHistogram_c/issues/118)).
+  ([#159](https://github.com/HdrHistogram/HdrHistogram_c/pull/159), fixes #118).
 - Undefined behaviour (signed overflow, oversized shifts, out-of-range float conversions) reachable from untrusted input,
   fixed in the bucket configuration ([#145](https://github.com/HdrHistogram/HdrHistogram_c/pull/145)), the top-bucket value
   range used by `hdr_max`, percentiles and the iterators ([#148](https://github.com/HdrHistogram/HdrHistogram_c/pull/148)),
@@ -96,8 +96,8 @@ All additions; nothing existing changed signature. 27 new public functions.
 - **`hdr_packed_histogram`** ([#150](https://github.com/HdrHistogram/HdrHistogram_c/pull/150)), in
   `<hdr/hdr_packed_histogram.h>`: a separate histogram whose storage grows with the number of populated buckets instead
   of the full counts array. For many sparsely populated histograms it is far smaller (1,000 histograms with 10 populated
-  buckets each: 188 MB dense, 144 KB packed). The cost is that recording is O(log n) plus an insert for a new bucket, it has
-  no atomic record function, and it serializes to the standard V2 compressed format. The dense histogram is untouched.
+  buckets each, range 1 to 3.6 billion at 3 significant digits: 188 MB dense, 144 KB packed). The cost is that recording is O(log n) plus an insert for a new bucket, it has
+  no atomic record function, and it serialises to the standard V2 compressed format. The dense histogram is untouched.
   Functions: `hdr_packed_init`, `_init_shared`, `_close`, `_reset`, `_config_create`, `_config_destroy`,
   `_config_memory_size`, `_record_value`, `_record_values`, `_total_count`, `_min`, `_max`, `_mean`, `_stddev`,
   `_count_at_value`, `_value_at_percentile`, `_value_at_percentiles`, `_get_memory_size`, `_populated`, `_count_width`,
@@ -140,7 +140,7 @@ invalid input.
 | `hdr_record_values(h, v, -1)` | returned true and subtracted from the total | returns false, histogram unchanged |
 | decoding a log with a negative bucket count (V0/V1) | succeeded | fails with `HDR_NEGATIVE_COUNT_INVALID`, no histogram |
 | decoding a log whose counts add up past `INT64_MAX` | undefined behaviour | fails with `EOVERFLOW` |
-| `hdr_count_at_value(h, v)` with `v` above the highest trackable value | read out of bounds | returns 0 |
+| `hdr_count_at_value(h, v)` with `v` far above the highest trackable value (past the end of the counts array) | read out of bounds | returns 0 |
 | `hdr_timespec_from_double(&t, NaN)` | undefined behaviour (we saw `tv_sec = INT_MIN`) | `t` is set to zero |
 | `hdr_timespec_from_double(&t, 0.9996)` | `tv_nsec = 1000000000` | `tv_sec = 1, tv_nsec = 0` |
 | `hdr_log_read_header` with a non-finite or out-of-range StartTime | converted without a range check | `-EINVAL` or `-ERANGE` |
@@ -150,7 +150,10 @@ should not store negatives.
 
 ### Shared library version
 
-Nothing was removed and no struct changed. See the release checklist for the proposed `SOVERSION` handling.
+The shared library is now `libhdr_histogram.so.6.4.4` (it was 6.3.3). The SONAME stays `libhdr_histogram.so.6`, so
+binaries linked against 0.11.x keep loading. Every symbol exported by 0.11.10 is still exported (93 then, 121 now) and the
+size and field offsets of every public struct are identical. `REVISION` and `AGE` were raised and `CURRENT` was kept, as
+for earlier releases that only added interfaces.
 
 ### Contributors
 

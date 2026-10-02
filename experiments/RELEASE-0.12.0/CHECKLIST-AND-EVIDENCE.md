@@ -43,6 +43,32 @@ the maintainer). It has not been built or tested anywhere yet and no PR is open,
 6. **Not measured, stated in the notes:** Linux AArch64 with Clang at `-O3` against `0.11.10`. Only the effect of #167
    (2.12x on the read driver with the directive versus without) is known.
 
+## Triple check of the notes (2026-10-02, against `main` at `8885476`)
+
+Three independent passes, read-only (git, grep, link requests; nothing built or benchmarked).
+
+1. **Accounting.** The 33 functional PRs merged since 0.11.10 are exactly the 33 cited: none missing, none extra. The
+   documentation, charts and version-bump PRs (#170, #171, #172) are deliberately left out, as decided. Each PR was listed next
+   to its section and title and read for fit.
+2. **Claims against the code.** Every function, error code, CMake option, script flag, workflow asset name and doc file named in
+   the notes exists on `main` (the only identifiers not in a public header are the two atomic helpers, which are in the private
+   `src/hdr_atomic.h`, as the bug-fix text describes). Public function names: 82 before, 109 now, 27 added, none removed. Test
+   cases 65 -> 125 and fuzz targets 1 -> 5 recounted from the tags. All 12 ratios in the performance table recomputed from
+   `data.json`. Each row of the behaviour table checked against the source (rows 1 to 3 and 5 to 6 also observed by running both
+   versions earlier).
+3. **Reading it as a user.** 38 of 39 links resolve, the four images are real PNGs, and the one failure is the compare link, which is
+   valid only once `0.12.0` is tagged. Tables are consistent, backticks and HTML tags balance, the in-page anchor matches its
+   heading, no leftover markers, spelling checked with `aspell` (every flagged word is a technical term).
+
+Mistakes this found and fixed in the draft: a stale commit count (now a PR count); a reference to this internal checklist in the
+public text; "the batch call was slower than one-at-a-time" was only true on Intel (5.6x) and AMD (6.4x), about equal on Graviton
+and Apple, so the sentence now says that; `hdr_count_at_value` only read out of bounds for values past the end of the counts
+array, not for every value above the highest trackable one; one US spelling in a document that uses British ones; and the packed
+example now names its configuration.
+
+Known limits: the performance figures are the saved fleet data described above, not a new run; the behaviour-table rows that
+were not observed are checked against the code only; the images were viewed as PNG, not in GitHub's renderer.
+
 ## Charts
 
 `charts/` has four charts (speedup overview, write, read, batch) as SVG and PNG, drawn by `charts/render_release_charts.py`
