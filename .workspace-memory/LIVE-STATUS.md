@@ -167,3 +167,4 @@ Draft notes + checklist: experiments/RELEASE-0.12.0/ (compares 0.11.10 with main
 
 Release charts (2026-10-02): docs-only PR #170 (HdrHistogram_c, `docs/images/0.12.0/*.png`, 128 KB) opened, reviewer paulorsousa. After merge: `sh experiments/RELEASE-0.12.0/pin-chart-urls.sh <merge sha>`. Slip on the way: an empty PR number made `gh pr edit` re-request paulorsousa on the merged #150 at 15:03Z; removed again (rule: gh-explicit-pr-number.md).
 #170 merged (eda375b): release notes now link the charts at HdrHistogram_c/docs/images/0.12.0 pinned to that commit; all 4 links verified (200, image/png, byte-identical).
+Version branch (2026-10-02): fork branch `release/0.12.0-version` (efa678d, off main eda375b) = HDR_HISTOGRAM_VERSION 0.12.0 + shared lib 6.3.3 -> 6.4.4 (CURRENT kept, SONAME .so.6; maintainer's choice, deviates from the literal step 2 of the CMakeLists note, reasoning in the commit message). Not built, no PR yet (CI hasn't run).
