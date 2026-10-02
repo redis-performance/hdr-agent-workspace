@@ -128,3 +128,5 @@ Not done / for the next session:
 - Redis/Valkey consumer repos still carry the local iterator extension until #165 is released; the vendor refresh was only done in ephemeral /tmp trees (experiments/VENDOR-REFRESH-2026-10-01/).
 - Idea: a ctest leg with `-DHDR_HISTOGRAM_DISABLE_AVX2=ON` (after #163) so the scalar scan is tested on x86 CI; today the #167 test never reaches the pragma'd loop on AVX2 runners.
 - The `HdrHistogram_c` submodule pointer in this repo is intentionally left unstaged.
+
+> 2026-10-02 final: 0.12.0 was published. This handoff is historical; the current snapshot is `hdr-0.12.0-release.md`.

@@ -5,6 +5,8 @@ metadata:
   type: project
 ---
 
+**SUPERSEDED for current state by [[hdr-0.12.0-release]] (2026-10-02: 0.12.0 released, 0 open PRs). Kept for history.**
+
 **Snapshot 2026-09-29 (review-round refresh).** Read with [[hdr-upstream-prs]] (per-PR detail
 + gotchas) and `experiments/EXPERIMENTS.md` (full round log). Verify against GitHub before
 acting — this file is a starting point, not truth.

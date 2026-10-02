@@ -173,3 +173,5 @@ Release PRs (2026-10-02): #171 version bump (0.12.0, lib 6.4.4) opened, CI 32/32
 
 ## 0.12.0 RELEASED (2026-10-02 15:41 UTC)
 https://github.com/HdrHistogram/HdrHistogram_c/releases/tag/0.12.0 on 8885476, Latest. Dry run first (workflow_dispatch), then publish: release-amalgamation.yml ran for real and attached 11 assets; checksums verified from the downloaded files; published body == saved notes. Details: experiments/RELEASE-0.12.0/CHECKLIST-AND-EVIDENCE.md. Nothing open in HdrHistogram_c (0 open PRs). Note for the next session: `gh run download` / `--notes-file` need paths inside the repository directory, not /tmp or the scratchpad.
+
+CONTEXT SAVED 2026-10-02: start from `.workspace-memory/hdr-0.12.0-release.md` (cold-start snapshot) and `consumers-vendored-hdr.md`; rules in merges-are-the-users, no-valkey-prs, use-oss-fleet-not-laptop, gh-explicit-pr-number, pkill-f-matches-own-shell, release-notes-scope.
