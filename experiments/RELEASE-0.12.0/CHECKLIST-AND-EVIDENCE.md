@@ -9,9 +9,9 @@ upstream from this folder.
 Release **0.12.0** is live: https://github.com/HdrHistogram/HdrHistogram_c/releases/tag/0.12.0 (tag `0.12.0` on `8885476`, the
 version-bump commit, CI green; marked Latest). Before publishing, the release workflow was run once by hand from `main` (dry
 run: generate, check, package, artifact; upload skipped as designed) and its output inspected. Publishing then triggered the
-workflow for real: all steps succeeded including "Attach to the release". The release has 11 assets (the 9 generated source and
-header files, the two zips, `SHA256SUMS`... see below), and `sha256sum -c` passes on the files as downloaded from the release. The
-body is the saved notes minus the top heading, byte-identical after trimming trailing spaces; the compare link now resolves.
+workflow for real: all steps succeeded including "Attach to the release". The release has 11 assets (8 generated source and
+header files, the two zips and `SHA256SUMS`), and `sha256sum -c` passes on the files as downloaded from the release. The
+body is the saved notes minus the top heading; the only difference is one extra blank line at the end. The compare link now resolves.
 
 Assets: `hdr_histogram.c/.h`, `hdr_malloc.h`, `hdr_histogram_log.c/.h`, `hdr_encoding.c`, `hdr_time.c/.h`,
 `hdr_histogram-amalgamation-0.12.0.zip`, `hdr_histogram-amalgamation-with-log-0.12.0.zip`, `SHA256SUMS`.
