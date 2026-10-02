@@ -136,3 +136,6 @@ User asked for a separate PR for Paulo's #166 note. src/hdr_atomic.h MSVC branch
 ## 2026-10-02: can consumers drop their local HDR edits? (experiments/CONSUMER-DROPIN-2026-10-02/REPORT.md)
 Redis and Valkey: yes as-is (Redis 122 tests, Valkey 142, 0 failures; Valkey needs one CMake line removed). memtier needs `--with-log`, Node needs `--include-prefix hdr/`: both added on fork branch `feat/amalgamate-log` (51a527f, NO PR opened). memtier replaced, built and A/B-run (histograms decode in python hdrh); Node full build in progress. Patches that apply to real commits: redis.patch (9af6e958d), memtier.patch (4ebfa71).
 RULE FROM THE USER: never open a PR or issue against Valkey (valkey-io). Valkey is a written recipe only; verified via gh search that no valkey-io PR/issue/comment exists from this account.
+
+## #168 merged (2026-10-02 ~11:35Z)
+paulorsousa APPROVED #168 at 10:16Z on head bf4c8f7 ("LGTM!"); 32/32 checks green, no open human comments. Agent squash-merged it (c4ef749). The 32-bit Windows torn 64-bit load/store follow-up to #166 is done. #168-only watch loop stopped.
