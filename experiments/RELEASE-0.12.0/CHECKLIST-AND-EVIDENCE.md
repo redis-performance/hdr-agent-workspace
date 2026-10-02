@@ -4,6 +4,21 @@ Draft notes: [RELEASE-NOTES-0.12.0.md](RELEASE-NOTES-0.12.0.md). Compared: tag `
 `main` at `e9fca77` (36 commits, 33 merged PRs, all cited in the notes). Nothing has been tagged, released or pushed
 upstream from this folder.
 
+## PUBLISHED: 2026-10-02 15:41 UTC
+
+Release **0.12.0** is live: https://github.com/HdrHistogram/HdrHistogram_c/releases/tag/0.12.0 (tag `0.12.0` on `8885476`, the
+version-bump commit, CI green; marked Latest). Before publishing, the release workflow was run once by hand from `main` (dry
+run: generate, check, package, artifact; upload skipped as designed) and its output inspected. Publishing then triggered the
+workflow for real: all steps succeeded including "Attach to the release". The release has 11 assets (the 9 generated source and
+header files, the two zips, `SHA256SUMS`... see below), and `sha256sum -c` passes on the files as downloaded from the release. The
+body is the saved notes minus the top heading, byte-identical after trimming trailing spaces; the compare link now resolves.
+
+Assets: `hdr_histogram.c/.h`, `hdr_malloc.h`, `hdr_histogram_log.c/.h`, `hdr_encoding.c`, `hdr_time.c/.h`,
+`hdr_histogram-amalgamation-0.12.0.zip`, `hdr_histogram-amalgamation-with-log-0.12.0.zip`, `SHA256SUMS`.
+
+Still open and not blockers: the #139 prefetch with/without on the fleet; Linux AArch64 with Clang against 0.11.10; whether to
+comment on or close any related issues.
+
 ## Before tagging: decisions and steps
 
 **PRs for the release (2026-10-02):** [#171](https://github.com/HdrHistogram/HdrHistogram_c/pull/171) the version bump (CI green),
