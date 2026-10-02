@@ -42,10 +42,11 @@ upstream from this folder.
 from `../../C-PERFORMANCE-CHARTS/data.json`, which is the same data as the table in the notes. The notes embed the PNGs by
 a **commit-pinned** URL (`.../hdr-agent-workspace/<commit>/...`), so they cannot change under a published release. The
 older charts in `C-PERFORMANCE-CHARTS/` are unchanged (they keep the "revision varies by runner" wording, which is right for
-an internal comparison but not for a release). The same four PNGs (palette-reduced, 128 KB instead of 441 KB) are proposed for HdrHistogram_c in
-[PR #170](https://github.com/HdrHistogram/HdrHistogram_c/pull/170) under `docs/images/0.12.0/`. Until it merges the notes keep
-the workspace links, which work. **After it merges**, run `sh pin-chart-urls.sh <full sha of the merge commit on main>` in this
-folder so the release body no longer depends on this repository, then check the four links in the draft release preview.
+an internal comparison but not for a release). The same four PNGs (palette-reduced, 128 KB instead of 441 KB) are in HdrHistogram_c under `docs/images/0.12.0/`
+([PR #170](https://github.com/HdrHistogram/HdrHistogram_c/pull/170), merged as `eda375b`). The notes link to them there by that
+full commit hash, so the release body no longer depends on this repository and the images cannot change. All four links were
+checked: HTTP 200, `image/png`, and byte-identical to the files in the merge commit. Still to do before publishing: look at the
+draft release preview once.
 
 ## How each claim in the notes was checked
 

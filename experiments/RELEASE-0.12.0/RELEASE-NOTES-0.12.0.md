@@ -10,7 +10,7 @@ control, upgrade: the heap overflow in [#146](https://github.com/HdrHistogram/Hd
 
 Percentile queries are much faster, most of all `hdr_value_at_percentiles` (the batch call). Recording is unchanged.
 
-![HdrHistogram_c 0.12.0 vs 0.11.10: speedup per machine](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/speedup.png)
+![HdrHistogram_c 0.12.0 vs 0.11.10: speedup per machine](https://raw.githubusercontent.com/HdrHistogram/HdrHistogram_c/eda375ba7501762749f2c826085b35f50e8f7873/docs/images/0.12.0/speedup.png)
 
 | 0.12.0 vs 0.11.10, higher is better | `hdr_value_at_percentile` (read) | `hdr_value_at_percentiles`, 4 percentiles (batch) | `hdr_record_value` (write) |
 |---|---:|---:|---:|
@@ -29,9 +29,9 @@ The code those paths run has not changed since, apart from the AArch64 Clang dir
 
 <details><summary>Absolute numbers per machine</summary>
 
-![Write: hdr_record_value](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/write.png)
-![Read: hdr_value_at_percentile](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/read.png)
-![Batch: hdr_value_at_percentiles](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/list.png)
+![Write: hdr_record_value](https://raw.githubusercontent.com/HdrHistogram/HdrHistogram_c/eda375ba7501762749f2c826085b35f50e8f7873/docs/images/0.12.0/write.png)
+![Read: hdr_value_at_percentile](https://raw.githubusercontent.com/HdrHistogram/HdrHistogram_c/eda375ba7501762749f2c826085b35f50e8f7873/docs/images/0.12.0/read.png)
+![Batch: hdr_value_at_percentiles](https://raw.githubusercontent.com/HdrHistogram/HdrHistogram_c/eda375ba7501762749f2c826085b35f50e8f7873/docs/images/0.12.0/list.png)
 
 </details>
 
