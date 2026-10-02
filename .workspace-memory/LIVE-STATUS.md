@@ -139,3 +139,5 @@ RULE FROM THE USER: never open a PR or issue against Valkey (valkey-io). Valkey 
 
 ## #168 merged (2026-10-02 ~11:35Z)
 paulorsousa APPROVED #168 at 10:16Z on head bf4c8f7 ("LGTM!"); 32/32 checks green, no open human comments. Agent squash-merged it (c4ef749). The 32-bit Windows torn 64-bit load/store follow-up to #166 is done. #168-only watch loop stopped.
+
+#169 OPENED 2026-10-02 (HdrHistogram_c, reviewer paulorsousa): amalgamate.py `--with-log` + `--include-prefix` + script/check-amalgamation.sh, so memtier (log codec) and Node (hdr/ layout) can use the generated files. Default output byte-identical to main. Node full build + tests were still running when it was opened: comment the result on #169 when done (build dir /tmp/hdrt/node, log /tmp/hdrt/node-build.log).
