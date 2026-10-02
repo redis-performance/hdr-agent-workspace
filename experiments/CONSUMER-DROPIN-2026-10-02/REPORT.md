@@ -18,7 +18,7 @@ The Valkey part below is a written recipe only.
 | Redis | `redis` @ `9af6e958d` | core, `--malloc-include hdr_redis_malloc.h`, delete 2 files, update `deps/README.md`; **no build-file change** | yes, 0 compiler warnings in the whole build; the dependency alone also builds with `-Wextra -Werror` on gcc and clang | 4 suites, 122 passed, 0 failed (latency-monitor, info, redis-cli, redis-benchmark) |
 | Valkey | an export of its tree, not a git checkout | the same, plus remove `hdr_atomic.h` from `deps/hdr_histogram/CMakeLists.txt` (CMake stops without it; the Makefile is unaffected) | yes, 0 compiler warnings | 4 suites, 142 passed, 0 failed (latency-monitor, info, valkey-benchmark, valkey-cli) |
 | memtier_benchmark | `memtier-4` @ `4ebfa71` | **`--with-log`** (it uses `hdr_log_*` and the time helpers), `Makefile.am` file list, drop its local atomic helper, rename one field, swap `hdr_string_write` for `hdr_log_encode` | yes, same warnings as before the change | A/B run against a real server, see below |
-| Node.js | `nodejs/node` @ `463711aa` | **`--include-prefix hdr/`** (its layout keeps the header in `include/hdr/`); gyp/GN files unchanged | HDR object built by Node's own build (see status at the end) | see status at the end |
+| Node.js | `nodejs/node` @ `463711aa` | **`--include-prefix hdr/`** (its layout keeps the header in `include/hdr/`); gyp/GN files unchanged | yes, full build, binary runs | 21 histogram-related tests, 21 ok, 0 failed |
 
 ## What was wrong before the new options
 
@@ -72,21 +72,16 @@ export, not a checkout of the real repository.
 
 ## Node.js build status
 
-NOT FINISHED when this was written. A full `./configure && make` of `nodejs/node` @ `463711aa` with the
-replaced `deps/histogram` was started on 2026-10-02 (log `/tmp/hdrt/node-build.log`, tree `/tmp/hdrt/node`).
-What is established so far:
+DONE. A full `./configure && make` of `nodejs/node` @ `463711aa` (gcc 13, x86-64 Linux) with the replaced
+`deps/histogram` finished, and the resulting `node v27.0.0-pre` runs. The change to `deps/histogram` is the two
+replaced files (`src/hdr_histogram.c`, `include/hdr/hdr_histogram.h`, from `--include-prefix hdr/`) and two deleted
+private headers (`src/hdr_atomic.h`, `src/hdr_tests.h`); `histogram.gyp`, `BUILD.gn`, `unofficial.gni` untouched.
 
-* the amalgamated `hdr_histogram.c`, in Node's layout (`--include-prefix hdr/`, `histogram.gyp` untouched),
-  compiled inside Node's own build with Node's flags (25 KB object);
-* Node's own `src/histogram.cc` compiled against the replaced `hdr_histogram.h`
-  (`obj.target/node_base/src/histogram.o`).
-
-Still to do: the link, and the histogram tests. They are queued to run automatically after the build
-(`/tmp/hdrt/node_tests.sh`, output in `/tmp/hdrt/node-tests.log`, last line `NODE_TESTS_OK` or `NODE_TESTS_FAILED`):
-`parallel/test-perf-hooks-histogram*`, `...sliding-window-histogram*`, `...timerify-histogram-*`,
+Histogram-related tests (TAP): **21 run, 21 ok, 0 not ok, 0 skipped**:
+`parallel/test-perf-hooks-histogram*` (diff, import, fast-calls, analysis, stats, external-memory, qrde,
+qrde-oracle, qrde-worker, record-zero, snapshot), `...sliding-window-histogram*`, `...timerify-histogram-sync/async`,
 `...monitor-event-loop-delay-*`, `sequential/test-performance-eventloopdelay`,
-`sequential/test-perf-hooks-histogram-heapdump`. By hand: `cd /tmp/hdrt/node && python3 tools/test.py -J
---mode=release parallel/test-perf-hooks-histogram*`. Until that passes, "Node.js builds with the replacement"
-is **not** confirmed, only that its HDR dependency and its histogram code compile.
+`sequential/test-perf-hooks-histogram-heapdump`. The binary has symbols that exist only in the new code
+(`hdr_iter_linear_set_value_units_per_bucket`, `hdr_record_value_capped`, `hdr_total_count`, the AVX2 scan).
 
-Node was not changed in any way besides `deps/histogram` (the two replaced files and two deleted private headers).
+Not run: Node's whole test suite, or any platform besides x86-64 Linux. Result also posted on PR #169.
