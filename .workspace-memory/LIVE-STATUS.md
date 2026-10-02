@@ -161,3 +161,6 @@ RULE FROM THE USER: never open a PR or issue against Valkey (valkey-io). Valkey 
 paulorsousa APPROVED #168 at 10:16Z on head bf4c8f7 ("LGTM!"); 32/32 checks green, no open human comments. Agent squash-merged it (c4ef749). The 32-bit Windows torn 64-bit load/store follow-up to #166 is done. #168-only watch loop stopped.
 
 #169 OPENED 2026-10-02 (HdrHistogram_c, reviewer paulorsousa): amalgamate.py `--with-log` + `--include-prefix` + script/check-amalgamation.sh, so memtier (log codec) and Node (hdr/ layout) can use the generated files. Default output byte-identical to main. Node full build + 21 histogram tests: ALL PASS, result commented on #169.
+
+## 0.12.0 release preparation (2026-10-02)
+Draft notes + checklist: experiments/RELEASE-0.12.0/ (compares 0.11.10 with main e9fca77; 33 merged PRs, all cited; no function removed, 27 public additions, struct layout identical). Nothing tagged or pushed upstream. Open decisions: SOVERSION (proposal 6.4.4 keeps .so.6; written rule gives 7.0.4); first real run of release-amalgamation.yml; #139 prefetch with/without on the fleet. RULE (user, 2026-10-02): do not run builds/tests/benchmarks on the maintainer's machine, use the OSS fleet; the access method is not recorded anywhere I can read, ask the user.
