@@ -1,0 +1,3200 @@
+diff --git a/Makefile.am b/Makefile.am
+index b252c45..e2ba050 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -57,9 +57,9 @@ memtier_benchmark_SOURCES = \
+ 	command_meta.cpp command_meta.h command_meta_data.h \
+ 	statsd.cpp statsd.h \
+ 	retry_policy.cpp retry_policy.h \
+-	deps/hdr_histogram/hdr_histogram_log.c deps/hdr_histogram/hdr_histogram_log.h deps/hdr_histogram/byteorder.h \
+-	deps/hdr_histogram/hdr_histogram.c deps/hdr_histogram/hdr_histogram.h \
+-	deps/hdr_histogram/hdr_time.c deps/hdr_histogram/hdr_time.h deps/hdr_histogram/hdr_encoding.c deps/hdr_histogram/hdr_encoding.h
++	deps/hdr_histogram/hdr_histogram_log.c deps/hdr_histogram/hdr_histogram_log.h \
++	deps/hdr_histogram/hdr_histogram.c deps/hdr_histogram/hdr_histogram.h deps/hdr_histogram/hdr_malloc.h \
++	deps/hdr_histogram/hdr_time.c deps/hdr_histogram/hdr_time.h deps/hdr_histogram/hdr_encoding.c
+ 
+ memtier_benchmark_LDADD = \
+ 	$(CODE_COVERAGE_LIBS) \
+diff --git a/deps/hdr_histogram/byteorder.h b/deps/hdr_histogram/byteorder.h
+deleted file mode 100755
+index 8b0424c..0000000
+--- a/deps/hdr_histogram/byteorder.h
++++ /dev/null
+@@ -1,101 +0,0 @@
+-/**
+- * Copyright (c) 2012, 2013, 2014 Gil Tene
+- * Copyright (c) 2014 Michael Barker
+- * Copyright (c) 2014 Matt Warren
+- * All rights reserved.
+- *
+- * Redistribution and use in source and binary forms, with or without
+- * modification, are permitted provided that the following conditions are met:
+- *
+- * 1. Redistributions of source code must retain the above copyright notice,
+- *    this list of conditions and the following disclaimer.
+- *
+- * 2. Redistributions in binary form must reproduce the above copyright notice,
+- *    this list of conditions and the following disclaimer in the documentation
+- *    and/or other materials provided with the distribution.
+- *
+- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+- * THE POSSIBILITY OF SUCH DAMAGE.
+- */
+-
+-#include <sys/isa_defs.h>
+-# include <sys/byteorder.h>
+-
+-# define betoh16(x) BE_16(x)
+-# define letoh16(x) LE_16(x)
+-# define betoh32(x) BE_32(x)
+-# define letoh32(x) LE_32(x)
+-# define betoh64(x) BE_64(x)
+-# define letoh64(x) LE_64(x)
+-#define htobe16(x) BE_16(x)
+-#define be16toh(x) BE_16(x)
+-#define htobe32(x) BE_32(x)
+-#define be32toh(x) BE_32(x)
+-#define htobe64(x) BE_64(x)
+-#define be64toh(x) BE_64(x)
+-// Solaris defines endian by setting _LITTLE_ENDIAN or _BIG_ENDIAN
+-# ifdef _BIG_ENDIAN
+-#  define IS_BIG_ENDIAN
+-# endif
+-# ifdef _LITTLE_ENDIAN
+-#  define IS_LITTLE_ENDIAN
+-# endif
+-// Make sure we got some kind of endian (but not both)
+-#if defined(IS_BIG_ENDIAN) == defined(IS_LITTLE_ENDIAN)
+-# error "Failed to get endian type for this system"
+-#endif
+-
+-// Define bswap functions if we didn't get any from the system headers
+-#ifndef BSWAP_16
+-# define BSWAP_16(x) ( \
+-                    ((uint16_t)(x) & 0x00ffU) << 8 | \
+-                    ((uint16_t)(x) & 0xff00U) >> 8)
+-#endif
+-#ifndef BSWAP_32
+-# define BSWAP_32(x) ( \
+-                    ((uint32_t)(x) & 0x000000ffU) << 24 | \
+-                    ((uint32_t)(x) & 0x0000ff00U) << 8 | \
+-                    ((uint32_t)(x) & 0x00ff0000U) >> 8 | \
+-                    ((uint32_t)(x) & 0xff000000U) >> 24)
+-#endif
+-#ifndef BSWAP_64
+-# define BSWAP_64(x) ( \
+-                    ((uint64_t)(x) & 0x00000000000000ffULL) << 56 | \
+-                    ((uint64_t)(x) & 0x000000000000ff00ULL) << 40 | \
+-                    ((uint64_t)(x) & 0x0000000000ff0000ULL) << 24 | \
+-                    ((uint64_t)(x) & 0x00000000ff000000ULL) << 8 | \
+-                    ((uint64_t)(x) & 0x000000ff00000000ULL) >> 8 | \
+-                    ((uint64_t)(x) & 0x0000ff0000000000ULL) >> 24 | \
+-                    ((uint64_t)(x) & 0x00ff000000000000ULL) >> 40 | \
+-                    ((uint64_t)(x) & 0xff00000000000000ULL) >> 56)
+-#endif
+-
+-// Define conversion functions if we didn't get any from the system headers
+-#ifndef BE_16
+-// Big endian system, swap when converting to/from little endian
+-# if defined IS_BIG_ENDIAN
+-#  define BE_16(x) (x)
+-#  define BE_32(x) (x)
+-#  define BE_64(x) (x)
+-#  define LE_16(x) BSWAP_16(x)
+-#  define LE_32(x) BSWAP_32(x)
+-#  define LE_64(x) BSWAP_64(x)
+-// Little endian system, swap when converting to/from big endian
+-# elif defined IS_LITTLE_ENDIAN
+-#  define BE_16(x) BSWAP_16(x)
+-#  define BE_32(x) BSWAP_32(x)
+-#  define BE_64(x) BSWAP_64(x)
+-#  define LE_16(x) (x)
+-#  define LE_32(x) (x)
+-#  define LE_64(x) (x)
+-#endif
+-#endif
+diff --git a/deps/hdr_histogram/hdr_atomic.h b/deps/hdr_histogram/hdr_atomic.h
+deleted file mode 100644
+index ae1056a..0000000
+--- a/deps/hdr_histogram/hdr_atomic.h
++++ /dev/null
+@@ -1,146 +0,0 @@
+-/**
+- * hdr_atomic.h
+- * Written by Philip Orwig and released to the public domain,
+- * as explained at http://creativecommons.org/publicdomain/zero/1.0/
+- */
+-
+-#ifndef HDR_ATOMIC_H__
+-#define HDR_ATOMIC_H__
+-
+-
+-#if defined(_MSC_VER)
+-
+-#include <stdint.h>
+-#include <intrin.h>
+-#include <stdbool.h>
+-
+-static void __inline * hdr_atomic_load_pointer(void** pointer)
+-{
+-	_ReadBarrier();
+-	return *pointer;
+-}
+-
+-static void hdr_atomic_store_pointer(void** pointer, void* value)
+-{
+-	_WriteBarrier();
+-	*pointer = value;
+-}
+-
+-static int64_t __inline hdr_atomic_load_64(int64_t* field)
+-{ 
+-	_ReadBarrier();
+-	return *field;
+-}
+-
+-static void __inline hdr_atomic_store_64(int64_t* field, int64_t value)
+-{
+-	_WriteBarrier();
+-	*field = value;
+-}
+-
+-static int64_t __inline hdr_atomic_exchange_64(volatile int64_t* field, int64_t value)
+-{
+-#if defined(_WIN64)
+-    return _InterlockedExchange64(field, value);
+-#else
+-    int64_t comparand;
+-    int64_t initial_value = *field;
+-    do
+-    {
+-        comparand = initial_value;
+-        initial_value = _InterlockedCompareExchange64(field, value, comparand);
+-    }
+-    while (comparand != initial_value);
+-
+-    return initial_value;
+-#endif
+-}
+-
+-static int64_t __inline hdr_atomic_add_fetch_64(volatile int64_t* field, int64_t value)
+-{
+-#if defined(_WIN64)
+-	return _InterlockedExchangeAdd64(field, value) + value;
+-#else
+-    int64_t comparand;
+-    int64_t initial_value = *field;
+-    do
+-    {
+-        comparand = initial_value;
+-        initial_value = _InterlockedCompareExchange64(field, comparand + value, comparand);
+-    }
+-    while (comparand != initial_value);
+-
+-    return initial_value + value;
+-#endif
+-}
+-
+-static bool __inline hdr_atomic_compare_exchange_64(volatile int64_t* field, int64_t* expected, int64_t desired)
+-{
+-    return *expected == _InterlockedCompareExchange64(field, desired, *expected);
+-}
+-
+-#elif defined(__ATOMIC_SEQ_CST)
+-
+-#define hdr_atomic_load_pointer(x) __atomic_load_n(x, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_store_pointer(f,v) __atomic_store_n(f,v, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_load_64(x) __atomic_load_n(x, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_store_64(f,v) __atomic_store_n(f,v, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_exchange_64(f,i) __atomic_exchange_n(f,i, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_add_fetch_64(field, value) __atomic_add_fetch(field, value, __ATOMIC_SEQ_CST)
+-#define hdr_atomic_compare_exchange_64(field, expected, desired) __atomic_compare_exchange_n(field, expected, desired, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)
+-
+-#elif defined(__x86_64__)
+-
+-#include <stdint.h>
+-#include <stdbool.h>
+-
+-static inline void* hdr_atomic_load_pointer(void** pointer)
+-{
+-   void* p =  *pointer;
+-	asm volatile ("" ::: "memory");
+-	return p;
+-}
+-
+-static inline void hdr_atomic_store_pointer(void** pointer, void* value)
+-{
+-    asm volatile ("lock; xchgq %0, %1" : "+q" (value), "+m" (*pointer));
+-}
+-
+-static inline int64_t hdr_atomic_load_64(int64_t* field)
+-{
+-    int64_t i = *field;
+-	asm volatile ("" ::: "memory");
+-	return i;
+-}
+-
+-static inline void hdr_atomic_store_64(int64_t* field, int64_t value)
+-{
+-    asm volatile ("lock; xchgq %0, %1" : "+q" (value), "+m" (*field));
+-}
+-
+-static inline int64_t hdr_atomic_exchange_64(volatile int64_t* field, int64_t value)
+-{
+-    int64_t result = 0;
+-    asm volatile ("lock; xchgq %1, %2" : "=r" (result), "+q" (value), "+m" (*field));
+-    return result;
+-}
+-
+-static inline int64_t hdr_atomic_add_fetch_64(volatile int64_t* field, int64_t value)
+-{
+-    return __sync_add_and_fetch(field, value);
+-}
+-
+-static inline bool hdr_atomic_compare_exchange_64(volatile int64_t* field, int64_t* expected, int64_t desired)
+-{
+-    int64_t original;
+-    asm volatile( "lock; cmpxchgq %2, %1" : "=a"(original), "+m"(*field) : "q"(desired), "0"(*expected));
+-    return original == *expected;
+-}
+-
+-#else
+-
+-#error "Unable to determine atomic operations for your platform"
+-
+-#endif
+-
+-#endif /* HDR_ATOMIC_H__ */
+diff --git a/deps/hdr_histogram/hdr_encoding.c b/deps/hdr_histogram/hdr_encoding.c
+index 3abd591..2c17c8b 100644
+--- a/deps/hdr_histogram/hdr_encoding.c
++++ b/deps/hdr_histogram/hdr_encoding.c
+@@ -1,3 +1,10 @@
++/*
++ * HdrHistogram_c log codec -- amalgamated (hdr_encoding.c, private headers inlined).
++ *
++ * GENERATED by script/amalgamate.py from HdrHistogram_c 0.11.10. DO NOT EDIT;
++ * change the sources and regenerate. Public domain (see hdr_histogram.h).
++ */
++/* ---- begin src/hdr_encoding.c ---- */
+ /**
+  * hdr_encoding.c
+  * Written by Michael Barker and released to the public domain,
+@@ -8,14 +15,146 @@
+ #include <stddef.h>
+ #include <math.h>
+ 
+-#include "hdr_encoding.h"
++/* ---- begin src/hdr_encoding.h ---- */
++/**
++ * hdr_encoding.h
++ * Written by Michael Barker and released to the public domain,
++ * as explained at http://creativecommons.org/publicdomain/zero/1.0/
++ */
++
++#ifndef HDR_ENCODING_H
++#define HDR_ENCODING_H
++
++#include <stdint.h>
++
++#define MAX_BYTES_LEB128 9
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/**
++ * Writes a int64_t value to the given buffer in LEB128 ZigZag encoded format
++ *
++ * @param buffer the buffer to write to
++ * @param signed_value  the value to write to the buffer
++ * @return the number of bytes written to the buffer
++ */
++int zig_zag_encode_i64(uint8_t* buffer, int64_t signed_value);
++
++/**
++ * Read an LEB128 ZigZag encoded long value from the given buffer
++ *
++ * @param buffer the buffer to read from
++ * @param retVal out value to capture the read value
++ * @return the number of bytes read from the buffer
++ */
++int zig_zag_decode_i64(const uint8_t* buffer, int64_t* signed_value);
++
++/**
++ * Gets the length in bytes of base64 data, given the input size.
++ *
++ * @param decoded_size the size of the unencoded values.
++ * @return the encoded size
++ */
++size_t hdr_base64_encoded_len(size_t decoded_size);
++
++/**
++ * Encode into base64.
++ *
++ * @param input the data to encode
++ * @param input_len the length of the data to encode
++ * @param output the buffer to write the output to
++ * @param output_len the number of bytes to write to the output
++ */
++int hdr_base64_encode(
++    const uint8_t* input, size_t input_len, char* output, size_t output_len);
++
++/**
++ * Gets the length in bytes of decoded base64 data, given the size of the base64 encoded
++ * data.
++ *
++ * @param encoded_size the size of the encoded value.
++ * @return the decoded size
++ */
++size_t hdr_base64_decoded_len(size_t encoded_size);
++
++/**
++ * Decode from base64.
++ *
++ * @param input the base64 encoded data
++ * @param input_len the size in bytes of the endcoded data
++ * @param output the buffer to write the decoded data to
++ * @param output_len the number of bytes to write to the output data
++ */
++int hdr_base64_decode(
++    const char* input, size_t input_len, uint8_t* output, size_t output_len);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* HDR_HISTOGRAM_HDR_ENCODING_H */
++/* ---- end src/hdr_encoding.h ---- */
++/* ---- begin src/hdr_tests.h ---- */
++#ifndef HDR_TESTS_H
++#define HDR_TESTS_H
++
++/* These are functions used in tests and are not intended for normal usage. */
++
++#include "hdr_histogram.h"
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* ---- begin src/hdr_histogram_internal.h ---- */
++/**
++ * hdr_histogram_internal.h
++ * Non-public helpers shared across library translation units (not installed,
++ * not part of the public API). Distinct from hdr_tests.h, which is for helpers
++ * used only by the test suite.
++ */
++#ifndef HDR_HISTOGRAM_INTERNAL_H
++#define HDR_HISTOGRAM_INTERNAL_H
++
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* Map a recorded value to its counts[] index. Assumes value >= 0 (callers guard);
++   defined in hdr_histogram.c and used by the log codec and the packed variant. */
++int32_t counts_index_for(const struct hdr_histogram* h, int64_t value);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_histogram_internal.h ---- */
++
++/* Returns false when imported positive counts exceed INT64_MAX. */
++bool hdr_reset_internal_counters_checked(struct hdr_histogram* h);
++int hdr_encode_compressed(struct hdr_histogram* h, uint8_t** compressed_histogram, size_t* compressed_len);
++int hdr_decode_compressed(uint8_t* buffer, size_t length, struct hdr_histogram** histogram);
++void hdr_base64_decode_block(const char* input, uint8_t* output);
++void hdr_base64_encode_block(const uint8_t* input, char* output);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_tests.h ---- */
+ 
+ int zig_zag_encode_i64(uint8_t* buffer, int64_t signed_value)
+ {
+     int bytesWritten;
+-    int64_t value = signed_value;
++    uint64_t value = (uint64_t)signed_value;
+ 
+-    value = (value << 1) ^ (value >> 63);
++    /* Portable sign mask: negative → UINT64_MAX (all 1s), non-negative → 0 */
++    value = (value << 1) ^ (uint64_t)(-(int64_t)(value >> 63));
+     if (value >> 7 == 0)
+     {
+         buffer[0] = (uint8_t) value;
+@@ -319,3 +458,4 @@ int hdr_base64_decode(
+ 
+     return 0;
+ }
++/* ---- end src/hdr_encoding.c ---- */
+diff --git a/deps/hdr_histogram/hdr_encoding.h b/deps/hdr_histogram/hdr_encoding.h
+deleted file mode 100644
+index 95f1db6..0000000
+--- a/deps/hdr_histogram/hdr_encoding.h
++++ /dev/null
+@@ -1,79 +0,0 @@
+-/**
+- * hdr_encoding.h
+- * Written by Michael Barker and released to the public domain,
+- * as explained at http://creativecommons.org/publicdomain/zero/1.0/
+- */
+-
+-#ifndef HDR_ENCODING_H
+-#define HDR_ENCODING_H
+-
+-#include <stdint.h>
+-
+-#define MAX_BYTES_LEB128 9
+-
+-#ifdef __cplusplus
+-extern "C" {
+-#endif
+-
+-/**
+- * Writes a int64_t value to the given buffer in LEB128 ZigZag encoded format
+- *
+- * @param buffer the buffer to write to
+- * @param signed_value  the value to write to the buffer
+- * @return the number of bytes written to the buffer
+- */
+-int zig_zag_encode_i64(uint8_t* buffer, int64_t signed_value);
+-
+-/**
+- * Read an LEB128 ZigZag encoded long value from the given buffer
+- *
+- * @param buffer the buffer to read from
+- * @param retVal out value to capture the read value
+- * @return the number of bytes read from the buffer
+- */
+-int zig_zag_decode_i64(const uint8_t* buffer, int64_t* signed_value);
+-
+-/**
+- * Gets the length in bytes of base64 data, given the input size.
+- *
+- * @param decoded_size the size of the unencoded values.
+- * @return the encoded size
+- */
+-size_t hdr_base64_encoded_len(size_t decoded_size);
+-
+-/**
+- * Encode into base64.
+- *
+- * @param input the data to encode
+- * @param input_len the length of the data to encode
+- * @param output the buffer to write the output to
+- * @param output_len the number of bytes to write to the output
+- */
+-int hdr_base64_encode(
+-    const uint8_t* input, size_t input_len, char* output, size_t output_len);
+-
+-/**
+- * Gets the length in bytes of decoded base64 data, given the size of the base64 encoded
+- * data.
+- *
+- * @param encoded_size the size of the encoded value.
+- * @return the decoded size
+- */
+-size_t hdr_base64_decoded_len(size_t encoded_size);
+-
+-/**
+- * Decode from base64.
+- *
+- * @param input the base64 encoded data
+- * @param input_len the size in bytes of the endcoded data
+- * @param output the buffer to write the decoded data to
+- * @param output_len the number of bytes to write to the output data
+- */
+-int hdr_base64_decode(
+-    const char* input, size_t input_len, uint8_t* output, size_t output_len);
+-
+-#ifdef __cplusplus
+-}
+-#endif
+-
+-#endif /* HDR_HISTOGRAM_HDR_ENCODING_H */
+diff --git a/deps/hdr_histogram/hdr_endian.h b/deps/hdr_histogram/hdr_endian.h
+deleted file mode 100644
+index 839fdb1..0000000
+--- a/deps/hdr_histogram/hdr_endian.h
++++ /dev/null
+@@ -1,116 +0,0 @@
+-/**
+-* hdr_time.h
+-* Released to the public domain, as explained at http://creativecommons.org/publicdomain/zero/1.0/
+-*/
+-
+-#ifndef HDR_ENDIAN_H__
+-#define HDR_ENDIAN_H__
+-
+-#if (defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
+-
+-#	define __WINDOWS__
+-
+-#endif
+-
+-#if defined(__linux__) || defined(__CYGWIN__)
+-
+-#	include <endian.h>
+-
+-#elif defined(__APPLE__)
+-
+-#	include <libkern/OSByteOrder.h>
+-
+-#	define htobe16(x) OSSwapHostToBigInt16(x)
+-#	define htole16(x) OSSwapHostToLittleInt16(x)
+-#	define be16toh(x) OSSwapBigToHostInt16(x)
+-#	define le16toh(x) OSSwapLittleToHostInt16(x)
+- 
+-#	define htobe32(x) OSSwapHostToBigInt32(x)
+-#	define htole32(x) OSSwapHostToLittleInt32(x)
+-#	define be32toh(x) OSSwapBigToHostInt32(x)
+-#	define le32toh(x) OSSwapLittleToHostInt32(x)
+- 
+-#	define htobe64(x) OSSwapHostToBigInt64(x)
+-#	define htole64(x) OSSwapHostToLittleInt64(x)
+-#	define be64toh(x) OSSwapBigToHostInt64(x)
+-#	define le64toh(x) OSSwapLittleToHostInt64(x)
+-
+-#	define __BYTE_ORDER    BYTE_ORDER
+-#	define __BIG_ENDIAN    BIG_ENDIAN
+-#	define __LITTLE_ENDIAN LITTLE_ENDIAN
+-#	define __PDP_ENDIAN    PDP_ENDIAN
+-
+-#elif defined(__OpenBSD__)
+-
+-#	include <sys/endian.h>
+-
+-#elif defined(__NetBSD__) || defined(__FreeBSD__) || defined(__DragonFly__)
+-
+-#	include <sys/endian.h>
+-
+-#	define be16toh(x) betoh16(x)
+-#	define le16toh(x) letoh16(x)
+-
+-#	define be32toh(x) betoh32(x)
+-#	define le32toh(x) letoh32(x)
+-
+-#	define be64toh(x) betoh64(x)
+-#	define le64toh(x) letoh64(x)
+-
+-#elif defined(__WINDOWS__)
+-
+-#	include <winsock2.h>
+-
+-#	if BYTE_ORDER == LITTLE_ENDIAN
+-
+-#		define htobe16(x) htons(x)
+-#		define htole16(x) (x)
+-#		define be16toh(x) ntohs(x)
+-#		define le16toh(x) (x)
+- 
+-#		define htobe32(x) htonl(x)
+-#		define htole32(x) (x)
+-#		define be32toh(x) ntohl(x)
+-#		define le32toh(x) (x)
+- 
+-#		define htobe64(x) htonll(x)
+-#		define htole64(x) (x)
+-#		define be64toh(x) ntohll(x)
+-#		define le64toh(x) (x)
+-
+-#	elif BYTE_ORDER == BIG_ENDIAN
+-
+-        /* that would be xbox 360 */
+-#		define htobe16(x) (x)
+-#		define htole16(x) __builtin_bswap16(x)
+-#		define be16toh(x) (x)
+-#		define le16toh(x) __builtin_bswap16(x)
+- 
+-#		define htobe32(x) (x)
+-#		define htole32(x) __builtin_bswap32(x)
+-#		define be32toh(x) (x)
+-#		define le32toh(x) __builtin_bswap32(x)
+- 
+-#		define htobe64(x) (x)
+-#		define htole64(x) __builtin_bswap64(x)
+-#		define be64toh(x) (x)
+-#		define le64toh(x) __builtin_bswap64(x)
+-
+-#	else
+-
+-#		error byte order not supported
+-
+-#	endif
+-
+-#	define __BYTE_ORDER    BYTE_ORDER
+-#	define __BIG_ENDIAN    BIG_ENDIAN
+-#	define __LITTLE_ENDIAN LITTLE_ENDIAN
+-#	define __PDP_ENDIAN    PDP_ENDIAN
+-
+-#else
+-
+-#	error platform not supported
+-
+-#endif
+-
+-#endif
+diff --git a/deps/hdr_histogram/hdr_histogram.c b/deps/hdr_histogram/hdr_histogram.c
+index b3b48e0..fc882a6 100644
+--- a/deps/hdr_histogram/hdr_histogram.c
++++ b/deps/hdr_histogram/hdr_histogram.c
+@@ -1,3 +1,10 @@
++/*
++ * HdrHistogram_c core -- amalgamated single-file build.
++ *
++ * GENERATED by script/amalgamate.py from HdrHistogram_c 0.11.10. DO NOT EDIT;
++ * change the sources and regenerate. Public domain (see hdr_histogram.h).
++ */
++/* ---- begin src/hdr_histogram.c ---- */
+ /**
+  * hdr_histogram.c
+  * Written by Michael Barker and released to the public domain,
+@@ -14,7 +21,220 @@
+ #include <inttypes.h>
+ 
+ #include "hdr_histogram.h"
+-#include "hdr_atomic.h"
++/* ---- begin src/hdr_tests.h ---- */
++#ifndef HDR_TESTS_H
++#define HDR_TESTS_H
++
++/* These are functions used in tests and are not intended for normal usage. */
++
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* ---- begin src/hdr_histogram_internal.h ---- */
++/**
++ * hdr_histogram_internal.h
++ * Non-public helpers shared across library translation units (not installed,
++ * not part of the public API). Distinct from hdr_tests.h, which is for helpers
++ * used only by the test suite.
++ */
++#ifndef HDR_HISTOGRAM_INTERNAL_H
++#define HDR_HISTOGRAM_INTERNAL_H
++
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* Map a recorded value to its counts[] index. Assumes value >= 0 (callers guard);
++   defined in hdr_histogram.c and used by the log codec and the packed variant. */
++int32_t counts_index_for(const struct hdr_histogram* h, int64_t value);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_histogram_internal.h ---- */
++
++/* Returns false when imported positive counts exceed INT64_MAX. */
++bool hdr_reset_internal_counters_checked(struct hdr_histogram* h);
++int hdr_encode_compressed(struct hdr_histogram* h, uint8_t** compressed_histogram, size_t* compressed_len);
++int hdr_decode_compressed(uint8_t* buffer, size_t length, struct hdr_histogram** histogram);
++void hdr_base64_decode_block(const char* input, uint8_t* output);
++void hdr_base64_encode_block(const uint8_t* input, char* output);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_tests.h ---- */
++/* ---- begin src/hdr_atomic.h ---- */
++/**
++ * hdr_atomic.h
++ * Written by Philip Orwig and released to the public domain,
++ * as explained at http://creativecommons.org/publicdomain/zero/1.0/
++ */
++
++#ifndef HDR_ATOMIC_H__
++#define HDR_ATOMIC_H__
++
++
++#if defined(_MSC_VER) && !(defined(__clang__) && (defined(_M_ARM) || defined(_M_ARM64)))
++
++#include <stdint.h>
++#include <intrin.h>
++#include <stdbool.h>
++
++/* Type-generic so callers pass a typed T** without an incompatible (void**) cast. */
++#define hdr_atomic_load_pointer(x) (_ReadBarrier(), *(x))
++#define hdr_atomic_store_pointer(f, v) (_WriteBarrier(), (void)(*(f) = (v)))
++
++static int64_t __inline hdr_atomic_load_64(int64_t* field)
++{ 
++	_ReadBarrier();
++	return *field;
++}
++
++static void __inline hdr_atomic_store_64(int64_t* field, int64_t value)
++{
++	_WriteBarrier();
++	*field = value;
++}
++
++static int64_t __inline hdr_atomic_exchange_64(volatile int64_t* field, int64_t value)
++{
++#if defined(_WIN64)
++    return _InterlockedExchange64(field, value);
++#else
++    int64_t comparand;
++    int64_t initial_value = *field;
++    do
++    {
++        comparand = initial_value;
++        initial_value = _InterlockedCompareExchange64(field, value, comparand);
++    }
++    while (comparand != initial_value);
++
++    return initial_value;
++#endif
++}
++
++static int64_t __inline hdr_atomic_add_fetch_64(volatile int64_t* field, int64_t value)
++{
++#if defined(_WIN64)
++	return _InterlockedExchangeAdd64(field, value) + value;
++#else
++    int64_t comparand;
++    int64_t initial_value = *field;
++    do
++    {
++        comparand = initial_value;
++        initial_value = _InterlockedCompareExchange64(field, comparand + value, comparand);
++    }
++    while (comparand != initial_value);
++
++    return initial_value + value;
++#endif
++}
++
++static bool __inline hdr_atomic_compare_exchange_64(volatile int64_t* field, int64_t* expected, int64_t desired)
++{
++    return *expected == _InterlockedCompareExchange64(field, desired, *expected);
++}
++
++#elif defined(__ATOMIC_SEQ_CST)
++
++#define hdr_atomic_load_pointer(x) __atomic_load_n(x, __ATOMIC_SEQ_CST)
++#define hdr_atomic_store_pointer(f,v) __atomic_store_n(f,v, __ATOMIC_SEQ_CST)
++#define hdr_atomic_load_64(x) __atomic_load_n(x, __ATOMIC_SEQ_CST)
++#define hdr_atomic_store_64(f,v) __atomic_store_n(f,v, __ATOMIC_SEQ_CST)
++#define hdr_atomic_exchange_64(f,i) __atomic_exchange_n(f,i, __ATOMIC_SEQ_CST)
++#define hdr_atomic_add_fetch_64(field, value) __atomic_add_fetch(field, value, __ATOMIC_SEQ_CST)
++#define hdr_atomic_compare_exchange_64(field, expected, desired) __atomic_compare_exchange_n(field, expected, desired, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)
++
++#elif defined(__x86_64__)
++
++#include <stdint.h>
++#include <stdbool.h>
++
++/* Type-generic so callers pass a typed T** without an incompatible (void**) cast. */
++#define hdr_atomic_load_pointer(x) \
++    __extension__({ __typeof__(*(x)) _p = *(x); asm volatile ("" ::: "memory"); _p; })
++#define hdr_atomic_store_pointer(f, v) \
++    __extension__({ __typeof__(*(f)) _v = (v); asm volatile ("lock; xchgq %0, %1" : "+q" (_v), "+m" (*(f))); })
++
++static inline int64_t hdr_atomic_load_64(int64_t* field)
++{
++    int64_t i = *field;
++	asm volatile ("" ::: "memory");
++	return i;
++}
++
++static inline void hdr_atomic_store_64(int64_t* field, int64_t value)
++{
++    asm volatile ("lock; xchgq %0, %1" : "+q" (value), "+m" (*field));
++}
++
++static inline int64_t hdr_atomic_exchange_64(volatile int64_t* field, int64_t value)
++{
++    int64_t result = 0;
++    asm volatile ("lock; xchgq %1, %2" : "=r" (result), "+q" (value), "+m" (*field));
++    return result;
++}
++
++static inline int64_t hdr_atomic_add_fetch_64(volatile int64_t* field, int64_t value)
++{
++    return __sync_add_and_fetch(field, value);
++}
++
++static inline bool hdr_atomic_compare_exchange_64(volatile int64_t* field, int64_t* expected, int64_t desired)
++{
++    int64_t original;
++    asm volatile( "lock; cmpxchgq %2, %1" : "=a"(original), "+m"(*field) : "q"(desired), "0"(*expected));
++    return original == *expected;
++}
++
++#else
++
++#error "Unable to determine atomic operations for your platform"
++
++#endif
++
++#endif /* HDR_ATOMIC_H__ */
++/* ---- end src/hdr_atomic.h ---- */
++
++#ifndef HDR_MALLOC_INCLUDE
++#define HDR_MALLOC_INCLUDE "hdr_malloc.h"
++#endif
++
++#include HDR_MALLOC_INCLUDE
++
++/* Prefetch hint for upcoming write access */
++#if defined(__GNUC__) || defined(__clang__)
++#  define HDR_PREFETCH_WRITE(addr) __builtin_prefetch((addr), 1, 3)
++#  define HDR_LIKELY(x)   __builtin_expect(!!(x), 1)
++#  define HDR_UNLIKELY(x) __builtin_expect(!!(x), 0)
++#else
++#  define HDR_PREFETCH_WRITE(addr) ((void)(addr))
++#  define HDR_LIKELY(x)   (x)
++#  define HDR_UNLIKELY(x) (x)
++#endif
++
++/* Runtime-dispatched AVX2 path; rest of TU stays at baseline ISA so the binary
++   doesn't silently require AVX2. 64-bit x86 + GCC/Clang only:
++     - 32-bit x86: _mm_extract_epi64 unavailable in 32-bit codegen.
++     - _MSC_VER: __builtin_cpu_supports's __cpu_model isn't linked under MSVC;
++       clang-cl also defines __x86_64__/__clang__ so this exclusion is load-bearing.
++     - __INTEL_COMPILER: ICC classic. */
++#if !defined(HDR_DISABLE_AVX2) \
++    && defined(__x86_64__) \
++    && (defined(__GNUC__) || defined(__clang__)) && !defined(__INTEL_COMPILER) && !defined(_MSC_VER)
++#  define HDR_HAS_AVX2_DISPATCH 1
++#  include <immintrin.h>
++#endif
+ 
+ /*  ######   #######  ##     ## ##    ## ########  ######  */
+ /* ##    ## ##     ## ##     ## ###   ##    ##    ##    ## */
+@@ -60,24 +280,48 @@ static int64_t counts_get_normalised(const struct hdr_histogram* h, int32_t inde
+ static void counts_inc_normalised(
+     struct hdr_histogram* h, int32_t index, int64_t value)
+ {
+-    int32_t normalised_index = normalize_index(h, index);
+-    h->counts[normalised_index] += value;
++    if (HDR_LIKELY(h->normalizing_index_offset == 0))
++    {
++        HDR_PREFETCH_WRITE(&h->counts[index]);
++        h->counts[index] += value;
++    }
++    else
++    {
++        int32_t normalised_index = normalize_index(h, index);
++        HDR_PREFETCH_WRITE(&h->counts[normalised_index]);
++        h->counts[normalised_index] += value;
++    }
+     h->total_count += value;
+ }
+ 
+ static void counts_inc_normalised_atomic(
+     struct hdr_histogram* h, int32_t index, int64_t value)
+ {
+-    int32_t normalised_index = normalize_index(h, index);
+-
+-    hdr_atomic_add_fetch_64(&h->counts[normalised_index], value);
++    if (HDR_LIKELY(h->normalizing_index_offset == 0))
++    {
++        HDR_PREFETCH_WRITE(&h->counts[index]);
++        hdr_atomic_add_fetch_64(&h->counts[index], value);
++    }
++    else
++    {
++        int32_t normalised_index = normalize_index(h, index);
++        HDR_PREFETCH_WRITE(&h->counts[normalised_index]);
++        hdr_atomic_add_fetch_64(&h->counts[normalised_index], value);
++    }
+     hdr_atomic_add_fetch_64(&h->total_count, value);
+ }
+ 
+ static void update_min_max(struct hdr_histogram* h, int64_t value)
+ {
+-    h->min_value = (value < h->min_value && value != 0) ? value : h->min_value;
+-    h->max_value = (value > h->max_value) ? value : h->max_value;
++    if (HDR_UNLIKELY(value > h->max_value))
++    {
++        h->max_value = value;
++    }
++
++    if (HDR_UNLIKELY(value != 0 && value < h->min_value))
++    {
++        h->min_value = value;
++    }
+ }
+ 
+ static void update_min_max_atomic(struct hdr_histogram* h, int64_t value)
+@@ -126,7 +370,7 @@ static int64_t power(int64_t base, int64_t exp)
+     return result;
+ }
+ 
+-#if defined(_MSC_VER)
++#if defined(_MSC_VER) && !(defined(__clang__) && (defined(_M_ARM) || defined(_M_ARM64)))
+ #   if defined(_WIN64)
+ #       pragma intrinsic(_BitScanReverse64)
+ #   else
+@@ -136,8 +380,9 @@ static int64_t power(int64_t base, int64_t exp)
+ 
+ static int32_t count_leading_zeros_64(int64_t value)
+ {
+-#if defined(_MSC_VER)
+-    uint32_t leading_zero = 0;
++#if defined(_MSC_VER) && !(defined(__clang__) && (defined(_M_ARM) || defined(_M_ARM64)))
++    /* _BitScanReverse writes an unsigned long */
++    unsigned long leading_zero = 0;
+ #if defined(_WIN64)
+     _BitScanReverse64(&leading_zero, value);
+ #else
+@@ -215,6 +460,15 @@ int64_t hdr_size_of_equivalent_value_range(const struct hdr_histogram* h, int64_
+     return INT64_C(1) << (h->unit_magnitude + adjusted_bucket);
+ }
+ 
++static int64_t size_of_equivalent_value_range_given_bucket_indices(
++    const struct hdr_histogram *h,
++    int32_t bucket_index,
++    int32_t sub_bucket_index)
++{
++    const int32_t adjusted_bucket  = (sub_bucket_index >= h->sub_bucket_count) ? (bucket_index + 1) : bucket_index;
++    return INT64_C(1) << (h->unit_magnitude + adjusted_bucket);
++}
++
+ static int64_t lowest_equivalent_value(const struct hdr_histogram* h, int64_t value)
+ {
+     int32_t bucket_index     = get_bucket_index(h, value);
+@@ -222,14 +476,36 @@ static int64_t lowest_equivalent_value(const struct hdr_histogram* h, int64_t va
+     return value_from_index(bucket_index, sub_bucket_index, h->unit_magnitude);
+ }
+ 
++static int64_t lowest_equivalent_value_given_bucket_indices(
++    const struct hdr_histogram *h,
++    int32_t bucket_index,
++    int32_t sub_bucket_index)
++{
++    return value_from_index(bucket_index, sub_bucket_index, h->unit_magnitude);
++}
++
+ int64_t hdr_next_non_equivalent_value(const struct hdr_histogram *h, int64_t value)
+ {
+-    return lowest_equivalent_value(h, value) + hdr_size_of_equivalent_value_range(h, value);
++    int64_t low  = lowest_equivalent_value(h, value);
++    int64_t size = hdr_size_of_equivalent_value_range(h, value);
++    /* saturate: top-bucket low+size overflows int64 (UB) */
++    if (low > INT64_MAX - size)
++    {
++        return INT64_MAX;
++    }
++    return low + size;
+ }
+ 
+ static int64_t highest_equivalent_value(const struct hdr_histogram* h, int64_t value)
+ {
+-    return hdr_next_non_equivalent_value(h, value) - 1;
++    int64_t low  = lowest_equivalent_value(h, value);
++    int64_t size = hdr_size_of_equivalent_value_range(h, value);
++    /* clamp: top-bucket low+size-1 overflows int64; keep value <= highest_equivalent_value */
++    if (low > INT64_MAX - size)
++    {
++        return INT64_MAX;
++    }
++    return low + size - 1;
+ }
+ 
+ int64_t hdr_median_equivalent_value(const struct hdr_histogram *h, int64_t value)
+@@ -247,8 +523,9 @@ static int64_t non_zero_min(const struct hdr_histogram* h)
+     return lowest_equivalent_value(h, h->min_value);
+ }
+ 
+-void hdr_reset_internal_counters(struct hdr_histogram* h)
++bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+ {
++    bool overflow = false;
+     int min_non_zero_index = -1;
+     int max_index = -1;
+     int64_t observed_total_count = 0;
+@@ -258,9 +535,18 @@ void hdr_reset_internal_counters(struct hdr_histogram* h)
+     {
+         int64_t count_at_index;
+ 
+-        if ((count_at_index = counts_get_direct(h, i)) > 0)
++        /* logical index: pair the count with hdr_value_at_index below (offset-aware) */
++        if ((count_at_index = counts_get_normalised(h, i)) > 0)
+         {
+-            observed_total_count += count_at_index;
++            if (count_at_index > INT64_MAX - observed_total_count)
++            {
++                observed_total_count = INT64_MAX;
++                overflow = true;
++            }
++            else
++            {
++                observed_total_count += count_at_index;
++            }
+             max_index = i;
+             if (min_non_zero_index == -1 && i != 0)
+             {
+@@ -289,6 +575,12 @@ void hdr_reset_internal_counters(struct hdr_histogram* h)
+     }
+ 
+     h->total_count = observed_total_count;
++    return !overflow;
++}
++
++void hdr_reset_internal_counters(struct hdr_histogram* h)
++{
++    (void) hdr_reset_internal_counters_checked(h);
+ }
+ 
+ static int32_t buckets_needed_to_cover_value(int64_t value, int32_t sub_bucket_count, int32_t unit_magnitude)
+@@ -317,22 +609,27 @@ static int32_t buckets_needed_to_cover_value(int64_t value, int32_t sub_bucket_c
+ /* ##     ## ######## ##     ##  #######  ##     ##    ##    */
+ 
+ int hdr_calculate_bucket_config(
+-        int64_t lowest_trackable_value,
+-        int64_t highest_trackable_value,
+-        int significant_figures,
+-        struct hdr_histogram_bucket_config* cfg)
++    int64_t lowest_discernible_value,
++    int64_t highest_trackable_value,
++    int significant_figures,
++    struct hdr_histogram_bucket_config* cfg)
+ {
+     int32_t sub_bucket_count_magnitude;
+     int64_t largest_value_with_single_unit_resolution;
+ 
+-    if (lowest_trackable_value < 1 ||
++    /* define cfg on every reject path so a two-step-init caller that mishandles
++       the EINVAL return never reads uninitialized fields */
++    memset(cfg, 0, sizeof(*cfg));
++
++    if (lowest_discernible_value < 1 ||
+             significant_figures < 1 || 5 < significant_figures ||
+-            lowest_trackable_value * 2 > highest_trackable_value)
++            /* division form: lowest*2 near INT64_MAX overflows int64 (UB) */
++            lowest_discernible_value > highest_trackable_value / 2)
+     {
+         return EINVAL;
+     }
+ 
+-    cfg->lowest_trackable_value = lowest_trackable_value;
++    cfg->lowest_discernible_value = lowest_discernible_value;
+     cfg->significant_figures = significant_figures;
+     cfg->highest_trackable_value = highest_trackable_value;
+ 
+@@ -340,17 +637,24 @@ int hdr_calculate_bucket_config(
+     sub_bucket_count_magnitude = (int32_t) ceil(log((double)largest_value_with_single_unit_resolution) / log(2));
+     cfg->sub_bucket_half_count_magnitude = ((sub_bucket_count_magnitude > 1) ? sub_bucket_count_magnitude : 1) - 1;
+ 
+-    cfg->unit_magnitude = (int32_t) floor(log((double)lowest_trackable_value) / log(2));
++    double unit_magnitude = log((double)lowest_discernible_value) / log(2);
++    if (INT32_MAX < unit_magnitude)
++    {
++        return EINVAL;
++    }
+ 
++    cfg->unit_magnitude = (int32_t) unit_magnitude;
+     cfg->sub_bucket_count      = (int32_t) pow(2, (cfg->sub_bucket_half_count_magnitude + 1));
+     cfg->sub_bucket_half_count = cfg->sub_bucket_count / 2;
+-    cfg->sub_bucket_mask       = ((int64_t) cfg->sub_bucket_count - 1) << cfg->unit_magnitude;
+ 
++    /* reject before shifting: sub_bucket_mask shift past bit 61 is signed-shift UB */
+     if (cfg->unit_magnitude + cfg->sub_bucket_half_count_magnitude > 61)
+     {
+         return EINVAL;
+     }
+ 
++    cfg->sub_bucket_mask       = ((int64_t) cfg->sub_bucket_count - 1) << cfg->unit_magnitude;
++
+     cfg->bucket_count = buckets_needed_to_cover_value(highest_trackable_value, cfg->sub_bucket_count, (int32_t)cfg->unit_magnitude);
+     cfg->counts_len = (cfg->bucket_count + 1) * (cfg->sub_bucket_count / 2);
+ 
+@@ -359,7 +663,7 @@ int hdr_calculate_bucket_config(
+ 
+ void hdr_init_preallocated(struct hdr_histogram* h, struct hdr_histogram_bucket_config* cfg)
+ {
+-    h->lowest_trackable_value          = cfg->lowest_trackable_value;
++    h->lowest_discernible_value        = cfg->lowest_discernible_value;
+     h->highest_trackable_value         = cfg->highest_trackable_value;
+     h->unit_magnitude                  = (int32_t)cfg->unit_magnitude;
+     h->significant_figures             = (int32_t)cfg->significant_figures;
+@@ -377,31 +681,31 @@ void hdr_init_preallocated(struct hdr_histogram* h, struct hdr_histogram_bucket_
+ }
+ 
+ int hdr_init(
+-        int64_t lowest_trackable_value,
+-        int64_t highest_trackable_value,
+-        int significant_figures,
+-        struct hdr_histogram** result)
++    int64_t lowest_discernible_value,
++    int64_t highest_trackable_value,
++    int significant_figures,
++    struct hdr_histogram** result)
+ {
+     int64_t* counts;
+     struct hdr_histogram_bucket_config cfg;
+     struct hdr_histogram* histogram;
+ 
+-    int r = hdr_calculate_bucket_config(lowest_trackable_value, highest_trackable_value, significant_figures, &cfg);
++    int r = hdr_calculate_bucket_config(lowest_discernible_value, highest_trackable_value, significant_figures, &cfg);
+     if (r)
+     {
+         return r;
+     }
+ 
+-    counts = (int64_t*) calloc((size_t) cfg.counts_len, sizeof(int64_t));
++    counts = (int64_t*) hdr_calloc((size_t) cfg.counts_len, sizeof(int64_t));
+     if (!counts)
+     {
+         return ENOMEM;
+     }
+ 
+-    histogram = (struct hdr_histogram*) calloc(1, sizeof(struct hdr_histogram));
++    histogram = (struct hdr_histogram*) hdr_calloc(1, sizeof(struct hdr_histogram));
+     if (!histogram)
+     {
+-        free(counts);
++        hdr_free(counts);
+         return ENOMEM;
+     }
+ 
+@@ -416,8 +720,8 @@ int hdr_init(
+ void hdr_close(struct hdr_histogram* h)
+ {
+     if (h) {
+-	free(h->counts);
+-	free(h);
++	hdr_free(h->counts);
++	hdr_free(h);
+     }
+ }
+ 
+@@ -448,35 +752,20 @@ size_t hdr_get_memory_size(struct hdr_histogram *h)
+ /* ##     ## ##        ##     ## ##     ##    ##    ##       ##    ## */
+ /*  #######  ##        ########  ##     ##    ##    ########  ######  */
+ 
+-bool hdr_record_value_capped(struct hdr_histogram* h, int64_t value)
+-{
+-    int64_t capped_value = (value > h->highest_trackable_value) ? h->highest_trackable_value : value;
+-    capped_value = (capped_value < h->lowest_trackable_value) ? h->lowest_trackable_value : capped_value;
+-    return hdr_record_value(h, capped_value);
+-}
+-
+-bool hdr_record_value(struct hdr_histogram* h, int64_t value)
+-{
+-    return hdr_record_values(h, value, 1);
+-}
+ 
+-bool hdr_record_value_atomic(struct hdr_histogram* h, int64_t value)
+-{
+-    return hdr_record_values_atomic(h, value, 1);
+-}
+-
+-bool hdr_record_values(struct hdr_histogram* h, int64_t value, int64_t count)
++/* Shared record body. The count-sign check lives in hdr_record_values()/_atomic()
++   below, keeping the single-value hot path (count == 1, never negative) free of it. */
++static bool record_value_counted(struct hdr_histogram* h, int64_t value, int64_t count)
+ {
+     int32_t counts_index;
+ 
+-    if (value < 0)
++    if (value < 0 || h->highest_trackable_value < value)
+     {
+         return false;
+     }
+ 
+     counts_index = counts_index_for(h, value);
+-
+-    if (counts_index < 0 || h->counts_len <= counts_index)
++    if ((uint32_t)counts_index >= (uint32_t)h->counts_len)
+     {
+         return false;
+     }
+@@ -487,18 +776,17 @@ bool hdr_record_values(struct hdr_histogram* h, int64_t value, int64_t count)
+     return true;
+ }
+ 
+-bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t count)
++static bool record_value_counted_atomic(struct hdr_histogram* h, int64_t value, int64_t count)
+ {
+     int32_t counts_index;
+ 
+-    if (value < 0)
++    if (value < 0 || h->highest_trackable_value < value)
+     {
+         return false;
+     }
+ 
+     counts_index = counts_index_for(h, value);
+-
+-    if (counts_index < 0 || h->counts_len <= counts_index)
++    if ((uint32_t)counts_index >= (uint32_t)h->counts_len)
+     {
+         return false;
+     }
+@@ -509,6 +797,46 @@ bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t co
+     return true;
+ }
+ 
++bool hdr_record_value(struct hdr_histogram* h, int64_t value)
++{
++    return record_value_counted(h, value, 1);
++}
++
++bool hdr_record_value_atomic(struct hdr_histogram* h, int64_t value)
++{
++    return record_value_counted_atomic(h, value, 1);
++}
++
++bool hdr_record_value_capped(struct hdr_histogram* h, int64_t value)
++{
++    int64_t capped = (value > h->highest_trackable_value) ? h->highest_trackable_value : value;
++    return hdr_record_value(h, capped < 0 ? 0 : capped);
++}
++
++bool hdr_record_value_capped_atomic(struct hdr_histogram* h, int64_t value)
++{
++    int64_t capped = (value > h->highest_trackable_value) ? h->highest_trackable_value : value;
++    return hdr_record_value_atomic(h, capped < 0 ? 0 : capped);
++}
++
++bool hdr_record_values(struct hdr_histogram* h, int64_t value, int64_t count)
++{
++    if (count < 0)  /* non-negative counts; scan assumes a monotonic prefix */
++    {
++        return false;
++    }
++    return record_value_counted(h, value, count);
++}
++
++bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t count)
++{
++    if (count < 0)  /* see hdr_record_values */
++    {
++        return false;
++    }
++    return record_value_counted_atomic(h, value, count);
++}
++
+ bool hdr_record_corrected_value(struct hdr_histogram* h, int64_t value, int64_t expected_interval)
+ {
+     return hdr_record_corrected_values(h, value, 1, expected_interval);
+@@ -633,6 +961,12 @@ int64_t hdr_max(const struct hdr_histogram* h)
+     return highest_equivalent_value(h, h->max_value);
+ }
+ 
++int64_t hdr_total_count(const struct hdr_histogram* h)
++{
++    /* atomic load: safe to call while other threads use the *_atomic record functions */
++    return h != NULL ? hdr_atomic_load_64((int64_t*) &h->total_count) : 0;
++}
++
+ int64_t hdr_min(const struct hdr_histogram* h)
+ {
+     if (0 < hdr_count_at_index(h, 0))
+@@ -643,23 +977,132 @@ int64_t hdr_min(const struct hdr_histogram* h)
+     return non_zero_min(h);
+ }
+ 
+-static int64_t get_value_from_idx_up_to_count(const struct hdr_histogram* h, int64_t count_at_percentile)
++static int64_t get_value_from_idx_up_to_count_scalar(
++    const struct hdr_histogram* h, int64_t count_at_percentile)
+ {
+-    int64_t count_to_idx = 0;
++    /* Block-summed scan: sum BLK counts, test the running total once per block,
++       and do the exact per-element walk only for the crossing block. offset != 0
++       (decoded/rotated) reads via the offset-aware accessor. */
++    enum { BLK = 4 };
++    const int64_t* counts = h->counts;
++    const int32_t n = h->counts_len;
++    int32_t idx = 0;
++    int64_t running = 0;
+ 
+-    count_at_percentile = 0 < count_at_percentile ? count_at_percentile : 1;
+-    for (int32_t idx = 0; idx < h->counts_len; idx++)
++    if (HDR_UNLIKELY(h->normalizing_index_offset != 0))
+     {
+-        count_to_idx += h->counts[idx];
+-        if (count_to_idx >= count_at_percentile)
++        for (idx = 0; idx < n; idx++)
+         {
+-            return hdr_value_at_index(h, idx);
++            running += counts_get_normalised(h, idx);
++            if (running >= count_at_percentile)
++                return hdr_value_at_index(h, idx);
+         }
++        return 0;
++    }
++
++    {
++        const int32_t blk_limit = n - (n % BLK);
++        for (; idx < blk_limit; idx += BLK)
++        {
++            /* unsigned block sum: cannot overflow under valid state (matches AVX2 path) */
++            uint64_t block_sum_u = 0;
++            int32_t j;
++            for (j = 0; j < BLK; j++)
++                block_sum_u += (uint64_t)counts[idx + j];
++            if (HDR_UNLIKELY((uint64_t)running + block_sum_u >= (uint64_t)count_at_percentile))
++            {
++#if defined(__aarch64__) && defined(__clang__) && !defined(__APPLE__)
++                /* Keep crossing-block prefix sums out of the block-sum loop. */
++#pragma clang loop unroll(disable)
++#endif
++                for (j = 0; j < BLK; j++)
++                {
++                    running += counts[idx + j];
++                    if (running >= count_at_percentile)
++                        return hdr_value_at_index(h, idx + j);
++                }
++            }
++            else
++            {
++                running += (int64_t)block_sum_u;
++            }
++        }
++    }
++
++    for (; idx < n; idx++)
++    {
++        running += counts[idx];
++        if (running >= count_at_percentile)
++            return hdr_value_at_index(h, idx);
+     }
+ 
+     return 0;
+ }
+ 
++#ifdef HDR_HAS_AVX2_DISPATCH
++__attribute__((target("avx2")))
++static int64_t get_value_from_idx_up_to_count_avx2(
++    const struct hdr_histogram* h, int64_t count_at_percentile)
++{
++    int64_t running = 0;
++    int32_t idx = 0;
++    /* 16 int64 (4x256-bit) per iteration: amortize the horizontal reduction +
++       extract + target-cross branch over 16 elements instead of 4. */
++    const int32_t limit = h->counts_len & ~15;
++
++    for (; idx < limit; idx += 16) {
++        /* prefetch 512 B ahead to hide L2/L3 latency; clamp in-bounds — a
++           past-end pointer is UB even for a hint. */
++        int32_t pf = idx + 4 * 16;
++        _mm_prefetch((const char*)&h->counts[pf < h->counts_len ? pf : h->counts_len - 1], _MM_HINT_T0);
++        __m256i a = _mm256_loadu_si256((const __m256i*)&h->counts[idx]);
++        __m256i b = _mm256_loadu_si256((const __m256i*)&h->counts[idx + 4]);
++        __m256i c = _mm256_loadu_si256((const __m256i*)&h->counts[idx + 8]);
++        __m256i d = _mm256_loadu_si256((const __m256i*)&h->counts[idx + 12]);
++        __m256i vsum = _mm256_add_epi64(_mm256_add_epi64(a, b), _mm256_add_epi64(c, d));
++        __m128i lo = _mm256_castsi256_si128(vsum);
++        __m128i hi = _mm256_extracti128_si256(vsum, 1);
++        __m128i s = _mm_add_epi64(lo, hi);
++        /* Reduce with unsigned arithmetic to avoid signed-overflow UB. */
++        int64_t chunk = (int64_t)((uint64_t)_mm_extract_epi64(s, 0)
++                                + (uint64_t)_mm_extract_epi64(s, 1));
++
++        /* counts[] are non-negative (the record path rejects count < 0), so the
++           prefix sum is monotonic: block-skip is exact and only the crossing block
++           is walked. */
++        int64_t next = (int64_t)((uint64_t)running + (uint64_t)chunk);
++        if (HDR_UNLIKELY(next >= count_at_percentile)) {
++            for (int32_t j = idx; j < idx + 16; j++) {
++                running = (int64_t)((uint64_t)running + (uint64_t)h->counts[j]);
++                if (running >= count_at_percentile)
++                    return hdr_value_at_index(h, j);
++            }
++        }
++        else {
++            running = next;
++        }
++    }
++    for (; idx < h->counts_len; idx++) {
++        running = (int64_t)((uint64_t)running + (uint64_t)h->counts[idx]);
++        if (running >= count_at_percentile)
++            return hdr_value_at_index(h, idx);
++    }
++    return 0;
++}
++#endif
++
++static int64_t get_value_from_idx_up_to_count(const struct hdr_histogram* h, int64_t count_at_percentile)
++{
++    count_at_percentile = count_at_percentile > 0 ? count_at_percentile : 1;
++#ifdef HDR_HAS_AVX2_DISPATCH
++    /* AVX2 reads counts[] directly; offset != 0 (rotated) must use the scalar scan */
++    if (h->normalizing_index_offset == 0 && __builtin_cpu_supports("avx2"))
++        return get_value_from_idx_up_to_count_avx2(h, count_at_percentile);
++#endif
++    return get_value_from_idx_up_to_count_scalar(h, count_at_percentile);
++}
++
++
+ int64_t hdr_value_at_percentile(const struct hdr_histogram* h, double percentile)
+ {
+     double requested_percentile = percentile < 100.0 ? percentile : 100.0;
+@@ -692,16 +1135,68 @@ int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percen
+         values[i] = count_at_percentile > 1 ? count_at_percentile : 1;
+     }
+ 
+-    hdr_iter_init(&iter, h);
+-    int64_t total = 0;
++    uint64_t total = 0; /* unsigned: no signed-overflow UB when a hostile block sum is added at once */
+     size_t at_pos = 0;
+-    while (hdr_iter_next(&iter) && at_pos < length)
++
++    if (HDR_LIKELY(h->normalizing_index_offset == 0))
+     {
+-        total += iter.count;
+-        while (at_pos < length && total >= values[at_pos])
++        /* Skip whole blocks that cannot reach the next target. counts[] are
++           non-negative (the record path rejects count < 0), so the prefix sum is
++           monotonic and this block-skip is exact for any valid histogram. */
++        enum { BATCH_SCAN_BLOCK = 8 };
++        const int64_t* counts = h->counts;
++        const int32_t len = h->counts_len;
++        int32_t idx = 0;
++        for (; idx + BATCH_SCAN_BLOCK <= len && at_pos < length; idx += BATCH_SCAN_BLOCK)
+         {
+-            values[at_pos] = highest_equivalent_value(h, iter.value);
+-            at_pos++;
++            /* unsigned sum keeps the accumulation UB-free even at the int64 boundary */
++            const uint64_t s =
++                (uint64_t)counts[idx]     + (uint64_t)counts[idx + 1] +
++                (uint64_t)counts[idx + 2] + (uint64_t)counts[idx + 3] +
++                (uint64_t)counts[idx + 4] + (uint64_t)counts[idx + 5] +
++                (uint64_t)counts[idx + 6] + (uint64_t)counts[idx + 7];
++            if ((int64_t)(total + s) >= values[at_pos])
++            {
++                int32_t j;
++                for (j = idx; j < idx + BATCH_SCAN_BLOCK; j++)
++                {
++                    total += (uint64_t)counts[j];
++                    while (at_pos < length && (int64_t)total >= values[at_pos])
++                    {
++                        values[at_pos] = highest_equivalent_value(h, hdr_value_at_index(h, j));
++                        at_pos++;
++                    }
++                }
++            }
++            else
++            {
++                total += s;
++            }
++        }
++        /* Tail: fewer than BATCH_SCAN_BLOCK counters remain. */
++        for (; idx < len && at_pos < length; idx++)
++        {
++            total += (uint64_t)counts[idx];
++            while (at_pos < length && (int64_t)total >= values[at_pos])
++            {
++                values[at_pos] = highest_equivalent_value(h, hdr_value_at_index(h, idx));
++                at_pos++;
++            }
++        }
++    }
++    else
++    {
++        /* offset-aware fallback (normalizing_index_offset != 0): iterator
++           dereferences counts through the normalized index */
++        hdr_iter_init(&iter, h);
++        while (hdr_iter_next(&iter) && at_pos < length)
++        {
++            total += (uint64_t)iter.count;
++            while (at_pos < length && (int64_t)total >= values[at_pos])
++            {
++                values[at_pos] = highest_equivalent_value(h, iter.value);
++                at_pos++;
++            }
+         }
+     }
+     return 0;
+@@ -710,23 +1205,23 @@ int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percen
+ double hdr_mean(const struct hdr_histogram* h)
+ {
+     struct hdr_iter iter;
+-    int64_t total = 0;
++    double total = 0;
++    int64_t count = 0;
++    int64_t total_count = h->total_count;
+ 
+     hdr_iter_init(&iter, h);
+ 
+-    while (hdr_iter_next(&iter))
++    while (hdr_iter_next(&iter) && count < total_count)
+     {
+         if (0 != iter.count)
+         {
+-            total += iter.count * hdr_median_equivalent_value(h, iter.value);
++            count += iter.count;
++            /* sum in double: count*median can overflow int64 (UB) for large values */
++            total += (double) iter.count * (double) hdr_median_equivalent_value(h, iter.value);
+         }
+     }
+ 
+-    return (total * 1.0) / h->total_count;
+-}
+-
+-int64_t hdr_total_count(const struct hdr_histogram *h) {
+-    return h != NULL ? h->total_count : 0;
++    return total / total_count;
+ }
+ 
+ double hdr_stddev(const struct hdr_histogram* h)
+@@ -761,11 +1256,26 @@ int64_t hdr_lowest_equivalent_value(const struct hdr_histogram* h, int64_t value
+ 
+ int64_t hdr_count_at_value(const struct hdr_histogram* h, int64_t value)
+ {
+-    return counts_get_normalised(h, counts_index_for(h, value));
++    int32_t counts_index;
++
++    if (value < 0) { return 0; }
++    /* value past the array's top half-bucket maps outside counts[] (OOB); count 0 */
++    counts_index = counts_index_for(h, value);
++    if ((uint32_t)counts_index >= (uint32_t)h->counts_len)
++    {
++        return 0;
++    }
++
++    return counts_get_normalised(h, counts_index);
+ }
+ 
+ int64_t hdr_count_at_index(const struct hdr_histogram* h, int32_t index)
+ {
++    /* reject index outside counts[] (OOB read); unsigned compare also catches negatives */
++    if ((uint32_t)index >= (uint32_t)h->counts_len)
++    {
++        return 0;
++    }
+     return counts_get_normalised(h, index);
+ }
+ 
+@@ -800,18 +1310,42 @@ static bool move_next(struct hdr_iter* iter)
+ 
+     iter->count = counts_get_normalised(iter->h, iter->counts_index);
+     iter->cumulative_count += iter->count;
+-
+-    iter->value = hdr_value_at_index(iter->h, iter->counts_index);
+-    iter->highest_equivalent_value = highest_equivalent_value(iter->h, iter->value);
+-    iter->lowest_equivalent_value = lowest_equivalent_value(iter->h, iter->value);
+-    iter->median_equivalent_value = hdr_median_equivalent_value(iter->h, iter->value);
++    const int64_t value = hdr_value_at_index(iter->h, iter->counts_index);
++    const int32_t bucket_index = get_bucket_index(iter->h, value);
++    const int32_t sub_bucket_index = get_sub_bucket_index(value, bucket_index, iter->h->unit_magnitude);
++    const int64_t leq = lowest_equivalent_value_given_bucket_indices(iter->h, bucket_index, sub_bucket_index);
++    const int64_t size_of_equivalent_value_range = size_of_equivalent_value_range_given_bucket_indices(
++        iter->h, bucket_index, sub_bucket_index);
++    iter->lowest_equivalent_value = leq;
++    iter->value = value;
++    /* saturate: top-bucket leq+size overflows int64 (UB) */
++    iter->highest_equivalent_value =
++        (leq > INT64_MAX - size_of_equivalent_value_range)
++            ? INT64_MAX
++            : leq + size_of_equivalent_value_range - 1;
++    iter->median_equivalent_value = leq + (size_of_equivalent_value_range >> 1);
+ 
+     return true;
+ }
+ 
+ static int64_t peek_next_value_from_index(struct hdr_iter* iter)
+ {
+-    return hdr_value_at_index(iter->h, iter->counts_index + 1);
++    const int32_t index = iter->counts_index + 1;
++    int32_t bucket_index = (int32_t) ((uint32_t) index >> iter->h->sub_bucket_half_count_magnitude) - 1;
++    int32_t sub_bucket_index = (index & (iter->h->sub_bucket_half_count - 1)) + iter->h->sub_bucket_half_count;
++    int32_t shift;
++    if (bucket_index < 0)
++    {
++        sub_bucket_index -= iter->h->sub_bucket_half_count;
++        bucket_index = 0;
++    }
++    shift = bucket_index + iter->h->unit_magnitude;
++    /* one past the top bucket shifts into the sign bit for a near-INT64_MAX range; saturate */
++    if (shift >= 63 || (uint64_t) sub_bucket_index > ((uint64_t) INT64_MAX >> shift))
++    {
++        return INT64_MAX;
++    }
++    return value_from_index(bucket_index, sub_bucket_index, iter->h->unit_magnitude);
+ }
+ 
+ static bool next_value_greater_than_reporting_level_upper_bound(
+@@ -1030,9 +1564,25 @@ static bool iter_linear_next(struct hdr_iter* iter)
+             {
+                 update_iterated_values(iter, linear->next_value_reporting_level);
+ 
+-                linear->next_value_reporting_level += linear->value_units_per_bucket;
+-                linear->next_value_reporting_level_lowest_equivalent =
+-                    lowest_equivalent_value(iter->h, linear->next_value_reporting_level);
++                /* Emit the saturated final level once before entering the terminal state. */
++                if (linear->next_value_reporting_level == INT64_MAX)
++                {
++                    linear->next_value_reporting_level_lowest_equivalent = INT64_MAX;
++                }
++                else if (linear->value_units_per_bucket <= 0 ||
++                    linear->next_value_reporting_level > INT64_MAX - linear->value_units_per_bucket)
++                {
++                    /* step <= 0 first: never-advances (infinite loop) and guards the subtraction; second clause is the overflow guard */
++                    linear->next_value_reporting_level = INT64_MAX;
++                    linear->next_value_reporting_level_lowest_equivalent =
++                        lowest_equivalent_value(iter->h, INT64_MAX);
++                }
++                else
++                {
++                    linear->next_value_reporting_level += linear->value_units_per_bucket;
++                    linear->next_value_reporting_level_lowest_equivalent =
++                        lowest_equivalent_value(iter->h, linear->next_value_reporting_level);
++                }
+ 
+                 return true;
+             }
+@@ -1057,12 +1607,32 @@ void hdr_iter_linear_init(struct hdr_iter* iter, const struct hdr_histogram* h,
+ 
+     iter->specifics.linear.count_added_in_this_iteration_step = 0;
+     iter->specifics.linear.value_units_per_bucket = value_units_per_bucket;
+-    iter->specifics.linear.next_value_reporting_level = value_units_per_bucket;
+-    iter->specifics.linear.next_value_reporting_level_lowest_equivalent = lowest_equivalent_value(h, value_units_per_bucket);
++    if (value_units_per_bucket <= 0)
++    {
++        /* non-positive step never advances; a negative one also reaches
++           negative left-shift UB in lowest_equivalent_value below. Pin to the
++           terminating state (matches the advance-path guard). */
++        iter->specifics.linear.next_value_reporting_level = INT64_MAX;
++        iter->specifics.linear.next_value_reporting_level_lowest_equivalent = INT64_MAX;
++    }
++    else
++    {
++        iter->specifics.linear.next_value_reporting_level = value_units_per_bucket;
++        iter->specifics.linear.next_value_reporting_level_lowest_equivalent = lowest_equivalent_value(h, value_units_per_bucket);
++    }
+ 
+     iter->_next_fp = iter_linear_next;
+ }
+ 
++void hdr_iter_linear_set_value_units_per_bucket(struct hdr_iter* iter, int64_t value_units_per_bucket)
++{
++    /* specifics is a union: writing it on any other iterator would corrupt it */
++    if (iter->_next_fp == iter_linear_next)
++    {
++        iter->specifics.linear.value_units_per_bucket = value_units_per_bucket;
++    }
++}
++
+ /* ##        #######   ######      ###    ########  #### ######## ##     ## ##     ## ####  ######  */
+ /* ##       ##     ## ##    ##    ## ##   ##     ##  ##     ##    ##     ## ###   ###  ##  ##    ## */
+ /* ##       ##     ## ##         ##   ##  ##     ##  ##     ##    ##     ## #### ####  ##  ##       */
+@@ -1087,8 +1657,27 @@ static bool log_iter_next(struct hdr_iter *iter)
+             {
+                 update_iterated_values(iter, logarithmic->next_value_reporting_level);
+ 
+-                logarithmic->next_value_reporting_level *= (int64_t)logarithmic->log_base;
+-                logarithmic->next_value_reporting_level_lowest_equivalent = lowest_equivalent_value(iter->h, logarithmic->next_value_reporting_level);
++                /* Emit the saturated final level once before entering the terminal state. */
++                {
++                    int64_t base = (int64_t) logarithmic->log_base;
++                    if (logarithmic->next_value_reporting_level == INT64_MAX)
++                    {
++                        logarithmic->next_value_reporting_level_lowest_equivalent = INT64_MAX;
++                    }
++                    else if (base <= 1 || logarithmic->next_value_reporting_level <= 0 || logarithmic->next_value_reporting_level > INT64_MAX / base)
++                    {
++                        /* base <= 1 first: never-advances (infinite loop) and short-circuits /base so base==0 can't divide-by-zero; level <= 0 never advances (0*=base loops) and *=base on a negative is overflow UB; last clause is the positive-overflow guard */
++                        logarithmic->next_value_reporting_level = INT64_MAX;
++                        logarithmic->next_value_reporting_level_lowest_equivalent =
++                            lowest_equivalent_value(iter->h, INT64_MAX);
++                    }
++                    else
++                    {
++                        logarithmic->next_value_reporting_level *= base;
++                        logarithmic->next_value_reporting_level_lowest_equivalent =
++                            lowest_equivalent_value(iter->h, logarithmic->next_value_reporting_level);
++                    }
++                }
+ 
+                 return true;
+             }
+@@ -1116,7 +1705,22 @@ void hdr_iter_log_init(
+     iter->specifics.log.count_added_in_this_iteration_step = 0;
+     iter->specifics.log.log_base = log_base;
+     iter->specifics.log.next_value_reporting_level = value_units_first_bucket;
+-    iter->specifics.log.next_value_reporting_level_lowest_equivalent = lowest_equivalent_value(h, value_units_first_bucket);
++    if (value_units_first_bucket <= 0 || !isfinite(log_base) || log_base <= 1.0 ||
++        log_base >= (double) INT64_MAX)
++    {
++        /* non-positive first bucket or base <= 1 never advances; a negative
++           first bucket also reaches negative left-shift UB in
++           lowest_equivalent_value below. A non-finite (NaN/Inf) or out-of-int64-
++           range base would hit float-cast-overflow UB at the (int64_t) log_base
++           cast in log_iter_next. Pin to the terminating state (matches the
++           advance-path guard) so that cast is never reached for a bad base. */
++        iter->specifics.log.next_value_reporting_level = INT64_MAX;
++        iter->specifics.log.next_value_reporting_level_lowest_equivalent = INT64_MAX;
++    }
++    else
++    {
++        iter->specifics.log.next_value_reporting_level_lowest_equivalent = lowest_equivalent_value(h, value_units_first_bucket);
++    }
+ 
+     iter->_next_fp = log_iter_next;
+ }
+@@ -1197,3 +1801,4 @@ int hdr_percentiles_print(
+     cleanup:
+     return rc;
+ }
++/* ---- end src/hdr_histogram.c ---- */
+diff --git a/deps/hdr_histogram/hdr_histogram.h b/deps/hdr_histogram/hdr_histogram.h
+index ad1e3a3..3dd7603 100644
+--- a/deps/hdr_histogram/hdr_histogram.h
++++ b/deps/hdr_histogram/hdr_histogram.h
+@@ -16,7 +16,7 @@
+ 
+ struct hdr_histogram
+ {
+-    int64_t lowest_trackable_value;
++    int64_t lowest_discernible_value;
+     int64_t highest_trackable_value;
+     int32_t unit_magnitude;
+     int32_t significant_figures;
+@@ -45,8 +45,8 @@ extern "C" {
+  * involved math on the input parameters this function it is tricky to stack allocate.
+  * The histogram should be released with hdr_close
+  *
+- * @param lowest_trackable_value The smallest possible value to be put into the
+- * histogram.
++ * @param lowest_discernible_value The smallest possible value that is distinguishable from 0.
++ * Must be a positive integer that is >= 1. May be internally rounded down to nearest power of 2.
+  * @param highest_trackable_value The largest possible value to be put into the
+  * histogram.
+  * @param significant_figures The level of precision for this histogram, i.e. the number
+@@ -54,12 +54,12 @@ extern "C" {
+  * the results from the histogram will be accurate up to the first three digits.  Must
+  * be a value between 1 and 5 (inclusive).
+  * @param result Output parameter to capture allocated histogram.
+- * @return 0 on success, EINVAL if lowest_trackable_value is < 1 or the
++ * @return 0 on success, EINVAL if lowest_discernible_value is < 1 or the
+  * significant_figure value is outside of the allowed range, ENOMEM if malloc
+  * failed.
+  */
+ int hdr_init(
+-    int64_t lowest_trackable_value,
++    int64_t lowest_discernible_value,
+     int64_t highest_trackable_value,
+     int significant_figures,
+     struct hdr_histogram** result);
+@@ -111,17 +111,21 @@ size_t hdr_get_memory_size(struct hdr_histogram* h);
+ bool hdr_record_value(struct hdr_histogram* h, int64_t value);
+ 
+ /**
+- * Records a value in the histogram, rounding the value to the specified precision
+- * (based on the significant figure set during histogram creation). This function
+- * will cap the recorded value at the histogram's highest_trackable_value if the input
+- * exceeds this threshold, and at the lowest_trackable_value if it falls below.
++ * Like hdr_record_value, but clamps the value into [0, highest_trackable_value]
++ * instead of rejecting out-of-range input. 0 and values below
++ * lowest_discernible_value are recorded as they are.
+  *
+- * @param h       Pointer to the histogram structure
+- * @param value   Value to add to the histogram
+- * @return        false if the value cannot be recorded due to an error, true otherwise
++ * @param h "This" pointer
++ * @param value Value to add to the histogram
++ * @return true for any value on a valid histogram.
+  */
+ bool hdr_record_value_capped(struct hdr_histogram* h, int64_t value);
+ 
++/**
++ * Atomic version of hdr_record_value_capped, safe to call from several threads at once.
++ */
++bool hdr_record_value_capped_atomic(struct hdr_histogram* h, int64_t value);
++
+ /**
+  * Records a value in the histogram, will round this value of to a precision at or better
+  * than the significant_figure specified at construction time.
+@@ -144,9 +148,9 @@ bool hdr_record_value_atomic(struct hdr_histogram* h, int64_t value);
+  *
+  * @param h "This" pointer
+  * @param value Value to add to the histogram
+- * @param count Number of 'value's to add to the histogram
+- * @return false if any value is larger than the highest_trackable_value and can't be recorded,
+- * true otherwise.
++ * @param count Number of 'value's to add to the histogram; must be non-negative
++ * @return false if count is negative or any value is larger than the highest_trackable_value
++ * and can't be recorded, true otherwise.
+  */
+ bool hdr_record_values(struct hdr_histogram* h, int64_t value, int64_t count);
+ 
+@@ -161,9 +165,9 @@ bool hdr_record_values(struct hdr_histogram* h, int64_t value, int64_t count);
+  *
+  * @param h "This" pointer
+  * @param value Value to add to the histogram
+- * @param count Number of 'value's to add to the histogram
+- * @return false if any value is larger than the highest_trackable_value and can't be recorded,
+- * true otherwise.
++ * @param count Number of 'value's to add to the histogram; must be non-negative
++ * @return false if count is negative or any value is larger than the highest_trackable_value
++ * and can't be recorded, true otherwise.
+  */
+ bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t count);
+ 
+@@ -171,10 +175,10 @@ bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t co
+  * Record a value in the histogram and backfill based on an expected interval.
+  *
+  * Records a value in the histogram, will round this value of to a precision at or better
+- * than the significant_figure specified at contruction time.  This is specifically used
++ * than the significant_figure specified at construction time.  This is specifically used
+  * for recording latency.  If the value is larger than the expected_interval then the
+  * latency recording system has experienced co-ordinated omission.  This method fills in the
+- * values that would have occured had the client providing the load not been blocked.
++ * values that would have occurred had the client providing the load not been blocked.
+ 
+  * @param h "This" pointer
+  * @param value Value to add to the histogram
+@@ -182,16 +186,16 @@ bool hdr_record_values_atomic(struct hdr_histogram* h, int64_t value, int64_t co
+  * @return false if the value is larger than the highest_trackable_value and can't be recorded,
+  * true otherwise.
+  */
+-bool hdr_record_corrected_value(struct hdr_histogram* h, int64_t value, int64_t expexcted_interval);
++bool hdr_record_corrected_value(struct hdr_histogram* h, int64_t value, int64_t expected_interval);
+ 
+ /**
+  * Record a value in the histogram and backfill based on an expected interval.
+  *
+  * Records a value in the histogram, will round this value of to a precision at or better
+- * than the significant_figure specified at contruction time.  This is specifically used
++ * than the significant_figure specified at construction time.  This is specifically used
+  * for recording latency.  If the value is larger than the expected_interval then the
+  * latency recording system has experienced co-ordinated omission.  This method fills in the
+- * values that would have occured had the client providing the load not been blocked.
++ * values that would have occurred had the client providing the load not been blocked.
+  *
+  * Will record this value atomically, however the whole structure may appear inconsistent
+  * when read concurrently with this update.  Do NOT mix calls to this method with calls
+@@ -203,7 +207,7 @@ bool hdr_record_corrected_value(struct hdr_histogram* h, int64_t value, int64_t
+  * @return false if the value is larger than the highest_trackable_value and can't be recorded,
+  * true otherwise.
+  */
+-bool hdr_record_corrected_value_atomic(struct hdr_histogram* h, int64_t value, int64_t expexcted_interval);
++bool hdr_record_corrected_value_atomic(struct hdr_histogram* h, int64_t value, int64_t expected_interval);
+ 
+ /**
+  * Record a value in the histogram 'count' times.  Applies the same correcting logic
+@@ -238,7 +242,7 @@ bool hdr_record_corrected_values_atomic(struct hdr_histogram* h, int64_t value,
+ /**
+  * Adds all of the values from 'from' to 'this' histogram.  Will return the
+  * number of values that are dropped when copying.  Values will be dropped
+- * if they around outside of h.lowest_trackable_value and
++ * if they around outside of h.lowest_discernible_value and
+  * h.highest_trackable_value.
+  *
+  * @param h "This" pointer
+@@ -250,7 +254,7 @@ int64_t hdr_add(struct hdr_histogram* h, const struct hdr_histogram* from);
+ /**
+  * Adds all of the values from 'from' to 'this' histogram.  Will return the
+  * number of values that are dropped when copying.  Values will be dropped
+- * if they around outside of h.lowest_trackable_value and
++ * if they around outside of h.lowest_discernible_value and
+  * h.highest_trackable_value.
+  *
+  * @param h "This" pointer
+@@ -276,6 +280,14 @@ int64_t hdr_min(const struct hdr_histogram* h);
+  */
+ int64_t hdr_max(const struct hdr_histogram* h);
+ 
++/**
++ * Get the total number of recorded values. Returns 0 if h is NULL. Uses an atomic
++ * load, so it can be called while other threads use the *_atomic record functions.
++ *
++ * @param h "This" pointer
++ */
++int64_t hdr_total_count(const struct hdr_histogram* h);
++
+ /**
+  * Get the value at a specific percentile.
+  *
+@@ -312,14 +324,6 @@ double hdr_stddev(const struct hdr_histogram* h);
+  */
+ double hdr_mean(const struct hdr_histogram* h);
+ 
+-/**
+- * Gets the total count of values in the histogram.
+- *
+- * @param h "This" pointer
+- * @return The count
+- */
+-int64_t hdr_total_count(const struct hdr_histogram *h);
+-
+ /**
+  * Determine if two values are equivalent with the histogram's resolution.
+  * Where "equivalent" means that value samples recorded for any two
+@@ -453,7 +457,20 @@ void hdr_iter_linear_init(
+     int64_t value_units_per_bucket);
+ 
+ /**
+- * Initialise the iterator for use with logarithmic values
++ * Change the bucket width of a linear iterator, e.g. to widen buckets once past a
++ * region of interest. The next bucket was already scheduled with the old width, so
++ * the new width applies from the bucket after it. Does nothing for an iterator that
++ * was not initialised with hdr_iter_linear_init.
++ */
++void hdr_iter_linear_set_value_units_per_bucket(struct hdr_iter* iter, int64_t value_units_per_bucket);
++
++/**
++ * Initialise the iterator for use with logarithmic values.
++ *
++ * log_base is applied as an integer step (level *= (int64_t) log_base): a
++ * fractional base truncates toward zero (2.5 behaves as 2), and any base <= 1 --
++ * including 1 < base < 2, which truncates to 1 -- terminates after the first
++ * level. Fractional bases are not supported (the Java reference iterates in double).
+  */
+ void hdr_iter_log_init(
+     struct hdr_iter* iter,
+@@ -497,7 +514,7 @@ int hdr_percentiles_print(
+ */
+ struct hdr_histogram_bucket_config
+ {
+-    int64_t lowest_trackable_value;
++    int64_t lowest_discernible_value;
+     int64_t highest_trackable_value;
+     int64_t unit_magnitude;
+     int64_t significant_figures;
+@@ -510,7 +527,7 @@ struct hdr_histogram_bucket_config
+ };
+ 
+ int hdr_calculate_bucket_config(
+-    int64_t lowest_trackable_value,
++    int64_t lowest_discernible_value,
+     int64_t highest_trackable_value,
+     int significant_figures,
+     struct hdr_histogram_bucket_config* cfg);
+@@ -524,8 +541,9 @@ int64_t hdr_next_non_equivalent_value(const struct hdr_histogram* h, int64_t val
+ int64_t hdr_median_equivalent_value(const struct hdr_histogram* h, int64_t value);
+ 
+ /**
+- * Used to reset counters after importing data manuallying into the histogram, used by the logging code
+- * and other custom serialisation tools.
++ * Used to reset counters after importing data manually into the histogram, used by the logging code
++ * and other custom serialisation tools. The positive-count total saturates at
++ * INT64_MAX if it cannot be represented; the stored counts are unchanged.
+  */
+ void hdr_reset_internal_counters(struct hdr_histogram* h);
+ 
+diff --git a/deps/hdr_histogram/hdr_histogram_log.c b/deps/hdr_histogram/hdr_histogram_log.c
+index 280ad3d..b012d44 100644
+--- a/deps/hdr_histogram/hdr_histogram_log.c
++++ b/deps/hdr_histogram/hdr_histogram_log.c
+@@ -1,3 +1,10 @@
++/*
++ * HdrHistogram_c log codec -- amalgamated (hdr_histogram_log.c, private headers inlined).
++ *
++ * GENERATED by script/amalgamate.py from HdrHistogram_c 0.11.10. DO NOT EDIT;
++ * change the sources and regenerate. Public domain (see hdr_histogram.h).
++ */
++/* ---- begin src/hdr_histogram_log.c ---- */
+ /**
+  * hdr_histogram_log.c
+  * Written by Michael Barker and released to the public domain,
+@@ -6,6 +13,7 @@
+ 
+ #include <stdint.h>
+ #include <stdlib.h>
++#include <limits.h>
+ #include <stdbool.h>
+ #include <inttypes.h>
+ #include <stdio.h>
+@@ -17,9 +25,139 @@
+ #include <errno.h>
+ #include <time.h>
+ 
+-#include "hdr_encoding.h"
+ #include "hdr_histogram.h"
+ #include "hdr_histogram_log.h"
++/* ---- begin src/hdr_encoding.h ---- */
++/**
++ * hdr_encoding.h
++ * Written by Michael Barker and released to the public domain,
++ * as explained at http://creativecommons.org/publicdomain/zero/1.0/
++ */
++
++#ifndef HDR_ENCODING_H
++#define HDR_ENCODING_H
++
++#include <stdint.h>
++
++#define MAX_BYTES_LEB128 9
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/**
++ * Writes a int64_t value to the given buffer in LEB128 ZigZag encoded format
++ *
++ * @param buffer the buffer to write to
++ * @param signed_value  the value to write to the buffer
++ * @return the number of bytes written to the buffer
++ */
++int zig_zag_encode_i64(uint8_t* buffer, int64_t signed_value);
++
++/**
++ * Read an LEB128 ZigZag encoded long value from the given buffer
++ *
++ * @param buffer the buffer to read from
++ * @param retVal out value to capture the read value
++ * @return the number of bytes read from the buffer
++ */
++int zig_zag_decode_i64(const uint8_t* buffer, int64_t* signed_value);
++
++/**
++ * Gets the length in bytes of base64 data, given the input size.
++ *
++ * @param decoded_size the size of the unencoded values.
++ * @return the encoded size
++ */
++size_t hdr_base64_encoded_len(size_t decoded_size);
++
++/**
++ * Encode into base64.
++ *
++ * @param input the data to encode
++ * @param input_len the length of the data to encode
++ * @param output the buffer to write the output to
++ * @param output_len the number of bytes to write to the output
++ */
++int hdr_base64_encode(
++    const uint8_t* input, size_t input_len, char* output, size_t output_len);
++
++/**
++ * Gets the length in bytes of decoded base64 data, given the size of the base64 encoded
++ * data.
++ *
++ * @param encoded_size the size of the encoded value.
++ * @return the decoded size
++ */
++size_t hdr_base64_decoded_len(size_t encoded_size);
++
++/**
++ * Decode from base64.
++ *
++ * @param input the base64 encoded data
++ * @param input_len the size in bytes of the endcoded data
++ * @param output the buffer to write the decoded data to
++ * @param output_len the number of bytes to write to the output data
++ */
++int hdr_base64_decode(
++    const char* input, size_t input_len, uint8_t* output, size_t output_len);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* HDR_HISTOGRAM_HDR_ENCODING_H */
++/* ---- end src/hdr_encoding.h ---- */
++/* ---- begin src/hdr_tests.h ---- */
++#ifndef HDR_TESTS_H
++#define HDR_TESTS_H
++
++/* These are functions used in tests and are not intended for normal usage. */
++
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* ---- begin src/hdr_histogram_internal.h ---- */
++/**
++ * hdr_histogram_internal.h
++ * Non-public helpers shared across library translation units (not installed,
++ * not part of the public API). Distinct from hdr_tests.h, which is for helpers
++ * used only by the test suite.
++ */
++#ifndef HDR_HISTOGRAM_INTERNAL_H
++#define HDR_HISTOGRAM_INTERNAL_H
++
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++/* Map a recorded value to its counts[] index. Assumes value >= 0 (callers guard);
++   defined in hdr_histogram.c and used by the log codec and the packed variant. */
++int32_t counts_index_for(const struct hdr_histogram* h, int64_t value);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_histogram_internal.h ---- */
++
++/* Returns false when imported positive counts exceed INT64_MAX. */
++bool hdr_reset_internal_counters_checked(struct hdr_histogram* h);
++int hdr_encode_compressed(struct hdr_histogram* h, uint8_t** compressed_histogram, size_t* compressed_len);
++int hdr_decode_compressed(uint8_t* buffer, size_t length, struct hdr_histogram** histogram);
++void hdr_base64_decode_block(const char* input, uint8_t* output);
++void hdr_base64_encode_block(const uint8_t* input, char* output);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif
++/* ---- end src/hdr_tests.h ---- */
+ 
+ #if defined(_MSC_VER)
+ #include <intsafe.h>
+@@ -29,10 +167,136 @@ typedef SSIZE_T ssize_t;
+ #pragma warning(disable: 4996)
+ #endif
+ 
+-#include "hdr_endian.h"
++/* ---- begin src/hdr_endian.h ---- */
++/**
++* hdr_time.h
++* Released to the public domain, as explained at http://creativecommons.org/publicdomain/zero/1.0/
++*/
+ 
+-/* Private prototypes useful for the logger */
+-int32_t counts_index_for(const struct hdr_histogram* h, int64_t value);
++#ifndef HDR_ENDIAN_H__
++#define HDR_ENDIAN_H__
++
++#if (defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
++
++#	define __WINDOWS__
++
++#endif
++
++#if defined(__linux__) || defined(__CYGWIN__)
++
++#	include <endian.h>
++
++#elif defined(__APPLE__)
++
++#	include <libkern/OSByteOrder.h>
++
++#	define htobe16(x) OSSwapHostToBigInt16(x)
++#	define htole16(x) OSSwapHostToLittleInt16(x)
++#	define be16toh(x) OSSwapBigToHostInt16(x)
++#	define le16toh(x) OSSwapLittleToHostInt16(x)
++ 
++#	define htobe32(x) OSSwapHostToBigInt32(x)
++#	define htole32(x) OSSwapHostToLittleInt32(x)
++#	define be32toh(x) OSSwapBigToHostInt32(x)
++#	define le32toh(x) OSSwapLittleToHostInt32(x)
++ 
++#	define htobe64(x) OSSwapHostToBigInt64(x)
++#	define htole64(x) OSSwapHostToLittleInt64(x)
++#	define be64toh(x) OSSwapBigToHostInt64(x)
++#	define le64toh(x) OSSwapLittleToHostInt64(x)
++
++#	define __BYTE_ORDER    BYTE_ORDER
++#	define __BIG_ENDIAN    BIG_ENDIAN
++#	define __LITTLE_ENDIAN LITTLE_ENDIAN
++#	define __PDP_ENDIAN    PDP_ENDIAN
++
++#elif defined(__OpenBSD__)
++
++#	include <sys/endian.h>
++
++#elif defined(__NetBSD__) || defined(__FreeBSD__) || defined(__DragonFly__)
++
++#	include <sys/endian.h>
++
++#ifndef	be16toh
++#	define be16toh(x) betoh16(x)
++#	define le16toh(x) letoh16(x)
++#endif
++
++#ifndef be32toh
++#	define be32toh(x) betoh32(x)
++#	define le32toh(x) letoh32(x)
++#endif
++
++#ifndef	be64toh
++#	define be64toh(x) betoh64(x)
++#	define le64toh(x) letoh64(x)
++#endif
++
++#elif defined(__WINDOWS__)
++
++#	include <winsock2.h>
++
++#	if BYTE_ORDER == LITTLE_ENDIAN
++
++#		define htobe16(x) htons(x)
++#		define htole16(x) (x)
++#		define be16toh(x) ntohs(x)
++#		define le16toh(x) (x)
++ 
++#		define htobe32(x) htonl(x)
++#		define htole32(x) (x)
++#		define be32toh(x) ntohl(x)
++#		define le32toh(x) (x)
++ 
++#		define htobe64(x) htonll(x)
++#		define htole64(x) (x)
++#		define be64toh(x) ntohll(x)
++#		define le64toh(x) (x)
++
++#	elif BYTE_ORDER == BIG_ENDIAN
++
++        /* that would be xbox 360 */
++#		define htobe16(x) (x)
++#		define htole16(x) __builtin_bswap16(x)
++#		define be16toh(x) (x)
++#		define le16toh(x) __builtin_bswap16(x)
++ 
++#		define htobe32(x) (x)
++#		define htole32(x) __builtin_bswap32(x)
++#		define be32toh(x) (x)
++#		define le32toh(x) __builtin_bswap32(x)
++ 
++#		define htobe64(x) (x)
++#		define htole64(x) __builtin_bswap64(x)
++#		define be64toh(x) (x)
++#		define le64toh(x) __builtin_bswap64(x)
++
++#	else
++
++#		error byte order not supported
++
++#	endif
++
++#	define __BYTE_ORDER    BYTE_ORDER
++#	define __BIG_ENDIAN    BIG_ENDIAN
++#	define __LITTLE_ENDIAN LITTLE_ENDIAN
++#	define __PDP_ENDIAN    PDP_ENDIAN
++
++#else
++
++#	error platform not supported
++
++#endif
++
++#endif
++/* ---- end src/hdr_endian.h ---- */
++
++#ifndef HDR_MALLOC_INCLUDE
++#define HDR_MALLOC_INCLUDE "hdr_malloc.h"
++#endif
++
++#include HDR_MALLOC_INCLUDE
+ 
+ 
+ #define FAIL_AND_CLEANUP(label, error_name, error) \
+@@ -94,6 +358,10 @@ const char* hdr_strerror(int errnum)
+             return "Truncated value found when decoding";
+         case HDR_ENCODED_INPUT_TOO_LONG:
+             return "The encoded input exceeds the size of the histogram";
++        case HDR_INVALID_WORD_SIZE:
++            return "Invalid word size";
++        case HDR_NEGATIVE_COUNT_INVALID:
++            return "Negative bucket count in decoded histogram";
+         default:
+             return strerror(errnum);
+     }
+@@ -113,7 +381,7 @@ union uint64_dbl_cvt
+ static double int64_bits_to_double(int64_t i)
+ {
+     union uint64_dbl_cvt x;
+-    
++
+     x.l = (uint64_t) i;
+     return x.d;
+ }
+@@ -131,7 +399,7 @@ typedef struct /*__attribute__((__packed__))*/
+ {
+     uint32_t cookie;
+     int32_t significant_figures;
+-    int64_t lowest_trackable_value;
++    int64_t lowest_discernible_value;
+     int64_t highest_trackable_value;
+     int64_t total_count;
+     int64_t counts[1];
+@@ -143,7 +411,7 @@ typedef struct /*__attribute__((__packed__))*/
+     int32_t payload_len;
+     int32_t normalizing_index_offset;
+     int32_t significant_figures;
+-    int64_t lowest_trackable_value;
++    int64_t lowest_discernible_value;
+     int64_t highest_trackable_value;
+     uint64_t conversion_ratio_bits;
+     uint8_t counts[1];
+@@ -180,7 +448,7 @@ int hdr_encode_compressed(
+     int32_t counts_limit = len_to_max < h->counts_len ? len_to_max : h->counts_len;
+ 
+     const size_t encoded_len = SIZEOF_ENCODING_FLYWEIGHT_V1 + MAX_BYTES_LEB128 * (size_t) counts_limit;
+-    if ((encoded = (encoding_flyweight_v1_t*) calloc(encoded_len, sizeof(uint8_t))) == NULL)
++    if ((encoded = (encoding_flyweight_v1_t*) hdr_calloc(encoded_len, sizeof(uint8_t))) == NULL)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+@@ -215,7 +483,7 @@ int hdr_encode_compressed(
+     encoded->payload_len              = htobe32(payload_len);
+     encoded->normalizing_index_offset = htobe32(h->normalizing_index_offset);
+     encoded->significant_figures      = htobe32(h->significant_figures);
+-    encoded->lowest_trackable_value   = htobe64(h->lowest_trackable_value);
++    encoded->lowest_discernible_value   = htobe64(h->lowest_discernible_value);
+     encoded->highest_trackable_value  = htobe64(h->highest_trackable_value);
+     encoded->conversion_ratio_bits    = htobe64(double_to_int64_bits(h->conversion_ratio));
+ 
+@@ -224,7 +492,7 @@ int hdr_encode_compressed(
+     dest_len = compressBound(encoded_size);
+     compressed_size = SIZEOF_COMPRESSION_FLYWEIGHT + dest_len;
+ 
+-    if ((compressed = (compression_flyweight_t*) malloc(compressed_size)) == NULL)
++    if ((compressed = (compression_flyweight_t*) hdr_malloc(compressed_size)) == NULL)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+@@ -241,10 +509,10 @@ int hdr_encode_compressed(
+     *compressed_len = SIZEOF_COMPRESSION_FLYWEIGHT + dest_len;
+ 
+     cleanup:
+-    free(encoded);
++    hdr_free(encoded);
+     if (result == HDR_DEFLATE_FAIL)
+     {
+-        free(compressed);
++        hdr_free(compressed);
+     }
+ 
+     return result;
+@@ -258,31 +526,51 @@ int hdr_encode_compressed(
+ /* ##     ## ##       ##    ## ##     ## ##     ##  ##  ##   ### ##    ##  */
+ /* ########  ########  ######   #######  ########  #### ##    ##  ######   */
+ 
+-static void apply_to_counts_16(struct hdr_histogram* h, const int16_t* counts_data, const int32_t counts_limit)
++static int apply_to_counts_16(struct hdr_histogram* h, const int16_t* counts_data, const int32_t counts_limit)
+ {
+     int i;
+     for (i = 0; i < counts_limit; i++)
+     {
+-        h->counts[i] = be16toh(counts_data[i]);
++        /* Counts are non-negative (matches Java's signed words). be16toh() is unsigned, so
++           a word with the top bit set used to decode as a large positive; now rejected. */
++        int16_t count = (int16_t)be16toh(counts_data[i]);
++        if (count < 0)
++        {
++            return HDR_NEGATIVE_COUNT_INVALID;
++        }
++        h->counts[i] = count;
+     }
++    return 0;
+ }
+ 
+-static void apply_to_counts_32(struct hdr_histogram* h, const int32_t* counts_data, const int32_t counts_limit)
++static int apply_to_counts_32(struct hdr_histogram* h, const int32_t* counts_data, const int32_t counts_limit)
+ {
+     int i;
+     for (i = 0; i < counts_limit; i++)
+     {
+-        h->counts[i] = be32toh(counts_data[i]);
++        int32_t count = (int32_t)be32toh(counts_data[i]);
++        if (count < 0)
++        {
++            return HDR_NEGATIVE_COUNT_INVALID;
++        }
++        h->counts[i] = count;
+     }
++    return 0;
+ }
+ 
+-static void apply_to_counts_64(struct hdr_histogram* h, const int64_t* counts_data, const int32_t counts_limit)
++static int apply_to_counts_64(struct hdr_histogram* h, const int64_t* counts_data, const int32_t counts_limit)
+ {
+     int i;
+     for (i = 0; i < counts_limit; i++)
+     {
+-        h->counts[i] = be64toh(counts_data[i]);
++        int64_t count = (int64_t)be64toh(counts_data[i]);
++        if (count < 0)
++        {
++            return HDR_NEGATIVE_COUNT_INVALID;
++        }
++        h->counts[i] = count;
+     }
++    return 0;
+ }
+ 
+ static int apply_to_counts_zz(struct hdr_histogram* h, const uint8_t* counts_data, const int32_t data_limit)
+@@ -331,16 +619,13 @@ static int apply_to_counts(
+     switch (word_size)
+     {
+         case 2:
+-            apply_to_counts_16(h, (const int16_t*) counts_data, counts_limit);
+-            return 0;
++            return apply_to_counts_16(h, (const int16_t*) counts_data, counts_limit);
+ 
+         case 4:
+-            apply_to_counts_32(h, (const int32_t*) counts_data, counts_limit);
+-            return 0;
++            return apply_to_counts_32(h, (const int32_t*) counts_data, counts_limit);
+ 
+         case 8:
+-            apply_to_counts_64(h, (const int64_t*) counts_data, counts_limit);
+-            return 0;
++            return apply_to_counts_64(h, (const int64_t*) counts_data, counts_limit);
+ 
+         case 1:
+             return apply_to_counts_zz(h, counts_data, counts_limit);
+@@ -362,7 +647,7 @@ static int hdr_decode_compressed_v0(
+     z_stream strm;
+     uint32_t encoding_cookie;
+     int32_t compressed_len, word_size, significant_figures, counts_array_len;
+-    int64_t lowest_trackable_value, highest_trackable_value;
++    int64_t lowest_discernible_value, highest_trackable_value;
+ 
+     strm_init(&strm);
+     if (inflateInit(&strm) != Z_OK)
+@@ -394,12 +679,18 @@ static int hdr_decode_compressed_v0(
+     }
+ 
+     word_size = word_size_from_cookie(be32toh(encoding_flyweight.cookie));
+-    lowest_trackable_value = be64toh(encoding_flyweight.lowest_trackable_value);
++    /* V0 counts are fixed-width; word_size==1 routes to the zig-zag reader whose
++       LEB128 lookahead reads past the unpadded V0 buffer (OOB read) */
++    if (word_size != 2 && word_size != 4 && word_size != 8)
++    {
++        FAIL_AND_CLEANUP(cleanup, result, HDR_INVALID_WORD_SIZE);
++    }
++    lowest_discernible_value = be64toh(encoding_flyweight.lowest_discernible_value);
+     highest_trackable_value = be64toh(encoding_flyweight.highest_trackable_value);
+     significant_figures = be32toh(encoding_flyweight.significant_figures);
+ 
+     if (hdr_init(
+-        lowest_trackable_value,
++        lowest_discernible_value,
+         highest_trackable_value,
+         significant_figures,
+         &h) != 0)
+@@ -408,7 +699,7 @@ static int hdr_decode_compressed_v0(
+     }
+ 
+     counts_array_len = h->counts_len * word_size;
+-    if ((counts_array = (uint8_t*) calloc(1, (size_t) counts_array_len)) == NULL)
++    if ((counts_array = (uint8_t*) hdr_calloc(1, (size_t) counts_array_len)) == NULL)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+@@ -421,19 +712,25 @@ static int hdr_decode_compressed_v0(
+         FAIL_AND_CLEANUP(cleanup, result, HDR_INFLATE_FAIL);
+     }
+ 
+-    apply_to_counts(h, word_size, counts_array, h->counts_len);
++    if ((result = apply_to_counts(h, word_size, counts_array, h->counts_len)) != 0)
++    {
++        goto cleanup;
++    }
+ 
+-    hdr_reset_internal_counters(h);
++    if (!hdr_reset_internal_counters_checked(h))
++    {
++        FAIL_AND_CLEANUP(cleanup, result, EOVERFLOW);
++    }
+     h->normalizing_index_offset = 0;
+     h->conversion_ratio = 1.0;
+ 
+ cleanup:
+     (void)inflateEnd(&strm);
+-    free(counts_array);
++    hdr_free(counts_array);
+ 
+     if (result != 0)
+     {
+-        free(h);
++        hdr_close(h);
+     }
+     else if (NULL == *histogram)
+     {
+@@ -442,7 +739,7 @@ cleanup:
+     else
+     {
+         hdr_add(*histogram, h);
+-        free(h);
++        hdr_close(h); /* hdr_close: counts is a separate alloc; hdr_free leaks it */
+     }
+ 
+     return result;
+@@ -460,7 +757,7 @@ static int hdr_decode_compressed_v1(
+     z_stream strm;
+     uint32_t encoding_cookie;
+     int32_t compressed_length, word_size, significant_figures, counts_limit, counts_array_len;
+-    int64_t lowest_trackable_value, highest_trackable_value;
++    int64_t lowest_discernible_value, highest_trackable_value;
+ 
+     strm_init(&strm);
+     if (inflateInit(&strm) != Z_OK)
+@@ -492,13 +789,19 @@ static int hdr_decode_compressed_v1(
+     }
+ 
+     word_size = word_size_from_cookie(be32toh(encoding_flyweight.cookie));
++    /* V1 counts are fixed-width; word_size==1 routes to the zig-zag reader whose
++       LEB128 lookahead reads up to 9 bytes past the unpadded V1 buffer (OOB) */
++    if (word_size != 2 && word_size != 4 && word_size != 8)
++    {
++        FAIL_AND_CLEANUP(cleanup, result, HDR_INVALID_WORD_SIZE);
++    }
+     counts_limit = be32toh(encoding_flyweight.payload_len) / word_size;
+-    lowest_trackable_value = be64toh(encoding_flyweight.lowest_trackable_value);
++    lowest_discernible_value = be64toh(encoding_flyweight.lowest_discernible_value);
+     highest_trackable_value = be64toh(encoding_flyweight.highest_trackable_value);
+     significant_figures = be32toh(encoding_flyweight.significant_figures);
+ 
+     if (hdr_init(
+-        lowest_trackable_value,
++        lowest_discernible_value,
+         highest_trackable_value,
+         significant_figures,
+         &h) != 0)
+@@ -506,10 +809,17 @@ static int hdr_decode_compressed_v1(
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+ 
++    /* attacker-controlled counts_limit > counts_len -> apply_to_counts() heap OOB
++       write; also guards counts_array_len (= counts_limit*word_size) int32 overflow */
++    if (counts_limit < 0 || counts_limit > h->counts_len)
++    {
++        FAIL_AND_CLEANUP(cleanup, result, HDR_ENCODED_INPUT_TOO_LONG);
++    }
++
+     /* Give the temp uncompressed array a little bif of extra */
+     counts_array_len = counts_limit * word_size;
+ 
+-    if ((counts_array = (uint8_t*) calloc(1, (size_t) counts_array_len)) == NULL)
++    if ((counts_array = (uint8_t*) hdr_calloc(1, (size_t) counts_array_len)) == NULL)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+@@ -522,19 +832,33 @@ static int hdr_decode_compressed_v1(
+         FAIL_AND_CLEANUP(cleanup, result, HDR_INFLATE_FAIL);
+     }
+ 
+-    apply_to_counts(h, word_size, counts_array, counts_limit);
++    if ((result = apply_to_counts(h, word_size, counts_array, counts_limit)) != 0)
++    {
++        goto cleanup;
++    }
+ 
+     h->normalizing_index_offset = be32toh(encoding_flyweight.normalizing_index_offset);
++    /* Reduce a decoded offset into (-counts_len, counts_len): normalize_index applies
++       only a single +/-counts_len wrap, so an out-of-range offset (untrusted log input)
++       would index counts[] out of bounds on the offset-aware read paths. No-op for
++       valid logs, where |offset| < counts_len. */
++    if (h->normalizing_index_offset != 0)
++    {
++        h->normalizing_index_offset %= h->counts_len;
++    }
+     h->conversion_ratio = int64_bits_to_double(be64toh(encoding_flyweight.conversion_ratio_bits));
+-    hdr_reset_internal_counters(h);
++    if (!hdr_reset_internal_counters_checked(h))
++    {
++        FAIL_AND_CLEANUP(cleanup, result, EOVERFLOW);
++    }
+ 
+ cleanup:
+     (void)inflateEnd(&strm);
+-    free(counts_array);
++    hdr_free(counts_array);
+ 
+     if (result != 0)
+     {
+-        free(h);
++        hdr_close(h);
+     }
+     else if (NULL == *histogram)
+     {
+@@ -543,7 +867,7 @@ cleanup:
+     else
+     {
+         hdr_add(*histogram, h);
+-        free(h);
++        hdr_close(h);
+     }
+ 
+     return result;
+@@ -562,7 +886,7 @@ static int hdr_decode_compressed_v2(
+     z_stream strm;
+     uint32_t encoding_cookie;
+     int32_t compressed_length, counts_limit, significant_figures;
+-    int64_t lowest_trackable_value, highest_trackable_value;
++    int64_t lowest_discernible_value, highest_trackable_value;
+ 
+     strm_init(&strm);
+     if (inflateInit(&strm) != Z_OK)
+@@ -594,20 +918,34 @@ static int hdr_decode_compressed_v2(
+     }
+ 
+     counts_limit = be32toh(encoding_flyweight.payload_len);
+-    lowest_trackable_value = be64toh(encoding_flyweight.lowest_trackable_value);
++    /* negative attacker-controlled payload_len -> tiny calloc but ~4GB avail_out
++       -> inflate writes past counts_array (heap OOB) */
++    if (counts_limit < 0)
++    {
++        FAIL_AND_CLEANUP(cleanup, result, EINVAL);
++    }
++    lowest_discernible_value = be64toh(encoding_flyweight.lowest_discernible_value);
+     highest_trackable_value = be64toh(encoding_flyweight.highest_trackable_value);
+     significant_figures = be32toh(encoding_flyweight.significant_figures);
+ 
+-    rc = hdr_init(lowest_trackable_value, highest_trackable_value, significant_figures, &h);
++    rc = hdr_init(lowest_discernible_value, highest_trackable_value, significant_figures, &h);
+     if (rc)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, rc);
+     }
+ 
++    /* counts_limit is non-negative but still unbounded above: a tiny crafted log
++       can request a ~2GB alloc (resource exhaustion). Each of h->counts_len entries
++       encodes to at most MAX_BYTES_LEB128 bytes, so reject anything larger. */
++    if ((size_t) counts_limit > (size_t) MAX_BYTES_LEB128 * (size_t) h->counts_len)
++    {
++        FAIL_AND_CLEANUP(cleanup, result, HDR_ENCODED_INPUT_TOO_LONG);
++    }
++
+     /* Make sure there at least 9 bytes to read */
+     /* if there is a corrupt value at the end */
+     /* of the array we won't read corrupt data or crash. */
+-    if ((counts_array = (uint8_t*) calloc(1, (size_t) counts_limit + 9)) == NULL)
++    if ((counts_array = (uint8_t*) hdr_calloc(1, (size_t) counts_limit + 9)) == NULL)
+     {
+         FAIL_AND_CLEANUP(cleanup, result, ENOMEM);
+     }
+@@ -627,16 +965,27 @@ static int hdr_decode_compressed_v2(
+     }
+ 
+     h->normalizing_index_offset = be32toh(encoding_flyweight.normalizing_index_offset);
++    /* Reduce a decoded offset into (-counts_len, counts_len): normalize_index applies
++       only a single +/-counts_len wrap, so an out-of-range offset (untrusted log input)
++       would index counts[] out of bounds on the offset-aware read paths. No-op for
++       valid logs, where |offset| < counts_len. */
++    if (h->normalizing_index_offset != 0)
++    {
++        h->normalizing_index_offset %= h->counts_len;
++    }
+     h->conversion_ratio = int64_bits_to_double(be64toh(encoding_flyweight.conversion_ratio_bits));
+-    hdr_reset_internal_counters(h);
++    if (!hdr_reset_internal_counters_checked(h))
++    {
++        FAIL_AND_CLEANUP(cleanup, result, EOVERFLOW);
++    }
+ 
+ cleanup:
+     (void)inflateEnd(&strm);
+-    free(counts_array);
++    hdr_free(counts_array);
+ 
+     if (result != 0)
+     {
+-        free(h);
++        hdr_close(h);
+     }
+     else if (NULL == *histogram)
+     {
+@@ -645,7 +994,7 @@ cleanup:
+     else
+     {
+         hdr_add(*histogram, h);
+-        free(h);
++        hdr_close(h);
+     }
+ 
+     return result;
+@@ -795,7 +1144,7 @@ int hdr_log_write(
+     }
+ 
+     encoded_len = hdr_base64_encoded_len(compressed_len);
+-    encoded_histogram = (char*) calloc(encoded_len + 1, sizeof(char));
++    encoded_histogram = (char*) hdr_calloc(encoded_len + 1, sizeof(char));
+ 
+     rc = hdr_base64_encode(
+         compressed_histogram, compressed_len, encoded_histogram, encoded_len);
+@@ -815,8 +1164,8 @@ int hdr_log_write(
+     }
+ 
+ cleanup:
+-    free(compressed_histogram);
+-    free(encoded_histogram);
++    hdr_free(compressed_histogram);
++    hdr_free(encoded_histogram);
+ 
+     return result;
+ }
+@@ -847,7 +1196,7 @@ int hdr_log_write_entry(
+     }
+ 
+     encoded_len = hdr_base64_encoded_len(compressed_len);
+-    encoded_histogram = (char*) calloc(encoded_len + 1, sizeof(char));
++    encoded_histogram = (char*) hdr_calloc(encoded_len + 1, sizeof(char));
+ 
+     rc = hdr_base64_encode(
+         compressed_histogram, compressed_len, encoded_histogram, encoded_len);
+@@ -873,37 +1222,8 @@ int hdr_log_write_entry(
+     }
+ 
+     cleanup:
+-    free(compressed_histogram);
+-    free(encoded_histogram);
+-
+-    return result;
+-}
+-
+-int hdr_string_write(
+-        char** encoded_histogram,
+-        struct hdr_histogram *histogram) {
+-    uint8_t *compressed_histogram = NULL;
+-    size_t compressed_len = 0;
+-    int rc = 0;
+-    int result = 0;
+-    size_t encoded_len;
+-
+-    rc = hdr_encode_compressed(histogram, &compressed_histogram, &compressed_len);
+-    if (rc != 0) {
+-        FAIL_AND_CLEANUP(cleanup, result, rc);
+-    }
+-
+-    encoded_len = hdr_base64_encoded_len(compressed_len);
+-    *encoded_histogram = calloc(encoded_len + 1, sizeof(char));
+-
+-    rc = hdr_base64_encode(
+-            compressed_histogram, compressed_len, *encoded_histogram, encoded_len);
+-    if (rc != 0) {
+-        FAIL_AND_CLEANUP(cleanup, result, rc);
+-    }
+-
+-    cleanup:
+-    free(compressed_histogram);
++    hdr_free(compressed_histogram);
++    hdr_free(encoded_histogram);
+ 
+     return result;
+ }
+@@ -932,21 +1252,24 @@ static void scan_log_format(struct hdr_log_reader* reader, const char* line)
+     sscanf(line, format, &reader->major_version, &reader->minor_version);
+ }
+ 
+-static void scan_start_time(struct hdr_log_reader* reader, const char* line)
++static int scan_start_time(struct hdr_log_reader* reader, const char* line)
+ {
+     const char* format = "#[StartTime: %lf [^\n]";
+     double timestamp = 0.0;
+ 
+     if (sscanf(line, format, &timestamp) == 1)
+     {
+-        hdr_timespec_from_double(&reader->start_timestamp, timestamp);
++        /* a StartTime that does not fit tv_sec is an error, not a silent zero */
++        return hdr_timespec_from_double_checked(&reader->start_timestamp, timestamp);
+     }
++
++    return 0;
+ }
+ 
+-static void scan_header_line(struct hdr_log_reader* reader, const char* line)
++static int scan_header_line(struct hdr_log_reader* reader, const char* line)
+ {
+     scan_log_format(reader, line);
+-    scan_start_time(reader, line);
++    return scan_start_time(reader, line);
+ }
+ 
+ static bool validate_log_version(struct hdr_log_reader* reader)
+@@ -961,6 +1284,7 @@ static bool validate_log_version(struct hdr_log_reader* reader)
+ int hdr_log_read_header(struct hdr_log_reader* reader, FILE* file)
+ {
+     char line[HEADER_LINE_LENGTH]; /* TODO: check for overflow. */
++    int rc;
+ 
+     bool parsing_header = true;
+ 
+@@ -978,7 +1302,10 @@ int hdr_log_read_header(struct hdr_log_reader* reader, FILE* file)
+                 return EIO;
+             }
+ 
+-            scan_header_line(reader, line);
++            if ((rc = scan_header_line(reader, line)) != 0)
++            {
++                return rc;
++            }
+             break;
+ 
+         case '"':
+@@ -1047,15 +1374,17 @@ static int read_ahead_timestamp(FILE* f, hdr_timespec* timestamp, char expected_
+ {
+     int c;
+     int is_seconds = 1;
+-    long sec = 0;
++    hdr_timespec parsed = {0, 0};
+     long nsec = 0;
+     long nsec_multipler = 1000000000;
++    /* Use the destination width without modifying the caller on failure. */
++    const int64_t sec_max = (int64_t) (~(uint64_t) 0 >> (65 - sizeof(timestamp->tv_sec) * CHAR_BIT));
+ 
+     while (EOF != (c = fgetc(f)))
+     {
+         if (expected_terminator == c)
+         {
+-            timestamp->tv_sec = sec;
++            timestamp->tv_sec = parsed.tv_sec;
+             timestamp->tv_nsec = (nsec * nsec_multipler);
+             return 1;
+         }
+@@ -1065,13 +1394,20 @@ static int read_ahead_timestamp(FILE* f, hdr_timespec* timestamp, char expected_
+         }
+         else if ('0' <= c && c <= '9')
+         {
++            const int digit = c - '0';
+             if (is_seconds)
+             {
+-                sec = (sec * 10) + (c - '0');
++                /* reject rather than overflow the accumulator on a crafted digit run */
++                if (parsed.tv_sec > (sec_max - digit) / 10)
++                {
++                    return 0;
++                }
++                parsed.tv_sec = parsed.tv_sec * 10 + digit;
+             }
+-            else
++            /* digits past nanosecond resolution are truncated; taking them would zero the multiplier */
++            else if (nsec_multipler > 1)
+             {
+-                nsec = (nsec * 10) + (c - '0');
++                nsec = (nsec * 10) + digit;
+                 nsec_multipler /= 10;
+             }
+         }
+@@ -1095,7 +1431,7 @@ int hdr_log_read_entry(
+     size_t capacity = 1024;
+     size_t base64_len = 0;
+     size_t tag_offset = 0;
+-    char* base64_histogram = calloc(capacity, sizeof(char));
++    char* base64_histogram = hdr_calloc(capacity, sizeof(char));
+     size_t compressed_len = 0;
+     uint8_t* compressed_histogram = NULL;
+     int result = -EINVAL;
+@@ -1204,7 +1540,7 @@ int hdr_log_read_entry(
+                     if (base64_len == capacity)
+                     {
+                         capacity *= 2;
+-                        base64_histogram = realloc(base64_histogram, capacity * sizeof(char));
++                        base64_histogram = hdr_realloc(base64_histogram, capacity * sizeof(char));
+                         if (NULL == base64_histogram)
+                         {
+                             FAIL_AND_CLEANUP(cleanup, result, -ENOMEM);
+@@ -1224,7 +1560,7 @@ int hdr_log_read_entry(
+     }
+     while (DONE != state);
+ 
+-    compressed_histogram = calloc(base64_len, sizeof(uint8_t));
++    compressed_histogram = hdr_calloc(base64_len, sizeof(uint8_t));
+     compressed_len = hdr_base64_decoded_len(base64_len);
+ 
+     result = hdr_base64_decode(
+@@ -1237,8 +1573,8 @@ int hdr_log_read_entry(
+     result = hdr_decode_compressed(compressed_histogram, compressed_len, histogram);
+ 
+ cleanup:
+-    free(base64_histogram);
+-    free(compressed_histogram);
++    hdr_free(base64_histogram);
++    hdr_free(compressed_histogram);
+     return result;
+ }
+ 
+@@ -1259,20 +1595,20 @@ int hdr_log_encode(struct hdr_histogram* histogram, char** encoded_histogram)
+     }
+ 
+     encoded_len = hdr_base64_encoded_len(compressed_len);
+-    encoded_histogram_tmp = (char*) calloc(encoded_len + 1, sizeof(char));
++    encoded_histogram_tmp = (char*) hdr_calloc(encoded_len + 1, sizeof(char));
+ 
+     rc = hdr_base64_encode(
+         compressed_histogram, compressed_len, encoded_histogram_tmp, encoded_len);
+     if (rc != 0)
+     {
+-        free(encoded_histogram_tmp);
++        hdr_free(encoded_histogram_tmp);
+         FAIL_AND_CLEANUP(cleanup, result, rc);
+     }
+ 
+     *encoded_histogram = encoded_histogram_tmp;
+ 
+ cleanup:
+-    free(compressed_histogram);
++    hdr_free(compressed_histogram);
+ 
+     return result;
+ }
+@@ -1284,7 +1620,7 @@ int hdr_log_decode(struct hdr_histogram** histogram, char* base64_histogram, siz
+     int result = 0;
+ 
+     size_t compressed_len = hdr_base64_decoded_len(base64_len);
+-    compressed_histogram = (uint8_t*) malloc(sizeof(uint8_t)*compressed_len);
++    compressed_histogram = (uint8_t*) hdr_malloc(sizeof(uint8_t)*compressed_len);
+     memset(compressed_histogram, 0, compressed_len);
+ 
+     r = hdr_base64_decode(
+@@ -1302,7 +1638,7 @@ int hdr_log_decode(struct hdr_histogram** histogram, char* base64_histogram, siz
+     }
+ 
+ cleanup:
+-    free(compressed_histogram);
++    hdr_free(compressed_histogram);
+ 
+     return result;
+ }
+@@ -1310,3 +1646,4 @@ cleanup:
+ #if defined(_MSC_VER)
+ #pragma warning(pop)
+ #endif
++/* ---- end src/hdr_histogram_log.c ---- */
+diff --git a/deps/hdr_histogram/hdr_histogram_log.h b/deps/hdr_histogram/hdr_histogram_log.h
+index 890bdbd..0a5105a 100644
+--- a/deps/hdr_histogram/hdr_histogram_log.h
++++ b/deps/hdr_histogram/hdr_histogram_log.h
+@@ -20,6 +20,8 @@
+ #define HDR_TRAILING_ZEROS_INVALID -29992
+ #define HDR_VALUE_TRUNCATED -29991
+ #define HDR_ENCODED_INPUT_TOO_LONG -29990
++#define HDR_INVALID_WORD_SIZE -29989
++#define HDR_NEGATIVE_COUNT_INVALID -29988
+ 
+ #define HDR_LOG_TAG_MAX_BUFFER_LEN (1024)
+ 
+@@ -140,23 +142,6 @@ int hdr_log_write_entry(
+     struct hdr_log_entry* entry,
+     struct hdr_histogram* histogram);
+ 
+-/**
+- * Write an hdr_histogram entry to the string.  It will be encoded in a similar
+- * fashion to the approach used by the Java version of the HdrHistogram.
+- * where <histogram> is the binary histogram gzip compressed and base64 encoded.
+- *
+- * @param writer 'This' pointer
+- * @param encoded_histogram The string to write the entry to.
+- * @param histogram The histogram to encode and log.
+- * @return Will return 0 if it successfully completed or an error number if there
+- * was a failure.  Errors include HDR_DEFLATE_INIT_FAIL, HDR_DEFLATE_FAIL if
+- * something when wrong during gzip compression.  ENOMEM if we failed to allocate
+- * or reallocate the buffer used for encoding (out of memory problem). 
+- */
+-int hdr_string_write(
+-        char** encoded_histogram,
+-        struct hdr_histogram *histogram);
+-        
+ struct hdr_log_reader
+ {
+     int major_version;
+@@ -178,7 +163,8 @@ int hdr_log_reader_init(struct hdr_log_reader* reader);
+  *
+  * @param hdr_log_reader 'This' pointer
+  * @param file The data stream to read from.
+- * @return 0 on success.  An error number on failure.
++ * @return 0 on success.  An error number on failure, including -EINVAL or
++ * -ERANGE when the StartTime is not finite or does not fit the timestamp type.
+  */
+ int hdr_log_read_header(struct hdr_log_reader* reader, FILE* file);
+ 
+diff --git a/deps/hdr_histogram/hdr_malloc.h b/deps/hdr_histogram/hdr_malloc.h
+new file mode 100644
+index 0000000..6fefc68
+--- /dev/null
++++ b/deps/hdr_histogram/hdr_malloc.h
+@@ -0,0 +1,19 @@
++/**
++ * hdr_malloc.h
++ * Written by Filipe Oliveira and released to the public domain,
++ * as explained at http://creativecommons.org/publicdomain/zero/1.0/
++ *
++ * Allocator selection.
++ *
++ * This file is used in order to change the HdrHistogram allocator at compile time.
++ * Just define the following defines to what you want to use. Also add
++ * the include of your alternate allocator if needed (not needed in order
++ * to use the default libc allocator). */
++
++#ifndef HDR_MALLOC_H__
++#define HDR_MALLOC_H__
++#define hdr_malloc malloc
++#define hdr_calloc calloc
++#define hdr_realloc realloc
++#define hdr_free free
++#endif
+diff --git a/deps/hdr_histogram/hdr_time.c b/deps/hdr_histogram/hdr_time.c
+index 0967d51..ad578fe 100644
+--- a/deps/hdr_histogram/hdr_time.c
++++ b/deps/hdr_histogram/hdr_time.c
+@@ -1,9 +1,20 @@
++/*
++ * HdrHistogram_c log codec -- amalgamated (hdr_time.c, private headers inlined).
++ *
++ * GENERATED by script/amalgamate.py from HdrHistogram_c 0.11.10. DO NOT EDIT;
++ * change the sources and regenerate. Public domain (see hdr_histogram.h).
++ */
++/* ---- begin src/hdr_time.c ---- */
+ /**
+ * hdr_time.h
+ * Written by Michael Barker and Philip Orwig and released to the public domain,
+ * as explained at http://creativecommons.org/publicdomain/zero/1.0/
+ */
+ 
++#include <math.h>
++#include <limits.h>
++#include <errno.h>
++
+ #include "hdr_time.h"
+ 
+ #if defined(_WIN32) || defined(_WIN64)
+@@ -60,7 +71,7 @@ void hdr_getnow(hdr_timespec* ts)
+     hdr_gettime(ts);
+ }
+ 
+-#elif defined(__linux__) || defined(__CYGWIN__) || defined(__OpenBSD__)
++#elif defined(__linux__) || defined(__CYGWIN__) || defined(__OpenBSD__) || defined(__NetBSD__) || defined(__FreeBSD__) || defined(__DragonFly__)
+ 
+ 
+ void hdr_gettime(hdr_timespec* t)
+@@ -85,14 +96,59 @@ double hdr_timespec_as_double(const hdr_timespec* t)
+     return d + (t->tv_nsec / 1000000000.0);
+ }
+ 
+-void hdr_timespec_from_double(hdr_timespec* t, double value)
++int hdr_timespec_from_double_checked(hdr_timespec* t, double value)
+ {
+-    int seconds = (int) value;
+-    int milliseconds = (int) round((value - seconds) * 1000);
++    /* Bound by the destination: time_t on POSIX, long on Windows/Cygwin. */
++    const double limit = ldexp(1.0, (int) (sizeof(t->tv_sec) * CHAR_BIT) - 1);
++    double seconds = trunc(value);
++    long milliseconds;
+ 
+-    t->tv_sec = seconds;
+-    t->tv_nsec = milliseconds * 1000000;
+-}
++    /* converting a non-finite or out-of-range double to an integer is UB */
++    if (!isfinite(value))
++    {
++        return -EINVAL;
++    }
++    if (seconds >= limit || seconds < -limit)
++    {
++        return -ERANGE;
++    }
++
++    /* Round the original signed fraction, then normalize so tv_nsec stays in [0,1e9). */
++    milliseconds = (long) round((value - seconds) * 1000);
++    if (milliseconds == 1000)
++    {
++        /* rounded up to a whole second; carry rather than emit tv_nsec == 1e9 */
++        seconds += 1.0;
++        milliseconds = 0;
++    }
++    else if (milliseconds < 0)
++    {
++        seconds -= 1.0;
++        milliseconds += 1000;
++    }
+ 
++    /* the carry/borrow above can push seconds past the destination bound */
++    if (seconds >= limit || seconds < -limit)
++    {
++        return -ERANGE;
++    }
+ 
++#if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
++    t->tv_sec = (long) seconds;
++#else
++    t->tv_sec = (time_t) seconds;
++#endif
++    t->tv_nsec = milliseconds * 1000000;
++    return 0;
++}
+ 
++void hdr_timespec_from_double(hdr_timespec* t, double value)
++{
++    /* thin wrapper over the checked variant; failure zeroes *t (unchanged behavior) */
++    if (hdr_timespec_from_double_checked(t, value) != 0)
++    {
++        t->tv_sec = 0;
++        t->tv_nsec = 0;
++    }
++}
++/* ---- end src/hdr_time.c ---- */
+diff --git a/deps/hdr_histogram/hdr_time.h b/deps/hdr_histogram/hdr_time.h
+index feecee9..dbec7fc 100644
+--- a/deps/hdr_histogram/hdr_time.h
++++ b/deps/hdr_histogram/hdr_time.h
+@@ -7,7 +7,6 @@
+ #ifndef HDR_TIME_H__
+ #define HDR_TIME_H__
+ 
+-#include <math.h>
+ #include <time.h>
+ 
+ #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
+@@ -38,7 +37,14 @@ void hdr_getnow(hdr_timespec* t);
+ 
+ double hdr_timespec_as_double(const hdr_timespec* t);
+ 
+-/* Assumes only millisecond accuracy. */
++/* Convert value (seconds, with fractional part) into *t, reporting invalid input.
++ * Assumes only millisecond accuracy (applies to both variants below).
++ * Returns 0 on success, -EINVAL if value is not finite, or -ERANGE if value (or
++ * its rounded result) does not fit the destination tv_sec. On failure *t is unchanged. */
++int hdr_timespec_from_double_checked(hdr_timespec* t, double value);
++
++/* As hdr_timespec_from_double_checked but with no error return; on failure *t is
++ * set to zero. Retained for compatibility. Prefer the checked variant when you need to detect bad input. */
+ void hdr_timespec_from_double(hdr_timespec* t, double value);
+ 
+ #ifdef __cplusplus
+@@ -46,4 +52,3 @@ void hdr_timespec_from_double(hdr_timespec* t, double value);
+ #endif
+ 
+ #endif
+-
+diff --git a/run_stats.cpp b/run_stats.cpp
+index f916e6d..18034d8 100644
+--- a/run_stats.cpp
++++ b/run_stats.cpp
+@@ -38,16 +38,6 @@
+ #define MIN(a, b) (((a) < (b)) ? (a) : (b))
+ #define MAX(a, b) (((a) > (b)) ? (a) : (b))
+ 
+-// Atomic variant of hdr_record_value_capped: clamps the value to
+-// [lowest_trackable_value, highest_trackable_value] and records it
+-// using atomic counts.  Safe to call concurrently with hdr_add/hdr_reset.
+-static inline bool hdr_record_value_capped_atomic(struct hdr_histogram *h, int64_t value)
+-{
+-    int64_t capped = (value > h->highest_trackable_value) ? h->highest_trackable_value : value;
+-    capped = (capped < h->lowest_trackable_value) ? h->lowest_trackable_value : capped;
+-    return hdr_record_value_atomic(h, capped);
+-}
+-
+ void output_table::add_column(table_column &col)
+ {
+     assert(columns.empty() || columns[0].elements.size() == col.elements.size());
+@@ -1203,7 +1193,7 @@ void result_print_to_json(json_handler *jsonhandler, const char *type, double op
+         }
+         jsonhandler->open_nesting("Histogram log format");
+         char *encoded_histogram;
+-        hdr_string_write(&encoded_histogram, latency_histogram);
++        hdr_log_encode(latency_histogram, &encoded_histogram);
+         jsonhandler->write_obj("Compressed Histogram", "\"%s\"", encoded_histogram);
+         free(encoded_histogram);
+         jsonhandler->close_nesting();
