@@ -83,7 +83,7 @@ Found by the new fuzzing, by code review, and (for [#118](https://github.com/Hdr
 - The log timestamp seconds field was bounded by `long` instead of by `tv_sec`, wrongly rejecting timestamps after 2038 on
   32-bit Linux ([#157](https://github.com/HdrHistogram/HdrHistogram_c/pull/157)).
 - On 32-bit Windows `hdr_atomic_load_64` and `hdr_atomic_store_64` were not atomic, which could tear `min`, `max` and
-  `hdr_total_count` under concurrent recording ([#168](https://github.com/HdrHistogram/HdrHistogram_c/pull/168)).
+  the phaser epoch under concurrent recording ([#168](https://github.com/HdrHistogram/HdrHistogram_c/pull/168)).
 - Fix the ClangCL build on Windows ([#142](https://github.com/HdrHistogram/HdrHistogram_c/pull/142), thanks @StefanStojanovic,
   found while updating Node.js) and stop trying AVX2 on i386
   ([#143](https://github.com/HdrHistogram/HdrHistogram_c/pull/143), thanks @K900); both are now covered by CI
