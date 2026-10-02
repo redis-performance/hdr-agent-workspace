@@ -110,6 +110,14 @@ User merged #150, #158, #160, #161 (main = 05e06cc). Open: #162 #163 #164 #165 #
 Idea: once #163 lands, add a ctest leg with -DHDR_HISTOGRAM_DISABLE_AVX2=ON so the scalar scan (#158/#167) is tested on x86 CI.
 
 ## Apple Clang task for #167 (2026-10-01)
+<<<<<<< Updated upstream
 Hand-off: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md (codegen, paired full drivers and crossing probe). The required Opus-level review remains outstanding.
 
 2026-10-01 update: Apple M6 / Apple Clang 21 ABBA: original #167 read 2.612× faster, write −0.185%, checksum equal, but position-3 early crossings −19.3% throughput; guard narrowed to exclude Apple in `858751b`, Apple final assembly equals base, 9/9 CTest. Native Linux arm64 Clang 18 CI now compiles the guarded line; all 28 final-head checks pass at `a7bcc7b`. Evidence: `experiments/C-ARM-CLANG-SCAN-2026-10-01/apple/RESULTS-APPLE.md`. Opus MERGE-READY review and final-head Linux performance qualification still pending.
+=======
+Hand-off written: experiments/C-ARM-CLANG-SCAN-2026-10-01/APPLE-CLANG-TASK.md (codegen check first, then ABBA full drivers + crossing probe on an Apple-silicon Mac; decision table keeps or narrows the guard to `!defined(__APPLE__)`). Not yet run. Do not mark #167 ready until it is done and the Opus-level review exists.
+
+## #165 merged; master refreshed again (2026-10-02 ~09:50Z)
+paulorsousa APPROVED #165 on head 3fd776f (verified via reviews API); squash-merged by the agent (0ad9380, merge succeeded this time; the earlier classifier denial was on #150 and #150/#158/#160/#161 were later merged by the user). main = 0ad9380.
+Open: #162 #163 #164 #166 #167, all merged up to 0ad9380 (behind=0), each built + ctest 9/9 before push (detached HEADs, plain pushes). #164 amalgamated/ regenerated again (check passes, smoke compile OK, negative count rejected in the single file).
+>>>>>>> Stashed changes
