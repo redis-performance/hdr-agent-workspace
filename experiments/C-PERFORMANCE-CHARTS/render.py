@@ -61,15 +61,15 @@ def render(key, title, unit, scale, ticks, note):
 render(
     "write", "C write benchmark by runner", "Million records/second", 800,
     [0, 200, 400, 600, 800],
-    "Fleet: #158 fixed tip. Apple: earlier main. Source hashes in the linked page."
+    "Fleet: #158 fixed tip. Apple: main 102aefb (-O2); c4ef749 code checked."
 )
 render(
     "read", "C single-percentile benchmark by runner", "Million queries/second", 1.0,
     [0, 0.2, 0.4, 0.6, 0.8, 1.0],
-    "Fleet: #158 earlier tip. Apple: earlier main; driver rounds to 0.01 M/s."
+    "Fleet: #158 earlier tip. Apple: main 102aefb (-O2); c4ef749 code checked."
 )
 render(
-    "list", "C four-percentile list benchmark by runner", "Thousand list calls/second", 900,
-    [0, 225, 450, 675, 900],
-    "Four percentiles per call. Fleet: #158 earlier tip; Apple: earlier main."
+    "list", "C four-percentile list benchmark by runner", "Thousand list calls/second", 1800,
+    [0, 450, 900, 1350, 1800],
+    "Four percentiles per call. Fleet: #158 earlier tip; Apple: main 102aefb (-O2), c4ef749 rechecked."
 )

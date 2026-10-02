@@ -1,10 +1,22 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
-**Updated: 2026-10-01 ~00:00 UTC** · Session: opus-4.8 loop (adversarial review + merge)
+**Updated: 2026-10-02** · Benchmark checkpoint; PR tables below are historical snapshots.
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
-upstream/main tip: **e4e8b0a** (after #141).
+upstream/main tip checked for M6 benchmark: **c4ef749** (after #168).
+
+## Apple M6 latest-master benchmark — 2026-10-02
+
+[Full result and raw ABBA logs](../experiments/C-M6-MASTER-2026-10-02/RESULT.md):
+0.11.10 versus merged main `102aefb` on Apple Clang 21. At `-O2`, writes
+−0.23%, single reads +11.33%, four-percentile lists 31.72×; at `-O3`,
+−0.17%, +12.86%, 31.70×; at `-Os`, +0.13%, 2.86×, 30.34×. The newer
+`c4ef749` changes only the Windows atomic branch; Apple write/read code is
+identical in all three modes, and its `-O2` list result was timed separately.
+QoS was verified inside benchmark processes; actual core residency was not
+observed. Charts, README, summary and experiment ledger were refreshed.
+No source optimization or accepted-baseline/submodule-pointer change.
 
 ## Merged (11) — squash, on paulorsousa approval
 ✅ #157 · #155 · #149 · #138 · #154 · #144 · #156 · #139 · #140 (single-pass +1011%) · #141 (blocked scan +182%) · #159 (reject import total_count overflow, #118) [merged 2026-10-01 09:19Z]

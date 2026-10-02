@@ -1,0 +1,107 @@
+{
+  "o2": {
+    "hdr_histogram_perf": {
+      "measured_102aefb": {
+        "bytes": 11876,
+        "sha256": "131b67fc0deec4b963744eee47cb6e58978296ca43557974319f15fbc5570984"
+      },
+      "new_head_c4ef749": {
+        "bytes": 11876,
+        "sha256": "131b67fc0deec4b963744eee47cb6e58978296ca43557974319f15fbc5570984"
+      },
+      "matches": true
+    },
+    "hdr_percentile_bench": {
+      "measured_102aefb": {
+        "bytes": 11796,
+        "sha256": "d8d8c9f67dddfeb80536d45cd54fe155aa0f233f318ee93886b35dec73b32a3a"
+      },
+      "new_head_c4ef749": {
+        "bytes": 11796,
+        "sha256": "d8d8c9f67dddfeb80536d45cd54fe155aa0f233f318ee93886b35dec73b32a3a"
+      },
+      "matches": true
+    },
+    "hdr_histogram_benchmark": {
+      "measured_102aefb": {
+        "bytes": 392172,
+        "sha256": "23d45d369e6657fff09076f93ae1f331307587302fb20fd888f693290a7dc18a"
+      },
+      "new_head_c4ef749": {
+        "bytes": 392172,
+        "sha256": "033a8de8c4d7c1444560122ff233407a87d631c7230f4312c44a723908f2b774"
+      },
+      "matches": false
+    }
+  },
+  "o3": {
+    "hdr_histogram_perf": {
+      "measured_102aefb": {
+        "bytes": 13960,
+        "sha256": "3ece8e5b5841a749df7cb681043a8df775887c5c7b9b9408ace2f225e8cdbe3f"
+      },
+      "new_head_c4ef749": {
+        "bytes": 13960,
+        "sha256": "3ece8e5b5841a749df7cb681043a8df775887c5c7b9b9408ace2f225e8cdbe3f"
+      },
+      "matches": true
+    },
+    "hdr_percentile_bench": {
+      "measured_102aefb": {
+        "bytes": 13880,
+        "sha256": "4d93617d4a5f88373a353f8653f07e067fea5afbb38e4945c79f10edf154490f"
+      },
+      "new_head_c4ef749": {
+        "bytes": 13880,
+        "sha256": "4d93617d4a5f88373a353f8653f07e067fea5afbb38e4945c79f10edf154490f"
+      },
+      "matches": true
+    },
+    "hdr_histogram_benchmark": {
+      "measured_102aefb": {
+        "bytes": 394368,
+        "sha256": "676fdf87bc9b72ba0e467aa95adb4d23e4e42e01235b53a9a3a11a5cdd611a2c"
+      },
+      "new_head_c4ef749": {
+        "bytes": 394368,
+        "sha256": "676fdf87bc9b72ba0e467aa95adb4d23e4e42e01235b53a9a3a11a5cdd611a2c"
+      },
+      "matches": true
+    }
+  },
+  "os": {
+    "hdr_histogram_perf": {
+      "measured_102aefb": {
+        "bytes": 8764,
+        "sha256": "38a7a0e9359dbf595c9a698cb6c182a4168b02f95f3fdd64ac06ccc8b545224b"
+      },
+      "new_head_c4ef749": {
+        "bytes": 8764,
+        "sha256": "38a7a0e9359dbf595c9a698cb6c182a4168b02f95f3fdd64ac06ccc8b545224b"
+      },
+      "matches": true
+    },
+    "hdr_percentile_bench": {
+      "measured_102aefb": {
+        "bytes": 8676,
+        "sha256": "ac33a225060299f45636e88cf6cd78aff97d328c92d8e5c0747cfbf9d95ced75"
+      },
+      "new_head_c4ef749": {
+        "bytes": 8676,
+        "sha256": "ac33a225060299f45636e88cf6cd78aff97d328c92d8e5c0747cfbf9d95ced75"
+      },
+      "matches": true
+    },
+    "hdr_histogram_benchmark": {
+      "measured_102aefb": {
+        "bytes": 388064,
+        "sha256": "93e419c2422769abd8bbc503c84931d00e86bfa49ed4bcd7e1a03bc878d3dec7"
+      },
+      "new_head_c4ef749": {
+        "bytes": 388064,
+        "sha256": "93e419c2422769abd8bbc503c84931d00e86bfa49ed4bcd7e1a03bc878d3dec7"
+      },
+      "matches": true
+    }
+  }
+}

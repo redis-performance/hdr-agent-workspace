@@ -1,0 +1,88 @@
+{
+  "started_utc": "2026-10-02T10:12:05.894119+00:00",
+  "machine": "Apple M6 arm64",
+  "macos": "27.0",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "benchmarks": "immutable project drivers",
+  "qos_request": "user_interactive (33) via DYLD_INSERT_LIBRARIES constructor; not physical-core pinning",
+  "power_before": "Now drawing from 'AC Power'",
+  "thermal_before": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+  "loadavg_before": "{ 1.24 1.26 1.33 }",
+  "logical_cpus": {
+    "Super": 2,
+    "Performance": 4,
+    "Efficiency": 6
+  },
+  "revisions": {
+    "stable": {
+      "revision": "18c7a324383dded1451d15621cd018b0048057d0",
+      "binary_sha256_by_mode": {
+        "o2": {
+          "hdr_histogram_perf": "89ff1d855f90f202a7f1ec0a4360a8aaecc7115b2e5e9395e648f4b7495fd882",
+          "hdr_percentile_bench": "2f34039f4de9fe44ea1a6e8991163d09d9182aba05a0850e2b6827cdddebb14c",
+          "hdr_histogram_benchmark": "9541b8730315d297c449511545c8c7af30ffb23b6a96772b772b216755c9bcfd"
+        },
+        "o3": {
+          "hdr_histogram_perf": "a07279b2e650a39db23a159e07196e4b4ccaf652e5a0acc784b86ebdfd77c854",
+          "hdr_percentile_bench": "ca23e5bad6a5c8c37969862caf02f066242635f65316d96f712a174902fae02d",
+          "hdr_histogram_benchmark": "ab61de5bf52a12110722d81cf67c567ec3df4691aaea703d6a73ce9d0351715b"
+        },
+        "os": {
+          "hdr_histogram_perf": "53ae7784eb574570d07c76dd981f8545cd03f6220bf9d48e7db758960eb57f79",
+          "hdr_percentile_bench": "b06d2fbc9f2f241b004ed539fa435ad88c299d31636b40dc3b052d25969e0a2b",
+          "hdr_histogram_benchmark": "757eb4c4749bb3d990facd53cbea52b9e6bea731af41f3cb4d0545ffcfaa0aeb"
+        }
+      }
+    },
+    "master": {
+      "revision": "102aefb369ac7e2437f0408f21aa51d570a6fcaf",
+      "binary_sha256_by_mode": {
+        "o2": {
+          "hdr_histogram_perf": "a730d4600ef4d6ef24bb5bf11c60443541a73ef63b25930d910aad20b2216516",
+          "hdr_percentile_bench": "83ec950f4908b06ffa132310e2764b711916f8341dbb0cc77c1a10dd132e3b14",
+          "hdr_histogram_benchmark": "c94d7597e5cf6f9d57cbacd533bf4affee3652b788c06a8079d24bfff74168ca"
+        },
+        "o3": {
+          "hdr_histogram_perf": "c0e1d4945ef943838b8fcb630b18cd2aef3f9df287aa42ac381cc34c10a12bb0",
+          "hdr_percentile_bench": "339eea15c48a1dabe80803e65bf1189fad331cab904ae0960ae338a33783aa19",
+          "hdr_histogram_benchmark": "2f6a2a8728928fb7f09be09f1ce86ea61060c561d7fcf0f2150fafcc0bd21f20"
+        },
+        "os": {
+          "hdr_histogram_perf": "265cb9fead633d5941c0b8b276ffbd012c8c5e5eeddd3c284cc8bc5c372cead8",
+          "hdr_percentile_bench": "f2a5bf91555a6607d6365901094b8e3b58a7d3a574a66830192f32141bc63585",
+          "hdr_histogram_benchmark": "95fe23c7fab21cf7c458f9387a4f81468a1db290fad45d85b984b0677ee035d7"
+        }
+      }
+    },
+    "latest": {
+      "revision": "c4ef7490b4958615168abb4e06d41c665095bf60",
+      "change_from_measured": "32-bit Windows atomic path and tests; Apple C source unchanged",
+      "binary_sha256_by_mode": {
+        "o2": {
+          "hdr_histogram_perf": "b0753bf714df646630950588ad37b5fee993533412aab8cc5a7f324d4a5bb204",
+          "hdr_percentile_bench": "4577d586f3ee3c3095b9500399361db86403cfb5765ec003cd0ae0990725903f",
+          "hdr_histogram_benchmark": "eaf3c6567fdb12158c7a9fab6fc079c38affabb9bbdbaeab0bdbe14c76eeefd1"
+        },
+        "o3": {
+          "hdr_histogram_perf": "c0e1d4945ef943838b8fcb630b18cd2aef3f9df287aa42ac381cc34c10a12bb0",
+          "hdr_percentile_bench": "339eea15c48a1dabe80803e65bf1189fad331cab904ae0960ae338a33783aa19",
+          "hdr_histogram_benchmark": "067c20412b0818391041847b28f2da377162b920023fd6a91632bf365d724ed5"
+        },
+        "os": {
+          "hdr_histogram_perf": "265cb9fead633d5941c0b8b276ffbd012c8c5e5eeddd3c284cc8bc5c372cead8",
+          "hdr_percentile_bench": "f2a5bf91555a6607d6365901094b8e3b58a7d3a574a66830192f32141bc63585",
+          "hdr_histogram_benchmark": "6bbf44ab043999979055262e9b6cb15b53c6205ef51b2622669830ecebf75eea"
+        }
+      }
+    }
+  },
+  "ended_utc": "2026-10-02T11:01:16.962920+00:00",
+  "power_after": "Now drawing from 'AC Power'",
+  "thermal_after": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+  "loadavg_after": "{ 0.97 1.18 1.23 }",
+  "build_types": {
+    "o2": "RelWithDebInfo (-O2 -g -DNDEBUG)",
+    "o3": "Release (-O3 -DNDEBUG)",
+    "os": "MinSizeRel (-Os -DNDEBUG)"
+  }
+}

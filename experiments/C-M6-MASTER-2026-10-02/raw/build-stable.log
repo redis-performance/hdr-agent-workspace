@@ -1,0 +1,201 @@
+[ 18%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_time.c.o
+[ 18%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o
+[ 27%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_writer_reader_phaser.c.o
+[ 36%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_encoding.c.o
+[ 45%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram_log.c.o
+[ 54%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_interval_recorder.c.o
+[ 63%] Building C object src/CMakeFiles/hdr_histogram_static.dir/hdr_thread.c.o
+[ 72%] Linking C static library libhdr_histogram_static.a
+[ 72%] Built target hdr_histogram_static
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/minunit.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o
+[100%] Linking C executable hdr_histogram_perf
+[100%] Built target hdr_histogram_perf
+[ 80%] Built target hdr_histogram_static
+[ 90%] Building C object test/CMakeFiles/hdr_percentile_bench.dir/hdr_percentile_bench.c.o
+[100%] Linking C executable hdr_percentile_bench
+[100%] Built target hdr_percentile_bench
+[  5%] Creating directories for 'google_benchmark'
+[ 50%] Built target hdr_histogram_static
+[ 55%] Performing download step (verify and extract) for 'google_benchmark'
+-- verifying file...
+     file='<workspace>/.tools/m6-master-20261002/stable/lib/benchmark-1.6.1.zip'
+-- verifying file... done
+-- extracting...
+     src='<workspace>/.tools/m6-master-20261002/stable/lib/benchmark-1.6.1.zip'
+     dst='<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src'
+-- extracting... [tar xf]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 61%] No update step for 'google_benchmark'
+[ 66%] No patch step for 'google_benchmark'
+[ 72%] Performing configure step for 'google_benchmark'
+CMake Warning (deprecated) at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
+
+-- The CXX compiler identification is AppleClang 21.0.0.21000334
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Git: /usr/bin/git (found version "2.54.0 (Apple Git-157)")
+-- git version: v0.0.0 normalized to 0.0.0
+-- Version: 1.6.1
+-- Looking for shm_open in rt
+-- Looking for shm_open in rt - not found
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11 - Success
+-- Performing Test HAVE_CXX_FLAG_WALL
+-- Performing Test HAVE_CXX_FLAG_WALL - Success
+-- Performing Test HAVE_CXX_FLAG_WEXTRA
+-- Performing Test HAVE_CXX_FLAG_WEXTRA - Success
+-- Performing Test HAVE_CXX_FLAG_WSHADOW
+-- Performing Test HAVE_CXX_FLAG_WSHADOW - Success
+-- Performing Test HAVE_CXX_FLAG_WERROR
+-- Performing Test HAVE_CXX_FLAG_WERROR - Success
+-- Performing Test HAVE_CXX_FLAG_WSUGGEST_OVERRIDE
+-- Performing Test HAVE_CXX_FLAG_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS - Success
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 - Success
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED_DECLARATIONS
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED_DECLARATIONS - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED - Success
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_WD654
+-- Performing Test HAVE_CXX_FLAG_WD654 - Failed
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY - Success
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES -- failed to compile
+-- Performing Test HAVE_CXX_FLAG_COVERAGE
+-- Performing Test HAVE_CXX_FLAG_COVERAGE - Success
+-- Performing Test HAVE_STD_REGEX
+-- Performing Test HAVE_STD_REGEX
+-- Performing Test HAVE_STD_REGEX -- success
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX -- failed to compile
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX -- success
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK -- success
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (3.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-build
+[ 77%] Performing build step for 'google_benchmark'
+[  4%] Building CXX object src/CMakeFiles/benchmark.dir/benchmark.cc.o
+[  9%] Building CXX object src/CMakeFiles/benchmark.dir/benchmark_name.cc.o
+[ 13%] Building CXX object src/CMakeFiles/benchmark.dir/benchmark_register.cc.o
+[ 18%] Building CXX object src/CMakeFiles/benchmark.dir/colorprint.cc.o
+[ 22%] Building CXX object src/CMakeFiles/benchmark.dir/commandlineflags.cc.o
+[ 27%] Building CXX object src/CMakeFiles/benchmark.dir/json_reporter.cc.o
+[ 31%] Building CXX object src/CMakeFiles/benchmark.dir/perf_counters.cc.o
+[ 40%] Building CXX object src/CMakeFiles/benchmark.dir/benchmark_runner.cc.o
+[ 40%] Building CXX object src/CMakeFiles/benchmark.dir/reporter.cc.o
+[ 45%] Building CXX object src/CMakeFiles/benchmark.dir/counter.cc.o
+[ 54%] Building CXX object src/CMakeFiles/benchmark.dir/sleep.cc.o
+[ 54%] Building CXX object src/CMakeFiles/benchmark.dir/benchmark_api_internal.cc.o
+[ 59%] Building CXX object src/CMakeFiles/benchmark.dir/console_reporter.cc.o
+[ 63%] Building CXX object src/CMakeFiles/benchmark.dir/csv_reporter.cc.o
+[ 68%] Building CXX object src/CMakeFiles/benchmark.dir/complexity.cc.o
+[ 72%] Building CXX object src/CMakeFiles/benchmark.dir/string_util.cc.o
+[ 77%] Building CXX object src/CMakeFiles/benchmark.dir/statistics.cc.o
+[ 81%] Building CXX object src/CMakeFiles/benchmark.dir/sysinfo.cc.o
+[ 86%] Building CXX object src/CMakeFiles/benchmark.dir/timers.cc.o
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/benchmark.cc:18:
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/benchmark_runner.h:24:
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/thread_manager.h:7:
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:40: warning: mutex 'mut_' is still held at the end of function [-Wthread-safety-analysis]
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:32: note: mutex acquired here
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:80:34: warning: releasing mutex 'mut_' that was not held [-Wthread-safety-analysis]
+   80 |   void unlock() RELEASE() { mut_.unlock(); }
+      |                                  ^
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/benchmark_runner.cc:15:
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/benchmark_runner.h:24:
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/thread_manager.h:7:
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:40: warning: mutex 'mut_' is still held at the end of function [-Wthread-safety-analysis]
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:32: note: mutex acquired here
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:80:34: warning: releasing mutex 'mut_' that was not held [-Wthread-safety-analysis]
+   80 |   void unlock() RELEASE() { mut_.unlock(); }
+      |                                  ^
+In file included from <workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/benchmark_register.cc:46:
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:40: warning: mutex 'mut_' is still held at the end of function [-Wthread-safety-analysis]
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                        ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:79:32: note: mutex acquired here
+   79 |   void lock() ACQUIRE() { mut_.lock(); }
+      |                                ^
+<workspace>/.tools/m6-master-20261002/stable/build/clang/test/googlebenchmark-src/src/mutex.h:80:34: warning: releasing mutex 'mut_' that was not held [-Wthread-safety-analysis]
+   80 |   void unlock() RELEASE() { mut_.unlock(); }
+      |                                  ^
+2 warnings generated.
+2 warnings generated.
+2 warnings generated.
+[ 90%] Linking CXX static library libbenchmark.a
+[ 90%] Built target benchmark
+[ 95%] Building CXX object src/CMakeFiles/benchmark_main.dir/benchmark_main.cc.o
+[100%] Linking CXX static library libbenchmark_main.a
+[100%] Built target benchmark_main
+[ 83%] No install step for 'google_benchmark'
+[ 88%] Completed 'google_benchmark'
+[ 88%] Built target google_benchmark
+[ 94%] Building CXX object test/CMakeFiles/hdr_histogram_benchmark.dir/hdr_histogram_benchmark.cpp.o
+[100%] Linking CXX executable hdr_histogram_benchmark
+[100%] Built target hdr_histogram_benchmark
+[ 72%] Built target hdr_histogram_static
+[ 81%] Building C object test/CMakeFiles/hdr_histogram_test.dir/hdr_histogram_test.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_test.dir/minunit.c.o
+[100%] Linking C executable hdr_histogram_test
+[100%] Built target hdr_histogram_test
+[ 72%] Built target hdr_histogram_static
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/minunit.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_atomic_test.dir/hdr_histogram_atomic_test.c.o
+[100%] Linking C executable hdr_histogram_atomic_test
+[100%] Built target hdr_histogram_atomic_test
+[ 72%] Built target hdr_histogram_static
+[ 81%] Building C object test/CMakeFiles/hdr_histogram_log_test.dir/hdr_histogram_log_test.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_log_test.dir/minunit.c.o
+[100%] Linking C executable hdr_histogram_log_test
+[100%] Built target hdr_histogram_log_test
+[ 72%] Built target hdr_histogram_static
+[ 81%] Building C object test/CMakeFiles/hdr_atomic_test.dir/hdr_atomic_test.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_atomic_test.dir/minunit.c.o
+[100%] Linking C executable hdr_atomic_test
+[100%] Built target hdr_atomic_test
+[ 72%] Built target hdr_histogram_static
+[ 81%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/hdr_histogram_atomic_concurrency_test.c.o
+[ 90%] Building C object test/CMakeFiles/hdr_histogram_atomic_concurrency_test.dir/minunit.c.o
+[100%] Linking C executable hdr_histogram_atomic_concurrency_test
+[100%] Built target hdr_histogram_atomic_concurrency_test

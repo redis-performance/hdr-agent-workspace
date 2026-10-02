@@ -1,0 +1,24 @@
+--------------------------------------------------------------------------------------------------------------------
+Benchmark                                                          Time             CPU   Iterations UserCounters...
+--------------------------------------------------------------------------------------------------------------------
+BM_hdr_value_at_percentiles_given_array/3/86400000               657 ns          656 ns      1069927 items_per_second=6.0969M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               658 ns          657 ns      1069927 items_per_second=6.08835M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               658 ns          657 ns      1069927 items_per_second=6.0858M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               658 ns          657 ns      1069927 items_per_second=6.08645M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               658 ns          657 ns      1069927 items_per_second=6.09046M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_mean          658 ns          657 ns            5 items_per_second=6.08959M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_median        658 ns          657 ns            5 items_per_second=6.08835M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_stddev      0.477 ns        0.482 ns            5 items_per_second=4.46984k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_cv           0.07 %          0.07 %             5 items_per_second=0.07%
+benchmark_qos requested=33 observed=33 relative_priority=0 set_rc=0 get_rc=0
+Unable to determine clock rate from sysctl: hw.cpufrequency: No such file or directory
+2026-10-02T12:00:18+01:00
+Running ./hdr_histogram_benchmark
+Run on (12 X 24.1794 MHz CPU s)
+CPU Caches:
+  L1 Data 96 KiB (x12)
+  L1 Instruction 160 KiB (x12)
+  L2 Unified 8192 KiB (x2)
+Load Average: 1.14, 1.26, 1.27
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+wall_seconds=6.114781

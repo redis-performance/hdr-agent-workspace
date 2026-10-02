@@ -22,9 +22,9 @@
     },
     {
       "name": "Apple M6",
-      "write": {"previous": 709.91, "master": 710.555, "previous_label": "709.56–710.26", "master_label": "710.33–710.78"},
-      "read": {"previous": 0.195, "master": 0.22, "previous_label": "0.19–0.20", "master_label": "0.22"},
-      "list": {"previous": 47.91, "master": 819.30, "previous_label": "47.9–48.0", "master_label": "819.1–819.6"}
+      "write": {"previous": 710.841, "master": 709.217, "previous_label": "710.0–711.7", "master_label": "709.0–709.4"},
+      "read": {"previous": 0.198, "master": 0.221, "previous_label": "0.198", "master_label": "0.221"},
+      "list": {"previous": 47.990, "master": 1522.190, "previous_label": "47.9–48.1", "master_label": "1,521–1,523"}
     }
   ]
 }

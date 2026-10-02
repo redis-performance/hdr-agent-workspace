@@ -1,0 +1,5 @@
+variant=stable sequence=1 driver=hdr_percentile_bench
+benchmark_qos requested=33 observed=33 relative_priority=0 set_rc=0 get_rc=0
+best: 0.20 M queries/sec  mean: 0.20 M queries/sec  (sink=17401860284404480)
+wall_seconds=115.708197
+exit_code=0

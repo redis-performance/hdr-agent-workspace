@@ -1,0 +1,136 @@
+
+<workspace>/.tools/m6-master-20261002/master/build/o3/src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000000001a1c <_hdr_value_at_percentile>:
+    1a1c:      	mov	x8, #0x4059000000000000 ; =4636737291354636288
+    1a20:      	fmov	d1, x8
+    1a24:      	fminnm	d2, d0, d1
+    1a28:      	fdiv	d1, d2, d1
+    1a2c:      	ldr	d2, [x0, #0x58]
+    1a30:      	scvtf	d2, d2
+    1a34:      	fmov	d3, #0.50000000
+    1a38:      	fmadd	d1, d1, d2, d3
+    1a3c:      	fcvtzs	x8, d1
+    1a40:      	cmp	x8, #0x1
+    1a44:      	csinc	x9, x8, xzr, gt
+    1a48:      	ldr	x11, [x0, #0x60]
+    1a4c:      	ldr	w10, [x0, #0x50]
+    1a50:      	ldr	w14, [x0, #0x40]
+    1a54:      	cbnz	w14, 0x1b14 <_hdr_value_at_percentile+0xf8>
+    1a58:      	negs	w8, w10
+    1a5c:      	and	w8, w8, #0x3
+    1a60:      	and	w12, w10, #0x3
+    1a64:      	csneg	w8, w12, w8, mi
+    1a68:      	sub	w13, w10, w8
+    1a6c:      	cmp	w13, #0x1
+    1a70:      	b.lt	0x1adc <_hdr_value_at_percentile+0xc0>
+    1a74:      	mov	x8, #0x0                ; =0
+    1a78:      	mov	x12, #0x0               ; =0
+    1a7c:      	add	x14, x11, #0x10
+    1a80:      	ldp	x15, x16, [x14, #-0x10]
+    1a84:      	ldp	x1, x2, [x14]
+    1a88:      	add	x17, x15, x12
+    1a8c:      	add	x16, x17, x16
+    1a90:      	add	x15, x16, x1
+    1a94:      	add	x12, x15, x2
+    1a98:      	cmp	x12, x9
+    1a9c:      	b.hs	0x1ab4 <_hdr_value_at_percentile+0x98>
+    1aa0:      	add	x14, x14, #0x20
+    1aa4:      	add	x8, x8, #0x4
+    1aa8:      	cmp	w13, w8
+    1aac:      	b.gt	0x1a80 <_hdr_value_at_percentile+0x64>
+    1ab0:      	b	0x1ae4 <_hdr_value_at_percentile+0xc8>
+    1ab4:      	cmp	x17, x9
+    1ab8:      	b.ge	0x1b78 <_hdr_value_at_percentile+0x15c>
+    1abc:      	cmp	x16, x9
+    1ac0:      	b.ge	0x1b6c <_hdr_value_at_percentile+0x150>
+    1ac4:      	cmp	x15, x9
+    1ac8:      	b.ge	0x1b74 <_hdr_value_at_percentile+0x158>
+    1acc:      	cmp	x12, x9
+    1ad0:      	b.lt	0x1aa0 <_hdr_value_at_percentile+0x84>
+    1ad4:      	add	x8, x8, #0x3
+    1ad8:      	b	0x1b78 <_hdr_value_at_percentile+0x15c>
+    1adc:      	mov	w8, #0x0                ; =0
+    1ae0:      	mov	x12, #0x0               ; =0
+    1ae4:      	cmp	w8, w10
+    1ae8:      	b.ge	0x1b0c <_hdr_value_at_percentile+0xf0>
+    1aec:      	add	x11, x11, w8, uxtw #3
+    1af0:      	ldr	x13, [x11], #0x8
+    1af4:      	add	x12, x13, x12
+    1af8:      	cmp	x12, x9
+    1afc:      	b.ge	0x1b78 <_hdr_value_at_percentile+0x15c>
+    1b00:      	add	w8, w8, #0x1
+    1b04:      	cmp	w10, w8
+    1b08:      	b.gt	0x1af0 <_hdr_value_at_percentile+0xd4>
+    1b0c:      	mov	x15, #0x0               ; =0
+    1b10:      	b	0x1bb4 <_hdr_value_at_percentile+0x198>
+    1b14:      	cmp	w10, #0x1
+    1b18:      	b.lt	0x1b0c <_hdr_value_at_percentile+0xf0>
+    1b1c:      	mov	x12, #0x0               ; =0
+    1b20:      	mov	w8, #0x0                ; =0
+    1b24:      	neg	w13, w10
+    1b28:      	neg	w14, w14
+    1b2c:      	sxtw	x14, w14
+    1b30:      	cmp	w14, w10
+    1b34:      	csel	w15, wzr, w13, lt
+    1b38:      	cmp	w14, #0x0
+    1b3c:      	csel	w15, w10, w15, lt
+    1b40:      	add	x15, x14, w15, sxtw
+    1b44:      	ldr	x15, [x11, x15, lsl #3]
+    1b48:      	add	x12, x15, x12
+    1b4c:      	cmp	x12, x9
+    1b50:      	b.ge	0x1b78 <_hdr_value_at_percentile+0x15c>
+    1b54:      	mov	x15, #0x0               ; =0
+    1b58:      	add	w8, w8, #0x1
+    1b5c:      	add	x14, x14, #0x1
+    1b60:      	cmp	w10, w8
+    1b64:      	b.ne	0x1b30 <_hdr_value_at_percentile+0x114>
+    1b68:      	b	0x1bb4 <_hdr_value_at_percentile+0x198>
+    1b6c:      	add	x8, x8, #0x1
+    1b70:      	b	0x1b78 <_hdr_value_at_percentile+0x15c>
+    1b74:      	add	x8, x8, #0x2
+    1b78:      	ldp	w9, w10, [x0, #0x18]
+    1b7c:      	lsr	w9, w8, w9
+    1b80:      	mov	w11, #0x7fffffff        ; =2147483647
+    1b84:      	add	w11, w10, w11
+    1b88:      	and	w8, w11, w8
+    1b8c:      	cmp	w9, #0x1
+    1b90:      	csinc	w11, w9, wzr, gt
+    1b94:      	ldr	w12, [x0, #0x10]
+    1b98:      	add	w11, w11, w12
+    1b9c:      	cmp	w9, #0x0
+    1ba0:      	csel	w9, wzr, w10, eq
+    1ba4:      	add	w8, w8, w9
+    1ba8:      	sxtw	x8, w8
+    1bac:      	sub	w9, w11, #0x1
+    1bb0:      	lsl	x15, x8, x9
+    1bb4:      	ldr	x8, [x0, #0x20]
+    1bb8:      	orr	x8, x8, x15
+    1bbc:      	clz	x8, x8
+    1bc0:      	ldr	w9, [x0, #0x18]
+    1bc4:      	add	w10, w9, w8
+    1bc8:      	mvn	w8, w10
+    1bcc:      	asr	x9, x15, x8
+    1bd0:      	sxtw	x11, w9
+    1bd4:      	lsl	x8, x11, x8
+    1bd8:      	fcmp	d0, #0.0
+    1bdc:      	b.ne	0x1be8 <_hdr_value_at_percentile+0x1cc>
+    1be0:      	mov	x0, x8
+    1be4:      	ret
+    1be8:      	mov	w11, #0x3f              ; =63
+    1bec:      	sub	w10, w11, w10
+    1bf0:      	ldr	w11, [x0, #0x28]
+    1bf4:      	cmp	w11, w9
+    1bf8:      	cinc	w9, w10, le
+    1bfc:      	mov	w10, #0x1               ; =1
+    1c00:      	lsl	x9, x10, x9
+    1c04:      	eor	x10, x9, #0x7fffffffffffffff
+    1c08:      	add	x9, x8, x9
+    1c0c:      	sub	x9, x9, #0x1
+    1c10:      	mov	x11, #0x7fffffffffffffff ; =9223372036854775807
+    1c14:      	cmp	x8, x10
+    1c18:      	csel	x8, x11, x9, gt
+    1c1c:      	mov	x0, x8
+    1c20:      	ret

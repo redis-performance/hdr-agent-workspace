@@ -35,10 +35,10 @@
 <text x="790" y="320" fill="#152332" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">392.9–394.1</text>
 <line x1="30" y1="339" x2="925" y2="339" stroke="#eef1f5"/>
 <text x="30" y="382" fill="#152332" font-size="16" font-weight="bold" font-family="system-ui, sans-serif">Apple M6</text>
-<rect x="250" y="355" width="461.44" height="16" rx="3" fill="#62748b"/>
-<text x="790" y="368" fill="#152332" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">709.56–710.26</text>
-<rect x="250" y="377" width="461.86" height="16" rx="3" fill="#087e75"/>
-<text x="790" y="390" fill="#152332" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">710.33–710.78</text>
+<rect x="250" y="355" width="462.05" height="16" rx="3" fill="#62748b"/>
+<text x="790" y="368" fill="#152332" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">710.0–711.7</text>
+<rect x="250" y="377" width="460.99" height="16" rx="3" fill="#087e75"/>
+<text x="790" y="390" fill="#152332" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">709.0–709.4</text>
 <line x1="30" y1="409" x2="925" y2="409" stroke="#eef1f5"/>
-<text x="30" y="485" fill="#475569" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">Fleet: #158 fixed tip. Apple: earlier main. Source hashes in the linked page.</text>
+<text x="30" y="485" fill="#475569" font-size="13" font-weight="normal" font-family="system-ui, sans-serif">Fleet: #158 fixed tip. Apple: main 102aefb (-O2); c4ef749 code checked.</text>
 </svg>

@@ -27,7 +27,8 @@ This investigation does not change optimization acceptance counts.
 ## C performance by architecture
 
 Previous stable C release `0.11.10` versus a newer C revision on each runner.
-Apple measured upstream `main` at `e4e8b0a`; Intel, AMD, and Graviton measured
+Apple measured upstream `main` at `102aefb` (`-O2`; newer `c4ef749` Apple
+code checked); Intel, AMD, and Graviton measured
 PR #158 (fixed tip for writes, earlier tip for reads/lists). These are
 within-runner before/after results, **not** a same-revision CPU ranking.
 
@@ -38,6 +39,8 @@ within-runner before/after results, **not** a same-revision CPU ranking.
 ![C four-percentile list benchmark: previous stable versus newer C by runner](experiments/C-PERFORMANCE-CHARTS/list.svg)
 
 [Measurements, raw logs, and method](experiments/C-PERFORMANCE-BY-ARCH.md).
+[Apple M6 latest-master `-O2`/`-O3`/`-Os` comparison](experiments/C-M6-MASTER-2026-10-02/RESULT.md)
+includes ABBA results, source pins, checksums, and the QoS/core-placement limit.
 [Why Apple M6 leads on some C workloads](experiments/C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
 records compiler, QoS, cache-size, and working-set controls.
 

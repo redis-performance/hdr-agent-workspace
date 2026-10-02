@@ -919,3 +919,22 @@ pass. A native Linux AArch64 Clang 18 CI job now compiles the guarded line and
 passes on PR head `a7bcc7b`. This is a portability qualification of the
 existing candidate, not a new accepted optimization; counts and submodule
 baseline remain unchanged.
+
+### Latest merged-master Apple M6 baseline — 2026-10-02
+
+[Full report, raw logs and reproducible parser](C-M6-MASTER-2026-10-02/RESULT.md).
+The unchanged C benchmark drivers compare release `0.11.10` (`18c7a324`)
+with upstream master `102aefb3` in same-session ABBA runs, Apple Clang 21.
+At `-O2`, writes change −0.23%, single-percentile read throughput rises
+11.33%, and a four-percentile list rises 31.72×. At `-O3`, the corresponding
+changes are −0.17%, +12.86% and 31.70×; at `-Os`, +0.13%, 2.86× and 30.34×.
+The `-Os` single-read result is about 2.55× the same source at `-O3`; built
+assembly shows a vector block sum under `-Os` versus a scalar prefix chain
+under `-O3`. Matching read sinks, 5/5 stable CTests, 9/9 master CTests in
+all modes, and a separate four-shape fingerprinted batch probe support the
+comparison. Explicit user-interactive QoS was verified, but physical-core
+residency was not observed. New head `c4ef7490` changes the 32-bit Windows
+atomic path; its Apple write/read code matches the timed head byte for byte,
+and the `-O2` list timing was counterchecked. This is a baseline measurement,
+not a new optimization or acceptance; counts and the submodule pointer stay
+unchanged.

@@ -1,0 +1,26 @@
+variant=master sequence=3 driver=hdr_histogram_benchmark
+benchmark_qos requested=33 observed=33 relative_priority=0 set_rc=0 get_rc=0
+Unable to determine clock rate from sysctl: hw.cpufrequency: No such file or directory
+2026-10-02T11:42:20+01:00
+Running ./hdr_histogram_benchmark
+Run on (12 X 24.2405 MHz CPU s)
+CPU Caches:
+  L1 Data 96 KiB (x12)
+  L1 Instruction 160 KiB (x12)
+  L2 Unified 8192 KiB (x2)
+Load Average: 1.48, 1.41, 1.38
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+--------------------------------------------------------------------------------------------------------------------
+Benchmark                                                          Time             CPU   Iterations UserCounters...
+--------------------------------------------------------------------------------------------------------------------
+BM_hdr_value_at_percentiles_given_array/3/86400000               690 ns          689 ns      1018167 items_per_second=5.80562M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               690 ns          689 ns      1018167 items_per_second=5.804M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               690 ns          689 ns      1018167 items_per_second=5.80687M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               690 ns          690 ns      1018167 items_per_second=5.80083M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000               689 ns          688 ns      1018167 items_per_second=5.81427M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_mean          690 ns          689 ns            5 items_per_second=5.80632M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_median        690 ns          689 ns            5 items_per_second=5.80562M/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_stddev      0.668 ns        0.591 ns            5 items_per_second=4.98744k/s
+BM_hdr_value_at_percentiles_given_array/3/86400000_cv           0.10 %          0.09 %             5 items_per_second=0.09%
+wall_seconds=5.912743
+exit_code=0

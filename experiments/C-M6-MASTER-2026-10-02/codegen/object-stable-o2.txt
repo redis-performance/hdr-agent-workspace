@@ -1,0 +1,71 @@
+
+<workspace>/.tools/m6-master-20261002/stable/build/clang/src/CMakeFiles/hdr_histogram_static.dir/hdr_histogram.c.o:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000000000118c <_hdr_value_at_percentile>:
+    118c:      	mov	x8, #0x4059000000000000 ; =4636737291354636288
+    1190:      	fmov	d1, x8
+    1194:      	fminnm	d2, d0, d1
+    1198:      	fdiv	d1, d2, d1
+    119c:      	ldr	d2, [x0, #0x58]
+    11a0:      	scvtf	d2, d2
+    11a4:      	fmov	d3, #0.50000000
+    11a8:      	fmadd	d1, d1, d2, d3
+    11ac:      	fcvtzs	x8, d1
+    11b0:      	cmp	x8, #0x1
+    11b4:      	csinc	x9, x8, xzr, gt
+    11b8:      	ldr	w10, [x0, #0x50]
+    11bc:      	cmp	w10, #0x1
+    11c0:      	b.lt	0x11ec <_hdr_value_at_percentile+0x60>
+    11c4:      	mov	x8, #0x0                ; =0
+    11c8:      	mov	x11, #0x0               ; =0
+    11cc:      	ldr	x12, [x0, #0x60]
+    11d0:      	ldr	x13, [x12, x8, lsl #3]
+    11d4:      	add	x11, x13, x11
+    11d8:      	cmp	x11, x9
+    11dc:      	b.ge	0x11f4 <_hdr_value_at_percentile+0x68>
+    11e0:      	add	x8, x8, #0x1
+    11e4:      	cmp	x10, x8
+    11e8:      	b.ne	0x11d0 <_hdr_value_at_percentile+0x44>
+    11ec:      	mov	x8, #0x0                ; =0
+    11f0:      	b	0x1230 <_hdr_value_at_percentile+0xa4>
+    11f4:      	ldp	w9, w10, [x0, #0x18]
+    11f8:      	lsr	w9, w8, w9
+    11fc:      	mov	w11, #0x7fffffff        ; =2147483647
+    1200:      	add	w11, w10, w11
+    1204:      	and	w8, w11, w8
+    1208:      	cmp	w9, #0x1
+    120c:      	csinc	w11, w9, wzr, gt
+    1210:      	ldr	w12, [x0, #0x10]
+    1214:      	add	w11, w11, w12
+    1218:      	cmp	w9, #0x0
+    121c:      	csel	w9, wzr, w10, eq
+    1220:      	add	w8, w8, w9
+    1224:      	sxtw	x8, w8
+    1228:      	sub	w9, w11, #0x1
+    122c:      	lsl	x8, x8, x9
+    1230:      	ldr	x9, [x0, #0x20]
+    1234:      	orr	x9, x9, x8
+    1238:      	clz	x9, x9
+    123c:      	ldr	w10, [x0, #0x18]
+    1240:      	add	w10, w10, w9
+    1244:      	mvn	w11, w10
+    1248:      	asr	x9, x8, x11
+    124c:      	sxtw	x8, w9
+    1250:      	lsl	x8, x8, x11
+    1254:      	fcmp	d0, #0.0
+    1258:      	b.ne	0x1264 <_hdr_value_at_percentile+0xd8>
+    125c:      	mov	x0, x8
+    1260:      	ret
+    1264:      	mov	w11, #0x3f              ; =63
+    1268:      	sub	w10, w11, w10
+    126c:      	ldr	w11, [x0, #0x28]
+    1270:      	cmp	w11, w9
+    1274:      	cinc	w9, w10, le
+    1278:      	mov	w10, #0x1               ; =1
+    127c:      	lsl	x9, x10, x9
+    1280:      	add	x8, x8, x9
+    1284:      	sub	x8, x8, #0x1
+    1288:      	mov	x0, x8
+    128c:      	ret

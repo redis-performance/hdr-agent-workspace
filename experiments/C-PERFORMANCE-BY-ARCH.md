@@ -18,10 +18,12 @@ cross-runner comparison of one revision:
 | Runner | Write newer point | Read/list newer point |
 |---|---|---|
 | Intel, AMD, AWS Graviton | PR #158 `d21d084` | PR #158 `bcb5c1f` |
-| Apple M6 | Then-upstream `main` `e4e8b0a` | Then-upstream `main` `e4e8b0a` |
+| Apple M6 | Upstream `main` `102aefb` (`-O2`) | Upstream `main` `102aefb` (`-O2`) |
 
-As checked on 2026-10-01, upstream `main` had advanced to `57db422` (#159),
-so none of these newer rows is an exact measurement of that `main` revision.
+Apple's `-O2` measurements were refreshed on 2026-10-02. Upstream advanced
+to `c4ef749` during the run; its Apple write/read executable text is identical
+at `-O2`, `-O3` and `-Os`. The `-O2` list binary's linked text differs slightly,
+and its result was checked again at that head. See the [full M6 result](C-M6-MASTER-2026-10-02/RESULT.md).
 
 ![C write benchmark: previous stable versus newer C by runner](C-PERFORMANCE-CHARTS/write.svg)
 
@@ -68,24 +70,22 @@ measured a 6–7× QoS effect, little `-O2`/`-O3` or CPU-target effect, and a
 list scan just above the server cores' L1D sizes. Those are mechanisms to
 test on each runner, not a demonstrated breakdown of the cross-runner gap.
 
-The Apple write chart labels show the range of its two run medians; fleet
-write labels show the range of five interleaved runs. The Apple read bar uses
-the midpoint of the driver's *rounded* reported rates (stable 0.19–0.20,
-then-main 0.22 M/s); its bar length is visual only, not a precise effect-size
-estimate. [Raw paired output](OPT-ROUND-2026-09-30/bench-results/) and
-[chart data/source](C-PERFORMANCE-CHARTS/) are available for updates.
+The Apple chart rows use the 2026-10-02 `-O2` ABBA runs: write 710.84 →
+709.22 M records/s (−0.23%), full-process single-read 0.1981 →
+0.2205 M queries/s (+11.33%), and list 47.99 → 1522.19 thousand calls/s
+(31.72×). The write labels show the range of two run medians; fleet write
+labels show the range of five interleaved runs. [Raw paired output and all
+three compiler modes](C-M6-MASTER-2026-10-02/RESULT.md) and
+[chart data/source](C-PERFORMANCE-CHARTS/) are available.
 
 The Apple list chart uses `BM_hdr_value_at_percentiles_given_array/3/86400000`
-(`{50,95,99,99.9}`, 10 million gamma-distributed records). AppleClang 21,
-RelWithDebInfo, two interleaved invocations per revision, five timed Google
-Benchmark repetitions per invocation: stable medians 20,846 and 20,894 ns per
-four-percentile list; then-main `e4e8b0a` 1,221 and 1,220 ns. The plotted throughput
-is `1e6 / median_ns` in thousand list calls/second: about 48 versus 819,
-or ~17.1×. The benchmark library itself reports a debug-build warning, so
-this magnitude is corroborated by the separately validated
-[supplemental batch probe](OPT-ROUND-2026-09-30/batch_probe.c); the precise
-effect size still needs native cross-compiler confirmation. Its [raw output](OPT-ROUND-2026-09-30/list-results/)
-has genericized host labels for this public repository.
+(`{50,95,99,99.9}`, 10 million gamma-distributed records). At `-O2`,
+the two stable per-invocation medians were 20,809 and 20,867 ns per list;
+master `102aefb` was 656.61 and 657.28 ns. The benchmark library prints a
+debug-build warning; a validated independent dense-seven batch probe gives
+32.41× and matching output fingerprints. On the same M6, `-O3` gave 31.70×
+for the list and `-Os` 30.34×. Compiler, QoS and workload differences still
+limit absolute cross-runner comparisons.
 
 ## Other C evidence (different benchmarks)
 
@@ -102,7 +102,7 @@ result. `TBD` means that a fresh native result has not been supplied yet.
 | AMD x86-64, Zen 5 (m8a.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 489.0 M records/s (0.11.10: 500.2, **−2.2%**) | 0.89 M queries/s (0.11.10: 0.42, **+112%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/amd-w2.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/amd.out) |
 | ARM64, AWS Graviton / Neoverse-V2 (m8g.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 393.5 M records/s (0.11.10: 398.4, **−1.2%**) | 0.11 M queries/s (0.11.10: 0.09, **+22%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/arm-w3.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/arm.out) |
 | Intel x86-64, Sapphire Rapids (m7i.metal-24xl) | #158 fixed tip `d21d084` write (same-session 3-pt); read at `bcb5c1f` | 344.9 M records/s (0.11.10: 329.7, **+4.6%**) | 0.47 M queries/s (0.11.10: 0.27, **+74%**) | [write](C-PERFORMANCE-CHARTS/fleet-raw-2026-10-01-writefix/intel-w3.out) · [read](C-PERFORMANCE-CHARTS/fleet-raw-2026-09-30/intel.out) |
-| ARM64, Apple M6 | Upstream `e4e8b0a` (2026-09-30), immutable project write/read drivers | 710.33–710.78 M records/s, two runs | 0.22 M queries/s, two runs | [Post-merge round and raw logs](OPT-ROUND-2026-09-30/STATUS.md) |
+| ARM64, Apple M6 | Upstream `102aefb` (2026-10-02), immutable project write/read drivers, `-O2` | 709.22 M records/s (0.11.10: 710.84, **−0.23%**) | 0.2205 M queries/s (0.11.10: 0.1981, **+11.33%**) | [M6 latest-main ABBA result](C-M6-MASTER-2026-10-02/RESULT.md) |
 
 The read/list deltas above span **every** change from 0.11.10 to the #158 tip
 (all merged PRs), not #158 alone, and are within-runner on the same box. Read gains
@@ -117,13 +117,15 @@ diff from 0.11.10 is that one always-not-taken branch, yet its effect on code al
 swung +28% on SPR and −10% on Zen 5. The fix (`d21d084`) keeps that check only on the
 explicit `*_values(count)` API, off the single-value hot path, so write returns to ~flat
 across all three server uarches. The write change is therefore **not** a write
-optimization claim in either direction; #158's value is the read/list path. Apple M6 was
-measured at `e4e8b0a`, not #158. #158's **single-percentile AVX2** change is
+optimization claim in either direction; #158's value is the read/list path. The
+earlier Apple M6 round measured `e4e8b0a`; the chart above now uses merged
+main `102aefb`, not the #158 tip. #158's **single-percentile AVX2** change is
 x86-only, but it also removes a negative-count check from the **scalar batch**
 scan. An Apple supplemental dense-seven-list probe measured 2.45 µs at
 `e4e8b0a` versus 1.31 µs at the earlier #158 tip `bcb5c1f` on that workload.
-Thus the Apple list row is **not** a proxy for #158; its write was not
-re-measured at the fixed #158 tip either. See the [post-merge round](OPT-ROUND-2026-09-30/STATUS.md).
+Thus the Apple list row is **not** a proxy for #158. See the
+[post-merge round](OPT-ROUND-2026-09-30/STATUS.md) for the earlier source
+point and the [latest-main round](C-M6-MASTER-2026-10-02/RESULT.md) for this one.
 
 The Intel result uses `gcc -O3 -march=native`, one pinned core, and the
 [cross-language C harness](CROSS-LANG/c/microbench.c). Its exact C source hash

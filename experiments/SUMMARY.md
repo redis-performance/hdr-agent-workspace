@@ -58,9 +58,14 @@ and the accepted submodule baseline are unchanged.
 The [C-only architecture charts](C-PERFORMANCE-BY-ARCH.md) now show paired
 Apple, Intel, AMD, and Graviton write, single-percentile, and
 four-percentile-list results. The newer source point differs by runner:
-Apple used then-main `e4e8b0a`, while the fleet used PR #158. Apple list
-throughput improved ~17.1× within its own stable/newer pair; no new source
-candidate was accepted by this round. The absolute cross-runner speed gap
+Apple is refreshed to merged-main `102aefb` (`-O2`), while the fleet used
+PR #158. Apple's list throughput improved 31.72× within its own stable/main
+pair. [The 2026-10-02 M6 round](C-M6-MASTER-2026-10-02/RESULT.md) also records
+`-O3`/`-Os`: single reads improve 1.13×/2.86× respectively, with writes
+within ±0.23%; the newer main head `c4ef749` has identical Apple write/read
+code and an equivalent separately timed `-O2` list result. QoS was verified,
+but physical-core residency was not. No source candidate was accepted by this
+round. The absolute cross-runner speed gap
 remains unattributed; details and a controlled RNG probe are on the page.
 The [Apple M6 root-cause diagnostic](C-PERF-ROOTCAUSE-2026-10-01/RESULT.md)
 finds a large QoS effect and a possible L1D-capacity advantage, while local

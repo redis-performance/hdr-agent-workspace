@@ -1,0 +1,15 @@
+Test project <workspace>/.tools/m6-master-20261002/stable/build/os
+    Start 1: hdr_histogram_test
+1/5 Test #1: hdr_histogram_test ......................   Passed    0.21 sec
+    Start 2: hdr_histogram_atomic_test
+2/5 Test #2: hdr_histogram_atomic_test ...............   Passed    0.20 sec
+    Start 3: hdr_histogram_log_test
+3/5 Test #3: hdr_histogram_log_test ..................   Passed    0.16 sec
+    Start 4: hdr_atomic_test
+4/5 Test #4: hdr_atomic_test .........................   Passed    0.03 sec
+    Start 5: hdr_histogram_atomic_concurrency_test
+5/5 Test #5: hdr_histogram_atomic_concurrency_test ...   Passed    0.53 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =   1.14 sec
