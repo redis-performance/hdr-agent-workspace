@@ -36,6 +36,15 @@ upstream from this folder.
 6. **Not measured, stated in the notes:** Linux AArch64 with Clang at `-O3` against `0.11.10`. Only the effect of #167
    (2.12x on the read driver with the directive versus without) is known.
 
+## Charts
+
+`charts/` has four charts (speedup overview, write, read, batch) as SVG and PNG, drawn by `charts/render_release_charts.py`
+from `../../C-PERFORMANCE-CHARTS/data.json`, which is the same data as the table in the notes. The notes embed the PNGs by
+a **commit-pinned** URL (`.../hdr-agent-workspace/<commit>/...`), so they cannot change under a published release. The
+older charts in `C-PERFORMANCE-CHARTS/` are unchanged (they keep the "revision varies by runner" wording, which is right for
+an internal comparison but not for a release). If you would rather not depend on this repository for release images, copy
+`charts/*.png` into HdrHistogram_c (for example under `docs/`) and change the three URLs.
+
 ## How each claim in the notes was checked
 
 | Claim | Evidence |

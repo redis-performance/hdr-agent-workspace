@@ -10,6 +10,8 @@ control, upgrade: the heap overflow in [#146](https://github.com/HdrHistogram/Hd
 
 Percentile queries are much faster, most of all `hdr_value_at_percentiles` (the batch call). Recording is unchanged.
 
+![HdrHistogram_c 0.12.0 vs 0.11.10: speedup per machine](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/speedup.png)
+
 | 0.12.0 vs 0.11.10, higher is better | `hdr_value_at_percentile` (read) | `hdr_value_at_percentiles`, 4 percentiles (batch) | `hdr_record_value` (write) |
 |---|---:|---:|---:|
 | Intel Xeon (Sapphire Rapids) | 1.74x | 33x | 1.05x (inside run-to-run spread) |
@@ -24,6 +26,14 @@ four-percentile array), not application throughput. The write path is intentiona
 
 Measured at `d21d084` (write) and `bcb5c1f` (read and batch) on Intel, AMD and Graviton, and at `102aefb` on Apple M6.
 The code those paths run has not changed since, apart from the AArch64 Clang directive described below.
+
+<details><summary>Absolute numbers per machine</summary>
+
+![Write: hdr_record_value](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/write.png)
+![Read: hdr_value_at_percentile](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/read.png)
+![Batch: hdr_value_at_percentiles](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e331e5bd94eaed2c67770052efcd90d815c13dbc/experiments/RELEASE-0.12.0/charts/list.png)
+
+</details>
 
 - Percentile scan: summed in blocks with a scalar fallback ([#137](https://github.com/HdrHistogram/HdrHistogram_c/pull/137)),
   a wider 16-element AVX2 accumulator ([#138](https://github.com/HdrHistogram/HdrHistogram_c/pull/138)), and a scan that
