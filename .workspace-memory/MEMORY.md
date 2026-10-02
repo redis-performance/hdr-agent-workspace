@@ -61,3 +61,4 @@ Slack/ticket references).
 - [HdrHistogram campaign state](hdr-campaign-state.md) — cold-start snapshot: main sha, all open PRs, merge order, open decisions
 - [No Valkey PRs or issues](no-valkey-prs.md) — never open a PR/issue/comment in valkey-io; Valkey work stays local
 - [Use the OSS fleet, not the laptop](use-oss-fleet-not-laptop.md) — no builds/tests/benchmarks on the maintainer's machine; ask for fleet access, don't hunt for it
+- [Pass explicit PR numbers to gh](gh-explicit-pr-number.md) — an empty number targets the checked-out branch's (merged) PR; capture it from gh pr create's URL
