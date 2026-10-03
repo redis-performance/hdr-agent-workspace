@@ -33,7 +33,7 @@ In 0.11.10 the batch call was several times slower than single queries on Intel/
 - **#139 prefetch** (in the AVX2 scan): one early laptop-class Intel measurement found it slower than without; never re-run. Needs a
   with/without A/B on the OSS fleet.
 - **Linux AArch64 + Clang at -O3 vs 0.11.10** was never measured (only #167's effect: 2.12x on the read driver with vs without).
-- **Consumers have not adopted anything.** Redis, Valkey, memtier and Node.js still embed older copies. See [[consumers-vendored-hdr]].
+- **Consumers have not adopted anything.** Redis, Valkey, memtier, Node.js and Dragonfly still use older copies. Valkey and Dragonfly are off-limits for PRs/issues. See [[consumers-vendored-hdr]].
 - README line "Atomic/Concurrent histograms: unlikely" is stale (the `*_atomic` functions exist since before 0.11.10); wording is
   Mike Barker's call. Other old issues (#116, #124, #125, #132, #95, #98, #39) were not touched; #88 and #118 are closed.
 - **Fleet access is not recorded anywhere I can read** (by design). Ask the user; see [[use-oss-fleet-not-laptop]].

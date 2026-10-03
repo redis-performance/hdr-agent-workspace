@@ -176,3 +176,4 @@ https://github.com/HdrHistogram/HdrHistogram_c/releases/tag/0.12.0 on 8885476, L
 
 CONTEXT SAVED 2026-10-02: start from `.workspace-memory/hdr-0.12.0-release.md` (cold-start snapshot) and `consumers-vendored-hdr.md`; rules in merges-are-the-users, no-valkey-prs, use-oss-fleet-not-laptop, gh-explicit-pr-number, pkill-f-matches-own-shell, release-notes-scope.
 2026-10-03: Node.js adoption of 0.12.0 analysed (experiments/NODE-UPDATE-0.12.0/): Node's weekly updater bot copies a fixed file list that misses src/hdr_histogram_internal.h, so its 0.12.0 PR would not compile; one-line patch prepared, NOT yet opened in nodejs/node (waiting for the user's go).
+2026-10-03: RULE EXTENDED (user): Dragonfly (dragonflydb) is off-limits for PRs/issues/comments, same as Valkey. Nothing was ever opened in either (checked). Dragonfly pins an old HdrHistogram_c commit via CMake FetchContent; any bump is theirs to make.

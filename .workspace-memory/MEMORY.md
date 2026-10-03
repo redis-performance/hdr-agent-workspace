@@ -59,11 +59,11 @@ Slack/ticket references).
 - [benchmark-setup](benchmark-setup.md) — how to build + run the write/read benchmark drivers and measure cleanly
 - [check-open-prs-before-raising](check-open-prs-before-raising.md) — RULE: check open PRs/issues/fix-branches upstream before raising or filing any finding (don't duplicate in-flight work; fcostaoliveira=filipecosta90=the user)
 - [HdrHistogram campaign state](hdr-campaign-state.md) — cold-start snapshot: main sha, all open PRs, merge order, open decisions
-- [No Valkey PRs or issues](no-valkey-prs.md) — never open a PR/issue/comment in valkey-io; Valkey work stays local
+- [No PRs or issues to Valkey or Dragonfly](no-valkey-prs.md) — never open a PR/issue/comment in valkey-io or dragonflydb; their work stays local
 - [Use the OSS fleet, not the laptop](use-oss-fleet-not-laptop.md) — no builds/tests/benchmarks on the maintainer's machine; ask for fleet access, don't hunt for it
 - [Pass explicit PR numbers to gh](gh-explicit-pr-number.md) — an empty number targets the checked-out branch's (merged) PR; capture it from gh pr create's URL
 - [HdrHistogram_c 0.12.0 released: cold-start snapshot](hdr-0.12.0-release.md) — what shipped, numbers, where things live, open items (start here)
-- [Who embeds HdrHistogram_c and how to switch](consumers-vendored-hdr.md) — Redis, Valkey, memtier, Node.js: tested drop-in recipes and patches; nothing adopted yet; never PR Valkey
+- [Who embeds HdrHistogram_c and how to switch](consumers-vendored-hdr.md) — Redis, Valkey, memtier, Node.js, Dragonfly: tested drop-in recipes and patches; nothing adopted yet; never PR Valkey or Dragonfly
 - [Merges are the user's](merges-are-the-users.md) — agent merges are blocked; reviewer approves, user merges; publishing needs an explicit go
 - [pkill -f matches your own shell](pkill-f-matches-own-shell.md) — use PIDs or exact short names; never kill other sessions' processes
 - [Release notes scope and verification](release-notes-scope.md) — docs/version PRs excluded, British spelling, three-pass check, precise perf claims
