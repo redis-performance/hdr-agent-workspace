@@ -19,3 +19,9 @@ Full report: `experiments/CONSUMER-DROPIN-2026-10-02/REPORT.md`. Patches: `redis
 The user maintains memtier and said its behaviour change is fine. The new generator options are in HdrHistogram_c (#164, #169);
 migration steps are in its `docs/AMALGAMATION.md`. Tested on x86-64 Linux with gcc 13 only; memtier's own integration tests and Node's
 whole suite were not run.
+
+## Node.js adoption (checked 2026-10-03)
+Node updates `deps/histogram` with a weekly bot (`tools/dep_updaters/update-histogram.sh`, Sunday 00:05 UTC) that copies a fixed file
+list. At 0.12.0 that list misses `src/hdr_histogram_internal.h` (needed via `hdr_tests.h`), so the bot's PR will fail to compile until
+Node's script gets a one-line fix: `experiments/NODE-UPDATE-0.12.0/update-histogram.patch`, steps in that folder's README. No PR has
+been opened in Node yet (needs the user's go-ahead). Memtier, Redis: not adopted either.
