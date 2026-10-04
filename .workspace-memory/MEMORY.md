@@ -67,3 +67,4 @@ Slack/ticket references).
 - [Merges are the user's](merges-are-the-users.md) — agent merges are blocked; reviewer approves, user merges; publishing needs an explicit go
 - [pkill -f matches your own shell](pkill-f-matches-own-shell.md) — use PIDs or exact short names; never kill other sessions' processes
 - [Release notes scope and verification](release-notes-scope.md) — docs/version PRs excluded, British spelling, three-pass check, precise perf claims
+- [Node: the user opens PRs, not the agent](node-ai-policy-user-opens-prs.md) — nodejs/node bans PRs opened by automated tooling; prepare, disclose, hand over

@@ -21,6 +21,11 @@ Node's list is `src/hdr_histogram_internal.h`. So the bot's PR, as the script st
 
 Fix: `update-histogram.patch` (one line, adds the header to the `cp` list). With it, the same check finds nothing missing.
 
+## Who opens the Node PR
+
+The user, personally: Node's AI policy forbids PRs opened by automated tooling. Ready-made `COMMIT-MESSAGE.txt`, `PR-BODY.md` (with
+the required AI disclosure) and `HOW-TO-OPEN.md` are in this folder.
+
 ## Order of events
 
 1. The next scheduled run is the Sunday after the release (2026-10-04 00:05 UTC). A Node PR with the fix cannot realistically land

@@ -1,0 +1,7 @@
+tools: copy hdr_histogram_internal.h in update-histogram.sh
+
+HdrHistogram_c 0.12.0 added a private header,
+src/hdr_histogram_internal.h, which src/hdr_tests.h now includes.
+update-histogram.sh copies a fixed list of files, so the automated
+update to 0.12.0 would leave deps/histogram without it and fail to
+compile. Add the header to the list.
