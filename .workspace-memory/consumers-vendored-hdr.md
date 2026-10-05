@@ -36,3 +36,4 @@ change that one `GIT_TAG` (tag `0.12.0`, commit `8885476`) and run their CI. It 
 1.1-2.1x), and compiles logging out, so the log-decode security fixes do not reach it. Nothing built or tested for Dragonfly. **Off-limits like Valkey** (user, 2026-10-03): no PR, issue or comment there; any change to
 their pin is theirs to make. See [[no-valkey-prs]].
 
+Update 2026-10-05: the Node bot PR nodejs/node#66494 exists (opened 2026-10-04, approved, CI red on the predicted missing header). Talking points for the user's comment: `experiments/NODE-UPDATE-0.12.0/BOT-PR-66494.md`.

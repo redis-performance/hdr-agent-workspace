@@ -21,6 +21,10 @@ Node's list is `src/hdr_histogram_internal.h`. So the bot's PR, as the script st
 
 Fix: `update-histogram.patch` (one line, adds the header to the `cp` list). With it, the same check finds nothing missing.
 
+## Update 2026-10-05: the bot PR exists and is red
+
+nodejs/node#66494 was opened on 2026-10-04 and fails exactly as predicted; details and what to say in `BOT-PR-66494.md`.
+
 ## Who opens the Node PR
 
 The user, personally: Node's AI policy forbids PRs opened by automated tooling. Ready-made `COMMIT-MESSAGE.txt`, `PR-BODY.md` (with
