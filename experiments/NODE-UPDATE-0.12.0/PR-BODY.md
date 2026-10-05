@@ -21,8 +21,8 @@ How I checked it:
   `0.12.0` tag, transitively: it needs `hdr_histogram.h`, `hdr_atomic.h`,
   `hdr_tests.h`, `hdr_histogram_internal.h` and itself. Before this change
   only `hdr_histogram_internal.h` is missing from the copy list.
-- The CI log of #66494 shows exactly this error on Linux (x64 and arm64) and
-  macOS.
+- All five failing jobs of #66494 (Linux x64 and arm64, macOS, the tarball
+  build and Windows coverage) fail with exactly this error and no other.
 - <!-- EDIT: say what you ran yourself, for example: ran the updater against
   the 0.12.0 release in a checkout, confirmed
   deps/histogram/src/hdr_histogram_internal.h appears, and that

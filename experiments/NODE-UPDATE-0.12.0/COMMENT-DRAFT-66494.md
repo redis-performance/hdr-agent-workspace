@@ -5,7 +5,7 @@ change the wording, check each statement yourself, fill the two bracketed parts,
 
 ---
 
-CI on this PR fails to build with:
+CI on this PR fails to build (all five failing jobs, with no other error) with:
 
     ../deps/histogram/src/hdr_tests.h:12:10: fatal error: 'hdr_histogram_internal.h' file not found
 
@@ -28,7 +28,7 @@ https://github.com/HdrHistogram/HdrHistogram_c/releases/tag/0.12.0
 
 ---
 
-Facts behind each statement, so you can verify them before posting: the error line is from the arm64 job log of the failing
-"test-linux (ubuntu-24.04-arm)" check on this PR's head commit; `hdr_tests.h` line 12 in the PR includes the header; the tag file is
+Facts behind each statement, so you can verify them before posting: the error line is in the log of each of the five failing checks
+(test-linux x64 and arm64, test-macOS, test-tarball-linux, coverage-windows) on this PR's head commit, checked 2026-10-05; `hdr_tests.h` line 12 in the PR includes the header; the tag file is
 24 lines; the call sites are in `src/histogram.cc` and `src/histogram-inl.h`. The speed numbers are deliberately left out of the
 comment (they are library microbenchmarks); they are in the release notes if someone asks.
