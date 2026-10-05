@@ -23,11 +23,13 @@ How I checked it:
   only `hdr_histogram_internal.h` is missing from the copy list.
 - All five failing jobs of #66494 (Linux x64 and arm64, macOS, the tarball
   build and Windows coverage) fail with exactly this error and no other.
-- <!-- EDIT: say what you ran yourself, for example: ran the updater against
-  the 0.12.0 release in a checkout, confirmed
-  deps/histogram/src/hdr_histogram_internal.h appears, and that
+- Ran `tools/dep_updaters/update-histogram.sh` in a checkout of main
+  (`c56cb094`), which fetched 0.12.0: `deps/histogram/src/hdr_histogram_internal.h`
+  appears as a new file with this change. Syntax-checked with
   `cc -fsyntax-only -Ideps/histogram/src -Ideps/histogram/include
-  deps/histogram/src/hdr_histogram.c` succeeds. Only write what you did. -->
+  deps/histogram/src/hdr_histogram.c`, which succeeds. I did not run a full
+  Node build. I then discarded the update, so this PR contains only the
+  one-line script change.
 
 AI use disclosure: I used an AI coding assistant (Claude Code) to analyse the
 updater script against the 0.12.0 tag and to draft this one-line patch and
