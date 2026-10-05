@@ -4,7 +4,16 @@
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.
 
-upstream/main tip checked for M6 benchmark: **c4ef749** (after #168).
+upstream/main tip checked for fuzzer audit: **8885476** (0.12.0 release).
+
+## Upstream C main fuzzer closeout — 2026-10-05
+
+[Audit](../experiments/CI-FUZZ-2026-10-05/STATUS.md): last failed batch run
+was 2026-09-28 at `1343a189`, UBSan in log-reader `StartTime` conversion;
+#154 fixed it. Downloaded crash artifact reproduces on old source and returns
+`-ERANGE` without UB on current `8885476f`. Batch runs 2026-09-30 and
+2026-10-05 passed address and undefined sanitizer jobs; latest run has no
+crash artifact. No new C change or PR needed for this finding.
 
 ## Apple M6 latest-master benchmark — 2026-10-02
 

@@ -81,6 +81,13 @@ current-main overflow fix (#159), passing exact-head correctness and native
 coverage-guided fuzzing, and the macOS matrix fix (#160). No optimization status or
 accepted baseline changed.
 
+[Current-main batch fuzzer audit](CI-FUZZ-2026-10-05/STATUS.md) traces the last
+failed run (`1343a189`, 2026-09-28) to `hdr_timespec_from_double` signed
+overflow, fixed by #154 after #153 closed the earlier timestamp-parser bug.
+The saved crash reproduces on the old revision and is rejected with `-ERANGE`
+on `8885476f`; the 2026-09-30 and 2026-10-05 batch runs pass both sanitizer
+jobs. No source or optimization-count change follows.
+
 The subsequent [C PR review round](PR-REVIEW-2026-09-29/README.md) covers all 11
 open C PRs: five MERGE-READY, six NEEDS WORK, eight corrected branches pushed.
 Main CI/fuzz failures and exact review comments are linked there. Native

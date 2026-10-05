@@ -952,3 +952,14 @@ The `-Os` object text is identical with/without the hint. A matching-checksum
 short-crossing probe finds index-3 throughput about 19% worse with the hint;
 the earlier Apple exclusion remains correct. Diagnostic only: no source
 acceptance, build-default change, count change, or submodule-pointer update.
+
+### Upstream main batch-fuzzer failure closeout — 2026-10-05
+
+[Audit and source-linked evidence](CI-FUZZ-2026-10-05/STATUS.md). The last
+failing batch run, 2026-09-28 at `1343a189`, found real UBSan signed overflow
+in malformed log `StartTime` conversion. The saved crash input reproduces
+under sanitizers on that revision; current `8885476f` rejects it with
+`-ERANGE`. #154 fixed the conversion, following #153's separate timestamp
+parser overflow fix. The 2026-09-30 and 2026-10-05 batch runs pass both
+sanitizers. Diagnostic only; no source change, acceptance-count change, or
+submodule-pointer update.
