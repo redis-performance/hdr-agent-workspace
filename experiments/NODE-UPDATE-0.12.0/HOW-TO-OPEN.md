@@ -17,7 +17,7 @@ only in `PR-BODY.md`).
    - `cc -fsyntax-only -Ideps/histogram/src -Ideps/histogram/include deps/histogram/src/hdr_histogram.c` should succeed;
    - then discard the update, it is not part of this PR: `git checkout -- deps doc` and `git clean -fd deps/histogram`.
    Keep the final diff to the single script line: `git diff --stat` should show one file, one line.
-5. Commit: `git commit -F COMMIT-MESSAGE.txt tools/dep_updaters/update-histogram.sh` (the message follows Node's format: `tools:` prefix,
+5. Commit: `git commit -s -F COMMIT-MESSAGE.txt tools/dep_updaters/update-histogram.sh` (`-s` adds the `Signed-off-by` trailer; Node's `lint-commit-message` check fails without it, as it did on #66528) (the message follows Node's format: `tools:` prefix,
    lowercase subject under 72 characters, body wrapped at 72).
 6. Push to your fork and open the PR against `nodejs/node` main. Use `PR-BODY.md` as the description after editing the bracketed
    verification bullet so it states only what you actually ran.
