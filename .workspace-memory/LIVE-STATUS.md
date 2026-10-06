@@ -190,3 +190,4 @@ CONTEXT SAVED 2026-10-02: start from `.workspace-memory/hdr-0.12.0-release.md` (
 2026-10-05: Node's bot opened nodejs/node#66494 "deps: update histogram to 0.12.0" on 2026-10-04 (approved by cjihrig, labels needs-ci). CI red on 5 jobs with the predicted error `hdr_tests.h:12: 'hdr_histogram_internal.h' file not found`; updater fix not on Node main; nobody has commented. Suggested to the user: comment on #66494 (own words) + open the prepared updater-fix PR; an agent must not post (Node AI policy covers issues too). See experiments/NODE-UPDATE-0.12.0/BOT-PR-66494.md.
 
 - 2026-10-05: prepared experiments/LINKS-TO-OPEN.md (Node PR/comment, Redis PR, issues); memtier rebase held (tests/gate reference the local clamp).
+- 2026-10-06: Node #66494 landed; Dragonfly already on 0.12.0; Redis #15367 approved/green; README "Used by" section on fork branch docs/readme-adopters (HdrHistogram_c), not yet a PR.

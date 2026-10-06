@@ -37,3 +37,10 @@ change that one `GIT_TAG` (tag `0.12.0`, commit `8885476`) and run their CI. It 
 their pin is theirs to make. See [[no-valkey-prs]].
 
 Update 2026-10-05: the Node bot PR nodejs/node#66494 exists (opened 2026-10-04, approved, CI red on the predicted missing header). Talking points for the user's comment: `experiments/NODE-UPDATE-0.12.0/BOT-PR-66494.md`.
+
+## Snapshot 2026-10-06 (read from GitHub default branches)
+- Node main: 0.12.0 (bot PR #66494 landed 2026-10-06 after a collaborator's fixup added hdr_histogram_internal.h; updater fix #66528 still open, CI lint passes, needs review).
+- Dragonfly: GIT_TAG 0.12.0 (their own dep bump #8460, 2026-10-03; supersedes the older 652d51bc note above). Uses only single `hdr_value_at_percentile` (INFO LATENCYSTATS loop in server_family.cc, page_usage_stats.cc); no batched call.
+- Redis: unstable still e4448cf snapshot; update PR redis/redis#15367 open, APPROVED (moticless), checks green; also batches INFO latencystats.
+- Valkey: still e4448cf snapshot; no refresh PR (off-limits for us).
+- memtier: deps README says 0.11.0.
