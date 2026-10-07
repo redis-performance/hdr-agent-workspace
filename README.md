@@ -77,7 +77,7 @@ Java has none, so a fair single-call comparison isn't possible.
 
 ---
 
-## Upstream PRs — cross-port status (last updated 2026-09-21)
+## Upstream PRs — cross-port status (Go updated 2026-10-07; C/Rust snapshot 2026-09-21)
 
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
