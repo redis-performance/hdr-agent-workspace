@@ -974,3 +974,6 @@ dispatched: native Go fuzzing of all ten targets for up to 300 minutes each,
 and a one-hour shared ClusterFuzzLite AddressSanitizer batch. Both outcomes
 remain pending. Go submodule pointer advanced; no C source change, benchmark,
 or C optimization acceptance-count change.
+Additional workflow-only fork branches dispatch the same ten targets for
+300 minutes on Linux ARM64 and 120 minutes on macOS ARM64. These runs also
+remain pending and do not change any acceptance count.

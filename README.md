@@ -26,9 +26,10 @@ This investigation does not change optimization acceptance counts.
 
 **Go status, 2026-10-07:** [PackedHistogram #75](https://github.com/HdrHistogram/hdrhistogram-go/pull/75)
 and its follow-ups are merged into upstream `master` at `5ffadfa`. The
-[Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md) tracks the
-300-minute-per-target native fuzz run and the ClusterFuzzLite AddressSanitizer
-batch on that exact commit; both are still running.
+[Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md) tracks
+remote x86_64 and Linux ARM64 five-hour-per-target runs, a macOS ARM64
+two-hour-per-target run, and the ClusterFuzzLite AddressSanitizer batch.
+Results are still pending.
 
 ## C performance by architecture
 

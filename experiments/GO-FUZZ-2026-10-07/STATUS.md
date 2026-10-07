@@ -50,5 +50,30 @@ longer than five hours wall time if GitHub queues jobs. Success, crash counts,
 corpus growth and final verdict are **pending**; check both linked runs before
 claiming a clean deep-fuzz result.
 
+## Additional infrastructure — 2026-10-07
+
+To exercise architecture and OS differences, two workflow-only branches in the
+fork point to the same Go source tree as upstream `5ffadfa`. They change only
+`.github/workflows/fuzz-nightly.yml`; neither changes Go implementation or
+fuzz-target code. Each dispatch uses the same ten-target native fuzz matrix.
+
+| Platform | Workflow branch commit | Remote run | Budget / target | Dispatch status |
+|----------|------------------------|------------|-----------------|-----------------|
+| Linux ARM64 (`ubuntu-24.04-arm`) | [`5adc996`](https://github.com/fcostaoliveira/hdrhistogram-go/commit/5adc996) | [run 37628119727](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37628119727) | 300 minutes × 10 | First ARM fuzz jobs in progress; remaining jobs queued. |
+| Apple Silicon macOS (`macos-15`) | [`e6d836a`](https://github.com/fcostaoliveira/hdrhistogram-go/commit/e6d836a) | [run 37628225525](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37628225525) | 120 minutes × 10 | First macOS fuzz job in progress; remaining jobs queued. |
+
+GitHub's [runner reference](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
+identifies these labels as Linux ARM64 and macOS ARM64 for public repos. The
+ARM and macOS fuzz jobs' API metadata confirms their requested runner labels. The macOS
+branch replaces Linux's GNU `timeout` with a portable process-group watchdog;
+it retains a ten-minute hard-stop margin and corpus-saving steps. Runner
+execution and final corpus summaries must be checked after the queue drains.
+The new branches are campaign branches, not proposed upstream changes.
+
+Neither these GitHub-hosted runners nor the initial x86_64 run are the separate
+OSS benchmark fleet. Fleet access is not stored in this public repository;
+no private connection details were sought or committed. The linked remote
+jobs are the currently accessible additional infrastructure.
+
 This is a Go cross-port validation campaign, not a C optimization candidate.
 No C experiment acceptance counts or performance conclusions change.

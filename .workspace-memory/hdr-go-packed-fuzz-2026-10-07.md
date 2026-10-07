@@ -20,4 +20,10 @@ do not report success before checking final job conclusions, corpus summaries,
 and any crash artifacts. The detailed public ledger is
 [experiments/GO-FUZZ-2026-10-07/STATUS.md](../experiments/GO-FUZZ-2026-10-07/STATUS.md).
 
+Additional workflow-only fork branches were pushed for [Linux ARM64](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37628119727)
+(`5adc996`, 300 minutes × 10 targets) and [macOS ARM64](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37628225525)
+(`e6d836a`, 120 minutes × 10). Both retain upstream Go source `5ffadfa`.
+Final results pending. The separate OSS fleet connection is not recorded in
+this public repo; no local fuzzing was run.
+
 Keep builds/tests/fuzzers on remote infrastructure, never this workstation.
