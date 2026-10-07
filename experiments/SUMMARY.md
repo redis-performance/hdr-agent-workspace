@@ -2,6 +2,13 @@
 
 Single source of truth for experiment status. Keep `README.md` counts in sync.
 
+[Go packed master and deep-fuzz campaign](GO-FUZZ-2026-10-07/STATUS.md):
+upstream #75 and follow-ups through #103 are merged at `5ffadfa`; #105 remains
+open. The fork now matches upstream `master`. Remote native Go fuzzing (300
+minutes per each of ten targets) and a ClusterFuzzLite AddressSanitizer batch
+were dispatched on that exact commit. Results are pending; C optimization
+acceptance counts below do not change.
+
 [Redis/Valkey integration and code-size audit](C-HARDENING-2026-10-01/README.md)
 tracks C release hardening, consumer patch drafts, pinned binary measurements,
 and Supabase's indirect Node dependency. This audit does not change optimization

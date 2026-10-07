@@ -963,3 +963,14 @@ under sanitizers on that revision; current `8885476f` rejects it with
 parser overflow fix. The 2026-09-30 and 2026-10-05 batch runs pass both
 sanitizers. Diagnostic only; no source change, acceptance-count change, or
 submodule-pointer update.
+
+### Go packed master deep-fuzz campaign — 2026-10-07
+
+[Status, source pins and remote runs](GO-FUZZ-2026-10-07/STATUS.md). Upstream Go
+`master` now includes PackedHistogram #75, fuzz infrastructure #76/#78/#79,
+hardening #80/#103, and packed follow-ups #81–#83 at `5ffadfa`. The fork's
+`master` was fast-forwarded to that commit, and two remote workflows were
+dispatched: native Go fuzzing of all ten targets for up to 300 minutes each,
+and a one-hour shared ClusterFuzzLite AddressSanitizer batch. Both outcomes
+remain pending. Go submodule pointer advanced; no C source change, benchmark,
+or C optimization acceptance-count change.
