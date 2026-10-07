@@ -77,3 +77,13 @@ jobs are the currently accessible additional infrastructure.
 
 This is a Go cross-port validation campaign, not a C optimization candidate.
 No C experiment acceptance counts or performance conclusions change.
+
+## ARM64 FuzzPackedDifferential failure: reproduction attempt (2026-10-07)
+
+Fork run 37628119727 failed `FuzzPackedDifferential` after 3h31m (about 55M execs) with "fuzzing process hung or terminated
+unexpectedly: exit status 2" and no panic text. The saved input (174 bytes, `arm-repro/`) was re-run on a fleet ARM64 VM
+(Neoverse V2, Go 1.27.1) at the failing commit `5ffadfa` and at `de66007`: **both pass, exit 0.** So the input alone does not
+reproduce it. That is inconclusive, not a clearance: Go reports the input the worker was running when it died, which is not
+necessarily the cause (a killed worker or a resource limit on the runner looks the same), and the x86_64 and ASan runs of the
+same target passed. Next step: a long run of this one target on a fleet ARM64 VM at `de66007`, to see whether a panic with a
+stack trace appears. Not yet started.
