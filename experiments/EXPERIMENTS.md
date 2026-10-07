@@ -977,3 +977,13 @@ or C optimization acceptance-count change.
 Additional workflow-only fork branches dispatch the same ten targets for
 300 minutes on Linux ARM64 and 120 minutes on macOS ARM64. These runs also
 remain pending and do not change any acceptance count.
+
+**19:56 UTC update:** The original `5ffadfa` x86_64 native run passed all ten
+targets, as did its ASan batch. The Linux ARM64 `FuzzPackedDifferential` job
+failed after 3h31m/55.1 million executions with an unexpected fuzz-worker
+exit status 2; a 174-byte failing input was saved, but no library assertion or
+panic was logged. Dedicated ARM replay passed explicit corpus replay and a
+one-minute fuzz run; two five-hour targeted reruns are queued. The macOS jobs are still
+running. Upstream #105 merged as `de66007`; the fork and workspace Go submodule
+advanced to it, and new native/ASan deep campaigns were dispatched. None of
+the first four campaigns covers #105. No C acceptance-count change.

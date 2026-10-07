@@ -1,9 +1,11 @@
 # Workspace Memory — hdr-agent-workspace
 
 - [Go packed master and deep-fuzz campaign](hdr-go-packed-fuzz-2026-10-07.md) —
-  upstream Go `master` `5ffadfa` includes packed #75 and follow-ups through
-  #103. Fork master was fast-forwarded and two remote deep-fuzz runs started;
-  final outcomes pending. Workspace Go submodule updated to match.
+  upstream Go `master` `de66007` includes packed #75 and follow-ups through
+  #105. The prior `5ffadfa` x86_64/ASan deep runs passed; ARM64 has one
+  unclassified packed-differential worker exit; short replay passes, two long
+  ARM reruns are queued. New exact-master
+  runs are pending; workspace Go submodule and fork match `de66007`.
 
 - [ARM Clang percentile unroll investigation](hdr-arm-clang-scan.md) — causal
   control and narrow candidate: full O3 read 2.120x, unchanged write/Os and

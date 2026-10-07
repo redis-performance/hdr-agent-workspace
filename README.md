@@ -25,11 +25,11 @@ upstream hardening/build plans, and Supabase's indirect Node exposure.
 This investigation does not change optimization acceptance counts.
 
 **Go status, 2026-10-07:** [PackedHistogram #75](https://github.com/HdrHistogram/hdrhistogram-go/pull/75)
-and its follow-ups are merged into upstream `master` at `5ffadfa`. The
-[Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md) tracks
-remote x86_64 and Linux ARM64 five-hour-per-target runs, a macOS ARM64
-two-hour-per-target run, and the ClusterFuzzLite AddressSanitizer batch.
-Results are still pending.
+and its follow-ups through [#105](https://github.com/HdrHistogram/hdrhistogram-go/pull/105)
+are merged into upstream `master` at `de66007`. The [Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md)
+records a green x86_64/ASan round on the previous `5ffadfa` head, one
+unclassified ARM64 packed-differential failure, macOS jobs still running,
+and new full fuzz/ASan runs on `de66007`.
 
 ## C performance by architecture
 
@@ -83,7 +83,7 @@ Java has none, so a fair single-call comparison isn't possible.
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 
-**Historical tally (2026-09-21):** **C** — **11 merged** (#134/#135/#136 perf · #137 scalar scan + offset-safe dispatch · #145/#146/#147/#148/#153 hardening · #151 review automation · #152 CI), 11 open (4 perf #138–#141 · #144 CI · #149/#154/#155/#156/#157 hardening · packed #150), 1 closed. **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153). **Go (updated 2026-10-07)** — #75–#76, #78–#83 and #103 merged since that snapshot; #105 and #23 open.
+**Historical tally (2026-09-21):** **C** — **11 merged** (#134/#135/#136 perf · #137 scalar scan + offset-safe dispatch · #145/#146/#147/#148/#153 hardening · #151 review automation · #152 CI), 11 open (4 perf #138–#141 · #144 CI · #149/#154/#155/#156/#157 hardening · packed #150), 1 closed. **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153). **Go (updated 2026-10-07)** — #75–#76, #78–#83, #103 and #105 merged since that snapshot; #108, #109 and #23 open.
 
 ### C — [HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c) (fork `fcostaoliveira/HdrHistogram_c`)
 | PR | State | What |
@@ -129,7 +129,7 @@ variant [**#150**](https://github.com/HdrHistogram/HdrHistogram_c/pull/150) (see
 | [#76–#80](experiments/GO-FUZZ-2026-10-07/STATUS.md) | ✅ **MERGED** | long-running fuzz CI and decoder hardening |
 | [#81–#83](experiments/GO-FUZZ-2026-10-07/STATUS.md) | ✅ **MERGED** | packed rolling-window, merge/compact APIs and documentation |
 | [#103](https://github.com/HdrHistogram/hdrhistogram-go/pull/103) | ✅ **MERGED** `5ffadfa` | decode, negative-value, boundary-max and dropped-count fixes |
-| [#105](https://github.com/HdrHistogram/hdrhistogram-go/pull/105) | **OPEN** | packed API and C/Java compatibility follow-up |
+| [#105](https://github.com/HdrHistogram/hdrhistogram-go/pull/105) | ✅ **MERGED** `de66007` | packed API and C/Java compatibility follow-up |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
@@ -453,9 +453,9 @@ The merged fork PRs above are the baseline this workspace builds on.
   chunked skip-scan (**#140 merged**); sparse **PackedHistogram** (#154, open, CI 17/17).
 - **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`).
   The #57–#74 fixes and optimizations shipped in **v1.3.0**. Sparse
-  **PackedHistogram** (#75) and follow-ups through #103 are merged on `master`;
-  #105 remains open. The [current-master deep fuzz run](experiments/GO-FUZZ-2026-10-07/STATUS.md)
-  is in progress.
+  **PackedHistogram** (#75) and follow-ups through #105 are merged on `master`.
+  The [current-master deep fuzz run](experiments/GO-FUZZ-2026-10-07/STATUS.md)
+  is in progress; the earlier ARM64 packed-differential failure is under replay.
 
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
