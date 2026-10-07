@@ -191,3 +191,4 @@ CONTEXT SAVED 2026-10-02: start from `.workspace-memory/hdr-0.12.0-release.md` (
 
 - 2026-10-05: prepared experiments/LINKS-TO-OPEN.md (Node PR/comment, Redis PR, issues); memtier rebase held (tests/gate reference the local clamp).
 - 2026-10-06: Node #66494 landed; Dragonfly already on 0.12.0; Redis #15367 approved/green; README "Used by" section on fork branch docs/readme-adopters (HdrHistogram_c), not yet a PR.
+- 2026-10-07 (read-only check): Go master moved past the pin in hdr-go-packed-fuzz-2026-10-07.md: #105 (packed APIs + C/Java compat contracts) MERGED 13:20Z -> master de66007; the four running fork fuzz campaigns are on 5ffadfa and do NOT cover #105. Runs still in progress at check time; no verdicts yet.
