@@ -15,8 +15,8 @@ Accept: at least +2% on the target, no regression over 1% elsewhere, tests green
 | EXP | Technique | Hypothesis | Status |
 |---|---|---|---|
 | 1 | `scanTargets`: blocked skip-scan shared by the map variant (commit `2415d86`) | 4-percentile map call drops to the cost of the four blocked singles or better (under 5.4 us Intel) | **ACCEPTED**: 5.88x Intel, 6.03x AMD, 5.65x Arm; untouched benchmarks flat; tests green. See `exp1-blockscan/README.md` |
-| 2 | same helper for `ValueAtPercentilesSlice` (branch `perf/percentiles-slice`, commit `026fee8`, stacked on EXP-1; baseline = `408c962` which only adds the benchmarks) | sorted-input slice call gains like the map one; unsorted keeps its sort but drops the per-element loop | **ACCEPTED**: 3.35x Intel, 3.66x AMD, 4.13x Arm (sorted); 3.19x / 3.39x / 3.87x (unsorted); allocs 4 -> 1. See `exp2-slice/README.md` |
-| 3 | stack scratch for small percentile lists (drop 1 alloc) | -40 to -80 ns per call | **partly moot**: the compiler already keeps the scratch on the stack in EXP-2 (1 alloc left, the result slice); the map variant still allocates the map and targets (2 allocs), untested |
+| 2 | same helper for `ValueAtPercentilesSlice` (branch `perf/percentiles-slice`, commit `026fee8`, stacked on EXP-1; baseline = `408c962` which only adds the benchmarks) | sorted-input slice call gains like the map one; unsorted keeps its sort but drops the per-element loop | **ACCEPTED**: 3.35x Intel, 3.66x AMD, 4.13x Arm (sorted); 3.19x / 3.39x / 3.87x (unsorted); allocs 4 -> 1 for sorted input only (unsorted fixed later in PR #116 `b3be425`, see below). See `exp2-slice/README.md` |
+| 3 | stack scratch for small percentile lists (drop 1 alloc) | -40 to -80 ns per call | **partly moot** on Go 1.25+ with 4 or fewer percentiles (scratch on the stack, 1 alloc left); not on Go 1.23 or 5+ percentiles (2-3 allocs); the map variant still allocates the map and targets (2 allocs), untested |
 | 4 | skip `sort.Float64s` when already ascending | tiny | not started |
 | 5 | block width 16 instead of 8 | maybe +5% on x86, check Arm | not started |
 | replication | second session, same result: map variant 0.83x Intel, 0.70x AMD, 1.01x Arm | confirmed | `GO-BENCH-1.3.0-VS-MASTER-2026-10-08/replication-2026-10-08-second-session` |
@@ -53,3 +53,7 @@ Fixed in `b3be425`: `slices.SortStableFunc`, then `slices.Sort(targets)` in plac
 Allocations per call, 4 percentiles: Go 1.23 master 5/152 B -> sorted 2/64 B, unsorted 3/96 B; Go 1.26 4/120 B -> 1/32 B for
 both. Also `// nolint` on the helper; the fuzz slice check records a second sample so the unsorted path runs. **The unsorted
 timings in this ledger predate `b3be425` and need a fleet re-run** (the PR body says so). Round 2 and CI are running.
+Round 2 at `b3be425`: 3 of 4 ready. The fourth found that on wrapped-total imports (snapshots failing `Validate`) the slice
+variant's results change from master (unspecified input; they now always equal the map variant in a 20k probe). Fixed in
+`8460179`: the PR body discloses it, the wrapped-import bounds test covers the slice variant, the fuzz check runs sorted and
+unsorted lists with a NaN seed, and a code comment no longer over-claims stack allocation. Round 3 running.
