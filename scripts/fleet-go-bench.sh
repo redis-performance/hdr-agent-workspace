@@ -4,7 +4,7 @@
 # in order A B B A A B B A (COUNT repetitions each), after an idle check. Detaches; poll $OUT/DONE and read $OUT/summary.txt.
 # Only user-directory files under ~/hdrfuzz. Needs nothing installed (reuses or fetches a Go toolchain).
 set -eu
-A=${A:-v1.3.0}; B=${B:-1608007}; COUNT=${COUNT:-5}; CPU=${CPU:-2}
+A=${A:-v1.3.0}; B=${B:-1608007}; COUNT=${COUNT:-5}; CPU=${CPU:-2}; BENCH=${BENCH:-.}; FORK=${FORK:-}   # FORK=https://github.com/USER/hdrhistogram-go to fetch branch refs from a fork
 case "$(uname -m)" in x86_64) GA=amd64;; aarch64) GA=arm64;; *) echo unsupported arch; exit 1;; esac
 mkdir -p ~/hdrfuzz && cd ~/hdrfuzz
 if [ ! -x gotool/go/bin/go ]; then
@@ -15,7 +15,8 @@ export PATH=$HOME/hdrfuzz/gotool/go/bin:$PATH GOTOOLCHAIN=local
 OUT=$HOME/hdrfuzz/bench-$(date -u +%Y%m%dT%H%M%SZ); mkdir -p "$OUT/bin" "$OUT/raw"
 export GOCACHE=$OUT/gocache GOPATH=$OUT/gopath
 git clone -q https://github.com/HdrHistogram/hdrhistogram-go "$OUT/src" && cd "$OUT/src"
-for r in A B; do ref=${!r}; git checkout -q "$ref"; echo "$r=$ref $(git rev-parse HEAD)" >> "$OUT/refs"; go test -c -o "$OUT/bin/$r.test" . ; done
+[ -n "$FORK" ] && git remote add fork "$FORK" && git fetch -q fork
+for r in A B; do ref=${!r}; git checkout -q "$ref" 2>/dev/null || git checkout -q "fork/$ref"; echo "$r=$ref $(git rev-parse HEAD)" >> "$OUT/refs"; { echo "== $r=$ref"; gofmt -l . ; go vet . 2>&1 | tail -3; go test -count=1 -timeout 20m . 2>&1 | tail -3; } >> "$OUT/tests.txt"; go test -c -o "$OUT/bin/$r.test" . ; done
 { echo "arch: $(uname -m)"; grep -m1 'model name' /proc/cpuinfo || lscpu | grep -m1 'Model name'; echo "cores: $(nproc)"; go version
   echo "governor: $(cat /sys/devices/system/cpu/cpu$CPU/cpufreq/scaling_governor 2>/dev/null || echo n/a)"; echo "pinned cpu: $CPU, GOMAXPROCS=1, count=$COUNT"; } > "$OUT/meta"
 cat > "$OUT/summarize.py" <<'PY'
@@ -44,7 +45,7 @@ idle(){ for i in \$(seq 1 120); do
 n=0
 for r in A B B A A B B A; do n=\$((n+1))
   idle || { echo "not idle, abort before \$n\$r" >> notes; exit 1; }
-  taskset -c $CPU env GOMAXPROCS=1 ./bin/\$r.test -test.run='^\$' -test.bench=. -test.benchmem -test.count=$COUNT -test.timeout=40m > raw/\${n}_\${r}.txt 2>&1
+  taskset -c $CPU env GOMAXPROCS=1 ./bin/\$r.test -test.run='^\$' -test.bench='$BENCH' -test.benchmem -test.count=$COUNT -test.timeout=40m > raw/\${n}_\${r}.txt 2>&1
   echo "\$n \$r exit \$?" >> notes
 done
 python3 summarize.py "$OUT" > summary.txt; touch DONE
