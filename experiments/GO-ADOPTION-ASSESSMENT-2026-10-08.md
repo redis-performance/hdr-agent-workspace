@@ -15,6 +15,10 @@ Method limits as in `GO-USERS-2026-10-08.md`: code search is capped and misses v
    Mattermost playbooks plugin, only a `go.mod` line, so it is almost certainly transitive (for example through tracing libraries; flipt already replaced its own use in
    its PR #529). There is nothing in those repositories to migrate; not verified with `go mod why`, which needs a checkout and a Go toolchain.
 
+4. **Update 2026-10-08 (v1.4.0 published, checked on the fleet):** `go get ...@v1.4.0` raises a project's `go` directive to **1.23.0**. In `redis-benchmark-go` that is `go 1.21` -> `go 1.23.0` and its CI
+   matrix (1.20.x and 1.21.x) cannot build it, so the PR also moves the matrix. Every other project on this list whose `go.mod` says less than 1.23 faces the same cost; ftsb already declares 1.23.0.
+   Validation done for the two Redis-ecosystem projects: `experiments/GO-CONSUMERS-REDIS-2026-10-08/` (ftsb 62/62 tests before and after, redis-benchmark-go `make test` passes before and after).
+
 ## Per project
 
 | Project | What it is really | Gain from the bump | Friction | Verdict |
