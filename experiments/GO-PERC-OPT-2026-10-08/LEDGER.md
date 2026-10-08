@@ -42,3 +42,14 @@ bounds test there instead. Test-only commits on top: `d02b1e0`, `3854e80`. `exp1
 benchmarked code and the original test, not those later tests. Base for EXP-2 is now `f072b62`.
 
 EXP-1 merged as #115 (`f072b62`, 2026-10-08 08:44Z). EXP-2 rebased on it (branch `perf/percentiles-slice-pr`, `76961f6`; gofmt, vet and tests green on Intel, AMD, Arm) and opened as [HdrHistogram/hdrhistogram-go#116](https://github.com/HdrHistogram/hdrhistogram-go/pull/116), awaiting review. Its timings are the pre-rebase A/B in `exp2-slice/` (same code).
+
+## Upstream review of EXP-2 (PR #116), 2026-10-08
+
+Round 1 (4 agents) at `76961f6`: results identical to master (200k histograms, 800k percentile lists), but three blockers.
+CI lint failed (SA1019 `rand.Seed` in the new benchmark helper). The "4 -> 1 allocations for both inputs" claim was false
+for unsorted input: the fleet's own raw B files show 4 allocs / 120 B, and on Go 1.23 (`go.mod`/CI) it regressed from 5 to 6.
+The cause was `sort.SliceStable` (its interface makes `order` escape) plus a separate `sorted` copy. The data link 404'd.
+Fixed in `b3be425`: `slices.SortStableFunc`, then `slices.Sort(targets)` in place (equal ranks are interchangeable).
+Allocations per call, 4 percentiles: Go 1.23 master 5/152 B -> sorted 2/64 B, unsorted 3/96 B; Go 1.26 4/120 B -> 1/32 B for
+both. Also `// nolint` on the helper; the fuzz slice check records a second sample so the unsorted path runs. **The unsorted
+timings in this ledger predate `b3be425` and need a fleet re-run** (the PR body says so). Round 2 and CI are running.
