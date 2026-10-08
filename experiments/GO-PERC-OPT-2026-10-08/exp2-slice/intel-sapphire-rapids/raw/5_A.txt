@@ -1,0 +1,19 @@
+goos: linux
+goarch: amd64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+cpu: Intel(R) Xeon(R) Platinum 8488C
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  218434	      5249 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  233251	      5049 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  235690	      5042 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  240813	      5044 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  231088	      5136 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  238117	      5109 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  228492	      5049 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  231379	      5035 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  234332	      5072 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  242521	      4955 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  229123	      5037 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  231175	      5129 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  228333	      5062 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  225320	      4882 ns/op	     120 B/op	       4 allocs/op
+PASS

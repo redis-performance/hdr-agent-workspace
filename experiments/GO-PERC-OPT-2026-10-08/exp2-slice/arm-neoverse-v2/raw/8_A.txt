@@ -1,0 +1,18 @@
+goos: linux
+goarch: arm64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  170038	      7380 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  165856	      7407 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  171370	      6913 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  167450	      7280 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  166648	      7310 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  166144	      7247 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	  161269	      7309 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  170649	      7090 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  169542	      7342 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  165748	      7127 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  164466	      7129 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  162654	      7135 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  163430	      7174 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	  165220	      7176 ns/op	     120 B/op	       4 allocs/op
+PASS

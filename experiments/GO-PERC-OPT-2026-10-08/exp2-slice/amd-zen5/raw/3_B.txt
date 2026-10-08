@@ -1,0 +1,19 @@
+goos: linux
+goarch: amd64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+cpu: AMD EPYC 9R45 96-Core Processor                
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1214116	       981.8 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1230285	       957.5 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1000000	      1006 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1000000	      1003 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1212970	      1006 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1220101	       993.0 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceSorted   	 1000000	      1014 ns/op	      32 B/op	       1 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1050 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1054 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1039 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1035 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1035 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1060 ns/op	     120 B/op	       4 allocs/op
+BenchmarkHistogramValueAtPercentilesSliceUnsorted 	 1000000	      1067 ns/op	     120 B/op	       4 allocs/op
+PASS

@@ -1,0 +1,6 @@
+arch: aarch64
+Model name:                           Neoverse-V2
+cores: 96
+go version go1.27.1 linux/arm64
+governor: n/a
+pinned cpu: 2, GOMAXPROCS=1, count=7
