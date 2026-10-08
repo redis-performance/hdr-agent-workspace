@@ -9,7 +9,7 @@ for the next session. Verify against GitHub before acting; it is a snapshot.
 **State at handoff (2026-10-08 10:31 UTC):** upstream `master` = `687f303`.
 **[v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) is released** at `687f303`
 (latest; served by proxy.golang.org). Notes: [RELEASE-GO-1.4.0](../RELEASE-GO-1.4.0/README.md).
-No open PRs except #23 (external, untouched).
+No open PRs except #23 (external, untouched). **Post-release deep fuzz of `687f303` passed:** [native, 60 min x 10 targets](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) (one job cancelled by a GitHub runner shutdown after 14.5 M clean executions, re-run green) and the [ClusterFuzzLite ASan batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961).
 
 ## What merged (in order)
 
@@ -61,7 +61,6 @@ Experiment ledger for #115–#117: [GO-PERC-OPT-2026-10-08/LEDGER.md](../GO-PERC
 
 ## Open follow-ups
 
-- **Post-release deep fuzz on `687f303`:** [native, 60 min/target](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) and [ClusterFuzzLite batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961) were in progress at handoff (1 of 10 native targets passed). A real failure would need a v1.4.1.
 - **#117 fleet re-run:** packed write patterns (clustered, hot90, random) `186f8b9` vs `687f303`, Intel/AMD/Arm. Revisit the cache if random writes cost clearly more than August's +2.4–9.4%.
 - **#116 unsorted timings** predate the allocation fix in `b3be425`; re-time on the fleet.
 - **Map-variant NaN quirk:** with a NaN percentile and a wrapped total (snapshot failing `Validate`), `ValueAtPercentiles` can pass non-ascending ranks to `scanTargets`. Unspecified input; not filed.

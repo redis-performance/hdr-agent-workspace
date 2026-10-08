@@ -9,7 +9,7 @@ point there. Session record and open follow-ups: [GO-MAINTAINER-2026-10-07](GO-M
 [Deep-fuzz campaign](GO-FUZZ-2026-10-07/STATUS.md): x86_64 (10/10 five-hour targets) and ASan passed at `5ffadfa`, the native and
 ASan reruns at `de66007` passed, and the fleet's 6 h x 10 targets on Intel, AMD and Graviton at `de66007` finished 30/30 PASS
 ([result](GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)). Two `FuzzPackedDifferential` worker exits on GitHub's Linux ARM64 runners
-(~55-56 M executions, inputs saved, replays pass) remain unexplained. A post-release deep fuzz of `687f303` was running at release.
+(~55-56 M executions, inputs saved, replays pass) remain unexplained. A post-release deep fuzz of `687f303` (native 60 min x 10 targets and the ClusterFuzzLite ASan batch) passed.
 C optimization counts below do not change.
 
 [Redis/Valkey integration and code-size audit](C-HARDENING-2026-10-01/README.md)

@@ -33,7 +33,7 @@ follow-ups: [GO-MAINTAINER-2026-10-07](experiments/GO-MAINTAINER-2026-10-07/STAT
 [RELEASE-GO-1.4.0](experiments/RELEASE-GO-1.4.0/README.md); speed-ups: [GO-PERC-OPT-2026-10-08](experiments/GO-PERC-OPT-2026-10-08/LEDGER.md).
 Fuzzing: x86_64, ASan and a 6-hour fleet run of all 10 targets at `de66007` passed ([campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md));
 two `FuzzPackedDifferential` worker exits on GitHub's ARM64 runners (~55-56 M executions) remain unexplained. A post-release deep
-fuzz of `687f303` was running at release time.
+fuzz of `687f303` (native 60 min x 10 targets, and the ClusterFuzzLite ASan batch) passed.
 
 ## C performance by architecture
 

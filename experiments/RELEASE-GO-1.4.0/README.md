@@ -38,3 +38,9 @@ Published while a pre-release deep fuzz on `687f303` was still running (user: "w
 [native 60 min/target](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) and
 [ClusterFuzzLite batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961). Check both; a failure
 would need a v1.4.1. #117's fleet re-measurement is also still outstanding.
+
+## Post-release deep fuzz: passed (2026-10-08)
+
+Both runs on `687f303` passed: native fuzzing, 60 minutes for each of the 10 targets (run 37763468382), and the ClusterFuzzLite
+ASan batch (run 37763471961). In attempt 1, `FuzzPackedDecodeHostile` was cancelled by a GitHub runner shutdown signal at
+58m57s, after 14.5 M executions with no failure or failing input; the re-run (attempt 2) passed. No v1.4.1 is needed from fuzzing.
