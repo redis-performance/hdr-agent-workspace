@@ -15,8 +15,10 @@ Accept: at least +2% on the target, no regression over 1% elsewhere, tests green
 | EXP | Technique | Hypothesis | Status |
 |---|---|---|---|
 | 1 | `scanTargets`: blocked skip-scan shared by the map variant (commit `2415d86`) | 4-percentile map call drops to the cost of the four blocked singles or better (under 5.4 us Intel) | **ACCEPTED**: 5.88x Intel, 6.03x AMD, 5.65x Arm; untouched benchmarks flat; tests green. See `exp1-blockscan/README.md` |
-| 2 | same helper for `ValueAtPercentilesSlice` | slice variant gains similarly; watch the extra allocation | not started |
+| 2 | same helper for `ValueAtPercentilesSlice` (branch `perf/percentiles-slice`, commit `026fee8`, stacked on EXP-1; baseline = `408c962` which only adds the benchmarks) | sorted-input slice call gains like the map one; unsorted keeps its sort but drops the per-element loop | written, **not yet run** |
 | 3 | stack scratch for small percentile lists (drop 1 alloc) | -40 to -80 ns per call | not started |
 | 4 | skip `sort.Float64s` when already ascending | tiny | not started |
 | 5 | block width 16 instead of 8 | maybe +5% on x86, check Arm | not started |
 | replication | second session, same result: map variant 0.83x Intel, 0.70x AMD, 1.01x Arm | confirmed | `GO-BENCH-1.3.0-VS-MASTER-2026-10-08/replication-2026-10-08-second-session` |
+
+Upstream: EXP-1 is [HdrHistogram/hdrhistogram-go#115](https://github.com/HdrHistogram/hdrhistogram-go/pull/115) (opened 2026-10-08, awaiting review).
