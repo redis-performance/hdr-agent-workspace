@@ -40,3 +40,5 @@ also removes the map/slice disagreement on wrapped-total imports.
 snapshots failing `Validate` (wrapped total) results are unspecified, not "equal to `ValueAtPercentile`"; the PR now has a
 bounds test there instead. Test-only commits on top: `d02b1e0`, `3854e80`. `exp1.patch` in this folder holds only the
 benchmarked code and the original test, not those later tests. Base for EXP-2 is now `f072b62`.
+
+EXP-1 merged as #115 (`f072b62`, 2026-10-08 08:44Z). EXP-2 rebased on it (branch `perf/percentiles-slice-pr`, `76961f6`; gofmt, vet and tests green on Intel, AMD, Arm) and opened as [HdrHistogram/hdrhistogram-go#116](https://github.com/HdrHistogram/hdrhistogram-go/pull/116), awaiting review. Its timings are the pre-rebase A/B in `exp2-slice/` (same code).
