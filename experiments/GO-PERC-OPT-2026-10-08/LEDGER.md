@@ -57,3 +57,8 @@ Round 2 at `b3be425`: 3 of 4 ready. The fourth found that on wrapped-total impor
 variant's results change from master (unspecified input; they now always equal the map variant in a 20k probe). Fixed in
 `8460179`: the PR body discloses it, the wrapped-import bounds test covers the slice variant, the fuzz check runs sorted and
 unsorted lists with a NaN seed, and a code comment no longer over-claims stack allocation. Round 3 running.
+
+**Merged 2026-10-08:** PR #116 squash-merged to upstream `master` as `186f8b9` after three review rounds (4/4 ready at
+`8460179`; CI 20/20). Upstream `master` now carries EXP-1 and EXP-2. Open follow-ups: re-time the unsorted slice path on the
+fleet (code changed after the timings); the map variant can pass non-ascending ranks to `scanTargets` when a NaN percentile
+meets a wrapped total (unspecified input, #115 code, not filed).
