@@ -6,8 +6,8 @@ packed-histogram review and merge, fuzzing CI, a 19-issue compatibility review, 
 the #49 panic investigation. This page is the cold-start record for the next session.
 Verify against GitHub before acting; it is a snapshot.
 
-**Upstream `master` at handoff: `1608007` (2026-10-07).** Latest release is still
-**v1.3.0**. The v1.4.0 release is **on hold** until the user says so (see below).
+**Upstream `master` at handoff: `1608007` (2026-10-07).** **v1.4.0 was released on 2026-10-08** at `687f303`
+(after #115, #116 and #117), with notes from experiments/RELEASE-GO-1.4.0.
 
 ## What merged (in order)
 

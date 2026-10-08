@@ -1,7 +1,7 @@
 # Workspace Memory — hdr-agent-workspace
 
 - [Go maintainer session 2026-10-07/08](hdr-go-maintainer-2026-10-07.md) — upstream Go `master`
-  `1608007`; what merged (#75–#114), user policy choices, **v1.4.0 on hold** and its release-note content.
+  `1608007`; what merged (#75–#114), user policy choices, **v1.4.0 released 2026-10-08** at `687f303`.
   Start here for Go. Status page: experiments/GO-MAINTAINER-2026-10-07/STATUS.md.
 
 - [Go PR merge authority](go-pr-merge-authority.md) — Go repo only: open as fcostaoliveira, approve+merge as

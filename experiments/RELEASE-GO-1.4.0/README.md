@@ -28,3 +28,13 @@ two corrections went into the notes: `Snapshot`'s new field breaks unkeyed struc
 not quite right), and #117's random-write cost (August numbers, not re-measured). **Not published; the release stays on hold
 until the user says go.** Release Drafter's own "Version 1.3.1" draft also exists; delete it when publishing, or it will keep
 being rewritten.
+
+## Published (2026-10-08)
+
+Published by `filipecosta90` on the user's explicit "release now": [v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0),
+tag `v1.4.0` at `687f303` (master), marked latest. Release Drafter's stale "Version 1.3.1" draft was deleted.
+`proxy.golang.org` serves v1.4.0 at `687f303`, and a fresh module can `go get` it and use `PackedHistogram`.
+Published while a pre-release deep fuzz on `687f303` was still running (user: "we can fix the fuzz if needed"):
+[native 60 min/target](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) and
+[ClusterFuzzLite batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961). Check both; a failure
+would need a v1.4.1. #117's fleet re-measurement is also still outstanding.

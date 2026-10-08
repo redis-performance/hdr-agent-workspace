@@ -9,8 +9,8 @@ Upstream `HdrHistogram/hdrhistogram-go` `master` is `1608007` (2026-10-07, #114)
 #76/#78/#79 (fuzz CI), #80–#83, #103, #105, #109, #112, #114; the user merged #108. Issues #36, #49, #50, #77, #84–#102,
 #106, #107, #110, #111 and #113 are closed. Latest release is still v1.3.0.
 
-**v1.4.0 is ON HOLD** until the user says go ("dont release without my ok!"; "i have multiple sessions fixing things").
-Never publish a release or push a tag without that explicit OK. The required release-note content is in
+**v1.4.0 was released on 2026-10-08** at `687f303` (the user said "release now"), after #115-#117 merged. Future releases
+still need an explicit OK each time ("dont release without my ok!"); never publish or tag without it. The required release-note content is in
 [experiments/GO-MAINTAINER-2026-10-07/STATUS.md](../experiments/GO-MAINTAINER-2026-10-07/STATUS.md); Release Drafter
 overwrites its draft, so write the notes by hand.
 
