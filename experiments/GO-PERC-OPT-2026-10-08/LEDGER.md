@@ -73,3 +73,6 @@ Only conflict: one constructor line. The cache is self-validating (`idx[lastPos]
 Compact, Merge, Clone and DecodePacked; `TestPackedLastHitCacheStaysCorrect` re-records the cached value after each and fails
 without the recheck. **Wanted from the fleet session:** re-run the packed write benchmarks (clustered, hot90, random) for
 `186f8b9` vs `b0658dc`, pinned ABBA, on Intel, AMD and Arm. The PR says it will not merge before those numbers exist.
+PR #117 review: round 1 at `b0658dc` found the cache correct but blocked on a false comment (Clone copies the cache, it does not
+zero it). Fixed in `544af54` (also dropped the redundant sentinel, fuzzed merge staleness, more tests). Round 2: 4/4 ready.
+**Held for the fleet re-run above** (compare `186f8b9` vs `544af54` now, not `b0658dc`).
