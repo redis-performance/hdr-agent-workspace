@@ -24,14 +24,16 @@ contains pinned vendor-update drafts, final-binary size experiments, the two
 upstream hardening/build plans, and Supabase's indirect Node exposure.
 This investigation does not change optimization acceptance counts.
 
-**Go status, 2026-10-07:** [PackedHistogram #75](https://github.com/HdrHistogram/hdrhistogram-go/pull/75)
-and its follow-ups through [#105](https://github.com/HdrHistogram/hdrhistogram-go/pull/105)
-are merged into upstream `master` at `de66007`. The [Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md)
-records a green x86_64/ASan round on the previous `5ffadfa` head, one
-unclassified ARM64 packed-differential failure, macOS jobs still running,
-and new full fuzz/ASan runs on `de66007`. A 6-hour fuzz of all 10 targets on three fleet VMs (Intel, AMD, Graviton) at `de66007` finished
-clean on 2026-10-08 (30/30 PASS); the arm64 VM ran only 0.76 M `FuzzPackedDifferential` executions, so the earlier ARM64 failure at
-55 M is still unexplained ([result](experiments/GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)).
+**Go status, 2026-10-08:** **[hdrhistogram-go v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) is released**
+at upstream `master` `687f303`. It ships the sparse [`PackedHistogram`](https://github.com/HdrHistogram/hdrhistogram-go/pull/75)
+(~0.3 KB instead of 184 KB per lightly populated histogram), multi-percentile queries 3.4-5.7x faster than v1.3.0
+([#115](https://github.com/HdrHistogram/hdrhistogram-go/pull/115), [#116](https://github.com/HdrHistogram/hdrhistogram-go/pull/116)),
+and fixes for hostile decoding, total-count overflow, negative values and huge-count percentiles. Session record and open
+follow-ups: [GO-MAINTAINER-2026-10-07](experiments/GO-MAINTAINER-2026-10-07/STATUS.md); release notes:
+[RELEASE-GO-1.4.0](experiments/RELEASE-GO-1.4.0/README.md); speed-ups: [GO-PERC-OPT-2026-10-08](experiments/GO-PERC-OPT-2026-10-08/LEDGER.md).
+Fuzzing: x86_64, ASan and a 6-hour fleet run of all 10 targets at `de66007` passed ([campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md));
+two `FuzzPackedDifferential` worker exits on GitHub's ARM64 runners (~55-56 M executions) remain unexplained. A post-release deep
+fuzz of `687f303` was running at release time.
 
 ## C performance by architecture
 
@@ -80,12 +82,12 @@ Java has none, so a fair single-call comparison isn't possible.
 
 ---
 
-## Upstream PRs — cross-port status (Go updated 2026-10-07; C/Rust snapshot 2026-09-21)
+## Upstream PRs — cross-port status (Go updated 2026-10-08; C/Rust snapshot 2026-09-21)
 
 Optimizations proposed to all three ports from this workspace. Every change is
 benchmarked (same-session A/B) and byte-identical-verified before it's opened.
 
-**Historical tally (2026-09-21):** **C** — **11 merged** (#134/#135/#136 perf · #137 scalar scan + offset-safe dispatch · #145/#146/#147/#148/#153 hardening · #151 review automation · #152 CI), 11 open (4 perf #138–#141 · #144 CI · #149/#154/#155/#156/#157 hardening · packed #150), 1 closed. **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153). **Go (updated 2026-10-07)** — #75–#76, #78–#83, #103 and #105 merged since that snapshot; #108, #109 and #23 open.
+**Historical tally (2026-09-21):** **C** — **11 merged** (#134/#135/#136 perf · #137 scalar scan + offset-safe dispatch · #145/#146/#147/#148/#153 hardening · #151 review automation · #152 CI), 11 open (4 perf #138–#141 · #144 CI · #149/#154/#155/#156/#157 hardening · packed #150), 1 closed. **Rust** — 2 merged (#138, #140), 1 open (packed #154), 2 closed (#139, #153). **Go (updated 2026-10-08)** — #75–#76, #78–#83, #103, #105, #108, #109, #112 and #114–#117 merged since that snapshot and released as **v1.4.0**; only external #23 open.
 
 ### C — [HdrHistogram/HdrHistogram_c](https://github.com/HdrHistogram/HdrHistogram_c) (fork `fcostaoliveira/HdrHistogram_c`)
 | PR | State | What |
@@ -132,6 +134,14 @@ variant [**#150**](https://github.com/HdrHistogram/HdrHistogram_c/pull/150) (see
 | [#81–#83](experiments/GO-FUZZ-2026-10-07/STATUS.md) | ✅ **MERGED** | packed rolling-window, merge/compact APIs and documentation |
 | [#103](https://github.com/HdrHistogram/hdrhistogram-go/pull/103) | ✅ **MERGED** `5ffadfa` | decode, negative-value, boundary-max and dropped-count fixes |
 | [#105](https://github.com/HdrHistogram/hdrhistogram-go/pull/105) | ✅ **MERGED** `de66007` | packed API and C/Java compatibility follow-up |
+| [#108](https://github.com/HdrHistogram/hdrhistogram-go/pull/108) | ✅ **MERGED** `af6b2e5` | bounded percentile ranks for huge counts (P100 reaches the real maximum) |
+| [#109](https://github.com/HdrHistogram/hdrhistogram-go/pull/109) | ✅ **MERGED** `f5e65c2` | `DecodePacked` reads legacy Go and shifted Java streams; dense `Decode` rejects overflowing counts |
+| [#112](https://github.com/HdrHistogram/hdrhistogram-go/pull/112) | ✅ **MERGED** `8c2ddcc` | `Histogram.Clone`, `Snapshot.Validate`, consistent `Import`, ownership docs (closed #49's remaining triggers) |
+| [#114](https://github.com/HdrHistogram/hdrhistogram-go/pull/114) | ✅ **MERGED** `1608007` | dense recording and merges reject total-count overflow |
+| [#115](https://github.com/HdrHistogram/hdrhistogram-go/pull/115) | ✅ **MERGED** `f072b62` | `ValueAtPercentiles` blocked skip-scan — **~6x** (fleet) |
+| [#116](https://github.com/HdrHistogram/hdrhistogram-go/pull/116) | ✅ **MERGED** `186f8b9` | `ValueAtPercentilesSlice` blocked skip-scan — **3-4x**, fewer allocations |
+| [#117](https://github.com/HdrHistogram/hdrhistogram-go/pull/117) | ✅ **MERGED** `687f303` | packed last-hit write cache (bursty writes faster; random-write cost being re-measured) |
+| [v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) | 🚀 **RELEASED** `687f303` | all of the above since v1.3.0 |
 
 ### Rust — [HdrHistogram/HdrHistogram_rust](https://github.com/HdrHistogram/HdrHistogram_rust) (fork `fcostaoliveira/HdrHistogram_rust`)
 | PR | State | What |
@@ -453,11 +463,10 @@ The merged fork PRs above are the baseline this workspace builds on.
 - **Rust** — submodule `HdrHistogram_rust/` (fork `fcostaoliveira/HdrHistogram_rust`, upstream
   `HdrHistogram/HdrHistogram_rust`). Optimized: single-pass batch API (**#138 merged**) +
   chunked skip-scan (**#140 merged**); sparse **PackedHistogram** (#154, open, CI 17/17).
-- **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`).
-  The #57–#74 fixes and optimizations shipped in **v1.3.0**. Sparse
-  **PackedHistogram** (#75) and follow-ups through #105 are merged on `master`.
-  The [current-master deep fuzz run](experiments/GO-FUZZ-2026-10-07/STATUS.md)
-  finished clean on the three fleet VMs (2026-10-08); the earlier ARM64 packed-differential failure is still unexplained.
+- **Go** — submodule `hdrhistogram-go/` (upstream `HdrHistogram/hdrhistogram-go`), pinned to **v1.4.0** (`687f303`).
+  The #57–#74 fixes and optimizations shipped in **v1.3.0**; sparse **PackedHistogram** (#75), its follow-ups,
+  the correctness fixes and the #115–#117 speed-ups shipped in **v1.4.0** (2026-10-08). See
+  [GO-MAINTAINER-2026-10-07](experiments/GO-MAINTAINER-2026-10-07/STATUS.md) for open follow-ups.
 
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.
@@ -466,7 +475,7 @@ Accepted C wins are candidate cross-pollinations into the Rust/Go ports where th
 (C v0.11.10, Rust 7.5.4, Go v1.2.0) is in [`experiments/RACE.md`](experiments/RACE.md)
 (drivers in [`race/`](race/)). Headline (gnr1, single core; byte-identical results across ports):
 - **Write**: C 409 M/s > Rust 0.86× > Go 0.73×.
-- **Read 1 percentile**: C > Rust (1.39×) > **Go (5.3× behind C)** — Go's iterator-based `ValueAtPercentile` is the biggest gap.
+- **Read 1 percentile**: C > Rust (1.39×) > **Go (5.3× behind C)** — Go's iterator-based `ValueAtPercentile` was the biggest gap (Go v1.2.0; v1.3.0 replaced it with a flat scan, and v1.4.0 makes multi-percentile reads 3.4-5.7x faster than v1.3.0: [charts](experiments/GO-BENCH-1.3.0-VS-TIP-186f8b9-2026-10-08)).
 - **Read all 7 (`value_at_percentiles`)**: twist — **C's native batch is the *slowest* (iterator, 81µs), slower than looping its own singular 7×**; Rust has no batch API (7× singular); Go's native batch beats its own singular loop.
 
 ---

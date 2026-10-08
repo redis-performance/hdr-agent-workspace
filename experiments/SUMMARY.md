@@ -2,17 +2,15 @@
 
 Single source of truth for experiment status. Keep `README.md` counts in sync.
 
-[Go packed master and deep-fuzz campaign](GO-FUZZ-2026-10-07/STATUS.md):
-upstream #75 and follow-ups through #105 are merged at `de66007`, now the
-workspace Go submodule and fork master. The earlier `5ffadfa` x86_64 run passed
-10/10 five-hour targets and the ASan batch passed. Linux ARM64 has one
-unclassified `FuzzPackedDifferential` worker failure, with input saved and
-short remote replay passing. Targeted five-hour ARM reruns on old and new
-source are queued; macOS ARM64 remains in progress. New native and ASan
-campaigns on `de66007` are pending. **Fleet deep fuzz (2026-10-08):** all 10 targets x 6 h on Intel, AMD and Graviton VMs at
-`de66007` finished 30/30 PASS (about 5.4 B, 9.6 B and 36 M executions; no failures). arm64 ran about 150x slower per second, so it
-reached only 0.76 M `FuzzPackedDifferential` executions against the 55 M where the GitHub ARM job failed: that failure stays
-unexplained ([result](GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)). C optimization counts below do not change.
+**Go, 2026-10-08:** [hdrhistogram-go v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) is released at
+upstream `master` `687f303` (PackedHistogram, correctness fixes, #115-#117 speed-ups); the workspace Go submodule and fork master now
+point there. Session record and open follow-ups: [GO-MAINTAINER-2026-10-07](GO-MAINTAINER-2026-10-07/STATUS.md); speed-ups:
+[GO-PERC-OPT-2026-10-08](GO-PERC-OPT-2026-10-08/LEDGER.md); notes: [RELEASE-GO-1.4.0](RELEASE-GO-1.4.0/README.md).
+[Deep-fuzz campaign](GO-FUZZ-2026-10-07/STATUS.md): x86_64 (10/10 five-hour targets) and ASan passed at `5ffadfa`, the native and
+ASan reruns at `de66007` passed, and the fleet's 6 h x 10 targets on Intel, AMD and Graviton at `de66007` finished 30/30 PASS
+([result](GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)). Two `FuzzPackedDifferential` worker exits on GitHub's Linux ARM64 runners
+(~55-56 M executions, inputs saved, replays pass) remain unexplained. A post-release deep fuzz of `687f303` was running at release.
+C optimization counts below do not change.
 
 [Redis/Valkey integration and code-size audit](C-HARDENING-2026-10-01/README.md)
 tracks C release hardening, consumer patch drafts, pinned binary measurements,
