@@ -22,3 +22,15 @@ Accept: at least +2% on the target, no regression over 1% elsewhere, tests green
 | replication | second session, same result: map variant 0.83x Intel, 0.70x AMD, 1.01x Arm | confirmed | `GO-BENCH-1.3.0-VS-MASTER-2026-10-08/replication-2026-10-08-second-session` |
 
 Upstream: EXP-1 is [HdrHistogram/hdrhistogram-go#115](https://github.com/HdrHistogram/hdrhistogram-go/pull/115) (opened 2026-10-08, awaiting review).
+
+## Upstream review of EXP-1 (PR #115), 2026-10-08
+
+A 4-agent adversarial review (equivalence, performance claims, tests/docs, robustness) of [PR #115](https://github.com/HdrHistogram/hdrhistogram-go/pull/115)
+at `2415d86` found no result difference from master on valid histograms (68,000 differential cases, 45 s differential fuzz) and
+confirmed the fleet table from the raw files (28 samples per build per machine). Fixed on the PR branch in `d02b1e0` (tests only):
+the scalar tail of `scanTargets` was untested (it runs only for zero-digit Import/decoded geometries; six planted tail bugs survived
+the suite, all now fail), a test pins that on snapshots failing `Validate` (wrapped total) the map variant now matches
+`ValueAtPercentile`, and `FuzzPercentileQueries` compares the map variant with the single path. The PR body was corrected: the
+workspace link (now `redis-performance/hdr-agent-workspace`), the claim that `Import` keeps the total within int64, speed-ratio
+wording and sample counts. Round 2 review and CI are running. Note for EXP-2: moving `ValueAtPercentilesSlice` onto `scanTargets`
+also removes the map/slice disagreement on wrapped-total imports.
