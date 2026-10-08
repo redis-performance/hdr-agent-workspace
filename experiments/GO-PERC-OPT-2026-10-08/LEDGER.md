@@ -34,3 +34,9 @@ the suite, all now fail), a test pins that on snapshots failing `Validate` (wrap
 workspace link (now `redis-performance/hdr-agent-workspace`), the claim that `Import` keeps the total within int64, speed-ratio
 wording and sample counts. Round 2 review and CI are running. Note for EXP-2: moving `ValueAtPercentilesSlice` onto `scanTargets`
 also removes the map/slice disagreement on wrapped-total imports.
+
+**Merged 2026-10-08:** PR #115 squash-merged to upstream `master` as `f072b62` after three review rounds (4/4 ready at
+`3854e80`; production logic identical to the benchmarked `2415d86`). Round 2 corrected an over-claim from round 1: on
+snapshots failing `Validate` (wrapped total) results are unspecified, not "equal to `ValueAtPercentile`"; the PR now has a
+bounds test there instead. Test-only commits on top: `d02b1e0`, `3854e80`. `exp1.patch` in this folder holds only the
+benchmarked code and the original test, not those later tests. Base for EXP-2 is now `f072b62`.
