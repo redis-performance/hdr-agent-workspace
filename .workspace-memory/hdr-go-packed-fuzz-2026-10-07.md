@@ -41,3 +41,10 @@ Keep builds/tests/fuzzers on remote infrastructure, never this workstation.
 `FuzzPackedDifferential` executions vs 172 M Intel, 271 M AMD), so it did not reach the 55 M depth of the earlier GitHub ARM
 failure, which stays unexplained and un-filed. Next if wanted: a dedicated ARM `FuzzPackedDifferential` run, after finding why
 arm64 fuzzing is slow. Scripts: `scripts/fleet-go-fuzz.sh`, `scripts/fleet-go-repro.sh`. Details: FLEET-DEEP-FUZZ-RESULT.md.
+
+## Targeted ARM reruns finished 2026-10-08
+`5ffadfa` rerun passed 5 h. The `de66007` rerun died again with a silent worker "exit status 2" after 2h14m and 56.3 M
+executions (first one: 55.1 M). Its saved input `368ce59951f3673f` passes on replay. Both GitHub-ARM deaths sit near
+55 M executions while all x86_64, ASan and fleet runs pass: suspect the runner or Go's arm64 fuzz engine, unproven,
+not filed. The fresh `de66007` native (10/10) and ASan fork runs passed. Upstream `master` has since moved to
+`1608007`; see [[hdr-go-maintainer-2026-10-07]].

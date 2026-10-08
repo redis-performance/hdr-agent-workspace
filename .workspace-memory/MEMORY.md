@@ -1,10 +1,20 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [Go maintainer session 2026-10-07/08](hdr-go-maintainer-2026-10-07.md) — upstream Go `master`
+  `1608007`; what merged (#75–#114), user policy choices, **v1.4.0 on hold** and its release-note content.
+  Start here for Go. Status page: experiments/GO-MAINTAINER-2026-10-07/STATUS.md.
+
+- [Go PR merge authority](go-pr-merge-authority.md) — Go repo only: open as fcostaoliveira, approve+merge as
+  filipecosta90 after 4 review agents agree and CI is green; scoped exception to merges-are-the-users.
+
+- [Review agent disk hygiene](review-agent-disk-hygiene.md) — subagent repo copies and private Go caches filled
+  the disk once; git-archive copies, shared cache, clean up, stop under 5 GB.
+
 - [Go packed master and deep-fuzz campaign](hdr-go-packed-fuzz-2026-10-07.md) —
   upstream Go `master` `de66007` includes packed #75 and follow-ups through
   #105. The prior `5ffadfa` x86_64/ASan deep runs passed; ARM64 has one
-  unclassified packed-differential worker exit; short replay passes, two long
-  ARM reruns are queued. New exact-master
+  unclassified packed-differential worker exit; short replay passes. Long ARM
+  reruns: `5ffadfa` passed, `de66007` died again silently at ~56 M execs (unfiled). New exact-master
   runs are pending; workspace Go submodule and fork match `de66007`.
 
 - [ARM Clang percentile unroll investigation](hdr-arm-clang-scan.md) — causal

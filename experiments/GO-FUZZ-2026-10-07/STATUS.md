@@ -84,7 +84,8 @@ Two targeted five-hour ARM reruns are queued: [the original `5ffadfa` code](http
 with the saved input checked in (`a642cd0`), and [the current `de66007`
 source](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37678879828)
 with the same input (`11c2042`). Both run an explicit corpus replay before
-the long fuzz step. They will test recurrence; neither has a verdict yet.
+the long fuzz step. **Verdicts (2026-10-08):** the `5ffadfa` rerun passed all five hours; the
+`de66007` rerun hit a second worker exit. See "Targeted ARM reruns" below.
 
 GitHub's [runner reference](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
 identifies these labels as Linux ARM64 and macOS ARM64 for public repos. The
@@ -97,7 +98,8 @@ The new branches are campaign branches, not proposed upstream changes.
 After #105 merged, fork `master` was fast-forwarded to `de66007`; fresh
 [native Go deep fuzzing](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37678533498)
 (300 minutes × 10) and a fresh [ClusterFuzzLite ASan batch](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37678544853)
-were dispatched on that new source. Both outcomes are pending. The `5ffadfa`
+were dispatched on that new source. Both **passed** (native: 10/10 fuzz jobs, finished
+2026-10-08 01:03 UTC; ASan batch finished 2026-10-07 21:01 UTC). The `5ffadfa`
 failure and its replay remain separately pinned so the evidence is comparable.
 
 These GitHub-hosted runners are distinct from the OSS benchmark fleet.
@@ -128,3 +130,25 @@ AWS Graviton Neoverse V2 arm64), commit `de66007` (includes #105). Each runs all
 (about 1 min in): Intel running (0.14M to 2.8M execs per target, no failures); AMD fuzzing; ARM still compiling. Result: all 30 targets exited PASS, no failure, panic or new failing input. Details and the ARM depth caveat:
 [FLEET-DEEP-FUZZ-RESULT.md](FLEET-DEEP-FUZZ-RESULT.md).
 Not local runs; the fleet access method is not recorded here.
+
+## Targeted ARM reruns (2026-10-07 20:01 to 2026-10-08 03:23 UTC): one pass, one second worker exit
+
+Both reruns ran only `FuzzPackedDifferential` on GitHub's `ubuntu-24.04-arm`, 300 minutes, after replaying the saved
+`c1372d6c769fd084` input (which passed in both).
+
+| Source | Run | Result |
+|--------|-----|--------|
+| `5ffadfa` (`a642cd0`) | [37678836636](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37678836636) | **PASS**, full 5 h |
+| `de66007` (`11c2042`) | [37678879828](https://github.com/fcostaoliveira/hdrhistogram-go/actions/runs/37678879828) | **FAIL** after 2h14m33s and 56,286,937 executions: again "fuzzing process hung or terminated unexpectedly: exit status 2", with no panic, assertion, goroutine dump or signal in the log |
+
+The exec rate stayed at 6–8k/s up to the stop, so it does not look like a real hang. The new saved input
+([`368ce59951f3673f`](arm-repro-rerun-de66007/testdata/fuzz/FuzzPackedDifferential/368ce59951f3673f), SHA-256
+`368ce59951f3673f4e7fc2fe5926508711f30e4a50692d37a1042183111b8849`) and the [log](arm-repro-rerun-de66007/fuzz.log)
+are saved. Replaying that input passes in under 0.5 s at `11c2042` and at upstream `1608007` (macOS arm64,
+run on the maintainer's laptop before the fleet rule was known to that session).
+
+Pattern worth testing: both GitHub ARM failures died silently at a similar depth (55.1 M and 56.3 M executions),
+while every x86_64, ASan and fleet run of the same target passed. That points at the runner or the Go fuzzing
+engine on linux/arm64 (for example a resource limit after ~55 M executions) more than at a library defect, but
+it is unproven. Not filed upstream. Next step if wanted: a long single-target run on the fleet ARM64 VM after
+fixing why arm64 fuzzing there is ~150x slower, or a GitHub ARM run with worker memory logging.
