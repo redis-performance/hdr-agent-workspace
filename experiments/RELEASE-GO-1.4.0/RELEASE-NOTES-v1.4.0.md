@@ -1,6 +1,6 @@
 ## Version 1.4.0
 
-This release adds no breaking API changes: nothing exported was removed or changed signature. It adds a sparse `PackedHistogram`, makes multi-percentile queries several times faster, and fixes a number of silent correctness and decoding problems. Some of those fixes change behaviour for inputs that were already wrong, such as hostile streams, overflowing totals and negative values; they are listed in [Behaviour changes](#behaviour-changes), and worth reading before you upgrade.
+This release removes nothing exported and changes no signatures. The one source-compatibility catch: `Snapshot` gained a field (`IntegerToDoubleConversionRatio`), so unkeyed struct literals such as `Snapshot{1, 1000, 3, counts}` no longer compile; use field names. It adds a sparse `PackedHistogram`, makes multi-percentile queries several times faster, and fixes a number of silent correctness and decoding problems. Some of those fixes change behaviour for inputs that were already wrong, such as hostile streams, overflowing totals and negative values; they are listed in [Behaviour changes](#behaviour-changes), and worth reading before you upgrade.
 
 ![hdrhistogram-go 1.4.0 against v1.3.0: asking for several percentiles at once is 4 to 6x faster, single queries are unchanged, recording is within 4%](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e8d2f5f6ecd2c7bb6aea659a76ea2a3e1ecc33f9/experiments/GO-BENCH-1.3.0-VS-TIP-186f8b9-2026-10-08/charts/speedup.png)
 
@@ -32,7 +32,7 @@ Fleet microbenchmarks, one pinned core, interleaved with v1.3.0 (7 repetitions, 
 - `ValueAtPercentiles` resolves all percentiles in one blocked skip-scan: sum eight counts at once and skip blocks that cannot reach the next target (#115)
 - `ValueAtPercentilesSlice` uses the same scan, and allocates once instead of four times with Go 1.27 (#116); its figures compare the code before and after the change in the same session
 - `RecordValue` is about 0.1 to 0.2 ns slower on Intel and Arm (0.96x), in line with the cost #114 measured for its new check that stops the total wrapping; there is no measurable change on AMD
-- `PackedHistogram` skips its binary search when a record lands in the same bucket as the previous one (#117)
+- `PackedHistogram` skips its binary search when a record lands in the same bucket as the previous one (#117). Measured in August on earlier code: bursty writes 30 to 59% faster, random (low-locality) writes 2.4 to 9.4% slower; not yet re-measured on this release
 
 ### Correctness & Security Fixes
 - Decoders and `New` no longer loop forever on a header whose lowest value is too large for its precision, and dense `Decode` no longer panics on a `MinInt64` zero-run or allocates tens of MB before rejecting a small stream (#80)
@@ -56,6 +56,7 @@ Fleet microbenchmarks, one pinned core, interleaved with v1.3.0 (7 repetitions, 
 | Dense `Decode` of counts summing past `MaxInt64` | empty histogram, no error | error; `nil` histogram on any payload error | #109 |
 | `DecodePacked` of pre-v1.3.0 Go and shifted Java streams | rejected | decoded | #109 |
 | `Import` of negative counts | stored, total excluded them | stored as 0 | #112 |
+| Unkeyed `Snapshot{...}` literals | compiled | compile error (new field); use field names | #105 |
 | P100 with very large counts | could be 0 | the real maximum | #108 |
 
 ### Maintenance & Testing
