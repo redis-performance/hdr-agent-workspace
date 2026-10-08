@@ -1,0 +1,7 @@
+== A=v1.3.0
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: downloading gopkg.in/yaml.v3 v3.0.1
+ok  	github.com/HdrHistogram/hdrhistogram-go	0.330s
+== B=186f8b9
+ok  	github.com/HdrHistogram/hdrhistogram-go	1.812s
