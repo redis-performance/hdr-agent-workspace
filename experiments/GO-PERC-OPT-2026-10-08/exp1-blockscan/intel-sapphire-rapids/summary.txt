@@ -1,0 +1,5 @@
+benchmark                                                 A ns/op      B ns/op       A/B  spread A | B (min-max/median)
+BenchmarkHistogramRecordValue                                 3.2          3.2     1.00x  1.0% | 0.7%
+BenchmarkHistogramValueAtPercentile                        1135.5       1162.0     0.98x  10.9% | 26.1%
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice       5389.0       5420.5     0.99x  8.9% | 5.9%
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice       9846.0       1674.5     5.88x  12.8% | 18.9%

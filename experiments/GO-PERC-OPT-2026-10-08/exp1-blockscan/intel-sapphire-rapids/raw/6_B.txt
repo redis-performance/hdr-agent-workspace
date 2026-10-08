@@ -1,0 +1,33 @@
+goos: linux
+goarch: amd64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+cpu: Intel(R) Xeon(R) Platinum 8488C
+BenchmarkHistogramRecordValue                            	373328962	         3.182 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	378497623	         3.166 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	378322300	         3.167 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	378756945	         3.170 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	379075406	         3.169 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	379321579	         3.169 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	378974763	         3.170 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1093 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1181 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1187 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1179 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1177 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1129 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	 1000000	      1142 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  217288	      5545 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  225632	      5402 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  228295	      5374 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  216411	      5378 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  214615	      5476 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  222728	      5546 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  222074	      5418 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  712405	      1572 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  711715	      1680 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  733150	      1601 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  697672	      1685 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  698518	      1706 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  740145	      1559 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  713200	      1681 ns/op	     192 B/op	       2 allocs/op
+PASS

@@ -1,0 +1,7 @@
+== A=1608007
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+ok  	github.com/HdrHistogram/hdrhistogram-go	1.643s
+== B=perf/percentiles-blockscan
+ok  	github.com/HdrHistogram/hdrhistogram-go	1.791s

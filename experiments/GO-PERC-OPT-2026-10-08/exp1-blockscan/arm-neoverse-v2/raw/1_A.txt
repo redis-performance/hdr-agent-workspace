@@ -1,0 +1,32 @@
+goos: linux
+goarch: arm64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+BenchmarkHistogramRecordValue                            	341080858	         3.517 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341180572	         3.516 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341328015	         3.516 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341304284	         3.516 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341288314	         3.516 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341302118	         3.517 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	341142165	         3.516 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  912133	      1355 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  903440	      1273 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  945339	      1260 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  891986	      1316 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  930067	      1326 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  935533	      1306 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  985770	      1295 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  189079	      6007 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  192457	      6136 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  200569	      6250 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  190166	      6359 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  187238	      6282 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  194494	      6119 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  189046	      6342 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	   92892	     10868 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  111433	     10992 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  109122	     11295 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  111000	     11153 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  110125	     11989 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	   98433	     11468 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  109689	     11696 ns/op	     192 B/op	       2 allocs/op
+PASS
