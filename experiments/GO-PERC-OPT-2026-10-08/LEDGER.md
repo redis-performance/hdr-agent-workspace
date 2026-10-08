@@ -76,3 +76,6 @@ without the recheck. **Wanted from the fleet session:** re-run the packed write 
 PR #117 review: round 1 at `b0658dc` found the cache correct but blocked on a false comment (Clone copies the cache, it does not
 zero it). Fixed in `544af54` (also dropped the redundant sentinel, fuzzed merge staleness, more tests). Round 2: 4/4 ready.
 **Held for the fleet re-run above** (compare `186f8b9` vs `544af54` now, not `b0658dc`).
+**Merged 2026-10-08:** PR #117 squash-merged to upstream `master` as `687f303`, ahead of the fleet re-run, by the user's decision.
+The re-run is still wanted: `186f8b9` (before) vs `687f303` (after), clustered, hot90 and random packed write patterns, Intel,
+AMD and Arm. If random writes cost clearly more than the August +2.4-9.4%, revisit the cache.
