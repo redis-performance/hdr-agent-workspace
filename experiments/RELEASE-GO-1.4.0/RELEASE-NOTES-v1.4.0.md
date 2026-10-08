@@ -1,6 +1,10 @@
 ## Version 1.4.0
 
-This release removes nothing exported and changes no signatures. The one source-compatibility catch: `Snapshot` gained a field (`IntegerToDoubleConversionRatio`), so unkeyed struct literals such as `Snapshot{1, 1000, 3, counts}` no longer compile; use field names. It adds a sparse `PackedHistogram`, makes multi-percentile queries several times faster, and fixes a number of silent correctness and decoding problems. Some of those fixes change behaviour for inputs that were already wrong, such as hostile streams, overflowing totals and negative values; they are listed in [Behaviour changes](#behaviour-changes), and worth reading before you upgrade.
+- **New:** `PackedHistogram`, an opt-in sparse histogram that uses far less memory when few buckets are populated.
+- **Faster:** asking for several percentiles in one call is 3.4 to 5.7x faster; single queries are unchanged and recording is within 4%.
+- **Fixed:** a number of silent correctness and decoding problems, including hangs and panics on malformed input.
+- **Behaviour changes:** some of those fixes change results for inputs that were already wrong, such as hostile streams, overflowing totals and negative values. Read [Behaviour changes](#behaviour-changes) before upgrading.
+- **Compatibility:** nothing exported was removed or changed signature. `Snapshot` gained a field, so unkeyed literals such as `Snapshot{1, 1000, 3, counts}` no longer compile; use field names.
 
 ![hdrhistogram-go 1.4.0 against v1.3.0: asking for several percentiles at once is 4 to 6x faster, single queries are unchanged, recording is within 4%](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e8d2f5f6ecd2c7bb6aea659a76ea2a3e1ecc33f9/experiments/GO-BENCH-1.3.0-VS-TIP-186f8b9-2026-10-08/charts/speedup.png)
 
