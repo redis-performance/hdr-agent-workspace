@@ -19,3 +19,12 @@ Run it from a checkout of this repository (gh needs the notes file inside the wo
 - **Re-fuzz the final tip** on the fleet: the 6-hour run covered `de66007`, before #108, #109, #112, #114, #115, #116, #117.
 - **ARM64 `FuzzPackedDifferential` failure** (fork run 37628119727) is unexplained; the input does not reproduce.
 - `PackedHistogram` memory figures are quoted from the text of #75, not re-measured here.
+
+## Draft created (2026-10-08)
+
+Created as `filipecosta90` (maintainer; `fcostaoliveira` has pull-only access upstream): draft release "Version 1.4.0",
+tag `v1.4.0` (not created until publish), target `master`, from `RELEASE-NOTES-v1.4.0.md` at `8c76578`. Before creating it,
+two corrections went into the notes: `Snapshot`'s new field breaks unkeyed struct literals (so "no breaking API changes" was
+not quite right), and #117's random-write cost (August numbers, not re-measured). **Not published; the release stays on hold
+until the user says go.** Release Drafter's own "Version 1.3.1" draft also exists; delete it when publishing, or it will keep
+being rewritten.
