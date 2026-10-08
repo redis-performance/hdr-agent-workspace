@@ -1,6 +1,6 @@
 ## Version 1.4.0
 
-- **New:** `PackedHistogram`, an opt-in sparse histogram that uses far less memory when few buckets are populated.
+- **New: `PackedHistogram`**, a sparse histogram for keeping many lightly populated histograms in memory: about 0.3 KB instead of 184 KB each at a typical latency configuration (see below).
 - **Faster:** asking for several percentiles in one call is 3.4 to 5.7x faster; single queries are unchanged and recording is within 4%.
 - **Fixed:** a number of silent correctness and decoding problems, including hangs and panics on malformed input.
 - **Behaviour changes:** some of those fixes change results for inputs that were already wrong, such as hostile streams, overflowing totals and negative values. Read [Behaviour changes](#behaviour-changes) before upgrading.
@@ -8,14 +8,39 @@
 
 ![hdrhistogram-go 1.4.0 against v1.3.0: asking for several percentiles at once is 4 to 6x faster, single queries are unchanged, recording is within 4%](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/e8d2f5f6ecd2c7bb6aea659a76ea2a3e1ecc33f9/experiments/GO-BENCH-1.3.0-VS-TIP-186f8b9-2026-10-08/charts/speedup.png)
 
+### Highlight: `PackedHistogram`
+
+`New` allocates the full counts array up front: about 184 KB at a typical latency configuration (`New(1, 3600000000, 3)`), however few values are recorded. Services that keep **many sparsely populated histograms** (per endpoint, per tenant, per connection, or a ring of per-second slices) pay that for every one. `PackedHistogram` stores only the populated buckets, each count in 1, 2, 4 or 8 bytes as needed:
+
+| Populated buckets | `Histogram` | `PackedHistogram` |
+|---|--:|--:|
+| 10 | 184 KB | ~0.3 KB |
+| 100 | 184 KB | ~0.8 KB |
+| 1,600 | 184 KB | ~10 KB |
+
+For one thousand histograms with ten populated buckets each, that is 179.7 MB dense against 273 KB packed (#75).
+
+- **Same model as `Histogram`:** the same constructor arguments and bucket layout, and the same queries: `RecordValue(s)`, `RecordCorrectedValue`, `ValueAtPercentile`, `ValueAtPercentilesSlice`, `Min`, `Max`, `Mean`, `StdDev`, `CountAtValue`, `TotalCount`, plus `Clone`, geometry getters, and interval start/end times and tags.
+- **Wire-compatible:** `Encode` writes the standard V2 compressed format, byte-for-byte the same as the dense encoder on equivalent data. `DecodePacked` reads V2 streams from Go, Java and C writers, including shifted Java histograms and streams from hdrhistogram-go v1.2.0 and earlier. `HistogramLogWriter.OutputIntervalPackedHistogram` writes packed intervals to logs directly.
+- **Built for rolling windows:** record into a dense histogram, keep completed slices packed, and aggregate on demand with `MergeFrom` (dense into packed), `MergeInto` (packed into dense), `Merge` (packed into packed), `Reset` (keeps storage), `Compact` (shrinks it) and `ForEachBucket`.
+- **The trade-off is recording speed:** recording is a binary search, and a new bucket costs O(populated). A last-hit cache skips the search when consecutive records land in the same bucket (#117). Keep the dense `Histogram` for hot recording paths and for histograms that fill most buckets.
+- **Hardened before release:** two dedicated fuzz targets (hostile decoding, and a differential against the dense histogram) run in CI and nightly, alongside multi-agent adversarial reviews of every packed PR.
+
+```go
+h := hdrhistogram.NewPacked(1, 3600000000, 3)
+h.RecordValue(1234)
+p99 := h.ValueAtPercentile(99)
+encoded, err := h.Encode() // standard V2, same bytes as Histogram.Encode
+```
+
+Guides: the [README section](https://github.com/HdrHistogram/hdrhistogram-go#packed-histograms) (memory, costs and a rolling-window example) and the [C/Java compatibility guide](https://github.com/HdrHistogram/hdrhistogram-go/blob/master/PACKED_COMPATIBILITY.md).
+
 ### Update Urgency: High
 
 **High**: contains fixes for decoders that hung or panicked on malformed input (#80), for totals that silently wrapped past `MaxInt64` (#114, #109), for negative values recorded as huge positive ones (#103), and for wrong percentiles at very large counts (#108). Anyone decoding untrusted streams or logs, or recording very large weighted counts, should update.
 
 ### API Additions
-- `PackedHistogram`: an opt-in sparse histogram whose storage grows with the number of populated buckets instead of the full range, with counts kept in 1, 2, 4 or 8 bytes as needed. It reads and writes the standard V2 compressed format. Created with `NewPacked`, read back with `DecodePacked` (#75)
-  - for one thousand histograms with ten populated buckets each at `(1, 3.6e9, 3)`, #75 reports 179.7 MB dense against 273 KB packed
-  - recording is slower than a dense `counts[idx]++` (binary search per record), so this is a memory feature, not a hot-loop replacement
+- `PackedHistogram`, `NewPacked` and `DecodePacked` (#75); see [Highlight](#highlight-packedhistogram)
 - `PackedHistogram` rolling-window support: `Reset`, `ForEachBucket`, `MergeInto` (packed into dense) and `MergeFrom` (dense into packed) (#81), and packed-to-packed `Merge` and `Compact` (#82)
 - `PackedHistogram` parity with the dense type: `Mean`, `StdDev`, `RecordCorrectedValue`, geometry getters, `Clone`, interval start/end time and tag, `EncodeV2`, and `HistogramLogWriter.OutputIntervalPackedHistogram` with `...WithLogOptions` (#105)
 - `Histogram.Clone`, a deep copy of geometry, counts, total, tag and times; use `w.Merge().Clone()` to keep a windowed result (#112)
