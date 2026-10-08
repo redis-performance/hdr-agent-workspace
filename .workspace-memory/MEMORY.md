@@ -14,11 +14,9 @@
   the disk once; git-archive copies, shared cache, clean up, stop under 5 GB.
 
 - [Go packed master and deep-fuzz campaign](hdr-go-packed-fuzz-2026-10-07.md) —
-  upstream Go `master` `de66007` includes packed #75 and follow-ups through
-  #105. The prior `5ffadfa` x86_64/ASan deep runs passed; ARM64 has one
-  unclassified packed-differential worker exit; short replay passes. Long ARM
-  reruns: `5ffadfa` passed, `de66007` died again silently at ~56 M execs (unfiled). New exact-master
-  runs are pending; workspace Go submodule and fork match `de66007`.
+  fuzz campaigns at `5ffadfa`/`de66007` (x86_64, ASan, fleet 30/30 passed); two GitHub ARM64
+  `FuzzPackedDifferential` worker exits at ~55-56 M execs remain unexplained. The Go submodule and fork
+  master now point at v1.4.0 (`687f303`); see the Go maintainer entry above.
 
 - [ARM Clang percentile unroll investigation](hdr-arm-clang-scan.md) — causal
   control and narrow candidate: full O3 read 2.120x, unchanged write/Os and
