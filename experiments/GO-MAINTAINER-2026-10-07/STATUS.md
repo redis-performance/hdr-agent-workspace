@@ -9,7 +9,7 @@ for the next session. Verify against GitHub before acting; it is a snapshot.
 **State at handoff (2026-10-08 10:31 UTC):** upstream `master` = `687f303`.
 **[v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) is released** at `687f303`
 (latest; served by proxy.golang.org). Notes: [RELEASE-GO-1.4.0](../RELEASE-GO-1.4.0/README.md).
-No open PRs except #23 (external, untouched). **Post-release deep fuzz of `687f303` passed:** [native, 60 min x 10 targets](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) (one job cancelled by a GitHub runner shutdown after 14.5 M clean executions, re-run green) and the [ClusterFuzzLite ASan batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961).
+No open PRs except #23 (external, untouched). **Post-release deep fuzz of `687f303` passed:** [native, 60 min x 10 targets](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382) (one job cancelled by a GitHub runner shutdown after 14.5 M clean executions, re-run green) and the [ClusterFuzzLite ASan batch](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961). Scheduled runs on `687f303` also passed: ClusterFuzzLite batch (2026-10-08 10:56 UTC) and ClusterFuzzLite cron/prune (13:41 UTC). Status as of 2026-10-08 14:00 UTC.
 
 ## What merged (in order)
 
@@ -65,5 +65,5 @@ Experiment ledger for #115–#117: [GO-PERC-OPT-2026-10-08/LEDGER.md](../GO-PERC
 - **#116 unsorted timings** predate the allocation fix in `b3be425`; re-time on the fleet.
 - **Map-variant NaN quirk:** with a NaN percentile and a wrapped total (snapshot failing `Validate`), `ValueAtPercentiles` can pass non-ascending ranks to `scanTargets`. Unspecified input; not filed.
 - **ARM `FuzzPackedDifferential` worker exits:** two unexplained "exit status 2" deaths on GitHub's Linux ARM64 runners at about 55–56 M executions. See [GO-FUZZ-2026-10-07/STATUS.md](../GO-FUZZ-2026-10-07/STATUS.md).
-- **Scheduled nightly fuzz** (cron `17 2 * * *`) ran late or not at all on 2026-10-07/08; trigger it manually if it keeps slipping.
+- **Scheduled nightly fuzz** (cron `17 2 * * *`) starts hours late: the 2026-10-08 run started 09:01 UTC on `f072b62` (before #116 and #117). Check that the next scheduled run covers `687f303` (it was already deep-fuzzed by hand); trigger it manually if it keeps slipping.
 - **API idea (not filed):** `WindowedHistogram.Merge` cannot report dropped counts because it returns only the histogram.

@@ -10,7 +10,8 @@ Upstream `HdrHistogram/hdrhistogram-go` `master` is `687f303` (2026-10-08, #117)
 review script is `scripts/go-pr-review-workflow.js`. Issues #36, #49, #50, #77, #84–#102,
 #106, #107, #110, #111 and #113 are closed. Latest release is still v1.3.0.
 
-**v1.4.0 was released on 2026-10-08** at `687f303` (the user said "release now"), after #115-#117 merged. Future releases
+**v1.4.0 was released on 2026-10-08** at `687f303` (the user said "release now"), after #115-#117 merged. Post-release
+fuzzing of `687f303` passed (native 60 min x 10 targets, ClusterFuzzLite ASan batch, scheduled CFLite batch and prune). Future releases
 still need an explicit OK each time ("dont release without my ok!"); never publish or tag without it. The required release-note content is in
 [experiments/GO-MAINTAINER-2026-10-07/STATUS.md](../experiments/GO-MAINTAINER-2026-10-07/STATUS.md); Release Drafter
 overwrites its draft, so write the notes by hand.

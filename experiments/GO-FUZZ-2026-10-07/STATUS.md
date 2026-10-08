@@ -152,3 +152,11 @@ while every x86_64, ASan and fleet run of the same target passed. That points at
 engine on linux/arm64 (for example a resource limit after ~55 M executions) more than at a library defect, but
 it is unproven. Not filed upstream. Next step if wanted: a long single-target run on the fleet ARM64 VM after
 fixing why arm64 fuzzing there is ~150x slower, or a GitHub ARM run with worker memory logging.
+
+## v1.4.0 (`687f303`) fuzzing, 2026-10-08: all passed
+
+Upstream runs (dispatched as the maintainer account), all green:
+- Native, 60 minutes per target, 10 targets: [run 37763468382](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763468382). Attempt 1's `FuzzPackedDecodeHostile` job was cancelled by a GitHub runner shutdown signal at 58m57s after 14.5 M executions with no failing input; attempt 2 passed.
+- ClusterFuzzLite ASan batch: [run 37763471961](https://github.com/HdrHistogram/hdrhistogram-go/actions/runs/37763471961), plus the scheduled batch (10:56 UTC) and cron/prune (13:41 UTC).
+
+These cover #115-#117 on x86_64. The ARM64 worker-exit question above is unchanged (no new ARM run on `687f303`).
