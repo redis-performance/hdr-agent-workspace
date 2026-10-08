@@ -1,11 +1,14 @@
 # Workspace Memory — hdr-agent-workspace
 
 - [Go maintainer session 2026-10-07/08](hdr-go-maintainer-2026-10-07.md) — upstream Go `master`
-  `1608007`; what merged (#75–#114), user policy choices, **v1.4.0 released 2026-10-08** at `687f303`.
+  `687f303`; what merged (#75–#117), user policy choices, open follow-ups, **v1.4.0 released 2026-10-08** at `687f303`.
   Start here for Go. Status page: experiments/GO-MAINTAINER-2026-10-07/STATUS.md.
 
 - [Go PR merge authority](go-pr-merge-authority.md) — Go repo only: open as fcostaoliveira, approve+merge as
   filipecosta90 after 4 review agents agree and CI is green; scoped exception to merges-are-the-users.
+
+- [Workspace and upstream push access](workspace-push-access.md) — push this repo over HTTPS as fcostaoliveira (the SSH
+  key is filipecosta90, no access here); filipecosta90 is the Go maintainer for merges and releases.
 
 - [Review agent disk hygiene](review-agent-disk-hygiene.md) — subagent repo copies and private Go caches filled
   the disk once; git-archive copies, shared cache, clean up, stop under 5 GB.

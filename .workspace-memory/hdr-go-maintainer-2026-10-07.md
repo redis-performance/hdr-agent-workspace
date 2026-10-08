@@ -5,8 +5,9 @@ metadata:
   type: project
 ---
 
-Upstream `HdrHistogram/hdrhistogram-go` `master` is `1608007` (2026-10-07, #114). Merged in this session: #75 (packed),
-#76/#78/#79 (fuzz CI), #80–#83, #103, #105, #109, #112, #114; the user merged #108. Issues #36, #49, #50, #77, #84–#102,
+Upstream `HdrHistogram/hdrhistogram-go` `master` is `687f303` (2026-10-08, #117). Merged in this session: #75 (packed),
+#76/#78/#79 (fuzz CI), #80–#83, #103, #105, #109, #112, #114, #115, #116, #117; the user merged #108. A reusable 4-agent
+review script is `scripts/go-pr-review-workflow.js`. Issues #36, #49, #50, #77, #84–#102,
 #106, #107, #110, #111 and #113 are closed. Latest release is still v1.3.0.
 
 **v1.4.0 was released on 2026-10-08** at `687f303` (the user said "release now"), after #115-#117 merged. Future releases
