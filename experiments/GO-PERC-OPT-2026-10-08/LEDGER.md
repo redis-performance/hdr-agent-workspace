@@ -19,3 +19,4 @@ Accept: at least +2% on the target, no regression over 1% elsewhere, tests green
 | 3 | stack scratch for small percentile lists (drop 1 alloc) | -40 to -80 ns per call | not started |
 | 4 | skip `sort.Float64s` when already ascending | tiny | not started |
 | 5 | block width 16 instead of 8 | maybe +5% on x86, check Arm | not started |
+| replication | second session, same result: map variant 0.83x Intel, 0.70x AMD, 1.01x Arm | confirmed | `GO-BENCH-1.3.0-VS-MASTER-2026-10-08/replication-2026-10-08-second-session` |

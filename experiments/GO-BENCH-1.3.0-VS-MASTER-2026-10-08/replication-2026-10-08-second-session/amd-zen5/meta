@@ -1,0 +1,6 @@
+arch: x86_64
+model name	: AMD EPYC 9R45 96-Core Processor
+cores: 96
+go version go1.27.1 linux/amd64
+governor: performance
+pinned cpu: 2, GOMAXPROCS=1, count=7
