@@ -62,3 +62,14 @@ unsorted lists with a NaN seed, and a code comment no longer over-claims stack a
 `8460179`; CI 20/20). Upstream `master` now carries EXP-1 and EXP-2. Open follow-ups: re-time the unsorted slice path on the
 fleet (code changed after the timings); the map variant can pass non-ascending ranks to `scanTargets` when a NaN percentile
 meets a wrapped total (unspecified input, #115 code, not filed).
+
+## Packed last-hit write cache: PR #117 opened, needs a fleet re-run (2026-10-08)
+
+The August fork PR fcostaoliveira/hdrhistogram-go#1 (one-entry last-hit cache in `PackedHistogram.RecordValues`) was stale: it
+targeted the pre-merge `feat/packed-histogram` branch. The user accepted its trade-off (bursty writes 30-59% faster, random
+writes 2.4-9.4% slower in August). Rebased onto master `186f8b9` and opened upstream as
+[PR #117](https://github.com/HdrHistogram/hdrhistogram-go/pull/117) (`b0658dc`, author fcostaoliveira); fork #1 closed as superseded.
+Only conflict: one constructor line. The cache is self-validating (`idx[lastPos] == ci`), so it is safe after inserts, Reset,
+Compact, Merge, Clone and DecodePacked; `TestPackedLastHitCacheStaysCorrect` re-records the cached value after each and fails
+without the recheck. **Wanted from the fleet session:** re-run the packed write benchmarks (clustered, hot90, random) for
+`186f8b9` vs `b0658dc`, pinned ABBA, on Intel, AMD and Arm. The PR says it will not merge before those numbers exist.
