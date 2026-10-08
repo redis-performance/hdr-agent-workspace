@@ -1,0 +1,22 @@
+FuzzDecodeInvariants | 6h0m0s, execs: 876393915 (0/sec), new interesting: 272 (total: 274)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.460s 
+FuzzDecodeRoundTrip | 6h0m0s, execs: 930832510 (0/sec), new interesting: 228 (total: 232)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.444s 
+FuzzLogReader | 6h0m0s, execs: 571296002 (0/sec), new interesting: 530 (total: 534)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.603s 
+FuzzMergeMetamorphic | 6h0m0s, execs: 220482774 (0/sec), new interesting: 48 (total: 49)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.188s 
+FuzzPackedDecodeHostile | 6h0m0s, execs: 131170149 (0/sec), new interesting: 1165 (total: 1177)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.261s 
+FuzzPackedDifferential | 6h0m0s, execs: 171697508 (0/sec), new interesting: 1248 (total: 1258)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.393s 
+FuzzPercentileQueries | 6h0m0s, execs: 453761512 (0/sec), new interesting: 21 (total: 23)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.197s 
+FuzzRecordEncodeDecode | 6h0m0s, execs: 182755829 (0/sec), new interesting: 121 (total: 124)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.235s 
+FuzzZigZagDecodeBytes | 6h0m0s, execs: 939686092 (0/sec), new interesting: 17 (total: 20)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.539s 
+FuzzZigZagRoundTrip | 6h0m0s, execs: 908489176 (0/sec), new interesting: 2 (total: 6)
+PASS ok  	github.com/HdrHistogram/hdrhistogram-go	21600.139s 
+corpus_files: 3652
+corpus_size: 212M

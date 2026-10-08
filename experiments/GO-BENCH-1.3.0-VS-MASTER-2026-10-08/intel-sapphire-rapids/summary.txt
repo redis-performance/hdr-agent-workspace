@@ -1,0 +1,12 @@
+benchmark                                                 A ns/op      B ns/op       A/B  spread A | B (min-max/median)
+BenchmarkHistogramRecordValue                                 3.0          3.2     0.96x  0.5% | 1.5%
+BenchmarkHistogramValueAtPercentile                        1160.5       1152.0     1.01x  7.2% | 9.7%
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice       5426.5       5421.0     1.00x  6.9% | 7.3%
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice       8058.5       9813.5     0.82x  7.8% | 9.6%
+BenchmarkNew                                               5157.0       5292.0     0.97x  1.7% | 2.0%
+BenchmarkPackedEncode                                           -     144231.0    only B
+BenchmarkPackedRecord                                           -         45.7    only B
+BenchmarkPackedValueAtPercentile                                -         71.5    only B
+BenchmarkPackedValueAtPercentilesSlice                          -        245.8    only B
+BenchmarkWindowedHistogramMerge                            3571.0       3563.0     1.00x  0.1% | 0.2%
+BenchmarkWindowedHistogramRecordAndRotate                     3.7          3.7     1.00x  0.1% | 0.2%

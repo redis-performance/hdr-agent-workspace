@@ -1,0 +1,39 @@
+goos: linux
+goarch: arm64
+pkg: github.com/HdrHistogram/hdrhistogram-go
+BenchmarkHistogramRecordValue                            	356822257	         3.363 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	356954826	         3.363 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	356707430	         3.363 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	356906671	         3.363 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramRecordValue                            	356865433	         3.363 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNew                                             	  280266	      4144 ns/op	   65664 B/op	       2 allocs/op
+BenchmarkNew                                             	  279567	      4302 ns/op	   65664 B/op	       2 allocs/op
+BenchmarkNew                                             	  278858	      4310 ns/op	   65664 B/op	       2 allocs/op
+BenchmarkNew                                             	  278298	      4315 ns/op	   65664 B/op	       2 allocs/op
+BenchmarkNew                                             	  277660	      4305 ns/op	   65664 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  953533	      1330 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  934416	      1206 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  890720	      1337 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  909606	      1329 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentile                      	  901474	      1204 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  197319	      6125 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  199173	      6173 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  188556	      6232 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  192417	      6383 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentileGivenPercentileSlice  	  195820	      6249 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  101851	     11455 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  109274	     11780 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  107502	     11249 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  108339	     11547 ns/op	     192 B/op	       2 allocs/op
+BenchmarkHistogramValueAtPercentilesGivenPercentileSlice 	  107077	     11436 ns/op	     192 B/op	       2 allocs/op
+BenchmarkWindowedHistogramRecordAndRotate                	279065850	         4.299 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramRecordAndRotate                	278407712	         4.309 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramRecordAndRotate                	278525965	         4.309 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramRecordAndRotate                	278377317	         4.309 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramRecordAndRotate                	278533296	         4.310 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramMerge                          	  407162	      2917 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramMerge                          	  416407	      2919 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramMerge                          	  417205	      2914 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramMerge                          	  417141	      2917 ns/op	       0 B/op	       0 allocs/op
+BenchmarkWindowedHistogramMerge                          	  416782	      2922 ns/op	       0 B/op	       0 allocs/op
+PASS
