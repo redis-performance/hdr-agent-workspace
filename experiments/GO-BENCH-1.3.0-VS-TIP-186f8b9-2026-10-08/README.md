@@ -31,3 +31,9 @@ Script: `scripts/fleet-go-bench.sh` (launched with `scripts/fleet-go-exp.sh HOST
   AMD shows 0.98x (no change at 0.1 ns resolution). If the project wants it back, a bisect of the `RecordValues` changes is the next step.
 - `New` is 1 to 3% slower with 15 to 21% spread, within noise.
 - Microbenchmarks from the repository's own benchmark file, one session per configuration, not application throughput.
+
+## Charts
+
+`charts/` has `speedup.*` (overview: multi-percentile call, single percentile, `RecordValue`, per machine) and `valueatpercentiles.*` (absolute time per call
+for the four-percentile map call), SVG and PNG, drawn by `charts/render_go_charts.py` from the three `summary.txt` files. The speedup chart uses the ratio column
+of those files (computed from unrounded medians), not the printed ns/op, which have one decimal and are too coarse for the few-nanosecond benchmarks.
