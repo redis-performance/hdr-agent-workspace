@@ -120,11 +120,11 @@ necessarily the cause (a killed worker or a resource limit on the runner looks t
 same target passed. Next step: a long run of this one target on a fleet ARM64 VM at `de66007`, to see whether a panic with a
 stack trace appears. Not yet started.
 
-## Fleet deep fuzz launched (2026-10-07 ~20:25 UTC)
+## Fleet deep fuzz (2026-10-07 20:25 to 2026-10-08 02:25 UTC): FINISHED, clean
 
 Started by the maintainer from `scripts/fleet-go-fuzz.sh` on three fleet VMs (Intel Sapphire Rapids x86_64, AMD Zen 5 x86_64,
 AWS Graviton Neoverse V2 arm64), commit `de66007` (includes #105). Each runs all 10 native Go fuzz targets in parallel for 6 h:
 9 workers per target on Intel and ARM, 6 workers at nice 19 on AMD. Unit tests passed on each VM first. First check
-(about 1 min in): Intel running (0.14M to 2.8M execs per target, no failures); AMD fuzzing; ARM still compiling. Verdict
-pending until ~02:30 UTC 2026-10-08: check each run directory's `logs/*.log` for `--- FAIL`/panic and `testdata/fuzz/` inputs.
+(about 1 min in): Intel running (0.14M to 2.8M execs per target, no failures); AMD fuzzing; ARM still compiling. Result: all 30 targets exited PASS, no failure, panic or new failing input. Details and the ARM depth caveat:
+[FLEET-DEEP-FUZZ-RESULT.md](FLEET-DEEP-FUZZ-RESULT.md).
 Not local runs; the fleet access method is not recorded here.

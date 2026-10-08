@@ -35,3 +35,9 @@ campaigns pending. The separate OSS fleet connection is not recorded in
 this public repo; no local fuzzing was run.
 
 Keep builds/tests/fuzzers on remote infrastructure, never this workstation.
+
+## Fleet deep fuzz finished 2026-10-08
+6 h x 10 targets on three fleet VMs at `de66007`: 30/30 PASS, no failures. arm64 was about 150x slower per second (0.76 M
+`FuzzPackedDifferential` executions vs 172 M Intel, 271 M AMD), so it did not reach the 55 M depth of the earlier GitHub ARM
+failure, which stays unexplained and un-filed. Next if wanted: a dedicated ARM `FuzzPackedDifferential` run, after finding why
+arm64 fuzzing is slow. Scripts: `scripts/fleet-go-fuzz.sh`, `scripts/fleet-go-repro.sh`. Details: FLEET-DEEP-FUZZ-RESULT.md.

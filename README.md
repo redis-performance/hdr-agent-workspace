@@ -29,7 +29,9 @@ and its follow-ups through [#105](https://github.com/HdrHistogram/hdrhistogram-g
 are merged into upstream `master` at `de66007`. The [Go deep-fuzz campaign](experiments/GO-FUZZ-2026-10-07/STATUS.md)
 records a green x86_64/ASan round on the previous `5ffadfa` head, one
 unclassified ARM64 packed-differential failure, macOS jobs still running,
-and new full fuzz/ASan runs on `de66007`.
+and new full fuzz/ASan runs on `de66007`. A 6-hour fuzz of all 10 targets on three fleet VMs (Intel, AMD, Graviton) at `de66007` finished
+clean on 2026-10-08 (30/30 PASS); the arm64 VM ran only 0.76 M `FuzzPackedDifferential` executions, so the earlier ARM64 failure at
+55 M is still unexplained ([result](experiments/GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)).
 
 ## C performance by architecture
 
@@ -455,7 +457,7 @@ The merged fork PRs above are the baseline this workspace builds on.
   The #57–#74 fixes and optimizations shipped in **v1.3.0**. Sparse
   **PackedHistogram** (#75) and follow-ups through #105 are merged on `master`.
   The [current-master deep fuzz run](experiments/GO-FUZZ-2026-10-07/STATUS.md)
-  is in progress; the earlier ARM64 packed-differential failure is under replay.
+  finished clean on the three fleet VMs (2026-10-08); the earlier ARM64 packed-differential failure is still unexplained.
 
 Accepted C wins are candidate cross-pollinations into the Rust/Go ports where the algorithm maps
 (e.g. the percentile-scan structure); each port would get its own benchmark + validation before any change.

@@ -987,3 +987,11 @@ one-minute fuzz run; two five-hour targeted reruns are queued. The macOS jobs ar
 running. Upstream #105 merged as `de66007`; the fork and workspace Go submodule
 advanced to it, and new native/ASan deep campaigns were dispatched. None of
 the first four campaigns covers #105. No C acceptance-count change.
+
+### Go fleet deep fuzz, 2026-10-07/08 (no C acceptance-count change)
+Ran all 10 native Go fuzz targets for 6 h each on three OSS-fleet VMs (Intel Sapphire Rapids, AMD Zen 5, AWS Graviton
+Neoverse V2) at upstream `de66007` (includes #105), using `scripts/fleet-go-fuzz.sh`. Result: 30/30 targets PASS, no crash,
+no new failing input. Executions: Intel about 5.4 B, AMD about 9.6 B, Graviton about 36 M (arm64 about 150x slower per second,
+cause not found). `FuzzPackedDifferential`: 172 M (Intel), 271 M (AMD), 0.76 M (Graviton). The earlier GitHub ARM64 failure
+(55 M executions, exit status 2, input does not reproduce at `5ffadfa` or `de66007`) is **not** explained or cleared by the
+ARM VM run, which did not reach that depth. Details: `experiments/GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md`.

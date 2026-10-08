@@ -9,7 +9,10 @@ workspace Go submodule and fork master. The earlier `5ffadfa` x86_64 run passed
 unclassified `FuzzPackedDifferential` worker failure, with input saved and
 short remote replay passing. Targeted five-hour ARM reruns on old and new
 source are queued; macOS ARM64 remains in progress. New native and ASan
-campaigns on `de66007` are pending. C optimization counts below do not change.
+campaigns on `de66007` are pending. **Fleet deep fuzz (2026-10-08):** all 10 targets x 6 h on Intel, AMD and Graviton VMs at
+`de66007` finished 30/30 PASS (about 5.4 B, 9.6 B and 36 M executions; no failures). arm64 ran about 150x slower per second, so it
+reached only 0.76 M `FuzzPackedDifferential` executions against the 55 M where the GitHub ARM job failed: that failure stays
+unexplained ([result](GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md)). C optimization counts below do not change.
 
 [Redis/Valkey integration and code-size audit](C-HARDENING-2026-10-01/README.md)
 tracks C release hardening, consumer patch drafts, pinned binary measurements,
