@@ -1,0 +1,175 @@
+diff --git a/include/hdr/hdr_histogram.h b/include/hdr/hdr_histogram.h
+index 3dd7603..acc376e 100644
+--- a/include/hdr/hdr_histogram.h
++++ b/include/hdr/hdr_histogram.h
+@@ -304,7 +304,9 @@ int64_t hdr_value_at_percentile(const struct hdr_histogram* h, double percentile
+  * @param length Number of elements in the arrays.
+  * @param values Destination array containing the values at the given percentiles.
+  * The values array should be allocated by the caller.
+- * @return 0 on success, ENOMEM if the provided destination array is null.
++ * Percentiles that cannot be resolved (e.g. on an empty histogram) get the same
++ * value hdr_value_at_percentile returns for them.
++ * @return 0 on success, EINVAL if percentiles or values is null.
+  */
+ int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length);
+ 
+diff --git a/src/hdr_histogram.c b/src/hdr_histogram.c
+index 3d10cf5..c044ee1 100644
+--- a/src/hdr_histogram.c
++++ b/src/hdr_histogram.c
+@@ -1010,6 +1010,12 @@ int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percen
+             }
+         }
+     }
++    /* targets the scan never reached (e.g. empty) get the singular API's not-found value */
++    for (; at_pos < length; at_pos++)
++    {
++        values[at_pos] = percentiles[at_pos] == 0.0 ?
++            lowest_equivalent_value(h, 0) : highest_equivalent_value(h, 0);
++    }
+     return 0;
+ }
+ 
+diff --git a/test/hdr_histogram_test.c b/test/hdr_histogram_test.c
+index be1b094..409a5e0 100644
+--- a/test/hdr_histogram_test.c
++++ b/test/hdr_histogram_test.c
+@@ -566,6 +566,91 @@ static char* test_percentile_singular_equals_plural_with_offset(void)
+     return 0;
+ }
+ 
++static char* check_empty_value_at_percentiles(const struct hdr_histogram* h, int64_t* values)
++{
++    const double percentiles[5] = { 0.0, 50.0, 99.9, 100.0, 150.0 };
++    int i;
++
++    mu_assert("empty value_at_percentiles return should be 0",
++        hdr_value_at_percentiles(h, percentiles, values, 5) == 0);
++    for (i = 0; i < 5; i++)
++    {
++        mu_assert("singular != plural on empty histogram",
++            hdr_value_at_percentile(h, percentiles[i]) == values[i]);
++    }
++    return 0;
++}
++
++static char* test_value_at_percentiles_empty(void)
++{
++    const int64_t lowest[2] = { 1, 100 };
++    const double p50 = 50.0;
++    int c;
++
++    for (c = 0; c < 2; c++)
++    {
++        struct hdr_histogram* h = NULL;
++        int64_t values[5] = { -7, -7, -7, -7, -7 };
++        char* result;
++
++        mu_assert("Failed to allocate hdr_histogram",
++            hdr_init(lowest[c], INT64_C(3600000000), 3, &h) == 0);
++        if ((result = check_empty_value_at_percentiles(h, values))) return result;
++
++        h->normalizing_index_offset = h->counts_len / 2;
++        if ((result = check_empty_value_at_percentiles(h, values))) return result;
++        h->normalizing_index_offset = 0;
++
++        /* reuse the output buffer of a non-empty call across hdr_reset */
++        mu_assert("record failed", hdr_record_value(h, 5000));
++        mu_assert("non-empty value_at_percentiles return should be 0",
++            hdr_value_at_percentiles(h, &p50, values, 1) == 0);
++        hdr_reset(h);
++        if ((result = check_empty_value_at_percentiles(h, values))) return result;
++
++        values[0] = -7;
++        mu_assert("zero-length value_at_percentiles return should be 0",
++            hdr_value_at_percentiles(h, &p50, values, 0) == 0);
++        mu_assert("zero-length value_at_percentiles should not write", values[0] == -7);
++
++        hdr_close(h);
++    }
++    return 0;
++}
++
++/* Counts summing below total_count (struct written directly, or read racing writers)
++   leave the upper targets unresolved. */
++static char* test_value_at_percentiles_unresolved_targets(void)
++{
++    const double percentiles[4] = { 25.0, 50.0, 99.0, 100.0 };
++    const int32_t offsets[2] = { 0, 37 };
++    int c;
++    int i;
++
++    for (c = 0; c < 2; c++)
++    {
++        struct hdr_histogram* h = NULL;
++        int64_t values[4] = { -7, -7, -7, -7 };
++
++        mu_assert("Failed to allocate hdr_histogram", hdr_init(100, INT64_C(3600000000), 3, &h) == 0);
++        h->normalizing_index_offset = offsets[c];
++        mu_assert("record failed", hdr_record_value(h, 1000));
++        h->total_count = 4;
++
++        mu_assert("value_at_percentiles return should be 0",
++            hdr_value_at_percentiles(h, percentiles, values, 4) == 0);
++        mu_assert("p25 should resolve to the recorded value", values[0] >= 1000);
++        for (i = 0; i < 4; i++)
++        {
++            mu_assert("singular != plural for unresolved target",
++                hdr_value_at_percentile(h, percentiles[i]) == values[i]);
++        }
++
++        hdr_close(h);
++    }
++    return 0;
++}
++
+ 
+ static char* test_recorded_values(void)
+ {
+@@ -1518,7 +1603,9 @@ static struct mu_result all_tests(void)
+     mu_run_test(test_value_at_percentiles_with_offset);
+     mu_run_test(test_value_at_percentiles_blocked_parity);
+     mu_run_test(test_percentile_singular_equals_plural_with_offset);
+     mu_run_test(test_value_at_percentiles_p0_equals_singular);
++    mu_run_test(test_value_at_percentiles_empty);
++    mu_run_test(test_value_at_percentiles_unresolved_targets);
+     mu_run_test(test_recorded_values);
+     mu_run_test(test_linear_values);
+     mu_run_test(test_logarithmic_values);
+diff --git a/test/hdr_packed_histogram_test.c b/test/hdr_packed_histogram_test.c
+index 15433c1..6734743 100644
+--- a/test/hdr_packed_histogram_test.c
++++ b/test/hdr_packed_histogram_test.c
+@@ -514,6 +514,24 @@ static char* test_percentile_edges(void)
+     return 0;
+ }
+ 
++/* empty, lowest > 1: unresolved dense plural slots match packed (p>0 is the top of bucket 0) */
++static char* test_plural_empty_parity(void)
++{
++    struct hdr_packed_histogram* p = NULL;
++    struct hdr_histogram* d = NULL;
++    hdr_packed_init(100, HIGHEST, SIG, &p);
++    hdr_init(100, HIGHEST, SIG, &d);
++    double pcts[] = {0, 50, 99.9, 100, 150};
++    int64_t pv[5], dv[5];
++    mu_assert("empty packed plural ok", hdr_packed_value_at_percentiles(p, pcts, pv, 5) == 0);
++    mu_assert("empty dense plural ok", hdr_value_at_percentiles(d, pcts, dv, 5) == 0);
++    for (int i = 0; i < 5; i++) mu_assert("empty plural parity", compare_int64(dv[i], pv[i]));
++    mu_assert("empty p0 is 0", dv[0] == 0);
++    mu_assert("empty p50 is top of bucket 0", dv[1] == 63);
++    hdr_packed_close(p); hdr_close(d);
++    return 0;
++}
++
+ /* single-pass plural must equal the per-percentile singular for ANY input order
+    (packed sorts targets internally), for duplicates, out-of-range percentiles,
+    and length past the small-buffer threshold (the malloc path). */
+@@ -746,6 +764,7 @@ static struct mu_result all_tests(void)
+     mu_run_test(test_encoding_count_width_growth);
+     mu_run_test(test_count_widths);
+     mu_run_test(test_percentile_edges);
++    mu_run_test(test_plural_empty_parity);
+     mu_run_test(test_plural_single_pass_order);
+     mu_run_test(test_min_with_zero);
+     mu_run_test(test_memory_size);

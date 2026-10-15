@@ -1,0 +1,13 @@
+fix: return lowest equivalent value for p0 in hdr_value_at_percentiles
+
+hdr_value_at_percentile(h, 0.0) returns the lowest equivalent value of
+the first non-empty bucket (== hdr_min), but hdr_value_at_percentiles
+returned the bucket's highest equivalent value for the same input, so a
+batch query disagreed with the singular one at p0 (e.g. 63 vs 0 when 0
+is recorded with lowest_discernible_value 100).
+
+Apply the singular rule (exact percentile == 0.0) at the three emit
+sites of the batch scan: the blocked loop, its tail and the
+offset-aware iterator fallback. All other percentiles are unchanged.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

@@ -1,0 +1,16 @@
+fix: fill unresolved hdr_value_at_percentiles slots like the singular
+
+hdr_value_at_percentiles uses the caller's values[] as scratch space for
+the cumulative-count target of each percentile. When the scan never
+reaches a target, that target is left in the output slot. This happens on
+an empty histogram, or when counts sum below total_count. On an empty
+histogram every slot came back as 1.
+
+After the scan, fill each unresolved slot with what hdr_value_at_percentile
+returns when its own scan finds nothing: its not-found value 0, put through
+the same p == 0.0 boundary rule (lowest_equivalent_value for p0,
+highest_equivalent_value otherwise). The scan loops are unchanged.
+
+Also correct the @return doc: null arguments give EINVAL, not ENOMEM.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

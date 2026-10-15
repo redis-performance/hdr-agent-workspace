@@ -1,0 +1,16 @@
+fix: return 0 from percentile queries on an empty histogram
+
+hdr_value_at_percentile() on a histogram with total_count == 0 rounded
+the scan's not-found 0 up to highest_equivalent_value(0), so it returned
+2^unit_magnitude - 1 (63 for lowest_discernible_value 100, 511 for 1000)
+for any percentile other than 0.0. Return 0 instead. This matches Java
+getValueAtPercentile, Rust value_at_quantile and Go ValueAtPercentile.
+
+hdr_value_at_percentiles() fills unresolved slots with the singular
+value, so an empty histogram now gets 0 in every slot.
+hdr_packed_value_at_percentile(s) apply the same rule, which keeps
+dense/packed parity.
+
+Non-empty results are unchanged, including a recorded value of 0.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

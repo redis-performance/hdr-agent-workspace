@@ -20,3 +20,10 @@ single-TU compiles only on the workstation; perf gate and full sanitizer/fuzz ru
   - Decision: #174 fills unresolved slots with the value the singular API returns, so dense batch, dense singular and packed batch agree, with no compat change.
   - #116 stacks on #174 and changes the empty result to 0 for dense and packed, singular and batch (explicit compat note).
 - Round 2 (3 finalisers + 1 integration check) launched.
+- 2026-10-15: round 2 done. Final patches are in `patches/`: 173 and 174 are each based on upstream main, and 116 stacks on 174. Commit and PR texts are drafted.
+  - Workstation light checks: no warnings with `-Wall -Wextra -Wshadow -Wpedantic -Wmissing-prototypes`, and every suite passes under ASan+UBSan (dense 46, packed 27, packed core, log 34).
+  - Differential check of the full stack: 972 rows, 0 mismatches across dense singular, dense batch, packed singular and packed plural.
+  - Non-empty, non-p0 results are byte-identical to upstream (504/504).
+  - 173 and 174 conflict only on the `all_tests` context line; the rebased version is in `patches/174-on-173.patch`.
+  - Still owed on the fleet: read-path perf gate (base vs patch, back to back), the cmake ctest matrix, and an x86 AVX2 build.
+- Awaiting user: the empty → 0 compatibility decision (#116), and the go-ahead to push branches and open PRs.
