@@ -34,3 +34,13 @@ single-TU compiles only on the workstation; perf gate and full sanitizer/fuzz ru
   - Pending before ready-for-review: CI, and a read-path perf gate on the fleet.
   - Whichever of #175/#176 merges second needs a one-line rebase of the `all_tests` list; #177 needs a rebase after #176 merges.
 - 2026-10-15: CI green on #175, #176 and #177 (32/32 checks each). Still pending: the fleet read-path perf gate.
+- 2026-10-15: bot first-pass review on each PR handled.
+  - #175: the test-leak fix (8fe416d) is pushed.
+  - #176: Java/Rust/Go citation posted; no code change.
+  - #177: the dense batch now returns early on an empty histogram (e67758a), replacing the nested ternary. This also removes the empty `-inf` NaN-cast UBSan report. Stale comments fixed, test renamed, packed recorded-0 parity added.
+  - PR bodies now carry release-note lines.
+- 21 adversarial review-skill agents (7 per PR) reviewed the heads before these pushes: 21/21 MERGE-READY, 0 blocking.
+- Non-blocking items left for the maintainer:
+  - squash on merge (no force-push);
+  - #176 test size and ternary layout (left alone to avoid rebasing the stacked #177);
+  - pre-existing, out of scope: `-inf` UB on nonempty histograms; p100 target above 2^54; unsorted input together with under-filled counts.
