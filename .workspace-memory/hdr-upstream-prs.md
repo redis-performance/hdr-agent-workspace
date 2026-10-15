@@ -267,3 +267,5 @@ UB** (cov 304 vs 254 pre-fix). Do this whenever two PRs fix findings from the sa
 `gh` runs sandboxed with its own `/tmp`, so `--body-file /tmp/...` fails with
 "no such file or directory" even though the file exists. Write PR/comment bodies inside the
 workspace dir (e.g. `.pr-body.md`, then delete) instead.
+
+- **#175 / #176 / #177** — OPEN as drafts (2026-10-15). They fix issues #173 (batch p0 boundary), #174 (empty/unresolved batch slots leaked scratch ranks) and #116 (empty → 0, dense and packed). #177 is stacked on #176. Pending: CI and a fleet read-path perf gate. Details: experiments/ISSUES-173-174-116-2026-10-15/STATUS.md.

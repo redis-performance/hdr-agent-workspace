@@ -27,3 +27,9 @@ single-TU compiles only on the workstation; perf gate and full sanitizer/fuzz ru
   - 173 and 174 conflict only on the `all_tests` context line; the rebased version is in `patches/174-on-173.patch`.
   - Still owed on the fleet: read-path perf gate (base vs patch, back to back), the cmake ctest matrix, and an x86 AVX2 build.
 - Awaiting user: the empty → 0 compatibility decision (#116), and the go-ahead to push branches and open PRs.
+- 2026-10-15: user approved the #116 empty → 0 change and the PRs. Draft PRs opened upstream from the fork:
+  - #175 (#173): `fix/batch-p0-lowest-equivalent`
+  - #176 (#174): `fix/batch-unresolved-percentiles`
+  - #177 (#116): `fix/empty-percentile-zero`, stacked on #176
+  - Pending before ready-for-review: CI, and a read-path perf gate on the fleet.
+  - Whichever of #175/#176 merges second needs a one-line rebase of the `all_tests` list; #177 needs a rebase after #176 merges.
