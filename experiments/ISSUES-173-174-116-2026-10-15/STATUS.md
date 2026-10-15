@@ -33,3 +33,4 @@ single-TU compiles only on the workstation; perf gate and full sanitizer/fuzz ru
   - #177 (#116): `fix/empty-percentile-zero`, stacked on #176
   - Pending before ready-for-review: CI, and a read-path perf gate on the fleet.
   - Whichever of #175/#176 merges second needs a one-line rebase of the `all_tests` list; #177 needs a rebase after #176 merges.
+- 2026-10-15: CI green on #175, #176 and #177 (32/32 checks each). Still pending: the fleet read-path perf gate.
