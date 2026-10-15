@@ -44,3 +44,4 @@ single-TU compiles only on the workstation; perf gate and full sanitizer/fuzz ru
   - squash on merge (no force-push);
   - #176 test size and ternary layout (left alone to avoid rebasing the stacked #177);
   - pre-existing, out of scope: `-inf` UB on nonempty histograms; p100 target above 2^54; unsorted input together with under-filled counts.
+- 2026-10-15: user said go: #175/#176/#177 marked ready for review with reviewer paulorsousa. The read-path perf gate is still listed as pending in each body. The user merges.
