@@ -2,7 +2,7 @@ INTEGRATION CHECK: HdrHistogram_c upstream/main 8885476, patches 173 / 174 / 116
 
 **Verdict:** every tree passes all tests, with clean warnings and a clean ASan+UBSan run. The only conflict is between 173 and 174 in `test/hdr_histogram_test.c`; source and headers apply cleanly in every order, and a trivial rebase fixes the conflict. The fully stacked tree (d) gives the same answer from all 4 APIs on every case, and on non-empty histograms it changes nothing except the batch result at p0.
 
-Location (abbreviated as I below): `I=/private/tmp/claude-501/-Users-oly-redislabs-hdr-agent-workspace/c0a0d17a-306f-4548-a949-c0bb93dc41ec/scratchpad/final/integ`
+Location (abbreviated as I below): `I=<scratch>/final/integ`
 Each tree is a fresh `git archive upstream/main | tar -x`. The submodule was not touched.
 
 **1. Applying the patches** (`git apply -p1 --check` then `git apply -p1`)
