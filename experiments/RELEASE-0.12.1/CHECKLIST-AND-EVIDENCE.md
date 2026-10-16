@@ -20,7 +20,7 @@ The undefined-behaviour claims (-INFINITY, INT64_MAX at p100) were reproduced un
 
 ## Caveats the notes state
 - #179 (`-latomic`) is verified on x86-64 and by a CI job that forces the new branch; not on real 32-bit ARM or RISC-V. Issue #98 was auto-closed by the PR.
-- No performance claim; not benchmarked.
+- Performance: measured 2026-10-16 on the three fleet machines (`fleet-bench/`, harness `scripts/fleet-c-bench.sh`), flat within spread; the notes quote the ratios.
 - NaN percentile still selects p100 in C (Java, Go, Rust: first bucket). Undecided.
 
 ## To do before publishing (pass 3)

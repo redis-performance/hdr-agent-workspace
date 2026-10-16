@@ -1,0 +1,5 @@
+metric                                                        A              B       B/A  spread A | B
+batch ns/call, 4 pct (lower better)                     1773.65        1709.40    0.964x  1.2% | 0.0%  (n=6|6)
+read M q/s (higher better)                                 0.47           0.47    1.000x  0.0% | 0.0%  (n=6|6)
+same 4 pct as single calls, ns (lower better)           2195.25        2193.20    0.999x  0.6% | 0.9%  (n=6|6)
+write ops/s (higher better)                        498953279.99   498921215.22    1.000x  0.2% | 5.8%  (n=6|6)

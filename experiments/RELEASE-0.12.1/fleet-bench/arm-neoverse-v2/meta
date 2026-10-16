@@ -1,0 +1,6 @@
+arch: aarch64
+Model name:                           Neoverse-V2
+cores: 96
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+governor: n/a
+pinned cpu: 2, blocks=3 (A B B A each)

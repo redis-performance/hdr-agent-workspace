@@ -2,7 +2,16 @@
 
 7 merged pull requests since 0.12.0. A bug-fix release: **no function was added or removed, and the layout of every public struct is unchanged**, so existing code and binaries keep working. Several fixes change what a function returns for an **empty histogram** or for an out-of-range percentile; read [Behaviour changes](#behaviour-changes-to-know-about-when-upgrading) before upgrading if you test for those results.
 
-Performance is not a goal of this release and none is claimed: the changes add a few predictable comparisons in percentile setup code and nothing in the record path. They were not benchmarked.
+**Performance is unchanged.** 0.12.1 against 0.12.0 on the benchmark fleet (new / old, higher ratio is faster for write and read; the batch rows are times, so below 1.000x is faster):
+
+| New / old | Intel Xeon (Sapphire Rapids) | AMD EPYC (Zen 5) | AWS Graviton (Neoverse V2) |
+|---|---:|---:|---:|
+| `hdr_record_value` (write), ops/s | 1.000x | 1.002x | 1.000x |
+| `hdr_value_at_percentile` (read), queries/s | 1.000x | 1.006x | 1.000x |
+| `hdr_value_at_percentiles`, 4 percentiles, time per call | 0.964x | 0.989x | 1.002x |
+| the same 4 percentiles as single calls, time | 0.999x | 0.995x | 1.001x |
+
+Write, read and the single calls are flat on all three machines. The batch call is 3.6% faster on Intel and 1.1% faster on AMD, which is only just outside the run-to-run spread (about 1%), so treat it as no change. Each figure is the median of six runs (three interleaved old/new blocks) pinned to one core, built with GCC 13.3 in the default Release configuration, using the repository's own write and read drivers plus a small batch timing loop over a 1M-sample lognormal histogram. These are microbenchmarks, not application throughput. Compared at 0.12.0 (`8885476`) and the release commit (`30e9ce6`).
 
 ### Bug fixes
 
