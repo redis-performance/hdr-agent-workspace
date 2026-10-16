@@ -2,16 +2,28 @@
 
 7 merged pull requests since 0.12.0. A bug-fix release: **no function was added or removed, and the layout of every public struct is unchanged**, so existing code and binaries keep working. Several fixes change what a function returns for an **empty histogram** or for an out-of-range percentile; read [Behaviour changes](#behaviour-changes-to-know-about-when-upgrading) before upgrading if you test for those results.
 
-**Performance is unchanged.** 0.12.1 against 0.12.0 on the benchmark fleet (new / old, higher ratio is faster for write and read; the batch rows are times, so below 1.000x is faster):
+### Performance: unchanged
 
-| New / old | Intel Xeon (Sapphire Rapids) | AMD EPYC (Zen 5) | AWS Graviton (Neoverse V2) |
+No regression: 0.12.1 against 0.12.0 on the benchmark fleet, write, read and the batch call all within about 1% of 0.12.0 (the batch call is a little faster).
+
+![HdrHistogram_c 0.12.1 vs 0.12.0: write, read and batch speed are unchanged on Intel, AMD and Graviton](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/451e388a40fb184e30215942606dc8c5008bd24c/experiments/RELEASE-0.12.1/charts/speedup.png)
+
+| 0.12.1 speed relative to 0.12.0 (higher is faster) | Intel Xeon (Sapphire Rapids) | AMD EPYC (Zen 5) | AWS Graviton (Neoverse V2) |
 |---|---:|---:|---:|
-| `hdr_record_value` (write), ops/s | 1.000x | 1.002x | 1.000x |
-| `hdr_value_at_percentile` (read), queries/s | 1.000x | 1.006x | 1.000x |
-| `hdr_value_at_percentiles`, 4 percentiles, time per call | 0.964x | 0.989x | 1.002x |
-| the same 4 percentiles as single calls, time | 0.999x | 0.995x | 1.001x |
+| `hdr_record_value` (write) | 1.000x | 1.002x | 1.000x |
+| `hdr_value_at_percentile`, 4 percentiles as single calls | 1.001x | 1.005x | 0.999x |
+| `hdr_value_at_percentile`, repository read driver | 1.000x | 1.006x | 1.000x |
+| `hdr_value_at_percentiles`, 4 percentiles (batch) | 1.038x | 1.011x | 0.998x |
 
-Write, read and the single calls are flat on all three machines. The batch call is 3.6% faster on Intel and 1.1% faster on AMD, which is only just outside the run-to-run spread (about 1%), so treat it as no change. Each figure is the median of six runs (three interleaved old/new blocks) pinned to one core, built with GCC 13.3 in the default Release configuration, using the repository's own write and read drivers plus a small batch timing loop over a 1M-sample lognormal histogram. These are microbenchmarks, not application throughput. Compared at 0.12.0 (`8885476`) and the release commit (`30e9ce6`).
+Everything is inside the run-to-run spread except the batch call on Intel (3.8% faster, runs tightly grouped) and, marginally, on AMD; treat those as no change you should rely on. The read driver prints only two decimals, so its ratio resolves to about 2 to 4%; the single-call row is the precise read-path figure.
+
+Each figure is the median of six runs per release (three interleaved old/new/new/old blocks) pinned to one core, built with GCC 13.3 in the default Release configuration, using the repository's own write and read drivers plus a small batch timing loop over a 1M-sample lognormal histogram. These are microbenchmarks, not application throughput. Compared at 0.12.0 (`8885476`) and the release commit (`30e9ce6`).
+
+<details><summary>Every run, per machine</summary>
+
+![Every run of every benchmark, normalised to the 0.12.0 median](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/451e388a40fb184e30215942606dc8c5008bd24c/experiments/RELEASE-0.12.1/charts/runs.png)
+
+</details>
 
 ### Bug fixes
 
