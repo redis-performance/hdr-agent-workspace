@@ -13,7 +13,8 @@ Java and Rust rows are from reading code, not from running it, except where note
 | Batch vs scalar on empty | batch leaked the rank (1) | both 0 (#176, #177) | no batch API | batch asserts total==0, returns 0 | map and slice return 0, tested |
 | p0 | scalar lowest equivalent, batch highest (0.11.9 to 0.12.0) | both lowest (#175) | lowest equivalent only when `percentile == 0.0` | lowest only for exactly `quantile == 0.0` | lowest for 0 (map/slice also for negative) |
 | p > 100, +Inf | clamp to 100 | clamp (#184) | clamp to 100 | clamp to 1.0 | clamp to 100 |
-| p < 0, -Inf, NaN | **UB cast** for -Inf; otherwise count 1 | count 1, never UB (#184) | clamp to 0 then max(count,1); NaN becomes count 1 | saturating `as u64`, then count 1 | `percentileRank`: `!(rank >= 1)` returns 1 (covers NaN, negative, -Inf) |
+| p < 0, -Inf | **UB cast** for -Inf; otherwise count 1 | count 1, never UB (#184) | clamp to 0 then max(count,1) | saturating `as u64`, then count 1 | `percentileRank`: `!(rank >= 1)` returns 1 |
+| NaN | treated as 100 (last observation) | unchanged (documented in the header) | **count 1** (first bucket): `(long) NaN` is 0, then max(count,1) | **count 1** | **count 1** (first bucket, highest-equivalent branch) |
 | Rank near or above 2^53 observations | wrong p100; **UB** at `INT64_MAX` | p100 and over-large ranks return `total_count` (#184) | computed in double, no exact path; not verified at p100 | `ceil(q*total as f64) as u64`, off by about one ulp above 2^53 | `if rank >= float64(totalCount) { return totalCount }` (v1.4.0, #108) |
 
 ## Reading it
@@ -21,6 +22,7 @@ Java and Rust rows are from reading code, not from running it, except where note
 - C #178, #183 and #177 move C to what Java, Rust and Go already do. Java's own history: HdrHistogram/HdrHistogram issue 65 asked about `Long.MAX_VALUE`
   for an empty minimum, and the code now returns 0.
 - C #184 uses the same guard as Go's `percentileRank`.
+- **Divergence kept for now:** C sends NaN to p100; Java, Rust and Go send it to the first bucket. The C behaviour predates this campaign and is documented in the header; changing it would be a separate, deliberate decision.
 - Java, Rust and Go all test `percentile == 0` on the raw argument for the lowest-equivalent branch; C does too.
 - Go's `Max()` on an empty histogram with lowest > 1 (63) is the same kind of quirk C #116 had for percentiles. It is not part of this campaign and is
   noted here as a possible Go follow-up.
@@ -40,3 +42,8 @@ Java and Rust rows are from reading code, not from running it, except where note
 
 Verification: each fix reproduced on `main` (`8029afc`) and gone on the branch; the new tests fail on `main` and pass on the fix; local ctest on gcc (Release, no-AVX2,
 no-log, core-only) and clang ASan/UBSan with `float-cast-overflow` all pass for #178, #179, #183 and #184.
+
+## Go probe (2026-10-16, Go master 687f303, run locally)
+
+`experiments/GO-EMPTY-P0-COVERAGE-2026-10-15/hdr_p0_empty_probe_test.go` passes: Go's batch and scalar p0 agree after recording 10001, and every empty and
+reset case at lowest 1 and 100 returns 0 for scalar, map and slice. None of C #173, #174 or #116 has a Go equivalent.
