@@ -14,7 +14,18 @@ audit of packed binary search. No optimisation accepted or library source change
 - Packed count-width specialisation already exists. Branchless lower_bound,
   grandchild prefetch and linear-search experiments were previously rejected;
   this investigation audits their evidence without re-running rejected changes.
-- In progress: reproducible diagnostics/assembly collection and workload audit.
+- Completed local exploration: [findings and reproduction](README.md).
+- 24 successful compilation outputs: Apple Clang ARM64/x86-64 and GCC ARM64,
+  O2/O3/Os plus compiler-only unrolling controls. Source hashes match throughout.
+- Packed narrow-count scans lose SIMD under some O3 unrolling decisions;
+  disabling unrolling/complete peeling restores it. No speed claim.
+- Clang ARM64 already uses conditional selects for packed binary search; Clang
+  x86-64 and GCC ARM64 O3 retain comparison branches.
+- Untimed fixture audit reproduces 223/410/594 slots: active search indices only
+  892/1640/2376 bytes. Random input does not establish cache-cold search loads.
+  O2 and ASan/UBSan audit output match.
+- Remaining evidence gaps: native Linux GCC/Clang code generation and actual
+  fleet cache counters. No fleet host was supplied during this exploration.
 
 No benchmarks or long fuzzing run on the workstation. No PR, release or upstream
 write is part of this investigation.

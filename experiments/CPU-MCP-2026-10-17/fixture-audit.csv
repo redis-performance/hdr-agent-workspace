@@ -1,0 +1,4 @@
+spread,populated,active_index_bytes,index_capacity_bytes,query_prefix,same_bucket,adjacent_virtual_bucket,unpopulated_queries,historical_sample_bytes
+1.2,223,892,1024,8192,42,94,0,64000000
+2.2,410,1640,2048,8192,18,49,0,64000000
+3.2,594,2376,4096,8192,19,30,0,64000000

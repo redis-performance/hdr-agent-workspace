@@ -1,5 +1,11 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [CPU MCP codegen and search audit 2026-10-17](../experiments/CPU-MCP-2026-10-17/README.md) —
+  unchanged C 0.12.1: 24 compilation outputs; packed scan SIMD depends on unrolling;
+  Clang ARM64 search already uses conditional selects. Historical small IID index
+  fixture does not establish cache-cold loads. No timings/accepted patch; Linux
+  fleet codegen and cache-counter evidence remain outstanding.
+
 - [Codex handoff 2026-10-17](handoff-codex.md) — cold start for any non-Claude agent: C 0.12.1 released, open user decisions, never-without-user list.
 - [Local CI allowed for C PRs](local-ci-allowed-c-prs.md) — builds/ctest/sanitizers may run locally for HdrHistogram_c PR work; benchmarks stay on the fleet.
 

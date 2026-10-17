@@ -1,0 +1,656 @@
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:262:16: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:184:17: note: ***** Analysis failed with vector mode V4SI
+src/hdr_packed_histogram.c:184:17: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:184:17: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:184:17: note: ***** Analysis failed with vector mode V8QI
+src/hdr_packed_histogram.c:184:17: note: ***** Re-trying analysis with vector mode V4HI
+src/hdr_packed_histogram.c:184:17: note: ***** Analysis failed with vector mode V4HI
+src/hdr_packed_histogram.c:184:17: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:184:17: note: ***** Analysis failed with vector mode V2SI
+src/hdr_packed_histogram.c:454:27: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:454:27: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:443:8: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:459:44: missed: statement clobbers memory: _25 = hdr_value_at_index (g_3, _24);
+src/hdr_packed_histogram.c:459:44: missed: statement clobbers memory: _26 = hdr_median_equivalent_value (g_3, _25);
+src/hdr_packed_histogram.c:462:18: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:462:18: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:169:37: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:169:37: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:169:37: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:169:37: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:169:37: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:169:37: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:169:37: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:169:37: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:152:33: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:152:33: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:149:13: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:160:30: missed: statement clobbers memory: nb_26 = realloc (_1, _5);
+src/hdr_packed_histogram.c:173:14: note: ***** Analysis failed with vector mode V16QI
+src/hdr_packed_histogram.c:173:14: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V16QI
+src/hdr_packed_histogram.c:281:13: missed: statement clobbers memory: r_9 = hdr_calculate_bucket_config (lowest_discernible_value_5(D), highest_trackable_value_6(D), significant_figures_7(D), &bcfg);
+src/hdr_packed_histogram.c:287:63: missed: statement clobbers memory: c_11 = calloc (1, 104);
+src/hdr_packed_histogram.c:292:5: missed: statement clobbers memory: hdr_init_preallocated (_1, &bcfg);
+src/hdr_packed_histogram.c:274:5: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:274:5: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:300:5: missed: statement clobbers memory: free (cfg_2(D));
+src/hdr_packed_histogram.c:301:1: note: ***** Analysis failed with vector mode VOID
+src/hdr_packed_histogram.c:306:12: note: ***** Analysis failed with vector mode VOID
+src/hdr_packed_histogram.c:314:69: missed: statement clobbers memory: h_6 = calloc (1, 64);
+src/hdr_packed_histogram.c:327:20: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_packed_histogram.c:327:20: note: SLPing BB part
+src/hdr_packed_histogram.c:323:13: note: Costing subgraph:
+src/hdr_packed_histogram.c:323:13: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: op template: h_6->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 0 h_6->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 1 h_6->idx_cap = 0;
+src/hdr_packed_histogram.c:323:13: note: 	children 0x108068118
+src/hdr_packed_histogram.c:323:13: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: 	{ 0, 0 }
+src/hdr_packed_histogram.c:323:13: note: Cost model analysis:
+src/hdr_packed_histogram.c:323:13: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_packed_histogram.c:327:20: note: Costing subgraph:
+src/hdr_packed_histogram.c:327:20: note: node 0x1080682b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: op template: h_6->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 0 h_6->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 1 h_6->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:327:20: note: 	children 0x108068338
+src/hdr_packed_histogram.c:327:20: note: node (constant) 0x108068338 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:327:20: note: Cost model analysis:
+src/hdr_packed_histogram.c:327:20: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_packed_histogram.c:327:20: note: Basic block will be vectorized using SLP
+src/hdr_packed_histogram.c:323:13: optimized: basic block part vectorized using 8 byte vectors
+src/hdr_packed_histogram.c:323:13: note: Vectorizing SLP tree:
+src/hdr_packed_histogram.c:323:13: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: op template: h_6->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 0 h_6->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 1 h_6->idx_cap = 0;
+src/hdr_packed_histogram.c:323:13: note: 	children 0x108068118
+src/hdr_packed_histogram.c:323:13: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: 	{ 0, 0 }
+src/hdr_packed_histogram.c:323:13: note: ------>vectorizing SLP node starting from: h_6->size = 0;
+src/hdr_packed_histogram.c:323:13: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_packed_histogram.c:323:13: note: transform store. ncopies = 1
+src/hdr_packed_histogram.c:323:13: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: h_6->size
+src/hdr_packed_histogram.c:323:13: note: created vectp.114_22
+src/hdr_packed_histogram.c:323:13: note: add new stmt: MEM <vector(2) int> [(int *)vectp.114_22] = { 0, 0 };
+src/hdr_packed_histogram.c:323:13: note: vectorizing stmts using SLP.
+src/hdr_packed_histogram.c:327:20: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_packed_histogram.c:327:20: note: Vectorizing SLP tree:
+src/hdr_packed_histogram.c:327:20: note: node 0x1080682b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: op template: h_6->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 0 h_6->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 1 h_6->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:327:20: note: 	children 0x108068338
+src/hdr_packed_histogram.c:327:20: note: node (constant) 0x108068338 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:327:20: note: ------>vectorizing SLP node starting from: h_6->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: vect_is_simple_use: operand 9223372036854775807, type of def: constant
+src/hdr_packed_histogram.c:327:20: note: transform store. ncopies = 1
+src/hdr_packed_histogram.c:327:20: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_6->total_count
+src/hdr_packed_histogram.c:327:20: note: created vectp.116_4
+src/hdr_packed_histogram.c:327:20: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.116_4] = { 0, 9223372036854775807 };
+src/hdr_packed_histogram.c:327:20: note: vectorizing stmts using SLP.
+src/hdr_packed_histogram.c:327:20: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:281:13: missed: statement clobbers memory: r_17 = hdr_calculate_bucket_config (lowest_discernible_value_7(D), highest_trackable_value_8(D), significant_figures_9(D), &bcfg);
+src/hdr_packed_histogram.c:287:63: missed: statement clobbers memory: c_18 = calloc (1, 104);
+src/hdr_packed_histogram.c:292:5: missed: statement clobbers memory: hdr_init_preallocated (_19, &bcfg);
+src/hdr_packed_histogram.c:314:69: missed: statement clobbers memory: h_21 = calloc (1, 64);
+src/hdr_packed_histogram.c:300:5: missed: statement clobbers memory: free (c_18);
+src/hdr_packed_histogram.c:327:20: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_packed_histogram.c:327:20: note: SLPing BB part
+src/hdr_packed_histogram.c:323:13: note: Costing subgraph:
+src/hdr_packed_histogram.c:323:13: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: op template: h_21->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 0 h_21->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 1 h_21->idx_cap = 0;
+src/hdr_packed_histogram.c:323:13: note: 	children 0x108068118
+src/hdr_packed_histogram.c:323:13: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: 	{ 0, 0 }
+src/hdr_packed_histogram.c:323:13: note: Cost model analysis:
+src/hdr_packed_histogram.c:323:13: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_packed_histogram.c:327:20: note: Costing subgraph:
+src/hdr_packed_histogram.c:327:20: note: node 0x1080682b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: op template: h_21->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 0 h_21->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 1 h_21->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:327:20: note: 	children 0x108068338
+src/hdr_packed_histogram.c:327:20: note: node (constant) 0x108068338 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:327:20: note: Cost model analysis:
+src/hdr_packed_histogram.c:327:20: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_packed_histogram.c:327:20: note: Basic block will be vectorized using SLP
+src/hdr_packed_histogram.c:323:13: optimized: basic block part vectorized using 8 byte vectors
+src/hdr_packed_histogram.c:323:13: note: Vectorizing SLP tree:
+src/hdr_packed_histogram.c:323:13: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: op template: h_21->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 0 h_21->size = 0;
+src/hdr_packed_histogram.c:323:13: note: 	stmt 1 h_21->idx_cap = 0;
+src/hdr_packed_histogram.c:323:13: note: 	children 0x108068118
+src/hdr_packed_histogram.c:323:13: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:323:13: note: 	{ 0, 0 }
+src/hdr_packed_histogram.c:323:13: note: ------>vectorizing SLP node starting from: h_21->size = 0;
+src/hdr_packed_histogram.c:323:13: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_packed_histogram.c:323:13: note: transform store. ncopies = 1
+src/hdr_packed_histogram.c:323:13: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: h_21->size
+src/hdr_packed_histogram.c:323:13: note: created vectp.121_3
+src/hdr_packed_histogram.c:323:13: note: add new stmt: MEM <vector(2) int> [(int *)vectp.121_3] = { 0, 0 };
+src/hdr_packed_histogram.c:323:13: note: vectorizing stmts using SLP.
+src/hdr_packed_histogram.c:327:20: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_packed_histogram.c:327:20: note: Vectorizing SLP tree:
+src/hdr_packed_histogram.c:327:20: note: node 0x1080682b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: op template: h_21->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 0 h_21->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: 	stmt 1 h_21->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:327:20: note: 	children 0x108068338
+src/hdr_packed_histogram.c:327:20: note: node (constant) 0x108068338 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:327:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:327:20: note: ------>vectorizing SLP node starting from: h_21->total_count = 0;
+src/hdr_packed_histogram.c:327:20: note: vect_is_simple_use: operand 9223372036854775807, type of def: constant
+src/hdr_packed_histogram.c:327:20: note: transform store. ncopies = 1
+src/hdr_packed_histogram.c:327:20: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_21->total_count
+src/hdr_packed_histogram.c:327:20: note: created vectp.123_49
+src/hdr_packed_histogram.c:327:20: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.123_49] = { 0, 9223372036854775807 };
+src/hdr_packed_histogram.c:327:20: note: vectorizing stmts using SLP.
+src/hdr_packed_histogram.c:327:20: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:300:5: missed: statement clobbers memory: free (_2);
+src/hdr_packed_histogram.c:369:9: missed: statement clobbers memory: free (_3);
+src/hdr_packed_histogram.c:370:9: missed: statement clobbers memory: free (_4);
+src/hdr_packed_histogram.c:371:9: missed: statement clobbers memory: free (h_7(D));
+src/hdr_packed_histogram.c:373:1: note: ***** Analysis failed with vector mode V16QI
+src/hdr_packed_histogram.c:373:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V16QI
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:377:6: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:391:28: missed: statement clobbers memory: counts_index_18 = counts_index_for (g_14, value_15(D));
+src/hdr_packed_histogram.c:212:34: missed: statement clobbers memory: ni_117 = realloc (_114, _116);
+src/hdr_packed_histogram.c:219:34: missed: statement clobbers memory: nc_124 = realloc (_119, _123);
+src/hdr_packed_histogram.c:248:10: missed: statement clobbers memory: _64 = widen_to_fit (h_13(D), count_16(D));
+src/hdr_packed_histogram.c:252:5: missed: statement clobbers memory: __builtin_memmove (_69, _71, _75);
+src/hdr_packed_histogram.c:253:5: missed: statement clobbers memory: __builtin_memmove (_81, _83, _87);
+src/hdr_packed_histogram.c:237:14: missed: statement clobbers memory: _57 = widen_to_fit (h_13(D), nv_56);
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _108 = h_13(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x108068118 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _108 = h_13(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V4HI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V4HI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x1080681a0 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _108 = h_13(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x108068008 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _108 = h_13(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_98 = h_13(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:182:15: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:182:15: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:420:6: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:391:28: missed: statement clobbers memory: counts_index_9 = counts_index_for (g_7, value_3(D));
+src/hdr_packed_histogram.c:212:34: missed: statement clobbers memory: ni_112 = realloc (_109, _111);
+src/hdr_packed_histogram.c:219:34: missed: statement clobbers memory: nc_119 = realloc (_114, _118);
+src/hdr_packed_histogram.c:248:10: missed: statement clobbers memory: _59 = widen_to_fit (h_2(D), 1);
+src/hdr_packed_histogram.c:252:5: missed: statement clobbers memory: __builtin_memmove (_64, _66, _70);
+src/hdr_packed_histogram.c:253:5: missed: statement clobbers memory: __builtin_memmove (_76, _78, _82);
+src/hdr_packed_histogram.c:237:14: missed: statement clobbers memory: _52 = widen_to_fit (h_2(D), nv_51);
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x118098090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_164 = h_2(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x118098118 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_164 = h_2(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V4HI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V4HI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x118098008 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_164 = h_2(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:200:9: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:200:9: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_packed_histogram.c:200:9: note: SLPing BB part
+src/hdr_packed_histogram.c:200:9: note: Costing subgraph:
+src/hdr_packed_histogram.c:200:9: note: node 0x118098090 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_packed_histogram.c:200:9: note: op template: _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 0 _103 = h_2(D)->idx_cap;
+src/hdr_packed_histogram.c:200:9: note: 	stmt 1 pretmp_164 = h_2(D)->cnt_cap;
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis:
+src/hdr_packed_histogram.c:200:9: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 3
+src/hdr_packed_histogram.c:200:9: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:433:20: note: ***** Analysis succeeded with vector mode V4SI
+src/hdr_packed_histogram.c:433:20: note: SLPing BB part
+src/hdr_packed_histogram.c:433:20: note: Costing subgraph:
+src/hdr_packed_histogram.c:433:20: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:433:20: note: op template: h_2(D)->total_count = 0;
+src/hdr_packed_histogram.c:433:20: note: 	stmt 0 h_2(D)->total_count = 0;
+src/hdr_packed_histogram.c:433:20: note: 	stmt 1 h_2(D)->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:433:20: note: 	children 0x108068118
+src/hdr_packed_histogram.c:433:20: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:433:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:433:20: note: Cost model analysis:
+src/hdr_packed_histogram.c:433:20: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_packed_histogram.c:433:20: note: Basic block will be vectorized using SLP
+src/hdr_packed_histogram.c:433:20: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_packed_histogram.c:433:20: note: Vectorizing SLP tree:
+src/hdr_packed_histogram.c:433:20: note: node 0x108068090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:433:20: note: op template: h_2(D)->total_count = 0;
+src/hdr_packed_histogram.c:433:20: note: 	stmt 0 h_2(D)->total_count = 0;
+src/hdr_packed_histogram.c:433:20: note: 	stmt 1 h_2(D)->min_value = 9223372036854775807;
+src/hdr_packed_histogram.c:433:20: note: 	children 0x108068118
+src/hdr_packed_histogram.c:433:20: note: node (constant) 0x108068118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:433:20: note: 	{ 0, 9223372036854775807 }
+src/hdr_packed_histogram.c:433:20: note: ------>vectorizing SLP node starting from: h_2(D)->total_count = 0;
+src/hdr_packed_histogram.c:433:20: note: vect_is_simple_use: operand 9223372036854775807, type of def: constant
+src/hdr_packed_histogram.c:433:20: note: transform store. ncopies = 1
+src/hdr_packed_histogram.c:433:20: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_2(D)->total_count
+src/hdr_packed_histogram.c:433:20: note: created vectp.137_7
+src/hdr_packed_histogram.c:433:20: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.137_7] = { 0, 9223372036854775807 };
+src/hdr_packed_histogram.c:433:20: note: vectorizing stmts using SLP.
+src/hdr_packed_histogram.c:433:20: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:433:20: note: ***** The result for vector mode V8QI would be the same
+src/hdr_packed_histogram.c:433:20: note: ***** The result for vector mode V4HI would be the same
+src/hdr_packed_histogram.c:440:13: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:440:13: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:443:8: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:443:8: missed: statement clobbers memory: _2 = hdr_packed_mean.part.0 (h_5(D));
+src/hdr_packed_histogram.c:443:8: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:443:8: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:474:27: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:474:27: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:465:8: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:465:8: missed: statement clobbers memory: _34 = hdr_packed_mean.part.0 (h_25(D));
+src/hdr_packed_histogram.c:479:27: missed: statement clobbers memory: _7 = hdr_value_at_index (g_26, _6);
+src/hdr_packed_histogram.c:479:27: missed: statement clobbers memory: _8 = hdr_median_equivalent_value (g_26, _7);
+src/hdr_packed_histogram.c:483:12: missed: statement clobbers memory: _54 = sqrt (_16);
+src/hdr_packed_histogram.c:483:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:483:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:496:20: missed: statement clobbers memory: counts_index_12 = counts_index_for (g_9, value_10(D));
+src/hdr_packed_histogram.c:501:12: missed: statement clobbers memory: _13 = sparse_get (h_8(D), counts_index_12);
+src/hdr_packed_histogram.c:501:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:501:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:512:20: missed: statement clobbers memory: leq_10 = hdr_lowest_equivalent_value (_3, _1);
+src/hdr_packed_histogram.c:513:20: missed: statement clobbers memory: size_11 = hdr_size_of_equivalent_value_range (_3, _1);
+src/hdr_packed_histogram.c:514:49: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:514:49: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:528:32: missed: statement clobbers memory: _2 = sparse_get (h_9(D), 0);
+src/hdr_packed_histogram.c:536:12: missed: statement clobbers memory: _11 = hdr_lowest_equivalent_value (_5, _3);
+src/hdr_packed_histogram.c:536:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:536:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_packed_histogram.c:587:35: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:590:65: missed: not vectorized: unsupported use in stmt.
+src/hdr_packed_histogram.c:581:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:581:18: missed: not vectorized: unsupported use in stmt.
+src/hdr_packed_histogram.c:581:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:581:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:582:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:582:18: missed: not vectorized: unsupported use in stmt.
+src/hdr_packed_histogram.c:582:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:582:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:583:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: unsupported use in stmt.
+src/hdr_packed_histogram.c:583:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:618:9: note: vectorized 0 loops in function.
+src/hdr_packed_histogram.c:583:18: missed: statement clobbers memory: _156 = hdr_value_at_index (g_7, _155);
+src/hdr_packed_histogram.c:583:18: missed: statement clobbers memory: _142 = hdr_value_at_index (g_7, _141);
+src/hdr_packed_histogram.c:582:18: missed: statement clobbers memory: _113 = hdr_value_at_index (g_7, _112);
+src/hdr_packed_histogram.c:582:18: missed: statement clobbers memory: _98 = hdr_value_at_index (g_7, _97);
+src/hdr_packed_histogram.c:581:18: missed: statement clobbers memory: _68 = hdr_value_at_index (g_7, _67);
+src/hdr_packed_histogram.c:581:18: missed: statement clobbers memory: _54 = hdr_value_at_index (g_7, _53);
+src/hdr_packed_histogram.c:591:47: missed: statement clobbers memory: _171 = hdr_value_at_index (g_7, _170);
+src/hdr_packed_histogram.c:512:20: missed: statement clobbers memory: leq_177 = hdr_lowest_equivalent_value (g_7, _173);
+src/hdr_packed_histogram.c:513:20: missed: statement clobbers memory: size_178 = hdr_size_of_equivalent_value_range (g_7, _173);
+src/hdr_packed_histogram.c:630:16: missed: statement clobbers memory: _15 = hdr_lowest_equivalent_value (g_7, _173);
+src/hdr_packed_histogram.c:583:18: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_packed_histogram.c:583:18: note: SLPing BB part
+src/hdr_packed_histogram.c:583:18: note: Costing subgraph:
+src/hdr_packed_histogram.c:583:18: note: node 0x118088008 (max_nunits=4, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:583:18: note: op template: _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _964 = (long long int) _963;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _974 = (long long int) _973;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _984 = (long long int) _983;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _994 = (long long int) _993;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1004 = (long long int) _1003;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1014 = (long long int) _1013;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1024 = (long long int) _1023;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1034 = (long long int) _1033;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1044 = (long long int) _1043;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1054 = (long long int) _1053;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1064 = (long long int) _1063;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1074 = (long long int) _1073;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1084 = (long long int) _1083;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1094 = (long long int) _1093;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1104 = (long long int) _1103;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	children 0x118088090
+src/hdr_packed_histogram.c:583:18: note: node 0x118088090 (max_nunits=4, refcnt=1) const vector(4) unsigned int
+src/hdr_packed_histogram.c:583:18: note: op template: _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _963 = *_962;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _973 = *_972;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _983 = *_982;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _993 = *_992;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1003 = *_1002;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1013 = *_1012;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1023 = *_1022;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1033 = *_1032;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1043 = *_1042;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1053 = *_1052;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1063 = *_1062;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1073 = *_1072;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1083 = *_1082;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1093 = *_1092;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1103 = *_1102;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis:
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis for part in loop 11:
+  Vector cost: 49
+  Scalar cost: 29
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:583:18: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:583:18: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:583:18: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_packed_histogram.c:583:18: note: SLPing BB part
+src/hdr_packed_histogram.c:583:18: note: Costing subgraph:
+src/hdr_packed_histogram.c:583:18: note: node 0x118088008 (max_nunits=4, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:583:18: note: op template: _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _964 = (long long int) _963;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _974 = (long long int) _973;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _984 = (long long int) _983;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _994 = (long long int) _993;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1004 = (long long int) _1003;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1014 = (long long int) _1013;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1024 = (long long int) _1023;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1034 = (long long int) _1033;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1044 = (long long int) _1043;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1054 = (long long int) _1053;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1064 = (long long int) _1063;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1074 = (long long int) _1073;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1084 = (long long int) _1083;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1094 = (long long int) _1093;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1104 = (long long int) _1103;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	children 0x118088090
+src/hdr_packed_histogram.c:583:18: note: node 0x118088090 (max_nunits=4, refcnt=1) const vector(4) unsigned int
+src/hdr_packed_histogram.c:583:18: note: op template: _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _963 = *_962;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _973 = *_972;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _983 = *_982;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _993 = *_992;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1003 = *_1002;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1013 = *_1012;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1023 = *_1022;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1033 = *_1032;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1043 = *_1042;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1053 = *_1052;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1063 = *_1062;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1073 = *_1072;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1083 = *_1082;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1093 = *_1092;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1103 = *_1102;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis:
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis for part in loop 11:
+  Vector cost: 49
+  Scalar cost: 29
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:583:18: note: ***** Re-trying analysis with vector mode V4HI
+src/hdr_packed_histogram.c:583:18: note: ***** Analysis succeeded with vector mode V4HI
+src/hdr_packed_histogram.c:583:18: note: SLPing BB part
+src/hdr_packed_histogram.c:583:18: note: Costing subgraph:
+src/hdr_packed_histogram.c:583:18: note: node 0x118088008 (max_nunits=4, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:583:18: note: op template: _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _964 = (long long int) _963;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _974 = (long long int) _973;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _984 = (long long int) _983;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _994 = (long long int) _993;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1004 = (long long int) _1003;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1014 = (long long int) _1013;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1024 = (long long int) _1023;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1034 = (long long int) _1033;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1044 = (long long int) _1043;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1054 = (long long int) _1053;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1064 = (long long int) _1063;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1074 = (long long int) _1073;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1084 = (long long int) _1083;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1094 = (long long int) _1093;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1104 = (long long int) _1103;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	children 0x118088090
+src/hdr_packed_histogram.c:583:18: note: node 0x118088090 (max_nunits=4, refcnt=1) const vector(4) unsigned int
+src/hdr_packed_histogram.c:583:18: note: op template: _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _963 = *_962;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _973 = *_972;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _983 = *_982;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _993 = *_992;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1003 = *_1002;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1013 = *_1012;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1023 = *_1022;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1033 = *_1032;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1043 = *_1042;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1053 = *_1052;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1063 = *_1062;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1073 = *_1072;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1083 = *_1082;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1093 = *_1092;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1103 = *_1102;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis:
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis for part in loop 11:
+  Vector cost: 49
+  Scalar cost: 29
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:583:18: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:583:18: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_packed_histogram.c:583:18: note: SLPing BB part
+src/hdr_packed_histogram.c:583:18: note: Costing subgraph:
+src/hdr_packed_histogram.c:583:18: note: node 0x118088008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_packed_histogram.c:583:18: note: op template: _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _964 = (long long int) _963;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _974 = (long long int) _973;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _984 = (long long int) _983;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _994 = (long long int) _993;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1004 = (long long int) _1003;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1014 = (long long int) _1013;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1024 = (long long int) _1023;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1034 = (long long int) _1033;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1044 = (long long int) _1043;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1054 = (long long int) _1053;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1064 = (long long int) _1063;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1074 = (long long int) _1073;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1084 = (long long int) _1083;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1094 = (long long int) _1093;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1104 = (long long int) _1103;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1114 = (long long int) _1113;
+src/hdr_packed_histogram.c:583:18: note: 	children 0x118088090
+src/hdr_packed_histogram.c:583:18: note: node 0x118088090 (max_nunits=2, refcnt=1) const vector(2) unsigned int
+src/hdr_packed_histogram.c:583:18: note: op template: _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 0 _963 = *_962;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 1 _973 = *_972;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 2 _983 = *_982;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 3 _993 = *_992;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 4 _1003 = *_1002;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 5 _1013 = *_1012;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 6 _1023 = *_1022;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 7 _1033 = *_1032;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 8 _1043 = *_1042;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 9 _1053 = *_1052;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 10 _1063 = *_1062;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 11 _1073 = *_1072;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 12 _1083 = *_1082;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 13 _1093 = *_1092;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 14 _1103 = *_1102;
+src/hdr_packed_histogram.c:583:18: note: 	stmt 15 _1113 = *_1112;
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis:
+src/hdr_packed_histogram.c:583:18: note: Cost model analysis for part in loop 11:
+  Vector cost: 53
+  Scalar cost: 31
+src/hdr_packed_histogram.c:583:18: missed: not vectorized: vectorization is not profitable.
+src/hdr_packed_histogram.c:761:26: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:761:26: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:744:35: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:744:35: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:751:70: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:751:70: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:737:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:737:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:737:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:737:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:737:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:737:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:737:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:737:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:737:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:737:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:738:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:738:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:738:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:738:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:738:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:738:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:738:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:738:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:738:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:738:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:739:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:739:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:739:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:739:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:739:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:739:18: missed: not vectorized: unsupported control flow in loop.
+src/hdr_packed_histogram.c:739:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:739:18: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:739:18: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:739:18: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_packed_histogram.c:692:26: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:692:26: missed: not vectorized: unsupported outerloop form.
+src/hdr_packed_histogram.c:696:22: missed: couldn't vectorize loop
+src/hdr_packed_histogram.c:696:28: missed: can't safely apply code motion to dependencies of _28 = *_27;
+ to vectorize the early exit.
+src/hdr_packed_histogram.c:685:26: optimized: loop vectorized using 16 byte vectors
+src/hdr_packed_histogram.c:685:26: optimized: loop vectorized using 16 byte vectors
+src/hdr_packed_histogram.c:641:5: note: vectorized 2 loops in function.
+src/hdr_packed_histogram.c:675:26: missed: statement clobbers memory: tgt_394 = malloc (_8);
+src/hdr_packed_histogram.c:676:26: missed: statement clobbers memory: vfi_396 = malloc (_8);
+src/hdr_packed_histogram.c:677:26: missed: statement clobbers memory: ord_398 = malloc (_8);
+src/hdr_packed_histogram.c:688:16: missed: statement clobbers memory: __builtin_memset (vfi_260, 0, _1728);
+src/hdr_packed_histogram.c:739:18: missed: statement clobbers memory: val_416 = hdr_value_at_index (g_392, _178);
+src/hdr_packed_histogram.c:739:18: missed: statement clobbers memory: val_409 = hdr_value_at_index (g_392, _204);
+src/hdr_packed_histogram.c:738:18: missed: statement clobbers memory: val_435 = hdr_value_at_index (g_392, _115);
+src/hdr_packed_histogram.c:738:18: missed: statement clobbers memory: val_428 = hdr_value_at_index (g_392, _142);
+src/hdr_packed_histogram.c:737:18: missed: statement clobbers memory: val_454 = hdr_value_at_index (g_392, _52);
+src/hdr_packed_histogram.c:737:18: missed: statement clobbers memory: val_447 = hdr_value_at_index (g_392, _78);
+src/hdr_packed_histogram.c:750:35: missed: statement clobbers memory: val_470 = hdr_value_at_index (g_392, _233);
+src/hdr_packed_histogram.c:512:20: missed: statement clobbers memory: leq_509 = hdr_lowest_equivalent_value (g_392, pretmp_1864);
+src/hdr_packed_histogram.c:513:20: missed: statement clobbers memory: size_510 = hdr_size_of_equivalent_value_range (g_392, pretmp_1864);
+src/hdr_packed_histogram.c:764:21: missed: statement clobbers memory: iftmp.13_482 = hdr_lowest_equivalent_value (g_392, pretmp_1864);
+src/hdr_packed_histogram.c:768:30: missed: statement clobbers memory: free (tgt_259);
+src/hdr_packed_histogram.c:768:44: missed: statement clobbers memory: free (vfi_260);
+src/hdr_packed_histogram.c:768:58: missed: statement clobbers memory: free (ord_261);
+src/hdr_packed_histogram.c:680:13: missed: statement clobbers memory: free (tgt_394);
+src/hdr_packed_histogram.c:680:27: missed: statement clobbers memory: free (vfi_396);
+src/hdr_packed_histogram.c:680:41: missed: statement clobbers memory: free (ord_398);
+src/hdr_packed_histogram.c:656:23: missed: statement clobbers memory: __builtin_memset (values_388(D), 0, _1727);
+src/hdr_packed_histogram.c:641:5: note: ***** Analysis failed with vector mode V2DI
+src/hdr_packed_histogram.c:641:5: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:641:5: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:641:5: note: ***** Analysis failed with vector mode V8QI
+src/hdr_packed_histogram.c:641:5: note: ***** Re-trying analysis with vector mode V4HI
+src/hdr_packed_histogram.c:641:5: note: ***** Analysis failed with vector mode V4HI
+src/hdr_packed_histogram.c:641:5: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:641:5: note: ***** Analysis failed with vector mode V2SI
+src/hdr_packed_histogram.c:777:8: note: ***** Analysis failed with vector mode V4SI
+src/hdr_packed_histogram.c:777:8: note: ***** The result for vector mode V16QI would be the same
+src/hdr_packed_histogram.c:777:8: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_packed_histogram.c:777:8: note: ***** Analysis failed with vector mode V8QI
+src/hdr_packed_histogram.c:777:8: note: ***** The result for vector mode V4HI would be the same
+src/hdr_packed_histogram.c:777:8: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_packed_histogram.c:777:8: note: ***** Analysis failed with vector mode V2SI
+src/hdr_packed_histogram.c:786:13: note: ***** Analysis failed with vector mode V4SI
+src/hdr_packed_histogram.c:786:13: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/hdr_packed_histogram.c:791:13: note: ***** Analysis failed with vector mode V16QI
+src/hdr_packed_histogram.c:791:13: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V16QI

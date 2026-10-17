@@ -1,0 +1,20 @@
+{
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.3.2)\nTarget: arm64-apple-darwin25.3.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "family": "clang",
+  "optimisation": "O2",
+  "extra_flags": [],
+  "units": [
+    {
+      "source": "src/hdr_histogram.c",
+      "sha256": "3db23d42337d5a27be93e12993e9473da0fb71fff95fdcaa246b1ef61258a127",
+      "command": "clang -std=c99 -O2 -S -Iinclude -Isrc -Rpass=(loop-vectorize|slp-vectorizer|loop-unroll) -Rpass-missed=(loop-vectorize|slp-vectorizer) -Rpass-analysis=(loop-vectorize|slp-vectorizer) src/hdr_histogram.c -o <BUILD>/hdr_histogram.s",
+      "exit_code": 0
+    },
+    {
+      "source": "src/hdr_packed_histogram.c",
+      "sha256": "f2334faa9e37bfeb7a3b10f4b49bd23015ef328f583b19f1d26a097f4adc8228",
+      "command": "clang -std=c99 -O2 -S -Iinclude -Isrc -Rpass=(loop-vectorize|slp-vectorizer|loop-unroll) -Rpass-missed=(loop-vectorize|slp-vectorizer) -Rpass-analysis=(loop-vectorize|slp-vectorizer) src/hdr_packed_histogram.c -o <BUILD>/hdr_packed_histogram.s",
+      "exit_code": 0
+    }
+  ]
+}

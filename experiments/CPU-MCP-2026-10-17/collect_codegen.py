@@ -29,7 +29,8 @@ def main():
                 'optimisation': args.opt, 'extra_flags': args.flag, 'units': []}
     with tempfile.TemporaryDirectory(prefix='hdr-codegen-') as tmp:
         def sanitise(value):
-            return value.replace(str(source), '<SOURCE>').replace(tmp, '<BUILD>')
+            value = value.replace(str(source), '<SOURCE>').replace(tmp, '<BUILD>')
+            return '\n'.join(line.rstrip() for line in value.splitlines()).rstrip()
 
         for unit in ['hdr_histogram', 'hdr_packed_histogram']:
             src = pathlib.Path('src') / (unit + '.c')
@@ -44,7 +45,8 @@ def main():
                 cmd += ['-fopt-info-vec-all']
             cmd += [str(src), '-o', str(asm)]
             proc = subprocess.run(cmd, cwd=source, capture_output=True, text=True)
-            (out / (unit + '.remarks.txt')).write_text(sanitise(proc.stdout + proc.stderr))
+            remarks = sanitise(proc.stdout + proc.stderr)
+            (out / (unit + '.remarks.txt')).write_text(remarks + '\n' if remarks else '')
             manifest['units'].append({'source': str(src),
                 'sha256': hashlib.sha256((source / src).read_bytes()).hexdigest(),
                 'command': sanitise(' '.join(cmd)), 'exit_code': proc.returncode})
@@ -72,7 +74,7 @@ def main():
                 sections.extend(current)
             if not sections:
                 raise RuntimeError('No relevant assembly functions extracted: ' + unit)
-            (out / (unit + '.s')).write_text(sanitise(''.join(sections)))
+            (out / (unit + '.s')).write_text(sanitise(''.join(sections)) + '\n')
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print(str(args.out))
 
