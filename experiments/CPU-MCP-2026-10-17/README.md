@@ -3,6 +3,10 @@
 2026-10-17. **Exploratory code-generation and fixture analysis; no new speedup
 claim, accepted optimisation, library patch or benchmark run.**
 
+Subsequent user-authorised [macOS timing pilot](mac/RESULT.md): one scoped
+crossing-loop pragma restores SIMD but regresses several cases; candidate rejected.
+The static-analysis scope below describes the investigation before that pilot.
+
 The useful lead is a compiler interaction in packed percentile scans: complete
 unrolling can discard SIMD that the same compiler emits at a different
 optimisation level. The search audit also finds that the existing source-level

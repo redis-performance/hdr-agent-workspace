@@ -11,6 +11,11 @@ codegen and cache-counter measurements need a user-specified fleet host.
 Workspace submodule remains the older experiment, untouched; inspected release
 source was exported separately. Historical campaign snapshots follow.
 
+Follow-up: user requested a Mac test. [Bounded local pilot](../experiments/CPU-MCP-2026-10-17/mac/RESULT.md)
+completed: one crossing-loop pragma, baseline A/A then three ABBA rounds, 92 cases.
+SIMD restored but regressions reject the candidate. Baseline/candidate CTest 9/9
+and candidate ASan/UBSan fixture oracle passed. No accepted optimisation or PR.
+
 **Updated: 2026-10-02** · Benchmark checkpoint; PR tables below are historical snapshots.
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.

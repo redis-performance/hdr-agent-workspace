@@ -27,4 +27,7 @@ Baseline A/A screen passed: 81/92 cases within 5% on median round ratio.
 Candidate now restores SIMD sums for widths 1/2/4 with the scoped pragma.
 Baseline and candidate CTest: 9/9 each. Candidate exhaustive fixture oracle:
 16,640 populated crossings plus 16 endpoints, also passed under ASan/UBSan.
-In progress: the predeclared three ABBA candidate rounds.
+Complete: the predeclared three ABBA candidate rounds. [Result](RESULT.md).
+SIMD restored, but early crossings and four-byte cases regress. The common
+prologue also shrinks, so width-8 source invariance is not machine-code invariance.
+Candidate rejected for advancement; no extra timing rounds or library promotion.

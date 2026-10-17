@@ -29,3 +29,8 @@ audit of packed binary search. No optimisation accepted or library source change
 
 No benchmarks or long fuzzing run on the workstation. No PR, release or upstream
 write is part of this investigation.
+
+Subsequent user-authorised Mac pilot: [result](mac/RESULT.md). Local A/A followed
+by three ABBA rounds tested one crossing-loop pragma; SIMD restored, material
+regressions observed, candidate rejected. The no-timings statement above describes
+the original static investigation, not this separately authorised follow-up.

@@ -74,7 +74,7 @@ def main():
                 values.setdefault(key, []).append((a, b, a / b))
     good = 0
     with (args.out / 'cases.csv').open('w') as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator='\n')
         w.writerow(['width', 'population', 'position', 'a_ns_median', 'b_ns_median',
                     'ratio_median', 'ratio_min', 'ratio_max'])
         for key, rounds in sorted(values.items()):

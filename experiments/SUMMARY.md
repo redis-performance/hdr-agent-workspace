@@ -7,6 +7,9 @@ on unchanged 0.12.1: 24 compilation outputs show packed SIMD lost/restored with
 unrolling controls. Untimed fixture analysis narrows old cache-cold search claims.
 No benchmarks, accepted source change or count change; native Linux/fleet evidence
 remains outstanding.
+Follow-up [Mac pilot](CPU-MCP-2026-10-17/mac/RESULT.md), explicitly authorised by
+the user: SIMD restored by a local crossing-loop pragma, but early/four-byte
+regressions reject this candidate. No accepted optimisation or count change.
 
 **Go, 2026-10-08:** [hdrhistogram-go v1.4.0](https://github.com/HdrHistogram/hdrhistogram-go/releases/tag/v1.4.0) is released at
 upstream `master` `687f303` (PackedHistogram, correctness fixes, #115-#117 speed-ups); the workspace Go submodule and fork master now

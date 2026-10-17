@@ -1,0 +1,70 @@
+{
+  "phase": "ab",
+  "hashes": {
+    "a": "ffb56001bfa2f99c603c2d381d053c591019d231d6036a4614bd81cd568e3032",
+    "b": "95d033b9f67351b4c16c11588abfefb84d28da5f75131b6cd9d00e8e8f94427d",
+    "plan": "0f0052d43228a0204e60941f8dceb7f28b7569906974c8ceb748214650fed6ba"
+  },
+  "runs": [
+    {
+      "name": "round1-1-a",
+      "started_utc": "2026-10-17T21:00:35.123863+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round1-2-b",
+      "started_utc": "2026-10-17T21:00:36.857419+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round1-3-b",
+      "started_utc": "2026-10-17T21:00:38.378950+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round1-4-a",
+      "started_utc": "2026-10-17T21:00:39.912828+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round2-1-a",
+      "started_utc": "2026-10-17T21:00:41.640247+00:00",
+      "case_order": "reverse"
+    },
+    {
+      "name": "round2-2-b",
+      "started_utc": "2026-10-17T21:00:43.380820+00:00",
+      "case_order": "reverse"
+    },
+    {
+      "name": "round2-3-b",
+      "started_utc": "2026-10-17T21:00:44.914629+00:00",
+      "case_order": "reverse"
+    },
+    {
+      "name": "round2-4-a",
+      "started_utc": "2026-10-17T21:00:46.446245+00:00",
+      "case_order": "reverse"
+    },
+    {
+      "name": "round3-1-a",
+      "started_utc": "2026-10-17T21:00:48.175820+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round3-2-b",
+      "started_utc": "2026-10-17T21:00:49.907522+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round3-3-b",
+      "started_utc": "2026-10-17T21:00:51.443532+00:00",
+      "case_order": "forward"
+    },
+    {
+      "name": "round3-4-a",
+      "started_utc": "2026-10-17T21:00:52.976472+00:00",
+      "case_order": "forward"
+    }
+  ]
+}

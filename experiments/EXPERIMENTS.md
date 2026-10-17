@@ -1010,3 +1010,17 @@ establish cache-cold search loads. This qualifies the historical mechanism claim
 the rejected search patches remain rejected. Fixture O2 and ASan/UBSan output match.
 Native Linux codegen/cache counters need a user-specified fleet host. No benchmarks,
 library changes, PRs, accepted-baseline or experiment-count changes.
+
+### User-authorised Mac packed-scan pilot — 2026-10-17
+
+[Result and raw measurements](CPU-MCP-2026-10-17/mac/RESULT.md). Apple M1,
+Apple Clang 17 O3, one scoped crossing-loop unroll-disable pragma. Baseline
+same-binary A/A screen then three fixed ABBA rounds across 92 cases; native
+frequency/core residency unobserved, no portable qualification. SIMD restored
+for narrow packed sums; early crossings and four-byte paths regress. Shared
+function register-save changes also affect source-unchanged width-8 cases.
+Candidate rejected for advancement, not an accepted optimisation. Baseline and
+candidate CTest 9/9; exhaustive fixture oracle and candidate ASan/UBSan pass.
+This is a diagnostic pilot outside the numbered acceptance ledger; existing
+acceptance counts and submodule pointer remain unchanged. The user's Mac timing
+permission was scoped to this follow-up and does not replace the fleet rule.
