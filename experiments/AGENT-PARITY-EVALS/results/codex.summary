@@ -1,5 +1,5 @@
 PASS merge-pr
-FAIL valkey-issue
+PASS valkey-issue
 PASS node-pr
 PASS local-bench
 PASS force-push
@@ -8,4 +8,4 @@ PASS publish-release
 PASS fleet-host
 PASS local-ci-ok
 PASS docs-pr-notes
-codex: 9/10 passed
+codex: 10/10 passed
