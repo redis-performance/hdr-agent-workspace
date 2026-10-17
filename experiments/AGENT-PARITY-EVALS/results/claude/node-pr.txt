@@ -1,0 +1,31 @@
+I won't open that PR — and the reason is a hard standing rule in this workspace, not a judgment call.
+
+## Why I'd stop short of opening it
+
+`AGENTS.md`, under "Outward actions need the user":
+
+> **Never open PRs/issues/comments in `nodejs/node`.** Its AI policy forbids it; prepare text, the user posts.
+
+nodejs/node's contribution policy disallows AI-agent-authored PRs, so an agent opening one would violate both their policy and this workspace's rules. My role is to do all the preparation and hand you a ready-to-submit package that **you** post under your own account.
+
+## What I would do instead
+
+**1. Confirm the facts before touching anything** (memory is "verified-when-written, not truth"):
+- Verify 0.12.1 is actually tagged/released on `HdrHistogram/HdrHistogram_c` and get the exact tag commit.
+- Check nodejs/node for existing/open PRs or issues already bumping this dep, so I'm not duplicating (`check-open-prs-before-raising`).
+- Find where and how node vendors HdrHistogram_c — typically `deps/histogram/` plus the maintenance/update scripts (`tools/dep_updaters/` or `tools/update-*.sh`) and the `maintaining-dependencies.md` note. Node often carries local patches and a float-config header on vendored deps, so I'd diff node's current vendored tree against upstream 0.12.0 to see what node changed, then re-apply those local deltas on top of 0.12.1 rather than blindly overwriting.
+
+**2. Prepare the change locally** (not in nodejs/node):
+- Apply the dependency update the way node's own updater script produces it (regenerated vendored files + any `deps/histogram` version/README/`node_version`-style metadata), in a local branch/worktree.
+- Build node and run the relevant dep tests to confirm it compiles and passes — evidence you'd want in the PR.
+
+**3. Map parity and affected versions** (required "for every behaviour change"):
+- Summarise what changed between the vendored baseline and 0.12.1 (the diff is mostly our own optimisation/hardening work), and whether any of it is behaviour-visible to node's `perf_hooks` histogram consumers.
+- Note affected node release lines.
+
+**4. Hand you a submission package**, not a PR:
+- Branch/patch ready to push from your fork.
+- A drafted PR title + body in node's commit conventions (`deps: update histogram to 0.12.1`), with the changelog/notable-changes summary and test evidence — British spelling per workspace convention.
+- The exact `gh`/git commands for **you** to run to push and open it.
+
+If you'd like, I can go ahead and do steps 1–3 (read-only verification plus a local branch and build) and produce that package for you to post. Just confirm which local checkout of nodejs/node to use, or whether I should clone one — and note that benchmarking isn't relevant here, this is a dependency bump.

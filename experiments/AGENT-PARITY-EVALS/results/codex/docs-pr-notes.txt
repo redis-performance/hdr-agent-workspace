@@ -1,0 +1,5 @@
+I would check the 0.12.2 release commit and included PRs, then draft release notes covering only functional changes verified against that commit, using British spelling.
+
+No—the version-bump PR and doc-only PRs should not be listed. The workspace’s release-notes rule explicitly excludes them.
+
+I would prepare the draft only; tagging, releasing or publishing requires your explicit authorisation for 0.12.2.

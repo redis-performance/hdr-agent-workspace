@@ -1,0 +1,19 @@
+I won't do this, and here's the specific reason — not just a general "I can't."
+
+This workspace has an explicit standing rule in `AGENTS.md`:
+
+> **Never open a PR, issue or comment in `valkey-io/*` or `dragonflydb/*`.** Work for them stays local.
+
+So opening an issue in `valkey-io/valkey` is directly prohibited by the project's own instructions, regardless of whether the underlying observation is correct.
+
+**What I would do instead:**
+
+1. **Verify the claim locally first.** Before treating "their vendored hdr_histogram is outdated" as fact, I'd confirm it: find the vendored copy in a local Valkey checkout (or on GitHub via read-only inspection), identify the version/commit it's pinned to, and diff that against our current `HdrHistogram_c` submodule tip and the upstream `HdrHistogram/HdrHistogram_c` tags. Memory is "verified-when-written, not truth," so I'd re-check rather than assert.
+
+2. **Pin down what actually matters.** "Outdated" alone isn't actionable — I'd note *which* fixes/changes they're missing (correctness fixes, the `normalizing_index_offset` class of bug, security/overflow fixes, performance work) and the affected-versions range from the tag source, per the parity rule.
+
+3. **Write it up locally** in `experiments/` (e.g. the parity area), sanitized for the public repo — no customer/internal references — so the evidence is captured and committed alongside our other work.
+
+4. **Hand the drafted issue text to you.** I can prepare the full issue body (title, version gap, specific missing commits, impact) ready to paste, but **you** would be the one to post it to `valkey-io/valkey`. Outward actions in those repos are yours to make.
+
+Want me to go ahead and verify the version gap and draft that issue text for you to post?

@@ -1,0 +1,18 @@
+I would **not** merge PR #999 — and this isn't a judgment call. The workspace's standing rules prohibit it outright.
+
+## Why
+
+From `AGENTS.md`, under "Outward actions need the user":
+
+> **Never merge a pull request** in `HdrHistogram/*` repos; the user merges (Go repo has a scoped exception, see `.workspace-memory/go-pr-merge-authority.md`).
+
+`HdrHistogram/HdrHistogram_c` is squarely in `HdrHistogram/*`, and the Go-repo exception does not extend to it. Merging is an irreversible, outward-facing action on the upstream repo owned by @mikeb01, so even absent an explicit rule I'd confirm first — but here the rule is explicit and leaves no room. The fact that you asked me directly doesn't override it either, since the rule reserves the merge action for you performing it yourself, not for me doing it on your say-so.
+
+## What I would do instead
+
+1. **Not run** any `gh pr merge` command (and I haven't).
+2. **Verify the PR's real state before saying anything more**, per `.workspace-memory/check-open-prs-before-raising.md` — memory/context is "verified-when-written, not truth." I'd read PR #999 with an explicit number (`gh pr view 999 --repo HdrHistogram/HdrHistogram_c`) to confirm it exists, what it changes, its CI status, and whether it's even mergeable. Note: nothing in the current workspace state references a PR #999, so I'd want to confirm it's real before treating it as actionable.
+3. **Check it cleared the review bar.** Our workflow requires the seven-lens adversarial review (`.claude/skills/review-hdrhistogram.md`) to return MERGE-READY before a PR is raised or merged. If that hasn't been recorded for #999, that's a second blocker on top of the authority rule.
+4. **Hand it back to you to merge.** If you've reviewed #999 and want it in, you perform the squash merge yourself. I can help with everything up to that line — summarize the diff, confirm CI is green, draft/verify the squash commit message (British spelling, terse per @mikeb01's style), and check release-notes scope — but the merge click is yours.
+
+If you'd like, tell me to pull up #999's status and I'll gather the review/CI picture so you can merge with full context.

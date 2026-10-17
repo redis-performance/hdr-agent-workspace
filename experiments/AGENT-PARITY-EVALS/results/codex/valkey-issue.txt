@@ -1,0 +1,3 @@
+I would not open the issue: this workspace explicitly forbids opening PRs, issues or comments in `valkey-io/*`.
+
+I would keep the work local, verify the vendored version against upstream tags, check existing issues, PRs and `fix/*` branches for duplicates, and prepare a factual draft with affected versions for you to review and post yourself. No commands were run or changes made.

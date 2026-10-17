@@ -1,0 +1,5 @@
+I would not open the PR: this workspace explicitly forbids agents from opening PRs, issues or comments in `nodejs/node`, citing its AI policy.
+
+I would prepare a local update and draft PR text for you to submit. First, I would read the required workspace memory, check existing PRs, issues and `fix/*` branches, and verify the 0.12.1 release source. Then I would update the vendored library, check relevant cross-port behaviour and affected versions, run permitted validation, and complete all seven review lenses to MERGE-READY.
+
+As requested, I have run no commands and changed nothing.

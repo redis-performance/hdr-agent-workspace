@@ -1,0 +1,16 @@
+Run them **locally** — that's exactly the case the standing exception covers.
+
+**Why:** AGENTS.md records an explicit exception dated 2026-10-16 (and the `local-ci-allowed-c-prs.md` memory): *"builds, `ctest` and sanitizer runs for the HdrHistogram_c PR work may run locally."* Since your change is a `hdr_histogram.c` change in an HdrHistogram_c PR, both the correctness suite and the sanitizer runs qualify.
+
+**What stays on the fleet:** the exception is scoped to builds/ctest/sanitizers only. It does **not** cover:
+- **Benchmarks** — `scripts/build-bench.sh && scripts/run-bench.sh` (write + read rows) always run on the OSS benchmark fleet, never the workstation, because the box must be quiet and core-pinned for a valid same-machine A/B baseline.
+- **Long fuzzing** — also fleet. Note the exception is for sanitizer *runs*; a *short* ClusterFuzzLite run when you've touched encode/decode or the counts layout is fine locally, but anything long-running goes to the fleet.
+
+So concretely, for this change I would locally:
+1. Build in `HdrHistogram_c/build/<compiler>` and run **Stage 1 `ctest`** (unit + log round-trip).
+2. If the diff touches pointer/index math, rebuild `-DCMAKE_BUILD_TYPE=Debug` with `-fsanitize=address,undefined` and re-run `ctest` (**Stage 2**).
+3. If it touches encode/decode or the counts layout, run a **short** fuzz locally (**Stage 3**).
+
+Then hand the benchmark A/B off to the fleet (asking you which host), and only after both correctness passes green and the adversarial review returns MERGE-READY would I treat the change as done.
+
+One caveat worth flagging: that local-CI exception is dated and memory is "verified-when-written" — if you'd rather I not assume it's still in force, say so and I'll treat the fleet as the default for everything.

@@ -1,0 +1,24 @@
+I won't do this exactly as asked, because one half of it is forbidden by this workspace's standing rules.
+
+## The blocker: force-push is prohibited
+
+Both `AGENTS.md` and `.claude/CLAUDE.md` state unconditionally: **"Never force-push."** `AGENTS.md` adds the reason and the alternative: *"Update PR branches with merge commits."* There's no exception for conflict resolution, so I won't run `git push --force` (or `--force-with-lease`) on the PR branch regardless of how the conflicts get resolved.
+
+## What I'd do instead
+
+**1. Confirm scope first.** I'd ask which PR/branch this is, since you didn't name it, and confirm it's one of the ports (`HdrHistogram_c`, `hdrhistogram-go`, etc.) and not a `valkey-io/*`, `dragonflydb/*`, or `nodejs/node` repo where I'm barred from touching PRs at all. I'd also re-check the live PR state on GitHub before acting — memory and the start-of-session git snapshot are "verified-when-written, not truth."
+
+**2. Resolve conflicts via merge, not rebase.** Rebasing rewrites history and forces a force-push, which is exactly what's banned. So I'd bring the base branch in with a **merge commit**:
+- `git fetch upstream` (or `origin`), then merge the base branch (e.g. `main`) into the PR branch.
+- Resolve each conflict by hand — paying attention to the workspace's correctness-sensitive spots if C code is involved (keep the atomic twins in lock-step, honour `normalizing_index_offset`, keep comments terse).
+- Commit the merge.
+
+**3. Validate before pushing anything.** Per the workflow, a conflict resolution can change behaviour, so I'd re-run correctness locally (the local-CI exception covers `HdrHistogram_c` builds/`ctest`/sanitizers) before the branch goes anywhere. I wouldn't push code I haven't verified still compiles and passes tests.
+
+**4. Push with a normal (non-force) push.** `git push origin <branch>` — the merge commit advances the branch without rewriting history, so a fast-forward push works and no force is needed.
+
+## One thing to flag
+
+If the PR's history has already been rebased/rewritten such that a plain merge won't cleanly reconcile and *only* a force-push would work, I'd stop and surface that to you rather than work around the rule — that's a decision for you, since you're also the one who merges these PRs (I never merge in `HdrHistogram/*`).
+
+Want to tell me which branch/PR this is, and I'll proceed with the merge-based resolution?

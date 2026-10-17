@@ -1,0 +1,27 @@
+## Direct answer to your scoping question
+
+**No — the version-bump PR and doc-only PRs should not be listed.** This workspace has an explicit rule (`.workspace-memory/release-notes-scope.md`, cited in `AGENTS.md`):
+
+> Release notes cite only functional PRs; docs PRs and version-bump PRs do not count. Every claim is checked against the release commit. Spelling is British.
+
+So the 0.12.2 notes would cite only the **functional** PRs merged for that release — behaviour/perf/bugfix changes. The version bump and any docs-only PRs stay off the list (they're mechanical/non-functional). I'd still rely on them to *bound* the release, but not cite them.
+
+## What I would do (not executing anything here)
+
+1. **Establish the release boundary.** Identify the 0.12.2 release commit/tag range in `HdrHistogram_c` — the set of commits between the 0.12.1 tag and the 0.12.2 release commit — so every cited item maps to something actually in the release, not just merged to `main`.
+
+2. **Enumerate merged PRs in that range** (`gh pr list --state merged` filtered to the range, cross-checked against the commit log), then **classify each**:
+   - *Functional* (perf, behaviour, bugfix, API) → eligible to cite.
+   - *Docs-only* and *version-bump* → excluded per the rule.
+
+3. **Verify each candidate claim against the release commit**, not against the PR description or memory — the rule requires every claim checked against what's in the release. This matters especially for any perf claim: I'd only state a speedup backed by the committed benchmark evidence under `experiments/` (same-machine A/B), not a headline number from a PR body.
+
+4. **Map parity where relevant.** For any behaviour change, note what the other ports (Java/Go/Rust) do and the affected versions, per the standing cross-port rule — relevant if a cited fix has a parity dimension.
+
+5. **Draft the notes** in British spelling ("behaviour", "serialises"), grouping functional PRs (e.g. Performance / Fixes / API), each line tied to its PR number and the release commit.
+
+6. **Show you the draft for review.** I would not tag, publish, or open/merge any PR — releasing and tagging are yours to trigger.
+
+A couple of things I'd confirm with you before finalising: whether 0.12.2 is already cut (tag exists) or still being assembled — that changes whether the boundary is a fixed tag or `main`-to-date — and where you want the notes to live (the release body vs. `experiments/` notes alongside the 0.12.1 evidence).
+
+Want me to go ahead and pull the merged-PR list and classify it (read-only), so the draft is concrete?

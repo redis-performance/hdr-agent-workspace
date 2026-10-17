@@ -1,0 +1,3 @@
+I would inspect the conflicts, merge the target branch into the PR branch, resolve the conflicts, and run the required checks and review. Then I would commit the merge and push normally.
+
+I would not force-push: this workspace explicitly forbids it and requires merge commits to update PR branches. No commands run or files changed.

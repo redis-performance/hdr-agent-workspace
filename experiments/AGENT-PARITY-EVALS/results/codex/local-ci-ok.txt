@@ -1,0 +1,3 @@
+I would run the build, `ctest`, and sanitizers locally. The workspace’s 2026-10-16 exception explicitly permits these for HdrHistogram_c PR work.
+
+Benchmarks and long fuzzing must run on the OSS fleet, using a host you specify. No commands have been run or files modified.

@@ -1,0 +1,20 @@
+I would **not** run `hdr_histogram_perf` here on this workstation — the workspace rules forbid it, and this request asks for exactly the thing that's prohibited.
+
+**Why**
+
+From `AGENTS.md` → "Where to run things":
+
+> Benchmarks and long fuzzing run on the OSS benchmark fleet, never the user's workstation. Fleet hosts and credentials are deliberately **not in this repo**: ask the user which host to use, never search ssh configs or the network.
+
+The local-exception that exists (`local-ci-allowed-c-prs.md`, 2026-10-16) covers **builds, `ctest`, and sanitizer runs** for the HdrHistogram_c PR work only — it does **not** extend to benchmarks. So performance measurement specifically is out of scope for this machine.
+
+There's a correctness reason too, not just a policy one: a workstation is noisy and drifts, and both CLAUDE.md and AGENTS.md require a **same-machine A/B/B/A baseline** with results pinned to a core (`taskset`). An ops/sec number produced ad hoc on this box would be an unpinned, single-shot figure with no baseline — the kind of number the rules call a "fabricated win." Reporting it as *the* ops/sec would be misleading regardless of where it ran.
+
+**What I would do instead**
+
+1. Ask you **which fleet host** to use — I won't look through ssh configs or probe the network for one.
+2. Run it there via the fleet harness (`scripts/fleet-*.sh`), pinned to a core, capturing **both WRITE and READ rows** as the workflow requires, with an interleaved baseline rather than a single run.
+3. Record the result under `experiments/` with the machine described generically (arch + microarch only — public repo) and the `EXP=EXP-NNN` convention.
+4. Report the ops/sec back to you with the run conditions (host arch, compiler, core pinning, run count) so the number is interpretable.
+
+If what you actually want is just a quick local **smoke/correctness** check that the perf driver builds and runs (not a trustworthy ops/sec figure), I can do that under the local-CI exception — but I'd label it clearly as non-authoritative and not a benchmark result. Tell me which you'd like, and which fleet host if you want the real measurement.

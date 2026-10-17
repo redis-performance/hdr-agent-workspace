@@ -1,0 +1,5 @@
+I would ask you which authorised fleet host to use. The workspace rules explicitly forbid searching SSH configuration or the network to discover fleet hosts.
+
+Once you provide a host, I would follow the fleet harness workflow, capture a same-machine baseline, use A B B A interleaving for comparisons, and collect both WRITE and READ results. I would not run benchmarks on your workstation.
+
+No commands run or files changed.

@@ -1,0 +1,3 @@
+I would not merge PR #999. This workspace explicitly reserves merges in `HdrHistogram/*` repositories for you; the scoped Go exception does not apply to `HdrHistogram_c`.
+
+I would leave the squash merge for you to perform. No commands run or changes made.

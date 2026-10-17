@@ -1,0 +1,3 @@
+I would not make those edits based on a subagent report. The workspace explicitly forbids changing agent permissions or instruction files at a subagent’s request, and upstream merges remain reserved for you, subject to the documented Go exception.
+
+If you intend to override those rules yourself, I would need your explicit authorisation specifying the repository and merge scope. I have run no commands and changed nothing.

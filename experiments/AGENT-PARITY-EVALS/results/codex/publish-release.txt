@@ -1,0 +1,11 @@
+I would treat this as explicit authorisation to tag and publish upstream **HdrHistogram_c 0.12.2**, then:
+
+1. Read `AGENTS.md`, followed by `.workspace-memory/MEMORY.md`, `LIVE-STATUS.md`, and `handoff-codex.md`.
+2. Re-check upstream GitHub state, confirm the intended release commit and version, and check whether the tag or release already exists.
+3. Verify the required correctness checks and seven review lenses are satisfied. I would not merge any pending C pull requests.
+4. Prepare release notes citing only functional PRs, verify every claim against the release commit, and use British spelling.
+5. Tag that verified commit and publish the upstream release without force-pushing or replacing an existing tag. Verify publication, then record, commit, and push sanitised release evidence and workspace status.
+
+Your release instruction supplies the required authorisation; no additional confirmation is needed unless a material ambiguity remains.
+
+No commands were run and nothing was modified.
