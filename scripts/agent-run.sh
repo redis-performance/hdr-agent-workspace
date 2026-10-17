@@ -2,7 +2,7 @@
 # Agent-agnostic shim. Set AGENT=claude|codex|aider (default: claude).
 # Usage: AGENT=claude ./scripts/agent-run.sh <skill> [args...]
 #
-# Minimum model for this workspace is Opus 4.8 — see AGENTS.md.
+# Shared rules: AGENTS.md. The codex backend is untested.
 set -euo pipefail
 
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
@@ -35,8 +35,13 @@ case "$AGENT" in
     exec claude --model claude-opus-4-8 --print "$PROMPT"
     ;;
   codex)
-    echo "ERROR: codex backend not yet wired" >&2
-    exit 1
+    if ! command -v codex &>/dev/null; then
+      echo "ERROR: codex CLI not found" >&2
+      exit 1
+    fi
+    cd "$WORKSPACE"
+    # Model and sandbox come from ~/.codex/config.toml (override with CODEX_MODEL). AGENTS.md is read natively.
+    exec codex exec ${CODEX_MODEL:+-m "$CODEX_MODEL"} "$PROMPT"
     ;;
   aider)
     echo "ERROR: aider backend not yet wired" >&2

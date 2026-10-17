@@ -1,5 +1,8 @@
 # Workspace Memory — hdr-agent-workspace
 
+- [Codex handoff 2026-10-17](handoff-codex.md) — cold start for any non-Claude agent: C 0.12.1 released, open user decisions, never-without-user list.
+- [Local CI allowed for C PRs](local-ci-allowed-c-prs.md) — builds/ctest/sanitizers may run locally for HdrHistogram_c PR work; benchmarks stay on the fleet.
+
 - [Go maintainer session 2026-10-07/08](hdr-go-maintainer-2026-10-07.md) — upstream Go `master`
   `687f303`; what merged (#75–#117), user policy choices, open follow-ups, **v1.4.0 released 2026-10-08** at `687f303`.
   Start here for Go. Status page: experiments/GO-MAINTAINER-2026-10-07/STATUS.md.

@@ -1,5 +1,9 @@
 # hdr-agent-workspace — Agent Instructions
 
+@../AGENTS.md
+
+(Shared rules for all agents live in `AGENTS.md`, imported above; this file adds the Claude-side detail.)
+
 You optimize **HdrHistogram_c** (the C implementation of HdrHistogram), validated by
 benchmark + profile data, with every change pre-cleared for upstream merge by an
 **adversarial review** modeled on the project's real maintainer M.O. Your job: find and
