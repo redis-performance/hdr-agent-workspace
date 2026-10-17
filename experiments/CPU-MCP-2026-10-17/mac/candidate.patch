@@ -1,0 +1,10 @@
+--- a/src/hdr_packed_histogram.c
++++ b/src/hdr_packed_histogram.c
+@@ -566,6 +566,7 @@
+              int64_t bs = 0; \
+              for (int32_t k = 0; k < PK_BLK; k++) bs += (int64_t) c[i + k]; \
+              if (bs >= target - running) { \
++                 _Pragma("clang loop unroll(disable)") \
+                  for (int32_t k = 0; k < PK_BLK; k++) { \
+                      running += (int64_t) c[i + k]; \
+                      if (running >= target) return hdr_value_at_index(g, idx[i + k]); \
