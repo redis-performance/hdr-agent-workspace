@@ -44,3 +44,11 @@ Update 2026-10-05: the Node bot PR nodejs/node#66494 exists (opened 2026-10-04, 
 - Redis: unstable still e4448cf snapshot; update PR redis/redis#15367 open, APPROVED (moticless), checks green; also batches INFO latencystats.
 - Valkey: still e4448cf snapshot; no refresh PR (off-limits for us).
 - memtier: deps README says 0.11.0.
+
+## Snapshot 2026-10-20 (read from GitHub)
+- Redis: **0.12.1 vendored** (#15367 merged 2026-10-19; README names release commit `30e9ce6`).
+- Dragonfly: GIT_TAG 0.12.0 (unchanged). memtier: deps README 0.12.0 (unchanged). Valkey: old snapshot (off-limits).
+- Node: main 0.12.0; bot PR nodejs/node#66818 (0.12.1) open and approved but CI red: Node's tests pin the old empty-histogram values
+  (`min` 9223372036854776000, `mean`/`stddev` NaN); 0.12.1 returns 0. Not a library bug. Details and options: `experiments/NODE-UPDATE-0.12.1/README.md`
+  (user posts in Node).
+- C README performance section: PR HdrHistogram_c#186 (docs).
