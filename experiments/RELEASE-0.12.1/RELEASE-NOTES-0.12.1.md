@@ -2,11 +2,11 @@
 
 7 merged pull requests since 0.12.0. A bug-fix release: **no function was added or removed, and the layout of every public struct is unchanged**, so existing code and binaries keep working. Several fixes change what a function returns for an **empty histogram** or for an out-of-range percentile; read [Behaviour changes](#behaviour-changes-to-know-about-when-upgrading) before upgrading if you test for those results.
 
-### Performance: unchanged
+### Performance: unchanged since 0.12.0, much faster than 0.11.10
 
-No regression: 0.12.1 against 0.12.0 on the benchmark fleet, write, read and the batch call all within about 1% of 0.12.0 (the batch call is a little faster).
+No regression: 0.12.1 against 0.12.0 on the benchmark fleet, write, read and the batch call all within about 1% of 0.12.0 (the batch call is a little faster). Against 0.11.10, percentile queries are about 2x faster as single calls and 15 to 20x faster as a batch; recording is unchanged. Both comparisons come from the same harness on the same machines.
 
-![HdrHistogram_c 0.12.1 vs 0.12.0: write, read and batch speed are unchanged on Intel, AMD and Graviton](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/451e388a40fb184e30215942606dc8c5008bd24c/experiments/RELEASE-0.12.1/charts/speedup.png)
+![HdrHistogram_c 0.12.1 against 0.12.0 and 0.11.10: queries are 2x to 20x faster than 0.11.10 and unchanged against 0.12.0, on Intel, AMD and Graviton](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/60825c32b5da6d58db0fe694aeeae9f08fd577d1/experiments/RELEASE-0.12.1/charts/versions.png)
 
 | 0.12.1 speed relative to 0.12.0 (higher is faster) | Intel Xeon (Sapphire Rapids) | AMD EPYC (Zen 5) | AWS Graviton (Neoverse V2) |
 |---|---:|---:|---:|
@@ -15,13 +15,22 @@ No regression: 0.12.1 against 0.12.0 on the benchmark fleet, write, read and the
 | `hdr_value_at_percentile`, repository read driver | 1.000x | 1.006x | 1.000x |
 | `hdr_value_at_percentiles`, 4 percentiles (batch) | 1.038x | 1.011x | 0.998x |
 
-Everything is inside the run-to-run spread except the batch call on Intel (3.8% faster, runs tightly grouped) and, marginally, on AMD; treat those as no change you should rely on. The read driver prints only two decimals, so its ratio resolves to about 2 to 4%; the single-call row is the precise read-path figure.
+| 0.12.1 speed relative to 0.11.10 (higher is faster) | Intel Xeon (Sapphire Rapids) | AMD EPYC (Zen 5) | AWS Graviton (Neoverse V2) |
+|---|---:|---:|---:|
+| `hdr_record_value` (write) | 1.018x | 1.011x | 0.984x |
+| `hdr_value_at_percentile`, 4 percentiles as single calls | 1.95x | 2.05x | 2.10x |
+| `hdr_value_at_percentile`, repository read driver | 1.74x | 2.14x | 2.17x |
+| `hdr_value_at_percentiles`, 4 percentiles (batch) | 15.3x | 15.4x | 20.4x |
 
-Each figure is the median of six runs per release (three interleaved old/new/new/old blocks) pinned to one core, built with GCC 13.3 in the default Release configuration, using the repository's own write and read drivers plus a small batch timing loop over a 1M-sample lognormal histogram. These are microbenchmarks, not application throughput. Compared at 0.12.0 (`8885476`) and the release commit (`30e9ce6`).
+Against 0.12.0 everything is inside the run-to-run spread except the batch call on Intel (3.8% faster, runs tightly grouped) and, marginally, on AMD; treat those as no change you should rely on. Against 0.11.10, write is within 2% either way (0.984x on Graviton is a small, stable difference, not something to expect in an application). The read driver prints only two decimals, so its ratio resolves to about 2 to 4%; the single-call row is the precise read-path figure. The batch ratios here (15 to 20x) differ from the 33x, 29x and 20x in the 0.12.0 notes because this is a different batch loop and histogram (a 1M-sample lognormal histogram, four percentiles); compare numbers only within one table.
 
-<details><summary>Every run, per machine</summary>
+Each figure is the median of six runs per release (three interleaved old/new/new/old blocks, one session per comparison) pinned to one core, built with GCC 13.3 in the default Release configuration, using the repository's own write and read drivers plus a small batch timing loop. These are microbenchmarks, not application throughput. Compared at 0.11.10, 0.12.0 (`8885476`) and the release commit (`30e9ce6`).
 
-![Every run of every benchmark, normalised to the 0.12.0 median](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/451e388a40fb184e30215942606dc8c5008bd24c/experiments/RELEASE-0.12.1/charts/runs.png)
+<details><summary>Against 0.12.0 only, and every run, per machine</summary>
+
+![0.12.1 speed relative to 0.12.0 inside a plus or minus 2% band](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/60825c32b5da6d58db0fe694aeeae9f08fd577d1/experiments/RELEASE-0.12.1/charts/speedup.png)
+
+![Every run of every benchmark, normalised to the 0.12.0 median](https://raw.githubusercontent.com/redis-performance/hdr-agent-workspace/60825c32b5da6d58db0fe694aeeae9f08fd577d1/experiments/RELEASE-0.12.1/charts/runs.png)
 
 </details>
 
