@@ -1,0 +1,657 @@
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:220:29: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                             ^
+src/hdr_histogram.c:220:29: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:271:23: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  271 |     return INT64_C(1) << (h->unit_magnitude + adjusted_bucket);
+      |                       ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:324:94: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  324 |     return lowest_equivalent_value(h, value) + (hdr_size_of_equivalent_value_range(h, value) >> 1);
+      |                                                                                              ^
+src/hdr_histogram.c:345:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  345 |     for (i = 0; i < h->counts_len; i++)
+      |     ^
+src/hdr_histogram.c:345:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:345:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:345:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:337:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+  337 | bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+      |      ^
+src/hdr_histogram.c:337:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  337 | bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+      |      ^
+src/hdr_histogram.c:337:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:337:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+  337 | bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+      |      ^
+src/hdr_histogram.c:337:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  337 | bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+      |      ^
+src/hdr_histogram.c:337:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:337:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  337 | bool hdr_reset_internal_counters_checked(struct hdr_histogram* h)
+      |      ^
+src/hdr_histogram.c:337:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:337:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:337:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:177:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  177 |     while(exp)
+      |     ^
+src/hdr_histogram.c:177:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  401 |     while (smallest_untrackable_value <= value)
+      |     ^
+src/hdr_histogram.c:401:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:467:35: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  467 |     cfg->sub_bucket_mask       = ((int64_t) cfg->sub_bucket_count - 1) << cfg->unit_magnitude;
+      |                                   ^
+src/hdr_histogram.c:467:35: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:462:31: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  462 |     if (cfg->unit_magnitude + cfg->sub_bucket_half_count_magnitude > 61)
+      |                               ^
+src/hdr_histogram.c:422:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  422 | int hdr_calculate_bucket_config(
+      |     ^
+src/hdr_histogram.c:485:40: remark: Stores SLP vectorized with cost -1 and with tree size 2 [-Rpass=slp-vectorizer]
+  485 |     h->min_value                       = INT64_MAX;
+      |                                        ^
+src/hdr_histogram.c:484:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  484 |     h->sub_bucket_count                = cfg->sub_bucket_count;
+      |                                        ^
+src/hdr_histogram.c:481:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  481 |     h->sub_bucket_half_count_magnitude = cfg->sub_bucket_half_count_magnitude;
+      |                                        ^
+src/hdr_histogram.c:477:40: remark: Stores SLP vectorized with cost -2 and with tree size 2 [-Rpass=slp-vectorizer]
+  477 |     h->lowest_discernible_value        = cfg->lowest_discernible_value;
+      |                                        ^
+src/hdr_histogram.c:479:40: remark: Stores SLP vectorized with cost -1 and with tree size 3 [-Rpass=slp-vectorizer]
+  479 |     h->unit_magnitude                  = (int32_t)cfg->unit_magnitude;
+      |                                        ^
+src/hdr_histogram.c:177:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  177 |     while(exp)
+      |     ^
+src/hdr_histogram.c:177:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  401 |     while (smallest_untrackable_value <= value)
+      |     ^
+src/hdr_histogram.c:401:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:401:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:467:35: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  467 |     cfg->sub_bucket_mask       = ((int64_t) cfg->sub_bucket_count - 1) << cfg->unit_magnitude;
+      |                                   ^
+src/hdr_histogram.c:467:35: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:462:31: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  462 |     if (cfg->unit_magnitude + cfg->sub_bucket_half_count_magnitude > 61)
+      |                               ^
+src/hdr_histogram.c:494:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  494 | int hdr_init(
+      |     ^
+src/hdr_histogram.c:548:19: remark: Stores SLP vectorized with cost -1 and with tree size 2 [-Rpass=slp-vectorizer]
+  548 |      h->min_value = INT64_MAX;
+      |                   ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:151:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  151 |     while (!hdr_atomic_compare_exchange_64(&h->min_value, &current_min_value, value));
+      |             ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  142 |     do
+      |     ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:162:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  162 |     while (!hdr_atomic_compare_exchange_64(&h->max_value, &current_max_value, value));
+      |             ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  153 |     do
+      |     ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:151:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  151 |     while (!hdr_atomic_compare_exchange_64(&h->min_value, &current_min_value, value));
+      |             ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  142 |     do
+      |     ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:162:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  162 |     while (!hdr_atomic_compare_exchange_64(&h->max_value, &current_max_value, value));
+      |             ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  153 |     do
+      |     ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:151:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  151 |     while (!hdr_atomic_compare_exchange_64(&h->min_value, &current_min_value, value));
+      |             ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  142 |     do
+      |     ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:162:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  162 |     while (!hdr_atomic_compare_exchange_64(&h->max_value, &current_max_value, value));
+      |             ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  153 |     do
+      |     ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:661:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+  661 | bool hdr_record_corrected_values(struct hdr_histogram* h, int64_t value, int64_t count, int64_t expected_interval)
+      |      ^
+src/hdr_histogram.c:661:6: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  661 | bool hdr_record_corrected_values(struct hdr_histogram* h, int64_t value, int64_t count, int64_t expected_interval)
+      |      ^
+src/hdr_histogram.c:661:6: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:676:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  676 |     for (; missing_value >= expected_interval; missing_value -= expected_interval)
+      |     ^
+src/hdr_histogram.c:676:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:676:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:670:27: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  670 |     if (expected_interval <= 0 || value <= expected_interval)
+      |                           ^
+src/hdr_histogram.c:670:27: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:151:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  151 |     while (!hdr_atomic_compare_exchange_64(&h->min_value, &current_min_value, value));
+      |             ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  142 |     do
+      |     ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:162:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  162 |     while (!hdr_atomic_compare_exchange_64(&h->max_value, &current_max_value, value));
+      |             ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  153 |     do
+      |     ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:162:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  162 |     while (!hdr_atomic_compare_exchange_64(&h->max_value, &current_max_value, value));
+      |             ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  153 |     do
+      |     ^
+src/hdr_histogram.c:153:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:153:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:151:13: remark: loop not vectorized: instruction return type cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  151 |     while (!hdr_atomic_compare_exchange_64(&h->min_value, &current_min_value, value));
+      |             ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  142 |     do
+      |     ^
+src/hdr_histogram.c:142:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:142:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:696:27: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  696 |     if (expected_interval <= 0 || value <= expected_interval)
+      |                           ^
+src/hdr_histogram.c:696:27: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:127:9: remark: loop not vectorized: control flow cannot be substituted for a select [-Rpass-analysis=loop-vectorize]
+  127 |     if (HDR_UNLIKELY(value > h->max_value))
+      |         ^
+src/hdr_histogram.c:713:9: note: could not determine the original source location for src/hdr_histogram.c:0:0
+  713 | int64_t hdr_add(struct hdr_histogram* h, const struct hdr_histogram* from)
+      |         ^
+src/hdr_histogram.c:713:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  713 | int64_t hdr_add(struct hdr_histogram* h, const struct hdr_histogram* from)
+      |         ^
+src/hdr_histogram.c:713:9: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:719:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  719 |     while (hdr_iter_next(&iter))
+      |     ^
+src/hdr_histogram.c:719:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:719:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:722:30: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  722 |         int64_t count = iter.count;
+      |                              ^
+src/hdr_histogram.c:745:14: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  745 |         if (!hdr_record_corrected_values(h, value, count, expected_interval))
+      |              ^
+src/hdr_histogram.c:740:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  740 |     while (hdr_iter_next(&iter))
+      |     ^
+src/hdr_histogram.c:740:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:740:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:69:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |         ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:805:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  805 |         for (idx = 0; idx < n; idx++)
+      |         ^
+src/hdr_histogram.c:805:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:805:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:829:17: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  829 |                 for (j = 0; j < BLK; j++)
+      |                 ^
+src/hdr_histogram.c:829:17: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:829:17: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:821:13: remark: the cost-model indicates that interleaving is not beneficial and is explicitly disabled or interleave count is set to 1 [-Rpass-analysis=loop-vectorize]
+  821 |             for (j = 0; j < BLK; j++)
+      |             ^
+src/hdr_histogram.c:821:13: remark: vectorized loop (vectorization width: 2, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_histogram.c:843:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  843 |     for (; idx < n; idx++)
+      |     ^
+src/hdr_histogram.c:843:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:843:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:315:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  315 |     if (low > INT64_MAX - size)
+      |         ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:927:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  927 | int64_t hdr_value_at_percentile(const struct hdr_histogram* h, double percentile)
+      |         ^
+src/hdr_histogram.c:927:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:927:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:920:41: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  920 |     const double requested = percentile < 100.0 ? percentile : 100.0;
+      |                                         ^
+src/hdr_histogram.c:968:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  968 |     for (size_t i = 0; i < length; i++)
+      |     ^
+src/hdr_histogram.c:968:5: remark: the cost-model indicates that interleaving is not beneficial and is explicitly disabled or interleave count is set to 1 [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1030:13: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1030 |             while (at_pos < length && (int64_t)total >= values[at_pos])
+      |             ^
+src/hdr_histogram.c:1030:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:999:21: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  999 |                     while (at_pos < length && (int64_t)total >= values[at_pos])
+      |                     ^
+src/hdr_histogram.c:999:21: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1015:13: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1015 |             while (at_pos < length && (int64_t)total >= values[at_pos])
+      |             ^
+src/hdr_histogram.c:1015:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1038:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+ 1038 |     for (; at_pos < length; at_pos++)
+      |     ^
+src/hdr_histogram.c:1038:5: remark: the cost-model indicates that interleaving is not beneficial and is explicitly disabled or interleave count is set to 1 [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1012:20: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1012 |         for (; idx < len && at_pos < length; idx++)
+      |                    ^
+src/hdr_histogram.c:1012:26: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1012 |         for (; idx < len && at_pos < length; idx++)
+      |                          ^
+src/hdr_histogram.c:315:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  315 |     if (low > INT64_MAX - size)
+      |         ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:949:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  949 | int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length)
+      |     ^
+src/hdr_histogram.c:949:5: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:949:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  949 | int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length)
+      |     ^
+src/hdr_histogram.c:949:5: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:989:43: remark: Vectorized horizontal reduction with cost -12 and with tree size 1 [-Rpass=slp-vectorizer]
+  989 |                 (uint64_t)counts[idx]     + (uint64_t)counts[idx + 1] +
+      |                                           ^
+src/hdr_histogram.c:985:46: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  985 |         for (; idx + BATCH_SCAN_BLOCK <= len && at_pos < length; idx += BATCH_SCAN_BLOCK)
+      |                                              ^
+src/hdr_histogram.c:315:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  315 |     if (low > INT64_MAX - size)
+      |         ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:949:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  949 | int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length)
+      |     ^
+src/hdr_histogram.c:949:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:949:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:315:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  315 |     if (low > INT64_MAX - size)
+      |         ^
+src/hdr_histogram.c:949:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  949 | int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length)
+      |     ^
+src/hdr_histogram.c:920:41: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  920 |     const double requested = percentile < 100.0 ? percentile : 100.0;
+      |                                         ^
+src/hdr_histogram.c:951:14: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  951 |     if (NULL == percentiles || NULL == values)
+      |              ^
+src/hdr_histogram.c:949:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  949 | int hdr_value_at_percentiles(const struct hdr_histogram *h, const double *percentiles, int64_t *values, size_t length)
+      |     ^
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 1060 |     while (hdr_iter_next(&iter) && count < total_count)
+      |     ^
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:324:94: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  324 |     return lowest_equivalent_value(h, value) + (hdr_size_of_equivalent_value_range(h, value) >> 1);
+      |                                                                                              ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  219 |     int32_t pow2ceiling = 64 - count_leading_zeros_64(value | h->sub_bucket_mask); /* smallest power of 2 containing value */
+      |                                                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 1060 |     while (hdr_iter_next(&iter) && count < total_count)
+      |     ^
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1261:12: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 1261 |     return iter->_next_fp(iter);
+      |            ^
+src/hdr_histogram.c:1086:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1086 |     while (hdr_iter_next(&iter))
+      |     ^
+src/hdr_histogram.c:1086:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1086:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1090:77: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1090 |             double dev = (hdr_median_equivalent_value(h, iter.value) * 1.0) - mean;
+      |                                                                             ^
+src/hdr_histogram.c:324:94: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  324 |     return lowest_equivalent_value(h, value) + (hdr_size_of_equivalent_value_range(h, value) >> 1);
+      |                                                                                              ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  219 |     int32_t pow2ceiling = 64 - count_leading_zeros_64(value | h->sub_bucket_mask); /* smallest power of 2 containing value */
+      |                                                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:324:94: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  324 |     return lowest_equivalent_value(h, value) + (hdr_size_of_equivalent_value_range(h, value) >> 1);
+      |                                                                                              ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  219 |     int32_t pow2ceiling = 64 - count_leading_zeros_64(value | h->sub_bucket_mask); /* smallest power of 2 containing value */
+      |                                                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:69:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |         ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^
+src/hdr_histogram.c:225:45: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  225 |     return (int32_t)(value >> (bucket_index + unit_magnitude));
+      |                                             ^
+src/hdr_histogram.c:220:50: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  220 |     return pow2ceiling - h->unit_magnitude - (h->sub_bucket_half_count_magnitude + 1);
+      |                                                  ^
+src/hdr_histogram.c:1220:5: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 1220 |     move_next(iter);
+      |     ^
+src/hdr_histogram.c:1296:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1296 |     do
+      |     ^
+src/hdr_histogram.c:1296:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1296:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1215:34: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1215 |     if (!has_next(iter) || iter->counts_index >= iter->h->counts_len)
+      |                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  219 |     int32_t pow2ceiling = 64 - count_leading_zeros_64(value | h->sub_bucket_mask); /* smallest power of 2 containing value */
+      |                                                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:1278:10: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1278 |     if (!has_next(iter))
+      |          ^
+src/hdr_histogram.c:1220:5: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 1220 |     move_next(iter);
+      |     ^
+src/hdr_histogram.c:1370:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1370 |     while (basic_iter_next(iter))
+      |     ^
+src/hdr_histogram.c:1370:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1370:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1215:34: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1215 |     if (!has_next(iter) || iter->counts_index >= iter->h->counts_len)
+      |                                  ^
+src/hdr_histogram.c:1215:10: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1215 |     if (!has_next(iter) || iter->counts_index >= iter->h->counts_len)
+      |          ^
+src/hdr_histogram.c:1441:18: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 1441 |             if (!move_next(iter))
+      |                  ^
+src/hdr_histogram.c:1412:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1412 |         do
+      |         ^
+src/hdr_histogram.c:1412:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1412:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1423:57: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+ 1423 |                 else if (linear->value_units_per_bucket <= 0 ||
+      |                                                         ^
+src/hdr_histogram.c:1446:56: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1446 |             linear->count_added_in_this_iteration_step += iter->count;
+      |                                                        ^
+src/hdr_histogram.c:1414:23: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1414 |             if (iter->value >= linear->next_value_reporting_level_lowest_equivalent)
+      |                       ^
+src/hdr_histogram.c:1195:24: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1195 |     if (shift >= 63 || (uint64_t) sub_bucket_index > ((uint64_t) INT64_MAX >> shift))
+      |                        ^
+src/hdr_histogram.c:1205:40: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1205 |     if (iter->counts_index >= iter->h->counts_len)
+      |                                        ^
+src/hdr_histogram.c:1408:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1408 |     if (has_next(iter) ||
+      |         ^
+src/hdr_histogram.c:1549:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1549 | void hdr_iter_log_init(
+      |      ^
+src/hdr_histogram.c:1549:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:1536:18: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 1536 |             if (!move_next(iter))
+      |                  ^
+src/hdr_histogram.c:1505:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1505 |         do
+      |         ^
+src/hdr_histogram.c:1505:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1505:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1495:13: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1495 | static bool log_iter_next(struct hdr_iter *iter)
+      |             ^
+src/hdr_histogram.c:1495:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:1495:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:1541:61: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1541 |             logarithmic->count_added_in_this_iteration_step += iter->count;
+      |                                                             ^
+src/hdr_histogram.c:1507:23: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1507 |             if (iter->value >= logarithmic->next_value_reporting_level_lowest_equivalent)
+      |                       ^
+src/hdr_histogram.c:1195:24: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1195 |     if (shift >= 63 || (uint64_t) sub_bucket_index > ((uint64_t) INT64_MAX >> shift))
+      |                        ^
+src/hdr_histogram.c:1205:40: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1205 |     if (iter->counts_index >= iter->h->counts_len)
+      |                                        ^
+src/hdr_histogram.c:1501:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1501 |     if (has_next(iter) ||
+      |         ^
+src/hdr_histogram.c:1598:5: note: could not determine the original source location for src/hdr_histogram.c:0:0
+ 1598 | int hdr_percentiles_print(
+      |     ^
+src/hdr_histogram.c:1598:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 1598 | int hdr_percentiles_print(
+      |     ^
+src/hdr_histogram.c:1598:5: note: could not determine the original source location for src/hdr_histogram.c:0:0
+src/hdr_histogram.c:1622:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+ 1622 |     while (hdr_iter_next(&iter))
+      |     ^
+src/hdr_histogram.c:1622:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1622:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 1060 |     while (hdr_iter_next(&iter) && count < total_count)
+      |     ^
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_histogram.c:1060:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_histogram.c:1630:91: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+ 1630 |                 stream, line_format, value, percentile, total_count, inverted_percentile) < 0)
+      |                                                                                           ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:324:94: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  324 |     return lowest_equivalent_value(h, value) + (hdr_size_of_equivalent_value_range(h, value) >> 1);
+      |                                                                                              ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  219 |     int32_t pow2ceiling = 64 - count_leading_zeros_64(value | h->sub_bucket_mask); /* smallest power of 2 containing value */
+      |                                                                  ^
+src/hdr_histogram.c:219:66: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:69:9: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |         ^
+src/hdr_histogram.c:1583:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+ 1583 |     switch (format)
+      |     ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |             ^
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_histogram.c:241:41: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  241 |     return ((int64_t) sub_bucket_index) << (bucket_index + unit_magnitude);
+      |                                         ^
+src/hdr_histogram.c:69:26: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+   69 |     if (normalized_index < 0)
+      |                          ^

@@ -1,0 +1,319 @@
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  182 |     while (lo < hi)
+      |     ^
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:377:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  377 | bool hdr_packed_record_values(struct hdr_packed_histogram* h, int64_t value, int64_t count)
+      |      ^
+src/hdr_packed_histogram.c:377:6: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:252:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  252 |     memmove(&h->idx[p + 1], &h->idx[p], (size_t)(h->size - p) * sizeof(int32_t));
+      |     ^
+src/hdr_packed_histogram.c:253:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  253 |     memmove(h->cnt + (size_t)(p + 1) * h->width,
+      |     ^
+src/hdr_packed_histogram.c:206:15: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  206 |     new_cap = cur ? cur * 2 : HDR_PACKED_INITIAL_CAP;
+      |               ^
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  377 | bool hdr_packed_record_values(struct hdr_packed_histogram* h, int64_t value, int64_t count)
+      |      ^
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:185:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  185 |         if (h->idx[mid] < key) lo = mid + 1;
+      |             ^
+src/hdr_packed_histogram.c:185:25: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  185 |         if (h->idx[mid] < key) lo = mid + 1;
+      |                         ^
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  377 | bool hdr_packed_record_values(struct hdr_packed_histogram* h, int64_t value, int64_t count)
+      |      ^
+src/hdr_packed_histogram.c:377:6: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:433:20: remark: Stores SLP vectorized with cost -1 and with tree size 2 [-Rpass=slp-vectorizer]
+  433 |     h->total_count = 0;
+      |                    ^
+src/hdr_packed_histogram.c:118:5: remark: loop not vectorized: loop contains a switch statement [-Rpass-analysis=loop-vectorize]
+  118 |     switch (w)
+      |     ^
+src/hdr_packed_histogram.c:454:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  454 |     for (int32_t i = 0; i < h->size; i++)
+      |     ^
+src/hdr_packed_histogram.c:454:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:454:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:454:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:118:5: remark: loop not vectorized: loop contains a switch statement [-Rpass-analysis=loop-vectorize]
+  118 |     switch (w)
+      |     ^
+src/hdr_packed_histogram.c:474:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  474 |     for (int32_t i = 0; i < h->size; i++)
+      |     ^
+src/hdr_packed_histogram.c:474:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:474:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:474:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:479:99: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  479 |             double dev = (hdr_median_equivalent_value(g, hdr_value_at_index(g, h->idx[i])) * 1.0) - mean;
+      |                                                                                                   ^
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  182 |     while (lo < hi)
+      |     ^
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:182:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  262 | static int64_t sparse_get(const struct hdr_packed_histogram* h, int32_t vindex)
+      |                ^
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:262:16: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:185:13: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  185 |         if (h->idx[mid] < key) lo = mid + 1;
+      |             ^
+src/hdr_packed_histogram.c:185:25: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  185 |         if (h->idx[mid] < key) lo = mid + 1;
+      |                         ^
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  583 |         case 4:  PK_BSCAN(uint32_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: vectorized loop (vectorization width: 4, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:583:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  582 |         case 2:  PK_BSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:582:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  581 |         case 1:  PK_BSCAN(uint8_t);  break;
+      |                  ^
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: vectorized loop (vectorization width: 16, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:581:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:587:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  587 |             for (int32_t i = 0; i < n; i++)
+      |             ^
+src/hdr_packed_histogram.c:587:13: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:587:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  618 | int64_t hdr_packed_value_at_percentile(const struct hdr_packed_histogram* h, double percentile)
+      |         ^
+src/hdr_packed_histogram.c:591:29: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  591 |                 if (running >= target) return hdr_value_at_index(g, idx[i]);
+      |                             ^
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  618 | int64_t hdr_packed_value_at_percentile(const struct hdr_packed_histogram* h, double percentile)
+      |         ^
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:618:9: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:611:35: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  611 |     double requested = percentile < 100.0 ? percentile : 100.0;
+      |                                   ^
+src/hdr_packed_histogram.c:582:18: remark: completely unrolled loop with 2 iterations [-Rpass=loop-unroll]
+  582 |         case 2:  PK_BSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:685:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  685 |     for (size_t i = 0; i < length; i++)
+      |     ^
+src/hdr_packed_histogram.c:685:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:696:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  696 |         while (b > 0 && tgt[ord[b - 1]] > tgt[k]) { ord[b] = ord[b - 1]; b--; }
+      |         ^
+src/hdr_packed_histogram.c:696:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  739 |         case 4:  PK_PSCAN(uint32_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: vectorized loop (vectorization width: 4, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:739:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  738 |         case 2:  PK_PSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:738:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  737 |         case 1:  PK_PSCAN(uint8_t);  break;
+      |                  ^
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: vectorized loop (vectorization width: 16, interleaved count: 1) [-Rpass=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:737:18: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:751:30: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  751 |                     do { vfi[ord[j]] = val; j++; } while (j < length && running >= tgt[ord[j]]);
+      |                              ^
+src/hdr_packed_histogram.c:751:21: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  751 |                     do { vfi[ord[j]] = val; j++; } while (j < length && running >= tgt[ord[j]]);
+      |                     ^
+src/hdr_packed_histogram.c:751:21: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:763:21: remark: loop not vectorized: control flow cannot be substituted for a select [-Rpass-analysis=loop-vectorize]
+  763 |         values[i] = (percentiles[i] == 0.0)
+      |                     ^
+src/hdr_packed_histogram.c:641:5: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+src/hdr_packed_histogram.c:761:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  761 |     for (size_t i = 0; i < length; i++)
+      |     ^
+src/hdr_packed_histogram.c:761:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:751:30: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  751 |                     do { vfi[ord[j]] = val; j++; } while (j < length && running >= tgt[ord[j]]);
+      |                              ^
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:747:30: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  747 |                 running = (v > INT64_MAX - running) ? INT64_MAX : running + v;
+      |                              ^
+src/hdr_packed_histogram.c:737:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  737 |         case 1:  PK_PSCAN(uint8_t);  break;
+      |                  ^
+src/hdr_packed_histogram.c:737:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:737:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  737 |         case 1:  PK_PSCAN(uint8_t);  break;
+      |                  ^
+src/hdr_packed_histogram.c:737:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:737:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:738:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  738 |         case 2:  PK_PSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:738:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:738:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  738 |         case 2:  PK_PSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:738:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:738:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:739:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  739 |         case 4:  PK_PSCAN(uint32_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:739:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:739:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  739 |         case 4:  PK_PSCAN(uint32_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:739:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:739:18: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+src/hdr_packed_histogram.c:611:35: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  611 |     double requested = percentile < 100.0 ? percentile : 100.0;
+      |                                   ^
+src/hdr_packed_histogram.c:641:5: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:641:5: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+src/hdr_packed_histogram.c:678:18: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  678 |         if (NULL == tgt || NULL == vfi || NULL == ord)
+      |                  ^
+src/hdr_packed_histogram.c:641:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:644:14: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  644 |     if (NULL == percentiles || NULL == values)
+      |              ^
+src/hdr_packed_histogram.c:641:5: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  641 | int hdr_packed_value_at_percentiles(const struct hdr_packed_histogram* h,
+      |     ^
+src/hdr_packed_histogram.c:738:18: remark: completely unrolled loop with 2 iterations [-Rpass=loop-unroll]
+  738 |         case 2:  PK_PSCAN(uint16_t); break;
+      |                  ^
+src/hdr_packed_histogram.c:775:37: remark: Cannot SLP vectorize list: vectorization was impossible with available vectorization factors [-Rpass-missed=slp-vectorizer]
+  775 |               + (size_t) h->idx_cap * sizeof(int32_t)
+      |                                     ^
+src/hdr_packed_histogram.c:104:5: remark: loop not vectorized: loop contains a switch statement [-Rpass-analysis=loop-vectorize]
+  104 |     switch (w)
+      |     ^
+src/hdr_packed_histogram.c:149:13: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+  149 | static bool widen_to_fit(struct hdr_packed_histogram* h, int64_t need)
+      |             ^
+src/hdr_packed_histogram.c:149:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+  149 | static bool widen_to_fit(struct hdr_packed_histogram* h, int64_t need)
+      |             ^
+src/hdr_packed_histogram.c:149:13: note: could not determine the original source location for src/hdr_packed_histogram.c:0:0
+src/hdr_packed_histogram.c:152:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+  152 |     while (need > width_max(nw) && nw < 8)
+      |     ^
+src/hdr_packed_histogram.c:152:5: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+src/hdr_packed_histogram.c:152:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:118:5: remark: loop not vectorized: loop contains a switch statement [-Rpass-analysis=loop-vectorize]
+  118 |     switch (w)
+      |     ^
+src/hdr_packed_histogram.c:133:49: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  133 |         case 4:  { uint32_t v = (uint32_t) val; memcpy(p, &v, 4); break; }
+      |                                                 ^
+src/hdr_packed_histogram.c:169:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  169 |     for (int32_t i = h->size - 1; i >= 0; i--)
+      |     ^
+src/hdr_packed_histogram.c:169:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/hdr_packed_histogram.c:171:33: remark: List vectorization was possible but not beneficial with cost 0 >= 0 [-Rpass-missed=slp-vectorizer]
+  171 |         store_w(nb + (size_t) i * nw, nw, load_w(nb + (size_t) i * ow, ow));
+      |                                 ^

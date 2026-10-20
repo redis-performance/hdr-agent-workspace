@@ -1,0 +1,14 @@
+{
+  "phase": "aa",
+  "hashes": {
+    "a": "ffb56001bfa2f99c603c2d381d053c591019d231d6036a4614bd81cd568e3032",
+    "b": "ffb56001bfa2f99c603c2d381d053c591019d231d6036a4614bd81cd568e3032",
+    "plan": "0f0052d43228a0204e60941f8dceb7f28b7569906974c8ceb748214650fed6ba"
+  },
+  "case_count": 92,
+  "cases_within_five_percent": 81,
+  "noise_screen_pass": true,
+  "rounds": 3,
+  "order": "ABBA",
+  "ratio": "baseline_ns / comparison_ns"
+}

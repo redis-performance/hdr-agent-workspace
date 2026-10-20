@@ -995,3 +995,32 @@ no new failing input. Executions: Intel about 5.4 B, AMD about 9.6 B, Graviton a
 cause not found). `FuzzPackedDifferential`: 172 M (Intel), 271 M (AMD), 0.76 M (Graviton). The earlier GitHub ARM64 failure
 (55 M executions, exit status 2, input does not reproduce at `5ffadfa` or `de66007`) is **not** explained or cleared by the
 ARM VM run, which did not reach that depth. Details: `experiments/GO-FUZZ-2026-10-07/FLEET-DEEP-FUZZ-RESULT.md`.
+
+### CPU MCP codegen and packed-search audit — 2026-10-17
+
+[Full report, compiler output and untimed fixture audit](CPU-MCP-2026-10-17/README.md).
+Unchanged C 0.12.1 at `30e9ce6`; Apple Clang ARM64/x86-64 and GCC ARM64 at
+O2/O3/Os plus compiler-only unrolling controls, 24 successful compilation outputs.
+Packed narrow-count SIMD is lost under some O3 unrolling decisions and restored
+when unrolling/complete peeling is disabled. No speed claim or proposed global flag.
+Clang ARM64 already selects packed-search bounds with conditional selects, while
+Clang x86-64/GCC ARM64 O3 retain branches. Reconstructed old fixture populations
+223/410/594 use only 892/1640/2376 active index bytes: its random input does not
+establish cache-cold search loads. This qualifies the historical mechanism claims;
+the rejected search patches remain rejected. Fixture O2 and ASan/UBSan output match.
+Native Linux codegen/cache counters need a user-specified fleet host. No benchmarks,
+library changes, PRs, accepted-baseline or experiment-count changes.
+
+### User-authorised Mac packed-scan pilot — 2026-10-17
+
+[Result and raw measurements](CPU-MCP-2026-10-17/mac/RESULT.md). Apple M1,
+Apple Clang 17 O3, one scoped crossing-loop unroll-disable pragma. Baseline
+same-binary A/A screen then three fixed ABBA rounds across 92 cases; native
+frequency/core residency unobserved, no portable qualification. SIMD restored
+for narrow packed sums; early crossings and four-byte paths regress. Shared
+function register-save changes also affect source-unchanged width-8 cases.
+Candidate rejected for advancement, not an accepted optimisation. Baseline and
+candidate CTest 9/9; exhaustive fixture oracle and candidate ASan/UBSan pass.
+This is a diagnostic pilot outside the numbered acceptance ledger; existing
+acceptance counts and submodule pointer remain unchanged. The user's Mac timing
+permission was scoped to this follow-up and does not replace the fleet rule.

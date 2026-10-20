@@ -1,5 +1,21 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
+## CPU MCP exploration — 2026-10-17
+
+Upstream main rechecked at `30e9ce6` (0.12.1), no open C PRs. Completed
+[compiler and packed-search audit](../experiments/CPU-MCP-2026-10-17/README.md):
+24 compilation outputs, no timings or library patch. Packed scan SIMD depends on
+unrolling; conditional-select search is already emitted by Clang ARM64. The old
+small IID fixture does not establish cache-cold search loads. Native Linux
+codegen and cache-counter measurements need a user-specified fleet host.
+Workspace submodule remains the older experiment, untouched; inspected release
+source was exported separately. Historical campaign snapshots follow.
+
+Follow-up: user requested a Mac test. [Bounded local pilot](../experiments/CPU-MCP-2026-10-17/mac/RESULT.md)
+completed: one crossing-loop pragma, baseline A/A then three ABBA rounds, 92 cases.
+SIMD restored but regressions reject the candidate. Baseline/candidate CTest 9/9
+and candidate ASan/UBSan fixture oracle passed. No accepted optimisation or PR.
+
 **Updated: 2026-10-02** · Benchmark checkpoint; PR tables below are historical snapshots.
 Pushed on every material change so other runners/sessions see current state.
 Coordination signal, not source of truth — verify against GitHub before acting.

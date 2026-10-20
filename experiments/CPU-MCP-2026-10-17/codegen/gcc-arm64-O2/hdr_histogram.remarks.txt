@@ -1,0 +1,1516 @@
+src/hdr_histogram.c:1186:39: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:1186:39: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1186:39: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1186:39: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1186:39: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1186:39: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:102:9: missed: statement clobbers memory: __builtin_prefetch (_59, 1, 3);
+src/hdr_histogram.c:96:9: missed: statement clobbers memory: __builtin_prefetch (_52, 1, 3);
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:78:29: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:162:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:162:12: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:151:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:151:12: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:590:13: note: vectorized 0 loops in function.
+src/hdr_histogram.c:119:9: missed: statement clobbers memory: __builtin_prefetch (_59, 1, 3);
+src/hdr_histogram.c:120:9: missed: statement clobbers memory: __atomic_add_fetch_8 (_59, _12, 5);
+src/hdr_histogram.c:113:9: missed: statement clobbers memory: __builtin_prefetch (_53, 1, 3);
+src/hdr_histogram.c:114:9: missed: statement clobbers memory: __atomic_add_fetch_8 (_53, _12, 5);
+src/hdr_histogram.c:122:5: missed: statement clobbers memory: __atomic_add_fetch_8 (_61, _12, 5);
+src/hdr_histogram.c:144:29: missed: statement clobbers memory: _32 = __atomic_load_8 (_31, 5);
+src/hdr_histogram.c:151:13: missed: statement clobbers memory: _38 = .ATOMIC_COMPARE_EXCHANGE (_31, _32, value.8_37, 8, 5, 5);
+src/hdr_histogram.c:155:29: missed: statement clobbers memory: _41 = __atomic_load_8 (_40, 5);
+src/hdr_histogram.c:162:13: missed: statement clobbers memory: _44 = .ATOMIC_COMPARE_EXCHANGE (_40, _41, value.10_43, 8, 5, 5);
+src/hdr_histogram.c:146:24: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:146:24: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:146:24: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:146:24: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:146:24: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:146:24: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:271:45: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:271:45: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:271:45: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:1162:17: note: ***** Analysis succeeded with vector mode V4SI
+src/hdr_histogram.c:1162:17: note: SLPing BB part
+src/hdr_histogram.c:1162:17: note: Costing subgraph:
+src/hdr_histogram.c:1162:17: note: node 0x148048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1162:17: note: op template: iter_14(D)->count = _64;
+src/hdr_histogram.c:1162:17: note: 	stmt 0 iter_14(D)->count = _64;
+src/hdr_histogram.c:1162:17: note: 	stmt 1 iter_14(D)->cumulative_count = _5;
+src/hdr_histogram.c:1162:17: note: 	children 0x148048118
+src/hdr_histogram.c:1162:17: note: node (external) 0x148048118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1162:17: note: 	{ _64, _5 }
+src/hdr_histogram.c:1162:17: note: Cost model analysis:
+src/hdr_histogram.c:1162:17: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:1162:17: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1162:17: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1162:17: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1162:17: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1162:17: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1162:17: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:1162:17: note: SLPing BB part
+src/hdr_histogram.c:1162:17: note: Costing subgraph:
+src/hdr_histogram.c:1162:17: note: node 0x148048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1162:17: note: op template: iter_14(D)->count = _64;
+src/hdr_histogram.c:1162:17: note: 	stmt 0 iter_14(D)->count = _64;
+src/hdr_histogram.c:1162:17: note: 	stmt 1 iter_14(D)->cumulative_count = _5;
+src/hdr_histogram.c:1162:17: note: 	children 0x148048338
+src/hdr_histogram.c:1162:17: note: node (external) 0x148048338 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1162:17: note: 	{ _64, _5 }
+src/hdr_histogram.c:1162:17: note: Cost model analysis:
+src/hdr_histogram.c:1162:17: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:1162:17: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1233:19: missed: statement clobbers memory: result_4 = move_next (iter_2(D));
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x148048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_2(D)->value_iterated_from = _8;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_2(D)->value_iterated_from = _8;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_2(D)->value_iterated_to = _7;
+src/hdr_histogram.c:1227:31: note: 	children 0x148048090
+src/hdr_histogram.c:1227:31: note: node 0x148048090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _8 = iter_2(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _8 = iter_2(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _7 = iter_2(D)->value;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 5 0 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1227:31: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x148048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_2(D)->value_iterated_from = _8;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_2(D)->value_iterated_from = _8;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_2(D)->value_iterated_to = _7;
+src/hdr_histogram.c:1227:31: note: 	children 0x148048090
+src/hdr_histogram.c:1227:31: note: node 0x148048090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _8 = iter_2(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _8 = iter_2(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _7 = iter_2(D)->value;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 5 0 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V2SI would be the same
+src/hdr_histogram.c:1372:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:1372:12: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1368:13: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1220:5: missed: statement clobbers memory: move_next (iter_8(D));
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x148048090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_8(D)->value_iterated_from = _11;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_8(D)->value_iterated_from = _11;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_8(D)->value_iterated_to = _2;
+src/hdr_histogram.c:1227:31: note: 	children 0x148048118
+src/hdr_histogram.c:1227:31: note: node 0x148048118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _11 = iter_8(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _11 = iter_8(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _2 = iter_8(D)->value;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 5 0 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1227:31: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x148048118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_8(D)->value_iterated_from = _11;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_8(D)->value_iterated_from = _11;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_8(D)->value_iterated_to = _2;
+src/hdr_histogram.c:1227:31: note: 	children 0x148048008
+src/hdr_histogram.c:1227:31: note: node 0x148048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _11 = iter_8(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _11 = iter_8(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _2 = iter_8(D)->value;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 5 0 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1215:25: missed: couldn't vectorize loop
+src/hdr_histogram.c:1215:25: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1272:13: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1220:5: missed: statement clobbers memory: move_next (iter_31(D));
+src/hdr_histogram.c:1220:5: missed: statement clobbers memory: move_next (iter_31(D));
+src/hdr_histogram.c:1302:13: missed: statement clobbers memory: _13 = highest_equivalent_value (pretmp_80, _12);
+src/hdr_histogram.c:1305:30: missed: statement clobbers memory: _16 = log (_15);
+src/hdr_histogram.c:1306:39: missed: statement clobbers memory: _20 = pow (2.0e+0, _19);
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x1380c8008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_31(D)->value_iterated_to = _13;
+src/hdr_histogram.c:1227:31: note: 	children 0x1380c8118
+src/hdr_histogram.c:1227:31: note: node (external) 0x1380c8118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: 	{ _49, _13 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1227:31: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x1380c8008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_31(D)->value_iterated_to = _13;
+src/hdr_histogram.c:1227:31: note: 	children 0x1380c8090
+src/hdr_histogram.c:1227:31: note: node (external) 0x1380c8090 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: 	{ _49, _13 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1227:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1227:31: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1227:31: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:1227:31: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x1380c8008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_31(D)->value_iterated_from = _49;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_31(D)->value_iterated_to = _13;
+src/hdr_histogram.c:1227:31: note: 	children 0x1380c8118
+src/hdr_histogram.c:1227:31: note: node (external) 0x1380c8118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: 	{ _49, _13 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1507:16: missed: couldn't vectorize loop
+src/hdr_histogram.c:1507:16: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1495:13: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1210:12: missed: statement clobbers memory: _18 = peek_next_value_from_index.isra (_13, _14);
+src/hdr_histogram.c:1536:18: missed: statement clobbers memory: _33 = move_next (iter_7(D));
+src/hdr_histogram.c:1541:61: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1541:61: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x138048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138048090
+src/hdr_histogram.c:1227:31: note: node 0x138048090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1541:61: note: Costing subgraph:
+src/hdr_histogram.c:1541:61: note: node 0x138048338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1541:61: note: op template: _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 0 _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 1 _35 = iter_7(D)->count;
+src/hdr_histogram.c:1541:61: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1541:61: note: Cost model analysis:
+src/hdr_histogram.c:1541:61: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1541:61: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1541:61: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1541:61: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:1541:61: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_histogram.c:1541:61: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x138048338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138048008
+src/hdr_histogram.c:1227:31: note: node 0x138048008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1541:61: note: Costing subgraph:
+src/hdr_histogram.c:1541:61: note: node 0x138048118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1541:61: note: op template: _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 0 _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 1 _35 = iter_7(D)->count;
+src/hdr_histogram.c:1541:61: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1541:61: note: Cost model analysis:
+src/hdr_histogram.c:1541:61: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1541:61: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1541:61: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1541:61: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1541:61: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:1541:61: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x138048118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138048338
+src/hdr_histogram.c:1227:31: note: node 0x138048338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1541:61: note: Costing subgraph:
+src/hdr_histogram.c:1541:61: note: node 0x138048090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1541:61: note: op template: _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 0 _34 = MEM[(struct hdr_iter_log *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1541:61: note: 	stmt 1 _35 = iter_7(D)->count;
+src/hdr_histogram.c:1541:61: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1541:61: note: Cost model analysis:
+src/hdr_histogram.c:1541:61: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1541:61: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1414:16: missed: couldn't vectorize loop
+src/hdr_histogram.c:1414:16: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1402:13: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1210:12: missed: statement clobbers memory: _18 = peek_next_value_from_index.isra (_13, _14);
+src/hdr_histogram.c:1441:18: missed: statement clobbers memory: _32 = move_next (iter_7(D));
+src/hdr_histogram.c:1446:56: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1446:56: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x138008008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138008090
+src/hdr_histogram.c:1227:31: note: node 0x138008090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1446:56: note: Costing subgraph:
+src/hdr_histogram.c:1446:56: note: node 0x138008338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1446:56: note: op template: _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 0 _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 1 _34 = iter_7(D)->count;
+src/hdr_histogram.c:1446:56: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1446:56: note: Cost model analysis:
+src/hdr_histogram.c:1446:56: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1446:56: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1446:56: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1446:56: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:1446:56: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_histogram.c:1446:56: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x138008338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138008008
+src/hdr_histogram.c:1227:31: note: node 0x138008008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1446:56: note: Costing subgraph:
+src/hdr_histogram.c:1446:56: note: node 0x1380081a0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1446:56: note: op template: _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 0 _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 1 _34 = iter_7(D)->count;
+src/hdr_histogram.c:1446:56: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1446:56: note: Cost model analysis:
+src/hdr_histogram.c:1446:56: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1446:56: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1446:56: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1446:56: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1446:56: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:1446:56: note: SLPing BB part
+src/hdr_histogram.c:1227:31: note: Costing subgraph:
+src/hdr_histogram.c:1227:31: note: node 0x1380081a0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 iter_7(D)->value_iterated_from = _24;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 iter_7(D)->value_iterated_to = _23;
+src/hdr_histogram.c:1227:31: note: 	children 0x138008338
+src/hdr_histogram.c:1227:31: note: node 0x138008338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1227:31: note: op template: _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 0 _24 = iter_7(D)->value_iterated_to;
+src/hdr_histogram.c:1227:31: note: 	stmt 1 _23 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].next_value_reporting_level;
+src/hdr_histogram.c:1227:31: note: 	load permutation { 0 3 }
+src/hdr_histogram.c:1227:31: note: Cost model analysis:
+src/hdr_histogram.c:1227:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 7
+  Scalar cost: 4
+src/hdr_histogram.c:1227:31: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:1446:56: note: Costing subgraph:
+src/hdr_histogram.c:1446:56: note: node 0x138008118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1446:56: note: op template: _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 0 _33 = MEM[(struct hdr_iter_linear *)iter_7(D) + 88B].count_added_in_this_iteration_step;
+src/hdr_histogram.c:1446:56: note: 	stmt 1 _34 = iter_7(D)->count;
+src/hdr_histogram.c:1446:56: note: 	load permutation { 9 0 }
+src/hdr_histogram.c:1446:56: note: Cost model analysis:
+src/hdr_histogram.c:1446:56: note: Cost model analysis for part in loop 2:
+  Vector cost: 12
+  Scalar cost: 3
+src/hdr_histogram.c:1446:56: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:225:45: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:225:45: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:225:45: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:225:45: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:225:45: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:225:45: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:241:58: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:271:45: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:271:45: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:271:45: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:271:45: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:307:16: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:307:16: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:307:16: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:307:16: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:307:16: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:307:16: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:324:46: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:324:46: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:324:46: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:324:46: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:324:46: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:324:46: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:345:19: missed: couldn't vectorize loop
+src/hdr_histogram.c:337:6: missed: not vectorized: unsupported use in stmt.
+src/hdr_histogram.c:359:38: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:359:38: note: SLPing BB part
+src/hdr_histogram.c:359:38: note: Costing subgraph:
+src/hdr_histogram.c:359:38: note: node 0x1380681a0 (max_nunits=2, refcnt=1) vector(2) unsigned long
+src/hdr_histogram.c:359:38: note: op template: _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 0 _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 1 _144 = (unsigned long) _38;
+src/hdr_histogram.c:359:38: note: 	children 0x138068228
+src/hdr_histogram.c:359:38: note: node (external) 0x138068228 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:359:38: note: 	{ observed_total_count_80, _38 }
+src/hdr_histogram.c:359:38: note: Cost model analysis:
+src/hdr_histogram.c:359:38: note: Cost model analysis for part in loop 1:
+  Vector cost: 9
+  Scalar cost: 1
+src/hdr_histogram.c:359:38: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:359:38: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:359:38: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:359:38: note: ***** Analysis succeeded with vector mode V8QI
+src/hdr_histogram.c:359:38: note: SLPing BB part
+src/hdr_histogram.c:359:38: note: Costing subgraph:
+src/hdr_histogram.c:359:38: note: node 0x138068118 (max_nunits=2, refcnt=1) vector(2) unsigned long
+src/hdr_histogram.c:359:38: note: op template: _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 0 _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 1 _144 = (unsigned long) _38;
+src/hdr_histogram.c:359:38: note: 	children 0x138068090
+src/hdr_histogram.c:359:38: note: node (external) 0x138068090 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:359:38: note: 	{ observed_total_count_80, _38 }
+src/hdr_histogram.c:359:38: note: Cost model analysis:
+src/hdr_histogram.c:359:38: note: Cost model analysis for part in loop 1:
+  Vector cost: 9
+  Scalar cost: 1
+src/hdr_histogram.c:359:38: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:359:38: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:359:38: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:359:38: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:359:38: note: SLPing BB part
+src/hdr_histogram.c:359:38: note: Costing subgraph:
+src/hdr_histogram.c:359:38: note: node 0x138068008 (max_nunits=2, refcnt=1) vector(2) unsigned long
+src/hdr_histogram.c:359:38: note: op template: _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 0 _142 = (unsigned long) observed_total_count_80;
+src/hdr_histogram.c:359:38: note: 	stmt 1 _144 = (unsigned long) _38;
+src/hdr_histogram.c:359:38: note: 	children 0x138068228
+src/hdr_histogram.c:359:38: note: node (external) 0x138068228 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:359:38: note: 	{ observed_total_count_80, _38 }
+src/hdr_histogram.c:359:38: note: Cost model analysis:
+src/hdr_histogram.c:359:38: note: Cost model analysis for part in loop 1:
+  Vector cost: 9
+  Scalar cost: 1
+src/hdr_histogram.c:359:38: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:337:6: note: vectorized 0 loops in function.
+src/hdr_histogram.c:337:6: missed: splitting region at dont-vectorize loop 2 entry at bb30
+src/hdr_histogram.c:83:13: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:83:13: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/hdr_histogram.c:83:13: missed: splitting region at dominance boundary bb17
+src/hdr_histogram.c:376:24: missed: statement clobbers memory: _6 = highest_equivalent_value (h_23(D), _59);
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:241:58: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:241:58: missed: splitting region at dominance boundary bb21
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:241:58: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:241:58: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:241:58: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:394:12: missed: statement clobbers memory: hdr_reset_internal_counters_checked (h_2(D));
+src/hdr_histogram.c:395:1: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:401:39: missed: couldn't vectorize loop
+src/hdr_histogram.c:401:39: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:177:11: missed: couldn't vectorize loop
+src/hdr_histogram.c:422:5: missed: not vectorized: relevant phi not supported: result_69 = PHI <result_41(18), 1(5)>
+src/hdr_histogram.c:422:5: note: vectorized 0 loops in function.
+src/hdr_histogram.c:433:5: missed: statement clobbers memory: __builtin_memset (cfg_32(D), 0, 64);
+src/hdr_histogram.c:448:49: missed: statement clobbers memory: _8 = log (_7);
+src/hdr_histogram.c:451:29: missed: statement clobbers memory: _14 = log (_13);
+src/hdr_histogram.c:458:44: missed: statement clobbers memory: _19 = pow (2.0e+0, _18);
+src/hdr_histogram.c:462:29: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:462:29: note: SLPing BB part
+src/hdr_histogram.c:443:35: note: Costing subgraph:
+src/hdr_histogram.c:443:35: note: node 0x1380e8008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:443:35: note: op template: cfg_32(D)->lowest_discernible_value = lowest_discernible_value_35(D);
+src/hdr_histogram.c:443:35: note: 	stmt 0 cfg_32(D)->lowest_discernible_value = lowest_discernible_value_35(D);
+src/hdr_histogram.c:443:35: note: 	stmt 1 cfg_32(D)->highest_trackable_value = highest_trackable_value_37(D);
+src/hdr_histogram.c:443:35: note: 	children 0x1380e8090
+src/hdr_histogram.c:443:35: note: node (external) 0x1380e8090 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:443:35: note: 	{ lowest_discernible_value_35(D), highest_trackable_value_37(D) }
+src/hdr_histogram.c:443:35: note: Cost model analysis:
+src/hdr_histogram.c:443:35: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:443:35: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:469:23: note: Costing subgraph:
+src/hdr_histogram.c:469:23: note: node 0x1380e8118 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:469:23: note: op template: cfg_32(D)->bucket_count = _64;
+src/hdr_histogram.c:469:23: note: 	stmt 0 cfg_32(D)->bucket_count = _64;
+src/hdr_histogram.c:469:23: note: 	stmt 1 cfg_32(D)->counts_len = _29;
+src/hdr_histogram.c:469:23: note: 	children 0x1380e8228
+src/hdr_histogram.c:469:23: note: node (external) 0x1380e8228 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_histogram.c:469:23: note: 	{ _64, _29 }
+src/hdr_histogram.c:469:23: note: Cost model analysis:
+src/hdr_histogram.c:469:23: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:469:23: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:462:29: note: Costing subgraph:
+src/hdr_histogram.c:462:29: note: node 0x1380e8338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:462:29: note: op template: _16 = (long long int) _15;
+src/hdr_histogram.c:462:29: note: 	stmt 0 _16 = (long long int) _15;
+src/hdr_histogram.c:462:29: note: 	stmt 1 _22 = (long long int) _12;
+src/hdr_histogram.c:462:29: note: 	children 0x1380e8448
+src/hdr_histogram.c:462:29: note: node (external) 0x1380e8448 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_histogram.c:462:29: note: 	{ _15, _12 }
+src/hdr_histogram.c:462:29: note: Cost model analysis:
+src/hdr_histogram.c:462:29: note: Cost model analysis for part in loop 0:
+  Vector cost: 12
+  Scalar cost: 2
+src/hdr_histogram.c:462:29: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:462:29: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:462:29: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:462:29: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:462:29: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:462:29: note: ***** Analysis succeeded with vector mode V2SI
+src/hdr_histogram.c:462:29: note: SLPing BB part
+src/hdr_histogram.c:443:35: note: Costing subgraph:
+src/hdr_histogram.c:443:35: note: node 0x1380e8338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:443:35: note: op template: cfg_32(D)->lowest_discernible_value = lowest_discernible_value_35(D);
+src/hdr_histogram.c:443:35: note: 	stmt 0 cfg_32(D)->lowest_discernible_value = lowest_discernible_value_35(D);
+src/hdr_histogram.c:443:35: note: 	stmt 1 cfg_32(D)->highest_trackable_value = highest_trackable_value_37(D);
+src/hdr_histogram.c:443:35: note: 	children 0x1380e8448
+src/hdr_histogram.c:443:35: note: node (external) 0x1380e8448 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:443:35: note: 	{ lowest_discernible_value_35(D), highest_trackable_value_37(D) }
+src/hdr_histogram.c:443:35: note: Cost model analysis:
+src/hdr_histogram.c:443:35: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:443:35: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:469:23: note: Costing subgraph:
+src/hdr_histogram.c:469:23: note: node 0x1380e8118 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:469:23: note: op template: cfg_32(D)->bucket_count = _64;
+src/hdr_histogram.c:469:23: note: 	stmt 0 cfg_32(D)->bucket_count = _64;
+src/hdr_histogram.c:469:23: note: 	stmt 1 cfg_32(D)->counts_len = _29;
+src/hdr_histogram.c:469:23: note: 	children 0x1380e8008
+src/hdr_histogram.c:469:23: note: node (external) 0x1380e8008 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_histogram.c:469:23: note: 	{ _64, _29 }
+src/hdr_histogram.c:469:23: note: Cost model analysis:
+src/hdr_histogram.c:469:23: note: Cost model analysis for part in loop 0:
+  Vector cost: 6
+  Scalar cost: 2
+src/hdr_histogram.c:469:23: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:462:29: note: Costing subgraph:
+src/hdr_histogram.c:462:29: note: node 0x1380e83c0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:462:29: note: op template: _16 = (long long int) _15;
+src/hdr_histogram.c:462:29: note: 	stmt 0 _16 = (long long int) _15;
+src/hdr_histogram.c:462:29: note: 	stmt 1 _22 = (long long int) _12;
+src/hdr_histogram.c:462:29: note: 	children 0x1380e81a0
+src/hdr_histogram.c:462:29: note: node (external) 0x1380e81a0 (max_nunits=1, refcnt=1) vector(2) int
+src/hdr_histogram.c:462:29: note: 	{ _15, _12 }
+src/hdr_histogram.c:462:29: note: Cost model analysis:
+src/hdr_histogram.c:462:29: note: Cost model analysis for part in loop 0:
+  Vector cost: 10
+  Scalar cost: 2
+src/hdr_histogram.c:462:29: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:485:40: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:485:40: note: SLPing BB part
+src/hdr_histogram.c:479:40: note: Costing subgraph:
+src/hdr_histogram.c:479:40: note: node 0x158040008 (max_nunits=4, refcnt=1) vector(4) int
+src/hdr_histogram.c:479:40: note: op template: h_15(D)->unit_magnitude = _4;
+src/hdr_histogram.c:479:40: note: 	stmt 0 h_15(D)->unit_magnitude = _4;
+src/hdr_histogram.c:479:40: note: 	stmt 1 h_15(D)->significant_figures = _6;
+src/hdr_histogram.c:479:40: note: 	stmt 2 h_15(D)->sub_bucket_half_count_magnitude = _7;
+src/hdr_histogram.c:479:40: note: 	stmt 3 h_15(D)->sub_bucket_half_count = _8;
+src/hdr_histogram.c:479:40: note: 	children 0x158040118
+src/hdr_histogram.c:479:40: note: node (external) 0x158040118 (max_nunits=1, refcnt=1) vector(4) int
+src/hdr_histogram.c:479:40: note: 	{ _4, _6, _7, _8 }
+src/hdr_histogram.c:479:40: note: Cost model analysis:
+src/hdr_histogram.c:479:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 11
+  Scalar cost: 4
+src/hdr_histogram.c:479:40: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:484:40: note: Costing subgraph:
+src/hdr_histogram.c:484:40: note: node 0x1580401a0 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: h_15(D)->sub_bucket_count = _10;
+src/hdr_histogram.c:484:40: note: 	stmt 0 h_15(D)->sub_bucket_count = _10;
+src/hdr_histogram.c:484:40: note: 	stmt 1 h_15(D)->bucket_count = _11;
+src/hdr_histogram.c:484:40: note: 	children 0x158040228
+src/hdr_histogram.c:484:40: note: node 0x158040228 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: _10 = cfg_14(D)->sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 0 _10 = cfg_14(D)->sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 1 _11 = cfg_14(D)->bucket_count;
+src/hdr_histogram.c:484:40: note: Cost model analysis:
+src/hdr_histogram.c:484:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+src/hdr_histogram.c:477:40: note: Costing subgraph:
+src/hdr_histogram.c:477:40: note: node 0x1580402b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: h_15(D)->lowest_discernible_value = _1;
+src/hdr_histogram.c:477:40: note: 	stmt 0 h_15(D)->lowest_discernible_value = _1;
+src/hdr_histogram.c:477:40: note: 	stmt 1 h_15(D)->highest_trackable_value = _2;
+src/hdr_histogram.c:477:40: note: 	children 0x158040338
+src/hdr_histogram.c:477:40: note: node 0x158040338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: _1 = cfg_14(D)->lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 0 _1 = cfg_14(D)->lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 1 _2 = cfg_14(D)->highest_trackable_value;
+src/hdr_histogram.c:477:40: note: Cost model analysis:
+src/hdr_histogram.c:477:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+src/hdr_histogram.c:485:40: note: Costing subgraph:
+src/hdr_histogram.c:485:40: note: node 0x1580403c0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: op template: h_15(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 0 h_15(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 1 h_15(D)->max_value = 0;
+src/hdr_histogram.c:485:40: note: 	children 0x158040448
+src/hdr_histogram.c:485:40: note: node (constant) 0x158040448 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:485:40: note: Cost model analysis:
+src/hdr_histogram.c:485:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:485:40: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:484:40: optimized: basic block part vectorized using 8 byte vectors
+src/hdr_histogram.c:484:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:484:40: note: node 0x1580401a0 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: h_15(D)->sub_bucket_count = _10;
+src/hdr_histogram.c:484:40: note: 	stmt 0 h_15(D)->sub_bucket_count = _10;
+src/hdr_histogram.c:484:40: note: 	stmt 1 h_15(D)->bucket_count = _11;
+src/hdr_histogram.c:484:40: note: 	children 0x158040228
+src/hdr_histogram.c:484:40: note: node 0x158040228 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: _10 = cfg_14(D)->sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 0 _10 = cfg_14(D)->sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 1 _11 = cfg_14(D)->bucket_count;
+src/hdr_histogram.c:484:40: note: ------>vectorizing SLP node starting from: _10 = cfg_14(D)->sub_bucket_count;
+src/hdr_histogram.c:484:40: note: transform load. ncopies = 1
+src/hdr_histogram.c:484:40: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: cfg_14(D)->sub_bucket_count
+src/hdr_histogram.c:484:40: note: created vectp.198_31
+src/hdr_histogram.c:484:40: note: add new stmt: vect__10.199_32 = MEM <vector(2) int> [(int *)vectp.198_31];
+src/hdr_histogram.c:484:40: note: add new stmt: vectp.198_33 = vectp.198_31 + 20;
+src/hdr_histogram.c:484:40: note: ------>vectorizing SLP node starting from: h_15(D)->sub_bucket_count = _10;
+src/hdr_histogram.c:484:40: note: vect_is_simple_use: operand cfg_14(D)->sub_bucket_count, type of def: internal
+src/hdr_histogram.c:484:40: note: vect_is_simple_use: operand cfg_14(D)->bucket_count, type of def: internal
+src/hdr_histogram.c:484:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:484:40: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: h_15(D)->sub_bucket_count
+src/hdr_histogram.c:484:40: note: created vectp.201_34
+src/hdr_histogram.c:484:40: note: add new stmt: MEM <vector(2) int> [(int *)vectp.201_34] = vect__10.199_32;
+src/hdr_histogram.c:484:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:477:40: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:477:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:477:40: note: node 0x1580402b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: h_15(D)->lowest_discernible_value = _1;
+src/hdr_histogram.c:477:40: note: 	stmt 0 h_15(D)->lowest_discernible_value = _1;
+src/hdr_histogram.c:477:40: note: 	stmt 1 h_15(D)->highest_trackable_value = _2;
+src/hdr_histogram.c:477:40: note: 	children 0x158040338
+src/hdr_histogram.c:477:40: note: node 0x158040338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: _1 = cfg_14(D)->lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 0 _1 = cfg_14(D)->lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 1 _2 = cfg_14(D)->highest_trackable_value;
+src/hdr_histogram.c:477:40: note: ------>vectorizing SLP node starting from: _1 = cfg_14(D)->lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: transform load. ncopies = 1
+src/hdr_histogram.c:477:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: cfg_14(D)->lowest_discernible_value
+src/hdr_histogram.c:477:40: note: created vectp.203_36
+src/hdr_histogram.c:477:40: note: add new stmt: vect__1.204_37 = MEM <vector(2) long long int> [(long long int *)vectp.203_36];
+src/hdr_histogram.c:477:40: note: add new stmt: vectp.203_38 = vectp.203_36 + 32;
+src/hdr_histogram.c:477:40: note: ------>vectorizing SLP node starting from: h_15(D)->lowest_discernible_value = _1;
+src/hdr_histogram.c:477:40: note: vect_is_simple_use: operand cfg_14(D)->lowest_discernible_value, type of def: internal
+src/hdr_histogram.c:477:40: note: vect_is_simple_use: operand cfg_14(D)->highest_trackable_value, type of def: internal
+src/hdr_histogram.c:477:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:477:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_15(D)->lowest_discernible_value
+src/hdr_histogram.c:477:40: note: created vectp.206_39
+src/hdr_histogram.c:477:40: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.206_39] = vect__1.204_37;
+src/hdr_histogram.c:477:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:485:40: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:485:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:485:40: note: node 0x1580403c0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: op template: h_15(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 0 h_15(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 1 h_15(D)->max_value = 0;
+src/hdr_histogram.c:485:40: note: 	children 0x158040448
+src/hdr_histogram.c:485:40: note: node (constant) 0x158040448 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:485:40: note: ------>vectorizing SLP node starting from: h_15(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:485:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:485:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_15(D)->min_value
+src/hdr_histogram.c:485:40: note: created vectp.208_41
+src/hdr_histogram.c:485:40: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.208_41] = { 9223372036854775807, 0 };
+src/hdr_histogram.c:485:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:504:13: missed: statement clobbers memory: r_10 = hdr_calculate_bucket_config (lowest_discernible_value_6(D), highest_trackable_value_7(D), significant_figures_8(D), &cfg);
+src/hdr_histogram.c:510:25: missed: statement clobbers memory: counts_12 = calloc (_2, 8);
+src/hdr_histogram.c:516:41: missed: statement clobbers memory: histogram_14 = calloc (1, 104);
+src/hdr_histogram.c:519:9: missed: statement clobbers memory: free (counts_12);
+src/hdr_histogram.c:485:40: note: ***** Analysis succeeded with vector mode V4SI
+src/hdr_histogram.c:485:40: note: SLPing BB part
+src/hdr_histogram.c:479:40: note: Costing subgraph:
+src/hdr_histogram.c:479:40: note: node 0x158040008 (max_nunits=4, refcnt=1) vector(4) int
+src/hdr_histogram.c:479:40: note: op template: histogram_14->unit_magnitude = _25;
+src/hdr_histogram.c:479:40: note: 	stmt 0 histogram_14->unit_magnitude = _25;
+src/hdr_histogram.c:479:40: note: 	stmt 1 histogram_14->significant_figures = _27;
+src/hdr_histogram.c:479:40: note: 	stmt 2 histogram_14->sub_bucket_half_count_magnitude = _28;
+src/hdr_histogram.c:479:40: note: 	stmt 3 histogram_14->sub_bucket_half_count = _29;
+src/hdr_histogram.c:479:40: note: 	children 0x158040118
+src/hdr_histogram.c:479:40: note: node (external) 0x158040118 (max_nunits=1, refcnt=1) vector(4) int
+src/hdr_histogram.c:479:40: note: 	{ _25, _27, _28, _29 }
+src/hdr_histogram.c:479:40: note: Cost model analysis:
+src/hdr_histogram.c:479:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 11
+  Scalar cost: 4
+src/hdr_histogram.c:479:40: missed: not vectorized: vectorization is not profitable.
+src/hdr_histogram.c:484:40: note: Costing subgraph:
+src/hdr_histogram.c:484:40: note: node 0x1580401a0 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: histogram_14->sub_bucket_count = _31;
+src/hdr_histogram.c:484:40: note: 	stmt 0 histogram_14->sub_bucket_count = _31;
+src/hdr_histogram.c:484:40: note: 	stmt 1 histogram_14->bucket_count = _32;
+src/hdr_histogram.c:484:40: note: 	children 0x158040228
+src/hdr_histogram.c:484:40: note: node 0x158040228 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: _31 = cfg.sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 0 _31 = cfg.sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 1 _32 = cfg.bucket_count;
+src/hdr_histogram.c:484:40: note: Cost model analysis:
+src/hdr_histogram.c:484:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+src/hdr_histogram.c:477:40: note: Costing subgraph:
+src/hdr_histogram.c:477:40: note: node 0x1580402b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: histogram_14->lowest_discernible_value = _22;
+src/hdr_histogram.c:477:40: note: 	stmt 0 histogram_14->lowest_discernible_value = _22;
+src/hdr_histogram.c:477:40: note: 	stmt 1 histogram_14->highest_trackable_value = _23;
+src/hdr_histogram.c:477:40: note: 	children 0x158040338
+src/hdr_histogram.c:477:40: note: node 0x158040338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: _22 = cfg.lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 0 _22 = cfg.lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 1 _23 = cfg.highest_trackable_value;
+src/hdr_histogram.c:477:40: note: Cost model analysis:
+src/hdr_histogram.c:477:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+src/hdr_histogram.c:485:40: note: Costing subgraph:
+src/hdr_histogram.c:485:40: note: node 0x1580403c0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: op template: histogram_14->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 0 histogram_14->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 1 histogram_14->max_value = 0;
+src/hdr_histogram.c:485:40: note: 	children 0x158040448
+src/hdr_histogram.c:485:40: note: node (constant) 0x158040448 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:485:40: note: Cost model analysis:
+src/hdr_histogram.c:485:40: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:485:40: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:484:40: optimized: basic block part vectorized using 8 byte vectors
+src/hdr_histogram.c:484:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:484:40: note: node 0x1580401a0 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: histogram_14->sub_bucket_count = _31;
+src/hdr_histogram.c:484:40: note: 	stmt 0 histogram_14->sub_bucket_count = _31;
+src/hdr_histogram.c:484:40: note: 	stmt 1 histogram_14->bucket_count = _32;
+src/hdr_histogram.c:484:40: note: 	children 0x158040228
+src/hdr_histogram.c:484:40: note: node 0x158040228 (max_nunits=2, refcnt=1) vector(2) int
+src/hdr_histogram.c:484:40: note: op template: _31 = cfg.sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 0 _31 = cfg.sub_bucket_count;
+src/hdr_histogram.c:484:40: note: 	stmt 1 _32 = cfg.bucket_count;
+src/hdr_histogram.c:484:40: note: ------>vectorizing SLP node starting from: _31 = cfg.sub_bucket_count;
+src/hdr_histogram.c:484:40: note: transform load. ncopies = 1
+src/hdr_histogram.c:484:40: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: cfg.sub_bucket_count
+src/hdr_histogram.c:484:40: note: created &cfg.sub_bucket_count
+src/hdr_histogram.c:484:40: note: add new stmt: vect__31.214_20 = MEM <vector(2) int> [(int *)&cfg + 48B];
+src/hdr_histogram.c:484:40: note: ------>vectorizing SLP node starting from: histogram_14->sub_bucket_count = _31;
+src/hdr_histogram.c:484:40: note: vect_is_simple_use: operand cfg.sub_bucket_count, type of def: internal
+src/hdr_histogram.c:484:40: note: vect_is_simple_use: operand cfg.bucket_count, type of def: internal
+src/hdr_histogram.c:484:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:484:40: note: create vector_type-pointer variable to type: vector(2) int  vectorizing a pointer ref: histogram_14->sub_bucket_count
+src/hdr_histogram.c:484:40: note: created vectp.216_33
+src/hdr_histogram.c:484:40: note: add new stmt: MEM <vector(2) int> [(int *)vectp.216_33] = vect__31.214_20;
+src/hdr_histogram.c:484:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:477:40: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:477:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:477:40: note: node 0x1580402b0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: histogram_14->lowest_discernible_value = _22;
+src/hdr_histogram.c:477:40: note: 	stmt 0 histogram_14->lowest_discernible_value = _22;
+src/hdr_histogram.c:477:40: note: 	stmt 1 histogram_14->highest_trackable_value = _23;
+src/hdr_histogram.c:477:40: note: 	children 0x158040338
+src/hdr_histogram.c:477:40: note: node 0x158040338 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:477:40: note: op template: _22 = cfg.lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 0 _22 = cfg.lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: 	stmt 1 _23 = cfg.highest_trackable_value;
+src/hdr_histogram.c:477:40: note: ------>vectorizing SLP node starting from: _22 = cfg.lowest_discernible_value;
+src/hdr_histogram.c:477:40: note: transform load. ncopies = 1
+src/hdr_histogram.c:477:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: cfg.lowest_discernible_value
+src/hdr_histogram.c:477:40: note: created &cfg
+src/hdr_histogram.c:477:40: note: add new stmt: vect__22.219_49 = MEM <vector(2) long long int> [(long long int *)&cfg];
+src/hdr_histogram.c:477:40: note: ------>vectorizing SLP node starting from: histogram_14->lowest_discernible_value = _22;
+src/hdr_histogram.c:477:40: note: vect_is_simple_use: operand cfg.lowest_discernible_value, type of def: internal
+src/hdr_histogram.c:477:40: note: vect_is_simple_use: operand cfg.highest_trackable_value, type of def: internal
+src/hdr_histogram.c:477:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:477:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: histogram_14->lowest_discernible_value
+src/hdr_histogram.c:477:40: note: created vectp.221_50
+src/hdr_histogram.c:477:40: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.221_50] = vect__22.219_49;
+src/hdr_histogram.c:477:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:485:40: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:485:40: note: Vectorizing SLP tree:
+src/hdr_histogram.c:485:40: note: node 0x1580403c0 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: op template: histogram_14->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 0 histogram_14->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: 	stmt 1 histogram_14->max_value = 0;
+src/hdr_histogram.c:485:40: note: 	children 0x158040448
+src/hdr_histogram.c:485:40: note: node (constant) 0x158040448 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:485:40: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:485:40: note: ------>vectorizing SLP node starting from: histogram_14->min_value = 9223372036854775807;
+src/hdr_histogram.c:485:40: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:485:40: note: transform store. ncopies = 1
+src/hdr_histogram.c:485:40: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: histogram_14->min_value
+src/hdr_histogram.c:485:40: note: created vectp.223_52
+src/hdr_histogram.c:485:40: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.223_52] = { 9223372036854775807, 0 };
+src/hdr_histogram.c:485:40: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:485:40: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:534:2: missed: statement clobbers memory: free (_1);
+src/hdr_histogram.c:535:2: missed: statement clobbers memory: free (h_3(D));
+src/hdr_histogram.c:537:1: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:537:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:541:12: missed: statement clobbers memory: _6 = hdr_init (1, highest_trackable_value_2(D), significant_figures_3(D), result_4(D));
+src/hdr_histogram.c:541:12: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:550:6: missed: statement clobbers memory: __builtin_memset (_1, 0, _4);
+src/hdr_histogram.c:548:19: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:548:19: note: SLPing BB part
+src/hdr_histogram.c:548:19: note: Costing subgraph:
+src/hdr_histogram.c:548:19: note: node 0x158040008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:548:19: note: op template: h_7(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:548:19: note: 	stmt 0 h_7(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:548:19: note: 	stmt 1 h_7(D)->max_value = 0;
+src/hdr_histogram.c:548:19: note: 	children 0x158040090
+src/hdr_histogram.c:548:19: note: node (constant) 0x158040090 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:548:19: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:548:19: note: Cost model analysis:
+src/hdr_histogram.c:548:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:548:19: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:548:19: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:548:19: note: Vectorizing SLP tree:
+src/hdr_histogram.c:548:19: note: node 0x158040008 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:548:19: note: op template: h_7(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:548:19: note: 	stmt 0 h_7(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:548:19: note: 	stmt 1 h_7(D)->max_value = 0;
+src/hdr_histogram.c:548:19: note: 	children 0x158040090
+src/hdr_histogram.c:548:19: note: node (constant) 0x158040090 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:548:19: note: 	{ 9223372036854775807, 0 }
+src/hdr_histogram.c:548:19: note: ------>vectorizing SLP node starting from: h_7(D)->min_value = 9223372036854775807;
+src/hdr_histogram.c:548:19: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:548:19: note: transform store. ncopies = 1
+src/hdr_histogram.c:548:19: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: h_7(D)->min_value
+src/hdr_histogram.c:548:19: note: created vectp.234_13
+src/hdr_histogram.c:548:19: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.234_13] = { 9223372036854775807, 0 };
+src/hdr_histogram.c:548:19: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:548:19: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:548:19: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:548:19: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:555:41: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:555:41: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/hdr_histogram.c:611:6: missed: statement clobbers memory: _7 = record_value_counted.part.0 (h_2(D), value_3(D), 1);
+src/hdr_histogram.c:613:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:613:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:616:6: missed: statement clobbers memory: _7 = record_value_counted_atomic.part.0 (h_2(D), value_3(D), 1);
+src/hdr_histogram.c:618:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:618:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:621:6: missed: statement clobbers memory: _10 = record_value_counted.part.0 (h_4(D), _2, 1);
+src/hdr_histogram.c:624:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:624:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:627:6: missed: statement clobbers memory: _10 = record_value_counted_atomic.part.0 (h_4(D), _2, 1);
+src/hdr_histogram.c:630:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:630:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:633:6: missed: statement clobbers memory: _10 = record_value_counted.part.0 (h_5(D), value_6(D), count_3(D));
+src/hdr_histogram.c:633:6: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:633:6: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:633:6: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:633:6: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:633:6: note: ***** The result for vector mode V2SI would be the same
+src/hdr_histogram.c:642:6: missed: statement clobbers memory: _10 = record_value_counted_atomic.part.0 (h_5(D), value_6(D), count_3(D));
+src/hdr_histogram.c:642:6: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:642:6: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:642:6: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:642:6: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:642:6: note: ***** The result for vector mode V2SI would be the same
+src/hdr_histogram.c:676:26: missed: couldn't vectorize loop
+src/hdr_histogram.c:676:26: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:661:6: note: vectorized 0 loops in function.
+src/hdr_histogram.c:661:6: missed: statement clobbers memory: _23 = record_value_counted.part.0 (h_10(D), value_11(D), count_12(D));
+src/hdr_histogram.c:661:6: missed: statement clobbers memory: _26 = record_value_counted.part.0 (h_10(D), missing_value_16, count_12(D));
+src/hdr_histogram.c:661:6: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:661:6: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:661:6: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:661:6: note: ***** Analysis failed with vector mode V8QI
+src/hdr_histogram.c:661:6: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:661:6: note: ***** The result for vector mode V2SI would be the same
+src/hdr_histogram.c:653:12: missed: statement clobbers memory: _6 = hdr_record_corrected_values (h_2(D), value_3(D), 1, expected_interval_4(D));
+src/hdr_histogram.c:653:12: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:702:26: missed: couldn't vectorize loop
+src/hdr_histogram.c:702:26: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:687:6: note: vectorized 0 loops in function.
+src/hdr_histogram.c:687:6: missed: statement clobbers memory: _23 = record_value_counted_atomic.part.0 (h_10(D), value_11(D), count_12(D));
+src/hdr_histogram.c:687:6: missed: statement clobbers memory: _26 = record_value_counted_atomic.part.0 (h_10(D), missing_value_16, count_12(D));
+src/hdr_histogram.c:687:6: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:687:6: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:687:6: note: ***** Re-trying analysis with vector mode V8QI
+src/hdr_histogram.c:687:6: note: ***** Analysis failed with vector mode V8QI
+src/hdr_histogram.c:687:6: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:687:6: note: ***** The result for vector mode V2SI would be the same
+src/hdr_histogram.c:658:12: missed: statement clobbers memory: _6 = hdr_record_corrected_values_atomic (h_2(D), value_3(D), 1, expected_interval_4(D));
+src/hdr_histogram.c:658:12: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:719:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:719:12: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:713:9: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _13 = prephitmp_35 (&iter);
+src/hdr_histogram.c:713:9: missed: statement clobbers memory: _31 = record_value_counted.part.0 (h_8(D), value_6, count_7);
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148178118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481781a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481781a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148178118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481781a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481781a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:740:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:740:12: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:733:9: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _15 = prephitmp_31 (&iter);
+src/hdr_histogram.c:745:14: missed: statement clobbers memory: _1 = hdr_record_corrected_values (h_9(D), value_7, count_8, expected_interval_10(D));
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148198118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481981a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481981a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148198118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481981a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481981a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:772:12: missed: statement clobbers memory: _5 = highest_equivalent_value (h_4(D), _1);
+src/hdr_histogram.c:772:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:772:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:778:24: missed: statement clobbers memory: _8 = __atomic_load_8 (_7, 5);
+src/hdr_histogram.c:778:71: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:778:24: missed: statement clobbers memory: _12 = __atomic_load_8 (_11, 5);
+src/hdr_histogram.c:219:32: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:219:32: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:219:32: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:805:27: missed: couldn't vectorize loop
+src/hdr_histogram.c:805:27: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:843:16: missed: couldn't vectorize loop
+src/hdr_histogram.c:845:17: missed: not vectorized: unsupported use in stmt.
+src/hdr_histogram.c:816:20: missed: couldn't vectorize loop
+src/hdr_histogram.c:816:20: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+src/hdr_histogram.c:829:31: missed: couldn't vectorize loop
+src/hdr_histogram.c:831:29: missed: not vectorized: unsupported use in stmt.
+src/hdr_histogram.c:821:27: missed: couldn't vectorize loop
+src/hdr_histogram.c:821:27: missed: Loop costings not worthwhile.
+src/hdr_histogram.c:927:9: note: vectorized 0 loops in function.
+src/hdr_histogram.c:940:12: missed: statement clobbers memory: _11 = highest_equivalent_value (h_8(D), _71);
+src/hdr_histogram.c:219:32: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:219:32: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:219:32: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:219:32: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:1038:19: missed: couldn't vectorize loop
+src/hdr_histogram.c:1038:19: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:1012:26: missed: couldn't vectorize loop
+src/hdr_histogram.c:1012:26: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1015:36: missed: couldn't vectorize loop
+src/hdr_histogram.c:1015:36: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:985:46: missed: couldn't vectorize loop
+src/hdr_histogram.c:985:46: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:996:33: missed: couldn't vectorize loop
+src/hdr_histogram.c:996:33: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:999:44: missed: couldn't vectorize loop
+src/hdr_histogram.c:999:44: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:1027:37: missed: couldn't vectorize loop
+src/hdr_histogram.c:1027:37: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:1030:36: missed: couldn't vectorize loop
+src/hdr_histogram.c:1030:36: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:968:26: missed: couldn't vectorize loop
+src/hdr_histogram.c:968:26: missed: Loop costings not worthwhile.
+src/hdr_histogram.c:968:26: note: ***** Analysis failed with vector mode V2DF
+src/hdr_histogram.c:968:26: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DF
+src/hdr_histogram.c:949:5: note: vectorized 0 loops in function.
+src/hdr_histogram.c:949:5: missed: splitting region at dont-vectorize loop 11 entry at bb113
+src/hdr_histogram.c:951:29: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:951:29: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:951:29: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:951:29: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:951:29: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:951:29: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:951:29: missed: splitting region at dominance boundary bb45
+src/hdr_histogram.c:1248:26: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:1248:26: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:1248:26: missed: splitting region at dominance boundary bb14
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _161 = prephitmp_518 (&iter);
+src/hdr_histogram.c:946:68: missed: statement clobbers memory: iftmp.20_364 = highest_equivalent_value (h_157(D), _110);
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148168090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148168118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148168118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148168090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148168118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148168118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: missed: splitting region at dominance boundary bb31
+src/hdr_histogram.c:985:46: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:985:46: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:985:46: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:985:46: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:985:46: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:985:46: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:985:46: missed: splitting region at dominance boundary bb54
+src/hdr_histogram.c:1012:26: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:1012:26: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1012:26: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1012:26: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1012:26: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:1012:26: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:1012:26: missed: splitting region at dominance boundary bb5
+src/hdr_histogram.c:1041:45: missed: statement clobbers memory: iftmp.19_181 = highest_equivalent_value (h_157(D), 0);
+src/hdr_histogram.c:1038:19: note: ***** Analysis failed with vector mode V2DF
+src/hdr_histogram.c:1038:19: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DF
+src/hdr_histogram.c:1038:19: missed: splitting region at dominance boundary bb6
+src/hdr_histogram.c:959:23: missed: statement clobbers memory: __builtin_memset (values_155(D), 0, _487);
+src/hdr_histogram.c:959:23: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:959:23: missed: splitting region at dominance boundary bb58
+src/hdr_histogram.c:959:23: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:949:5: note: ***** Analysis failed with vector mode VOID
+src/hdr_histogram.c:1060:33: missed: couldn't vectorize loop
+src/hdr_histogram.c:1060:33: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:1046:8: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _23 = prephitmp_76 (&iter);
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148098090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148098118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148098118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148098090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148098118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148098118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1086:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:1086:12: missed: not vectorized: unsupported control flow in loop.
+src/hdr_histogram.c:1073:8: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1080:19: missed: statement clobbers memory: mean_2 = hdr_mean (h_1(D));
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _15 = prephitmp_39 (&iter);
+src/hdr_histogram.c:1095:12: missed: statement clobbers memory: _48 = sqrt (_18);
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x1380d8090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1380d8118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1380d8118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x1380d8090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1380d8118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1380d8118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1073:8: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1073:8: missed: statement clobbers memory: _7 = hdr_stddev.part.0 (h_5(D));
+src/hdr_histogram.c:1073:8: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:1073:8: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:1100:42: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:1100:42: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/hdr_histogram.c:1105:12: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:1105:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:78:29: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V4SI
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:78:29: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:78:29: note: ***** Re-trying analysis with vector mode V2SI
+src/hdr_histogram.c:78:29: note: ***** Analysis failed with vector mode V2SI
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_3(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_3(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_3(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_3(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_3(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_3(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter_3(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter_3(D)->value_iterated_from
+src/hdr_histogram.c:1253:31: note: created vectp.447_15
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.447_15] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _5 = _1 (iter_3(D));
+src/hdr_histogram.c:1261:12: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:1261:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:1326:58: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1326:58: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_2(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1326:58: note: Costing subgraph:
+src/hdr_histogram.c:1326:58: note: node 0x1481481a0 (max_nunits=2, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: op template: iter_2(D)->specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 0 iter_2(D)->specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 1 iter_2(D)->specifics.percentiles.percentile = 0.0;
+src/hdr_histogram.c:1326:58: note: 	children 0x148148228
+src/hdr_histogram.c:1326:58: note: node (constant) 0x148148228 (max_nunits=1, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: 	{ 0.0, 0.0 }
+src/hdr_histogram.c:1326:58: note: Cost model analysis:
+src/hdr_histogram.c:1326:58: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1326:58: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_2(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter_2(D)->value_iterated_from
+src/hdr_histogram.c:1253:31: note: created vectp.455_20
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.455_20] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1326:58: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1326:58: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1326:58: note: node 0x1481481a0 (max_nunits=2, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: op template: iter_2(D)->specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 0 iter_2(D)->specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 1 iter_2(D)->specifics.percentiles.percentile = 0.0;
+src/hdr_histogram.c:1326:58: note: 	children 0x148148228
+src/hdr_histogram.c:1326:58: note: node (constant) 0x148148228 (max_nunits=1, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: 	{ 0.0, 0.0 }
+src/hdr_histogram.c:1326:58: note: ------>vectorizing SLP node starting from: iter_2(D)->specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: vect_is_simple_use: operand 0.0, type of def: constant
+src/hdr_histogram.c:1326:58: note: transform store. ncopies = 1
+src/hdr_histogram.c:1326:58: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: iter_2(D)->specifics.percentiles.percentile_to_iterate_to
+src/hdr_histogram.c:1326:58: note: created vectp.457_22
+src/hdr_histogram.c:1326:58: note: add new stmt: MEM <vector(2) double> [(union  *)vectp.457_22] = { 0.0, 0.0 };
+src/hdr_histogram.c:1326:58: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1326:58: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_2(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481481a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481481a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_2(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481481a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481481a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter_2(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter_2(D)->value_iterated_from
+src/hdr_histogram.c:1253:31: note: created vectp.462_16
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.462_16] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_4(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481481a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481481a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148118 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_4(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x1481481a0
+src/hdr_histogram.c:1253:31: note: node (constant) 0x1481481a0 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter_4(D)->value_iterated_from
+src/hdr_histogram.c:1253:31: note: created vectp.467_1
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.467_1] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1485:1: note: ***** Analysis failed with vector mode V2DI
+src/hdr_histogram.c:1485:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/hdr_histogram.c:1253:31: note: ***** Analysis succeeded with vector mode V2DI
+src/hdr_histogram.c:1253:31: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_4(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1253:31: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter_4(D)->value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter_4(D)->value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter_4(D)->value_iterated_from
+src/hdr_histogram.c:1253:31: note: created vectp.475_47
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)vectp.475_47] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V16QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V8QI would be the same
+src/hdr_histogram.c:1253:31: note: ***** The result for vector mode V4HI would be the same
+src/hdr_histogram.c:1622:12: missed: couldn't vectorize loop
+src/hdr_histogram.c:1622:12: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/hdr_histogram.c:1598:5: note: vectorized 0 loops in function.
+src/hdr_histogram.c:1344:13: missed: statement clobbers memory: __builtin_snprintf (&line_format, 25, "%s%d%s", "%.", _1, "f,%f,%d,%.2f\n");
+src/hdr_histogram.c:1350:13: missed: statement clobbers memory: __builtin_snprintf (&line_format, 25, "%s%d%s", "%12.", _1, "f %12f %12d %12.2f\n");
+src/hdr_histogram.c:1613:9: missed: statement clobbers memory: _2 = fprintf (stream_24(D), _22, "Value", "Percentile", "TotalCount", "1/(1-Percentile)");
+src/hdr_histogram.c:1261:12: missed: statement clobbers memory: _42 = _41 (&iter);
+src/hdr_histogram.c:1629:13: missed: statement clobbers memory: _7 = fprintf (stream_24(D), &line_format, value_33, percentile_34, total_count_35, inverted_percentile_36);
+src/hdr_histogram.c:1639:25: missed: statement clobbers memory: _8 = hdr_mean (h_19(D));
+src/hdr_histogram.c:1598:5: missed: statement clobbers memory: _44 = hdr_stddev.part.0 (h_19(D));
+src/hdr_histogram.c:772:12: missed: statement clobbers memory: _68 = highest_equivalent_value (h_19(D), _67);
+src/hdr_histogram.c:1643:13: missed: statement clobbers memory: _14 = fprintf (stream_24(D), &CLASSIC_FOOTER, mean_28, stddev_29, max_31, prephitmp_74, _12, _13);
+src/hdr_histogram.c:1326:58: note: ***** Analysis succeeded with vector mode V4SI
+src/hdr_histogram.c:1326:58: note: SLPing BB part
+src/hdr_histogram.c:1253:31: note: Costing subgraph:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: Cost model analysis:
+src/hdr_histogram.c:1253:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1326:58: note: Costing subgraph:
+src/hdr_histogram.c:1326:58: note: node 0x1481481a0 (max_nunits=2, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: op template: iter.specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 0 iter.specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 1 iter.specifics.percentiles.percentile = 0.0;
+src/hdr_histogram.c:1326:58: note: 	children 0x148148228
+src/hdr_histogram.c:1326:58: note: node (constant) 0x148148228 (max_nunits=1, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: 	{ 0.0, 0.0 }
+src/hdr_histogram.c:1326:58: note: Cost model analysis:
+src/hdr_histogram.c:1326:58: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+src/hdr_histogram.c:1326:58: note: Basic block will be vectorized using SLP
+src/hdr_histogram.c:1253:31: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1253:31: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1253:31: note: node 0x148148090 (max_nunits=2, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: op template: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 0 iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: 	stmt 1 iter.value_iterated_to = 0;
+src/hdr_histogram.c:1253:31: note: 	children 0x148148118
+src/hdr_histogram.c:1253:31: note: node (constant) 0x148148118 (max_nunits=1, refcnt=1) vector(2) long long int
+src/hdr_histogram.c:1253:31: note: 	{ 0, 0 }
+src/hdr_histogram.c:1253:31: note: ------>vectorizing SLP node starting from: iter.value_iterated_from = 0;
+src/hdr_histogram.c:1253:31: note: vect_is_simple_use: operand 0, type of def: constant
+src/hdr_histogram.c:1253:31: note: transform store. ncopies = 1
+src/hdr_histogram.c:1253:31: note: create vector_type-pointer variable to type: vector(2) long long int  vectorizing a pointer ref: iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: created &iter.value_iterated_from
+src/hdr_histogram.c:1253:31: note: add new stmt: MEM <vector(2) long long int> [(long long int *)&iter + 72B] = { 0, 0 };
+src/hdr_histogram.c:1253:31: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1326:58: optimized: basic block part vectorized using 16 byte vectors
+src/hdr_histogram.c:1326:58: note: Vectorizing SLP tree:
+src/hdr_histogram.c:1326:58: note: node 0x1481481a0 (max_nunits=2, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: op template: iter.specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 0 iter.specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: 	stmt 1 iter.specifics.percentiles.percentile = 0.0;
+src/hdr_histogram.c:1326:58: note: 	children 0x148148228
+src/hdr_histogram.c:1326:58: note: node (constant) 0x148148228 (max_nunits=1, refcnt=1) vector(2) double
+src/hdr_histogram.c:1326:58: note: 	{ 0.0, 0.0 }
+src/hdr_histogram.c:1326:58: note: ------>vectorizing SLP node starting from: iter.specifics.percentiles.percentile_to_iterate_to = 0.0;
+src/hdr_histogram.c:1326:58: note: vect_is_simple_use: operand 0.0, type of def: constant
+src/hdr_histogram.c:1326:58: note: transform store. ncopies = 1
+src/hdr_histogram.c:1326:58: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: iter.specifics.percentiles.percentile_to_iterate_to
+src/hdr_histogram.c:1326:58: note: created &iter.specifics.percentiles.percentile_to_iterate_to
+src/hdr_histogram.c:1326:58: note: add new stmt: MEM <vector(2) double> [(union  *)&iter + 96B] = { 0.0, 0.0 };
+src/hdr_histogram.c:1326:58: note: vectorizing stmts using SLP.
+src/hdr_histogram.c:1326:58: note: ***** The result for vector mode V16QI would be the same

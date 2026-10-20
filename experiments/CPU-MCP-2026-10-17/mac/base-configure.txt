@@ -1,0 +1,21 @@
+-- The C compiler identification is AppleClang 17.0.0.17000603
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found ZLIB: /Library/Developer/CommandLineTools/SDKs/MacOSX26.2.sdk/usr/lib/libz.tbd (found version "1.2.12")
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Looking for ceil in m
+-- Looking for ceil in m - found
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - not found
+-- Performing Test HDR_ATOMIC64_LINKS
+-- Performing Test HDR_ATOMIC64_LINKS - Success
+-- Configuring done
+-- Generating done
+-- Build files have been written to: <SCRATCH>/build-base
