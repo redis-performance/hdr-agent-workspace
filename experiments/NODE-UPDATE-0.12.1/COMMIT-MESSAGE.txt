@@ -1,0 +1,12 @@
+test: expect zero min, mean and stddev for empty histograms
+
+HdrHistogram_c 0.12.1 (deps: update histogram to 0.12.1) makes an
+empty histogram report 0 for hdr_min, hdr_mean and hdr_stddev, where
+0.12.0 and earlier reported INT64_MAX and NaN. This brings the C
+library in line with the Java, Go and Rust implementations, which
+already return 0.
+
+Update the assertions that pinned the old values for createHistogram(),
+histogram.snapshot(), meanCI() and monitorEventLoopDelay() after a
+reset. These tests fail against 0.12.1 and pass against 0.12.0 only
+before this change, so it has to land with the dependency update.

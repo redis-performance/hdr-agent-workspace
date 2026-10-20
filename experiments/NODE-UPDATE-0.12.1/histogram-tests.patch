@@ -1,0 +1,89 @@
+diff --git a/test/parallel/test-perf-hooks-histogram-snapshot.js b/test/parallel/test-perf-hooks-histogram-snapshot.js
+index ab554373..e1a1f204 100644
+--- a/test/parallel/test-perf-hooks-histogram-snapshot.js
++++ b/test/parallel/test-perf-hooks-histogram-snapshot.js
+@@ -97,7 +97,7 @@ function assertReadOnly(snapshot) {
+     const snapshot = histogram.snapshot();
+     assertReadOnly(snapshot);
+     assert.strictEqual(snapshot.count, 0);
+-    assert.strictEqual(snapshot.minBigInt, 9223372036854775807n);
++    assert.strictEqual(snapshot.minBigInt, 0n);
+     assert.strictEqual(snapshot.maxBigInt, 0n);
+     assertSameState(snapshot, histogram);
+   }
+diff --git a/test/parallel/test-perf-hooks-histogram-stats.js b/test/parallel/test-perf-hooks-histogram-stats.js
+index 151b43e0..892267c9 100644
+--- a/test/parallel/test-perf-hooks-histogram-stats.js
++++ b/test/parallel/test-perf-hooks-histogram-stats.js
+@@ -12,7 +12,7 @@ const { createHistogram, importHistogram } = require('perf_hooks');
+   const empty = createHistogram();
+   const emptyCI = empty.meanCI();
+   assert.strictEqual(Object.getPrototypeOf(emptyCI), null);
+-  assert.ok(Number.isNaN(emptyCI.mean));
++  assert.strictEqual(emptyCI.mean, 0);
+   assert.ok(Number.isNaN(emptyCI.lower));
+   assert.ok(Number.isNaN(emptyCI.upper));
+ 
+@@ -560,7 +560,7 @@ const { createHistogram, importHistogram } = require('perf_hooks');
+   const emptyBuf = empty.export();
+   const empty2 = importHistogram(emptyBuf);
+   assert.strictEqual(empty2.count, 0);
+-  assert.strictEqual(empty2.min, 9223372036854776000);  // INT64_MAX as double
++  assert.strictEqual(empty2.min, 0);
+ 
+   // Sparse: only a few distinct values
+   const sparse = createHistogram();
+diff --git a/test/parallel/test-perf-hooks-histogram.js b/test/parallel/test-perf-hooks-histogram.js
+index 3f5cf29e..f153775d 100644
+--- a/test/parallel/test-perf-hooks-histogram.js
++++ b/test/parallel/test-perf-hooks-histogram.js
+@@ -14,14 +14,14 @@ const { inspect } = require('util');
+ {
+   const h = createHistogram();
+ 
+-  assert.strictEqual(h.min, 9223372036854776000);
+-  assert.strictEqual(h.minBigInt, 9223372036854775807n);
++  assert.strictEqual(h.min, 0);
++  assert.strictEqual(h.minBigInt, 0n);
+   assert.strictEqual(h.max, 0);
+   assert.strictEqual(h.maxBigInt, 0n);
+   assert.strictEqual(h.exceeds, 0);
+   assert.strictEqual(h.exceedsBigInt, 0n);
+-  assert.ok(Number.isNaN(h.mean));
+-  assert.ok(Number.isNaN(h.stddev));
++  assert.strictEqual(h.mean, 0);
++  assert.strictEqual(h.stddev, 0);
+ 
+   assert.strictEqual(h.count, 0);
+   assert.strictEqual(h.countBigInt, 0n);
+diff --git a/test/sequential/test-performance-eventloopdelay.js b/test/sequential/test-performance-eventloopdelay.js
+index ede72951..d02a9ff8 100644
+--- a/test/sequential/test-performance-eventloopdelay.js
++++ b/test/sequential/test-performance-eventloopdelay.js
+@@ -106,10 +106,10 @@ function runEventLoopIterations(iterations, callback) {
+           assert(histogram.percentile(n) >= 0);
+         }
+         histogram.reset();
+-        assert.strictEqual(histogram.min, 9223372036854776000);
++        assert.strictEqual(histogram.min, 0);
+         assert.strictEqual(histogram.max, 0);
+-        assert(Number.isNaN(histogram.stddev));
+-        assert(Number.isNaN(histogram.mean));
++        assert.strictEqual(histogram.stddev, 0);
++        assert.strictEqual(histogram.mean, 0);
+         assert.strictEqual(histogram.percentiles.size, 1);
+ 
+         ['a', false, {}, []].forEach((i) => {
+@@ -158,9 +158,9 @@ function runEventLoopIterations(iterations, callback) {
+     histogram.reset();
+     assert.strictEqual(histogram.count, 0);
+     assert.strictEqual(histogram.max, 0);
+-    assert.strictEqual(histogram.min, 9223372036854776000);
+-    assert(Number.isNaN(histogram.mean));
+-    assert(Number.isNaN(histogram.stddev));
++    assert.strictEqual(histogram.min, 0);
++    assert.strictEqual(histogram.mean, 0);
++    assert.strictEqual(histogram.stddev, 0);
+     assert.strictEqual(histogram.percentiles.size, 1);
+   }));
+ }

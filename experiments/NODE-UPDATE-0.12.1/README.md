@@ -3,14 +3,16 @@
 Prepared for the user to post; an agent must not comment or open anything in Node (its AI policy).
 
 **State:** open, approved, review requested from @nodejs/security-wg. All four `test-*` jobs fail (Linux x64, Linux arm64, macOS, tarball);
-build and lint pass. Failing tests, same in each job (run 39084518340):
+build and lint pass. Reproduced on a fleet host by building Node at the PR head (`d8a7ac12`) and running the 49 perf_hooks / performance /
+histogram test files: exactly four fail, each on an assertion that pins an empty-histogram value:
 
-- `test/parallel/test-perf-hooks-histogram.js:17`: `assert.strictEqual(h.min, 9223372036854776000)` on an empty `createHistogram()`;
-  actual `0`.
-- `test/parallel/test-perf-hooks-histogram-snapshot.js:100`: `assert.strictEqual(snapshot.minBigInt, 9223372036854775807n)` on an empty
-  histogram; actual `0n`.
-- Not yet reached because the first assertion throws: `test-perf-hooks-histogram.js:22-23` asserts `Number.isNaN(h.mean)` and
-  `Number.isNaN(h.stddev)` on an empty histogram; 0.12.1 returns `0` for both.
+- `test-perf-hooks-histogram.js:17-18, 23-24`: `min` 9223372036854776000, `minBigInt` 9223372036854775807n, `mean`/`stddev` NaN on an empty histogram.
+- `test-perf-hooks-histogram-snapshot.js:100`: empty `snapshot.minBigInt` 9223372036854775807n.
+- `test-perf-hooks-histogram-stats.js:15, 563`: empty `meanCI().mean` NaN; `min` of an empty histogram.
+- `test-performance-eventloopdelay.js:109-113, 161-164`: `min`, `mean`, `stddev` after `reset()`.
+
+**Fix prepared (not opened):** `histogram-tests.patch` (4 files, 13 lines), `COMMIT-MESSAGE.txt`, `PR-BODY.md`, `HOW-TO-OPEN.md`. With the patch applied all 49
+test files pass at `d8a7ac12`. lint was not run.
 
 **Cause:** these are the intended 0.12.1 behaviour changes, not regressions in the library: empty `hdr_min` is 0 instead of `INT64_MAX`
 (HdrHistogram_c #178), and empty `hdr_mean`/`hdr_stddev` are 0.0 instead of NaN (#183). Java, Go and Rust already returned 0 for all of these
