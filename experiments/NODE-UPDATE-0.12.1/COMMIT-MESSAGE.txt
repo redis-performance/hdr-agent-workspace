@@ -1,4 +1,4 @@
-test: update empty histogram expectations for histogram 0.12.1
+test: update empty histogram expectations
 
 HdrHistogram_c 0.12.1 (deps: update histogram to 0.12.1) makes an
 empty histogram report 0 for hdr_min, hdr_mean and hdr_stddev, where
