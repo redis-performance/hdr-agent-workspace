@@ -1,0 +1,57 @@
+A=0.11.10 18c7a324383dded1451d15621cd018b0048057d0
+B=30e9ce6ef5dcdc60f9270e1ca03c0966eaaf71d0 30e9ce6ef5dcdc60f9270e1ca03c0966eaaf71d0
+arch: aarch64
+Model name:                           Neoverse-V2
+cores: 96
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+governor: n/a
+pinned cpu: 2, blocks=3 (A B B A each)
+1 perf A exit 0
+1 read A exit 0
+1 batch A exit 0
+2 perf B exit 0
+2 read B exit 0
+2 batch B exit 0
+3 perf B exit 0
+3 read B exit 0
+3 batch B exit 0
+4 perf A exit 0
+4 read A exit 0
+4 batch A exit 0
+5 perf A exit 0
+5 read A exit 0
+5 batch A exit 0
+6 perf B exit 0
+6 read B exit 0
+6 batch B exit 0
+7 perf B exit 0
+7 read B exit 0
+7 batch B exit 0
+8 perf A exit 0
+8 read A exit 0
+8 batch A exit 0
+9 perf A exit 0
+9 read A exit 0
+9 batch A exit 0
+10 perf B exit 0
+10 read B exit 0
+10 batch B exit 0
+11 perf B exit 0
+11 read B exit 0
+11 batch B exit 0
+12 perf A exit 0
+12 read A exit 0
+12 batch A exit 0
+metric                                                        A              B       B/A  spread A | B
+batch ns/call, 4 pct (lower better)                    28176.00        1383.20    0.049x  4.8% | 0.5%  (n=6|6)
+read M q/s (higher better)                                 0.12           0.26    2.167x  0.0% | 0.0%  (n=6|6)
+same 4 pct as single calls, ns (lower better)           8900.95        4245.45    0.477x  0.6% | 0.1%  (n=6|6)
+write ops/s (higher better)                        400164133.51   393688310.78    0.984x  0.4% | 0.7%  (n=6|6)
+== A=0.11.10
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   0.75 sec
+== B=30e9ce6ef5dcdc60f9270e1ca03c0966eaaf71d0
+100% tests passed, 0 tests failed out of 9
+
+Total Test time (real) =   0.95 sec

@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 BENCH = HERE.parent / "fleet-bench"
+BENCH_OLD = HERE.parent / "fleet-bench-0.11.10"  # same harness, A=0.11.10 B=0.12.1
 MACHINES = [("intel-sapphire-rapids", "Intel Xeon\n(Sapphire Rapids)"), ("amd-zen5", "AMD EPYC\n(Zen 5)"),
             ("arm-neoverse-v2", "AWS Graviton\n(Neoverse V2)")]
 # (key, label, colour, higher_is_better)
@@ -30,9 +31,9 @@ plt.rcParams.update({"svg.fonttype": "path", "svg.hashsalt": "hdrhistogram-0.12.
                      "axes.labelcolor": MUTED, "xtick.color": MUTED, "ytick.color": INK, "axes.edgecolor": GRID})
 
 
-def load(machine):
+def load(machine, bench=BENCH):
     runs = {m[0]: {"A": [], "B": []} for m in METRICS}
-    for f in sorted((BENCH / machine / "raw").glob("*.txt")):
+    for f in sorted((bench / machine / "raw").glob("*.txt")):
         _, kind, v = f.stem.split("_")
         t = f.read_text()
         if kind == "perf":
@@ -52,6 +53,7 @@ def load(machine):
 
 
 DATA = {k: load(k) for k, _ in MACHINES}
+DATA_OLD = {k: load(k, BENCH_OLD) for k, _ in MACHINES}
 
 
 def speed(m, higher, a, b):
@@ -132,9 +134,50 @@ def runs():
     save(fig, "runs")
 
 
+def versions():
+    """0.12.1 against 0.12.0 and against 0.11.10, one log-scale chart; both from the same harness on the same machines."""
+    fig, axes = plt.subplots(len(METRICS), 1, figsize=(10, 9.4), sharex=True)
+    height = 0.34
+    for r, (m, label, color, higher) in enumerate(METRICS):
+        ax = axes[r]
+        for i, (key, name) in enumerate(MACHINES):
+            y = len(MACHINES) - 1 - i
+            for j, (data, col, lab) in enumerate(((DATA_OLD, "#c9582e", "vs 0.11.10"), (DATA, "#62748b", "vs 0.12.0"))):
+                v = speed(m, higher, data[key][m]["A"], data[key][m]["B"])
+                yy = y + (0.5 - j) * height * 1.1
+                ax.barh(yy, v - 1, left=1, height=height, color=col, label=lab if (r == 0 and i == 0) else None)
+                left = v >= 0.995
+                ax.text(max(v, 1.0) * 1.04 if left else v * 0.96, yy, f"{v:.2f}x", va="center", ha="left" if left else "right", fontsize=9, fontweight="bold")
+        ax.axvline(1, color=INK, lw=1.2)
+        ax.set_xscale("log")
+        ax.set_xlim(0.8, 40)
+        ax.set_yticks(range(len(MACHINES)), [n.replace("\n", " ") for _, n in reversed(MACHINES)], fontsize=9)
+        ax.set_title(label, loc="left", fontsize=10.5, fontweight="bold")
+        ax.grid(axis="x", color=GRID, lw=0.8)
+        ax.set_axisbelow(True)
+        for side in ("top", "right", "left"):
+            ax.spines[side].set_visible(False)
+        ax.tick_params(axis="y", length=0)
+    ticks = [1, 2, 4, 8, 16, 32]
+    axes[-1].set_xticks(ticks, [f"{t}x" for t in ticks])
+    axes[-1].minorticks_off()
+    axes[-1].set_xlabel("0.12.1 speed relative to the older release (log scale, 1x = unchanged, higher is faster)")
+    axes[0].legend(loc="upper right", bbox_to_anchor=(1.0, 1.32), ncol=2, frameon=False, fontsize=9.5)
+    fig.suptitle("HdrHistogram_c 0.12.1 against 0.12.0 and 0.11.10", x=0.02, ha="left", fontsize=17, fontweight="bold")
+    fig.text(0.02, 0.945, "Percentile queries are 2x (single) to 15-20x (batch) faster than 0.11.10; against 0.12.0 nothing changed", fontsize=11, color=MUTED, va="top")
+    fig.text(0.02, 0.012, "Intel Xeon (Sapphire Rapids), AMD EPYC (Zen 5), AWS Graviton (Neoverse V2): benchmark fleet, one pinned core, six runs per release, interleaved\n(old/new/new/old x3; 0.12.1 measured against each older release in its own session), GCC 13.3 Release. Microbenchmarks from the repository's own\ndrivers plus a batch timing loop, not application throughput. The read driver prints two decimals, so its ratios resolve only to about 2-4%.", fontsize=7.5, color=MUTED, va="bottom", linespacing=1.5)
+    fig.subplots_adjust(left=0.2, right=0.96, top=0.88, bottom=0.14, hspace=0.55)
+    save(fig, "versions")
+
+
 speedup()
 runs()
+versions()
 for key, _ in MACHINES:
     for m, _, _, higher in METRICS:
         a, b = DATA[key][m]["A"], DATA[key][m]["B"]
         print(f"{key:24s} {m:8s} n={len(a)}|{len(b)} speed={speed(m, higher, a, b):.3f}x")
+for key, _ in MACHINES:
+    for m, _, _, higher in METRICS:
+        a, b = DATA_OLD[key][m]["A"], DATA_OLD[key][m]["B"]
+        print(f"{key:24s} {m:8s} vs 0.11.10 n={len(a)}|{len(b)} speed={speed(m, higher, a, b):.3f}x")
