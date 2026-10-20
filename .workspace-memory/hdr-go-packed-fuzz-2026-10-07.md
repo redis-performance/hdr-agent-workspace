@@ -48,3 +48,10 @@ executions (first one: 55.1 M). Its saved input `368ce59951f3673f` passes on rep
 55 M executions while all x86_64, ASan and fleet runs pass: suspect the runner or Go's arm64 fuzz engine, unproven,
 not filed. The fresh `de66007` native (10/10) and ASan fork runs passed. Upstream `master` has since moved to
 `1608007`; see [[hdr-go-maintainer-2026-10-07]].
+
+## Nightly issue #118, 2026-10-20 (master 687f303)
+Nightly run 39387792352: only `FuzzPackedDifferential` failed, on a GitHub x86 runner after 20 min and 0.9 M execs, with
+`fuzzing process hung or terminated unexpectedly while minimizing: EOF` (no assertion text). Throughput stalled at 0/sec for minutes
+repeatedly. The saved input (1127 bytes, 69 identical records) replays clean on an Intel fleet host: `ok` in 0.19 s, 284 MB peak
+(5 runs). Same signature as the two ARM worker exits (see above): engine/worker death, not a library failure. Third occurrence, first on x86.
+Not commented on the issue yet (user posts or approves). Idea: make the nightly job replay the saved input and not open an issue when it passes.
