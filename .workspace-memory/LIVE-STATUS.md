@@ -1,5 +1,12 @@
 # LIVE STATUS — HdrHistogram_c PR campaign
 
+## Handoff checkpoint — 2026-10-30
+
+Full state for a cold start is in [handoff-codex.md](handoff-codex.md). Headlines: C 0.12.1 released; README PR #186 open;
+nodejs/node#66818 (bot, approved, 4 tests red) waits on the user's #66879 (`needs-ci`, no human response in ~9 days);
+valkey tail-shortcut plan written at `experiments/VALKEY-5024-TAIL-SHORTCUT-PLAN/` (no code, needs a fleet host to prototype);
+Go #119 pending the user's call. The hourly Node poll was stopped on 2026-10-30.
+
 ## CPU MCP exploration — 2026-10-17
 
 Upstream main rechecked at `30e9ce6` (0.12.1), no open C PRs. Completed

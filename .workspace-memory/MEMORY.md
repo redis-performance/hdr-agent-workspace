@@ -10,7 +10,8 @@
   queries; rejected for advancement. CTest and sanitizer oracle passed. This scoped
   Mac permission does not replace the general fleet rule.
 
-- [Codex handoff 2026-10-17](handoff-codex.md) — cold start for any non-Claude agent: C 0.12.1 released, open user decisions, never-without-user list.
+- [Codex handoff 2026-10-30](handoff-codex.md) — cold start for any non-Claude agent: state of C, Node #66879/#66818, Go #119, valkey plan, open user decisions, never-without-user list.
+- [Valkey #5024 tail-shortcut plan](../experiments/VALKEY-5024-TAIL-SHORTCUT-PLAN/README.md) — seven-lens plan, no code; prototype blocked on a fleet host
 - [Local CI allowed for C PRs](local-ci-allowed-c-prs.md) — builds/ctest/sanitizers may run locally for HdrHistogram_c PR work; benchmarks stay on the fleet.
 
 - [Go maintainer session 2026-10-07/08](hdr-go-maintainer-2026-10-07.md) — upstream Go `master`
