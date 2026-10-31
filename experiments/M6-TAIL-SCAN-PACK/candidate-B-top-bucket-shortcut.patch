@@ -1,0 +1,38 @@
+--- a/src/hdr_histogram.c	2026-10-16 12:34:47.000000000 +0100
++++ b/src/hdr_histogram.c	2026-10-31 12:00:55.738480001 +0000
+@@ -924,6 +924,23 @@
+     return (int64_t) cc;
+ }
+ 
++/* Rank in the top recorded bucket. Needs counts >= 0 summing to total_count; else the scan decides. */
++static bool tail_top_bucket(const struct hdr_histogram* h, int64_t target, int32_t* idx)
++{
++    const int64_t total = h->total_count;
++    if (h->normalizing_index_offset != 0 || h->max_value <= 0 || h->max_value > h->highest_trackable_value ||
++        total > (INT64_C(1) << 53))
++        return false;
++    const int32_t mi = counts_index_for(h, h->max_value);
++    if ((uint32_t)mi >= (uint32_t)h->counts_len)
++        return false;
++    const int64_t cm = h->counts[mi];
++    if (cm <= 0 || cm > total || target <= total - cm)
++        return false;
++    *idx = mi;
++    return true;
++}
++
+ int64_t hdr_value_at_percentile(const struct hdr_histogram* h, double percentile)
+ {
+     /* empty: the scan's not-found 0 must not be rounded up to highest_equivalent_value(0) */
+@@ -931,8 +948,10 @@
+     {
+         return 0;
+     }
++    const int64_t target = count_at_percentile(h->total_count, percentile);
++    int32_t idx;
+     int64_t value_from_idx =
+-        get_value_from_idx_up_to_count(h, count_at_percentile(h->total_count, percentile));
++        tail_top_bucket(h, target, &idx) ? hdr_value_at_index(h, idx) : get_value_from_idx_up_to_count(h, target);
+     if (percentile == 0.0)
+     {
+         return lowest_equivalent_value(h, value_from_idx);

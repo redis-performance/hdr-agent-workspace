@@ -5,6 +5,12 @@ Planning only. No code was changed and nothing was benchmarked. Seven independen
 were merged here. Line numbers refer to the local checkout (`489c541`, a merge of upstream main into
 `feat/packed-histogram`), not upstream master; re-anchor before writing code.
 
+> **Update 2026-10-31:** both candidates were prototyped as patches against 0.12.1 and are in
+> [`../M6-TAIL-SCAN-PACK/`](../M6-TAIL-SCAN-PACK/README.md) for the user to time on their Apple M6. Local correctness work found that
+> **both fail the existing 0.12.1 test `test_value_at_percentiles_unresolved_targets`**: the shortcut is exact only when
+> `total_count == sum(counts)`, and the 0.12.1 contract requires an unresolved rank to return 0. A PR would need a maintainer decision
+> to change that contract, so the "bit-identical in the differential test" gate below can only be met for consistent histograms.
+
 ## Source of the idea
 
 valkey-io/valkey#5024 ("Speed up INFO latencystats", open) leaves `deps/hdr_histogram` untouched and

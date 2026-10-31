@@ -33,6 +33,12 @@ Supersedes the 2026-10-17 version (that content is folded in below).
   honour `normalizing_index_offset`; validate `max_value`. Decision rule inside (>= +2% on p99+ on every machine, <= 1%
   regression on mid percentiles, <= ~25 lines, bit-identical in a differential test, MERGE-READY). **Blocked on the user naming a fleet host** (x86 AVX2 and aarch64).
   Line numbers in the plan are from the local `feat/packed-histogram` checkout, not upstream master: re-anchor first.
+- **M6 experiment pack (2026-10-31):** `experiments/M6-TAIL-SCAN-PACK/` has candidate A (capped backward walk) and B (top-bucket
+  shortcut) as patches on the 0.12.1 tag, an out-of-tree `bench_tail.c`, a differential test, and `run_m6.sh`, for the user to run on
+  their Apple M6 (the user chose the M6 instead of the fleet for these). No timings exist yet. Local finding: both candidates fail 1 of 9 existing
+  tests (`test_value_at_percentiles_unresolved_targets`), because they change the result for a histogram whose `total_count` exceeds its counts;
+  differential test otherwise 0 differences, ASan/UBSan clean. A PR needs a maintainer decision on that contract plus x86 AVX2 and aarch64 Linux
+  numbers. When the user brings back `results/<timestamp>/summary.txt`, read it against the decision rule in the pack README.
 
 ### Node.js (consumer adoption)
 - **nodejs/node#66818** (bot: bump histogram to 0.12.1): open, approved (one review), **4 test jobs red** because four tests pin the

@@ -1,0 +1,53 @@
+--- a/src/hdr_histogram.c	2026-10-16 12:34:47.000000000 +0100
++++ b/src/hdr_histogram.c	2026-10-31 12:00:55.739075889 +0000
+@@ -924,6 +924,38 @@
+     return (int64_t) cc;
+ }
+ 
++#ifndef HDR_TAIL_WALK_CAP
++#define HDR_TAIL_WALK_CAP 256
++#endif
++
++/* Walk down from the top bucket for at most HDR_TAIL_WALK_CAP buckets. Same preconditions as above. */
++static bool tail_walk(const struct hdr_histogram* h, int64_t target, int32_t* idx)
++{
++    const int64_t total = h->total_count;
++    if (h->normalizing_index_offset != 0 || h->max_value <= 0 || h->max_value > h->highest_trackable_value ||
++        total > (INT64_C(1) << 53))
++        return false;
++    const int32_t mi = counts_index_for(h, h->max_value);
++    if ((uint32_t)mi >= (uint32_t)h->counts_len)
++        return false;
++    const uint64_t limit = (uint64_t)(total - target); /* 0 <= limit < total */
++    const int32_t lo = mi > HDR_TAIL_WALK_CAP ? mi - HDR_TAIL_WALK_CAP : 0;
++    uint64_t above = 0;
++    for (int32_t j = mi; j >= lo; j--)
++    {
++        const int64_t c = h->counts[j];
++        if (c < 0)
++            return false;
++        above += (uint64_t)c;
++        if (above > limit)
++        {
++            *idx = j;
++            return true;
++        }
++    }
++    return false;
++}
++
+ int64_t hdr_value_at_percentile(const struct hdr_histogram* h, double percentile)
+ {
+     /* empty: the scan's not-found 0 must not be rounded up to highest_equivalent_value(0) */
+@@ -931,8 +963,10 @@
+     {
+         return 0;
+     }
++    const int64_t target = count_at_percentile(h->total_count, percentile);
++    int32_t idx;
+     int64_t value_from_idx =
+-        get_value_from_idx_up_to_count(h, count_at_percentile(h->total_count, percentile));
++        tail_walk(h, target, &idx) ? hdr_value_at_index(h, idx) : get_value_from_idx_up_to_count(h, target);
+     if (percentile == 0.0)
+     {
+         return lowest_equivalent_value(h, value_from_idx);
