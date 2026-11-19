@@ -21,6 +21,12 @@ The benchmark drivers (`hdr_histogram_perf`, `hdr_percentile_bench`) are the
 > customer names, internal hostnames, Slack, or ticket/issue-tracker references.
 > Benchmark machines are described generically (arch + microarch only).
 
+Every investigation or optimization work session must use the `cpu-perf` MCP from
+[CPU Performance Engineering](https://github.com/usamahz/cpu-performance-engineering),
+as required by AGENTS.md and [the shared workflow](../docs/PERFORMANCE-MCP.md).
+Check availability/library coverage, consult it on the actual investigation, and
+log calls, findings and limits. This requirement also applies to Codex sessions.
+
 ---
 
 ## Codebase Map
