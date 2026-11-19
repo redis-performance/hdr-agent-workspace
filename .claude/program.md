@@ -7,6 +7,9 @@ Read this before each experiment. After profiling, use **Bottleneck Classificati
 to pick the right tier. Symbol/line references are to
 `HdrHistogram_c/src/hdr_histogram.c` unless noted.
 
+Use the mandatory [per-session performance MCP workflow](../docs/PERFORMANCE-MCP.md)
+before choosing a technique or interpreting a profile.
+
 > **Context.** Primary consumer is a single-threaded server (e.g. redis-server with
 > latency tracking): `hdr_record_value()` is called on the command hot path; the read
 > path (`hdr_value_at_percentile`) runs only on stats queries. So **write-path wins are
